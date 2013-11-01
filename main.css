@@ -1,5 +1,13 @@
+@font-face {
+    font-family: beteckna;
+    src: url('beteckna.otf'),
+}
+
 body {
     background: #486188;
+    color: #eeeeec;
+    font-family: beteckna;
+    font-size: 30px;
 }
 
 .content {
@@ -11,10 +19,32 @@ body {
     background: url('cockpit-logo.png') no-repeat;
     width: 366px;
     height: 64px;
-    margin: auto;
+    margin-left: 40px;
     margin-top: 200px;
+    margin-bottom: 50px;
 }
 
 .logo h1 {
     display: none;
+}
+
+ul.assets li {
+    padding-bottom: 30px;
+    list-style: none;
+    background-repeat: no-repeat;
+    height: 61px;
+    padding-left: 100px;
+    line-height: 61px;
+}
+
+li.item-git {
+    background-image: url('item-git.png');
+}
+
+li.item-ml {
+    background-image: url('item-ml.png');
+}
+
+li.item-tracker {
+    background-image: url('item-tracker.png');
 }
