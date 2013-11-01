@@ -1,0 +1,20 @@
+body {
+    background: #486188;
+}
+
+.content {
+    width: 960px;
+    margin: auto;
+}
+
+.logo {
+    background: url('cockpit-logo.png') no-repeat;
+    width: 366px;
+    height: 64px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.logo h1 {
+    display: none;
+}
