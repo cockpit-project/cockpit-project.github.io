@@ -10,6 +10,11 @@ body {
     font-size: 30px;
 }
 
+a {
+    color: #eeeeec;
+    text-decoration: none;
+}
+
 .content {
     width: 960px;
     margin: auto;
@@ -43,6 +48,10 @@ li.item-git {
 
 li.item-ml {
     background-image: url('item-ml.png');
+}
+
+li.item-ml a {
+    color: #8299bd;
 }
 
 li.item-tracker {
