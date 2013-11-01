@@ -1,6 +1,6 @@
 @font-face {
     font-family: beteckna;
-    src: url('beteckna.otf'),
+    src: url('beteckna.otf');
 }
 
 body {
