@@ -26,11 +26,18 @@ a {
     height: 64px;
     margin-left: 40px;
     margin-top: 200px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .logo h1 {
     display: none;
+}
+
+.blurb {
+    padding-left: 140px;
+    width: 500px;
+    font-size: 16px;
+    margin-bottom: 50px;
 }
 
 ul.assets li {
