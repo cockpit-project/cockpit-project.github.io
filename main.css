@@ -60,3 +60,7 @@ li.item-ml {
 li.item-tracker {
     background-image: url('item-tracker.png');
 }
+
+li.item-irc {
+    background-image: url('item-irc.png');
+}
