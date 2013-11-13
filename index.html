@@ -1,23 +1,98 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+
   <title>Cockpit Project</title>
-  <link rel="icon" href="favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
-  <link rel="stylesheet" href="main.css" type="TEXT/CSS" media="screen" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/cockpit.css" rel="stylesheet">
+    
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
   </head>
-  <body>
-    <div class="content">
-        <div class="logo"><h1>Cockpit</h1></div>
-        <div class="blurb">
-          Cockpit is a server manager that makes it easy to administer 
-          your GNU/Linux servers via a web browser.
+
+  <body class="body-cockpit">
+
+
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron jumbotron-cockpit">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="logo-cockpit"><h1>Cockpit</h1></div>
+            <p>Cockpit is a server manager that makes it easy to administer 
+            your GNU/Linux servers via a web browser.</p>
+            <a href="https://github.com/cockpit-project/cockpit"><div type="button" class="btn btn-default btn-lg btn-cockpit"><span class="cockpit-download"></span>Get the source!</div></a>
+
+            </div>
+          <div class="col-md-6">
+          <span class="screenshot-cockpit"><img src="screenshot.png"></span>
+          </div>
         </div>
-        <ul class="assets">
-            <li class="item-git"><a href="https://github.com/cockpit-project/cockpit">GIT Repository</a></li>
-            <li class="item-ml"><a href="https://lists.fedorahosted.org/mailman/listinfo/cockpit-devel">Mailing list</a></li>
-            <li class="item-tracker"><a href="https://github.com/cockpit-project/cockpit/issues">Issue tracker</a></li>
-            <li class="item-irc"><a href="irc://irc.freenode.net:6667/cockpit">IRC: #cockpit on Freenode</a></li>
-        </ul>
+      </div>
     </div>
+
+    <div class="container container-cockpit">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Easy to use</h3>
+          <p>Cockpit is perfect for new sysadmins, allowing them to easy do simple tasks such as storage administration, inspecting journals and start and stop services. </p>
+        </div>
+        <div class="col-md-4">
+          <h3>No interference</h3>
+          <p>Jumping between the terminal and the web tool is no problem. A service started via Cockpit can be stopped via the terminal. Likewise, if there error in the terminal, it can be seen in the web interfaces journal.</p>
+       </div>
+        <div class="col-md-4">
+          <h3>Multi-server</h3>
+          <p>You can monitor and administer several servers at the same time. Just add it with a single click and your machine will make sure look out for it's buddies.</p>
+        </div>
+      </div>
+      
+      <div class="wipbox-cockpit">
+      <p>Cockpit is under heavy development and it's advised you only run it in a virtual machine for now</p>
+      </div>
+
+      <div>
+        <ul class="assets-cockpit">
+          <li class="item-ml-cockpit">Join the <a href="https://lists.fedorahosted.org/mailman/listinfo/cockpit-devel">mailing list</a></li>
+          <li class="item-tracker-cockpit">File a bug in the <a href="https://github.com/cockpit-project/cockpit/issues">issue tracker</a></li>
+          <li class="item-irc-cockpit">Project IRC channel is <a href="irc://irc.freenode.net:6667/cockpit">#Cockpit on Freenode.net</a></li>
+        </ul>
+      </div>
+
+      <hr class="hr-cockpit">
+
+      <footer class="footer-cockpit">
+        <p>Cockpit is free software and released under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+        <p>&copy; <a href="http://www.redhat.com">Red Hat</a> 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>

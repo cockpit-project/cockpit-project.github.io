@@ -1,0 +1,119 @@
+@font-face {
+    font-family: beteckna;
+    src: url('../../beteckna.otf');
+}
+
+.body-cockpit {
+    background: #eeeeec;
+    color: #3e5375;
+}
+
+.jumbotron-cockpit {
+    background: #3e5375;
+    color: #eeeeec;
+    padding-bottom: 0;
+}
+
+.screenshot-cockpit {
+    display: block;
+    position: relative;
+    width: 419px;
+    float: right;
+}
+
+.screenshot-cockpit:before {
+    display: block;
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0px -20px 15px -15px rgba(0,0,0,0.2);
+}
+
+.logo-cockpit {
+    background: url('../../cockpit-logo.png') no-repeat;
+    width: 366px;
+    height: 64px;
+    margin-bottom: 20px;
+}
+
+.logo-cockpit h1 {
+    display: none;
+}
+
+.btn-cockpit,
+.btn-cockpit:hover {
+    background: url('../../item-git.png') #eeeeec 10px no-repeat;
+    color: #3e5375;
+    border: none;
+    box-shadow: 0px 3px 0px rgba(46, 61, 86, 1);
+    padding-left: 40px;
+    margin: 10px 10px 20px 0px;
+}
+
+.container-cockpit h3 {
+    font-family: beteckna;
+}
+
+.wipbox-cockpit {
+    background: url('../../item-wipbox.png') #2e3436 10px no-repeat;
+    color: #eeeeec;
+    padding: 10px;
+    border-radius: 5px;
+    padding-left: 50px;
+    margin: 50px 0;
+}
+
+.wipbox-cockpit p {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle; 
+}
+
+ul.assets-cockpit {
+    padding: 0;
+}
+
+ul.assets-cockpit li {
+    list-style: none;
+    background-repeat: no-repeat;
+    height: 61px;
+    padding-left: 50px;
+    line-height: 40px;
+}
+
+li.item-ml-cockpit {
+    background-image: url('../../item-ml.png');
+}
+
+li.item-tracker-cockpit {
+    background-image: url('../../item-tracker.png');
+}
+
+li.item-irc-cockpit {
+    background-image: url('../../item-irc.png');
+}
+
+.hr-cockpit {
+    border-color: #d3d7cf;
+}
+
+.footer-cockpit {
+    text-align: center;
+}
+
+/* Responsive additions */
+
+@media (max-width: 508px) {
+
+    .screenshot-cockpit,
+    .screenshot-cockpit img {
+        width: 100%;
+    }
+}
+@media (max-width: 450px) {    
+    .logo-cockpit {
+    width: 100%;
+    background-size: 100%;
+    }
+}
