@@ -42,14 +42,21 @@
     display: none;
 }
 
-.btn-cockpit,
-.btn-cockpit:hover {
-    background: url('../../item-git.png') #eeeeec 10px no-repeat;
+.btn-download,
+.btn-download:hover,
+.btn-source,
+.btn-source:hover {
     color: #3e5375;
+    background: #eeeeec;
     border: none;
     box-shadow: 0px 3px 0px rgba(46, 61, 86, 1);
-    padding-left: 40px;
     margin: 10px 10px 20px 0px;
+}
+
+.btn-download,
+.btn-download:hover {
+    background: url('../../item-git.png') #eeeeec 10px no-repeat;
+    padding-left: 40px;
 }
 
 .container-cockpit h3 {
