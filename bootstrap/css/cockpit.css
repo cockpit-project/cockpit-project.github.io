@@ -4,7 +4,7 @@
 }
 
 .body-cockpit {
-    background: #eeeeec;
+    background: #fff;
     color: #3e5375;
 }
 
@@ -59,23 +59,19 @@
     padding-left: 40px;
 }
 
-.container-cockpit h3 {
+.container-screenshots {
+    padding-bottom: 20px;
+}
+
+.container-screenshots h3 {
     font-family: beteckna;
 }
 
-.wipbox-cockpit {
-    background: url('../../item-wipbox.png') #2e3436 10px no-repeat;
-    color: #eeeeec;
-    padding: 10px;
-    border-radius: 5px;
-    padding-left: 50px;
-    margin: 50px 0;
-}
-
-.wipbox-cockpit p {
-    min-height: 10em;
-    display: table-cell;
-    vertical-align: middle; 
+.container-resources {
+    background: #eeeeec;
+    border-top: 1px solid #d3d7cf;
+    border-bottom: 1px solid #d3d7cf;
+    padding-top: 20px;
 }
 
 ul.assets-cockpit {
@@ -102,12 +98,9 @@ li.item-irc-cockpit {
     background-image: url('../../item-irc.png');
 }
 
-.hr-cockpit {
-    border-color: #d3d7cf;
-}
-
 .footer-cockpit {
     text-align: center;
+    padding: 20px;
 }
 
 /* Responsive additions */
