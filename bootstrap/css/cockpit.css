@@ -72,30 +72,19 @@
     border-top: 1px solid #d3d7cf;
     border-bottom: 1px solid #d3d7cf;
     padding-top: 20px;
+    padding-bottom: 20px;
+    color: #787a75;
 }
 
-ul.assets-cockpit {
-    padding: 0;
+.container-resources .row .col-md-6 {
+    padding: 20px 15px;
 }
 
-ul.assets-cockpit li {
-    list-style: none;
-    background-repeat: no-repeat;
-    height: 61px;
-    padding-left: 50px;
-    line-height: 40px;
-}
-
-li.item-ml-cockpit {
-    background-image: url('../../item-ml.png');
-}
-
-li.item-tracker-cockpit {
-    background-image: url('../../item-tracker.png');
-}
-
-li.item-irc-cockpit {
-    background-image: url('../../item-irc.png');
+.container-resources p {
+    font-size: 16px;
+    padding-top: 15px;
+    padding-left: 10px;
+    display: inline-block;
 }
 
 .footer-cockpit {
