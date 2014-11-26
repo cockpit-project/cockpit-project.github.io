@@ -22,6 +22,14 @@
     float: right;
 }
 
+.screenshot-cockpit:hover {
+    cursor: pointer;
+}
+
+.screenshot-cockpit img {
+    width: 419px;
+}
+
 .screenshot-cockpit:before {
     display: block;
     content:'';
@@ -59,8 +67,32 @@
     padding-left: 40px;
 }
 
+/* Override to fit screenshots */
+.modal-lg {
+    width: 1315px;
+    max-width: 100%;
+}
+
+.modal-lg img {
+    max-width: 100%;
+    border: 1px solid #d3d7cf;
+}
+
 .container-screenshots {
     padding-bottom: 20px;
+}
+
+.container-screenshots .screenshot {
+    padding: 40px;
+}
+
+.container-screenshots .screenshot .screenshot-image {
+    max-width: 100%;
+    border: 1px solid #d3d7cf;
+}
+
+.container-screenshots .screenshot .screenshot-image:hover {
+    cursor: pointer;
 }
 
 .container-screenshots h3 {
