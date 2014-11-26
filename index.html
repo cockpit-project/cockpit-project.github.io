@@ -15,9 +15,8 @@
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/cockpit.css" rel="stylesheet">
     
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -45,28 +44,93 @@
             <a href="https://github.com/cockpit-project/cockpit"><div type="button" class="btn btn-default btn-lg btn-source">Get the source</div></a>
             </div>
           <div class="col-md-6">
-          <span class="screenshot-cockpit"><img src="screenshot.png"></span>
+          <span class="screenshot-cockpit" data-toggle="modal" data-target="#screenshot-docker"><img src="screenshot-docker.png"></span>
+            <!-- Modal -->
+            <div class="modal" id="screenshot-docker" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">&nbsp;</h4>
+                  </div>
+                  <div class="modal-body">
+                  <img src="screenshot-docker.png">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+
     <div class="container container-screenshots">
       <div class="row">
-        <div class="col-md-4">
+      
+        <div class="col-md-4 screenshot">
+          <img src="screenshot-storage.png" class="screenshot-image" data-toggle="modal" data-target="#screenshot-storage">
+            <!-- Modal -->
+            <div class="modal" id="screenshot-storage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">&nbsp;</h4>
+                  </div>
+                  <div class="modal-body">
+                  <img src="screenshot-storage.png">
+                  </div>
+                </div>
+              </div>
+            </div>
           <h3>Easy to use</h3>
           <p>Cockpit is perfect for new sysadmins, allowing them to easily perform simple tasks such as storage administration, inspecting journals and starting and stopping services. </p>
         </div>
-        <div class="col-md-4">
+        
+        <div class="col-md-4 screenshot">
+          <img src="screenshot-network.png" class="screenshot-image" data-toggle="modal" data-target="#screenshot-network">
+            <!-- Modal -->
+            <div class="modal" id="screenshot-network" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">&nbsp;</h4>
+                  </div>
+                  <div class="modal-body">
+                  <img src="screenshot-network.png">
+                  </div>
+                </div>
+              </div>
+            </div>
           <h3>No interference</h3>
           <p>Jumping between the terminal and the web tool is no problem. A service started via Cockpit can be stopped via the terminal. Likewise, if an error occurs in the terminal, it can be seen in the Cockpit journal interface.</p>
-       </div>
-        <div class="col-md-4">
-          <h3>Multi-server</h3>
-          <p>You can monitor and administer several servers at the same time. Just add them with a single click and your machines will look after its buddies.</p>
         </div>
+       
+        <div class="col-md-4 screenshot">
+          <img src="screenshot-dashboard.png" class="screenshot-image" data-toggle="modal" data-target="#screenshot-dashboard">
+            <!-- Modal -->
+            <div class="modal" id="screenshot-dashboard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">&nbsp;</h4>
+                  </div>
+                  <div class="modal-body">
+                  <img src="screenshot-dashboard.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+          <h3>Multi-server</h3>
+          <p>You can monitor and administer several servers at the same time. Just add it easily and your server will look after its buddies.</p>
+        </div>
+        
       </div>
     </div> <!-- /container-screenshots -->
+
     
     <div class="container-fluid container-resources">
       <div class="container">
@@ -92,6 +156,7 @@
         </div>
       </div>
     </div>
+
 
     <footer class="footer-cockpit">
       <p>Cockpit is free software and released under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
