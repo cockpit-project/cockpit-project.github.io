@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+
+  <title>Cockpit Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/cockpit.css" rel="stylesheet">
+    
+    <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('div.os-selector-archlinux').click(function() {
+        $("div.os-info-archlinux").toggle();
+    });
+});</script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="body-cockpit">
+  
+    <div class="jumbotron jumbotron-cockpit">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <a href="index.html"><div class="logo-cockpit"><h1>Cockpit</h1></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-md-offset-1"><div class="os-selector os-selector-archlinux"><img src="images/os-archlinux.png"><br/>Arch Linux</div></div>
+          <div class="col-md-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
+          <div class="col-md-2"><div class="os-selector"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
+          <div class="col-md-2"><div class="os-selector"><img src="images/os-fedora.png"><br/>Fedora 21 Server</div></div>
+          <div class="col-md-2"><div class="os-selector"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12 os-info os-info-archlinux" style="display: none;"><div class="os-infobox">Hej!</div></div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12"><p class="port-info">If you already have Cockpit on your server, point your web browser to: https://<span>ip-address-of-machine</span>:9090</p></div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Required client browsers versions</p></div></div>
+        </div>
+        
+        <div class="row browser-list">
+          <div class="col-md-4"><img src="images/browser-firefox.png"> Mozilla Firefox 11+</div>
+          <div class="col-md-4"><img src="images/browser-explorer.png"> Internet Explorer 10+</div>
+          <div class="col-md-4"><img src="images/browser-ios.png"> Apple iOS Safari 6.1+</div>
+          <div class="col-md-4"><img src="images/browser-chrome.png"> Google Chrome 16+</div>
+          <div class="col-md-4"><img src="images/browser-opera.png"> Opera 21.1+</div>
+          <div class="col-md-4"><img src="images/browser-android.png"> Android Browser 4.4+</div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer-cockpit">
+      <p>Cockpit is free software and released under the <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+      <p>&copy; <a href="http://www.redhat.com">Red Hat</a> 2014</p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
