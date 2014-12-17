@@ -18,11 +18,22 @@
     <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script>
-    $(document).ready(function() {
-    $('div.os-selector-archlinux').click(function() {
-        $("div.os-info-archlinux").toggle();
-    });
-});</script>
+        $( document ).ready( function() {
+            $( "div.os-selector" ).click( function() {
+                // gets the name of the OS selected
+                classes = ( $( this ).attr( "class" ).split( "-" ));
+                OSName = classes[ classes.length - 1 ];
+                                   
+                // hide all divs
+                $( "div.os-info" ).each( function() {
+                  $( this ).hide();
+                });
+                                   
+                // shows the correct div
+                $( "div.os-info-" + OSName ).show();
+            });
+        });
+    </script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -51,13 +62,17 @@
         <div class="row">
           <div class="col-md-2 col-md-offset-1"><div class="os-selector os-selector-archlinux"><img src="images/os-archlinux.png"><br/>Arch Linux</div></div>
           <div class="col-md-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
-          <div class="col-md-2"><div class="os-selector"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
-          <div class="col-md-2"><div class="os-selector"><img src="images/os-fedora.png"><br/>Fedora 21 Server</div></div>
-          <div class="col-md-2"><div class="os-selector"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
+          <div class="col-md-2"><div class="os-selector os-selector-centosatomic"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
+          <div class="col-md-2"><div class="os-selector os-selector-fedoraserver"><img src="images/os-fedora.png"><br/>Fedora 21 Server</div></div>
+          <div class="col-md-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
         </div>
         
         <div class="row">
-          <div class="col-md-12 os-info os-info-archlinux" style="display: none;"><div class="os-infobox">Hej!</div></div>
+          <div class="col-md-12 os-info os-info-archlinux" style="display: none;"><div class="os-infobox">Hej Arch!</div></div>
+          <div class="col-md-12 os-info os-info-fedoraatomic" style="display: none;"><div class="os-infobox">Hej Fedora Atomic!</div></div>
+          <div class="col-md-12 os-info os-info-centosatomic" style="display: none;"><div class="os-infobox">Hej CentOS!</div></div>
+          <div class="col-md-12 os-info os-info-fedoraserver" style="display: none;"><div class="os-infobox">Hej Fedora 21 Server!</div></div>
+          <div class="col-md-12 os-info os-info-rhel" style="display: none;"><div class="os-infobox">Hej RHEL!</div></div>
         </div>
         
         <div class="row">
