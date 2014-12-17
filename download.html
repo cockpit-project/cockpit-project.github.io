@@ -64,15 +64,39 @@
           <div class="col-md-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
           <div class="col-md-2"><div class="os-selector os-selector-centosatomic"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
           <div class="col-md-2"><div class="os-selector os-selector-fedoraserver"><img src="images/os-fedora.png"><br/>Fedora 21 Server</div></div>
-          <div class="col-md-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
+          <div class="col-md-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>RHEL Atomic Host</div></div>
         </div>
         
         <div class="row">
-          <div class="col-md-12 os-info os-info-archlinux" style="display: none;"><div class="os-infobox">Hej Arch!</div></div>
-          <div class="col-md-12 os-info os-info-fedoraatomic" style="display: none;"><div class="os-infobox">Hej Fedora Atomic!</div></div>
-          <div class="col-md-12 os-info os-info-centosatomic" style="display: none;"><div class="os-infobox">Hej CentOS!</div></div>
-          <div class="col-md-12 os-info os-info-fedoraserver" style="display: none;"><div class="os-infobox">Hej Fedora 21 Server!</div></div>
-          <div class="col-md-12 os-info os-info-rhel" style="display: none;"><div class="os-infobox">Hej RHEL!</div></div>
+          <div class="col-md-12 os-info os-info-archlinux" style="display: none;">
+            <div class="os-infobox">
+            TODO
+            </div>
+          </div>
+          <div class="col-md-12 os-info os-info-fedoraatomic" style="display: none;">
+            <div class="os-infobox">
+            Cockpit comes installed by default in Fedora Atomic.
+            </div>
+          </div>
+          <div class="col-md-12 os-info os-info-centosatomic" style="display: none;">
+            <div class="os-infobox">
+            Cockpit comes installed by default in CentOS Atomic.
+            </div>
+          </div>
+          <div class="col-md-12 os-info os-info-fedoraserver" style="display: none;">
+            <div class="os-infobox">
+            Cockpit comes installed by default in Fedora 21 Server.
+            </div>
+          </div>
+          <div class="col-md-12 os-info os-info-rhel" style="display: none;">
+            <div class="os-infobox">
+            This is a proof of concept of how Cockpit  can run in a privileged container on RHEL Atomic. It doesn't work as  well as running it on the host system itself, but it's usable.<br/>
+            <ul>
+            <li>Pull it from the <a href="https://registry.hub.docker.com/u/stefwalter/cockpit-atomic/">Docker Index</a></li>
+            <li>And then run it with: <code># docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip</code></li>
+            </ul>
+            </div>
+          </div>
         </div>
         
         <div class="row">

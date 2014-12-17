@@ -135,7 +135,13 @@
     background: #eeeeec;
     border-radius: 5px;
     margin-top: 20px;
-    padding: 10px;
+    padding: 20px;
+}
+
+code {
+    background: #555753;
+    color: #eeeeec;
+    border-radius: 0; 
 }
 
 .port-info {
