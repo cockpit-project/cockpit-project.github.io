@@ -40,7 +40,7 @@
 }
 
 .logo-cockpit {
-    background: url('../../cockpit-logo.png') no-repeat;
+    background: url('../../images/cockpit-logo.png') no-repeat;
     width: 366px;
     height: 64px;
     margin-bottom: 20px;
@@ -63,7 +63,7 @@
 
 .btn-download,
 .btn-download:hover {
-    background: url('../../item-git.png') #eeeeec 10px no-repeat;
+    background: url('../../images/item-git.png') #eeeeec 10px no-repeat;
     padding-left: 40px;
 }
 
@@ -117,6 +117,77 @@
     padding-top: 15px;
     padding-left: 10px;
     display: inline-block;
+}
+
+.os-selector {
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.os-selector:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background: #eeeeec;
+}
+
+.os-selector img {
+    max-width: 100%;
+}
+
+.os-infobox {
+    background: #eeeeec;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+    min-height: 100px;
+}
+
+.os-infobox-stable {
+    width: 68px;
+    height: 68px;
+    float: right;
+    background: url('../../images/os-stable.png') no-repeat;
+    margin: -20px;
+}
+
+code {
+    background: #555753;
+    color: #eeeeec;
+    border-radius: 0; 
+}
+
+.port-info {
+    padding: 20px 0;   
+}
+
+.port-info span {
+    color:gray;
+    font-style: italic;
+}
+
+.browser-header {
+    text-align: center;
+    background: url('../../images/ornament.png');
+    margin-top: 20px;
+    color: #979c91;
+}
+
+.browser-header p {
+    display: inline;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.browser-list {
+    padding-top: 20px;
+    margin-bottom: 30px;
+}
+
+.browser-list div {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-cockpit {
