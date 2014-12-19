@@ -121,14 +121,19 @@
 
 .os-selector {
     padding: 10px;
-    min-height: 150px;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .os-selector:hover {
     cursor: pointer;
     border-radius: 5px;
     background: #eeeeec;
+}
+
+.os-selector img {
+    max-width: 100%;
 }
 
 .os-infobox {
