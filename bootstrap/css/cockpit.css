@@ -141,6 +141,15 @@
     border-radius: 5px;
     margin-top: 20px;
     padding: 20px;
+    min-height: 100px;
+}
+
+.os-infobox-stable {
+    width: 68px;
+    height: 68px;
+    float: right;
+    background: url('../../images/os-stable.png') no-repeat;
+    margin: -20px;
 }
 
 code {
