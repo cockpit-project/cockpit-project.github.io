@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/cockpit.css" rel="stylesheet">
-    
+
     <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script>
@@ -23,12 +23,12 @@
                 // gets the name of the OS selected
                 classes = ( $( this ).attr( "class" ).split( "-" ));
                 OSName = classes[ classes.length - 1 ];
-                                   
+
                 // hide all divs
                 $( "div.os-info" ).each( function() {
                   $( this ).hide();
                 });
-                                   
+
                 // shows the correct div
                 $( "div.os-info-" + OSName ).show();
             });
@@ -46,7 +46,7 @@
   </head>
 
   <body class="body-cockpit">
-  
+
     <div class="jumbotron jumbotron-cockpit">
       <div class="container">
         <div class="row">
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container-fluid">
       <div class="container">
         <div class="row">
@@ -66,17 +66,18 @@
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>RHEL Atomic Host</div></div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-12 os-info os-info-fedoraserver" style="display: none;">
             <div class="os-infobox">
             Cockpit comes installed by default in Fedora 21 Server.
             <div class="os-infobox-stable">&nbsp;</div>
             </div>
-          </div>        
+          </div>
           <div class="col-md-12 os-info os-info-archlinux" style="display: none;">
             <div class="os-infobox">
-            Coming soon...
+            Cockpit can be found in the <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository">Arch User Repository</a> as package
+            <a href="https://aur.archlinux.org/packages/cockpit/">cockpit</a> or <a href="https://aur.archlinux.org/packages/cockpit-git/">cockpit-git</a>.
             </div>
           </div>
           <div class="col-md-12 os-info os-info-fedoraatomic" style="display: none;">
@@ -96,15 +97,15 @@
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-12"><p class="port-info">If you already have Cockpit on your server, point your web browser to: https://<span>ip-address-of-machine</span>:9090</p></div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-12"><div class="browser-header"><p>Minimum client browser versions</p></div></div>
         </div>
-        
+
         <div class="row browser-list">
           <div class="col-md-4"><img src="images/browser-firefox.png"> Mozilla Firefox 11+</div>
           <div class="col-md-4"><img src="images/browser-explorer.png"> Internet Explorer 10+</div>
