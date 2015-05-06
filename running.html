@@ -64,7 +64,7 @@
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-archlinux"><img src="images/os-archlinux.png"><br/>Arch Linux</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-centosatomic"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
-          <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux Atomic Host</div></div>
+          <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
         </div>
 
         <div class="row">
@@ -92,8 +92,9 @@
           </div>
           <div class="col-md-12 os-info os-info-rhel" style="display: none;">
             <div class="os-infobox">
-            This is a proof of concept of how Cockpit  can run in a privileged container on Red Hat Enterprise Linux Atomic Host. It doesn't work as  well as running it on the host system itself, but it's usable.<br/>
-            Download and run it with: <code># docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip</code>
+            Cockpit is included in the Red Hat Enterprise Linux 7 Extras repository.<br/>
+            Enable the repository with <code>subscription-manager repos --enable rhel-7-server-extras-rpms</code><br/>
+            Then install cockpit with the command <code>sudo yum install cockpit</code> and start it with <code>sudo systemctl start cockpit.socket</code>
             </div>
           </div>
         </div>
