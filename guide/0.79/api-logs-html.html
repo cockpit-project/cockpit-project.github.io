@@ -2,36 +2,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>log.html</title>
+<title>logs.html</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
-<link rel="up" href="api-server.html" title="API: server">
-<link rel="prev" href="api-server.html" title="API: server">
+<link rel="up" href="api-system.html" title="API: system">
+<link rel="prev" href="api-system.html" title="API: system">
 <link rel="next" href="api-terminal-html.html" title="terminal.html">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="api-server.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="api-server.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="api-system.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="api-system.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">Cockpit Guide</th>
 <td><a accesskey="n" href="api-terminal-html.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
-<a name="api-log-html"></a><div class="titlepage"></div>
+<a name="api-logs-html"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
-<h2><span class="refentrytitle">log.html</span></h2>
-<p>log.html — System log component</p>
+<h2><span class="refentrytitle">logs.html</span></h2>
+<p>logs.html — System log component</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsection">
-<a name="idm139975495668256"></a><h2>Description</h2>
+<a name="idm140043107506416"></a><h2>Description</h2>
 <pre class="programlisting">
- &lt;iframe src="http://server:9090/cockpit/@localhost/server/log.html"
-     width="600" height="400"&gt;&lt;/iframe&gt;
+&lt;iframe src="http://127.0.0.1:9090/cockpit+app/@localhost/system/logs.html"
+    width="600" height="400"&gt;&lt;/iframe&gt;
 </pre>
 <p>This is a Cockpit component that brings up system log viewer, with filtering
         capabilities. On systemd based systems this displays the entries from journal.</p>
@@ -43,7 +43,7 @@
 <tbody>
 <tr>
 <td><p><span class="term">Component URL</span></p></td>
-<td><p><code class="code">/cockpit/@localhost/server/log.html</code></p></td>
+<td><p><code class="code">/cockpit+app/@localhost/system/logs.html</code></p></td>
 </tr>
 <tr>
 <td><p><span class="term">Filter by priority</span></p></td>
