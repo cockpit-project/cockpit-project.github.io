@@ -60,11 +60,12 @@
     <div class="container-fluid">
       <div class="container">
         <div class="row">
-          <div class="col-xs-4 col-sm-2 col-sm-offset-1"><div class="os-selector os-selector-fedoraserver"><img src="images/os-fedora.png"><br/>Fedora Server</div></div>
+          <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-fedoraserver"><img src="images/os-fedora.png"><br/>Fedora Server</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-archlinux"><img src="images/os-archlinux.png"><br/>Arch Linux</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-centosatomic"><img src="images/os-centos.png"><br/>CentOS Atomic</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
+          <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-ubuntu"><img src="images/os-ubuntu.png"><br/>Ubuntu</div></div>
         </div>
 
         <div class="row">
@@ -97,6 +98,13 @@
             Enable the repository using the command <code>sudo subscription-manager repos --enable rhel-7-server-extras-rpms</code><br/>
             Then install cockpit using the command <code>sudo yum install cockpit</code> and start it with <code>sudo systemctl start cockpit</code>
             </div>
+          </div>
+          <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
+              <div class="os-infobox">
+              Cockpit is not part of Official Ubuntu repository. But user can use following PPA.<br/>
+              Enable PPA repository using the command <code>sudo add-apt-repository ppa:jpsutton/cockpit</code><br/>
+              Then install cockpit using the command <code>sudo apt-get install cockpit</code> and start it with <code>sudo systemctl start cockpit</code><br/>
+              </div>
           </div>
         </div>
 
