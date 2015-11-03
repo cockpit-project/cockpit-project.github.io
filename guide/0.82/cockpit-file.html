@@ -56,7 +56,7 @@ file.close()
 </pre>
 </div>
 <div class="refsection">
-<a name="idm139732207874448"></a><h2>Simple reading and writing</h2>
+<a name="idm140222785672432"></a><h2>Simple reading and writing</h2>
 <p>You can read a file with code like this:</p>
 <pre class="programlisting">
 cockpit.file("/path/to/file").read()
@@ -114,7 +114,7 @@ cockpit.file("/path/to/file").replace("my new content\n")
       transactional updates to a file.</p>
 </div>
 <div class="refsection">
-<a name="idm139732203992928"></a><h2>File format</h2>
+<a name="idm140222787286112"></a><h2>File format</h2>
 <p>By default, a file is assumed to be text encoded in UTF-8, and the
       <code class="code">read()</code> and <code class="code">replace()</code> functions use strings to
       represent the content.</p>
@@ -146,7 +146,7 @@ cockpit.file("/path/to/file", { syntax: syntax_object })
       functions.</p>
 </div>
 <div class="refsection">
-<a name="idm139732207295248"></a><h2>Binary files</h2>
+<a name="idm140222786245120"></a><h2>Binary files</h2>
 <p>By default the content of the file is assumed to be text encoded as
       UTF-8 and it can not contain zero bytes.  The content is represented
       as a JavaScript string with <code class="code">read()</code>,
@@ -156,7 +156,7 @@ cockpit.file("/path/to/file", { syntax: syntax_object })
       JavaScript.</p>
 </div>
 <div class="refsection">
-<a name="idm139732206034720"></a><h2>Atomic modifications</h2>
+<a name="idm140222785556336"></a><h2>Atomic modifications</h2>
 <p>Use <code class="code">modify()</code> to modify the content of the file safely.  A
       call to <code class="code">modify()</code> will read the content of the file, call
       <code class="code">callback</code> on the content, and then replace the content of
@@ -204,7 +204,7 @@ cockpit.file("/path/to/file").modify(shout)
       given values.</p>
 </div>
 <div class="refsection">
-<a name="idm139732206613328"></a><h2>Change notifications</h2>
+<a name="idm140222785098144"></a><h2>Change notifications</h2>
 <p>Calling <code class="code">watch()</code> will start monitoring the file for
       external changes.
 </p>
@@ -225,12 +225,12 @@ handle = file.watch(callback);
 <p>To free the resources used for monitoring, call <code class="code">handle.remove()</code>.</p>
 </div>
 <div class="refsection">
-<a name="idm139732206424192"></a><h2>file.path</h2>
+<a name="idm140222789213264"></a><h2>file.path</h2>
 <p>A string containing the path that was passed to the <code class="code">cockpit.file()</code>
       method.</p>
 </div>
 <div class="refsection">
-<a name="idm139732209519328"></a><h2>Closing</h2>
+<a name="idm140222794737184"></a><h2>Closing</h2>
 <p>Call the <code class="code">close()</code> method on a file proxy to cancel all
       ongoing operations, such as reading, writing, and monitoring. The
       proxy should not be used after closing it.</p>
