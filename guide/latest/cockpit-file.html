@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>cockpit.js: File Access</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
@@ -23,7 +23,7 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2>cockpit.js: File Access</h2>
-<p>cockpit.js: File Access &#8212; Reading, writing, and watching files.</p>
+<p>cockpit.js: File Access — Reading, writing, and watching files.</p>
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
@@ -56,7 +56,7 @@ file.close()
 </pre>
 </div>
 <div class="refsection">
-<a name="idm47505401553856"></a><h2>Simple reading and writing</h2>
+<a name="idm47584293352176"></a><h2>Simple reading and writing</h2>
 <p>You can read a file with code like this:</p>
 <pre class="programlisting">
 cockpit.file("/path/to/file").read()
@@ -114,7 +114,7 @@ cockpit.file("/path/to/file").replace("my new content\n")
       transactional updates to a file.</p>
 </div>
 <div class="refsection">
-<a name="idm47505400875136"></a><h2>File format</h2>
+<a name="idm47584291722496"></a><h2>File format</h2>
 <p>By default, a file is assumed to be text encoded in UTF-8, and the
       <code class="code">read()</code> and <code class="code">replace()</code> functions use strings to
       represent the content.</p>
@@ -146,7 +146,7 @@ cockpit.file("/path/to/file", { syntax: syntax_object })
       functions.</p>
 </div>
 <div class="refsection">
-<a name="idm47505404173328"></a><h2>Binary files</h2>
+<a name="idm47584288415344"></a><h2>Binary files</h2>
 <p>By default the content of the file is assumed to be text encoded as
       UTF-8 and it can not contain zero bytes.  The content is represented
       as a JavaScript string with <code class="code">read()</code>,
@@ -156,7 +156,7 @@ cockpit.file("/path/to/file", { syntax: syntax_object })
       JavaScript.</p>
 </div>
 <div class="refsection">
-<a name="idm47505403898912"></a><h2>Atomic modifications</h2>
+<a name="idm47584287198736"></a><h2>Atomic modifications</h2>
 <p>Use <code class="code">modify()</code> to modify the content of the file safely.  A
       call to <code class="code">modify()</code> will read the content of the file, call
       <code class="code">callback</code> on the content, and then replace the content of
@@ -204,7 +204,7 @@ cockpit.file("/path/to/file").modify(shout)
       given values.</p>
 </div>
 <div class="refsection">
-<a name="idm47505400366912"></a><h2>Change notifications</h2>
+<a name="idm47584288219408"></a><h2>Change notifications</h2>
 <p>Calling <code class="code">watch()</code> will start monitoring the file for
       external changes.
 </p>
@@ -225,12 +225,12 @@ handle = file.watch(callback);
 <p>To free the resources used for monitoring, call <code class="code">handle.remove()</code>.</p>
 </div>
 <div class="refsection">
-<a name="idm47505401402592"></a><h2>file.path</h2>
+<a name="idm47584287822096"></a><h2>file.path</h2>
 <p>A string containing the path that was passed to the <code class="code">cockpit.file()</code>
       method.</p>
 </div>
 <div class="refsection">
-<a name="idm47505402425408"></a><h2>Closing</h2>
+<a name="idm47584289741456"></a><h2>Closing</h2>
 <p>Call the <code class="code">close()</code> method on a file proxy to cancel all
       ongoing operations, such as reading, writing, and monitoring. The
       proxy should not be used after closing it.</p>
