@@ -66,6 +66,7 @@
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-fedoraatomic"><img src="images/os-fedora.png"><br/>Fedora Atomic</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"><br/>Red Hat Enterprise Linux</div></div>
           <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-ubuntu"><img src="images/os-ubuntu.png"><br/>Ubuntu</div></div>
+          <div class="col-xs-4 col-sm-2"><div class="os-selector os-selector-debian"><img src="images/os-debian.png"><br/>Debian</div></div>
         </div>
 
         <div class="row">
@@ -106,6 +107,31 @@
               Cockpit is not part of Official Ubuntu repository. But user can use following PPA.<br/>
               Enable PPA repository using the command <code>sudo add-apt-repository ppa:jpsutton/cockpit</code><br/>
               Then install cockpit using the command <code>sudo apt-get install cockpit</code> and start it with <code>sudo systemctl start cockpit</code><br/>
+              </div>
+          </div>
+          <div class="col-md-12 os-info os-info-debian" style="display: none;">
+            <div class="os-infobox">
+              <p>Cockpit is not part of the Debian archive yet, but you
+                can build the weekly releases from source packages.</p>
+              <p>To easily download the source packages, you can
+                add this line to <tt>/etc/apt/sources.list</tt>:
+<pre>
+deb-src http://fedorapeople.org/groups/cockpit/debian-unstable ./
+</pre>
+              <p>Then the following commands should be sufficient to
+              install Cockpit.</p>
+<pre>
+# apt-get update
+# apt-get build-dep cockpit
+# apt-get --allow-unauthenticated source cockpit
+# cd cockpit-0.91
+# dpkg-buildpackage -b
+# cd ..
+# dpkg --install cockpit_0.91_amd64.deb cockpit-bridge_0.91_amd64.deb cockpit-shell_0.91_amd64.deb cockpit-ws_0.91_amd64.deb
+# apt-get -f install
+</pre>
+              <p>Be sure to adjust the directory and package names to
+                the current version of Cockpit and your architecture.</p>
               </div>
           </div>
         </div>
