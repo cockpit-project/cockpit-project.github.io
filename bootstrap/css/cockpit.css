@@ -158,13 +158,14 @@ code {
     border-radius: 0; 
 }
 
-.port-info {
-    padding: 20px 0;   
-}
-
 .port-info span {
     color:gray;
     font-style: italic;
+}
+
+hr {
+    margin: 2em 0;
+    border-color: #babdb6;
 }
 
 .browser-header {
