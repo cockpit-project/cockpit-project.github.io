@@ -25,12 +25,10 @@
                 OSName = classes[ classes.length - 1 ];
 
                 // hide all divs
-                $( "div.os-info" ).each( function() {
-                  $( this ).hide();
-                });
+                $( "div.os-info" ).not("div.os-info-" + OSName).hide();
 
-                // shows the correct div
-                $( "div.os-info-" + OSName ).show();
+                // toggle the correct div
+                $( "div.os-info-" + OSName ).toggle();
             });
         });
     </script>
