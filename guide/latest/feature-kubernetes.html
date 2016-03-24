@@ -1,11 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ANSI_X3.4-1968">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Kubernetes</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
-<link rel="up" href="features.html" title="Part&#160;II.&#160;Feature Internals">
+<link rel="up" href="features.html" title="Part II. Feature Internals">
 <link rel="prev" href="feature-subscription.html" title="Subscription Manager">
 <link rel="next" href="feature-machines.html" title="Multiple Machines">
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -22,9 +23,9 @@
 <div class="titlepage"><div><div><h2 class="title">
 <a name="feature-kubernetes"></a>Kubernetes</h2></div></div></div>
 <div class="toc"><dl class="toc">
-<dt><span class="section"><a href="feature-kubernetes.html#idm47124858071360">Used as a Kubernetes Pod</a></span></dt>
-<dt><span class="section"><a href="feature-kubernetes.html#idm47124858172368">Used as an Openshift Pod</a></span></dt>
-<dt><span class="section"><a href="feature-kubernetes.html#idm47124857207024">Used in a standard Cockpit session</a></span></dt>
+<dt><span class="section"><a href="feature-kubernetes.html#idm47802551351824">Used in a standard Cockpit session</a></span></dt>
+<dt><span class="section"><a href="feature-kubernetes.html#idm47802551249008">Used as a Kubernetes Pod</a></span></dt>
+<dt><span class="section"><a href="feature-kubernetes.html#idm47802549714192">Used as an Openshift Pod</a></span></dt>
 </dl></div>
 <p>Cockpit has a dashboard that interacts with a
     <a class="ulink" href="http://kubernetes.io/" target="_top">Kubernetes cluster</a> or an
@@ -36,7 +37,27 @@
     REST API.</p>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="idm47124858071360"></a>Used as a Kubernetes Pod</h2></div></div></div>
+<a name="idm47802551351824"></a>Used in a standard Cockpit session</h2></div></div></div>
+<p>When the Kubernetes dashboard is used in a standard Cockpit login session, usually some
+      form of authentication is necessary to access the Kubernetes REST API.
+      Like the <code class="filename">kubectl</code> and <code class="filename">oc</code> commands, Cockpit uses
+      the authentication and server information in the <code class="code">~/.kube/config</code> file for
+      the logged in user.</p>
+<p>If a user is able to use <code class="code">kubectl</code> successfully when at their shell terminal,
+      then that same user will able to use Kubernetes dashboard when logged into Cockpit:</p>
+<pre class="programlisting">
+$ <span class="command"><strong>kubectl get pods</strong></span>
+NAME                      READY     STATUS    RESTARTS   AGE
+docker-registry-1-l4pyh   1/1       Running   10         23d
+...
+</pre>
+<p>When running Openshift one can use the <code class="code">oc login</code> command to configure the
+      <code class="code">~/.kube/config</code> file correctly. This in turn allows Cockpit to use that
+      login information.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="idm47802551249008"></a>Used as a Kubernetes Pod</h2></div></div></div>
 <p>The Kubernetes dashboard can be deployed as a pod on Kubernetes requiring users
       to log in using the standard standard authentication configured for access to its API.</p>
 <pre class="programlisting">
@@ -55,30 +76,25 @@ $ <span class="command"><strong>kubectl get service kubernetes-cockpit</strong><
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="idm47124858172368"></a>Used as an Openshift Pod</h2></div></div></div>
+<a name="idm47802549714192"></a>Used as an Openshift Pod</h2></div></div></div>
 <p>The Kubernetes dashboard can be deployed as a pod on Openshift, and use Openshift
-      OAuth authentication. Some configuration issues remain. For now take a look at the
-      <code class="filename">containers/kubernetes/README.md</code> file in the Cockpit repository.</p>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="idm47124857207024"></a>Used in a standard Cockpit session</h2></div></div></div>
-<p>When the Kubernetes dashboard is used in a standard Cockpit login session, usually some
-      form of authentication is necessary to access the Kubernetes REST API.
-      Like the <code class="filename">kubectl</code> and <code class="filename">oc</code> commands, Cockpit uses
-      the authentication and server information in the <code class="code">~/.kube/config</code> file for
-      the logged in user.</p>
-<p>If a user is able to use <code class="code">kubectl</code> successfully when at their shell terminal,
-      then that same user will able to use Kubernetes dashboard when logged into Cockpit:</p>
+      OAuth authentication. Running software on Openshift requires forethought, planning and
+      configuration. In particular, in order to run the admin interface as a pod you need
+      to first decide the host name that it will be accessible at. This is the host name part
+      of its URL.</p>
+<p>Next use the following commands to deploy the registry pod and service. You'll need
+      to have admin access to the Openshift cluster, as an OAuth client needs to be created.
+      Replace the <code class="literal">XXX</code> with the host name you want to make the registry
+      accessible at. In addition replace <code class="literal">YYY</code> with the host name of the
+      Openshift API server.</p>
 <pre class="programlisting">
-$ <span class="command"><strong>kubectl get pods</strong></span>
-NAME                      READY     STATUS    RESTARTS   AGE
-docker-registry-1-l4pyh   1/1       Running   10         23d
-...
+$ <span class="command"><strong>wget https://raw.githubusercontent.com/cockpit-project/cockpit/master/containers/openshift-cockpit.template</strong></span>
+$ <span class="command"><strong>oc process -f openshift-cockpit.template -v COCKPIT_KUBE_URL=https://XXX,OPENSHIFT_OAUTH_PROVIDER_URL=https://YYY:8443 | oc create -f -</strong></span>
 </pre>
-<p>When running Openshift one can use the <code class="code">oc login</code> command to configure the
-      <code class="code">~/.kube/config</code> file correctly. This in turn allows Cockpit to use that
-      login information.</p>
+<p>You can retrieve the address where you can access the dashboard via:</p>
+<pre class="programlisting">
+$ <span class="command"><strong>oc get service openshift-cockpit</strong></span>
+</pre>
 </div>
 </div>
 <div class="footer"><hr></div>
