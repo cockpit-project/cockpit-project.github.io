@@ -139,21 +139,25 @@ you change via Cockpit will only happen in the <span class="caps">VM</span>.</p>
 <hr />
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/ideals-of-cockpit.html">The Ideals of&nbsp;Cockpit</a></h1>
-  </div>
-  <div class="article_text">
-    <p><a href="https://cockpit-project.org">Cockpit</a> is an interactive server admin interface. For those helping contribute to Cockpit, these ideals help us remember what we&#8217;re trying to accomplish. For others, this page should answer the question: &#8220;Why&nbsp;Cockpit?&#8221;</p>
-<p>These ideals are not a commentary about what is &#8220;right&#8221; and &#8220;wrong&#8221; in software in general ...</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
     <h1><a href="http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html">Protocol for Web access to System&nbsp;APIs</a></h1>
   </div>
   <div class="article_text">
     <p><em>Note: This post has been updated for changes in Cockpit 0.48 and&nbsp;later.</em></p>
 <p>A Linux system today has a lot of local system configuration APIs. I&#8217;m not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html">Cockpit on <span class="caps">RHEL</span> Atomic&nbsp;Beta</a></h1>
+  </div>
+  <div class="article_text">
+    <p>If you&#8217;ve tried out the <a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"><span class="caps">RHEL</span> Atomic Host Beta</a> you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&#8217;s an easy work&nbsp;around:</p>
+<div class="highlight"><pre>$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
+</pre></div>
+
+
+<p>This is an ...</p>
   </div>
 </article>
 
