@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 14 Apr 2016 13:33:00 +0000</lastBuildDate><item><title>Cockpit with Docker Restart Policy</title><link>http://cockpit-project.org/blog/cockpit-0.102.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 20 Apr 2016 15:45:00 +0000</lastBuildDate><item><title>Cockpit 0.103</title><link>http://cockpit-project.org/blog/cockpit-0.103.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
+&lt;h3&gt;Kubernetes connection&amp;nbsp;configuration&lt;/h3&gt;
+&lt;p&gt;When a Kubernetes client wants to access the &lt;span class="caps"&gt;API&lt;/span&gt; of the cluster, it looks for a &amp;#8220;kubeconfig&amp;#8221; file to tell it how to find the cluster and how to authenticate when accessing the &lt;span class="caps"&gt;API&lt;/span&gt;. The usual location for this file is in the current user&amp;#8217;s home directory at the &lt;code&gt;~/.kube/config&lt;/code&gt; file path. If that doesn&amp;#8217;t exist, then usually the cluster isn&amp;#8217;t available. This applies to both clients like the &lt;code&gt;kubectl&lt;/code&gt; command as well as Cockpit&amp;#8217;s cluster&amp;nbsp;dashboard.&lt;/p&gt;
+&lt;p&gt;Cockpit can now prompt for this information, and build this file for you. If it doesn&amp;#8217;t exist, then there&amp;#8217;s a helpful &amp;#8220;Troubleshoot&amp;#8221; button to help get this configuration in&amp;nbsp;place.&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/WSh7wYhAXrA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Upload each Release to an Ubuntu &lt;span class="caps"&gt;PPA&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Each weekly release of Cockpit is now uploaded to an Ubuntu &lt;span class="caps"&gt;PPA&lt;/span&gt;. Here&amp;#8217;s how to make use of&amp;nbsp;it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo add-apt-repository ppa:cockpit-project/cockpit
+sudo apt-get update
+sudo apt-get install cockpit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Remove jQuery Usage from cockpit.js &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;As part of stabilizing the internals of Cockpit, we removed jQuery usage from the cockpit.js file. &lt;a href="http://cockpit-project.org/guide/latest/api-base1.html"&gt;The javascript &lt;span class="caps"&gt;API&lt;/span&gt; itself&lt;/a&gt; hasn&amp;#8217;t changed, but this change helps to help keep a stable &lt;span class="caps"&gt;API&lt;/span&gt; in the&amp;nbsp;future.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.103 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.103"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.103-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Wed, 20 Apr 2016 15:45:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-04-20:blog/cockpit-0.103.html</guid><category>cockpit</category><category>linux</category><category>technical</category><category>kubernetes</category></item><item><title>Cockpit with Docker Restart Policy</title><link>http://cockpit-project.org/blog/cockpit-0.102.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Docker Restart&amp;nbsp;Policy&lt;/h3&gt;
 &lt;p&gt;When running a Docker container in Cockpit, you can now set the restart policy, so when the docker daemon restarts the containers will be restarted too. Justin Robertson contributed this feature. Take a&amp;nbsp;look.&lt;/p&gt;
 &lt;iframe width="853" height="480" src="https://www.youtube.com/embed/8YYHui-FQco?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
