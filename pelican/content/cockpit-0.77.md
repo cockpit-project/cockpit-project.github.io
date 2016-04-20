@@ -3,6 +3,7 @@ Date: 2015-09-23 21:23
 Tags: cockpit, linux, technical
 Slug: cockpit-0.77
 Summary: Cockpit releases every week. This week it was 0.77
+Category: cockpit
 
 Cockpit releases every week. This week it was 0.77
 

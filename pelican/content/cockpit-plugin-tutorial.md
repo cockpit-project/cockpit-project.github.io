@@ -1,6 +1,6 @@
 Title: Creating Plugins for the Cockpit User Interface
 Date: 2014-11-13
-Category: Cockpit, Linux
+Category: cockpit, tutorial
 Tags: cockpit, linux
 Slug: creating-plugins-for-the-cockpit-user-interface
 

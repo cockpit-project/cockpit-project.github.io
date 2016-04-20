@@ -2,6 +2,7 @@ Title: Cockpit has a terminal
 Date: 2014-04-22 16:06
 Tags: cockpit, technical
 Slug: cockpit-has-terminal
+Category: cockpit
 
 [Cockpit][] 0.5 now has a nice terminal in a web browser. AKA
 [term.js][] is awesome.  
