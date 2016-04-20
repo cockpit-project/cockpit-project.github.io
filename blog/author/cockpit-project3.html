@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<link href='https://login-a.tfionline.com/openid/service' rel='openid.server'>
+<link href='https://login-b.tfionline.com/openid/service' rel='openid.server'>
+<link href='https://id.tfionline.com/stef' rel='openid.delegate'>
+
+  <title>
+&ndash; Posts by: Cockpit Project  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+&gt; Author: Cockpit Project
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html">Cockpit on <span class="caps">RHEL</span> Atomic&nbsp;Beta</a></h1>
+  </div>
+  <div class="article_text">
+    <p>If you&#8217;ve tried out the <a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"><span class="caps">RHEL</span> Atomic Host Beta</a> you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&#8217;s an easy work&nbsp;around:</p>
+<div class="highlight"><pre>$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
+</pre></div>
+
+
+<p>This is an ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">Creating Plugins for the Cockpit User&nbsp;Interface</a></h1>
+  </div>
+  <div class="article_text">
+    <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
+<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is <span class="caps">HTML</span>, with Javascript logic that makes it work, and <span class="caps">CSS ...</span></p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html">Using DBus from Javascript in&nbsp;Cockpit</a></h1>
+  </div>
+  <div class="article_text">
+    <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
+<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. As we covered in the <a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html">last tutorial</a> you can add user interface component to Cockpit, and build your own parts of the Server <span class="caps">UI</span>.</p>
+<p>Much of Cockpit interacts with ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html">Cockpit Multi-Server&nbsp;Dashboard</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Andreas and Marius have been working on implementing a new multi-server dash
+board for Cockpit. It&#8217;s really looking&nbsp;great.</p>
+<p>The goal here is that the dash board should work with either one server or several,
+and give you an overview of what&#8217;s going on. Problems that require attention ...</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html">DBus is powerful <span class="caps">IPC</span></a></h1>
+  </div>
+  <div class="article_text">
+    <p>D-Bus is powerful <span class="caps">IPC</span> Cockpit is heavily built around DBus. We send DBus over our
+<a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md">WebSocket transport</a>,
+and marshal them in <span class="caps">JSON</span>.</p>
+<p>DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
+these capabilities are what allow Cockpit to implement its <span class="caps">UI ...</span></p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-has-docker-pull-support.html">Cockpit has Docker pull&nbsp;support</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit 0.12 now has support for pulling Docker images from the
+<a href="https://registry.hub.docker.com/">Docker registry</a>.</p>
+<p><img alt="Docker pull support" src="images/cockpit-docker-pull.png" /></p>
+<p>Unfortunately Docker doesn&#8217;t have support for cancelling the pull of an image. So that
+sort of hampers the <span class="caps">UI</span> a bit. At least for&nbsp;now.</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-simple-networking-configuration.html">Cockpit Simple Networking&nbsp;Configuration</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit 0.11 now has an all new simple Networking <span class="caps">UI</span>. Still some work to do, but it&#8217;s
+coming together. You can see it&nbsp;here:</p>
+<p><img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png" /></p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-does-docker.html">Cockpit does&nbsp;Docker</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Here&#8217;s a short video showing how Cockpit manages Docker containers.
+Cockpit is in <span class="caps">RHEL</span> branding here, but it&#8217;s basically the same thing as
+you get from <a href="http://cockpit-project.org/">cockpit-project.org</a></p>
+<iframe src="//www.youtube.com/embed/5dM4CqIp2s4" allowfullscreen="" frameborder="0" height="480" width="853"></iframe>
+
+<p>This <span class="caps">UI</span> is going to be refined somewhat, but it&#8217;s nice to see things
+coming&nbsp;together.</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-has-terminal.html">Cockpit has a&nbsp;terminal</a></h1>
+  </div>
+  <div class="article_text">
+    <p><a href="http://cockpit-project.org/">Cockpit</a> 0.5 now has a nice terminal in a web browser. <span class="caps">AKA</span>
+<a href="https://github.com/chjj/term.js/">term.js</a> is&nbsp;awesome.  </p>
+<p><img alt="Cockpit terminal" src="images/cockpit-terminal.png" /></p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/introducing-cockpit.html">Introducing&nbsp;Cockpit</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Gave a <a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf">talk at DevConf</a> in Brno about the project a bunch of us have
+been working on: <a href="http://cockpit-project.org/">Cockpit</a>. It&#8217;s a <span class="caps">UI</span> for Linux Servers. Currently in
+the prototype&nbsp;stage&#8230;  </p>
+<p><img alt="Cockpit login" src="images/cockpit1.png" /></p>
+<p>Hopefully there&#8217;ll be a video of the talk available soon. You can try
+out the Cockpit prototype in ...</p>
+  </div>
+</article>
+
+<footer>
+<div id="paginator">
+
+<a href="http://cockpit-project.org/blog/author/cockpit-project2.html" class="button_accent">Newer Posts &rarr;</a>
+</div>
+</footer>
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

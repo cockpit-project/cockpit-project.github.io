@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, kubernetes">
+
+  <title>
+Cockpit Multi-Server Dashboard  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html">Cockpit Multi-Server&nbsp;Dashboard</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Andreas and Marius have been working on implementing a new multi-server dash
+board for Cockpit. It&#8217;s really looking&nbsp;great.</p>
+<p>The goal here is that the dash board should work with either one server or several,
+and give you an overview of what&#8217;s going on. Problems that require attention should
+be highlighted clearly. You should be able to click in spots to jump either to a
+server, a sub-system, a service/container/pod or to the source of a&nbsp;problem.</p>
+<p>The graphs will be correlated across multiple machines, and draggable. Hopefully down
+road we&#8217;ll be using a source of data like <a href="http://www.performancecopilot.org/"><span class="caps">PCP</span></a> to
+gather the data more consistently. Problems will show up on the graphs as clickable.
+You can add and remove servers, and we want to show the state of important services/server
+applications/pods on those&nbsp;servers.</p>
+<p>Once the basic code has landed, it would be good to tie this into Kubernetes as well.
+If running a <a href="https://github.com/GoogleCloudPlatform/kubernetes">Kubernetes</a> cluster,
+and Cockpit is loaded on the master, we should use information from Kubernetes to
+populate the&nbsp;dashboard.</p>
+<p>Here are some wireframes, click to&nbsp;expand:</p>
+<p><img alt="Multi server dashboard wireframes" src="images/navigation-horizontal-2.png" /></p>
+<p><a href="https://github.com/cockpit-project/cockpit/pull/1455">Pull request is&nbsp;here </a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Di 04 November 2014</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/cockpit.html">Cockpit</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/kubernetes.html">kubernetes</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

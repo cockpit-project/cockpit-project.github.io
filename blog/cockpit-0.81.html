@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux, technical">
+
+  <title>
+Cockpit 0.81 Released  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-0.81.html">Cockpit 0.81&nbsp;Released</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit releases every week. This week it was&nbsp;0.81</p>
+<h3><span class="caps">NTP</span>&nbsp;servers</h3>
+<p>Cockpit now allows configuration of which <span class="caps">NTP</span> servers are used for time syncing.  This configuration is possible when <a href="http://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html">timesyncd</a> is being used as the <span class="caps">NTP</span>&nbsp;service.</p>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/Rmzt1L4ANgo?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Network switch&nbsp;regression</h3>
+<p>There was a regression in Cockpit 0.78 where certain on/off switches in the networking configuration stopped working. This has now been&nbsp;fixed.</p>
+<h3>Delete Openshift routes and deployment&nbsp;configs</h3>
+<p>In the Kubernetes cluster dashboard, it&#8217;s now possible to delete Openshift style routes and deployment&nbsp;configs.</p>
+<h3>From the&nbsp;future</h3>
+<p>I&#8217;ve refactored the Cockpit Kubernetes <a href="https://github.com/kubernetes-ui/container-terminal/">container terminal widget</a> for use by other projects. It&#8217;s been integrated into the Openshift Web Console for starters. This widget will be used by Cockpit&nbsp;soon.</p>
+<iframe width="853" height="480" src="https://www.youtube.com/embed/SMxVQBD3Kho?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 0.81 is available&nbsp;now:</p>
+<ul>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.81">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-c3b74dffee">Fedora 23 and Fedora&nbsp;Rawhide</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"><span class="caps">COPR</span> for Fedora 21, 22, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mi 21 Oktober 2015</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/cockpit.html">cockpit</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux, technical">
+
+  <title>
+Cockpit 0.78 Released  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-0.78.html">Cockpit 0.78&nbsp;Released</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit releases every week. This week it was&nbsp;0.78</p>
+<!--BREAK-->
+
+<h3>Multipath&nbsp;Storage</h3>
+<p>Cockpit now deals with multipath storage, although it doesn&#8217;t yet provide a way to set it&nbsp;up.</p>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/QPDUNpG7Z2o?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Cockpit&nbsp;Guide</h3>
+<p>The Cockpit Guide has been updated and includes information about how
+various features are implemented, and what sort of privileges they use
+on the&nbsp;system.</p>
+<p>Here&#8217;s a link to <a href="http://files.cockpit-project.org/guide/latest/">the guide</a> or you can take a look at
+the <a href="http://files.cockpit-project.org/guide/latest/privileges.html">privileges docs</a>.</p>
+<h3>Compatibility with old&nbsp;Cockpit</h3>
+<p>Recent releases of Cockpit had some compatibility issues when older servers were added to the dashboard, and vice versa. These have been fixed in&nbsp;0.78</p>
+<h3><span class="caps">CPU</span> usage&nbsp;issue</h3>
+<p>A <span class="caps">CPU</span> usage bug in Cockpit 0.77 was&nbsp;fixed.</p>
+<h3>From the&nbsp;future</h3>
+<p>Marius has done some really cool work on iSCSI. It&#8217;s not yet in a Cockpit release, but take a peek&nbsp;here:</p>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/N1Lw2OVLDoo?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 0.78 is available&nbsp;now:</p>
+<ul>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.78">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-977ba13a92">Fedora 23 and Fedora&nbsp;Rawhide</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"><span class="caps">COPR</span> for Fedora 21, 22, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mi 30 September 2015</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/cockpit.html">cockpit</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

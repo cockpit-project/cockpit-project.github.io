@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux, technical">
+
+  <title>
+Cockpit 0.83 and 0.84 Released  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-0.84.html">Cockpit 0.83 and 0.84&nbsp;Released</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit releases every week. This week it was 0.84. I&#8217;ll also include notes from 0.83&nbsp;here.</p>
+<h3>Building Cockpit on&nbsp;Debian</h3>
+<p>At systemd.conf Dominik worked with Michael Biebl one of the Debian systemd maintainers on packaging Cockpit for Debian. We&#8217;re still looking for a maintainer long&nbsp;term.</p>
+<p>Here&#8217;s a <a href="http://dominik.perpeet.eu/cockpit-on-debian-8-2">blog post</a> with more&nbsp;details.</p>
+<h3>Cross Distro Integration&nbsp;Tests</h3>
+<p>In Cockpit we run hundreds of tests on real operating systems for each pull request. Without running these tests on an <span class="caps">OS</span> it&#8217;s impossible to know that the features of Cockpit actually works. So far we&#8217;ve been running these tests on Fedora, Atomic, and <span class="caps">RHEL</span>. But we&#8217;d really like to run them on Debian as well. That&#8217;ll make Cockpit much more well&nbsp;rounded.</p>
+<p>Marius worked on the first steps toward running the tests on Debian, by doing the Cockpit <a href="https://github.com/cockpit-project/cockpit/pull/3138">build inside of our test <span class="caps">VM</span> images</a>. Hopefully we&#8217;ll see more progress on&nbsp;this.</p>
+<h3>SELinux certificate file&nbsp;type</h3>
+<p>The <code>cockpit.service</code> helpfully sets the appropriate user and group <a href="http://cockpit-project.org/guide/latest/https.html">on the certificates</a> that cockpit-ws will use for <span class="caps">TLS</span>. Now it also sets the SELinux file context type properly, so this is one less things to break for an&nbsp;admin.</p>
+<h3>Cockpit manual&nbsp;page</h3>
+<p>There is now a <code>man cockpit</code> overview manual page that links to the guide and&nbsp;elsewhere.</p>
+<h3>From the&nbsp;future</h3>
+<p>Marius has done work on an <span class="caps">SOS</span> reporting view. Needs some further backend work, but should be ready&nbsp;soon:</p>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/-6rfWUoOQbs?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<p>Peter has mostly completed the work to add machines with alternate users, and non-standard <span class="caps">SSH</span> ports. Among other things, this is useful for cloud instances. I&#8217;m looking forward to seeing this in Cockpit&nbsp;0.85.</p>
+<p><a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/add-system/machine-dialogs.png"><img alt="Machine Dialogs Wireframes" src="images/machine-dialogs.png" /></a></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 0.84 is available&nbsp;now:</p>
+<ul>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.84">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-96b41c5190">Fedora 23 and Fedora&nbsp;Rawhide</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 22, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Do 19 November 2015</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/cockpit.html">cockpit</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>

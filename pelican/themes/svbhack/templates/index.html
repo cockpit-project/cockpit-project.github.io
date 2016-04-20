@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block head %}
+<link href='https://login-a.tfionline.com/openid/service' rel='openid.server'>
+<link href='https://login-b.tfionline.com/openid/service' rel='openid.server'>
+<link href='https://id.tfionline.com/stef' rel='openid.delegate'>
+{% endblock %}
+{% block content %}
+{% for article in articles_page.object_list %}
+<article>
+  <div class="article_title">
+    <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+  </div>
+  <div class="article_text">
+    {{ article.summary }}
+  </div>
+</article>
+{% if not loop.last %}
+<hr />
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block footer %}
+<footer>
+  {% include "modules/pagination.html" %}
+</footer>
+{% endblock %}

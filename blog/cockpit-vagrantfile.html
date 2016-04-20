@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux">
+
+  <title>
+Using Vagrant to Develop Cockpit  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
+      </a>
+      <h2><a href="/">Cockpit Project</a></h2>
+      <p>Cockpit Project</p>
+      <ul>
+        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-vagrantfile.html">Using Vagrant to Develop&nbsp;Cockpit</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Starting with Cockpit release 0.79 you can use <a href="https://www.vagrantup.com/">Vagrant</a> to bring up a <span class="caps">VM</span> in which
+you can test or develop Cockpit. The <span class="caps">VM</span> is isolated from your main system so any system configuration
+you change via Cockpit will only happen in the <span class="caps">VM</span>.</p>
+<p>The Vagrant <span class="caps">VM</span> mounts the Cockpit package assets from your git repository checkout, so when you make on the
+host system, you can refresh the browser and immediately see the resulting changes. For changes to
+C code, the Cockpit binaries would have to be rebuilt and testing via Vagrant won&#8217;t&nbsp;work.</p>
+<h2>Getting&nbsp;Started</h2>
+<p>To start, you&#8217;ll need Vagrant. On Fedora I use <em>vagrant-libvirt</em>. In addition keep in mind that on
+<em>vagrant-libvirt</em> requires root privileges, so you&#8217;ll need to use vagrant with <code>sudo</code>.</p>
+<div class="highlight"><pre>$ sudo yum install vagrant vagrant-libvirt
+</pre></div>
+
+
+<p>Next, in a copy of the Cockpit git repository, you run <code>vagrant up</code>:</p>
+<div class="highlight"><pre>$ git clone https://github.com/cockpit-project/cockpit
+$ cd cockpit
+$ sudo vagrant up
+</pre></div>
+
+
+<p>The first time this runs it&#8217;ll take a while, but eventually you&#8217;ll have a Vagrant <span class="caps">VM</span> running. When you
+do this step again, it should be pretty&nbsp;fast.</p>
+<p>The <span class="caps">VM</span> will
+listen for connections on your local machine&#8217;s <a href="http://localhost:9090"><code>http://localhost:9090</code></a>, but
+even though you&#8217;re connecting to <em>localhost</em> it&#8217;ll be Cockpit in the <span class="caps">VM</span> you&#8217;re talking&nbsp;to.</p>
+<p>If you already have Cockpit running on your local machine, then this won&#8217;t work, and you&#8217;ll need to
+use the <span class="caps">IP</span> address of the <span class="caps">VM</span> instead of <em>localhost</em>. To find&nbsp;it:</p>
+<div class="highlight"><pre>$ sudo vagrant ssh-config
+</pre></div>
+
+
+<p>Two user accounts are created in the <span class="caps">VM</span>, and you can use either one to log into&nbsp;Cockpit:</p>
+<ul>
+<li>User: &#8220;admin&#8221; Password:&nbsp;&#8220;foobar&#8221;</li>
+<li>User: &#8220;root&#8221; Password:&nbsp;&#8220;foobar&#8221;</li>
+</ul>
+<h2>Testing a Pull&nbsp;Request</h2>
+<p>If there&#8217;s a Cockpit <a href="https://github.com/cockpit-project/cockpit/pulls">pull request</a> that you&#8217;d like to
+test, you can now do that with the Vagrant <span class="caps">VM</span>.  Replace the <em>0000</em> in the following command with the
+number of the pull&nbsp;request:</p>
+<div class="highlight"><pre>$ git fetch origin pull/0000/head
+$ git checkout FETCH_HEAD
+</pre></div>
+
+
+<p>The pull request can only contain code to Cockpit package assets. If it contains changes to the <code>src/</code>
+directory, then the pull request involves rebuilding binaries, and testing it via Vagrant won&#8217;t&nbsp;work.</p>
+<p>Now refresh your browser, or if necessary, login again. You should see the changes in the pull request
+reflected in&nbsp;Cockpit.</p>
+<h2>Making a&nbsp;change</h2>
+<p>You can make a change to Cockpit while testing that out in your Vagrant <span class="caps">VM</span>. The changes should be
+to Cockpit package assets. If you change something in the <code>src/</code> directory, then binaries will have
+to be rebuilt, and testing it via Vagrant won&#8217;t&nbsp;work.</p>
+<p>I chose change some wording in the sidebar in <code>pkg/shell/index.html</code>:</p>
+<div class="highlight"><pre>          &lt;a data-toggle=&quot;collapse&quot; data-target=&quot;#tools-panel&quot; class=&quot;collapsed&quot; translatable=&quot;yes&quot;&gt;
+-           Tools
++           Beavers &#39;n Ducks
+          &lt;/a&gt;
+</pre></div>
+
+
+<p>And after refreshing Cockpit, I can see that&nbsp;change:</p>
+<p><img alt="Showing the change made" src="images/vagrant-change.png" /></p>
+<p>The same applies to javascript or <span class="caps">CSS</span> changes as well. In order to actually contribute a change to Cockpit
+you&#8217;ll want to look at the information about
+<a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contributing</a> and if you need help
+understanding how to add a
+<a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html">plugin package</a>
+you can look at the <a href="http://files.cockpit-project.org/guide/latest/development.html">Developer Guide</a>.</p>
+<h2>Bringing the Vagrant <span class="caps">VM</span> in&nbsp;sync</h2>
+<p>After each Cockpit release, there will be new binary parts to Cockpit. In order to continue to use the
+Vagrant <span class="caps">VM</span>, you&#8217;ll need to rebuild it. A message like this should appear when that&#8217;s&nbsp;necessary.</p>
+<p><img alt="Cockpit is incompatible with sources" src="images/cockpit-incompatible-sources.png" /></p>
+<p>Rebuild the Vagrant <span class="caps">VM</span> like&nbsp;this:</p>
+<div class="highlight"><pre>$ sudo vagrant destroy
+$ sudo vagrant up
+</pre></div>
+
+
+<h2>Troubleshooting</h2>
+<p>On Fedora, FirewallD got in the way of Vagrants use of <span class="caps">NFS</span>. On my machine, I had to do this
+to get it to&nbsp;work:</p>
+<div class="highlight"><pre>$ sudo firewall-cmd --set-default-zone=trusted
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Do 08 Oktober 2015</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/cockpit-linux.html">Cockpit, Linux</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
+    </div>
+  </main>
+</body>
+</html>
