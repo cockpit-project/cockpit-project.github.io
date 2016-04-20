@@ -15,7 +15,7 @@ Cockpit, test pull requests, or hack on Cockpit, you can:
     $ sudo vagrant up
 
 ... in a Cockpit git repo. There's a
-[tutorial with more information](http://stef.thewalter.net/cockpit-vagrantfile.html)
+[tutorial with more information](http://cockpit-project.org/blog/cockpit-vagrantfile.html)
 
 
 ### Testing with libvirt

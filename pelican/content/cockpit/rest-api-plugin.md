@@ -6,9 +6,9 @@ Slug: making-rest-calls-from-javascript-in-cockpit
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
 
-[Cockpit is a user interface for servers](http://cockpit-project.org). In [earlier](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html) [tutorials](http://stef.thewalter.net/using-dbus-from-javascript-in-cockpit.html) there's a guide on how to add components to Cockpit.
+[Cockpit is a user interface for servers](http://cockpit-project.org). In [earlier](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) [tutorials](http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html) there's a guide on how to add components to Cockpit.
 
-Not all of the [system APIs use DBus](http://stef.thewalter.net/d-bus-is-powerful-ipc.html). So sometimes we find ourselves in a situation where we have to use REST (which is often just treated as another word for HTTP) to talk to certain parts of the system. For example [Docker has a REST API](https://docs.docker.com/reference/api/docker_remote_api/).
+Not all of the [system APIs use DBus](http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html). So sometimes we find ourselves in a situation where we have to use REST (which is often just treated as another word for HTTP) to talk to certain parts of the system. For example [Docker has a REST API](https://docs.docker.com/reference/api/docker_remote_api/).
 
 For this tutorial you'll need at least Cockpit 0.58. There was one last tweak that helped with the ```superuser``` option you see below. You can install it in [Fedora 22](http://cockpit-project.org/running.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
@@ -22,7 +22,7 @@ I've prepared the [docker-info package here](http://cockpit-project.org/files/do
     $ mkdir -p ~/.local/share/cockpit
     $ ln -snf $PWD ~/.local/share/cockpit/
 
-Previously we [talked about](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `docker-info` listed in the output:
+Previously we [talked about](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `docker-info` listed in the output:
 
     :::text
     $ cockpit-bridge --packages

@@ -6,7 +6,7 @@ Slug: using-dbus-from-javascript-in-cockpit
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
 
-[Cockpit is a user interface for servers](http://cockpit-project.org). As we covered in the [last tutorial](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html) you can add user interface component to Cockpit, and build your own parts of the Server UI.
+[Cockpit is a user interface for servers](http://cockpit-project.org). As we covered in the [last tutorial](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) you can add user interface component to Cockpit, and build your own parts of the Server UI.
 
 Much of Cockpit interacts with the server using DBus. We have a powerful yet simple API for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you'll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in [Fedora 21](https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
@@ -20,7 +20,7 @@ I've prepared the [zoner package here](http://cockpit-project.org/files/zoner.tg
     $ mkdir -p ~/.local/share/cockpit
     $ ln -snf $PWD ~/.local/share/cockpit/zoner
 
-Previously we [talked about](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `zoner` listed in the output:
+Previously we [talked about](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `zoner` listed in the output:
 
     :::text
     $ cockpit-bridge --packages
