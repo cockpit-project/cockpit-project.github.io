@@ -14,10 +14,10 @@ It's real easy to create these components. Tools are components that show up in 
 
 For example the *Terminal* that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you'll need Cockpit 0.41. You can install it in [Fedora 21](https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
-So break out your terminal, lets make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We'll just be spawning a process on the server to do the work. I've prepared it for you as [an example here](http://stef.thewalter.net/files/pinger.tgz), and we can look it over, and modify it. To download the example to your current directory:
+So break out your terminal, lets make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We'll just be spawning a process on the server to do the work. I've prepared it for you as [an example here](http://cockpit-project.org/files/pinger.tgz), and we can look it over, and modify it. To download the example to your current directory:
 
     :::text
-    $ wget http://stef.thewalter.net/files/pinger.tgz -O - | tar -xzf -
+    $ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
     $ cd pinger/
 
 Components, and more specifically their HTML and Javascript files, live in package directories. In the package directory there's also a `manifest.json` file which tells Cockpit about the package. The `pinger` directory above is such a package. It's `manifest.json` file looks like this:

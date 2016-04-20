@@ -12,10 +12,10 @@ Much of Cockpit interacts with the server using DBus. We have a powerful yet sim
 
 Here we'll make a package called *zoner* which lets you set the time zone of your server. We use the systemd [timedated DBus API](http://www.freedesktop.org/wiki/Software/systemd/timedated/) to do actually switch time zones.
 
-I've prepared the [zoner package here](http://stef.thewalter.net/files/zoner.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
+I've prepared the [zoner package here](http://cockpit-project.org/files/zoner.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
 
     :::text
-    $ wget http://stef.thewalter.net/files/zoner.tgz -O - | tar -xzf -
+    $ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
     $ cd zoner/
     $ mkdir -p ~/.local/share/cockpit
     $ ln -snf $PWD ~/.local/share/cockpit/zoner

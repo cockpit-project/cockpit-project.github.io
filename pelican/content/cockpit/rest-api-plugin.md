@@ -14,10 +14,10 @@ For this tutorial you'll need at least Cockpit 0.58. There was one last tweak th
 
 Here we'll make a package called *docker-info* which shows info about the docker daemon. We use the `/info` [docker API](https://docs.docker.com/reference/api/docker_remote_api_v1.18/#display-system-wide-information) to retrieve that info.
 
-I've prepared the [docker-info package here](http://stef.thewalter.net/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
+I've prepared the [docker-info package here](http://cockpit-project.org/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
 
     :::text
-    $ wget http://stef.thewalter.net/files/docker-info.tgz -O - | tar -xzf -
+    $ wget http://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
     $ cd docker-info/
     $ mkdir -p ~/.local/share/cockpit
     $ ln -snf $PWD ~/.local/share/cockpit/
