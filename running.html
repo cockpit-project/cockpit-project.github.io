@@ -126,9 +126,16 @@
           </div>
 
           <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
-              <div class="os-infobox">
-                Cockpit is not part of the official Ubuntu repositories, but you can add the debian weekly repository (see debian above).
-              </div>
+            <div class="os-infobox">
+              Cockpit is not part of the official Ubuntu repositories. You can install it from the
+              <a href="https://launchpad.net/~cockpit-project/+archive/ubuntu/cockpit">Cockpit PPA</a>
+              by executing the following commands:
+              <ol>
+                <li><code>sudo add-apt-repository ppa:cockpit-project/cockpit</code></li>
+                <li><code>sudo apt-get update</code></li>
+                <li><code>sudo apt-get install cockpit</code></li>
+              </ol>
+            </div>
           </div>
         </div>
 
