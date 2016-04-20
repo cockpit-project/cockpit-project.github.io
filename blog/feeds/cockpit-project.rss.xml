@@ -461,7 +461,7 @@ to be rebuilt, and testing it via Vagrant won&amp;#8217;t&amp;nbsp;work.&lt;/p&g
 you&amp;#8217;ll want to look at the information about
 &lt;a href="https://github.com/cockpit-project/cockpit/wiki/Contributing"&gt;Contributing&lt;/a&gt; and if you need help
 understanding how to add a
-&lt;a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html"&gt;plugin package&lt;/a&gt;
+&lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;plugin package&lt;/a&gt;
 you can look at the &lt;a href="http://files.cockpit-project.org/guide/latest/development.html"&gt;Developer Guide&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Bringing the Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; in&amp;nbsp;sync&lt;/h2&gt;
 &lt;p&gt;After each Cockpit release, there will be new binary parts to Cockpit. In order to continue to use the
@@ -486,7 +486,7 @@ Cockpit, test pull requests, or hack on Cockpit, you&amp;nbsp;can:&lt;/p&gt;
 
 
 &lt;p&gt;&amp;#8230; in a Cockpit git repo. There&amp;#8217;s a
-&lt;a href="http://stef.thewalter.net/cockpit-vagrantfile.html"&gt;tutorial with more&amp;nbsp;information&lt;/a&gt;&lt;/p&gt;
+&lt;a href="http://cockpit-project.org/blog/cockpit-vagrantfile.html"&gt;tutorial with more&amp;nbsp;information&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Testing with&amp;nbsp;libvirt&lt;/h3&gt;
 &lt;p&gt;Dominik migrated the Cockpit integration tests to run on libvirt, rather
 than using Qemu directly. This makes the tests more portable, and is an
@@ -571,19 +571,19 @@ systems can set this warning to be&amp;nbsp;lower.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-16557"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Wed, 23 Sep 2015 21:23:00 +0000</pubDate><guid>tag:cockpit-project.org,2015-09-23:blog/cockpit-0.77.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Making REST calls from Javascript in Cockpit</title><link>http://cockpit-project.org/blog/making-rest-calls-from-javascript-in-cockpit.html</link><description>&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. In &lt;a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html"&gt;earlier&lt;/a&gt; &lt;a href="http://stef.thewalter.net/using-dbus-from-javascript-in-cockpit.html"&gt;tutorials&lt;/a&gt; there&amp;#8217;s a guide on how to add components to&amp;nbsp;Cockpit.&lt;/p&gt;
-&lt;p&gt;Not all of the &lt;a href="http://stef.thewalter.net/d-bus-is-powerful-ipc.html"&gt;system APIs use DBus&lt;/a&gt;. So sometimes we find ourselves in a situation where we have to use &lt;span class="caps"&gt;REST&lt;/span&gt; (which is often just treated as another word for &lt;span class="caps"&gt;HTTP&lt;/span&gt;) to talk to certain parts of the system. For example &lt;a href="https://docs.docker.com/reference/api/docker_remote_api/"&gt;Docker has a &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. In &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;earlier&lt;/a&gt; &lt;a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html"&gt;tutorials&lt;/a&gt; there&amp;#8217;s a guide on how to add components to&amp;nbsp;Cockpit.&lt;/p&gt;
+&lt;p&gt;Not all of the &lt;a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html"&gt;system APIs use DBus&lt;/a&gt;. So sometimes we find ourselves in a situation where we have to use &lt;span class="caps"&gt;REST&lt;/span&gt; (which is often just treated as another word for &lt;span class="caps"&gt;HTTP&lt;/span&gt;) to talk to certain parts of the system. For example &lt;a href="https://docs.docker.com/reference/api/docker_remote_api/"&gt;Docker has a &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;For this tutorial you&amp;#8217;ll need at least Cockpit 0.58. There was one last tweak that helped with the &lt;code&gt;superuser&lt;/code&gt; option you see below. You can install it in &lt;a href="http://cockpit-project.org/running.html"&gt;Fedora 22&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here we&amp;#8217;ll make a package called &lt;em&gt;docker-info&lt;/em&gt; which shows info about the docker daemon. We use the &lt;code&gt;/info&lt;/code&gt; &lt;a href="https://docs.docker.com/reference/api/docker_remote_api_v1.18/#display-system-wide-information"&gt;docker &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; to retrieve that&amp;nbsp;info.&lt;/p&gt;
-&lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://stef.thewalter.net/files/docker-info.tgz"&gt;docker-info package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://stef.thewalter.net/files/docker-info.tgz -O - | tar -xzf -
+&lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://cockpit-project.org/files/docker-info.tgz"&gt;docker-info package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
 $ cd docker-info/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Previously we &lt;a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;docker-info&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
+&lt;p&gt;Previously we &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;docker-info&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --packages
 ...
 docker-info: .../.local/share/cockpit/docker-info
@@ -927,8 +927,8 @@ mydbus
 &lt;p&gt;It&amp;#8217;s real easy to create these components. Tools are components that show up in the &lt;em&gt;Tools&lt;/em&gt; menu in&amp;nbsp;Cockpit:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Tools menu" src="images/cockpit-tools-default.png" /&gt;&lt;/p&gt;
 &lt;p&gt;For example the &lt;em&gt;Terminal&lt;/em&gt; that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you&amp;#8217;ll need Cockpit 0.41. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So break out your terminal, lets make a package called &lt;em&gt;pinger&lt;/em&gt; that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&amp;#8217;ll just be spawning a process on the server to do the work. I&amp;#8217;ve prepared it for you as &lt;a href="http://stef.thewalter.net/files/pinger.tgz"&gt;an example here&lt;/a&gt;, and we can look it over, and modify it. To download the example to your current&amp;nbsp;directory:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://stef.thewalter.net/files/pinger.tgz -O - | tar -xzf -
+&lt;p&gt;So break out your terminal, lets make a package called &lt;em&gt;pinger&lt;/em&gt; that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&amp;#8217;ll just be spawning a process on the server to do the work. I&amp;#8217;ve prepared it for you as &lt;a href="http://cockpit-project.org/files/pinger.tgz"&gt;an example here&lt;/a&gt;, and we can look it over, and modify it. To download the example to your current&amp;nbsp;directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
 $ cd pinger/
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1062,18 +1062,18 @@ Next we attach a handler to the &lt;em&gt;Ping&lt;/em&gt; button so that the &lt
 
 &lt;p&gt;The &lt;code&gt;ping_success()&lt;/code&gt; and &lt;code&gt;ping_fail()&lt;/code&gt; and &lt;code&gt;ping_output()&lt;/code&gt; update the display as you would&amp;nbsp;expect.&lt;/p&gt;
 &lt;p&gt;So there you go &amp;#8230; it&amp;#8217;s a simple plugin to start off with &amp;#8230; next time we&amp;#8217;ll cover &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;how to use DBus&lt;/a&gt;, and then the real fun&amp;nbsp;begins.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate><guid>tag:cockpit-project.org,2014-11-13:blog/creating-plugins-for-the-cockpit-user-interface.html</guid><category>cockpit</category><category>linux</category></item><item><title>Using DBus from Javascript in Cockpit</title><link>http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html</link><description>&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. As we covered in the &lt;a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html"&gt;last tutorial&lt;/a&gt; you can add user interface component to Cockpit, and build your own parts of the Server &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. As we covered in the &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;last tutorial&lt;/a&gt; you can add user interface component to Cockpit, and build your own parts of the Server &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Much of Cockpit interacts with the server using DBus. We have a powerful yet simple &lt;span class="caps"&gt;API&lt;/span&gt; for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you&amp;#8217;ll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here we&amp;#8217;ll make a package called &lt;em&gt;zoner&lt;/em&gt; which lets you set the time zone of your server. We use the systemd &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated DBus &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; to do actually switch time&amp;nbsp;zones.&lt;/p&gt;
-&lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://stef.thewalter.net/files/zoner.tgz"&gt;zoner package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://stef.thewalter.net/files/zoner.tgz -O - | tar -xzf -
+&lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://cockpit-project.org/files/zoner.tgz"&gt;zoner package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
 $ cd zoner/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/zoner
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Previously we &lt;a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;zoner&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
+&lt;p&gt;Previously we &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;zoner&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --packages
 ...
 zoner: .../.local/share/cockpit/zoner

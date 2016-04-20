@@ -65,8 +65,8 @@ Creating Plugins for the Cockpit User Interface  </title>
 <p>It&#8217;s real easy to create these components. Tools are components that show up in the <em>Tools</em> menu in&nbsp;Cockpit:</p>
 <p><img alt="Tools menu" src="images/cockpit-tools-default.png" /></p>
 <p>For example the <em>Terminal</em> that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you&#8217;ll need Cockpit 0.41. You can install it in <a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html">Fedora 21</a> or <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">build it from git</a>.</p>
-<p>So break out your terminal, lets make a package called <em>pinger</em> that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&#8217;ll just be spawning a process on the server to do the work. I&#8217;ve prepared it for you as <a href="http://stef.thewalter.net/files/pinger.tgz">an example here</a>, and we can look it over, and modify it. To download the example to your current&nbsp;directory:</p>
-<div class="highlight"><pre>$ wget http://stef.thewalter.net/files/pinger.tgz -O - | tar -xzf -
+<p>So break out your terminal, lets make a package called <em>pinger</em> that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&#8217;ll just be spawning a process on the server to do the work. I&#8217;ve prepared it for you as <a href="http://cockpit-project.org/files/pinger.tgz">an example here</a>, and we can look it over, and modify it. To download the example to your current&nbsp;directory:</p>
+<div class="highlight"><pre>$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
 $ cd pinger/
 </pre></div>
 

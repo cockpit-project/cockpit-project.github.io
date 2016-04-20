@@ -61,18 +61,18 @@ Using DBus from Javascript in Cockpit  </title>
   </div>
   <div class="article_text">
     <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
-<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. As we covered in the <a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html">last tutorial</a> you can add user interface component to Cockpit, and build your own parts of the Server <span class="caps">UI</span>.</p>
+<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. As we covered in the <a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">last tutorial</a> you can add user interface component to Cockpit, and build your own parts of the Server <span class="caps">UI</span>.</p>
 <p>Much of Cockpit interacts with the server using DBus. We have a powerful yet simple <span class="caps">API</span> for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you&#8217;ll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in <a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html">Fedora 21</a> or <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">build it from git</a>.</p>
 <p>Here we&#8217;ll make a package called <em>zoner</em> which lets you set the time zone of your server. We use the systemd <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus <span class="caps">API</span></a> to do actually switch time&nbsp;zones.</p>
-<p>I&#8217;ve prepared the <a href="http://stef.thewalter.net/files/zoner.tgz">zoner package here</a>. It&#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&nbsp;package:</p>
-<div class="highlight"><pre>$ wget http://stef.thewalter.net/files/zoner.tgz -O - | tar -xzf -
+<p>I&#8217;ve prepared the <a href="http://cockpit-project.org/files/zoner.tgz">zoner package here</a>. It&#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&nbsp;package:</p>
+<div class="highlight"><pre>$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
 $ cd zoner/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/zoner
 </pre></div>
 
 
-<p>Previously we <a href="http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html">talked about</a> how packages are installed, and what <code>manifest.json</code> does so I won&#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see <code>zoner</code> listed in the&nbsp;output:</p>
+<p>Previously we <a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">talked about</a> how packages are installed, and what <code>manifest.json</code> does so I won&#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see <code>zoner</code> listed in the&nbsp;output:</p>
 <div class="highlight"><pre>$ cockpit-bridge --packages
 ...
 zoner: .../.local/share/cockpit/zoner
