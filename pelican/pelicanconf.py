@@ -21,7 +21,11 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (('Cockpit', 'http://cockpit-project.org/'), )
+LINKS =  (
+          ('Cockpit', 'http://cockpit-project.org/'),
+          ('Release Notes', 'http://cockpit-project.org/blog/category/release.html'),
+          ('Tutorials', 'http://cockpit-project.org/blog/category/tutorial.html'),
+)
 
 # Social widget
 SOCIAL = ()
