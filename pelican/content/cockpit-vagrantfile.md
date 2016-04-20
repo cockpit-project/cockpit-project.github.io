@@ -1,6 +1,6 @@
 Title: Using Vagrant to Develop Cockpit
 Date: 2015-10-08
-Category: Cockpit, Linux
+Category: tutorial
 Tags: cockpit, linux
 Slug: cockpit-vagrantfile
 

@@ -2,7 +2,7 @@ Title: Introducing Cockpit
 Date: 2014-02-13 12:46
 Tags: technical
 Slug: introducing-cockpit
-Category: cockpit
+Category: release
 
 Gave a [talk at DevConf][] in Brno about the project a bunch of us have
 been working on: [Cockpit][]. It's a UI for Linux Servers. Currently in

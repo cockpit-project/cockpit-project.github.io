@@ -2,7 +2,7 @@ Title: Cockpit does Docker
 Date: 2014-04-25 19:39
 Tags: cockpit, technical
 Slug: cockpit-does-docker
-Category: cockpit
+Category: release
 
 Here's a short video showing how Cockpit manages Docker containers.
 Cockpit is in RHEL branding here, but it's basically the same thing as

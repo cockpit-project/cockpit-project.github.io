@@ -2,7 +2,7 @@ Title: Cockpit with Docker Restart Policy
 Date: 2016-04-14 13:33
 Tags: cockpit, linux, technical, kubernetes
 Slug: cockpit-0.102
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.102
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). There's a new release every week. Here are the highlights from this weeks 0.102 release.

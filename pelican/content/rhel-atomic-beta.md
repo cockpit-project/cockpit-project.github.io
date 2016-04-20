@@ -1,6 +1,6 @@
 Title: Cockpit on RHEL Atomic Beta
 Date: 2014-11-20
-Category: Cockpit
+Category: release
 Tags: cockpit, linux, rhel, atomic
 Slug: cockpit-on-rhel-atomic-beta
 

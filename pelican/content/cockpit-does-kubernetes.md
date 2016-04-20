@@ -2,7 +2,7 @@ Title: Cockpit's Kubernetes Dashboard
 Date: 2015-06-09 23:51
 Tags: cockpit, technical, kubernetes
 Slug: cockpit-kubernetes-dashboard
-Category: cockpit
+Category: release
 
 Here's a video showing what I've been working on together with some help from a couple Cockpit folks. It's a [Cockpit](http://cockpit-project.org) dashboard for Kubernetes.
 

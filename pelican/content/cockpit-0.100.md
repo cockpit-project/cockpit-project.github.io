@@ -2,7 +2,7 @@ Title: Cockpit 0.100 Released
 Date: 2016-04-01 15:30
 Tags: cockpit, linux, technical, kubernetes
 Slug: cockpit-0.100
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.100
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). There's a new release every week. Here are the highlights from this weeks 0.100 release. Even though 0.100 may seem to be a magical number ... it's really just the number after 0.99 :D

@@ -1,6 +1,6 @@
 Title: Protocol for Web access to System APIs
 Date: 2014-12-16
-Category: cockpit, tutorial
+Category: tutorial
 Tags: cockpit, linux
 Slug: protocol-for-web-access-to-system-apis
 

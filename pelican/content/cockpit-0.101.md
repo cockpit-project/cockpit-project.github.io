@@ -2,7 +2,7 @@ Title: Cockpit does Kubernetes Data Volumes
 Date: 2016-04-08 12:35
 Tags: cockpit, linux, technical, kubernetes
 Slug: cockpit-0.101
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.101
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). There's a new release every week. Here are the highlights from this weeks 0.101 release.

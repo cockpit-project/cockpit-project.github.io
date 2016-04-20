@@ -2,7 +2,7 @@ Title: Cockpit 0.99 Released
 Date: 2016-03-24 18:35
 Tags: cockpit, linux, technical
 Slug: cockpit-0.99
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.96 through 0.99
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). There's a new release every week. Here are the highlights from 0.96 through 0.99.

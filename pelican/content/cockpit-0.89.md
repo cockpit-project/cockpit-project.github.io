@@ -2,7 +2,7 @@ Title: Cockpit 0.89 Released
 Date: 2015-12-22 13:04
 Tags: cockpit, linux, technical
 Slug: cockpit-0.89
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. This week it was 0.89
 
 Cockpit releases every week. Here's a summary of the 0.87, 0.88 and 0.89 releases.

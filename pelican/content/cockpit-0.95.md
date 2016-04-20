@@ -2,7 +2,7 @@ Title: Cockpit 0.95 Released
 Date: 2016-02-12 20:32
 Tags: cockpit, linux, technical
 Slug: cockpit-0.95
-Category: Cockpit
+Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.90 through 0.95
 
 Cockpit releases every week. Here are the highlights from 0.90 through 0.95.
