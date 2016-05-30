@@ -97,7 +97,7 @@
             <div class="os-infobox">
               Cockpit is not part of the official Debian repositories, but you can add a repository which contains weekly builds:<br>
               <ol>
-                <li>Add the line <code>deb https://fedorapeople.org/groups/cockpit/debian unstable main</code> to <code>/etc/apt/sources.list</code></li>
+                <li>Add the line <code>deb [arch=amd64] https://fedorapeople.org/groups/cockpit/debian unstable main</code> to <code>/etc/apt/sources.list</code></li>
                 <li>Import Cockpit's signing key to the apt sources keyring: <code>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</code></li>
                 <li>Update package information with that source with <code>sudo apt-get update</code></li>
                 <li>Install cockpit with <code>sudo apt-get install cockpit</code></li>
