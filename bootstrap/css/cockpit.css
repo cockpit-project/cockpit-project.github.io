@@ -194,6 +194,14 @@ hr {
 .footer-cockpit {
     text-align: center;
     padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 3em;
+    padding-bottom: 0.5em;
+}
+
+.footer-cockpit a {
+    color: #84bbef;
 }
 
 /* Responsive additions */
