@@ -1,5 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 20 Apr 2016 15:45:00 +0000</lastBuildDate><item><title>Cockpit 0.103</title><link>http://cockpit-project.org/blog/cockpit-0.103.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 12 May 2016 15:40:00 +0000</lastBuildDate><item><title>Cockpit 0.106</title><link>http://cockpit-project.org/blog/cockpit-0.106.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.106&amp;nbsp;release.&lt;/p&gt;
+&lt;h3&gt;Stable Cockpit&amp;nbsp;Styles&lt;/h3&gt;
+&lt;p&gt;One of the annoying things about &lt;span class="caps"&gt;CSS&lt;/span&gt; is that when you bring in stylesheets from
+multiple projects, they can conflict. You have to choose a nomen-clature to
+namespace your &lt;span class="caps"&gt;CSS&lt;/span&gt;, or nest it&amp;nbsp;appropriately.&lt;/p&gt;
+&lt;p&gt;We&amp;#8217;re stabilizing the internals of Cockpit in the browser, so when folks write
+plugins, they can count on them working. To make that happen we had to namespace
+all our own Cockpit specific &lt;span class="caps"&gt;CSS&lt;/span&gt; classes. Most of the styling used in Cockpit
+come from &lt;a href="https://www.patternfly.org/"&gt;Patternfly&lt;/a&gt; and this change doesn&amp;#8217;t affect
+those styles at&amp;nbsp;all.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/cockpit-project/cockpit/wiki/Cockpit-CSS-Styling"&gt;Documentation is on the&amp;nbsp;wiki&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Container Image&amp;nbsp;Layers&lt;/h3&gt;
+&lt;p&gt;Docker container image layers are now shown much more clearly. It should be clearer to tell
+which is the base layer, and how the others are layered on&amp;nbsp;top:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image Layers" src="images/cockpit-image-layers.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.106 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.106"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.106-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Thu, 12 May 2016 15:40:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-05-12:blog/cockpit-0.106.html</guid><category>cockpit</category><category>linux</category><category>technical</category><category>kubernetes</category></item><item><title>Cockpit 0.105</title><link>http://cockpit-project.org/blog/cockpit-0.105.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.105&amp;nbsp;release.&lt;/p&gt;
+&lt;h3&gt;Strict Content-Security-Policy enforced&amp;nbsp;everywhere&lt;/h3&gt;
+&lt;p&gt;All of the Cockpit components now ship strict Content-Security-Policy. This is like
+SELinux in your browser, where you declare the kind of things the application is
+permitted to do and anything else is&amp;nbsp;blocked.&lt;/p&gt;
+&lt;p&gt;Cockpit now only allows talking to and loading code from the server(s) that it&amp;#8217;s
+running on. Everything else is blocked, including inline scripts, evaluating
+javascript code, and using inline&amp;nbsp;styles.&lt;/p&gt;
+&lt;h3&gt;Timeout for Cockpit&amp;nbsp;Authentication&lt;/h3&gt;
+&lt;p&gt;Cockpit uses &lt;span class="caps"&gt;PAM&lt;/span&gt; for authenticating local users. It now expects that authentication
+process to complete within a certain&amp;nbsp;timeout.&lt;/p&gt;
+&lt;p&gt;More details &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/authentication.md"&gt;in this document&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Cluster Users can be Added and Removed from&amp;nbsp;Groups&lt;/h3&gt;
+&lt;p&gt;In the Cluster admin interface, users can be added to groups and remove
+them with a few clicks. Here&amp;#8217;s a short&amp;nbsp;video:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/TzvqNj9VywM"frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Registry Mirroring from Insecure&amp;nbsp;Registries&lt;/h3&gt;
+&lt;p&gt;In &lt;a href="http://www.projectatomic.io/registry/"&gt;the Registry user interface&lt;/a&gt; there&amp;#8217;s now a
+checkbox that allows you to choose whether the registry from which you&amp;#8217;re mirroring
+container images is insecure or&amp;nbsp;not.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Insecure Registry option" src="images/cockpit-insecure-registry.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Deletion of Kubernetes&amp;nbsp;Nodes&lt;/h3&gt;
+&lt;p&gt;In the Cluster admin interface you can now delete Nodes from the cluster, and select
+which ones to delete. Andreas has also done design work to allow upgrading the
+node operating system as well as cordoning nodes, which makes them unavailable for
+scheduling&amp;nbsp;containers.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Deleting Nodes" src="images/cockpit-delete-nodes.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.105 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.105"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.105-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Wed, 04 May 2016 14:27:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-05-04:blog/cockpit-0.105.html</guid><category>cockpit</category><category>linux</category><category>technical</category><category>kubernetes</category></item><item><title>Cockpit 0.104</title><link>http://cockpit-project.org/blog/cockpit-0.104.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.104&amp;nbsp;release.&lt;/p&gt;
+&lt;h3&gt;Kubernetes iSCSI&amp;nbsp;Volumes&lt;/h3&gt;
+&lt;p&gt;Peter added support for iSCSI Kubernetes Volumes in the Cockpit Cluster dashboard. When you
+have container pods that need to store data somewhere, it&amp;#8217;s now real easy to configure use
+an iSCSI initiator. Take a&amp;nbsp;look:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/ytNGsIDYNSQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Listing View&amp;nbsp;Expansion&lt;/h3&gt;
+&lt;p&gt;Andreas, Dominik, and I worked on a better listing view pattern. In Cockpit we like to give
+admins the option to expand data inline, and compare it between multiple entries on the same
+page. But after feedback from the &lt;a href="https://www.patternfly.org/"&gt;Patternfly folks&lt;/a&gt; we added an
+explicit expander to do&amp;nbsp;this.&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/myXr_hnr5Jg" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Tagging Docker Images in the&amp;nbsp;Registry&lt;/h3&gt;
+&lt;p&gt;The Atomic Registry and Openshift Registry support mirroring images from another image registry
+such as the Docker Hub. When the images are mirrored, they are copied and available in your
+own registry. Cockpit now has support for telling the registry which specific tags you&amp;#8217;d like
+to mirror. And Aaron is adding support for various mirroring options as&amp;nbsp;well.&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/MJzqob5AYI8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
+&lt;p&gt;Marius has a working proof of concept that lets you configure where Docker stores container and image
+data on its host. Take a look at the demo below. Marius adds disks to the container storage&amp;nbsp;pool:&lt;/p&gt;
+&lt;iframe width="960" height="720" src="https://www.youtube.com/embed/9YiG4AY6HeY?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.104 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.104"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.104-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Thu, 28 Apr 2016 15:21:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-04-28:blog/cockpit-0.104.html</guid><category>cockpit</category><category>linux</category><category>technical</category><category>kubernetes</category></item><item><title>Cockpit 0.103</title><link>http://cockpit-project.org/blog/cockpit-0.103.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes connection&amp;nbsp;configuration&lt;/h3&gt;
 &lt;p&gt;When a Kubernetes client wants to access the &lt;span class="caps"&gt;API&lt;/span&gt; of the cluster, it looks for a &amp;#8220;kubeconfig&amp;#8221; file to tell it how to find the cluster and how to authenticate when accessing the &lt;span class="caps"&gt;API&lt;/span&gt;. The usual location for this file is in the current user&amp;#8217;s home directory at the &lt;code&gt;~/.kube/config&lt;/code&gt; file path. If that doesn&amp;#8217;t exist, then usually the cluster isn&amp;#8217;t available. This applies to both clients like the &lt;code&gt;kubectl&lt;/code&gt; command as well as Cockpit&amp;#8217;s cluster&amp;nbsp;dashboard.&lt;/p&gt;
 &lt;p&gt;Cockpit can now prompt for this information, and build this file for you. If it doesn&amp;#8217;t exist, then there&amp;#8217;s a helpful &amp;#8220;Troubleshoot&amp;#8221; button to help get this configuration in&amp;nbsp;place.&lt;/p&gt;

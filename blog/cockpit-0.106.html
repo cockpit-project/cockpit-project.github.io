@@ -29,9 +29,10 @@
   </script>
 
 
+<meta name="keywords" content="cockpit, linux, technical, kubernetes">
 
   <title>
-&ndash; Categories  </title>
+Cockpit 0.106  </title>
 
 </head>
 
@@ -56,13 +57,42 @@
     </header>
 
 <article>
-  <div class="article_text">
-    <ul>
-      <li><a href="http://cockpit-project.org/blog/category/linux.html">linux</a> (1)</li>
-      <li><a href="http://cockpit-project.org/blog/category/release.html">release</a> (26)</li>
-      <li><a href="http://cockpit-project.org/blog/category/tutorial.html">tutorial</a> (6)</li>
-    </ul>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-0.106.html">Cockpit&nbsp;0.106</a></h1>
   </div>
+  <div class="article_text">
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. There&#8217;s a new release every week. Here are the highlights from this weeks 0.106&nbsp;release.</p>
+<h3>Stable Cockpit&nbsp;Styles</h3>
+<p>One of the annoying things about <span class="caps">CSS</span> is that when you bring in stylesheets from
+multiple projects, they can conflict. You have to choose a nomen-clature to
+namespace your <span class="caps">CSS</span>, or nest it&nbsp;appropriately.</p>
+<p>We&#8217;re stabilizing the internals of Cockpit in the browser, so when folks write
+plugins, they can count on them working. To make that happen we had to namespace
+all our own Cockpit specific <span class="caps">CSS</span> classes. Most of the styling used in Cockpit
+come from <a href="https://www.patternfly.org/">Patternfly</a> and this change doesn&#8217;t affect
+those styles at&nbsp;all.</p>
+<p><a href="https://github.com/cockpit-project/cockpit/wiki/Cockpit-CSS-Styling">Documentation is on the&nbsp;wiki</a></p>
+<h3>Container Image&nbsp;Layers</h3>
+<p>Docker container image layers are now shown much more clearly. It should be clearer to tell
+which is the base layer, and how the others are layered on&nbsp;top:</p>
+<p><img alt="Image Layers" src="images/cockpit-image-layers.png" /></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 0.106 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.106">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-0.106-1.fc24">Fedora&nbsp;24</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 23, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Do 12 Mai 2016</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>,      <a href="http://cockpit-project.org/blog/tag/kubernetes.html">kubernetes</a>    </p>
+  </div>
+
+
 </article>
 
 
