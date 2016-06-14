@@ -6,7 +6,7 @@ TYPOGRIFY = True
 
 AUTHOR = u'Cockpit Project'
 SITENAME = u'Cockpit Project'
-SITEURL = 'http://cockpit-project.org/blog/'
+SITEURL = 'http://cockpit-project.org/blog'
 TAGLINE = u'Cockpit Project'
 
 TIMEZONE = 'Utc'
@@ -27,8 +27,6 @@ SOCIAL = ()
 DEFAULT_PAGINATION = 10
 
 STATIC_PATHS = ['images']
-
-CSS_FILE = 'main.css'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
