@@ -65,42 +65,71 @@
         <hr>
 
         <div class="row">
-          <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-atomic"><img src="images/os-atomic.png"></div></div>
           <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-fedora"><img src="images/os-fedora.png"></div></div>
           <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"></div></div>
           <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-debian"><img src="images/os-debian.png"></div></div>
+          <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-atomic"><img src="images/os-atomic.png"></div></div>
         </div>
 
-        <div class="row">
-          <div class="col-md-12 os-info os-info-atomic" style="display: none;">
-            <div class="os-infobox">
-            <div class="os-infobox-stable">&nbsp;</div>
-            Connect to a Fedora or CentOS Atomic host from an existing host running Cockpit with the Add Server UI.<br/>
-            Alternatively you can install Cockpit on the Atomic host using the command <code>sudo atomic run cockpit/ws</code>
-            </div>
-          </div>
           <div class="col-md-12 os-info os-info-fedora" style="display: none;">
             <div class="os-infobox">
-            <div class="os-infobox-stable">&nbsp;</div>
-            Cockpit comes installed by default in Fedora Server.
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit comes <b>installed by default in Fedora Server</b>.</p>
+              <p>To install Cockpit on other variants of Fedora in versions 21 and later:</p>
+              <ol>
+                <li>Install cockpit:
+                        <pre>sudo yum install cockpit</pre>
+                </li>
+                <li>Start and enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+              </ol>
             </div>
           </div>
           <div class="col-md-12 os-info os-info-rhel" style="display: none;">
             <div class="os-infobox">
-            <div class="os-infobox-stable">&nbsp;</div>
-            Cockpit is included in the Red Hat Enterprise Linux 7.1+ Extras repository.<br/>
-            Enable the repository using the command <code>sudo subscription-manager repos --enable rhel-7-server-extras-rpms</code><br/>
-            Then install cockpit using the command <code>sudo yum install cockpit</code> and start it with <code>sudo systemctl start cockpit</code>
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit is included in the Red Hat Enterprise Linux <i>Extras</i> repository in versions 7.1 and later:</p>
+              <ol>
+                <li>Enable the <i>Extras</i> repository:
+                        <pre>sudo subscription-manager repos --enable rhel-7-server-extras-rpms</pre>
+                </li>
+                <li>Install cockpit:
+                        <pre>sudo yum install cockpit</pre>
+                </li>
+                <li>Start and enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12 os-info os-info-atomic" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Connect to a Fedora or CentOS Atomic host from an running Cockpit with the <i>Add Server</i> UI.<br/>
+              <p>Alternatively you can access Cockpit directly on the Atomic host:</p>
+              <ol>
+                <li>Run the Cockpit web service container:
+                <pre>sudo atomic run cockpit/ws</pre>
+              </ol>
             </div>
           </div>
           <div class="col-md-12 os-info os-info-debian" style="display: none;">
             <div class="os-infobox">
-              Cockpit is not part of the official Debian repositories, but you can add a repository which contains weekly builds targeting debian unstable:<br>
+              <p>Cockpit is not yet part of the official Debian repositories, but you can add a repository which contains weekly builds targeting debian unstable:</p>
               <ol>
-                <li>Add the line <code>deb https://fedorapeople.org/groups/cockpit/debian unstable main</code> to <code>/etc/apt/sources.list</code></li>
-                <li>Import Cockpit's signing key to the apt sources keyring: <code>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</code></li>
-                <li>Update package information with that source with <code>sudo apt-get update</code></li>
-                <li>Install cockpit with <code>sudo apt-get install cockpit</code></li>
+                <li>Add the following line to <tt>/etc/apt/sources.list</tt>
+                  <pre>deb https://fedorapeople.org/groups/cockpit/debian unstable main</pre></li>
+                <li>Import Cockpit's signing key to the apt sources keyring:
+                  <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</pre></li>
+                <li>Update package information with that source:
+                  <pre>sudo apt-get update</pre></li>
+                <li>Install cockpit:
+                  <pre>sudo apt-get install cockpit</pre></li>
+                <li>Start and enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
               </ol>
             </div>
           </div>
@@ -127,13 +156,22 @@
 
           <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
             <div class="os-infobox">
-              Cockpit is not part of the official Ubuntu repositories. You can install it from the
+              Cockpit is not yet part of the official Ubuntu repositories. You can install it from the
               <a href="https://launchpad.net/~cockpit-project/+archive/ubuntu/cockpit">Cockpit PPA</a>
               by executing the following commands:
               <ol>
-                <li><code>sudo add-apt-repository ppa:cockpit-project/cockpit</code></li>
-                <li><code>sudo apt-get update</code></li>
-                <li><code>sudo apt-get install cockpit</code></li>
+                <li>Add the PPA for Cockpit:
+                  <pre>sudo add-apt-repository ppa:cockpit-project/cockpit</pre>
+                </li>
+                <li>Update the package information:
+                  <pre>sudo apt-get update</pre>
+                </li>
+                <li>Install cockpit:
+                  <pre>sudo apt-get install cockpit</pre>
+                </li>
+                <li>Start and enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
               </ol>
             </div>
           </div>

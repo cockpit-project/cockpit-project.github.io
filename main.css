@@ -271,6 +271,12 @@ hr {
     margin-bottom: 10px;
 }
 
+pre {
+    background-color: white;
+    border: none;
+    margin-top: 10px;
+}
+
 .footer-cockpit {
     text-align: center;
     padding: 20px;
