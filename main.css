@@ -338,3 +338,7 @@ main .footer-cockpit {
 header {
   display: none;
 }
+
+footer #paginator {
+    text-align: center;
+}
