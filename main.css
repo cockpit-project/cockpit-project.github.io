@@ -48,19 +48,3 @@ ul.assets li {
     padding-left: 100px;
     line-height: 61px;
 }
-
-li.item-git {
-    background-image: url('item-git.png');
-}
-
-li.item-ml {
-    background-image: url('item-ml.png');
-}
-
-li.item-tracker {
-    background-image: url('item-tracker.png');
-}
-
-li.item-irc {
-    background-image: url('item-irc.png');
-}

@@ -141,6 +141,10 @@
     font-family: beteckna;
 }
 
+.container-screenshots p {
+    font-size: 16px;
+}
+
 .container-screenshots .screenshot .screenshot-image {
     max-width: 100%;
     border: 1px solid #d3d7cf;
@@ -154,9 +158,7 @@
     background: #eeeeec;
     border-top: 1px solid #d3d7cf;
     border-bottom: 1px solid #d3d7cf;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #787a75;
+    padding: 20px 10%;
 }
 
 .container-resources .row .col-md-6 {
@@ -168,6 +170,29 @@
     padding-top: 15px;
     padding-left: 10px;
     display: inline-block;
+}
+
+.container-resources dl a {
+    display: block;
+    color: #093d69;
+    max-width: 350px;
+}
+
+.container-resources dl a,
+.container-resources dt.no-link {
+    padding: 5px 20px;
+}
+
+.container-resources dl a:hover {
+  background-color: white;
+}
+
+.container-resources dd a {
+    padding-left: 30px;
+}
+
+.container-resources dl {
+    font-size: 18px;
 }
 
 .container-resources + .footer-cockpit {
