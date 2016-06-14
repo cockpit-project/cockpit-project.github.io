@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-04-20T15:45:00+00:00</updated><entry><title>Cockpit 0.103</title><link href="http://cockpit-project.org/blog/cockpit-0.103.html" rel="alternate"></link><published>2016-04-20T15:45:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-20:blog/cockpit-0.103.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="./" rel="alternate"></link><link href="./feeds/cockpit-project.atom.xml" rel="self"></link><id>./</id><updated>2016-04-20T15:45:00+00:00</updated><entry><title>Cockpit 0.103</title><link href="./cockpit-0.103.html" rel="alternate"></link><published>2016-04-20T15:45:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-04-20:./cockpit-0.103.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes connection&amp;nbsp;configuration&lt;/h3&gt;
 &lt;p&gt;When a Kubernetes client wants to access the &lt;span class="caps"&gt;API&lt;/span&gt; of the cluster, it looks for a &amp;#8220;kubeconfig&amp;#8221; file to tell it how to find the cluster and how to authenticate when accessing the &lt;span class="caps"&gt;API&lt;/span&gt;. The usual location for this file is in the current user&amp;#8217;s home directory at the &lt;code&gt;~/.kube/config&lt;/code&gt; file path. If that doesn&amp;#8217;t exist, then usually the cluster isn&amp;#8217;t available. This applies to both clients like the &lt;code&gt;kubectl&lt;/code&gt; command as well as Cockpit&amp;#8217;s cluster&amp;nbsp;dashboard.&lt;/p&gt;
 &lt;p&gt;Cockpit can now prompt for this information, and build this file for you. If it doesn&amp;#8217;t exist, then there&amp;#8217;s a helpful &amp;#8220;Troubleshoot&amp;#8221; button to help get this configuration in&amp;nbsp;place.&lt;/p&gt;
@@ -7,7 +7,7 @@
 
 &lt;h3&gt;Upload each Release to an Ubuntu &lt;span class="caps"&gt;PPA&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Each weekly release of Cockpit is now uploaded to an Ubuntu &lt;span class="caps"&gt;PPA&lt;/span&gt;. Here&amp;#8217;s how to make use of&amp;nbsp;it:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sudo add-apt-repository ppa:cockpit-project/cockpit
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:cockpit-project/cockpit
 sudo apt-get update
 sudo apt-get install cockpit
 &lt;/pre&gt;&lt;/div&gt;
@@ -22,7 +22,7 @@ sudo apt-get install cockpit
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.103"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.103-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit with Docker Restart Policy</title><link href="http://cockpit-project.org/blog/cockpit-0.102.html" rel="alternate"></link><published>2016-04-14T13:33:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-14:blog/cockpit-0.102.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit with Docker Restart Policy</title><link href="./cockpit-0.102.html" rel="alternate"></link><published>2016-04-14T13:33:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-04-14:./cockpit-0.102.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Docker Restart&amp;nbsp;Policy&lt;/h3&gt;
 &lt;p&gt;When running a Docker container in Cockpit, you can now set the restart policy, so when the docker daemon restarts the containers will be restarted too. Justin Robertson contributed this feature. Take a&amp;nbsp;look.&lt;/p&gt;
 &lt;iframe width="853" height="480" src="https://www.youtube.com/embed/8YYHui-FQco?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -44,7 +44,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.102"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.102-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit does Kubernetes Data Volumes</title><link href="http://cockpit-project.org/blog/cockpit-0.101.html" rel="alternate"></link><published>2016-04-08T12:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-08:blog/cockpit-0.101.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.101&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit does Kubernetes Data Volumes</title><link href="./cockpit-0.101.html" rel="alternate"></link><published>2016-04-08T12:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-04-08:./cockpit-0.101.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.101&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes&amp;nbsp;Volumes&lt;/h3&gt;
 &lt;p&gt;You can now set up Kubernetes &lt;a href="http://kubernetes.io/docs/user-guide/persistent-volumes/"&gt;persistent volume claims&lt;/a&gt; through the Cockpit cluster admin interface. These volumes are used to store persistent container data and possibly share them between containers. Each container pod declares the volumes it needs, and when deploying such an application admins configure the locations to store the data in those&amp;nbsp;volumes.&lt;/p&gt;
 &lt;p&gt;Take a&amp;nbsp;look:&lt;/p&gt;
@@ -59,7 +59,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.101"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.101-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.100 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.100.html" rel="alternate"></link><published>2016-04-01T15:30:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-01:blog/cockpit-0.100.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.100 release. Even though 0.100 may seem to be a magical number &amp;#8230; it&amp;#8217;s really just the number after 0.99&amp;nbsp;:D&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.100 Released</title><link href="./cockpit-0.100.html" rel="alternate"></link><published>2016-04-01T15:30:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-04-01:./cockpit-0.100.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.100 release. Even though 0.100 may seem to be a magical number &amp;#8230; it&amp;#8217;s really just the number after 0.99&amp;nbsp;:D&lt;/p&gt;
 &lt;h3&gt;SELinux&amp;nbsp;Troubleshooting&lt;/h3&gt;
 &lt;p&gt;Cockpit can now help you troubleshoot &lt;a href="http://stopdisablingselinux.com/"&gt;SELinux&lt;/a&gt; problems, and show you fixes for repairing the various issues. This is pretty amazing for system admins who really would rather be secure, but keep bumping into stuff that SELinux is blocking. There&amp;#8217;s more to come on both SELinux and troubleshooting in the future. Take a look at what landed in this&amp;nbsp;release:&lt;/p&gt;
 &lt;iframe width="960" height="720" src="https://www.youtube.com/embed/eBGK6qSmnng?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -84,7 +84,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.100"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.100-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.99 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.99.html" rel="alternate"></link><published>2016-03-24T18:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-03-24:blog/cockpit-0.99.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from 0.96 through&amp;nbsp;0.99.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.99 Released</title><link href="./cockpit-0.99.html" rel="alternate"></link><published>2016-03-24T18:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-03-24:./cockpit-0.99.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from 0.96 through&amp;nbsp;0.99.&lt;/p&gt;
 &lt;h3&gt;Kubernetes Cockpit&amp;nbsp;Pod&lt;/h3&gt;
 &lt;p&gt;The Kubernetes cluster admin interface is now deployable as a &lt;a href="http://kubernetes.io"&gt;Kubernetes&lt;/a&gt; pod. Peter did a lot of work to make this happen. It&amp;#8217;s a good example of taking just one part Cockpit, containerizing it and running it in a completely different&amp;nbsp;environment.&lt;/p&gt;
 &lt;p&gt;You can use the &lt;a href="http://cockpit-project.org/guide/latest/feature-kubernetes.html"&gt;commands listed in the documentation&lt;/a&gt; to run the pod. Here&amp;#8217;s a&amp;nbsp;demo:&lt;/p&gt;
@@ -110,7 +110,7 @@ what your application is allowed to do, and the browser prevents other things fr
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.95"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.99-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.95 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.95.html" rel="alternate"></link><published>2016-02-12T20:32:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-02-12:blog/cockpit-0.95.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here are the highlights from 0.90 through&amp;nbsp;0.95.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.95 Released</title><link href="./cockpit-0.95.html" rel="alternate"></link><published>2016-02-12T20:32:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2016-02-12:./cockpit-0.95.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here are the highlights from 0.90 through&amp;nbsp;0.95.&lt;/p&gt;
 &lt;h2&gt;Set &lt;span class="caps"&gt;CPU&lt;/span&gt; performance profile via&amp;nbsp;tuned&lt;/h2&gt;
 &lt;p&gt;Cockpit can now talk to tuned and set the &lt;span class="caps"&gt;CPU&lt;/span&gt; performance profile of the
 system. Thanks to Ryan Barry for doing the initial prototype, and
@@ -176,14 +176,14 @@ we&amp;#8217;ll be ahead of the&amp;nbsp;game.&lt;/p&gt;
 with the image. This caused many folks to have a hard time using Vagrant
 to hack on Cockpit, so the &lt;span class="caps"&gt;NFS&lt;/span&gt; stuff is now dropped. You can still bring
 up the vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; as&amp;nbsp;before:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo vagrant up
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant up
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And then access Cockpit on&amp;nbsp;https://localhost:9090&lt;/p&gt;
 &lt;p&gt;However if you make changes to the stuff in the git repo, you need to
 run an extra vagrant command before the running &lt;span class="caps"&gt;VM&lt;/span&gt; will pick it&amp;nbsp;up:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo vagrant rsync
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant rsync
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -195,7 +195,7 @@ repo for more&amp;nbsp;details.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.95"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.95-1.fc23"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.89 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.89.html" rel="alternate"></link><published>2015-12-22T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-22:blog/cockpit-0.89.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s a summary of the 0.87, 0.88 and 0.89&amp;nbsp;releases.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.89 Released</title><link href="./cockpit-0.89.html" rel="alternate"></link><published>2015-12-22T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-12-22:./cockpit-0.89.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s a summary of the 0.87, 0.88 and 0.89&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;OSTree upgrades and&amp;nbsp;rollbacks&lt;/h3&gt;
 &lt;p&gt;Peter worked to finish the basic OSTree &lt;span class="caps"&gt;UI&lt;/span&gt; has been merged into Cockpit.
 This lets the admin perform upgrades and rollbacks on Atomic&amp;nbsp;Host.&lt;/p&gt;
@@ -273,7 +273,7 @@ profile) support to&amp;nbsp;Cockpit:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-36d1df063f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.86 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.86.html" rel="alternate"></link><published>2015-12-04T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-04:blog/cockpit-0.86.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.86.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.86 Released</title><link href="./cockpit-0.86.html" rel="alternate"></link><published>2015-12-04T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-12-04:./cockpit-0.86.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.86.&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;SOS&lt;/span&gt;&amp;nbsp;Reporting&lt;/h3&gt;
 &lt;p&gt;Users can now prepare an &lt;span class="caps"&gt;SOS&lt;/span&gt; Report containing information about the system and send it to their support&amp;nbsp;representative.&lt;/p&gt;
 &lt;iframe width="640" height="480" src="https://www.youtube.com/embed/-6rfWUoOQbs?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -296,7 +296,7 @@ into the various Cockpit packages. These are &lt;code&gt;bower_components&lt;/co
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-36d1df063f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.85 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.85.html" rel="alternate"></link><published>2015-11-27T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-27:blog/cockpit-0.85.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.85.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.85 Released</title><link href="./cockpit-0.85.html" rel="alternate"></link><published>2015-11-27T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-11-27:./cockpit-0.85.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.85.&lt;/p&gt;
 &lt;h3&gt;Varying users on dashboard&amp;nbsp;machines&lt;/h3&gt;
 &lt;p&gt;Cockpit now supports adding machines to the dashboard with different
 user logins for each one. This can be useful in cases where you&amp;#8217;re
@@ -337,7 +337,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-e368240084"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.83 and 0.84 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.84.html" rel="alternate"></link><published>2015-11-19T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-19:blog/cockpit-0.84.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was 0.84. I&amp;#8217;ll also include notes from 0.83&amp;nbsp;here.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.83 and 0.84 Released</title><link href="./cockpit-0.84.html" rel="alternate"></link><published>2015-11-19T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-11-19:./cockpit-0.84.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was 0.84. I&amp;#8217;ll also include notes from 0.83&amp;nbsp;here.&lt;/p&gt;
 &lt;h3&gt;Building Cockpit on&amp;nbsp;Debian&lt;/h3&gt;
 &lt;p&gt;At systemd.conf Dominik worked with Michael Biebl one of the Debian systemd maintainers on packaging Cockpit for Debian. We&amp;#8217;re still looking for a maintainer long&amp;nbsp;term.&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s a &lt;a href="http://dominik.perpeet.eu/cockpit-on-debian-8-2"&gt;blog post&lt;/a&gt; with more&amp;nbsp;details.&lt;/p&gt;
@@ -360,7 +360,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.84"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-96b41c5190"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.82 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.82.html" rel="alternate"></link><published>2015-10-28T19:05:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-28:blog/cockpit-0.82.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.82&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.82 Released</title><link href="./cockpit-0.82.html" rel="alternate"></link><published>2015-10-28T19:05:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-10-28:./cockpit-0.82.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.82&lt;/p&gt;
 &lt;h3&gt;Distributed&amp;nbsp;Tests&lt;/h3&gt;
 &lt;p&gt;In Cockpit we run thousands of integration tests per day against pull requests and git master. Each test brings up up Cockpit in a full operating system &lt;span class="caps"&gt;VM&lt;/span&gt;, and hammers on it in some way. Without these tests it&amp;#8217;s impossible to validate that Cockpit actually&amp;nbsp;works.&lt;/p&gt;
 &lt;p&gt;Last week, the server doing this testing work broke down. I&amp;#8217;ve been working over the last week to fix that, along with&amp;nbsp;others.&lt;/p&gt;
@@ -375,7 +375,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.82"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-273bc74c11"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.81 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.81.html" rel="alternate"></link><published>2015-10-21T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-21:blog/cockpit-0.81.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.81&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.81 Released</title><link href="./cockpit-0.81.html" rel="alternate"></link><published>2015-10-21T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-10-21:./cockpit-0.81.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.81&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;NTP&lt;/span&gt;&amp;nbsp;servers&lt;/h3&gt;
 &lt;p&gt;Cockpit now allows configuration of which &lt;span class="caps"&gt;NTP&lt;/span&gt; servers are used for time syncing.  This configuration is possible when &lt;a href="http://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html"&gt;timesyncd&lt;/a&gt; is being used as the &lt;span class="caps"&gt;NTP&lt;/span&gt;&amp;nbsp;service.&lt;/p&gt;
 &lt;iframe width="640" height="480" src="https://www.youtube.com/embed/Rmzt1L4ANgo?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -394,7 +394,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.81"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-c3b74dffee"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.80 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.80.html" rel="alternate"></link><published>2015-10-14T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-14:blog/cockpit-0.80.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.80&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.80 Released</title><link href="./cockpit-0.80.html" rel="alternate"></link><published>2015-10-14T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-10-14:./cockpit-0.80.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.80&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; private&amp;nbsp;keys&lt;/h3&gt;
 &lt;p&gt;You can now use Cockpit to load &lt;span class="caps"&gt;SSH&lt;/span&gt; private keys into the ssh-agent that&amp;#8217;s
 running in the Cockpit login session. These keys are used to authenticate
@@ -417,7 +417,7 @@ and larger Kubernetes&amp;nbsp;clusters.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.80"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-28a7f2b07f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Using Vagrant to Develop Cockpit</title><link href="http://cockpit-project.org/blog/cockpit-vagrantfile.html" rel="alternate"></link><published>2015-10-08T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-08:blog/cockpit-vagrantfile.html</id><summary type="html">&lt;p&gt;Starting with Cockpit release 0.79 you can use &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; to bring up a &lt;span class="caps"&gt;VM&lt;/span&gt; in which
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Using Vagrant to Develop Cockpit</title><link href="./cockpit-vagrantfile.html" rel="alternate"></link><published>2015-10-08T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-10-08:./cockpit-vagrantfile.html</id><summary type="html">&lt;p&gt;Starting with Cockpit release 0.79 you can use &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; to bring up a &lt;span class="caps"&gt;VM&lt;/span&gt; in which
 you can test or develop Cockpit. The &lt;span class="caps"&gt;VM&lt;/span&gt; is isolated from your main system so any system configuration
 you change via Cockpit will only happen in the &lt;span class="caps"&gt;VM&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;The Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; mounts the Cockpit package assets from your git repository checkout, so when you make on the
@@ -426,12 +426,12 @@ C code, the Cockpit binaries would have to be rebuilt and testing via Vagrant wo
 &lt;h2&gt;Getting&amp;nbsp;Started&lt;/h2&gt;
 &lt;p&gt;To start, you&amp;#8217;ll need Vagrant. On Fedora I use &lt;em&gt;vagrant-libvirt&lt;/em&gt;. In addition keep in mind that on
 &lt;em&gt;vagrant-libvirt&lt;/em&gt; requires root privileges, so you&amp;#8217;ll need to use vagrant with &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo yum install vagrant vagrant-libvirt
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo yum install vagrant vagrant-libvirt
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next, in a copy of the Cockpit git repository, you run &lt;code&gt;vagrant up&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ git clone https://github.com/cockpit-project/cockpit
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/cockpit-project/cockpit
 $ cd cockpit
 $ sudo vagrant up
 &lt;/pre&gt;&lt;/div&gt;
@@ -444,7 +444,7 @@ listen for connections on your local machine&amp;#8217;s &lt;a href="http://loca
 even though you&amp;#8217;re connecting to &lt;em&gt;localhost&lt;/em&gt; it&amp;#8217;ll be Cockpit in the &lt;span class="caps"&gt;VM&lt;/span&gt; you&amp;#8217;re talking&amp;nbsp;to.&lt;/p&gt;
 &lt;p&gt;If you already have Cockpit running on your local machine, then this won&amp;#8217;t work, and you&amp;#8217;ll need to
 use the &lt;span class="caps"&gt;IP&lt;/span&gt; address of the &lt;span class="caps"&gt;VM&lt;/span&gt; instead of &lt;em&gt;localhost&lt;/em&gt;. To find&amp;nbsp;it:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo vagrant ssh-config
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant ssh-config
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -457,7 +457,7 @@ use the &lt;span class="caps"&gt;IP&lt;/span&gt; address of the &lt;span class="
 &lt;p&gt;If there&amp;#8217;s a Cockpit &lt;a href="https://github.com/cockpit-project/cockpit/pulls"&gt;pull request&lt;/a&gt; that you&amp;#8217;d like to
 test, you can now do that with the Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt;.  Replace the &lt;em&gt;0000&lt;/em&gt; in the following command with the
 number of the pull&amp;nbsp;request:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ git fetch origin pull/0000/head
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git fetch origin pull/0000/head
 $ git checkout FETCH_HEAD
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -471,7 +471,7 @@ reflected in&amp;nbsp;Cockpit.&lt;/p&gt;
 to Cockpit package assets. If you change something in the &lt;code&gt;src/&lt;/code&gt; directory, then binaries will have
 to be rebuilt, and testing it via Vagrant won&amp;#8217;t&amp;nbsp;work.&lt;/p&gt;
 &lt;p&gt;I chose change some wording in the sidebar in &lt;code&gt;pkg/shell/index.html&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;          &amp;lt;a data-toggle=&amp;quot;collapse&amp;quot; data-target=&amp;quot;#tools-panel&amp;quot; class=&amp;quot;collapsed&amp;quot; translatable=&amp;quot;yes&amp;quot;&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;          &amp;lt;a data-toggle=&amp;quot;collapse&amp;quot; data-target=&amp;quot;#tools-panel&amp;quot; class=&amp;quot;collapsed&amp;quot; translatable=&amp;quot;yes&amp;quot;&amp;gt;
 -           Tools
 +           Beavers &amp;#39;n Ducks
           &amp;lt;/a&amp;gt;
@@ -491,7 +491,7 @@ you can look at the &lt;a href="http://files.cockpit-project.org/guide/latest/de
 Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt;, you&amp;#8217;ll need to rebuild it. A message like this should appear when that&amp;#8217;s&amp;nbsp;necessary.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Cockpit is incompatible with sources" src="images/cockpit-incompatible-sources.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Rebuild the Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; like&amp;nbsp;this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo vagrant destroy
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant destroy
 $ sudo vagrant up
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -499,12 +499,12 @@ $ sudo vagrant up
 &lt;h2&gt;Troubleshooting&lt;/h2&gt;
 &lt;p&gt;On Fedora, FirewallD got in the way of Vagrants use of &lt;span class="caps"&gt;NFS&lt;/span&gt;. On my machine, I had to do this
 to get it to&amp;nbsp;work:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo firewall-cmd --set-default-zone=trusted
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 0.79 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.79.html" rel="alternate"></link><published>2015-10-07T22:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-07:blog/cockpit-0.79.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.79&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo firewall-cmd --set-default-zone=trusted
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 0.79 Released</title><link href="./cockpit-0.79.html" rel="alternate"></link><published>2015-10-07T22:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-10-07:./cockpit-0.79.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.79&lt;/p&gt;
 &lt;h3&gt;Vagrant&amp;nbsp;File&lt;/h3&gt;
 &lt;p&gt;Cockpit now has a vagrant file. If you want to checkout the latest
 Cockpit, test pull requests, or hack on Cockpit, you&amp;nbsp;can:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo vagrant up
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant up
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -525,7 +525,7 @@ be in a release&amp;nbsp;soon:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.79"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-7e1880ba02"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.78 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.78.html" rel="alternate"></link><published>2015-09-30T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-30:blog/cockpit-0.78.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.78&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.78 Released</title><link href="./cockpit-0.78.html" rel="alternate"></link><published>2015-09-30T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-09-30:./cockpit-0.78.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.78&lt;/p&gt;
 &lt;!--BREAK--&gt;
 
 &lt;h3&gt;Multipath&amp;nbsp;Storage&lt;/h3&gt;
@@ -552,7 +552,7 @@ the &lt;a href="http://files.cockpit-project.org/guide/latest/privileges.html"&g
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.78"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-977ba13a92"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.77 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.77.html" rel="alternate"></link><published>2015-09-23T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-23:blog/cockpit-0.77.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.77&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.77 Released</title><link href="./cockpit-0.77.html" rel="alternate"></link><published>2015-09-23T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-09-23:./cockpit-0.77.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.77&lt;/p&gt;
 &lt;h3&gt;Componentizing&amp;nbsp;Cockpit&lt;/h3&gt;
 &lt;p&gt;Marius and Stef completed a long running refactoring task of splitting
 Cockpit into&amp;nbsp;components.&lt;/p&gt;
@@ -593,13 +593,13 @@ systems can set this warning to be&amp;nbsp;lower.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.77"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-16557"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Making REST calls from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/making-rest-calls-from-javascript-in-cockpit.html" rel="alternate"></link><published>2015-07-10T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-07-10:blog/making-rest-calls-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Making REST calls from Javascript in Cockpit</title><link href="./making-rest-calls-from-javascript-in-cockpit.html" rel="alternate"></link><published>2015-07-10T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-07-10:./making-rest-calls-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. In &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;earlier&lt;/a&gt; &lt;a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html"&gt;tutorials&lt;/a&gt; there&amp;#8217;s a guide on how to add components to&amp;nbsp;Cockpit.&lt;/p&gt;
 &lt;p&gt;Not all of the &lt;a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html"&gt;system APIs use DBus&lt;/a&gt;. So sometimes we find ourselves in a situation where we have to use &lt;span class="caps"&gt;REST&lt;/span&gt; (which is often just treated as another word for &lt;span class="caps"&gt;HTTP&lt;/span&gt;) to talk to certain parts of the system. For example &lt;a href="https://docs.docker.com/reference/api/docker_remote_api/"&gt;Docker has a &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;For this tutorial you&amp;#8217;ll need at least Cockpit 0.58. There was one last tweak that helped with the &lt;code&gt;superuser&lt;/code&gt; option you see below. You can install it in &lt;a href="http://cockpit-project.org/running.html"&gt;Fedora 22&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here we&amp;#8217;ll make a package called &lt;em&gt;docker-info&lt;/em&gt; which shows info about the docker daemon. We use the &lt;code&gt;/info&lt;/code&gt; &lt;a href="https://docs.docker.com/reference/api/docker_remote_api_v1.18/#display-system-wide-information"&gt;docker &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; to retrieve that&amp;nbsp;info.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://cockpit-project.org/files/docker-info.tgz"&gt;docker-info package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ wget http://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
 $ cd docker-info/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/
@@ -607,7 +607,7 @@ $ ln -snf $PWD ~/.local/share/cockpit/
 
 
 &lt;p&gt;Previously we &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;docker-info&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --packages
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cockpit-bridge --packages
 ...
 docker-info: .../.local/share/cockpit/docker-info
 ...
@@ -617,31 +617,31 @@ docker-info: .../.local/share/cockpit/docker-info
 &lt;p&gt;If you&amp;#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the &lt;em&gt;Tools&lt;/em&gt; menu called &lt;em&gt;Docker Info&lt;/em&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Docker Info tool" src="images/cockpit-docker-info.png" /&gt;&lt;/p&gt;
 &lt;p&gt;After a moment, you should see numbers pop up with some stats about the docker daemon. Now in a terminal try to run something&amp;nbsp;like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo docker run -ti fedora /bin/bash
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo docker run -ti fedora /bin/bash
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You should see the numbers update as the container is pulled and started. When you type &lt;code&gt;exit&lt;/code&gt; in the container, you should see the numbers update again. How is this happening? Lets take a look at the &lt;code&gt;docker-info&lt;/code&gt; &lt;span class="caps"&gt;HTML&lt;/span&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Docker Info&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;charset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Docker Daemon Info&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Total Memory: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-memory&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Go Routines: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-routines&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;File Descriptors: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-files&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Containers: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-containers&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Images: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-images&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Docker Info&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Docker Daemon Info&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Total Memory: &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-memory&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Go Routines: &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-routines&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;File Descriptors: &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-files&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Containers: &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-containers&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Images: &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;docker-images&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;?&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;li&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/var/run/docker.sock&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;superuser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;try&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
 
         &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;retrieve_info&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -673,36 +673,36 @@ docker-info: .../.local/share/cockpit/docker-info
         &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;print_failure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
             &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ex&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;First we include &lt;code&gt;jquery.js&lt;/code&gt; and &lt;code&gt;cockpit.js&lt;/code&gt;. &lt;code&gt;cockpit.js&lt;/code&gt; defines the basic &lt;span class="caps"&gt;API&lt;/span&gt; for interacting with the system, as well as Cockpit itself. You can find &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html"&gt;detailed documentation here&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The &lt;span class="caps"&gt;HTML&lt;/span&gt; is pretty basic, defining a little list where the info&amp;nbsp;shown.&lt;/p&gt;
 &lt;p&gt;In the javascript code, first we setup an &lt;span class="caps"&gt;HTTP&lt;/span&gt; client to access docker. Docker listens for &lt;span class="caps"&gt;HTTP&lt;/span&gt; requests on a Unix socket called &lt;code&gt;/var/run/docker.sock&lt;/code&gt;. In addition the permissions on that socket often require escalated privileges to access, so we tell Cockpit to try to gain &lt;code&gt;superuser&lt;/code&gt; privileges for this task, but continue anyway if it&amp;nbsp;cannot:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/var/run/docker.sock&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;superuser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;try&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/var/run/docker.sock&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;superuser&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;try&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;});&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;First we define how to retrieve info from Docker. We use the &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;code&gt;/info&lt;/code&gt; &lt;span class="caps"&gt;API&lt;/span&gt; to do&amp;nbsp;this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;retrieve_info&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/info&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;done&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;process_info&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;print_failure&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function retrieve_info() {
+    var info = docker.get(&amp;quot;/info&amp;quot;);
+    info.done(process_info);
+    info.fail(print_failure);
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In a browser you cannot stop and wait until a &lt;span class="caps"&gt;REST&lt;/span&gt; call completes. Anything that doesn&amp;#8217;t happen instantaneously gets its results reported back to you by &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done"&gt;means of callback handlers&lt;/a&gt;. jQuery has a standard interface &lt;a href="http://api.jquery.com/deferred.promise/"&gt;called a promise&lt;/a&gt;. You add handlers by calling the &lt;code&gt;.done()&lt;/code&gt; or &lt;code&gt;.fail()&lt;/code&gt; methods and registering&amp;nbsp;callbacks.&lt;/p&gt;
 &lt;p&gt;The result of the &lt;code&gt;/info&lt;/code&gt; call is &lt;span class="caps"&gt;JSON&lt;/span&gt;, and we process it here. This is standard jQuery for filling in text data into the various&amp;nbsp;elements:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;process_info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;process_info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;resp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;JSON&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#docker-memory&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;MemTotal&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#docker-routines&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;resp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;NGoroutines&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -714,18 +714,18 @@ docker-info: .../.local/share/cockpit/docker-info
 
 
 &lt;p&gt;And then we trigger the invocation of our &lt;code&gt;/info&lt;/code&gt; &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;span class="caps"&gt;API&lt;/span&gt;&amp;nbsp;call.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* First time */&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* First time */&lt;/span&gt;
 &lt;span class="nx"&gt;retrieve_info&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Because we want to react to changes in Docker state, we also start a long request to its &lt;code&gt;/events&lt;/code&gt; &lt;span class="caps"&gt;API&lt;/span&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;events&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/events&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;events&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;docker&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/events&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;.get("/events")&lt;/code&gt; call returns a jQuery Promise. When a line of event data arrives, the &lt;code&gt;.stream()&lt;/code&gt; callback in invoked, and we use it to trigger a reload of the Docker&amp;nbsp;info.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;events&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;got_event&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;events&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;got_event&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="nx"&gt;events&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;always&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;print_failure&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;got_event&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -734,17 +734,17 @@ docker-info: .../.local/share/cockpit/docker-info
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This is a simple example, but I hope it helps you get started. There are further &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http"&gt;javascript calls&lt;/a&gt;. Obviously you can also do &lt;code&gt;POST&lt;/code&gt; and so&amp;nbsp;on.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit’s Kubernetes Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-kubernetes-dashboard.html" rel="alternate"></link><published>2015-06-09T23:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-06-09:blog/cockpit-kubernetes-dashboard.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a video showing what I&amp;#8217;ve been working on together with some help from a couple Cockpit folks. It&amp;#8217;s a &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; dashboard for&amp;nbsp;Kubernetes.&lt;/p&gt;
+&lt;p&gt;This is a simple example, but I hope it helps you get started. There are further &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http"&gt;javascript calls&lt;/a&gt;. Obviously you can also do &lt;code&gt;POST&lt;/code&gt; and so&amp;nbsp;on.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit’s Kubernetes Dashboard</title><link href="./cockpit-kubernetes-dashboard.html" rel="alternate"></link><published>2015-06-09T23:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2015-06-09:./cockpit-kubernetes-dashboard.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a video showing what I&amp;#8217;ve been working on together with some help from a couple Cockpit folks. It&amp;#8217;s a &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; dashboard for&amp;nbsp;Kubernetes.&lt;/p&gt;
 &lt;p&gt;If you haven&amp;#8217;t heard about &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; &amp;#8230; it&amp;#8217;s a way to schedule docker containers across a cluster of machines, and take care of their networking, storage, name resolution etc. It&amp;#8217;s not completely baked, but pretty cool when it&amp;nbsp;works.&lt;/p&gt;
 &lt;iframe src="http://www.youtube.com/embed/Fcfsu22RssU" html5=1 frameborder="0" height="450" width="800" type="text/html"&gt;
 &lt;/iframe&gt;
 
 &lt;p&gt;The Cockpit dashboard you see in the video isn&amp;#8217;t done by any means &amp;#8230; there&amp;#8217;s a lot missing. But I&amp;#8217;m pretty happy with what we have so far. I&amp;#8217;m using Cockpit 0.61 in the demo. There are some nagging details to make things work, but hopefully we can solve them later. The Nulecule support isn&amp;#8217;t merged yet, &lt;a href="https://github.com/cockpit-project/cockpit/pull/2332"&gt;Subin has been working on it&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The Cockpit dashboard actually mostly works with &lt;a href="https://github.com/openshift/origin"&gt;Openshift v3&lt;/a&gt;. Openshift v3 is based on Kubernetes underneath, which makes apps that are developed there really&amp;nbsp;portable.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Protocol for Web access to System APIs</title><link href="http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html" rel="alternate"></link><published>2014-12-16T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-12-16:blog/protocol-for-web-access-to-system-apis.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.48 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Cockpit dashboard actually mostly works with &lt;a href="https://github.com/openshift/origin"&gt;Openshift v3&lt;/a&gt;. Openshift v3 is based on Kubernetes underneath, which makes apps that are developed there really&amp;nbsp;portable.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Protocol for Web access to System APIs</title><link href="./protocol-for-web-access-to-system-apis.html" rel="alternate"></link><published>2014-12-16T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-12-16:./protocol-for-web-access-to-system-apis.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.48 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;A Linux system today has a lot of local system configuration APIs. I&amp;#8217;m not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the &lt;span class="caps"&gt;API&lt;/span&gt; by which we configure a Linux system. In &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; we access these APIs from a web browser (after authentication of&amp;nbsp;course).&lt;/p&gt;
 &lt;p&gt;How do we access the system APIs? The answer is the &lt;code&gt;cockpit-bridge&lt;/code&gt; tool. It proxies requests from the Cockpit user interface, running in a web browser, to the system. Typically the &lt;code&gt;cockpit-bridge&lt;/code&gt; runs as the logged in user, in a user session. It has similar permissions and capabilities as if you had used &lt;code&gt;ssh&lt;/code&gt; to log into the&amp;nbsp;system.&lt;/p&gt;
 &lt;p&gt;Lets look at an example DBus &lt;span class="caps"&gt;API&lt;/span&gt; that we call from Cockpit. systemd has an &lt;span class="caps"&gt;API&lt;/span&gt; to set the system host name, called &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/hostnamed/"&gt;SetStaticHostname&lt;/a&gt;. In Cockpit we can invoke that &lt;span class="caps"&gt;API&lt;/span&gt; using simple &lt;span class="caps"&gt;JSON&lt;/span&gt; like&amp;nbsp;this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;{
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
   &amp;quot;call&amp;quot;: [
     &amp;quot;/org/freedesktop/hostname1&amp;quot;,
     &amp;quot;org.freedesktop.hostname1&amp;quot;,
@@ -759,7 +759,7 @@ docker-info: .../.local/share/cockpit/docker-info
 &lt;p&gt;&lt;strong&gt;Following along:&lt;/strong&gt; In order to follow along with the stuff below, you&amp;#8217;ll need at least Cockpit 0.48. The protocol is not yet frozen, and we merged some cleanup recently. You can install it on &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21 using a &lt;span class="caps"&gt;COPR&lt;/span&gt;&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Channels&lt;/h2&gt;
 &lt;p&gt;Cockpit can be doing lots of things at the same time and we don&amp;#8217;t want to have to open a new WebSocket each time. So we allow the protocol to be shared by multiple concurrent tasks. Each of these is assigned a &lt;em&gt;channel&lt;/em&gt;. Channels have a string identifier. The data transferred in a channel is called the payload. To combine these into a message I simply concatenate the identifier, a new line, and the payload. Lets say I wanted to send the message &lt;code&gt;Oh marmalade!&lt;/code&gt; over the channel called &lt;code&gt;scruffy&lt;/code&gt; the message would look like&amp;nbsp;this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;scruffy
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scruffy
 Oh marmalade!
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -768,19 +768,19 @@ Oh marmalade!
 &lt;h2&gt;Framing&lt;/h2&gt;
 &lt;p&gt;In order to pass a message based protocol over a plain stream, such the standard in and standard out of &lt;code&gt;cockpit-bridge&lt;/code&gt;, one needs some form of framing. This framing is not used when the messages are passed over a WebSocket, since WebSockets inherently have a message&amp;nbsp;concept.&lt;/p&gt;
 &lt;p&gt;The framing the &lt;code&gt;cockpit-bridge&lt;/code&gt; uses is simply the byte length of the message, encoded as a string, and followed by a new line. So Scruffy&amp;#8217;s 21 byte message above, when sent over a stream, would like&amp;nbsp;this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;21
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;21
 scruffy
 Oh marmalade!
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Alternatively, when debugging or testing &lt;code&gt;cockpit-bridge&lt;/code&gt; you can run in an interactive mode, where we frame our messages by using boundaries. That way we don&amp;#8217;t have to count the byte length of all of our messages meticulously, if we&amp;#8217;re writing them by hand. We specify the boundary when invoking &lt;code&gt;cockpit-bridge&lt;/code&gt; like&amp;nbsp;so:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --interact=----
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cockpit-bridge --interact=----
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And then we can send a message by using the &lt;code&gt;----&lt;/code&gt; boundary on a line by&amp;nbsp;itself:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;scruffy
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scruffy
 Oh marmalade!
 ----
 &lt;/pre&gt;&lt;/div&gt;
@@ -812,7 +812,7 @@ Oh marmalade!
 
 &lt;h2&gt;Try it&amp;nbsp;out&lt;/h2&gt;
 &lt;p&gt;So combining our knowledge so far, we can run the&amp;nbsp;following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --interact=----
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cockpit-bridge --interact=----
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -898,8 +898,8 @@ mydbus
 &lt;p&gt;Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by &lt;code&gt;cockpit-ws&lt;/code&gt;. &lt;code&gt;cockpit-ws&lt;/code&gt; then passes them on to &lt;code&gt;cockpit-bridge&lt;/code&gt;. You can communicate this way too, if you &lt;a href="http://files.cockpit-project.org/guide/cockpit.conf.5.html"&gt;configure Cockpit to accept different Websocket Origins&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;And on it&amp;nbsp;goes&lt;/h2&gt;
 &lt;p&gt;There are payload types for reading files, replacing them, connecting to unix sockets, accessing system resource metrics, doing local &lt;span class="caps"&gt;HTTP&lt;/span&gt; requests, and more. Once the protocol is stable, solid documentation is in&amp;nbsp;order.&lt;/p&gt;
-&lt;p&gt;I hope that this has given some insight into how Cockpit works under the hood. If you&amp;#8217;re interested in using this same protocol, I&amp;#8217;d love to get feedback &amp;#8230; especially while the basics of the protocol are not yet&amp;nbsp;frozen.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit on RHEL Atomic Beta</title><link href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html" rel="alternate"></link><published>2014-11-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-20:blog/cockpit-on-rhel-atomic-beta.html</id><summary type="html">&lt;p&gt;If you&amp;#8217;ve tried out the &lt;a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"&gt;&lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic Host Beta&lt;/a&gt; you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&amp;#8217;s an easy work&amp;nbsp;around:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
+&lt;p&gt;I hope that this has given some insight into how Cockpit works under the hood. If you&amp;#8217;re interested in using this same protocol, I&amp;#8217;d love to get feedback &amp;#8230; especially while the basics of the protocol are not yet&amp;nbsp;frozen.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit on RHEL Atomic Beta</title><link href="./cockpit-on-rhel-atomic-beta.html" rel="alternate"></link><published>2014-11-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-11-20:./cockpit-on-rhel-atomic-beta.html</id><summary type="html">&lt;p&gt;If you&amp;#8217;ve tried out the &lt;a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"&gt;&lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic Host Beta&lt;/a&gt; you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&amp;#8217;s an easy work&amp;nbsp;around:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -908,19 +908,19 @@ mydbus
 &lt;li&gt;Only really allows Cockpit to be used as&amp;nbsp;root.&lt;/li&gt;
 &lt;li&gt;The Storage and user accounts UIs don&amp;#8217;t&amp;nbsp;work.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;And in general privileged containers are a mixed bag. They&amp;#8217;re not portable, and really not containers at all, in the sense that they&amp;#8217;re not contained.  But this is an easy way to get Cockpit going on &lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic for the time&amp;nbsp;being.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="rhel"></category><category term="atomic"></category></entry><entry><title>Creating Plugins for the Cockpit User Interface</title><link href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:blog/creating-plugins-for-the-cockpit-user-interface.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And in general privileged containers are a mixed bag. They&amp;#8217;re not portable, and really not containers at all, in the sense that they&amp;#8217;re not contained.  But this is an easy way to get Cockpit going on &lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic for the time&amp;nbsp;being.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="rhel"></category><category term="atomic"></category></entry><entry><title>Creating Plugins for the Cockpit User Interface</title><link href="./creating-plugins-for-the-cockpit-user-interface.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-11-13:./creating-plugins-for-the-cockpit-user-interface.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is &lt;span class="caps"&gt;HTML&lt;/span&gt;, with Javascript logic that makes it work, and &lt;span class="caps"&gt;CSS&lt;/span&gt; to make it&amp;nbsp;pretty.&lt;/p&gt;
 &lt;p&gt;It&amp;#8217;s real easy to create these components. Tools are components that show up in the &lt;em&gt;Tools&lt;/em&gt; menu in&amp;nbsp;Cockpit:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Tools menu" src="images/cockpit-tools-default.png" /&gt;&lt;/p&gt;
 &lt;p&gt;For example the &lt;em&gt;Terminal&lt;/em&gt; that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you&amp;#8217;ll need Cockpit 0.41. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So break out your terminal, lets make a package called &lt;em&gt;pinger&lt;/em&gt; that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&amp;#8217;ll just be spawning a process on the server to do the work. I&amp;#8217;ve prepared it for you as &lt;a href="http://cockpit-project.org/files/pinger.tgz"&gt;an example here&lt;/a&gt;, and we can look it over, and modify it. To download the example to your current&amp;nbsp;directory:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
 $ cd pinger/
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Components, and more specifically their &lt;span class="caps"&gt;HTML&lt;/span&gt; and Javascript files, live in package directories. In the package directory there&amp;#8217;s also a &lt;code&gt;manifest.json&lt;/code&gt; file which tells Cockpit about the package. The &lt;code&gt;pinger&lt;/code&gt; directory above is such a package. It&amp;#8217;s &lt;code&gt;manifest.json&lt;/code&gt; file looks like&amp;nbsp;this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;{
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
     &amp;quot;version&amp;quot;: 0,
     &amp;quot;tools&amp;quot;: {
         &amp;quot;pinger&amp;quot;: {
@@ -942,13 +942,13 @@ In your home directory, for user specific packages, and ones that you&amp;#8217;
 For installed packages available to all users. These should not be changed while Cockpit is&amp;nbsp;running.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Since we&amp;#8217;re going to be messing around with this package, lets symlink it into the former&amp;nbsp;location.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ mkdir -p ~/.local/share/cockpit
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/pinger
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can list which Cockpit packages are installed using the following command, and you should see &lt;code&gt;pinger&lt;/code&gt; listed among&amp;nbsp;them:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --packages
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cockpit-bridge --packages
 ...
 pinger: /home/.../.local/share/cockpit/pinger
 ...
@@ -960,28 +960,28 @@ pinger: /home/.../.local/share/cockpit/pinger
 &lt;p&gt;The pinger tool itself looks like&amp;nbsp;this:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-pinger-tool.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Lets take a look at the pinger &lt;span class="caps"&gt;HTML&lt;/span&gt;, and see how it&amp;nbsp;works.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Pinger&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;charset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;max-width: 400px&amp;#39;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cockpit-form-table&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Address&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-control&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;address&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;8.8.8.8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;btn btn-primary&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ping&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Ping&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;result&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&amp;lt;pre&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;output&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Pinger&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;max-width: 400px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cockpit-form-table&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Address&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;input&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-control&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;address&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;8.8.8.8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;button&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;btn btn-primary&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ping&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Ping&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;button&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;result&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;pre&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;output&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;pre&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;address&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#address&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#output&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#result&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -1011,34 +1011,34 @@ pinger: /home/.../.local/share/cockpit/pinger
         &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;ping_output&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
             &lt;span class="nx"&gt;output&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createTextNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;/html&gt;&lt;/p&gt;
 &lt;p&gt;First we include &lt;code&gt;jquery.js&lt;/code&gt; and &lt;code&gt;cockpit.js&lt;/code&gt;. &lt;code&gt;cockpit.js&lt;/code&gt; defines the basic &lt;span class="caps"&gt;API&lt;/span&gt; for interacting with the system, as well as Cockpit itself. You can find &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html"&gt;detailed documentation here&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The &lt;span class="caps"&gt;HTML&lt;/span&gt; is pretty basic, defining a little form with a field to type an address, a button to click to start the pinging, and an area to present output and&amp;nbsp;results.&lt;/p&gt;
 &lt;p&gt;In the javascript code, first we get a bunch of variables pointing to the &lt;span class="caps"&gt;HTML&lt;/span&gt; elements we want to interact with.
 Next we attach a handler to the &lt;em&gt;Ping&lt;/em&gt; button so that the &lt;code&gt;ping_run()&lt;/code&gt; function is called when it is&amp;nbsp;clicked.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#ping&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;ping_run&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#ping&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;ping_run&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;ping_run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In the &lt;code&gt;ping_run()&lt;/code&gt; function is where the magic happens. &lt;code&gt;cockpit.spawn&lt;/code&gt; is a function, &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn"&gt;documented here&lt;/a&gt; that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the &lt;code&gt;ping&lt;/code&gt; command with some&amp;nbsp;arguments:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;proc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;spawn&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ping&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;address&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;()]);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;proc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;spawn&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ping&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;-c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;address&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;()]);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In a web browser you cannot block and wait until a method call completes. Anything that doesn&amp;#8217;t happen instantaneously gets its results reported back to you by &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done"&gt;means of callback handlers&lt;/a&gt;. jQuery has a standard interface &lt;a href="http://api.jquery.com/deferred.promise/"&gt;called a promise&lt;/a&gt;. You add handlers by calling the &lt;code&gt;.done()&lt;/code&gt; or &lt;code&gt;.fail()&lt;/code&gt; methods and registering callbacks. &lt;code&gt;proc.stream()&lt;/code&gt; registers a callback to be invoked whenever the process produces&amp;nbsp;output.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="nx"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;done&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ping_success&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nx"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;done&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ping_success&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="nx"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;stream&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ping_output&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="nx"&gt;proc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ping_fail&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;...&lt;/span&gt;
@@ -1047,12 +1047,12 @@ Next we attach a handler to the &lt;em&gt;Ping&lt;/em&gt; button so that the &lt
 
 
 &lt;p&gt;The &lt;code&gt;ping_success()&lt;/code&gt; and &lt;code&gt;ping_fail()&lt;/code&gt; and &lt;code&gt;ping_output()&lt;/code&gt; update the display as you would&amp;nbsp;expect.&lt;/p&gt;
-&lt;p&gt;So there you go &amp;#8230; it&amp;#8217;s a simple plugin to start off with &amp;#8230; next time we&amp;#8217;ll cover &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;how to use DBus&lt;/a&gt;, and then the real fun&amp;nbsp;begins.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Using DBus from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:blog/using-dbus-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So there you go &amp;#8230; it&amp;#8217;s a simple plugin to start off with &amp;#8230; next time we&amp;#8217;ll cover &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;how to use DBus&lt;/a&gt;, and then the real fun&amp;nbsp;begins.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Using DBus from Javascript in Cockpit</title><link href="./using-dbus-from-javascript-in-cockpit.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-11-13:./using-dbus-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. As we covered in the &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;last tutorial&lt;/a&gt; you can add user interface component to Cockpit, and build your own parts of the Server &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Much of Cockpit interacts with the server using DBus. We have a powerful yet simple &lt;span class="caps"&gt;API&lt;/span&gt; for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you&amp;#8217;ll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here we&amp;#8217;ll make a package called &lt;em&gt;zoner&lt;/em&gt; which lets you set the time zone of your server. We use the systemd &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated DBus &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; to do actually switch time&amp;nbsp;zones.&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;ve prepared the &lt;a href="http://cockpit-project.org/files/zoner.tgz"&gt;zoner package here&lt;/a&gt;. It&amp;#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&amp;nbsp;package:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
 $ cd zoner/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/zoner
@@ -1060,7 +1060,7 @@ $ ln -snf $PWD ~/.local/share/cockpit/zoner
 
 
 &lt;p&gt;Previously we &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;talked about&lt;/a&gt; how packages are installed, and what &lt;code&gt;manifest.json&lt;/code&gt; does so I won&amp;#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see &lt;code&gt;zoner&lt;/code&gt; listed in the&amp;nbsp;output:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ cockpit-bridge --packages
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cockpit-bridge --packages
 ...
 zoner: .../.local/share/cockpit/zoner
 ...
@@ -1070,43 +1070,43 @@ zoner: .../.local/share/cockpit/zoner
 &lt;p&gt;If you&amp;#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the &lt;em&gt;Tools&lt;/em&gt; menu called &lt;em&gt;Time Zone&lt;/em&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-zoner-tool.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Try it out by typing &lt;code&gt;Australia/Tasmania&lt;/code&gt; in the box, and clicking &lt;em&gt;Change&lt;/em&gt;. You should see that the &lt;em&gt;Time Zone&lt;/em&gt; changes. You can verify this by typing the following on the same server in a&amp;nbsp;terminal:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ date
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ date
 Sa 15. Nov 01:48:01 AEDT 2014
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Try typing an invalid timezone like &lt;code&gt;blah&lt;/code&gt;, and you&amp;#8217;ll see an error message displayed. Now try changing the timezone from the terminal using the &lt;code&gt;timedatectl&lt;/code&gt; command while you have Cockpit open displaying your &lt;em&gt;Time Zone&lt;/em&gt;&amp;nbsp;screen:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;$ sudo timedatectl set-timezone UTC
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo timedatectl set-timezone UTC
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You should see your timezone on your screen update immediately to reflect the new state of the server. So how does this work? Lets take a look at the zoner &lt;span class="caps"&gt;HTML&lt;/span&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Time Zone&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;charset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;max-width: 400px&amp;#39;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cockpit-form-table&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;Time Zone&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;current&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt;New Zone&lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-control&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;new&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTC&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;button&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;btn btn-default btn-primary&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;change&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Change&lt;span class="nt"&gt;&amp;lt;/button&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;failure&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Time Zone&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;container-fluid&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;max-width: 400px&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cockpit-form-table&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Time Zone&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;current&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;New Zone&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;input&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-control&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;new&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTC&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;button&lt;/span&gt; &lt;span class="na"&gt;class&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;btn btn-default btn-primary&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;change&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Change&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;button&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;failure&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;td&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;tr&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;table&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 
-    &lt;span class="nt"&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;input&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#new&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;current&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#current&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;failure&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#failure&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
@@ -1131,55 +1131,55 @@ Sa 15. Nov 01:48:01 AEDT 2014
             &lt;span class="nx"&gt;failure&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;message&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
 
-    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;First we include &lt;code&gt;jquery.js&lt;/code&gt; and &lt;code&gt;cockpit.js&lt;/code&gt;. &lt;code&gt;cockpit.js&lt;/code&gt; defines the basic &lt;span class="caps"&gt;API&lt;/span&gt; for interacting with the system, as well as Cockpit itself. You can find &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html"&gt;detailed documentation here&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/jquery.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;../base1/cockpit.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The &lt;span class="caps"&gt;HTML&lt;/span&gt; is pretty basic, defining a little form where the current timezone is shown, a field to type an address, a button to click change to a new one, and an area to show&amp;nbsp;errors.&lt;/p&gt;
 &lt;p&gt;In the javascript code, first we get a bunch of variables pointing to the &lt;span class="caps"&gt;HTML&lt;/span&gt; elements we want to interact with.
 Next we attach a handler to the &lt;em&gt;Change&lt;/em&gt; button so that the &lt;code&gt;change_zone()&lt;/code&gt; function is called when it is&amp;nbsp;clicked.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#change&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;change_zone&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#change&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;click&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;change_zone&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next we connect to the &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated&lt;/a&gt; DBus service using the &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus"&gt;&lt;code&gt;cockpit.dbus()&lt;/code&gt;&lt;/a&gt;&amp;nbsp;function:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;service&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dbus&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;org.freedesktop.timedate1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;service&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;cockpit&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dbus&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;org.freedesktop.timedate1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy"&gt;&lt;code&gt;.proxy()&lt;/code&gt;&lt;/a&gt; method that you can&amp;nbsp;specify.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;timedate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;service&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;proxy&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;timedate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;service&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;proxy&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Each interface proxy has a &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged"&gt;&lt;code&gt;"changed"&lt;/code&gt;&lt;/a&gt; event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our &lt;code&gt;display_zone()&lt;/code&gt; function and update the display of the current time&amp;nbsp;zone:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;timedate&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;changed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display_zone&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;timedate&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;changed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;display_zone&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;Timezone&lt;/code&gt; is a property on the &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated DBus interface&lt;/a&gt;. We can access these properties directly, and the proxy will keep them up to date. Here we use the property to update our display of the current time&amp;nbsp;zone:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;display_zone&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;current&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;timedate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Timezone&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function display_zone() {
+    current.text(timedate.Timezone);
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;code&gt;SetTimezone&lt;/code&gt; is a method on the &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated DBus interface&lt;/a&gt; interface, and we can invoke it directly as we would a javascript function. In this case we pass the arguments the DBus method expects, a &lt;code&gt;timezone&lt;/code&gt; string, and a &lt;code&gt;user_interaction&lt;/code&gt; boolean.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;change_zone&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;call&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;timedate&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;SetTimezone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;input&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function change_zone() {
+    var call = timedate.SetTimezone(input.val(), true);
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In a web browser you cannot block and wait until a method call completes. Anything that doesn&amp;#8217;t happen instantaneously gets its results reported back to you by &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done"&gt;means of callback handlers&lt;/a&gt;. jQuery has a standard interface &lt;a href="http://api.jquery.com/deferred.promise/"&gt;called a promise&lt;/a&gt;. You add handlers by calling the &lt;code&gt;.done()&lt;/code&gt; or &lt;code&gt;.fail()&lt;/code&gt; methods and registering&amp;nbsp;callbacks.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    call.fail(change_fail);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    call.fail(change_fail);
     failure.empty();
 }
 &lt;/pre&gt;&lt;/div&gt;
@@ -1187,7 +1187,7 @@ Next we attach a handler to the &lt;em&gt;Change&lt;/em&gt; button so that the &
 
 &lt;p&gt;The &lt;code&gt;change_fail()&lt;/code&gt; displays any failures that happen. In this case, &lt;code&gt;SetTimezone&lt;/code&gt; DBus method has no return value, however if there were, we could use something like &lt;code&gt;call.done(myhandler)&lt;/code&gt; to register a handler to receive&amp;nbsp;them.&lt;/p&gt;
 &lt;p&gt;Notice that we relied on DBus to tell us when things changed and just updated the display from our event handler. That way we reacted both when the time zone changed due to an action in Cockpit, as well as an action on the&amp;nbsp;server.&lt;/p&gt;
-&lt;p&gt;Again this is a simple example, but I hope it will whet your appetite to what &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;Cockpit can do with DBus&lt;/a&gt;. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&amp;nbsp;client.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit Multi-Server Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:blog/cockpit-multi-server-dashboard.html</id><summary type="html">&lt;p&gt;Andreas and Marius have been working on implementing a new multi-server dash
+&lt;p&gt;Again this is a simple example, but I hope it will whet your appetite to what &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;Cockpit can do with DBus&lt;/a&gt;. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&amp;nbsp;client.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit Multi-Server Dashboard</title><link href="./cockpit-multi-server-dashboard.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-11-04:./cockpit-multi-server-dashboard.html</id><summary type="html">&lt;p&gt;Andreas and Marius have been working on implementing a new multi-server dash
 board for Cockpit. It&amp;#8217;s really looking&amp;nbsp;great.&lt;/p&gt;
 &lt;p&gt;The goal here is that the dash board should work with either one server or several,
 and give you an overview of what&amp;#8217;s going on. Problems that require attention should
@@ -1204,7 +1204,7 @@ and Cockpit is loaded on the master, we should use information from Kubernetes t
 populate the&amp;nbsp;dashboard.&lt;/p&gt;
 &lt;p&gt;Here are some wireframes, click to&amp;nbsp;expand:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Multi server dashboard wireframes" src="images/navigation-horizontal-2.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/cockpit-project/cockpit/pull/1455"&gt;Pull request is&amp;nbsp;here &lt;/a&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="kubernetes"></category></entry><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:blog/d-bus-is-powerful-ipc.html</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
+&lt;p&gt;&lt;a href="https://github.com/cockpit-project/cockpit/pull/1455"&gt;Pull request is&amp;nbsp;here &lt;/a&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="kubernetes"></category></entry><entry><title>DBus is powerful IPC</title><link href="./d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-11-04:./d-bus-is-powerful-ipc.html</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
 &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md"&gt;WebSocket transport&lt;/a&gt;,
 and marshal them in &lt;span class="caps"&gt;JSON&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
@@ -1232,27 +1232,27 @@ these capabilities are what allow Cockpit to implement its &lt;span class="caps"
 &lt;li&gt;High-level error&amp;nbsp;concept&lt;/li&gt;
 &lt;li&gt;Adhoc type&amp;nbsp;definitions&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Lennart goes into these further &lt;a href="http://youtu.be/HPbQzm_iz_k?t=2m6s"&gt;in a kdbus talk&lt;/a&gt;, as well as some of the weaknesses of&amp;nbsp;DBus.&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry><entry><title>Cockpit has Docker pull support</title><link href="http://cockpit-project.org/blog/cockpit-has-docker-pull-support.html" rel="alternate"></link><published>2014-06-24T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-24:blog/cockpit-has-docker-pull-support.html</id><summary type="html">&lt;p&gt;Cockpit 0.12 now has support for pulling Docker images from the
+&lt;p&gt;Lennart goes into these further &lt;a href="http://youtu.be/HPbQzm_iz_k?t=2m6s"&gt;in a kdbus talk&lt;/a&gt;, as well as some of the weaknesses of&amp;nbsp;DBus.&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry><entry><title>Cockpit has Docker pull support</title><link href="./cockpit-has-docker-pull-support.html" rel="alternate"></link><published>2014-06-24T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-06-24:./cockpit-has-docker-pull-support.html</id><summary type="html">&lt;p&gt;Cockpit 0.12 now has support for pulling Docker images from the
 &lt;a href="https://registry.hub.docker.com/"&gt;Docker registry&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Docker pull support" src="images/cockpit-docker-pull.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Unfortunately Docker doesn&amp;#8217;t have support for cancelling the pull of an image. So that
-sort of hampers the &lt;span class="caps"&gt;UI&lt;/span&gt; a bit. At least for&amp;nbsp;now.&lt;/p&gt;</summary><category term="cockpit"></category><category term="docker"></category></entry><entry><title>Cockpit Simple Networking Configuration</title><link href="http://cockpit-project.org/blog/cockpit-simple-networking-configuration.html" rel="alternate"></link><published>2014-06-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-20:blog/cockpit-simple-networking-configuration.html</id><summary type="html">&lt;p&gt;Cockpit 0.11 now has an all new simple Networking &lt;span class="caps"&gt;UI&lt;/span&gt;. Still some work to do, but it&amp;#8217;s
+sort of hampers the &lt;span class="caps"&gt;UI&lt;/span&gt; a bit. At least for&amp;nbsp;now.&lt;/p&gt;</summary><category term="cockpit"></category><category term="docker"></category></entry><entry><title>Cockpit Simple Networking Configuration</title><link href="./cockpit-simple-networking-configuration.html" rel="alternate"></link><published>2014-06-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-06-20:./cockpit-simple-networking-configuration.html</id><summary type="html">&lt;p&gt;Cockpit 0.11 now has an all new simple Networking &lt;span class="caps"&gt;UI&lt;/span&gt;. Still some work to do, but it&amp;#8217;s
 coming together. You can see it&amp;nbsp;here:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="network-manager"></category><category term="linux"></category></entry><entry><title>Cockpit does Docker</title><link href="http://cockpit-project.org/blog/cockpit-does-docker.html" rel="alternate"></link><published>2014-04-25T19:39:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-25:blog/cockpit-does-docker.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a short video showing how Cockpit manages Docker containers.
+&lt;p&gt;&lt;img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="network-manager"></category><category term="linux"></category></entry><entry><title>Cockpit does Docker</title><link href="./cockpit-does-docker.html" rel="alternate"></link><published>2014-04-25T19:39:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-04-25:./cockpit-does-docker.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a short video showing how Cockpit manages Docker containers.
 Cockpit is in &lt;span class="caps"&gt;RHEL&lt;/span&gt; branding here, but it&amp;#8217;s basically the same thing as
 you get from &lt;a href="http://cockpit-project.org/"&gt;cockpit-project.org&lt;/a&gt;&lt;/p&gt;
 &lt;iframe src="//www.youtube.com/embed/5dM4CqIp2s4" allowfullscreen="" frameborder="0" height="480" width="853"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;This &lt;span class="caps"&gt;UI&lt;/span&gt; is going to be refined somewhat, but it&amp;#8217;s nice to see things
-coming&amp;nbsp;together.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Cockpit has a terminal</title><link href="http://cockpit-project.org/blog/cockpit-has-terminal.html" rel="alternate"></link><published>2014-04-22T16:06:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-22:blog/cockpit-has-terminal.html</id><summary type="html">&lt;p&gt;&lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt; 0.5 now has a nice terminal in a web browser. &lt;span class="caps"&gt;AKA&lt;/span&gt;
+coming&amp;nbsp;together.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Cockpit has a terminal</title><link href="./cockpit-has-terminal.html" rel="alternate"></link><published>2014-04-22T16:06:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-04-22:./cockpit-has-terminal.html</id><summary type="html">&lt;p&gt;&lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt; 0.5 now has a nice terminal in a web browser. &lt;span class="caps"&gt;AKA&lt;/span&gt;
 &lt;a href="https://github.com/chjj/term.js/"&gt;term.js&lt;/a&gt; is&amp;nbsp;awesome.  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit terminal" src="images/cockpit-terminal.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Introducing Cockpit</title><link href="http://cockpit-project.org/blog/introducing-cockpit.html" rel="alternate"></link><published>2014-02-13T12:46:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-02-13:blog/introducing-cockpit.html</id><summary type="html">&lt;p&gt;Gave a &lt;a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf"&gt;talk at DevConf&lt;/a&gt; in Brno about the project a bunch of us have
+&lt;p&gt;&lt;img alt="Cockpit terminal" src="images/cockpit-terminal.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Introducing Cockpit</title><link href="./introducing-cockpit.html" rel="alternate"></link><published>2014-02-13T12:46:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:,2014-02-13:./introducing-cockpit.html</id><summary type="html">&lt;p&gt;Gave a &lt;a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf"&gt;talk at DevConf&lt;/a&gt; in Brno about the project a bunch of us have
 been working on: &lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt;. It&amp;#8217;s a &lt;span class="caps"&gt;UI&lt;/span&gt; for Linux Servers. Currently in
 the prototype&amp;nbsp;stage&amp;#8230;  &lt;/p&gt;
 &lt;p&gt;&lt;img alt="Cockpit login" src="images/cockpit1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Hopefully there&amp;#8217;ll be a video of the talk available soon. You can try
 out the Cockpit prototype in Fedora like&amp;nbsp;so:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;# yum install --enablerepo=updates-testing cockpit
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# yum install --enablerepo=updates-testing cockpit
 # setenforce 0 # issue 200
 # systemctl enable cockpit-ws.socket
 $ xdg-open http://localhost:21064

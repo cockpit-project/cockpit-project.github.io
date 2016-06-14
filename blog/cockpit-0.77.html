@@ -3,11 +3,13 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link href="./../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="./../bootstrap/css/cockpit.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
   <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 
@@ -35,31 +37,28 @@ Cockpit 0.77 Released  </title>
 </head>
 
 <body>
-  <aside>
-    <div id="user_meta">
-      <a href="/">
-        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
-      </a>
-      <h2><a href="/">Cockpit Project</a></h2>
-      <p>Cockpit Project</p>
-      <ul>
-        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/release.html" target="_blank">Release Notes</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/tutorial.html" target="_blank">Tutorials</a></li>
-      </ul>
-    </div>
-  </aside>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="./../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href=".">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="./../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
 
   <main>
     <header>
       <p>
-      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.77.html">Cockpit 0.77&nbsp;Released</a></h1>
+    <h1><a href="./cockpit-0.77.html">Cockpit 0.77&nbsp;Released</a></h1>
   </div>
   <div class="article_text">
     <p>Cockpit releases every week. This week it was&nbsp;0.77</p>
@@ -107,18 +106,23 @@ systems can set this warning to be&nbsp;lower.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Mi 23 September 2015</p>
-    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+    <p>Category: <a href="./category/release.html">release</a>
  &ndash; Tags:
-      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+      <a href="./tag/cockpit.html">cockpit</a>,      <a href="./tag/linux.html">linux</a>,      <a href="./tag/technical.html">technical</a>    </p>
   </div>
 
 
 </article>
 
 
-    <div id="ending_message">
-      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
-    </div>
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2015</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
   </main>
+
 </body>
 </html>

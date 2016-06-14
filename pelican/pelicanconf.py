@@ -6,14 +6,12 @@ TYPOGRIFY = True
 
 AUTHOR = u'Cockpit Project'
 SITENAME = u'Cockpit Project'
-SITEURL = ''
+SITEURL = 'http://cockpit-project.org/blog/'
 TAGLINE = u'Cockpit Project'
 
 TIMEZONE = 'Utc'
 
 DEFAULT_LANG = u'en'
-
-SITEURL = 'http://cockpit-project.org/blog'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -21,11 +19,7 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (
-          ('Cockpit', 'http://cockpit-project.org/'),
-          ('Release Notes', 'http://cockpit-project.org/blog/category/release.html'),
-          ('Tutorials', 'http://cockpit-project.org/blog/category/tutorial.html'),
-)
+LINKS =  ()
 
 # Social widget
 SOCIAL = ()
@@ -33,6 +27,8 @@ SOCIAL = ()
 DEFAULT_PAGINATION = 10
 
 STATIC_PATHS = ['images']
+
+CSS_FILE = 'main.css'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

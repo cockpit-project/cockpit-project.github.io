@@ -3,11 +3,13 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link href="./../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="./../bootstrap/css/cockpit.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
   <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 
@@ -35,31 +37,28 @@ Using DBus from Javascript in Cockpit  </title>
 </head>
 
 <body>
-  <aside>
-    <div id="user_meta">
-      <a href="/">
-        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
-      </a>
-      <h2><a href="/">Cockpit Project</a></h2>
-      <p>Cockpit Project</p>
-      <ul>
-        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/release.html" target="_blank">Release Notes</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/tutorial.html" target="_blank">Tutorials</a></li>
-      </ul>
-    </div>
-  </aside>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="./../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href=".">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="./../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
 
   <main>
     <header>
       <p>
-      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html">Using DBus from Javascript in&nbsp;Cockpit</a></h1>
+    <h1><a href="./using-dbus-from-javascript-in-cockpit.html">Using DBus from Javascript in&nbsp;Cockpit</a></h1>
   </div>
   <div class="article_text">
     <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
@@ -67,7 +66,7 @@ Using DBus from Javascript in Cockpit  </title>
 <p>Much of Cockpit interacts with the server using DBus. We have a powerful yet simple <span class="caps">API</span> for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you&#8217;ll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in <a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html">Fedora 21</a> or <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">build it from git</a>.</p>
 <p>Here we&#8217;ll make a package called <em>zoner</em> which lets you set the time zone of your server. We use the systemd <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus <span class="caps">API</span></a> to do actually switch time&nbsp;zones.</p>
 <p>I&#8217;ve prepared the <a href="http://cockpit-project.org/files/zoner.tgz">zoner package here</a>. It&#8217;s just two files. To download them and extract to your current directory, and installs it as a Cockpit&nbsp;package:</p>
-<div class="highlight"><pre>$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
+<div class="highlight"><pre><span></span>$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
 $ cd zoner/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/zoner
@@ -75,7 +74,7 @@ $ ln -snf $PWD ~/.local/share/cockpit/zoner
 
 
 <p>Previously we <a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">talked about</a> how packages are installed, and what <code>manifest.json</code> does so I won&#8217;t repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see <code>zoner</code> listed in the&nbsp;output:</p>
-<div class="highlight"><pre>$ cockpit-bridge --packages
+<div class="highlight"><pre><span></span>$ cockpit-bridge --packages
 ...
 zoner: .../.local/share/cockpit/zoner
 ...
@@ -85,43 +84,43 @@ zoner: .../.local/share/cockpit/zoner
 <p>If you&#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the <em>Tools</em> menu called <em>Time Zone</em>:</p>
 <p><img alt="Pinger tool" src="images/cockpit-zoner-tool.png" /></p>
 <p>Try it out by typing <code>Australia/Tasmania</code> in the box, and clicking <em>Change</em>. You should see that the <em>Time Zone</em> changes. You can verify this by typing the following on the same server in a&nbsp;terminal:</p>
-<div class="highlight"><pre>$ date
+<div class="highlight"><pre><span></span>$ date
 Sa 15. Nov 01:48:01 AEDT 2014
 </pre></div>
 
 
 <p>Try typing an invalid timezone like <code>blah</code>, and you&#8217;ll see an error message displayed. Now try changing the timezone from the terminal using the <code>timedatectl</code> command while you have Cockpit open displaying your <em>Time Zone</em>&nbsp;screen:</p>
-<div class="highlight"><pre>$ sudo timedatectl set-timezone UTC
+<div class="highlight"><pre><span></span>$ sudo timedatectl set-timezone UTC
 </pre></div>
 
 
 <p>You should see your timezone on your screen update immediately to reflect the new state of the server. So how does this work? Lets take a look at the zoner <span class="caps">HTML</span>:</p>
-<div class="highlight"><pre><span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>Time Zone<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;../base1/cockpit.css&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container-fluid&quot;</span> <span class="na">style=</span><span class="s">&#39;max-width: 400px&#39;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;cockpit-form-table&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;tr&gt;</span>
-                <span class="nt">&lt;td&gt;</span>Time Zone<span class="nt">&lt;/td&gt;</span>
-                <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">id=</span><span class="s">&quot;current&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/td&gt;</span>
-            <span class="nt">&lt;/tr&gt;</span>
-            <span class="nt">&lt;tr&gt;</span>
-                <span class="nt">&lt;td&gt;</span>New Zone<span class="nt">&lt;/td&gt;</span>
-                <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">id=</span><span class="s">&quot;new&quot;</span> <span class="na">value=</span><span class="s">&quot;UTC&quot;</span><span class="nt">&gt;&lt;/td&gt;</span>
-            <span class="nt">&lt;/tr&gt;</span>
-            <span class="nt">&lt;tr&gt;</span>
-                <span class="nt">&lt;td&gt;&lt;button</span> <span class="na">class=</span><span class="s">&quot;btn btn-default btn-primary&quot;</span> <span class="na">id=</span><span class="s">&quot;change&quot;</span><span class="nt">&gt;</span>Change<span class="nt">&lt;/button&gt;&lt;/td&gt;</span>
-                <span class="nt">&lt;td&gt;&lt;span</span> <span class="na">id=</span><span class="s">&quot;failure&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/td&gt;</span>
-            <span class="nt">&lt;/tr&gt;</span>
-        <span class="nt">&lt;/table&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Time Zone<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.css&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container-fluid&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;max-width: 400px&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;cockpit-form-table&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Time Zone<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;current&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>New Zone<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;new&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;UTC&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-default btn-primary&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;change&quot;</span><span class="p">&gt;</span>Change<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;failure&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-    <span class="nt">&lt;script&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#new&quot;</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#current&quot;</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">failure</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#failure&quot;</span><span class="p">);</span>
@@ -146,55 +145,55 @@ Sa 15. Nov 01:48:01 AEDT 2014
             <span class="nx">failure</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
         <span class="p">}</span>
 
-    <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The <span class="caps">HTML</span> is pretty basic, defining a little form where the current timezone is shown, a field to type an address, a button to click change to a new one, and an area to show&nbsp;errors.</p>
 <p>In the javascript code, first we get a bunch of variables pointing to the <span class="caps">HTML</span> elements we want to interact with.
 Next we attach a handler to the <em>Change</em> button so that the <code>change_zone()</code> function is called when it is&nbsp;clicked.</p>
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#change&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="nx">change_zone</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#change&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="nx">change_zone</span><span class="p">);</span>
 </pre></div>
 
 
 <p>Next we connect to the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated</a> DBus service using the <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus"><code>cockpit.dbus()</code></a>&nbsp;function:</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">cockpit</span><span class="p">.</span><span class="nx">dbus</span><span class="p">(</span><span class="s1">&#39;org.freedesktop.timedate1&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">cockpit</span><span class="p">.</span><span class="nx">dbus</span><span class="p">(</span><span class="s1">&#39;org.freedesktop.timedate1&#39;</span><span class="p">);</span>
 </pre></div>
 
 
 <p>Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy"><code>.proxy()</code></a> method that you can&nbsp;specify.</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">timedate</span> <span class="o">=</span> <span class="nx">service</span><span class="p">.</span><span class="nx">proxy</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">timedate</span> <span class="o">=</span> <span class="nx">service</span><span class="p">.</span><span class="nx">proxy</span><span class="p">();</span>
 </pre></div>
 
 
 <p>Each interface proxy has a <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged"><code>"changed"</code></a> event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our <code>display_zone()</code> function and update the display of the current time&nbsp;zone:</p>
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">timedate</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;changed&quot;</span><span class="p">,</span> <span class="nx">display_zone</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="nx">timedate</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;changed&quot;</span><span class="p">,</span> <span class="nx">display_zone</span><span class="p">);</span>
 </pre></div>
 
 
 <p><code>Timezone</code> is a property on the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus interface</a>. We can access these properties directly, and the proxy will keep them up to date. Here we use the property to update our display of the current time&nbsp;zone:</p>
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">display_zone</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">current</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">timedate</span><span class="p">.</span><span class="nx">Timezone</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>function display_zone() {
+    current.text(timedate.Timezone);
+}
 </pre></div>
 
 
 <p><code>SetTimezone</code> is a method on the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus interface</a> interface, and we can invoke it directly as we would a javascript function. In this case we pass the arguments the DBus method expects, a <code>timezone</code> string, and a <code>user_interaction</code> boolean.</p>
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">change_zone</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">timedate</span><span class="p">.</span><span class="nx">SetTimezone</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">val</span><span class="p">(),</span> <span class="kc">true</span><span class="p">);</span>
+<div class="highlight"><pre><span></span>function change_zone() {
+    var call = timedate.SetTimezone(input.val(), true);
 </pre></div>
 
 
 <p>In a web browser you cannot block and wait until a method call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering&nbsp;callbacks.</p>
-<div class="highlight"><pre>    call.fail(change_fail);
+<div class="highlight"><pre><span></span>    call.fail(change_fail);
     failure.empty();
 }
 </pre></div>
@@ -206,18 +205,23 @@ Next we attach a handler to the <em>Change</em> button so that the <code>change_
   </div>
   <div class="article_meta">
     <p>Posted on: Do 13 November 2014</p>
-    <p>Category: <a href="http://cockpit-project.org/blog/category/tutorial.html">tutorial</a>
+    <p>Category: <a href="./category/tutorial.html">tutorial</a>
  &ndash; Tags:
-      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+      <a href="./tag/cockpit.html">cockpit</a>,      <a href="./tag/linux.html">linux</a>    </p>
   </div>
 
 
 </article>
 
 
-    <div id="ending_message">
-      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
-    </div>
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2015</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
   </main>
+
 </body>
 </html>

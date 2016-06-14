@@ -3,11 +3,13 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link href="./../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="./../bootstrap/css/cockpit.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
   <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 
@@ -35,38 +37,35 @@ Protocol for Web access to System APIs  </title>
 </head>
 
 <body>
-  <aside>
-    <div id="user_meta">
-      <a href="/">
-        <img src="http://cockpit-project.org/blog/theme/images/logo.png" alt="logo">
-      </a>
-      <h2><a href="/">Cockpit Project</a></h2>
-      <p>Cockpit Project</p>
-      <ul>
-        <li><a href="http://cockpit-project.org/" target="_blank">Cockpit</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/release.html" target="_blank">Release Notes</a></li>
-        <li><a href="http://cockpit-project.org/blog/category/tutorial.html" target="_blank">Tutorials</a></li>
-      </ul>
-    </div>
-  </aside>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="./../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href=".">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="./../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
 
   <main>
     <header>
       <p>
-      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html">Protocol for Web access to System&nbsp;APIs</a></h1>
+    <h1><a href="./protocol-for-web-access-to-system-apis.html">Protocol for Web access to System&nbsp;APIs</a></h1>
   </div>
   <div class="article_text">
     <p><em>Note: This post has been updated for changes in Cockpit 0.48 and&nbsp;later.</em></p>
 <p>A Linux system today has a lot of local system configuration APIs. I&#8217;m not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the <span class="caps">API</span> by which we configure a Linux system. In <a href="http://cockpit-project.org">Cockpit</a> we access these APIs from a web browser (after authentication of&nbsp;course).</p>
 <p>How do we access the system APIs? The answer is the <code>cockpit-bridge</code> tool. It proxies requests from the Cockpit user interface, running in a web browser, to the system. Typically the <code>cockpit-bridge</code> runs as the logged in user, in a user session. It has similar permissions and capabilities as if you had used <code>ssh</code> to log into the&nbsp;system.</p>
 <p>Lets look at an example DBus <span class="caps">API</span> that we call from Cockpit. systemd has an <span class="caps">API</span> to set the system host name, called <a href="http://www.freedesktop.org/wiki/Software/systemd/hostnamed/">SetStaticHostname</a>. In Cockpit we can invoke that <span class="caps">API</span> using simple <span class="caps">JSON</span> like&nbsp;this:</p>
-<div class="highlight"><pre>{
+<div class="highlight"><pre><span></span>{
   &quot;call&quot;: [
     &quot;/org/freedesktop/hostname1&quot;,
     &quot;org.freedesktop.hostname1&quot;,
@@ -81,7 +80,7 @@ Protocol for Web access to System APIs  </title>
 <p><strong>Following along:</strong> In order to follow along with the stuff below, you&#8217;ll need at least Cockpit 0.48. The protocol is not yet frozen, and we merged some cleanup recently. You can install it on <a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html">Fedora 21 using a <span class="caps">COPR</span></a> or <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">build it from git</a>.</p>
 <h2>Channels</h2>
 <p>Cockpit can be doing lots of things at the same time and we don&#8217;t want to have to open a new WebSocket each time. So we allow the protocol to be shared by multiple concurrent tasks. Each of these is assigned a <em>channel</em>. Channels have a string identifier. The data transferred in a channel is called the payload. To combine these into a message I simply concatenate the identifier, a new line, and the payload. Lets say I wanted to send the message <code>Oh marmalade!</code> over the channel called <code>scruffy</code> the message would look like&nbsp;this:</p>
-<div class="highlight"><pre>scruffy
+<div class="highlight"><pre><span></span>scruffy
 Oh marmalade!
 </pre></div>
 
@@ -90,19 +89,19 @@ Oh marmalade!
 <h2>Framing</h2>
 <p>In order to pass a message based protocol over a plain stream, such the standard in and standard out of <code>cockpit-bridge</code>, one needs some form of framing. This framing is not used when the messages are passed over a WebSocket, since WebSockets inherently have a message&nbsp;concept.</p>
 <p>The framing the <code>cockpit-bridge</code> uses is simply the byte length of the message, encoded as a string, and followed by a new line. So Scruffy&#8217;s 21 byte message above, when sent over a stream, would like&nbsp;this:</p>
-<div class="highlight"><pre>21
+<div class="highlight"><pre><span></span>21
 scruffy
 Oh marmalade!
 </pre></div>
 
 
 <p>Alternatively, when debugging or testing <code>cockpit-bridge</code> you can run in an interactive mode, where we frame our messages by using boundaries. That way we don&#8217;t have to count the byte length of all of our messages meticulously, if we&#8217;re writing them by hand. We specify the boundary when invoking <code>cockpit-bridge</code> like&nbsp;so:</p>
-<div class="highlight"><pre>$ cockpit-bridge --interact=----
+<div class="highlight"><pre><span></span>$ cockpit-bridge --interact=----
 </pre></div>
 
 
 <p>And then we can send a message by using the <code>----</code> boundary on a line by&nbsp;itself:</p>
-<div class="highlight"><pre>scruffy
+<div class="highlight"><pre><span></span>scruffy
 Oh marmalade!
 ----
 </pre></div>
@@ -134,7 +133,7 @@ Oh marmalade!
 
 <h2>Try it&nbsp;out</h2>
 <p>So combining our knowledge so far, we can run the&nbsp;following:</p>
-<div class="highlight"><pre>$ cockpit-bridge --interact=----
+<div class="highlight"><pre><span></span>$ cockpit-bridge --interact=----
 </pre></div>
 
 
@@ -224,18 +223,23 @@ mydbus
   </div>
   <div class="article_meta">
     <p>Posted on: Di 16 Dezember 2014</p>
-    <p>Category: <a href="http://cockpit-project.org/blog/category/tutorial.html">tutorial</a>
+    <p>Category: <a href="./category/tutorial.html">tutorial</a>
  &ndash; Tags:
-      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+      <a href="./tag/cockpit.html">cockpit</a>,      <a href="./tag/linux.html">linux</a>    </p>
   </div>
 
 
 </article>
 
 
-    <div id="ending_message">
-      <p>&copy; Cockpit Project. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. .</p>
-    </div>
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2015</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
   </main>
+
 </body>
 </html>

@@ -27,6 +27,10 @@
     padding-top: 100px;
 }
 
+.jumbotron-static + main {
+    padding-top: 50px;
+}
+
 .jumbotron .nav {
     float: right;
     color: white;
@@ -46,6 +50,12 @@
 .jumbotron .nav > li.active a {
     font-weight: bold;
     background-color: transparent;
+}
+
+#user_meta {
+	position: fixed;
+	left: 0px;
+	top: 0px;
 }
 
 .screenshot-cockpit {
@@ -266,5 +276,40 @@ hr {
 }
 
 article {
-	color: black;
+  color: black;
+  width: 65%;
+  margin-left: 10%;
+}
+
+main {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  overflow-x: visible;
+  overflow-y: visible;
+  position: static;
+  width: 100%;
+  right: 0;
+}
+
+main h1,
+main h3,
+main h2 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+main h1 a,
+main h2 a,
+main h3 a {
+  color: inherit;
+}
+
+main .footer-cockpit {
+  margin-top: 0px;
+}
+
+header {
+  display: none;
 }
