@@ -317,17 +317,17 @@ main {
   right: 0;
 }
 
-main h1,
-main h3,
-main h2 {
+article h1,
+article h3,
+article h2 {
   font-family: 'Roboto Slab', sans-serif;
   font-weight: 400;
   margin-bottom: 1em;
 }
 
-main h1 a,
-main h2 a,
-main h3 a {
+article h1 a,
+article h2 a,
+article h3 a {
   color: inherit;
 }
 
