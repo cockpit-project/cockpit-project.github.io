@@ -15,6 +15,39 @@
     font-size: 18px;
 }
 
+.jumbotron-static {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.jumbotron-static + div {
+    padding-top: 100px;
+}
+
+.jumbotron .nav {
+    float: right;
+    color: white;
+}
+
+.jumbotron .nav > li > a {
+    color: white;
+    padding: 7px 15px;
+    border-radius: 0;
+}
+
+.jumbotron .nav > li > a:hover,
+.jumbotron .nav > li > a:focus {
+    background-color: #337ab7;
+}
+
+.jumbotron .nav > li.active a {
+    font-weight: bold;
+    background-color: transparent;
+}
+
 .screenshot-cockpit {
     display: block;
     position: relative;
@@ -46,8 +79,16 @@
     margin-bottom: 20px;
 }
 
-.logo-cockpit h1 {
+.logo-cockpit h1,
+.logo-small h1 {
     display: none;
+}
+
+.logo-small {
+    background: url('../../images/cockpit-logo-small.png') no-repeat;
+    width: 366px;
+    height: 64px;
+    margin-bottom: 20px;
 }
 
 .btn-download,
@@ -117,6 +158,10 @@
     padding-top: 15px;
     padding-left: 10px;
     display: inline-block;
+}
+
+.container-resources + .footer-cockpit {
+    margin-top: 0px;
 }
 
 .os-selector {
