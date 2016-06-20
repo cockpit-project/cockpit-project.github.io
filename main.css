@@ -222,6 +222,7 @@
     margin-top: 20px;
     padding: 20px;
     min-height: 100px;
+    font-size: 15px;
 }
 
 .os-infobox-stable {
@@ -236,6 +237,10 @@ code {
     background: #555753;
     color: #eeeeec;
     border-radius: 0; 
+}
+
+.port-info {
+    font-size: 15px;
 }
 
 .port-info span {

@@ -59,7 +59,11 @@
 	<h1>Running Cockpit</h1>
 
         <div class="row">
-          <div class="col-md-12"><p class="port-info">If you already have Cockpit on your server, point your web browser to: https://<span>ip-address-of-machine</span>:9090</p></div>
+	    <div class="col-md-12">
+                <p class="port-info">If you already have Cockpit on your server, point your web browser to: <strong>https://<span>ip-address-of-machine</span>:9090</strong></p>
+		<p class="port-info">Use your system user account and password to log in. See
+                      <a href="http://cockpit-project.org/guide/latest/guide.html">the guide</a> for more info.</p>
+	    </div>
         </div>
 
         <hr>
@@ -80,8 +84,12 @@
                 <li>Install cockpit:
                         <pre>sudo yum install cockpit</pre>
                 </li>
-                <li>Start and enable cockpit:
+                <li>Enable cockpit:
                         <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --add-service=cockpit
+sudo firewall-cmd --add-service=cockpit --permanent</pre>
                 </li>
               </ol>
             </div>
@@ -97,8 +105,12 @@
                 <li>Install cockpit:
                         <pre>sudo yum install cockpit</pre>
                 </li>
-                <li>Start and enable cockpit:
+                <li>Enable cockpit:
                         <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --add-service=cockpit
+sudo firewall-cmd --add-service=cockpit --permanent</pre>
                 </li>
               </ol>
             </div>
@@ -107,8 +119,8 @@
           <div class="col-md-12 os-info os-info-atomic" style="display: none;">
             <div class="os-infobox">
               <div class="os-infobox-stable">&nbsp;</div>
-              <p>Connect to a Fedora or CentOS Atomic host from an running Cockpit with the <i>Add Server</i> UI.<br/>
-              <p>Alternatively you can access Cockpit directly on the Atomic host:</p>
+	      <p><strong>Connect to an Atomic Host from another instance of Cockpit</strong> with the <i>Add Server</i> dashboard UI.<br/>
+              <p>Alternatively you can access Cockpit directly on the Atomic Host if SSH password authentication is enabled:</p>
               <ol>
                 <li>Run the Cockpit web service container:
                 <pre>sudo atomic run cockpit/ws</pre>
