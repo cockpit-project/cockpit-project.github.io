@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 12 May 2016 15:40:00 +0000</lastBuildDate><item><title>Cockpit 0.106</title><link>http://cockpit-project.org/blog/cockpit-0.106.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.106&amp;nbsp;release.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 26 Jun 2016 09:00:00 +0000</lastBuildDate><item><title>Cockpit 0.111</title><link>http://cockpit-project.org/blog/cockpit-0.111.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
+&lt;h3&gt;SELinux enforcing&amp;nbsp;policy&lt;/h3&gt;
+&lt;p&gt;You can now temporarily disable SELinux enforcing mode from the SELinux troubleshooting
+dashboard. This is useful when diagnosing permission issues that you migth think are
+SELinux&amp;nbsp;related.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SELinux Enforcing" src="images/cockpit-selinux-enforcing.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Stable Javascript &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Cockpit now has a &lt;a href="http://cockpit-project.org/guide/latest/api-base1.html"&gt;stable Javascript &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;
+for components or plugins to build off of. Various unstable portions were removed from the
+base1 package in preparation for this. There&amp;#8217;s more work going on to help make it easy to build
+out of tree components or&amp;nbsp;plugins.&lt;/p&gt;
+&lt;h3&gt;GlusterFS in Kubernetes&amp;nbsp;Dashboard&lt;/h3&gt;
+&lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard now lists &lt;a href="http://gluster.org/"&gt;Gluster&lt;/a&gt;
+volumes in the dashboard, lets you configure them for pods to&amp;nbsp;use.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GlusterFS Persistent Volumes" src="images/cockpit-glusterfs-volume.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Kubernetes pending Persistent Volume&amp;nbsp;Claimns&lt;/h3&gt;
+&lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard lists pods which have
+outstanding volume claims, and then allows you to fulfill those claims
+by creating appropriate persistent&amp;nbsp;volumes&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-volume-claims.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
+&lt;p&gt;Marius &lt;a href="https://github.com/cockpit-project/cockpit/pull/4571"&gt;has worked on&lt;/a&gt; adding support
+for Linux &lt;a href="http://libteam.org/"&gt;network teaming&lt;/a&gt; to the Cockpit admin interface. Teaming
+is a better more coherent way of building a network&amp;nbsp;bond.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.111 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.111"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.111-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Sun, 26 Jun 2016 09:00:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-06-26:blog/cockpit-0.111.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Cockpit 0.106</title><link>http://cockpit-project.org/blog/cockpit-0.106.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.106&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Stable Cockpit&amp;nbsp;Styles&lt;/h3&gt;
 &lt;p&gt;One of the annoying things about &lt;span class="caps"&gt;CSS&lt;/span&gt; is that when you bring in stylesheets from
 multiple projects, they can conflict. You have to choose a nomen-clature to
