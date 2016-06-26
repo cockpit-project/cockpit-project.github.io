@@ -35,6 +35,8 @@ The [Kubernetes](http://kubernetes.io/) dashboard lists pods which have
 outstanding volume claims, and then allows you to fulfill those claims
 by creating appropriate persistent volumes.
 
+![Persistent Volume Claims](images/cockpit-dashboard-claim.png)
+
 ![Persistent Volume Claims](images/cockpit-volume-claims.png)
 
 ### From the Future

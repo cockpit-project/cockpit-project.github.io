@@ -18,6 +18,7 @@ volumes in the dashboard, lets you configure them for pods to&amp;nbsp;use.&lt;/
 &lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard lists pods which have
 outstanding volume claims, and then allows you to fulfill those claims
 by creating appropriate persistent&amp;nbsp;volumes.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-dashboard-claim.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-volume-claims.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
 &lt;p&gt;Marius &lt;a href="https://github.com/cockpit-project/cockpit/pull/4571"&gt;has worked on&lt;/a&gt; adding support
