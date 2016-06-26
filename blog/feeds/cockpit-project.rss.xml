@@ -2,7 +2,7 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 26 Jun 2016 09:00:00 +0000</lastBuildDate><item><title>Cockpit 0.111</title><link>http://cockpit-project.org/blog/cockpit-0.111.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;SELinux enforcing&amp;nbsp;policy&lt;/h3&gt;
 &lt;p&gt;You can now temporarily disable SELinux enforcing mode from the SELinux troubleshooting
-dashboard. This is useful when diagnosing permission issues that you migth think are
+dashboard. This is useful when diagnosing permission issues that you might think are
 SELinux&amp;nbsp;related.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="SELinux Enforcing" src="images/cockpit-selinux-enforcing.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Stable Javascript &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/h3&gt;
@@ -14,10 +14,10 @@ out of tree components or&amp;nbsp;plugins.&lt;/p&gt;
 &lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard now lists &lt;a href="http://gluster.org/"&gt;Gluster&lt;/a&gt;
 volumes in the dashboard, lets you configure them for pods to&amp;nbsp;use.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="GlusterFS Persistent Volumes" src="images/cockpit-glusterfs-volume.png" /&gt;&lt;/p&gt;
-&lt;h3&gt;Kubernetes pending Persistent Volume&amp;nbsp;Claimns&lt;/h3&gt;
+&lt;h3&gt;Kubernetes pending Persistent Volume&amp;nbsp;Claims&lt;/h3&gt;
 &lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard lists pods which have
 outstanding volume claims, and then allows you to fulfill those claims
-by creating appropriate persistent&amp;nbsp;volumes&lt;/p&gt;
+by creating appropriate persistent&amp;nbsp;volumes.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-volume-claims.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
 &lt;p&gt;Marius &lt;a href="https://github.com/cockpit-project/cockpit/pull/4571"&gt;has worked on&lt;/a&gt; adding support

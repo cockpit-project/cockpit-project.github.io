@@ -10,7 +10,7 @@ Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). Ther
 ### SELinux enforcing policy
 
 You can now temporarily disable SELinux enforcing mode from the SELinux troubleshooting
-dashboard. This is useful when diagnosing permission issues that you migth think are
+dashboard. This is useful when diagnosing permission issues that you might think are
 SELinux related.
 
 ![SELinux Enforcing](images/cockpit-selinux-enforcing.png)
@@ -29,11 +29,11 @@ volumes in the dashboard, lets you configure them for pods to use.
 
 ![GlusterFS Persistent Volumes](images/cockpit-glusterfs-volume.png)
 
-### Kubernetes pending Persistent Volume Claimns
+### Kubernetes pending Persistent Volume Claims
 
 The [Kubernetes](http://kubernetes.io/) dashboard lists pods which have
 outstanding volume claims, and then allows you to fulfill those claims
-by creating appropriate persistent volumes
+by creating appropriate persistent volumes.
 
 ![Persistent Volume Claims](images/cockpit-volume-claims.png)
 
