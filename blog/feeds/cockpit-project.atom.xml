@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-06-26T09:00:00+00:00</updated><entry><title>Cockpit 0.111</title><link href="http://cockpit-project.org/blog/cockpit-0.111.html" rel="alternate"></link><published>2016-06-26T09:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-06-26:blog/cockpit-0.111.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-07-07T17:30:00+00:00</updated><entry><title>Cockpit 0.113</title><link href="http://cockpit-project.org/blog/cockpit-0.113.html" rel="alternate"></link><published>2016-07-07T17:30:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-07:blog/cockpit-0.113.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.111 and 0.112&amp;nbsp;releases.&lt;/p&gt;
+&lt;h3&gt;Display time information for systemd timer&amp;nbsp;jobs&lt;/h3&gt;
+&lt;p&gt;Harish Anand a Google Summer of Code student working on Cockpit, and he&amp;#8217;s implementing
+systemd timers. These are similar to cron jobs, and are a structured way of running
+a command or other systemd unit at a specific time. Some of his initial work got merged,
+and you can see it in action&amp;nbsp;here:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/2mGAlpZWQUQ?rel=0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Hide Unmanaged Network&amp;nbsp;Interfaces&lt;/h3&gt;
+&lt;p&gt;NetworkManager has the concept of marking certain network interfaces as &amp;#8220;unmanaged&amp;#8221;.
+This is done with a &lt;code&gt;NM_CONTROLLED="no"&lt;/code&gt; setting in a file placed in
+&lt;code&gt;/etc/sysconfig/network-scripts/&lt;/code&gt;. Cockpit now respects the admins wishes and
+and hides such interfaces from its Network&amp;nbsp;configuration.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;On/Off&lt;/em&gt; switch is also disabled appropriately for unknown&amp;nbsp;interfaces.&lt;/p&gt;
+&lt;h3&gt;Network bonds are created with&amp;nbsp;Active/Backup&lt;/h3&gt;
+&lt;p&gt;When a new network bond is created the &lt;em&gt;Active/Backup&lt;/em&gt; mode is used as
+the default. This is a more common choice for admins, and makes sense
+to point people in this&amp;nbsp;direction.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bond Active/Backup" src="images/cockpit-active-backup.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Added textual fields to container resource&amp;nbsp;sliders&lt;/h3&gt;
+&lt;p&gt;Users can now type actual amounts in memory megabytes, or &lt;span class="caps"&gt;CPU&lt;/span&gt; shares
+when starting a container, in addition to being able to use a&amp;nbsp;slider.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Resource Slider Text" src="images/cockpit-resource-sliders-text.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Disable tuned correctly when disabling performance&amp;nbsp;profiles&lt;/h3&gt;
+&lt;p&gt;The tuned service needs to be stopped and disabled when choosing the &amp;#8220;none&amp;#8221;
+performance profile. The behavior now lines up with what users expect
+using the &lt;code&gt;tuned-adm&lt;/code&gt; command line&amp;nbsp;tooling.&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
+&lt;p&gt;Lars &lt;a href="https://github.com/cockpit-project/cockpit/pull/4633"&gt;is working on&lt;/a&gt; making the
+terminal be resizable, so you&amp;#8217;re not limited to a small display when working on
+the&amp;nbsp;machine.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.113 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.113"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.113-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.111</title><link href="http://cockpit-project.org/blog/cockpit-0.111.html" rel="alternate"></link><published>2016-06-26T09:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-06-26:blog/cockpit-0.111.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;SELinux enforcing&amp;nbsp;policy&lt;/h3&gt;
 &lt;p&gt;You can now temporarily disable SELinux enforcing mode from the SELinux troubleshooting
 dashboard. This is useful when diagnosing permission issues that you might think are
