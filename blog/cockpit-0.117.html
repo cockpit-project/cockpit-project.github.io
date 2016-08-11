@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux, technical">
+
+  <title>
+Cockpit 0.117  </title>
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-0.117.html">Cockpit&nbsp;0.117</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. There&#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&nbsp;releases.</p>
+<h3>Configure volumes and environment for a Docker&nbsp;container</h3>
+<p>Vanlos Wang implemented support for configuring volumes and environment
+variables when running a container in the Cockpit <span class="caps">UI</span>. This allows you
+see what environment variables and volumes an image is pre-configured
+to have. It then allows the user to define additional environment variables
+and volumes for the new container, and then commit those changes to a
+new image if&nbsp;desired.</p>
+<p>Take a&nbsp;look:</p>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/l9E78Uevg00"
+frameborder="0" allowfullscreen></iframe>
+
+<h3>Setup container and image&nbsp;storage</h3>
+<p>Marius worked with Dan Walsh and and others to implement a <span class="caps">UI</span> for configuring
+the Docker container and image storage pool. It&#8217;s now easy to add additional
+disks or storage to that pool, or reset it to a clean&nbsp;state.</p>
+<p>On some operating systems like <a href="http://www.projectatomic.io/download/">Atomic Host</a>,
+this storage pool is present by default,
+and elsewhere this container storage pool can be set&nbsp;up.</p>
+<p>Relatedly on the command line, checkout the new
+<a href="https://raw.githubusercontent.com/projectatomic/atomic/master/docs/atomic-storage.1.md"><code>atomic storage</code></a>
+sub-command which does the same configuration tasks, that previously had to be configured
+with arcane configuration&nbsp;files.</p>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/l9fmMa5WJMk?rel=0"
+frameborder="0" allowfullscreen></iframe>
+
+<h3>Support for Network&nbsp;Teaming</h3>
+<p>Marius also added support for
+<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/ch-Configure_Network_Teaming.html">configuring network teaming</a>
+to Cockpit. Network teams are
+similar to network bonds, in that they combine two network interfaces into
+one, and involve failover or load balancing modes. But teams have more robust
+terminology and&nbsp;implementation.</p>
+<p>Since teams are a server side feature, this will replace the functionality for
+defining teams in Linux Desktop control center&nbsp;applications.</p>
+<p>Support for configuring bonds in Cockpit will remain for the time being until
+the team support can be relied upon to completely replace that functionality.
+Both NetworkManager and Cockpit are involved in&nbsp;this.</p>
+<p>Here&#8217;s a video demoing the&nbsp;changes:</p>
+<iframe width="960" height="720" src="https://www.youtube.com/embed/-sob1W33Xus?rel=0"
+frameborder="0" allowfullscreen></iframe>
+
+<h3>Pulling images without authentication from the Openshift&nbsp;Registry</h3>
+<p>The Openshift image registry now supports pulling images without first
+logging in. It can be configured to allow this on a per-project basis.
+This allows images to be shared from the registry with a broader audience
+of developers or image consumers, such as&nbsp;scripts.</p>
+<p>Aaron Weitekamp worked on adding support the Registry console to
+configure projects to allow pulling images without authentication.
+Here&#8217;s a video of those&nbsp;changes:</p>
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/fpsvtq5hENk" frameborder="0" allowfullscreen></iframe>
+
+<h3>Don&#8217;t allow formatting extended&nbsp;partitions</h3>
+<p>Cockpit no longer erroneously allows formatting certain partitions, such as
+extended partitions containing other logical&nbsp;partitions.</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 0.117 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.117">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-0.117-1.fc24">Fedora&nbsp;24</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 23, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Do 11 August 2016</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+  </div>
+
+
+</article>
+
+
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2016</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
+  </main>
+
+</body>
+</html>

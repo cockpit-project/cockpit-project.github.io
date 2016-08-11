@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-07-12T13:51:00+00:00</updated><entry><title>Cockpit 0.114</title><link href="http://cockpit-project.org/blog/cockpit-0.114.html" rel="alternate"></link><published>2016-07-12T13:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-12:blog/cockpit-0.114.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.114&amp;nbsp;release.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-08-11T12:36:00+00:00</updated><entry><title>Cockpit 0.117</title><link href="http://cockpit-project.org/blog/cockpit-0.117.html" rel="alternate"></link><published>2016-08-11T12:36:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-08-11:blog/cockpit-0.117.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&amp;nbsp;releases.&lt;/p&gt;
+&lt;h3&gt;Configure volumes and environment for a Docker&amp;nbsp;container&lt;/h3&gt;
+&lt;p&gt;Vanlos Wang implemented support for configuring volumes and environment
+variables when running a container in the Cockpit &lt;span class="caps"&gt;UI&lt;/span&gt;. This allows you
+see what environment variables and volumes an image is pre-configured
+to have. It then allows the user to define additional environment variables
+and volumes for the new container, and then commit those changes to a
+new image if&amp;nbsp;desired.&lt;/p&gt;
+&lt;p&gt;Take a&amp;nbsp;look:&lt;/p&gt;
+&lt;iframe width="1280" height="720" src="https://www.youtube.com/embed/l9E78Uevg00"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Setup container and image&amp;nbsp;storage&lt;/h3&gt;
+&lt;p&gt;Marius worked with Dan Walsh and and others to implement a &lt;span class="caps"&gt;UI&lt;/span&gt; for configuring
+the Docker container and image storage pool. It&amp;#8217;s now easy to add additional
+disks or storage to that pool, or reset it to a clean&amp;nbsp;state.&lt;/p&gt;
+&lt;p&gt;On some operating systems like &lt;a href="http://www.projectatomic.io/download/"&gt;Atomic Host&lt;/a&gt;,
+this storage pool is present by default,
+and elsewhere this container storage pool can be set&amp;nbsp;up.&lt;/p&gt;
+&lt;p&gt;Relatedly on the command line, checkout the new
+&lt;a href="https://raw.githubusercontent.com/projectatomic/atomic/master/docs/atomic-storage.1.md"&gt;&lt;code&gt;atomic storage&lt;/code&gt;&lt;/a&gt;
+sub-command which does the same configuration tasks, that previously had to be configured
+with arcane configuration&amp;nbsp;files.&lt;/p&gt;
+&lt;iframe width="1280" height="720" src="https://www.youtube.com/embed/l9fmMa5WJMk?rel=0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Support for Network&amp;nbsp;Teaming&lt;/h3&gt;
+&lt;p&gt;Marius also added support for
+&lt;a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Networking_Guide/ch-Configure_Network_Teaming.html"&gt;configuring network teaming&lt;/a&gt;
+to Cockpit. Network teams are
+similar to network bonds, in that they combine two network interfaces into
+one, and involve failover or load balancing modes. But teams have more robust
+terminology and&amp;nbsp;implementation.&lt;/p&gt;
+&lt;p&gt;Since teams are a server side feature, this will replace the functionality for
+defining teams in Linux Desktop control center&amp;nbsp;applications.&lt;/p&gt;
+&lt;p&gt;Support for configuring bonds in Cockpit will remain for the time being until
+the team support can be relied upon to completely replace that functionality.
+Both NetworkManager and Cockpit are involved in&amp;nbsp;this.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s a video demoing the&amp;nbsp;changes:&lt;/p&gt;
+&lt;iframe width="960" height="720" src="https://www.youtube.com/embed/-sob1W33Xus?rel=0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Pulling images without authentication from the Openshift&amp;nbsp;Registry&lt;/h3&gt;
+&lt;p&gt;The Openshift image registry now supports pulling images without first
+logging in. It can be configured to allow this on a per-project basis.
+This allows images to be shared from the registry with a broader audience
+of developers or image consumers, such as&amp;nbsp;scripts.&lt;/p&gt;
+&lt;p&gt;Aaron Weitekamp worked on adding support the Registry console to
+configure projects to allow pulling images without authentication.
+Here&amp;#8217;s a video of those&amp;nbsp;changes:&lt;/p&gt;
+&lt;iframe width="1280" height="720" src="https://www.youtube.com/embed/fpsvtq5hENk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Don&amp;#8217;t allow formatting extended&amp;nbsp;partitions&lt;/h3&gt;
+&lt;p&gt;Cockpit no longer erroneously allows formatting certain partitions, such as
+extended partitions containing other logical&amp;nbsp;partitions.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.117 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.117"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.117-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.114</title><link href="http://cockpit-project.org/blog/cockpit-0.114.html" rel="alternate"></link><published>2016-07-12T13:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-12:blog/cockpit-0.114.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.114&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Test every change on&amp;nbsp;CentOS&lt;/h3&gt;
 &lt;p&gt;Cockpit runs all its tests suites against code before that code is merged, much less
 becomes part of a release. This isn&amp;#8217;t just unit tests, but integration booting of
