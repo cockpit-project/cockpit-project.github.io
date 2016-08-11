@@ -4,7 +4,6 @@ Tags: cockpit, linux, technical
 Slug: cockpit-0.114
 Category: release
 Summary: Cockpit releases every week. Here's highlights from 0.114.
-Status: draft
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). There's a new release every week. Here are the highlights from this weeks 0.114 release.
 
