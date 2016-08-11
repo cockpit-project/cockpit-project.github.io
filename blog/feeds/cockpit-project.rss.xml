@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 07 Jul 2016 17:30:00 +0000</lastBuildDate><item><title>Cockpit 0.113</title><link>http://cockpit-project.org/blog/cockpit-0.113.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.111 and 0.112&amp;nbsp;releases.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 12 Jul 2016 13:51:00 +0000</lastBuildDate><item><title>Cockpit 0.114</title><link>http://cockpit-project.org/blog/cockpit-0.114.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.114&amp;nbsp;release.&lt;/p&gt;
+&lt;h3&gt;Test every change on&amp;nbsp;CentOS&lt;/h3&gt;
+&lt;p&gt;Cockpit runs all its tests suites against code before that code is merged, much less
+becomes part of a release. This isn&amp;#8217;t just unit tests, but integration booting of
+&lt;span class="caps"&gt;RHEL&lt;/span&gt;, Debian, Fedora and Atomic&amp;nbsp;machines.&lt;/p&gt;
+&lt;p&gt;We now added CentOS to that list. We now boot CentOS 7.x instances many hundreds of times
+a day to test aspects of the system, and how Cockpit and a given pull request interact with&amp;nbsp;it.&lt;/p&gt;
+&lt;h3&gt;Show &lt;span class="caps"&gt;SSH&lt;/span&gt; host keys and machine &lt;span class="caps"&gt;ID&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;The main system info page now shows the
+&lt;a href="https://www.freedesktop.org/software/systemd/man/machine-id.html"&gt;local machine &lt;span class="caps"&gt;ID&lt;/span&gt;&lt;/a&gt; for
+easy&amp;nbsp;access.&lt;/p&gt;
+&lt;p&gt;You can also see the fingerprints of all the &lt;a href="https://en.wikipedia.org/wiki/Secure_Shell"&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; host keys&lt;/a&gt;.
+These are the fingerprints that you would be expected to recognize and/or add to the
+&lt;code&gt;known_hosts&lt;/code&gt; file when accessing the machine over &lt;span class="caps"&gt;SSH&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH host keys" src="images/cockpit-ssh-host-keys.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Allow changing the ethernet &lt;span class="caps"&gt;MTU&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;You can now change the ethernet
+&lt;a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit"&gt;maximum transmission unit&lt;/a&gt; in the
+network&amp;nbsp;configuration.&lt;/p&gt;
+&lt;h3&gt;Show intelligent password error&amp;nbsp;messages&lt;/h3&gt;
+&lt;p&gt;When choosing a password Cockpit validates the password using the &lt;code&gt;pwscore&lt;/code&gt; tool.
+Appropriate and descriptive error messages are now shown when the validation&amp;nbsp;fails:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-pwscore-message.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Red Hat subscription registration&amp;nbsp;options&lt;/h3&gt;
+&lt;p&gt;The Red Hat subscriptions functionality has been enhanced. You can now specify an activation
+key when registering the system. This key is generated in your organization in such a
+way that it uniquely identifies whan kind of software should be available on the&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;You can now also specify an organization when registering the&amp;nbsp;system.&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
+&lt;p&gt;Marek &lt;a href="https://github.com/cockpit-project/cockpit/pull/4434"&gt;is working on&lt;/a&gt; a new part of
+the admin interface to list the virtual machines running on the current system. This is
+the beginnings of a web accessible &lt;a href="https://virt-manager.org/"&gt;virt-manager&lt;/a&gt;&amp;nbsp;tool:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-libvirt-message.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 0.114 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.114"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.114-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Tue, 12 Jul 2016 13:51:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-07-12:blog/cockpit-0.114.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Cockpit 0.113</title><link>http://cockpit-project.org/blog/cockpit-0.113.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.111 and 0.112&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;Display time information for systemd timer&amp;nbsp;jobs&lt;/h3&gt;
 &lt;p&gt;Harish Anand a Google Summer of Code student working on Cockpit, and he&amp;#8217;s implementing
 systemd timers. These are similar to cron jobs, and are a structured way of running
