@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux, technical">
+
+  <title>
+Cockpit 118  </title>
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-118.html">Cockpit&nbsp;118</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. There&#8217;s usually
+a release every week, but this time around we were delinquent and it&#8217;s been nearly a&nbsp;month.</p>
+<p>You&#8217;ll notice that we&#8217;ve dropped the <code>0.x</code> from the beginning of the
+version numbers. This underscores the fact that Cockpit is stable. We&#8217;ve been
+regularly releasing functionally stable releases for most of the last&nbsp;year.</p>
+<p>And over the last few months we&#8217;ve worked hard on identifying stable javascript
+APIs and protocols for various Cockpit components to consume. We&#8217;ll be itemizing
+these stability guarantees in the documentation&nbsp;shortly.</p>
+<h3>Timer jobs in&nbsp;systemd</h3>
+<p>Harish did great work during Google Summer of Code to add support for
+<a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html">systemd timers</a>.
+Timers let users schedule tasks similar to cron jobs. Timers are now listed,
+and dialogs for defining jobs and their recurring patterns are now included
+in&nbsp;Cockpit.</p>
+<p>Harish <a href="https://medium.com/@harishanand95/gsoc-creating-timers-in-cockpit-f4034c79df51#.wdq8gtdxc">detailed his work in a blog post</a>.</p>
+<p><img alt="Timers" src="images/cockpit-timers.png" /></p>
+<h3>Two factor auth on login&nbsp;screen</h3>
+<p>Peter pulled off a major change to have full <span class="caps">PAM</span> conversations supported
+on the Cockpit login screen. This means you can use two factor
+authentication dongles or Yubikeys in your login workflow in&nbsp;Cockpit.</p>
+<p>In addition, for the next release Stef worked on allowing the user to
+change expired passwords while logging in, similar to how they would
+on the&nbsp;console.</p>
+<p>Take a&nbsp;look:</p>
+<iframe width="853" height="480" src="https://www.youtube.com/embed/gXsOt6zgBs4?rel=0"
+frameborder="0" allowfullscreen></iframe>
+
+<h3>Use Webpack to build the Cockpit&nbsp;interface</h3>
+<p>Most of Cockpit is written in javascript and runs in the browser. This
+code is now built with <a href="https://webpack.github.io/">Webpack</a>. It&#8217;s bundled
+into real single page application bundles per Cockpit component. Among
+other things, this makes hacking on Cockpit much&nbsp;easier.</p>
+<p>The <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">documentation has been updated</a>
+to show what you need to do to make a change to Cockpit either with
+Vagrant or on your local&nbsp;machine.</p>
+<h3>Make Docker resource limits work on&nbsp;Debian</h3>
+<p>The container resource usage graphs and resource limit dialogs now
+work properly on Debian. Stef adapted the code to account for the different
+CGroup layout than Docker uses on&nbsp;Debian.</p>
+<h3>Configure Cockpit URLs with an <span class="caps">HTTP</span>&nbsp;prefix</h3>
+<p>The <span class="caps">HTTP</span> URLs that Cockpit uses can now have a (mostly) arbitrary prefix
+in their path. This is useful in scenarios where Cockpit is proxied by
+another application or management console. Use the <code>UrlRoot</code> option
+<a href="http://cockpit-project.org/guide/latest/cockpit.conf.5.html">in cockpit.conf</a>.</p>
+<h3>Components can require a minimum Cockpit&nbsp;version</h3>
+<p>Cockpit is built from various components that are idependently installable
+and composable. Various components provide network configuration, or storage,
+or container&nbsp;functionality.</p>
+<p>These components can now indicate which part of the base javascript and base
+<code>cockpit-bridge</code> they require in order to function. This is
+<a href="http://cockpit-project.org/guide/latest/packages.html#package-manifest">configured in the package manifest</a>.</p>
+<p><img alt="Incompatible Cockpit" src="images/cockpit-incompatible.png" /></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 118 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/118">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc24">Fedora&nbsp;24</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 23, CentOS and <span class="caps">RHEL</span></a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Do 08 September 2016</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>    </p>
+  </div>
+
+
+</article>
+
+
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2016</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
+  </main>
+
+</body>
+</html>

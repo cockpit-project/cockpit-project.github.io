@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 11 Aug 2016 12:36:00 +0000</lastBuildDate><item><title>Cockpit 0.117</title><link>http://cockpit-project.org/blog/cockpit-0.117.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&amp;nbsp;releases.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 08 Sep 2016 14:50:00 +0000</lastBuildDate><item><title>Cockpit 118</title><link>http://cockpit-project.org/blog/cockpit-118.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s usually
+a release every week, but this time around we were delinquent and it&amp;#8217;s been nearly a&amp;nbsp;month.&lt;/p&gt;
+&lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
+version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
+regularly releasing functionally stable releases for most of the last&amp;nbsp;year.&lt;/p&gt;
+&lt;p&gt;And over the last few months we&amp;#8217;ve worked hard on identifying stable javascript
+APIs and protocols for various Cockpit components to consume. We&amp;#8217;ll be itemizing
+these stability guarantees in the documentation&amp;nbsp;shortly.&lt;/p&gt;
+&lt;h3&gt;Timer jobs in&amp;nbsp;systemd&lt;/h3&gt;
+&lt;p&gt;Harish did great work during Google Summer of Code to add support for
+&lt;a href="https://www.freedesktop.org/software/systemd/man/systemd.timer.html"&gt;systemd timers&lt;/a&gt;.
+Timers let users schedule tasks similar to cron jobs. Timers are now listed,
+and dialogs for defining jobs and their recurring patterns are now included
+in&amp;nbsp;Cockpit.&lt;/p&gt;
+&lt;p&gt;Harish &lt;a href="https://medium.com/@harishanand95/gsoc-creating-timers-in-cockpit-f4034c79df51#.wdq8gtdxc"&gt;detailed his work in a blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Timers" src="images/cockpit-timers.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Two factor auth on login&amp;nbsp;screen&lt;/h3&gt;
+&lt;p&gt;Peter pulled off a major change to have full &lt;span class="caps"&gt;PAM&lt;/span&gt; conversations supported
+on the Cockpit login screen. This means you can use two factor
+authentication dongles or Yubikeys in your login workflow in&amp;nbsp;Cockpit.&lt;/p&gt;
+&lt;p&gt;In addition, for the next release Stef worked on allowing the user to
+change expired passwords while logging in, similar to how they would
+on the&amp;nbsp;console.&lt;/p&gt;
+&lt;p&gt;Take a&amp;nbsp;look:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/gXsOt6zgBs4?rel=0"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Use Webpack to build the Cockpit&amp;nbsp;interface&lt;/h3&gt;
+&lt;p&gt;Most of Cockpit is written in javascript and runs in the browser. This
+code is now built with &lt;a href="https://webpack.github.io/"&gt;Webpack&lt;/a&gt;. It&amp;#8217;s bundled
+into real single page application bundles per Cockpit component. Among
+other things, this makes hacking on Cockpit much&amp;nbsp;easier.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;documentation has been updated&lt;/a&gt;
+to show what you need to do to make a change to Cockpit either with
+Vagrant or on your local&amp;nbsp;machine.&lt;/p&gt;
+&lt;h3&gt;Make Docker resource limits work on&amp;nbsp;Debian&lt;/h3&gt;
+&lt;p&gt;The container resource usage graphs and resource limit dialogs now
+work properly on Debian. Stef adapted the code to account for the different
+CGroup layout than Docker uses on&amp;nbsp;Debian.&lt;/p&gt;
+&lt;h3&gt;Configure Cockpit URLs with an &lt;span class="caps"&gt;HTTP&lt;/span&gt;&amp;nbsp;prefix&lt;/h3&gt;
+&lt;p&gt;The &lt;span class="caps"&gt;HTTP&lt;/span&gt; URLs that Cockpit uses can now have a (mostly) arbitrary prefix
+in their path. This is useful in scenarios where Cockpit is proxied by
+another application or management console. Use the &lt;code&gt;UrlRoot&lt;/code&gt; option
+&lt;a href="http://cockpit-project.org/guide/latest/cockpit.conf.5.html"&gt;in cockpit.conf&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Components can require a minimum Cockpit&amp;nbsp;version&lt;/h3&gt;
+&lt;p&gt;Cockpit is built from various components that are idependently installable
+and composable. Various components provide network configuration, or storage,
+or container&amp;nbsp;functionality.&lt;/p&gt;
+&lt;p&gt;These components can now indicate which part of the base javascript and base
+&lt;code&gt;cockpit-bridge&lt;/code&gt; they require in order to function. This is
+&lt;a href="http://cockpit-project.org/guide/latest/packages.html#package-manifest"&gt;configured in the package manifest&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Incompatible Cockpit" src="images/cockpit-incompatible.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 118 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/118"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Thu, 08 Sep 2016 14:50:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-09-08:blog/cockpit-118.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Cockpit 0.117</title><link>http://cockpit-project.org/blog/cockpit-0.117.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;Configure volumes and environment for a Docker&amp;nbsp;container&lt;/h3&gt;
 &lt;p&gt;Vanlos Wang implemented support for configuring volumes and environment
 variables when running a container in the Cockpit &lt;span class="caps"&gt;UI&lt;/span&gt;. This allows you
