@@ -91,22 +91,23 @@ frameborder="0" allowfullscreen></iframe>
 <h3>Use Webpack to build the Cockpit&nbsp;interface</h3>
 <p>Most of Cockpit is written in javascript and runs in the browser. This
 code is now built with <a href="https://webpack.github.io/">Webpack</a>. It&#8217;s bundled
-into real single page application bundles per Cockpit component. Among
+into single page application bundles per Cockpit component. Among
 other things, this makes hacking on Cockpit much&nbsp;easier.</p>
 <p>The <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">documentation has been updated</a>
 to show what you need to do to make a change to Cockpit either with
 Vagrant or on your local&nbsp;machine.</p>
-<h3>Make Docker resource limits work on&nbsp;Debian</h3>
+<h3><span class="caps">SSH</span> key loading and Docker resources work on&nbsp;Debian</h3>
 <p>The container resource usage graphs and resource limit dialogs now
 work properly on Debian. Stef adapted the code to account for the different
 CGroup layout than Docker uses on&nbsp;Debian.</p>
+<p>In addition the <span class="caps">SSH</span> key listing code now works on&nbsp;Debian.</p>
 <h3>Configure Cockpit URLs with an <span class="caps">HTTP</span>&nbsp;prefix</h3>
 <p>The <span class="caps">HTTP</span> URLs that Cockpit uses can now have a (mostly) arbitrary prefix
 in their path. This is useful in scenarios where Cockpit is proxied by
 another application or management console. Use the <code>UrlRoot</code> option
 <a href="http://cockpit-project.org/guide/latest/cockpit.conf.5.html">in cockpit.conf</a>.</p>
 <h3>Components can require a minimum Cockpit&nbsp;version</h3>
-<p>Cockpit is built from various components that are idependently installable
+<p>Cockpit is built from various components that are independently installable
 and composable. Various components provide network configuration, or storage,
 or container&nbsp;functionality.</p>
 <p>These components can now indicate which part of the base javascript and base
@@ -118,8 +119,8 @@ or container&nbsp;functionality.</p>
 <ul>
 <li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
 <li><a href="https://github.com/cockpit-project/cockpit/releases/tag/118">Source&nbsp;Tarball</a></li>
-<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc24">Fedora&nbsp;24</a></li>
-<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 23, CentOS and <span class="caps">RHEL</span></a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc25">Fedora&nbsp;25</a></li>
+<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 24, CentOS and <span class="caps">RHEL</span></a></li>
 </ul>
   </div>
   <div class="article_meta">
