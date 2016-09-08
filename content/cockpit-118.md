@@ -47,18 +47,20 @@ frameborder="0" allowfullscreen></iframe>
 
 Most of Cockpit is written in javascript and runs in the browser. This
 code is now built with [Webpack](https://webpack.github.io/). It's bundled
-into real single page application bundles per Cockpit component. Among
+into single page application bundles per Cockpit component. Among
 other things, this makes hacking on Cockpit much easier.
 
 The [documentation has been updated](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md)
 to show what you need to do to make a change to Cockpit either with
 Vagrant or on your local machine.
 
-### Make Docker resource limits work on Debian
+### SSH key loading and Docker resources work on Debian
 
 The container resource usage graphs and resource limit dialogs now
 work properly on Debian. Stef adapted the code to account for the different
 CGroup layout than Docker uses on Debian.
+
+In addition the SSH key listing code now works on Debian.
 
 ### Configure Cockpit URLs with an HTTP prefix
 
@@ -69,7 +71,7 @@ another application or management console. Use the ```UrlRoot``` option
 
 ### Components can require a minimum Cockpit version
 
-Cockpit is built from various components that are idependently installable
+Cockpit is built from various components that are independently installable
 and composable. Various components provide network configuration, or storage,
 or container functionality.
 
@@ -85,5 +87,5 @@ Cockpit 118 is available now:
 
  * [For your Linux system](http://cockpit-project.org/running.html)
  * [Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/118)
- * [Fedora 24](https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc24)
- * [COPR for Fedora 23, CentOS and RHEL](https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/)
+ * [Fedora 25](https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc25)
+ * [COPR for Fedora 24, CentOS and RHEL](https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/)
