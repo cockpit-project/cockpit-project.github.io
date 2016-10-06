@@ -1,0 +1,36 @@
+#branding
+  line-height: 2.4
+
+.hgroup
+  margin: 0 auto
+
+nav
+  width: 100%
+
+.nav
+  width: 100%
+  list-style: none
+
+  // Copied from .grid, as it's specified specially
+  // so @extend .grid doesn't work
+  box-sizing: border-box
+  display: flex
+  flex-flow: row wrap
+  margin: 0 auto
+
+  > li
+    @extend .col
+    text-align: center
+    padding: 0
+
+    &:last-child
+      flex-basis: 25%
+      text-align: right
+
+    > a
+      display: block
+      font-size: 160%
+      padding: 0 1em
+      transition: all 0.15s
+      -moz-transition: all 0.15s
+      -webkit-transition: all 0.15s
