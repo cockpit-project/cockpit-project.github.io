@@ -42,6 +42,8 @@ defaults:
 # GitHub builds with safe mode, so enable it for previewing locally too
 safe: true
 
+excerpt_separator: READMORE
+
 # Don't compile these files/dirs into the website
 exclude:
   - Gemfile
