@@ -20,10 +20,60 @@ description: > # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://example.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+#url: "http://example.com" # the base hostname & protocol for your site
+#twitter_username: jekyllrb
+#github_username:  jekyll
+repository: garrett/jekyll-basic
+
+lang: en
 
 # Build settings
 markdown: kramdown
 theme: minima
+
+# YAML defaults for pages
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+
+# GitHub builds with safe mode, so enable it for previewing locally too
+safe: true
+
+# Don't compile these files/dirs into the website
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - bin
+
+include:
+  - _stylesheets
+  - _javascript
+  - assets/site.js
+  - assets/vendor/jquery/dist/
+  - assets/vendor/jquery.easing/js/
+  - assets/vendor/bootstrap-sass/assets/javascripts/
+
+sass:
+  sass_dir: assets/
+  style: :compressed
+
+# Let the following Jekyll plugins work in safemode
+# (mimicing GitHub's config)
+whitelist:
+  - jekyll-redirect-from
+  - jekyll-sass-converter
+  - jemoji
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-coffeescript
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+    
