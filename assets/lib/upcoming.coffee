@@ -101,7 +101,7 @@ formatEvents = (data) ->
 
 $ ->
   # TODO: Make the URL configurable via liquid
-  eventsData = 'http://rhevents-duckosas.rhcloud.com/upcoming.json'
+  eventsData = '//rhevents-duckosas.rhcloud.com/upcoming.json'
 
   # Grab and format events
   $.get eventsData, formatEvents
