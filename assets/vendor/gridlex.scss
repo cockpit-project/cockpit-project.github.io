@@ -5,6 +5,7 @@
 
 @import "gridlex-vars";
 
+.#{$gl-gridName},
 [class*="#{$gl-gridName}"]{
   box-sizing: border-box;
   display: flex;
