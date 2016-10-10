@@ -1,0 +1,17 @@
+{% assign navs = include.nav | default: site.data.navigation %}
+
+<nav role="{{ include.role }}" class="{{ include.class }}">
+  <ul>
+
+    {% for nav in navs %}
+      {% if nav.link == page.url %}
+        {% assign style = "active" %}
+      {% endif %}
+
+      <li class="nav-link-home {{ style }}" role="menuitem">
+        <a href="{{ nav.link | prepend: site.baseurl }}">{{ nav.title }}</a>
+      </li>
+    {% endfor %}
+
+  </ul>
+</nav>

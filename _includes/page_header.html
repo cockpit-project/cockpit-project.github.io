@@ -16,22 +16,10 @@
   </section>
 
   {% if site.data.navigation %}
-  
-    <div id="access"><nav role="navigation">
-      <ul class="nav nav-pills">
 
-        {% for nav in site.data.navigation %}
-          {% if nav.link == page.url %}
-            {% assign style = "active" %}
-          {% endif %}
-
-          <li class="nav-link-home {{ style }}" role="menuitem">
-            <a href="{{ nav.link | prepend: site.baseurl }}">{{ nav.title }}</a>
-          </li>
-        {% endfor %}
-        
-      </ul>
-    </nav></div>
+    <div class="nav-wrap">
+      {% include nav.html role="navigation" %}
+    </div>
 
   {% endif %}
 
