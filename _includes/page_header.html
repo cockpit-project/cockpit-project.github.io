@@ -1,7 +1,7 @@
 <header class="masthead hidden-print" id="branding" role="banner">
 
   <section class="hgroup">
-    {% assign logo_path = site.logo | default: "/img/logo.svg" %}
+    {% assign logo_path = site.logo | default: "/images/logo.svg" %}
     {% assign has_logo = site.static_files | where: "path", logo_path %}
 
     {% if has_logo[0] %}
