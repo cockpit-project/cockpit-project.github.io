@@ -2,6 +2,7 @@
     GRIDLEX
     Just a Flexbox Grid System
 ========================================================================== */
+.grid, /* Added .grid here — unnecessary, but lets us @extend via SASS */
 [class*="grid"] {
   box-sizing: border-box;
   display: flex;
