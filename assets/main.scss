@@ -42,3 +42,11 @@ $on-laptop:        48em;
 
 @import "lib/events";
 @import "lib/navbar";
+
+// Import styles from site.sass or site.scss or fall back to default.scss
+{% assign _site_style = site.static_files | where_exp: "item", "item.path contains '/assets/site.'" %}
+{% if _site_style[0] %}
+  @import "site";
+{% else %}
+  @import "default";
+{% endif %}
