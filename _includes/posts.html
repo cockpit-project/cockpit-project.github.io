@@ -1,7 +1,10 @@
+{% assign post_set = include.posts | default: site.posts %}
+{% assign limiter = include.limit | default: site.paginate %}
+
 <div class="blog-posts-list">
   <section class="articles">
 
-    {% for post in site.posts limit:10 %}
+    {% for post in post_set limit: limiter %}
 
 
       <article class="post hentry" id="{{ post.url | replace: "/", "-" }}">
