@@ -4,14 +4,14 @@
   <ul>
 
     {% for nav in navs %}
-      {% if nav.link == page.url | replace: ".html", "/" %}
+      {% if nav.url == page.url | replace: ".html", "/" %}
         {% assign active = " active" %}
       {% else %}
         {% assign active = "" %}
       {% endif %}
 
-      <li class="nav-link-{{ nav.link | slugify | default: "home" }}{{ active }}" role="menuitem">
-        <a href="{{ nav.link | prepend: site.baseurl }}">{{ nav.title }}</a>
+      <li class="nav.url-{{ nav.url | slugify | default: "home" }}{{ active }}" role="menuitem">
+        <a href="{{ nav.url | prepend: site.baseurl }}">{{ nav.title }}</a>
       </li>
     {% endfor %}
 
