@@ -35,7 +35,10 @@ $content-width:    60em;
 @import "lib/events";
 
 // Blog pagination
-@import "lib/pagination.sass"
+@import "lib/pagination.sass";
+
+// Default blog style
+@import "lib/blog.sass";
 
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
