@@ -9,6 +9,8 @@
     {% for nav in navs %}
       {% if nav.url == page.url | replace: ".html", "/" %}
         {% assign active = " active" %}
+      {% elsif nav.url == page.url | remove: ".html" %}
+        {% assign active = " active" %}
       {% else %}
         {% assign active = "" %}
       {% endif %}
