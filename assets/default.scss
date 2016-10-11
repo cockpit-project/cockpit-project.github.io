@@ -34,6 +34,9 @@ $content-width:    60em;
 // Comment out or remove if you don't use calendar or upcoming features.
 @import "lib/events";
 
+// Blog pagination
+@import "lib/pagination.sass"
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
