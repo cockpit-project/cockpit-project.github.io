@@ -25,6 +25,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 #github_username:  jekyll
 repository: garrett/jekyll-basic
 
+permalink: blog/:year/:month/:slug/
+paginate: 10
+paginate_path: "/blog/page=:num"
+
 lang: en
 
 # Build settings
