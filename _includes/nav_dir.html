@@ -6,5 +6,5 @@ assigned by directories, but also can be used in individual files.
 TODO: Add filtering and weighted sorting.
 {% endcomment %}
 
-{% assign current_dir = site.pages | where: "dir", page.dir %}
+{% assign current_dir = site.html_pages | where: "dir", page.dir %}
 {% include nav.html nav=current_dir %}
