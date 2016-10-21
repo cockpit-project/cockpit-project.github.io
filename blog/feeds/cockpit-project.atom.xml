@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-09-08T14:50:00+00:00</updated><entry><title>Cockpit 118</title><link href="http://cockpit-project.org/blog/cockpit-118.html" rel="alternate"></link><published>2016-09-08T14:50:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-09-08:blog/cockpit-118.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s usually
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-10-21T13:22:00+00:00</updated><entry><title>Cockpit 120</title><link href="http://cockpit-project.org/blog/cockpit-120.html" rel="alternate"></link><published>2016-10-21T13:22:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-10-21:blog/cockpit-120.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+regularly. Here are the release notes from versions 119 and&amp;nbsp;120.&lt;/p&gt;
+&lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
+version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
+regularly releasing functionally stable releases for most of the last&amp;nbsp;year.&lt;/p&gt;
+&lt;h3&gt;Expandable and Filterable Containers and&amp;nbsp;Images&lt;/h3&gt;
+&lt;p&gt;Lars reworked the Containers section of Cockpit. The various images and
+containers are not expandable inline, and it&amp;#8217;s also easy to find a specific
+image and container by using the filter bar to search for&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;Take a&amp;nbsp;look:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/-huY6q7kcmU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;&lt;span class="caps"&gt;VM&lt;/span&gt; Configuration and&amp;nbsp;Monitoring&lt;/h3&gt;
+&lt;p&gt;Marek worked on a new interface in Cockpit for configuring and monitoring
+virtual machines running on the current system. This has the ability to
+grow into something like the desktop &lt;code&gt;virt-manager&lt;/code&gt; tool.&lt;/p&gt;
+&lt;p&gt;It looks something like&amp;nbsp;this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/vms.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Unmanaged Network&amp;nbsp;Devices&lt;/h3&gt;
+&lt;p&gt;Cockpit now shows unmanaged network devices in its listing. You can&amp;#8217;t configure
+them or do much with them, but their presence is acknowledged. This should make
+troubleshooting non-standard configurations&amp;nbsp;easier.&lt;/p&gt;
+&lt;h3&gt;Sidebar for Physical Volumes in a Volume&amp;nbsp;Group&lt;/h3&gt;
+&lt;p&gt;Marius added a sidebar that shows up on &lt;span class="caps"&gt;LVM&lt;/span&gt; groups or volumes, that shows
+which physical devices are&amp;nbsp;involved.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s an&amp;nbsp;example:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-pv-sidebar.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; connections are run in a separate&amp;nbsp;process&lt;/h3&gt;
+&lt;p&gt;When Cockpit connects to an additional server it uses &lt;span class="caps"&gt;SSH&lt;/span&gt;, much like
+Ansible or other tools. We now launch a separate &lt;code&gt;cockpit-ssh&lt;/code&gt; process
+for each outgoing connection to another&amp;nbsp;server.&lt;/p&gt;
+&lt;p&gt;This lets us isolate the involved code much better, providing security
+benefits. But it also makes it possible to insert additional logic when
+embedding Cockpit. It&amp;#8217;s possible to put in shims to lookup keys, single-sign-on
+tokens or keytabs, and so&amp;nbsp;on.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-ssh.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Only connect to remote machines already known to&amp;nbsp;Cockpit&lt;/h3&gt;
+&lt;p&gt;When connecting to additional machines via &lt;span class="caps"&gt;SSH&lt;/span&gt;, Cockpit now refuses to
+connect to machines it doesn&amp;#8217;t have a host key for. This tightens up
+security and prevents certain reflection&amp;nbsp;attacks.&lt;/p&gt;
+&lt;h3&gt;Fix bugs preventing Logs page from working in Firefox&amp;nbsp;49&lt;/h3&gt;
+&lt;p&gt;The Logs section of Cockpit failed to function on Firefox 49. This
+version includes a fix for&amp;nbsp;that.&lt;/p&gt;
+&lt;h3&gt;Add tooltip describing group name in Roles&amp;nbsp;list&lt;/h3&gt;
+&lt;p&gt;When configuring local user accounts, one can assign various roles such
+as &amp;#8216;Server Administrator&amp;#8217; to the account. Cockpit now displays the Unix
+user group that is involved in the&amp;nbsp;role.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="User Unix Group" src="images/cockpit-unix-group.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
+&lt;p&gt;Marius added support for NetworkManager checkpoints. This means that
+while configuring network interfaces, if a change would cause Cockpit
+to disconnect, then Cockpit can revert the change and retain connectivity
+to the&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;This is similar to how a Linux Desktop asks you to click in a dialog
+if you accept the new screen configuration. Except in the networking
+case we can test the connectivity&amp;nbsp;automatically.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 120 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/120"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-120-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 118</title><link href="http://cockpit-project.org/blog/cockpit-118.html" rel="alternate"></link><published>2016-09-08T14:50:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-09-08:blog/cockpit-118.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s usually
 a release every week, but this time around we were delinquent and it&amp;#8217;s been nearly a&amp;nbsp;month.&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
