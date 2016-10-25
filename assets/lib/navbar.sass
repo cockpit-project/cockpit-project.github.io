@@ -31,6 +31,7 @@ $nav-menu-animation: $nav-animation * 2 !default
 nav.menu
   position: relative
   z-index: 100
+  cursor: default
 
   // Cleafix hack to make nav act more like block
   // without having to set an overflow property
@@ -69,7 +70,7 @@ nav.menu
       li
         &:last-child
           border-radius: 0 0 $nav-menu-radius $nav-menu-radius
-      
+
         &.nav-group:hover
           border-radius: 0 0 0 $nav-menu-radius
 
@@ -127,18 +128,22 @@ nav.menu
 
       > a
         color: $nav-menu-top-text-color !important
-  
-    &.nav-group > a
-      &::after
-        opacity: $nav-marker-opacity
-        content: $nav-marker-down
-        margin-left: 1ex
 
-  li .nav-group > a
-    &::before
-      opacity: $nav-marker-opacity
-      content: $nav-marker-right
-      float: right
+    &.nav-group
+      >
+        a, span
+          &::after
+            opacity: $nav-marker-opacity
+            content: $nav-marker-down
+            margin-left: 1ex
+
+  li .nav-group
+    >
+      a, span
+        &::before
+          opacity: $nav-marker-opacity
+          content: $nav-marker-right
+          float: right
 
 //// Make the masthead a menu
 // It's also possible to extend nav.menu for other nav elements
