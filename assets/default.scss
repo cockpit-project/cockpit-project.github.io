@@ -40,6 +40,9 @@ $content-width:    60em;
 // Default blog style
 @import "lib/blog.sass";
 
+// Navbar (check out lib/navbar.sass for customizable options)
+@import "lib/navbar.sass";
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
