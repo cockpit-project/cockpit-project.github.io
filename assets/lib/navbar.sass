@@ -129,21 +129,24 @@ nav.menu
       > a
         color: $nav-menu-top-text-color !important
 
-    &.nav-group
-      >
-        a, span
-          &::after
-            opacity: $nav-marker-opacity
-            content: $nav-marker-down
-            margin-left: 1ex
-
-  li .nav-group
-    >
+    &.nav-group >
       a, span
-        &::before
+        &::after
           opacity: $nav-marker-opacity
-          content: $nav-marker-right
-          float: right
+          content: $nav-marker-down
+          margin-left: 1ex
+
+  li .nav-group >
+    a, span
+      &::after
+        content: ""
+        display: inline-block
+        width: 3ex
+
+      &::before
+        opacity: $nav-marker-opacity
+        content: $nav-marker-right
+        float: right
 
 //// Make the masthead a menu
 // It's also possible to extend nav.menu for other nav elements
