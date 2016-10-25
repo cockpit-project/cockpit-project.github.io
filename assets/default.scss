@@ -43,6 +43,10 @@ $content-width:    60em;
 // Navbar (check out lib/navbar.sass for customizable options)
 @import "lib/navbar.sass";
 
+// Stretch the page to fill the browser
+// (but allow it to scroll further too)
+@import "lib/stickyfooter.sass";
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
