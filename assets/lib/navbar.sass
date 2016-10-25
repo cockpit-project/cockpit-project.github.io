@@ -1,20 +1,147 @@
-#branding
-  line-height: 2.4
+//// Defaults
 
-.hgroup
-  margin: 0 auto
+// Padding defaults
+$nav-padding: 0.75ex !default
+$nav-padding-ratio: 2.5 !default
+$nav-padding-y: $nav-padding !default
+$nav-padding-x: $nav-padding-y * $nav-padding-ratio !default
 
-nav
+// Submenu defaults
+$nav-marker-opacity: 0.5 !default
+$nav-marker-right: "⯈" !default
+$nav-marker-down: "▾" !default
+
+// Color defaults
+$nav-color: transparent !default
+$nav-text-color: $text-color !default
+$nav-menu-color: $grey-color-light !default
+$nav-menu-top-color: $nav-menu-color !default
+$nav-menu-top-text-color: $nav-text-color !default
+$nav-highlight-color: $brand-color !default
+$nav-highlight-text-color: #fff !default
+
+// Styling defaults (shadow and rounded radius)
+$nav-menu-shadow: 2px 2px 2px rgba(black, 0.125) !default
+$nav-menu-radius: 3px !default
+
+// Animation timing defaults
+$nav-animation: 150ms !default
+$nav-menu-animation: $nav-animation * 2 !default
+
+nav.menu
+  position: relative
+  z-index: 100
+
+  // Cleafix hack to make nav act more like block
+  // without having to set an overflow property
+  // (which would hide menus)
+  &::after
+    content: ""
+    display: table
+    clear: both
+
+  // Remove list styles
+  ul, li
+    transition: all $nav-animation
+    list-style: none
+    margin: 0
+    padding: 0
+
+  a, span
+    transition: all $nav-menu-animation
+    display: block
+    color: $nav-text-color !important
+    padding: $nav-padding-y $nav-padding-x
+    text-decoration: none !important
 
   ul
-    list-style: none
+    background: $nav-color
+    float: left
 
-    > li
-      padding: 0
+    ul
+      position: absolute
+      left: 0
+      top: 100%
+      visibility: hidden
+      opacity: 0
+      box-shadow: $nav-menu-shadow
+
+      li
+        &:last-child
+          border-radius: 0 0 $nav-menu-radius $nav-menu-radius
+      
+        &.nav-group:hover
+          border-radius: 0 0 0 $nav-menu-radius
+
+        ul li:first-child
+          border-radius: 0 $nav-menu-radius 0 0
+
+      ul
+        left: 100%
+        top: 0
+
+  li
+    float: left
+    position: relative
+
+    > ul
+      a, span
+        line-height: 0
+
+    &:hover
+      background: $nav-menu-color
+
+      li
+        background: $nav-menu-color
+
+      > ul
+        // Activate the immediate submenu
+        visibility: visible
+        opacity: 1
+
+        a, span
+          line-height: inherit
+          margin: 0 #{$nav-padding-x * -1}
+          padding: $nav-padding-y #{$nav-padding-x * 2}
+
+        li:last-child a, span
+          margin-bottom: #{$nav-padding-y * -4}
+          padding-bottom: #{$nav-padding-y * 5}
+
+    li
+      width: 100%
+      white-space: nowrap
+      min-width: 10rem
+
+      &:hover,
+      li:hover
+        background: $nav-highlight-color
+
+        > a
+          color: $nav-highlight-text-color !important
+
+  > ul > li
+
+    &:hover
+      background: $nav-menu-top-color
 
       > a
-        display: block
-        padding: 0 1em
-        transition: all 0.15s
-        -moz-transition: all 0.15s
-        -webkit-transition: all 0.15s
+        color: $nav-menu-top-text-color !important
+  
+    &.nav-group > a
+      &::after
+        opacity: $nav-marker-opacity
+        content: $nav-marker-down
+        margin-left: 1ex
+
+  li .nav-group > a
+    &::before
+      opacity: $nav-marker-opacity
+      content: $nav-marker-right
+      float: right
+
+//// Make the masthead a menu
+// It's also possible to extend nav.menu for other nav elements
+// ...or make nav elements with a class of menu in document bodies too
+.masthead nav
+  @extend nav.menu
