@@ -14,6 +14,7 @@ $nav-menu-top-color: $nav-menu-color !default
 $nav-menu-top-text-color: $nav-text-color !default
 $nav-highlight-color: $brand-color !default
 $nav-highlight-text-color: #fff !default
+$nav-active: transparent !default
 
 // Icons
 $nav-icon-opacity: 0.5 !default
@@ -155,6 +156,9 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 
         > a
           color: $nav-menu-top-text-color !important
+
+      &.active
+        background: $nav-active
 
       &.nav-group >
         a, span
