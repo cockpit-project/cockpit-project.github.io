@@ -36,6 +36,11 @@ $on-laptop: 800px !default
 // Responsive breakpoint
 $nav-min-width: $on-palm !default
 
+// Mobile menu colors
+$nav-mobile-menu: darken($brand-color, 20%) !default
+$nav-mobile-text: white !default
+$nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
+
 @media screen and (min-width: $nav-min-width)
   nav.menu
     position: relative
@@ -162,6 +167,7 @@ $nav-min-width: $on-palm !default
 @media screen and (max-width: $nav-min-width)
   nav
     z-index: 1000
+    cursor: default
 
     ul, li
       padding: 0
@@ -176,7 +182,7 @@ $nav-min-width: $on-palm !default
     left: -100%
     overflow: auto
     height: 100vh
-    background-color: #eee
+    background-color: $nav-mobile-menu
     z-index: 2
     box-shadow: 0 0 6px rgba(black, 0.25)
     min-width: 25vw
@@ -192,6 +198,11 @@ $nav-min-width: $on-palm !default
     a, span
       display: block
       padding: 0 1ex
+      color: $nav-mobile-text !important
+      text-shadow: $nav-mobile-text-shadow
+
+    span
+      opacity: 0.4
 
   nav > .nav-screen
     transition: all 500ms
@@ -243,6 +254,7 @@ $nav-min-width: $on-palm !default
 .masthead nav
   @extend nav.menu
 
-.masthead .logo
-  @media screen and (max-width: $on-palm)
-    float: right !important
+@media screen and (max-width: $on-palm)
+  .masthead .hgroup
+    width: 100%
+    padding-left: 52px
