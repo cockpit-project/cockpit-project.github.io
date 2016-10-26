@@ -34,7 +34,7 @@ $on-palm: 600px !default
 $on-laptop: 800px !default
 
 // Responsive breakpoint
-$nav-min-width: $on-palm !default
+$nav-min-width: $on-laptop !default
 
 // Mobile menu colors
 $nav-mobile-text: white !default
@@ -263,6 +263,6 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 .masthead nav
   @extend nav.menu
 
-@media screen and (max-width: $on-palm)
+@media screen and (max-width: $nav-min-width)
   .masthead .hgroup
     padding-left: calc(#{$nav-mobile-button-size} + 1.5ex)
