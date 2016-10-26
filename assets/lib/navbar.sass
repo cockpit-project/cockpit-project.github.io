@@ -37,9 +37,10 @@ $on-laptop: 800px !default
 $nav-min-width: $on-palm !default
 
 // Mobile menu colors
-$nav-mobile-menu: darken($brand-color, 20%) !default
 $nav-mobile-text: white !default
 $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
+$nav-mobile-menu: darken($brand-color, 20%) !default
+$nav-mobile-menu-highlight: mix($nav-mobile-menu, $nav-mobile-text, 80%) !default
 $nav-mobile-button-size: 32px !default
 
 $nav-mobile-font-family: "Roboto", $base-font-family !default
@@ -177,6 +178,9 @@ $nav-mobile-font-family: "Roboto", $base-font-family !default
       padding: 0
       margin: 0
       list-style: none
+
+    li.active
+      background-color: $nav-mobile-menu-highlight
 
   nav > .nav-menu
     transition: all 300ms ease-in-out
