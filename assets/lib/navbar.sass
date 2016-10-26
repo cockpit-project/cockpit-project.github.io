@@ -40,6 +40,9 @@ $nav-min-width: $on-palm !default
 $nav-mobile-menu: darken($brand-color, 20%) !default
 $nav-mobile-text: white !default
 $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
+$nav-mobile-button-size: 32px !default
+
+$nav-mobile-font-family: "Roboto", $base-font-family !default
 
 @media screen and (min-width: $nav-min-width)
   nav.menu
@@ -166,6 +169,7 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
 
 @media screen and (max-width: $nav-min-width)
   nav
+    font-family: $nav-mobile-font-family
     z-index: 1000
     cursor: default
 
@@ -187,7 +191,7 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
     box-shadow: 0 0 6px rgba(black, 0.25)
     min-width: 25vw
     max-width: 75vw
-    padding: 32px 0 0 1ex
+    padding: $nav-mobile-button-size 0 0 1ex
 
     > li
       margin-top: 2ex
@@ -211,11 +215,11 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
   .nav-toggle:before
     transition: all 300ms ease-in-out
     display: block
-    width: 32px
-    height: 32px
+    width: $nav-mobile-button-size
+    height: $nav-mobile-button-size
     cursor: pointer
     content: "≡"
-    font-size: 32px
+    font-size: $nav-mobile-button-size
     color: $nav-text-color
     background: $nav-menu-color
     z-index: 3
@@ -223,7 +227,7 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
     top: 0
     left: 0
     padding: 0.5ex
-    line-height: 32px
+    line-height: $nav-mobile-button-size
     border-radius: $nav-menu-radius
 
   .nav-check:checked + nav >
@@ -257,4 +261,4 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
 @media screen and (max-width: $on-palm)
   .masthead .hgroup
     width: 100%
-    padding-left: 52px
+    padding-left: calc(#{$nav-mobile-button-size} + 1.5ex)
