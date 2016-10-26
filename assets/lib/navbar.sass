@@ -43,7 +43,8 @@ $nav-mobile-menu: darken($brand-color, 20%) !default
 $nav-mobile-menu-highlight: mix($nav-mobile-menu, $nav-mobile-text, 80%) !default
 $nav-mobile-button-size: 32px !default
 
-$nav-mobile-font-family: "Roboto", $base-font-family !default
+// Native iOS or Android fonts when installed, else use website fonts
+$nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-family !default
 
 @media screen and (min-width: $nav-min-width)
   nav.menu
