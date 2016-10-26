@@ -105,8 +105,11 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       position: relative
 
       > ul
-        a, span
-          line-height: 0
+        transform: scaleY(0)
+        transform-origin: top left
+
+        ul
+          transform: scale(0)
 
       &:hover
         background: $nav-menu-color
@@ -120,9 +123,9 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
           opacity: 1
           // Make sure menus are on top (z-index is relative to parent z-index)
           z-index: 1
+          transform: scale(1)
 
           a, span
-            line-height: inherit
             margin: 0 #{$nav-padding-x * -1}
             padding: $nav-padding-y #{$nav-padding-x * 2}
 
