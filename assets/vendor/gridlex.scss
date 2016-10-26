@@ -40,6 +40,10 @@
     }
   }
 
+// No Wrapping
+  &[class*="-noWrap"]{
+    flex-wrap: nowrap;
+  }
 // Horizontal alignment
   &[class*="-center"]{
     justify-content: center;
@@ -85,6 +89,9 @@
 // Equal heights columns
   &[class*="-equalHeight"] > [class*="#{$gl-colName}"]{
     display: flex;
+    > *{
+      flex: 1;
+    }
   }
 // Removes the padding-bottom
   &[class*="-noBottom"] > [class*="#{$gl-colName}"]{
@@ -108,30 +115,6 @@
   }
   &[class*="-last"]{
     order: 1;
-  }
-}
-
-/************************
-    HIDING COLS
-*************************/
-@media #{$gl-lg}{
-  [class*="#{$gl-colName}-"][class*="_lg-0"]{
-    display: none;
-  }
-}
-@media #{$gl-md}{
-  [class*="#{$gl-colName}-"][class*="_md-0"]{
-    display: none;
-  }
-}
-@media #{$gl-sm}{
-  [class*="#{$gl-colName}-"][class*="_sm-0"]{
-    display: none;
-  }
-}
-@media #{$gl-xs}{
-  [class*="#{$gl-colName}-"][class*="_xs-0"]{
-    display: none;
   }
 }
 
@@ -174,4 +157,73 @@
 @media #{$gl-xs}{
   @include makeCol(_xs);
   @include makeOff(_xs);
+}
+
+/************************
+    HIDING COLS
+*************************/
+[class*="#{$gl-colName}-"]:not([class*="#{$gl-colName}-0"]) {
+  display: block;
+}
+[class*="#{$gl-gridName}"][class*="#{$gl-colName}-"]:not([class*="#{$gl-colName}-0"]) {
+  display: flex;
+}
+[class*="#{$gl-colName}-"][class*="#{$gl-colName}-0"] {
+  display: none;
+}
+@media #{$gl-lg}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_lg-0"]){
+      display: block;
+    }
+    &:not([class*="_lg-0"]) {
+      display: flex;
+    }
+    >[class*="_lg-0"],
+    &[class*="-equalHeight"] > [class*="_lg-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-md}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_md-0"]){
+      display: block;
+    }
+    &:not([class*="_md-0"]) {
+      display: flex;
+    }
+    >[class*="_md-0"],
+    &[class*="-equalHeight"] > [class*="_md-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-sm}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_sm-0"]){
+      display: block;
+    }
+    &:not([class*="_sm-0"]) {
+      display: flex;
+    }
+    >[class*="_sm-0"],
+    &[class*="-equalHeight"] > [class*="_sm-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-xs}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_xs-0"]){
+      display: block;
+    }
+    &:not([class*="_xs-0"]) {
+      display: flex;
+    }
+    >[class*="_xs-0"],
+    &[class*="-equalHeight"] > [class*="_xs-0"]{
+      display: none;
+    }
+  }
 }
