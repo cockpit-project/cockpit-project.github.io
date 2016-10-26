@@ -6,11 +6,6 @@ $nav-padding-ratio: 2.5 !default
 $nav-padding-y: $nav-padding !default
 $nav-padding-x: $nav-padding-y * $nav-padding-ratio !default
 
-// Submenu defaults
-$nav-marker-opacity: 0.5 !default
-$nav-marker-right: "⯈" !default
-$nav-marker-down: "▾" !default
-
 // Color defaults
 $nav-color: transparent !default
 $nav-text-color: $text-color !default
@@ -20,6 +15,12 @@ $nav-menu-top-text-color: $nav-text-color !default
 $nav-highlight-color: $brand-color !default
 $nav-highlight-text-color: #fff !default
 
+// Icons
+$nav-icon-opacity: 0.5 !default
+$nav-icon-menu: "≡" !default
+$nav-icon-right: "⯈" !default
+$nav-icon-down: "▾" !default
+
 // Styling defaults (shadow and rounded radius)
 $nav-menu-shadow: 2px 2px 2px rgba(black, 0.125) !default
 $nav-menu-radius: 3px !default
@@ -27,6 +28,7 @@ $nav-menu-radius: 3px !default
 // Animation timing defaults
 $nav-animation: 150ms !default
 $nav-menu-animation: $nav-animation * 2 !default
+$nav-mobile-menu-animation: all 300ms ease-in-out
 
 // These should be set in theme.scss/theme.sass or minima already...
 // but just in case, we're defining fallbacks here
@@ -42,6 +44,7 @@ $nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
 $nav-mobile-menu: darken($brand-color, 20%) !default
 $nav-mobile-menu-highlight: mix($nav-mobile-menu, $nav-mobile-text, 80%) !default
 $nav-mobile-button-size: 32px !default
+
 
 // Native iOS or Android fonts when installed, else use website fonts
 $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-family !default
@@ -156,8 +159,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       &.nav-group >
         a, span
           &::after
-            opacity: $nav-marker-opacity
-            content: $nav-marker-down
+            opacity: $nav-icon-opacity
+            content: $nav-icon-down
             margin-left: 1ex
 
     li .nav-group >
@@ -168,8 +171,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
           width: 3ex
 
         &::before
-          opacity: $nav-marker-opacity
-          content: $nav-marker-right
+          opacity: $nav-icon-opacity
+          content: $nav-icon-right
           float: right
 
 @media screen and (max-width: $nav-min-width)
@@ -187,7 +190,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       background-color: $nav-mobile-menu-highlight
 
   nav > .nav-menu
-    transition: all 300ms ease-in-out
+    transition: $nav-mobile-menu-animation
     visibility: hidden
     position: fixed
     top: 0
@@ -217,16 +220,16 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       opacity: 0.4
 
   nav > .nav-screen
-    transition: all 500ms
+    transition: $nav-mobile-menu-animation
     opacity: 0
 
   .nav-toggle:before
-    transition: all 300ms ease-in-out
+    transition: $nav-mobile-menu-animation
     display: block
     width: $nav-mobile-button-size
     height: $nav-mobile-button-size
     cursor: pointer
-    content: "≡"
+    content: $nav-icon-menu
     font-size: $nav-mobile-button-size
     color: $nav-text-color
     background: $nav-menu-color
