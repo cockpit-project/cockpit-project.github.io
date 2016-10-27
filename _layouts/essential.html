@@ -21,7 +21,11 @@
     <meta property="og:image" content="FIXME">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+    {% assign _favicon = site.static_files | where_exp: "item", "item.path contains '/images/favicon.'" %}
+    {% if _favicon[0] %}
+      <link rel="shortcut icon" href="{{ _favicon[0].path | prepend: site.baseurl }}" type="image/png">
+    {% endif %}
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
