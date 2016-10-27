@@ -11,6 +11,10 @@
 $on-palm:          35.5em;
 $on-laptop:        48em;
 
+// Set both $spacing-unit (for minima) and $gl-gutter (for gridlex)
+$spacing-unit: 2rem;
+$gl-gutter: $spacing-unit / 2;
+
 // Import styles from site.sass or site.scss or fall back to default.scss
 {% assign _site_style = site.static_files | where_exp: "item", "item.path contains '/assets/site.'" %}
 {% if _site_style[0] %}
