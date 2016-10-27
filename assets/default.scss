@@ -30,6 +30,9 @@ $content-width:    60em;
 // Import partials from the `minima` theme.
 @import "minima";
 
+// Import grid (see http://gridlex.devlint.fr/ for docs)
+@import "vendor/gridlex";
+
 // Comment out or remove the follow if you don't use the feature
 ////////////////////////////////////////////////////////////////////////
 @import "lib/events";       // Events and upcoming support.
