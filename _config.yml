@@ -42,6 +42,11 @@ defaults:
       path: ""
     values:
       layout: "page"
+  -
+    scope:
+      type: posts
+    values:
+      layout: "post"
 
 # GitHub builds with safe mode, so enable it for previewing locally too
 safe: true
