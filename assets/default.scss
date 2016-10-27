@@ -1,6 +1,6 @@
 // Please copy default.scss to site.scss to customize your site.
 //
-// If site.scss (or site.sass) exists, then default.scss will not
+// If site.scss (or site) exists, then default.scss will not
 // be used. (You can then use it for reference later.)
 //
 // Be sure to `@import "minima"` after the variables needed for it
@@ -30,22 +30,15 @@ $content-width:    60em;
 // Import partials from the `minima` theme.
 @import "minima";
 
-// Events and upcoming support. 
-// Comment out or remove if you don't use calendar or upcoming features.
-@import "lib/events";
-
-// Blog pagination
-@import "lib/pagination.sass";
-
-// Default blog style
-@import "lib/blog.sass";
-
-// Navbar (check out lib/navbar.sass for customizable options)
-@import "lib/navbar.sass";
-
-// Stretch the page to fill the browser
-// (but allow it to scroll further too)
-@import "lib/stickyfooter.sass";
+// Comment out or remove the follow if you don't use the feature
+////////////////////////////////////////////////////////////////////////
+@import "lib/events";       // Events and upcoming support.
+@import "lib/pagination";   // Blog pagination
+@import "lib/blog";         // Default blog style
+@import "lib/navbar";       // Navbar (see opts in lib/navbar.sass)
+@import "lib/stickyfooter"; // Stretch page with footer on bottom
+@import "lib/scrollbar-on"; // Stop page shift by keeping scrollbar on
+//@import "lib/stickyheader"; // Keep header at the top
 
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
