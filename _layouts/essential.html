@@ -40,7 +40,14 @@
 
 
   <body id="page-top">
-    {{ content }}
+    {% if site.rewrite_images == false %}
+      {{ content }}
+    {% else %}
+      {% assign img_untreated = 'img src="/' %}
+      {% assign baseurlslash = site.baseurl | append: "/" %}
+      {% assign img_baseurl = img_untreated | replace: "/", baseurlslash %}
+      {{ content | replace: img_untreated, img_baseurl }}
+    {% endif %}
   </body>
 
 </html>
