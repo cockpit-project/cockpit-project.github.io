@@ -46,7 +46,14 @@
       {% assign img_untreated = 'img src="/' %}
       {% assign baseurlslash = site.baseurl | append: "/" %}
       {% assign img_baseurl = img_untreated | replace: "/", baseurlslash %}
-      {{ content | replace: img_untreated, img_baseurl }}
+      {% assign rewritten = content | replace: img_untreated, img_baseurl %}
+
+      {% if site.baseurl != "" %}
+        {% assign doublebase = site.baseurl | append: site.baseurl %}
+        {{ rewritten | replace: doublebase, site.baseurl }}
+      {% else %}
+        {{ rewritten }}
+      {% endif %}
     {% endif %}
   </body>
 
