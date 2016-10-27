@@ -38,7 +38,7 @@ $content-width:    60em;
 @import "lib/events";       // Events and upcoming support.
 @import "lib/pagination";   // Blog pagination
 @import "lib/blog";         // Default blog style
-@import "lib/navbar";       // Navbar (see opts in lib/navbar.sass)
+@import "lib/nav";          // Navbar (see opts in lib/navbar.sass)
 @import "lib/stickyfooter"; // Stretch page with footer on bottom
 @import "lib/scrollbar-on"; // Stop page shift by keeping scrollbar on
 //@import "lib/stickyheader"; // Keep header at the top
