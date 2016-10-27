@@ -6,36 +6,7 @@
 
     {% for post in post_set limit: limiter %}
 
-
-      <article class="post hentry" id="{{ post.url | replace: "/", "-" }}">
-        <header class="post-header">
-          <h2 class="post-title entry-title">
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-          </h2>
-          <header class="post-meta">
-            {% if post.author %}
-              <span class="byline">
-                by
-                <span class="author vcard">
-                  {{ post.author }}
-                </span>
-              </span>
-              –
-            {% endif %}
-            <time class="published" datetime="{{ post.date | date: "%u" }}">
-              {{ post.date | date: "%b %-d, %Y" }}
-            </time>
-          </header>
-        </header>
-
-        <section class="post-content entry-content">
-          {{ post.excerpt }}
-        </section>
-
-        <footer class="post-meta">
-          <a class="more-link read-more" href="{{ post.url | prepend: site.baseurl}}">Read More »</a>
-        </footer>
-      </article>
+      {% include post.html post=post excerpt=true link=true %}
 
     {% endfor %}
   </section>

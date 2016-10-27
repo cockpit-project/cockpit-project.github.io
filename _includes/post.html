@@ -1,0 +1,45 @@
+{% assign post = include.post | default: page %}
+{% assign excerpt = include.excerpt | default: false %}
+{% assign link_title = include.link | default: false %}
+
+{% assign separator = site.excerpt_separator | prepend: "<p>" | append: "</p>" %}
+
+<article class="post hentry" id="{{ post.url | replace: "/", "-" }}">
+  <header class="post-header">
+    <h2 class="post-title entry-title">
+      {% if link_title %}
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+      {% else %}
+        {{ post.title | escape }}
+      {% endif %}
+    </h2>
+    <header class="post-meta">
+      {% if post.author %}
+        <span class="byline">
+          by
+          <span class="author vcard">
+            {{ post.author }}
+          </span>
+        </span>
+        –
+      {% endif %}
+      <time class="published" datetime="{{ post.date | date: "%u" }}">
+        {{ post.date | date: "%b %-d, %Y" }}
+      </time>
+    </header>
+  </header>
+
+  <section class="post-content entry-content">
+    {% if excerpt %}
+      {{ post.excerpt }}
+    {% else %}
+      {{ post.content | remove_first: separator }}
+    {% endif %}
+  </section>
+
+  {% if excerpt %}
+    <footer class="post-meta">
+      <a class="more-link read-more" href="{{ post.url | prepend: site.baseurl}}">Read More »</a>
+    </footer>
+  {% endif %}
+</article>
