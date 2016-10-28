@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 21 Oct 2016 13:22:00 +0000</lastBuildDate><item><title>Cockpit 120</title><link>http://cockpit-project.org/blog/cockpit-120.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 28 Oct 2016 18:06:00 +0000</lastBuildDate><item><title>Cockpit 121</title><link>http://cockpit-project.org/blog/cockpit-121.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+regularly. Here are the release notes from version&amp;nbsp;121&lt;/p&gt;
+&lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
+version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
+regularly releasing functionally stable releases for most of the last&amp;nbsp;year.&lt;/p&gt;
+&lt;h3&gt;Network Configuration&amp;nbsp;Rollback&lt;/h3&gt;
+&lt;p&gt;NetworkManager now has support in its &lt;span class="caps"&gt;API&lt;/span&gt; for detecting whether a network
+configuration change broke connectivity to the system. Marius did work
+so that Cockpit can detect this and have NetworkManager rollback the
+changes that would have caused a remote admin to be disconnected from
+the&amp;nbsp;system.&lt;/p&gt;
+&lt;p&gt;This is similar to how a Linux desktop asks you to click in a dialog
+if you accept the new display configuration. Except in the networking
+case we can test the connectivity&amp;nbsp;automatically.&lt;/p&gt;
+&lt;p&gt;Check it&amp;nbsp;out:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/fNIaDl5UR4Q?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Debian&amp;nbsp;Branding&lt;/h3&gt;
+&lt;p&gt;Cockpit now shows proper branding when running on Debian, and uses the
+logo installed on the system on its login&amp;nbsp;screen.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/debian-branding.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Fix Kerberos single sign on Debian and&amp;nbsp;Ubuntu&lt;/h3&gt;
+&lt;p&gt;Stef fixed Kerberos single sign on Debian and Ubuntu. More changes are
+coming in the next release including support for use with
+&lt;a href="https://fedoraproject.org/wiki/Features/gss-proxy"&gt;gssproxy&lt;/a&gt; and expanding
+support for non-Kerberos &lt;span class="caps"&gt;GSSAPI&lt;/span&gt; authentication&amp;nbsp;mechanisms.&lt;/p&gt;
+&lt;h3&gt;Debugging info for Javascript and &lt;span class="caps"&gt;CSS&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Cockpit now ships proper Javascript and &lt;span class="caps"&gt;CSS&lt;/span&gt; debugging &amp;#8220;map&amp;#8221; files in its
+cockpit-debuginfo packages. These make it easier to troubleshoot issues
+and develop code that runs in&amp;nbsp;Cockpit.&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
+&lt;p&gt;Peter is adding support for specifying an alternate server to connect
+to on the login&amp;nbsp;screen.&lt;/p&gt;
+&lt;p&gt;This completes the story of the &amp;#8220;bastion host&amp;#8221; which is accessible via
+a web browser, in effect letting you connect via the Web Browser from
+the login screen to other machines which only have &lt;span class="caps"&gt;SSH&lt;/span&gt; access available.
+When using a bastion setup like this you only need a single trusted
+&lt;span class="caps"&gt;TLS&lt;/span&gt; certificate and the remaining trust is ensured by &lt;span class="caps"&gt;SSH&lt;/span&gt; known host&amp;nbsp;keys.&lt;/p&gt;
+&lt;p&gt;This feature will be used to implement click-through access to configure a host
+in projects such as ManageIQ or &lt;span class="caps"&gt;RHEV&lt;/span&gt;.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 121 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/121"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-121-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Fri, 28 Oct 2016 18:06:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-10-28:blog/cockpit-121.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Cockpit 120</title><link>http://cockpit-project.org/blog/cockpit-120.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from versions 119 and&amp;nbsp;120.&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
