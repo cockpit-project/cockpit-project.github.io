@@ -1,0 +1,74 @@
+Title: Cockpit 121
+Date: 2016-10-28 18:06
+Tags: cockpit, linux, technical
+Slug: cockpit-121
+Category: release
+Summary: Cockpit releases regularly. Network Checkpoints and other highlights from version 121
+
+Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release
+regularly. Here are the release notes from version 121
+
+You'll notice that we've dropped the ```0.x``` from the beginning of the
+version numbers. This underscores the fact that Cockpit is stable. We've been
+regularly releasing functionally stable releases for most of the last year.
+
+### Network Configuration Rollback
+
+NetworkManager now has support in its API for detecting whether a network
+configuration change broke connectivity to the system. Marius did work
+so that Cockpit can detect this and have NetworkManager rollback the
+changes that would have caused a remote admin to be disconnected from
+the system.
+
+This is similar to how a Linux desktop asks you to click in a dialog
+if you accept the new display configuration. Except in the networking
+case we can test the connectivity automatically.
+
+Check it out:
+
+<iframe width="853" height="480" src="https://www.youtube.com/embed/fNIaDl5UR4Q?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+### Debian Branding
+
+Cockpit now shows proper branding when running on Debian, and uses the
+logo installed on the system on its login screen.
+
+![Virtual Machines](images/debian-branding.png)
+
+### Fix Kerberos single sign on Debian and Ubuntu
+
+Stef fixed Kerberos single sign on Debian and Ubuntu. More changes are
+coming in the next release including support for use with
+[gssproxy](https://fedoraproject.org/wiki/Features/gss-proxy) and expanding
+support for non-Kerberos GSSAPI authentication mechanisms.
+
+
+### Debugging info for Javascript and CSS
+
+Cockpit now ships proper Javascript and CSS debugging "map" files in its
+cockpit-debuginfo packages. These make it easier to troubleshoot issues
+and develop code that runs in Cockpit.
+
+### From the future
+
+Peter is adding support for specifying an alternate server to connect
+to on the login screen.
+
+This completes the story of the "bastion host" which is accessible via
+a web browser, in effect letting you connect via the Web Browser from
+the login screen to other machines which only have SSH access available.
+When using a bastion setup like this you only need a single trusted
+TLS certificate and the remaining trust is ensured by SSH known host keys.
+
+This feature will be used to implement click-through access to configure a host
+in projects such as ManageIQ or RHEV.
+
+### Try it out
+
+Cockpit 121 is available now:
+
+ * [For your Linux system](http://cockpit-project.org/running.html)
+ * [Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/121)
+ * [Fedora 25](https://bodhi.fedoraproject.org/updates/cockpit-121-1.fc25)
+ * [COPR for Fedora, CentOS and RHEL](https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/)
