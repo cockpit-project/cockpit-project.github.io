@@ -132,7 +132,7 @@ sudo firewall-cmd --add-service=cockpit --permanent</pre>
               <p>Cockpit is not yet part of the official Debian repositories, but you can add a repository which contains weekly builds targeting debian unstable:</p>
               <ol>
                 <li>Add the following line to <tt>/etc/apt/sources.list</tt>
-                  <pre>deb https://fedorapeople.org/groups/cockpit/debian unstable main</pre></li>
+                  <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ unstable main</pre></li>
                 <li>Import Cockpit's signing key to the apt sources keyring:
                   <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</pre></li>
                 <li>Update package information with that source:
