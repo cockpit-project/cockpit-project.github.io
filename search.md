@@ -1,0 +1,6 @@
+---
+---
+
+## Search
+
+{% include search.html %}
