@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 28 Oct 2016 18:06:00 +0000</lastBuildDate><item><title>Cockpit 121</title><link>http://cockpit-project.org/blog/cockpit-121.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/cockpit-project.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 03 Nov 2016 20:31:00 +0000</lastBuildDate><item><title>Cockpit 122</title><link>http://cockpit-project.org/blog/cockpit-122.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+regularly. Here are the release notes from version&amp;nbsp;122&lt;/p&gt;
+&lt;h3&gt;Logging into a system via a Bastion&amp;nbsp;Host&lt;/h3&gt;
+&lt;p&gt;On the Cockpit login screen you can now choose an alternate host to connect
+to. Cockpit with use &lt;span class="caps"&gt;SSH&lt;/span&gt; to authenticate you against that host, and display
+the admin interface for that&amp;nbsp;host.&lt;/p&gt;
+&lt;p&gt;Although browsers cannot use &lt;span class="caps"&gt;SSH&lt;/span&gt; directly to connect to machines or
+authenticate against them, Cockpit can make this happen. Only one host
+needs to have Cockpit listen on port 9090 available to browsers over &lt;span class="caps"&gt;TLS&lt;/span&gt;,
+and other hosts just need to have &lt;span class="caps"&gt;SSH&lt;/span&gt; running on their usual port&amp;nbsp;22.&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s an&amp;nbsp;example:&lt;/p&gt;
+&lt;iframe width="853" height="480" src="https://www.youtube.com/embed/yc64DUydciI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Works with UDisks in addition to&amp;nbsp;storaged&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/storaged-project/storaged"&gt;storaged&lt;/a&gt;
+is an actively maintained &lt;span class="caps"&gt;API&lt;/span&gt; for configuring storage on a Linux system.
+It is a fork of the older
+&lt;a href="https://www.freedesktop.org/wiki/Software/udisks/"&gt;UDisks&lt;/a&gt;. storaged
+has additional functionality, like &lt;span class="caps"&gt;LVM&lt;/span&gt;, iSCSI and Btrfs and a large number
+of stability&amp;nbsp;fixes.&lt;/p&gt;
+&lt;p&gt;However some systems like older &lt;span class="caps"&gt;RHEL&lt;/span&gt; or Ubuntu don&amp;#8217;t yet have storaged.
+Cockpit can now also use the older UDisks to configure storage on a system.
+A large number of features are disabled, but basic functionality is&amp;nbsp;present.&lt;/p&gt;
+&lt;h3&gt;Explicitly specify javascript dependency&amp;nbsp;versions&lt;/h3&gt;
+&lt;p&gt;Cockpit&amp;#8217;s bundles various javascript dependencies in its admin interfaces,
+such as
+&lt;a href="http://www.patternfly.org"&gt;Patternfly&lt;/a&gt; or
+&lt;a href="https://facebook.github.io/react/"&gt;React&lt;/a&gt;. In order to help packagers
+we&amp;#8217;ve now explictly specified the versions of those dependencies. And
+during development we pull them in using the standard
+&lt;a href="https://bower.io/"&gt;Bower&lt;/a&gt;&amp;nbsp;registry.&lt;/p&gt;
+&lt;p&gt;You can see &lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit/master/bower.json"&gt;those versions here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
+&lt;p&gt;Lars has worked on functionality to show the OpenSCAP security scan results
+for containers. This uses the usual &lt;code&gt;atomic scan&lt;/code&gt; functionality that
+you see on Atomic&amp;nbsp;Host.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/image-scanning.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 122 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/122"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-122-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cockpit Project</dc:creator><pubDate>Thu, 03 Nov 2016 20:31:00 +0000</pubDate><guid>tag:cockpit-project.org,2016-11-03:blog/cockpit-122.html</guid><category>cockpit</category><category>linux</category><category>technical</category></item><item><title>Cockpit 121</title><link>http://cockpit-project.org/blog/cockpit-121.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version&amp;nbsp;121&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
