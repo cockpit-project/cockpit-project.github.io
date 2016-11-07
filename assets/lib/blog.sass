@@ -158,15 +158,37 @@ article.post
   padding: 3em 0 3em
 
 .tag-cloud
-  line-height: 3em
+  line-height: 2.5ex
   text-align: justify
 
-  .tag
+  a
+    padding: 0.25ex
+    vertical-align: middle
+    white-space: nowrap
+
+.tag-cloud + .tag-list
+  margin-top: 4em
+
+.tag-list
+  ul
+    margin: 0 0 3em 0
+
+  ul, li
+    list-style: none
+
+  li
+    display: flex
+    overflow: hidden
+
+  .published
+    @extend .post-meta
+    font-size: inherit
+    min-width: 12ex
     padding-right: 1ex
+    text-align: right
 
-    a
-      vertical-align: middle
-
+  a
+    flex: 1
 
 /* Disclaimer
 
@@ -193,3 +215,4 @@ article.post
 
 .blog-posts-list + .pagination
   margin-top: 3em
+
