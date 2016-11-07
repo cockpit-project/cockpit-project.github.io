@@ -33,8 +33,96 @@ processAllEvents = (events) ->
 
   formatted
 
+processEventList = (data) ->
+  $list = $('#all-events')
+
+  # TODO: Make this work per year
+  year = 2016
+  prefix = year + "/"
+
+  $list.html('')
+
+  $allConfs = $('<div></div>')
+
+  for label, conf of data[year]
+    confID = prefix + slugify label
+
+    location = if conf.location
+      """
+      <h3 class="location">
+        <a href="https://maps.google.com/maps?q=#{ conf.location }" target="_blank">
+          #{ conf.location }
+        </a>
+      </h3>
+      """
+
+    description = if conf.description
+      """
+      <div class="description">#{ conf.description }</div>
+      """
+
+    $conf = $("""
+      <div class="conference">
+        <a class="top" href="#quicklinks">Back to top</a>
+        <div class="vevent">
+          <h2 class="event summary" id="#{ confID }">
+            <a href="##{ confID }" title="Link to this conference directly">
+              #{ conf.name }
+            </a>
+          </h2>
+          <div class="conference-info">
+            #{ location || '' }
+            <h3 class="date">
+              <abbr class="dtstart" title="#{ conf.start }">#{ conf.start }</abbr>
+              -
+              <abbr class="dtend" title="#{ conf.end }">#{ conf.end }</abbr>
+            </h3>
+            #{ description || '' }
+          </div>
+        </div>
+      </div>
+      """)
+
+    if conf.talks
+      conf.talks.forEach (talk) ->
+        talkID = confID + '--' + slugify talk.title
+
+        speaker = if talk.speaker
+          """
+            <h4 class="speaker">Speaker: #{ talk.speaker }</h4>
+          """
+
+        location = if talk.location
+          """
+            <h4 class="location">Location: #{ talk.location }</h4>
+          """
+
+        $talk = $("""
+          <div class="vevent talk">
+            <h3 id="#{ talkID }" class="summary">
+              <a href="##{ talkID }">#{ talk.title }</a>
+            </h3>
+            #{ speaker || '' }
+            #{ location || '' }
+            <h4 class="time">
+              <abbr class="dtstart" title="#{ talk.start }">#{ talk.start }</abbr>
+              -
+              <abbr class="dtend" title="#{ talk.end }">#{ talk.end }</abbr>
+            </h4>
+            <div class="description">#{ talk.description }</div>
+          </div>
+          """)
+
+        $conf.append($talk)
+
+    $allConfs.append($conf)
+
+  $list.html($allConfs)
+
 processCalendar = (data) ->
   $widget = $("#calendar-widget")
+
+  processEventList data
 
   # Init the calendar widget
   $widget.fullCalendar

@@ -2,23 +2,11 @@
 <script src="{{ "/assets/vendor/fullcalendar.js" | prepend: site.baseurl }}"></script>
 <link rel="stylesheet" href="{{ "/assets/lib/cal-widget.css" | prepend: site.baseurl }}">
 
-<div id='calendar-widget'></div>
-
-<!--
-<div id="upcoming-template" hidden>
-  <dl class="upcoming-list">
-    <dd class="upcoming-date">
-      <span class="day">DAY</span>
-      <span class="month">MONTH</span>
-    </dd>
-    <dt class="upcoming-event">
-      <a href="/events/#EVENT-URL">EVENT TITLE</a>
-    </dt>
-  </dl>
-  <div class="upcoming-more more"><a href="/events/">View all current events…</a></div>
+<div class="grid upcoming-events">
+  {% if include.blurb %}
+    <div class="page-blurb col-6">{{ include.blurb | markdownify }}</div>
+  {% endif %}
+  <div id="calendar-widget" class="col"></div>
 </div>
 
-<div id="upcoming">
-  <div class="upcoming-more more"><a href="/events/">View all current events…</a></div>
-</div>
--->
+<div id="all-events"></div>
