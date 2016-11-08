@@ -1,0 +1,55 @@
+{% unless include.js == false %}
+<script src="{{ site.baseurl }}/assets/vendor/string_score.js"></script>
+<script src="{{ site.baseurl }}/assets/lib/search.js"></script>
+{% endunless %}
+
+{% unless include.template == false %}
+<div class="search-page">
+
+  <!-- Search form -->
+  <form class="grid-noGutter" id="search-form" role="form">
+    <input autocomplete="off" id="search-input" name="entry" class="col-10_xs-8">
+    <button class="col">Search</button>
+  </form>
+
+  <!-- Spinner while the JSON DB is loading -->
+  <div class="progress-container">
+    <i class="spinner fa fa-circle-o-notch fa-spin hidden" id="progress"></i>
+  </div>
+
+  <!-- Display number of results -->
+  <div class="search-match-string hidden" id="matches">
+    <span class="number"></span>
+    result<span class="plural">s</span> found.
+  </div>
+
+  <!-- Possibly related keywords -->
+  <div class="similar hidden" id="similar">
+    Possibly related:
+    <span id="similar-list"></span>
+  </div>
+
+  <!-- Search results go here -->
+  <section class="articles" id="results"></section>
+
+  <!-- Show if no results are found -->
+  <section hidden id="results-none">
+    <h2>No results found.</h2>
+    Sorry; try again.
+  </section>
+
+  <!-- Template used for the JavaScript-based search results -->
+  <div hidden id="template">
+    <article class="post hentry">
+      <h2 class="post-title entry-title">
+        <a class="title"></a>
+      </h2>
+      <section class="post-content entry-content summary"></section>
+      <header class="post-meta">
+        <time class="published date"></time>
+        <a class="url"></a>
+      </header>
+    </article>
+  </div>
+</div>
+{% endunless %}
