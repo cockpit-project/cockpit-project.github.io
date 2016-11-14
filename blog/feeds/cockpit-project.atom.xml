@@ -8,7 +8,7 @@ the admin interface for that&amp;nbsp;host.&lt;/p&gt;
 &lt;p&gt;Although browsers cannot use &lt;span class="caps"&gt;SSH&lt;/span&gt; directly to connect to machines or
 authenticate against them, Cockpit can make this happen. Only one host
 needs to have Cockpit listen on port 9090 available to browsers over &lt;span class="caps"&gt;TLS&lt;/span&gt;,
-and other hosts just need to have &lt;span class="caps"&gt;SSH&lt;/span&gt; running on their usual port&amp;nbsp;22.&lt;/p&gt;
+and other hosts can only have &lt;span class="caps"&gt;SSH&lt;/span&gt; accessible on the usual port&amp;nbsp;22.&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s an&amp;nbsp;example:&lt;/p&gt;
 &lt;iframe width="853" height="480" src="https://www.youtube.com/embed/yc64DUydciI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 
