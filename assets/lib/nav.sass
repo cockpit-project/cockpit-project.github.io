@@ -92,7 +92,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       margin: 0
       padding: 0
 
-    a, span
+    a, .not-a-link
       transition: all $nav-menu-animation
       display: block
       color: $nav-text-color !important
@@ -149,11 +149,11 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
           z-index: 1
           transform: scale(1)
 
-          a, span
+          a, .not-a-link
             margin: 0 #{$nav-padding-x * -1}
             padding: $nav-padding-y #{$nav-padding-x * 2}
 
-          li:last-child a, span
+          li:last-child a, .not-a-link
             margin-bottom: #{$nav-padding-y * -4}
             padding-bottom: #{$nav-padding-y * 5}
 
@@ -181,14 +181,14 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         background: $nav-active
 
       &.nav-group >
-        a, span
+        a, .not-a-link
           &::after
             opacity: $nav-icon-opacity
             content: $nav-icon-down
             margin-left: 1ex
 
     li .nav-group >
-      a, span
+      a, .not-a-link
         &::after
           content: ""
           display: inline-block
@@ -236,13 +236,13 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         ul
           padding: 0 2ex 0 2ex
 
-        a, span
+        a, .not-a-link
           display: block
           padding: 0 1ex
           color: $nav-mobile-text !important
           text-shadow: $nav-mobile-text-shadow
 
-        span
+        .not-a-link
           opacity: 0.4
 
       > .nav-screen
@@ -328,7 +328,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         ul
           padding: 0 2ex 0 2ex
 
-        a, span
+        a, .not-a-link
           display: block
           line-height: $nav-mobile-item-height
           padding: $nav-mobile-item-padding
@@ -339,7 +339,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         a:hover
           background-color: rgba($nav-mobile-menu-highlight, 0.5)
 
-        span
+        .not-a-link
           opacity: 0.4
 
       li.active

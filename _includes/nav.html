@@ -8,27 +8,51 @@
 {% endunless %}
 
   <ul class="nav-menu">
-
     {% for nav in navs %}
-      {% if nav.url == page.url | replace: ".html", "/" %}
-        {% assign active = " active" %}
-      {% elsif nav.url == page.url | remove: ".html" %}
-        {% assign active = " active" %}
-      {% else %}
-        {% assign active = "" %}
-      {% endif %}
-
-      {% if nav.nav %}
-        {% assign navgroup = " nav-group" %}
-      {% else %}
-        {% assign navgroup = "" %}
-      {% endif %}
-
-      <li class="nav-{{ nav.url | slugify | default: "home" }}{{ nav.class }}{{ navgroup }}{{ active }}" role="menuitem">
-        {% if nav.url %}
-          <a href="{{ nav.url | prepend: site.baseurl }}">{{ nav.title }}</a>
+      {% capture vars %}
+        {% if nav.url == page.url | replace: ".html", "/" %}
+          {% assign active = " active" %}
+        {% elsif nav.url == page.url | remove: ".html" %}
+          {% assign active = " active" %}
         {% else %}
-          <span>{{ nav.title }}</span>
+          {% assign active = "" %}
+        {% endif %}
+
+        {% if nav.nav %}
+          {% assign navgroup = " nav-group" %}
+        {% else %}
+          {% assign navgroup = "" %}
+        {% endif %}
+
+        {% if nav.icon-only == true %}
+          {% assign nav_label = '' %}
+          {% assign nav_title = nav.title | prepend: ' title="' | append: '"' %}
+          {% assign nav_alt = nav.title %}
+        {% else%}
+          {% assign nav_label = nav.title | prepend: '<span class="label">' | append: '</span>' %}
+          {% assign nav_title = '' %}
+          {% assign nav_alt = '' %}
+        {% endif %}
+
+        {% if nav.icon %}
+          {% assign nav_class = nav.class | append: " nav-icon" %}
+            {% capture nav_icon %}
+              <img src="{{ site.baseurl }}/images/{{ nav.icon }}.svg" alt="{{ nav_alt }}"{{ nav_title }}>
+            {% endcapture %}
+        {% else %}
+          {% assign nav_class = nav.class %}
+        {% endif %}
+      {% endcapture %}{% assign vars = nil %}
+
+      <li class="nav--{{ nav.title | slugify | default: "home" }}{{ nav_class }}{{ navgroup }}{{ active }}" role="menuitem">
+        {% if nav.url %}
+          <a href="{{ nav.url | prepend: site.baseurl }}">{{
+            nav_icon | strip
+            }}{{
+            nav_label | strip
+            }}</a>
+        {% else %}
+          <span class="not-a-link">{{ nav.title }}</span>
         {% endif %}
         {% if nav.nav %}
           {% include nav.html nav=nav.nav wrap=false %}
