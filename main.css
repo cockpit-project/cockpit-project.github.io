@@ -256,7 +256,8 @@ hr {
 .browser-header {
     text-align: center;
     background: url('images/ornament.png');
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 15px;
     color: #979c91;
 }
 
@@ -267,7 +268,6 @@ hr {
 }
 
 .browser-list {
-    padding-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -326,6 +326,10 @@ main {
   position: static;
   width: 100%;
   right: 0;
+}
+
+main.container-fluid {
+  padding-top: 80px;
 }
 
 article h1,
