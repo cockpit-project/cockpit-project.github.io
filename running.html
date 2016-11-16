@@ -74,6 +74,7 @@
           <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-fedora"><img src="images/os-fedora.png"></div></div>
           <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"></div></div>
           <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-atomic"><img src="images/os-atomic.png"></div></div>
+          <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-centos"><img src="images/os-centos.png"></div></div>
 	 </div>
 
           <div class="col-md-12 os-info os-info-fedora" style="display: none;">
@@ -129,6 +130,24 @@ sudo firewall-cmd --add-service=cockpit --permanent</pre>
             </div>
           </div>
 	 </div>
+          <div class="col-md-12 os-info os-info-centos" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit is included in CentOS 7.x:</p>
+              <ol>
+                <li>Install cockpit:
+                        <pre>sudo yum install cockpit</pre>
+                </li>
+                <li>Enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --permanent --zone=public --add-service=cockpit
+sudo firewall-cmd --reload</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
 
         <div class="row">
           <div class="col-md-12"><div class="browser-header"><p>Stable, tested, delivered in a repository</p></div></div>
