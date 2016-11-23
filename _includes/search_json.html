@@ -10,15 +10,19 @@
       %}{%
     endcapture
   %}{%
+    assign _docs = _docs | strip
+  %}{%
     capture _pages
       %}{%
       include search_json_items.html pages=site.html_pages
       %}{%
     endcapture
+  %}{%
+    assign _pages = _pages | strip
   %}
   {{ _docs }}{%
-    if _docs and _pages 
-    %},{%
+    if _docs != "" and _pages != ""
+      %},{%
     endif 
   %}{{ _pages }}
 ]}
