@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux">
+
+  <title>
+Cockpit 125  </title>
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-125.html">Cockpit&nbsp;125</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release
+regularly. Here are the release notes from version 123, 124 and&nbsp;125.</p>
+<h3>Cockpit is now properly&nbsp;translatable</h3>
+<p>Cockpit is now properly translatable. It was a big task to extract
+all the translatable strings and make translations work consistently
+between the browser and installed tools like the&nbsp;bridge.</p>
+<p>We now start also run the login user session with a proper locale and
+<code>LANG</code> environment&nbsp;variables.</p>
+<p>You can help
+<a href="https://fedora.zanata.org/iteration/view/cockpit/master">translate cockpit in Zanata</a>
+or if you find text in the frontend that isn&#8217;t translatable, then
+please do report&nbsp;it.</p>
+<p><img alt="Display Language Dialog" src="http://cockpit-project.org/blog/images/translatable.png" /></p>
+<h3>Display OSTree&nbsp;signatures</h3>
+<p>Peter implement displaying
+<a href="http://www.projectatomic.io/docs/os-updates/">OSTree tree</a> signatures. You
+can tell where a certain update tree came from and who signed&nbsp;it.</p>
+<p><img alt="Display Language Dialog" src="http://cockpit-project.org/blog/images/ostree-signatures.png" /></p>
+<h3>New expandable views for storage&nbsp;partitions</h3>
+<p>Marius implemented expandable views in the <em>Storage</em> pages. These let
+you dive into the details of a particular partition without having
+to navigate away from the page describing where it&nbsp;lives.</p>
+<p><img alt="Expandable Logical Volumes" src="http://cockpit-project.org/blog/images/storage-listing.png" /></p>
+<h3>Other storage&nbsp;fixes</h3>
+<p>Marius did work to fix many other storage related bugs. In particular
+Cockpit now deals properly with passphrases stored for <span class="caps">LUKS</span> encrypted
+devices, and also no longer offers to format read-only block&nbsp;devices.</p>
+<h3>Full testing on <span class="caps">RHEL</span> 7.3, Ubuntu 16.04 and Debian 8&nbsp;Jessie</h3>
+<p>The Cockpit project started testing on Cockpit on <span class="caps">RHEL</span> 7.3, Ubuntu 16.04
+and Debian 8 Jessie along with the operating systems we tested with earlier.
+These will be part of our usual continuous integration, where we boot
+thousands or tens of thousands of instances per day to test code changes
+and&nbsp;contributions.</p>
+<p>Marius fixed many bugs we found, and filed operating system bugs in
+the issue trackers for those operating&nbsp;systems.</p>
+<p>You can see the <a href="http://cockpit-project.org/running.html">which operating systems</a>
+we test Cockpit on. There&#8217;s no Debian Jessie repository yet, but hopefully
+we can have that ready as time&nbsp;permits.</p>
+<h3>System shutdown can be scheduled by&nbsp;date</h3>
+<p>Fridolin did work a long time ago, so that users could select a specific
+date and time to schedule a shutdown or reboot of the system. Stef
+finished that work added tests and it&#8217;s now in&nbsp;Cockpit.</p>
+<p><img alt="Expandable Logical Volumes" src="http://cockpit-project.org/blog/images/shutdown-date.png" /></p>
+<h3>Properly terminate user sessions on the Accounts&nbsp;page</h3>
+<p>The <em>Accounts</em> page now properly terminates user sessions when the
+<em>Terminate Session</em> button is clicked. We use the correct systemd
+<a href="https://www.freedesktop.org/software/systemd/man/loginctl.html">loginctl</a>&nbsp;commands.</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 125 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/125">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-125-1.fc25">Fedora&nbsp;25</a></li>
+</ul>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fr 25 November 2016</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2016</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
+  </main>
+
+</body>
+</html>
