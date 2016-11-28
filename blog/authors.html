@@ -1,0 +1,46 @@
+---
+index: false
+---
+
+{% assign posts_by_author = site.posts | group_by: "author" %}
+
+<section class="grid-2_sm-1">
+  {% for author_posts in posts_by_author %}
+    {% if author_posts.name != "" %}
+      {% assign author_info = site.data.authors[author_posts.name] %}
+      <div class="col" id="{{ author_posts.name }}">
+        <h2>{{ author_info.name | default: author_posts.name }}</h2>
+
+        <div class="description">
+          {{ author_info.description | markdownify }}
+        </div>
+
+        <ul class="social">
+          {% if author_info.twitter %}
+            <li class="twitter"><span class="label">Twitter:</span> <a href="https://twitter.com/{{ author_info.twitter }}">@{{ author_info.twitter }}</a></li>
+          {% endif %}
+
+          {% if author_info.googleplus %}
+            <li class="googleplus"><span class="label">Google Plus:</span> <a href="https://googleplus.com/{{ author_info.googleplus }}">{{ author_info.googleplus }}</a></li>
+          {% endif %}
+
+          {% if author_info.facebook %}
+            <li class="facebook"><span class="label">Facebook:</span> <a href="https://facebook.com/{{ author_info.facebook }}">{{ author_info.facebook }}</a></li>
+          {% endif %}
+        </ul>
+
+        {% assign article_number = author_posts.items | size %}
+        <h3>
+          {{ article_number}} article{% if article_number != 1 %}s{% endif %}
+        </h3>
+        <ul>
+          {% for _post in author_posts.items %}
+            <li>
+              <a href="{{ site.baseurl }}{{ _post.url }}">{{ _post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
