@@ -59,14 +59,12 @@ exclude:
   - Gemfile.lock
   - README.md
   - bin
+  - LICENSE
 
 include:
   - _stylesheets
   - _javascript
   - assets/site.js
-  - assets/vendor/jquery/dist/
-  - assets/vendor/jquery.easing/js/
-  - assets/vendor/bootstrap-sass/assets/javascripts/
 
 sass:
   sass_dir: assets/
