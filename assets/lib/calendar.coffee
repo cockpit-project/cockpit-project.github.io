@@ -1,11 +1,67 @@
 ---
 ---
+today = new Date()
+currentYear = today.getFullYear()
+hashInfo = []
+calendarData = {}
+prefix = ''
+
+getHash = ->
+  if document.location.hash != ''
+    hashInfo = document.location.hash.slice(1).split('/')
+  else
+    hashInfo = []
+
+scrollTo = (hash) ->
+  setTimeout(->
+    el = document.getElementById(hash.slice(1))
+
+    if el
+      parent = if el.nodeName == 'H2'
+        el.parentElement.parentElement
+      else
+        el.parentElement
+
+      parent.scrollIntoView({behavior: 'smooth', block: 'start'})
+  , 0)
+
 slugify = (name) ->
   # TODO: Enhance slugification
   name.toLowerCase().replace(/[^\w]/g, '-')
 
+humanizeDate = (date, type) ->
+  return date unless date
+
+  if date.match ' '
+    dateParts = date.split ' '
+    dateTime = dateParts[0] + 'T' + dateParts[1]
+
+    if type == 'start'
+      format = '%a %e %b %Y %l:%M%P'
+    else 
+      format = '%l:%M%P ' + dateParts[2]
+  else
+    dateTime = date
+    format = '%A %e %B'
+    format += ' %Y' unless +date.slice(0,4) == currentYear
+
+  new Date(dateTime).toLocaleFormat(format)
+
+makeQuickLinks = (allConfs) ->
+  $lis = $('h2.event>a', allConfs).clone().map((el) ->
+    @['title'] = ''
+    $('<li>').append(@)[0]
+  )
+
+  $ul = $('<ul>').append($lis)
+
+  $("""
+    <div id="#{prefix}quicklinks" class="quicklinks">
+      <h2>Quicklinks</h2>
+    </div>
+    """).append($ul)
+
 processAllEvents = (events) ->
-  today = Date.now()
   formatted = []
 
   for year of events
@@ -16,7 +72,9 @@ processAllEvents = (events) ->
 
         event['title'] = event['name']
 
-        event['className'] = if new Date(event['end']) > today
+        event['current'] = new Date(event['end']) > today
+
+        event['className'] = if event['current']
           "current"
         else
           "old"
@@ -36,91 +94,135 @@ processAllEvents = (events) ->
 processEventList = (data) ->
   $list = $('#all-events')
 
-  # TODO: Make this work per year
-  year = 2016
-  prefix = year + "/"
+  getHash()
+  yearOnly = +hashInfo[0]
 
-  $list.html('')
+  numberOfEvents = 0
+
+  # $list.html('')
 
   $allConfs = $('<div></div>')
 
-  for label, conf of data[year]
-    confID = prefix + slugify label
+  for yearLabel, year of data
+    continue if yearOnly && +yearLabel != yearOnly
 
-    location = if conf.location
-      """
-      <h3 class="location">
-        <a href="https://maps.google.com/maps?q=#{ conf.location }" target="_blank">
-          #{ conf.location }
-        </a>
-      </h3>
-      """
+    prefix = if yearOnly
+      yearLabel + "/"
+    else
+      ""
 
-    description = if conf.description
-      """
-      <div class="description">#{ conf.description }</div>
-      """
+    for label, conf of year
+      continue unless new Date(conf.end) > today || yearOnly
 
-    $conf = $("""
-      <div class="conference">
-        <a class="top" href="#quicklinks">Back to top</a>
-        <div class="vevent">
-          <h2 class="event summary" id="#{ confID }">
-            <a href="##{ confID }" title="Link to this conference directly">
-              #{ conf.name }
-            </a>
-          </h2>
-          <div class="conference-info">
-            #{ location || '' }
-            <h3 class="date">
-              <abbr class="dtstart" title="#{ conf.start }">#{ conf.start }</abbr>
-              -
-              <abbr class="dtend" title="#{ conf.end }">#{ conf.end }</abbr>
-            </h3>
-            #{ description || '' }
+      numberOfEvents += 1
+
+      confID = prefix + slugify label
+
+      location = if conf.location
+        """
+        <h3 class="location">
+          <a href="https://maps.google.com/maps?q=#{ conf.location }" target="_blank">
+            #{ conf.location }
+          </a>
+        </h3>
+        """
+
+      description = if conf.description
+        """
+        <div class="description">#{ conf.description }</div>
+        """
+
+      confEnd = if conf.end
+          """
+                  -
+                  <abbr class="dtend" title="#{ conf.end }">#{
+                    humanizeDate conf.end
+                  }</abbr>
+          """
+        else
+          ''
+
+      $conf = $("""
+        <div class="conference">
+          <a class="top" href="##{ prefix }quicklinks">Back to top</a>
+          <div class="vevent">
+            <h2 class="event summary" id="#{ confID }">
+              <a href="##{ confID }" title="Link to this conference directly">
+                #{ conf.name }
+              </a>
+            </h2>
+            <div class="conference-info">
+              #{ location || '' }
+              <h3 class="date">
+                <abbr class="dtstart" title="#{ conf.start }">#{ 
+                  humanizeDate conf.start
+                  }</abbr>
+                #{ confEnd }
+              </h3>
+              #{ description || '' }
+            </div>
           </div>
         </div>
-      </div>
-      """)
+        """)
 
-    if conf.talks
-      conf.talks.forEach (talk) ->
-        talkID = confID + '--' + slugify talk.title
+      if conf.talks
+        conf.talks.forEach (talk) ->
+          talkID = confID + '/' + slugify talk.title
 
-        speaker = if talk.speaker
-          """
-            <h4 class="speaker">Speaker: #{ talk.speaker }</h4>
-          """
+          speaker = if talk.speaker
+            """
+              <h4 class="speaker">Speaker: #{ talk.speaker }</h4>
+            """
 
-        location = if talk.location
-          """
-            <h4 class="location">Location: #{ talk.location }</h4>
-          """
+          location = if talk.location
+            """
+              <h4 class="location">Location: #{ talk.location }</h4>
+            """
 
-        $talk = $("""
-          <div class="vevent talk">
-            <h3 id="#{ talkID }" class="summary">
-              <a href="##{ talkID }">#{ talk.title }</a>
-            </h3>
-            #{ speaker || '' }
-            #{ location || '' }
-            <h4 class="time">
-              <abbr class="dtstart" title="#{ talk.start }">#{ talk.start }</abbr>
-              -
-              <abbr class="dtend" title="#{ talk.end }">#{ talk.end }</abbr>
-            </h4>
-            <div class="description">#{ talk.description }</div>
-          </div>
-          """)
+          talk_start = if talk.start
+            """
+                <abbr class="dtstart" title="#{ talk.start }">#{
+                  humanizeDate talk.start, 'start'
+                  }</abbr>
+            """
 
-        $conf.append($talk)
+          talk_end = if talk.end
+            """
+                -
+                <abbr class="dtend" title="#{ talk.end }">#{
+                  humanizeDate talk.end, 'end'
+                  }</abbr>
+            """
 
-    $allConfs.append($conf)
+          $talk = $("""
+            <div class="vevent talk">
+              <h3 id="#{ talkID }" class="summary">
+                <a href="##{ talkID }">#{ talk.title }</a>
+              </h3>
+              #{ speaker || '' }
+              #{ location || '' }
+              <h4 class="time">
+              #{ talk_start || '' }
+              #{ talk_end || '' }
+              </h4>
+              <div class="description">#{ talk.description }</div>
+            </div>
+            """)
 
-  $list.html($allConfs)
+          $conf.append($talk)
+
+      $allConfs.append($conf)
+
+  $allConfs.prepend(makeQuickLinks $allConfs)
+
+  $list.html($allConfs.children())
+
+  scrollTo(document.location.hash)
 
 processCalendar = (data) ->
   $widget = $("#calendar-widget")
+
+  calendarData = data
 
   processEventList data
 
@@ -146,7 +248,9 @@ $ ->
   # TODO: Dynamically load by year (so not all events are loaded at once)
   yearData = '//rhevents-duckosas.rhcloud.com/all.json'
 
-  now = Date.now()
-
   # Grab and format events
   $.get yearData, processCalendar
+
+  #window.onhashchange = processEventList if "onhashchange" in window
+  window.onhashchange = (foo) ->
+    processEventList(calendarData)
