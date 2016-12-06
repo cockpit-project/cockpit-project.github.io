@@ -244,12 +244,16 @@ processCalendar = (data) ->
 
 
 $ ->
-  # TODO: Make the URL configurable via liquid
   # TODO: Dynamically load by year (so not all events are loaded at once)
-  yearData = '//rhevents-duckosas.rhcloud.com/all.json'
+  
+  # Set events_data (in _config.yml) to the URL where events data resides
+  eventsData = '{{
+    site.events_data
+    | default: '//rhevents-duckosas.rhcloud.com/all.json'
+  }}'
 
   # Grab and format events
-  $.get yearData, processCalendar
+  $.get eventsData, processCalendar
 
   #window.onhashchange = processEventList if "onhashchange" in window
   window.onhashchange = (foo) ->
