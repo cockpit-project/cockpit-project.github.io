@@ -296,5 +296,4 @@ $ ->
   $.get eventsData, processCalendar
 
   #window.onhashchange = processEventList if "onhashchange" in window
-  window.onhashchange = (foo) ->
-    processEventList(calendarData)
+  window.onhashchange = -> processEventList(calendarData)
