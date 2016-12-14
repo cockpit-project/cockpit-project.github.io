@@ -79,9 +79,6 @@ skipEvent = (event) ->
   return false if keyword == ""
   return true unless event
 
-  if event.tags
-    tags = event.tags.split /[, ]+/
-
   if keyword
     regex = new RegExp(keyword, 'i')
     match_tags = event.tags?.match(regex)
