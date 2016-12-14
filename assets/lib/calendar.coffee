@@ -6,6 +6,11 @@ hashInfo = []
 calendarData = {}
 prefix = ''
 
+## To filter events, use events_filter in _config.yml
+keyword = "{{ site.events_filter }}"
+## To filter by tag only, set events_filter_tags_only: true in _config.yml
+filterByTagOnly = {{ site.events_filter_tags_only | default: false }}
+
 getHash = ->
   if document.location.hash != ''
     hashInfo = document.location.hash.slice(1).split('/')
@@ -14,6 +19,8 @@ getHash = ->
 
 scrollTo = (hash) ->
   setTimeout(->
+    return unless hash.slice(1)
+
     el = document.getElementById(hash.slice(1))
 
     if el
@@ -47,8 +54,8 @@ humanizeDate = (date, type) ->
 
   new Date(dateTime).toLocaleFormat(format)
 
-makeQuickLinks = (allConfs) ->
-  $lis = $('h2.event>a', allConfs).clone().map((el) ->
+makeQuickLinks = (allEvents) ->
+  $lis = $('h2.event>a', allEvents).clone().map((el) ->
     @['title'] = ''
     $('<li>').append(@)[0]
   )
@@ -61,12 +68,36 @@ makeQuickLinks = (allConfs) ->
     </div>
     """).append($ul)
 
+skipEvent = (event) ->
+  return false if keyword == ""
+  return true unless event
+
+  console.log keyword, filterByTagOnly
+
+  if event.tags
+    tags = event.tags.split /[, ]+/
+
+  if keyword
+    regex = new RegExp(keyword, 'i')
+    match_tags = event.tags?.match(regex)
+    match_desc = event.description?.match(regex)
+    match_talk = event.talks?.map((t)-> t.description).join(' ').match(regex)
+
+    result = if filterByTagOnly
+               match_tags
+             else
+               match_tags || match_talk || match_desc
+
+    return !result
+
 processAllEvents = (events) ->
   formatted = []
 
   for year of events
     for item of events[year]
       event = events[year][item]
+
+      continue if skipEvent(event)
 
       if event['start']
 
@@ -101,7 +132,7 @@ processEventList = (data) ->
 
   # $list.html('')
 
-  $allConfs = $('<div></div>')
+  $allEvents = $('<div></div>')
 
   for yearLabel, year of data
     continue if yearOnly && +yearLabel != yearOnly
@@ -111,53 +142,55 @@ processEventList = (data) ->
     else
       ""
 
-    for label, conf of year
-      continue unless new Date(conf.end) > today || yearOnly
+    for label, event of year
+      continue unless new Date(event.end) > today || yearOnly
+
+      continue if skipEvent(event)
 
       numberOfEvents += 1
 
-      confID = prefix + slugify label
+      eventID = prefix + slugify label
 
-      location = if conf.location
+      location = if event.location
         """
         <h3 class="location">
-          <a href="https://maps.google.com/maps?q=#{ conf.location }" target="_blank">
-            #{ conf.location }
+          <a href="https://maps.google.com/maps?q=#{ event.location }" target="_blank">
+            #{ event.location }
           </a>
         </h3>
         """
 
-      description = if conf.description
+      description = if event.description
         """
-        <div class="description">#{ conf.description }</div>
+        <div class="description">#{ event.description }</div>
         """
 
-      confEnd = if conf.end
+      eventEnd = if event.end
           """
                   -
-                  <abbr class="dtend" title="#{ conf.end }">#{
-                    humanizeDate conf.end
+                  <abbr class="dtend" title="#{ event.end }">#{
+                    humanizeDate event.end
                   }</abbr>
           """
         else
           ''
 
-      $conf = $("""
-        <div class="conference">
+      $event = $("""
+        <div class="eventerence">
           <a class="top" href="##{ prefix }quicklinks">Back to top</a>
           <div class="vevent">
-            <h2 class="event summary" id="#{ confID }">
-              <a href="##{ confID }" title="Link to this conference directly">
-                #{ conf.name }
+            <h2 class="event summary" id="#{ eventID }">
+              <a href="##{ eventID }" title="Link to this eventerence directly">
+                #{ event.name }
               </a>
             </h2>
-            <div class="conference-info">
+            <div class="eventerence-info">
               #{ location || '' }
               <h3 class="date">
-                <abbr class="dtstart" title="#{ conf.start }">#{ 
-                  humanizeDate conf.start
+                <abbr class="dtstart" title="#{ event.start }">#{ 
+                  humanizeDate event.start
                   }</abbr>
-                #{ confEnd }
+                #{ eventEnd }
               </h3>
               #{ description || '' }
             </div>
@@ -165,9 +198,9 @@ processEventList = (data) ->
         </div>
         """)
 
-      if conf.talks
-        conf.talks.forEach (talk) ->
-          talkID = confID + '/' + slugify talk.title
+      if event.talks
+        event.talks.forEach (talk) ->
+          talkID = eventID + '/' + slugify talk.title
 
           speaker = if talk.speaker
             """
@@ -209,13 +242,13 @@ processEventList = (data) ->
             </div>
             """)
 
-          $conf.append($talk)
+          $event.append($talk)
 
-      $allConfs.append($conf)
+      $allEvents.append($event)
 
-  $allConfs.prepend(makeQuickLinks $allConfs)
+  $allEvents.prepend(makeQuickLinks $allEvents)
 
-  $list.html($allConfs.children())
+  $list.html($allEvents.children())
 
   scrollTo(document.location.hash)
 
