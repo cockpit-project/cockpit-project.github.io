@@ -61,7 +61,7 @@ humanizeDate = (date, type) ->
 ## Make a quicklick section based on event IDs
 makeQuickLinks = (allEvents) ->
   $lis = $('h2.event>a', allEvents).clone().map((el) ->
-    @['title'] = ''
+    @.title = ''
     $('<li>').append(@)[0]
   )
 
@@ -106,25 +106,25 @@ processAllEvents = (events) ->
 
       continue if skipEvent(event)
 
-      if event['start']
+      if event.start
 
-        event['title'] = event['name']
+        event.title = event.name
 
-        event['current'] = new Date(event['end']) > today
+        event.current = new Date(event.end) > today
 
-        event['className'] = if event['current']
-          "current"
+        event.className = if event.current
+                            "current"
+                          else
+                            "old"
+
+        if event.start.match(' ')
+          event.allDay = false
         else
-          "old"
-
-        if event['start'].match(' ')
-          event['allDay'] = false
-        else
-          event['allDay'] = true
-          event['className'] += ' fc-x-conf'
+          event.allDay = true
+          event.className += ' fc-x-conf'
 
         # TODO: Handle talk events for series
-        unless event['type'] == 'series'
+        unless event.type == 'series'
           formatted.push(event) 
 
   formatted
