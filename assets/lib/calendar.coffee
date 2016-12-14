@@ -11,12 +11,14 @@ keyword = "{{ site.events_filter }}"
 ## To filter by tag only, set events_filter_tags_only: true in _config.yml
 filterByTagOnly = {{ site.events_filter_tags_only | default: false }}
 
+## Return the current document hash in fragments, split by '/'
 getHash = ->
   if document.location.hash != ''
     hashInfo = document.location.hash.slice(1).split('/')
   else
     hashInfo = []
 
+## Scroll to a specific event or location, based on the document hash or ID
 scrollTo = (hash) ->
   setTimeout(->
     return unless hash.slice(1)
@@ -32,10 +34,12 @@ scrollTo = (hash) ->
       parent.scrollIntoView({behavior: 'smooth', block: 'start'})
   , 0)
 
+## Make IDs slugged
 slugify = (name) ->
   # TODO: Enhance slugification
   name.toLowerCase().replace(/[^\w]/g, '-')
 
+## Format date in a friendly way
 humanizeDate = (date, type) ->
   return date unless date
 
@@ -54,6 +58,7 @@ humanizeDate = (date, type) ->
 
   new Date(dateTime).toLocaleFormat(format)
 
+## Make a quicklick section based on event IDs
 makeQuickLinks = (allEvents) ->
   $lis = $('h2.event>a', allEvents).clone().map((el) ->
     @['title'] = ''
@@ -68,11 +73,11 @@ makeQuickLinks = (allEvents) ->
     </div>
     """).append($ul)
 
+# Test to see if the event should be skipped
+# Returns true if it should be skipped, false if it should be included
 skipEvent = (event) ->
   return false if keyword == ""
   return true unless event
-
-  console.log keyword, filterByTagOnly
 
   if event.tags
     tags = event.tags.split /[, ]+/
@@ -90,6 +95,8 @@ skipEvent = (event) ->
 
     return !result
 
+## Process events for the calendar widget, as the widget expects
+## a specific format and needs additional metadata
 processAllEvents = (events) ->
   formatted = []
 
@@ -122,6 +129,7 @@ processAllEvents = (events) ->
 
   formatted
 
+## Process events for the event list
 processEventList = (data) ->
   $list = $('#all-events')
 
@@ -252,6 +260,7 @@ processEventList = (data) ->
 
   scrollTo(document.location.hash)
 
+## Generate the calendar widget
 processCalendar = (data) ->
   $widget = $("#calendar-widget")
 
@@ -277,8 +286,6 @@ processCalendar = (data) ->
 
 
 $ ->
-  # TODO: Dynamically load by year (so not all events are loaded at once)
-  
   # Set events_data (in _config.yml) to the URL where events data resides
   eventsData = '{{
     site.events_data
