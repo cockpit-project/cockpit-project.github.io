@@ -184,15 +184,15 @@ processEventList = (data) ->
           ''
 
       $event = $("""
-        <div class="eventerence">
+        <div class="conference">
           <a class="top" href="##{ prefix }quicklinks">Back to top</a>
           <div class="vevent">
             <h2 class="event summary" id="#{ eventID }">
-              <a href="##{ eventID }" title="Link to this eventerence directly">
+              <a href="##{ eventID }" title="Link to this conference directly">
                 #{ event.name }
               </a>
             </h2>
-            <div class="eventerence-info">
+            <div class="conference-info">
               #{ location || '' }
               <h3 class="date">
                 <abbr class="dtstart" title="#{ event.start }">#{ 
