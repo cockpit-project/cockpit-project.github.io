@@ -31,7 +31,7 @@ scrollTo = (hash) ->
       else
         el.parentElement
 
-      parent.scrollIntoView({behavior: 'smooth', block: 'start'})
+      parent.scrollIntoView({behavior: 'instant', block: 'start'})
   , 0)
 
 ## Make IDs slugged
