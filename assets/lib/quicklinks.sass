@@ -1,0 +1,42 @@
+/* Quicklinks
+
+#quicklinks
+  margin: 4em 0 2em
+  padding: 0 0 2em
+  overflow: hidden
+
+  ul, li
+    display: inline
+    list-style: none
+    padding: 0
+    margin: 0
+  a
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    float: left
+    //font-size: 86%
+    min-width: 33%
+    padding: 0.5ex 0 0.5ex 2ex
+  br
+    display: none
+  p
+    display: inline
+    margin: 0
+
+.top a, a.top
+  clear: both
+  display: block
+  padding: 2em 1em 2em 0
+  font-size: 86%
+
+.top a
+  padding-top: 1em
+  &:before
+    content: "\25b4"
+    padding-right: 0.5ex
+    text-decoration: none !important
+
+a.top:before
+  content: "\25b4"
+  padding-right: 0.5ex
+  text-decoration: none !important
