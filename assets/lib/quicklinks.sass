@@ -11,19 +11,23 @@
     margin: 0
 
   ul
-    @extend .grid
+    //@extend .grid
+    -moz-columns: 25ex
+    -webkit-columns: 25ex
+    columns: 25ex
+    -moz-column-gap: 2ex
+    -webkit-column-gap: 2ex
+    column-gap: 2ex
 
   li
-    @extend .col
-    -moz-box-sizing: border-box
-    box-sizing: border-box
-    flex: 0 0 20ex
-    min-width: 33%
+    overflow: hidden
+    //@extend .col
+    //flex: 0 0 20ex
   a
     display: block
     -moz-box-sizing: border-box
     box-sizing: border-box
-    padding: 0.5ex 2ex 0.5ex 0
+    padding: 0.5ex 0
   br
     display: none
   p
