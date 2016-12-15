@@ -63,7 +63,7 @@ makeQuickLinks = (allEvents) ->
   $lis = $('h2.event>a', allEvents).clone().map((el) ->
     @.title = ''
     $('<li>').append(@)[0]
-  )
+  ).sort (a, b) -> a.firstChild.href > b.firstChild.href
 
   $ul = $('<ul>').append($lis)
 
