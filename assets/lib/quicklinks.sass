@@ -6,17 +6,24 @@
   overflow: hidden
 
   ul, li
-    display: inline
     list-style: none
     padding: 0
     margin: 0
-  a
+
+  ul
+    @extend .grid
+
+  li
+    @extend .col
     -moz-box-sizing: border-box
     box-sizing: border-box
-    float: left
-    //font-size: 86%
+    flex: 0 0 20ex
     min-width: 33%
-    padding: 0.5ex 0 0.5ex 2ex
+  a
+    display: block
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    padding: 0.5ex 2ex 0.5ex 0
   br
     display: none
   p
@@ -40,3 +47,7 @@ a.top:before
   content: "\25b4"
   padding-right: 0.5ex
   text-decoration: none !important
+
+.quicklinks.col-2
+  li
+    min-width: 50%
