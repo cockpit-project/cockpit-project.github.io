@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>cockpit.js: Raw Channels</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
 <link rel="up" href="api-base1.html" title="API: base1">
 <link rel="prev" href="cockpit-series-data.html" title="cockpit.js: Series Data">
@@ -258,28 +258,32 @@ cockpit.transport.close([problem])
 <div class="refsection">
 <a name="cockpit-transport-filter"></a><h2>cockpit.transport.filter()</h2>
 <pre class="programlisting">
-cockpit.transport.filter(function(message, channel, control) { ... })
+cockpit.transport.filter(function(message, channelid, control) { ... }, [out])
 </pre>
 <p>Add a filter to the underlying channel transport. All incoming messages will be
-      passed to each of the filter callbacks that are registered.</p>
+      passed to each of the filter callbacks that are registered. If the <code class="code">out</code>
+      argument is equal to <code class="code">true</code> then the filter will receive outgoing messages
+      that being sent on the underlying channel transport.</p>
 <p>This function is rarely used.</p>
 <p>Filter callbacks are called in the order they are registered. If a filter
       callback returns <code class="code">false</code> then the message will not be dispatched
       further, whether to other filters, or to channels, etc.</p>
 <p>The <code class="code">message</code> is the string or array with the raw message including,
-      the framing. If <code class="code">channel</code> is set to a string this is a payload
-      message in the specified channel. If <code class="code">control</code> is set then this is
-      a control message, and the <code class="code">control</code> argument contains the parsed
-      JSON object of the control message.</p>
+      the framing. The <code class="code">channelid</code> is the channel identifier or an empty string
+      for control messages. If <code class="code">control</code> is set then this is a control message,d
+      and the <code class="code">control</code> argument contains the parsed JSON object of the
+      control message.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-transport-inject"></a><h2>cockpit.transport.inject()</h2>
 <pre class="programlisting">
-cockpit.transport.inject(message)
+cockpit.transport.inject(message, [out])
 </pre>
 <p>Inject a message into the underlying channel transport. The <code class="code">message</code>
       should be a <code class="code">string</code> or an array of bytes, and should be valid
-      according to the Cockpit message protocol.</p>
+      according to the Cockpit message protocol. If the <code class="code">out</code> argument is equal
+      to <code class="code">false</code> then the message will be injected as an incoming message as if
+      it was received on the underlying channel transport.</p>
 <p>This function is rarely used. In general you should only <code class="code">inject()</code>
       messages you got from a <code class="code"><a class="link" href="cockpit-channels.html#cockpit-transport-filter" title="cockpit.transport.filter()">filter()</a></code>.</p>
 </div>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>cockpit.conf</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
 <link rel="up" href="cockpit-manual.html" title="Manual pages">
 <link rel="prev" href="cockpit-manual.html" title="Manual pages">
@@ -72,6 +72,13 @@ ProtocolHeader = X-Forwarded-Proto
 <tr>
 <td><p><span class="term"><code class="option">LoginTitle</code></span></p></td>
 <td><p>Set the browser title for the login screen.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="option">LoginTo</code></span></p></td>
+<td><p>When set to <code class="literal">true</code> the <span class="emphasis"><em>Connect to</em></span> option
+            on the login screen is visible and allows logging into another server. If this
+            option is not specified then it will be automatically detected based on whether
+            the <span class="command"><strong>cockpit-ssh</strong></span> process is available or not.</p></td>
 </tr>
 <tr>
 <td><p><span class="term"><code class="option">MaxStartups</code></span></p></td>
