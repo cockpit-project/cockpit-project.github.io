@@ -58,6 +58,19 @@
 
 <article>
   <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html">Cockpit on <span class="caps">RHEL</span> Atomic&nbsp;Beta</a></h1>
+  </div>
+  <div class="article_text">
+    <p>If you&#8217;ve tried out the <a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"><span class="caps">RHEL</span> Atomic Host Beta</a> you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&#8217;s an easy work&nbsp;around:</p>
+<div class="highlight"><pre><span></span>$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
+</pre></div>
+
+
+<p>This is an ...</p>
+  </div>
+</article>
+<article>
+  <div class="article_title">
     <h1><a href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html">Cockpit Multi-Server&nbsp;Dashboard</a></h1>
   </div>
   <div class="article_text">
