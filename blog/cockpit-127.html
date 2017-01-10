@@ -98,6 +98,8 @@ used to build such a combined&nbsp;file:</p>
 </pre></div>
 
 
+<p>Due to this, when Cockpit is deployed as an Openshift Pod it can use certificates
+provided by&nbsp;Openshift.</p>
 <h3>Cockpit respects&nbsp;/etc/shells</h3>
 <p>Martin fixed Cockpit so it only allows the user to log in if the user has a
 valid shell listed in <code>/etc/shells</code>. In addition bugs on Ubuntu and Debian
@@ -106,7 +108,7 @@ have been fixed where users were created without valid&nbsp;shells.</p>
 <p>You can now rename network devices like bonds or bridges while they&#8217;re active.
 The change will apply immediately and without any interruption in&nbsp;service.</p>
 <h3>Rename cockpit-shell to&nbsp;cockpit-system</h3>
-<p>The <code>cockpit-shell</code> subpackage has been renamed to <code>`cockpit-system</code> to
+<p>The <code>cockpit-shell</code> subpackage has been renamed to <code>cockpit-system</code> to
 better reflect its focus: configuring and troubleshooting the local&nbsp;system.</p>
 <h3>Kerberos authentication now work even if gss-proxy is in&nbsp;use</h3>
 <p>Sometimes Kerberos (or <span class="caps">GSSAPI</span>) single-sign-on authentication requires multiple

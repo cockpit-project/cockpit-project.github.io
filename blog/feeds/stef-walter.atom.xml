@@ -89,6 +89,8 @@ used to build such a combined&amp;nbsp;file:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Due to this, when Cockpit is deployed as an Openshift Pod it can use certificates
+provided by&amp;nbsp;Openshift.&lt;/p&gt;
 &lt;h3&gt;Cockpit respects&amp;nbsp;/etc/shells&lt;/h3&gt;
 &lt;p&gt;Martin fixed Cockpit so it only allows the user to log in if the user has a
 valid shell listed in &lt;code&gt;/etc/shells&lt;/code&gt;. In addition bugs on Ubuntu and Debian
@@ -97,7 +99,7 @@ have been fixed where users were created without valid&amp;nbsp;shells.&lt;/p&gt
 &lt;p&gt;You can now rename network devices like bonds or bridges while they&amp;#8217;re active.
 The change will apply immediately and without any interruption in&amp;nbsp;service.&lt;/p&gt;
 &lt;h3&gt;Rename cockpit-shell to&amp;nbsp;cockpit-system&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;cockpit-shell&lt;/code&gt; subpackage has been renamed to &lt;code&gt;`cockpit-system&lt;/code&gt; to
+&lt;p&gt;The &lt;code&gt;cockpit-shell&lt;/code&gt; subpackage has been renamed to &lt;code&gt;cockpit-system&lt;/code&gt; to
 better reflect its focus: configuring and troubleshooting the local&amp;nbsp;system.&lt;/p&gt;
 &lt;h3&gt;Kerberos authentication now work even if gss-proxy is in&amp;nbsp;use&lt;/h3&gt;
 &lt;p&gt;Sometimes Kerberos (or &lt;span class="caps"&gt;GSSAPI&lt;/span&gt;) single-sign-on authentication requires multiple

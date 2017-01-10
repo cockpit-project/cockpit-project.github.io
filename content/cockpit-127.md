@@ -54,6 +54,9 @@ used to build such a combined file:
 
     remotectl certificate server.pem chain.pem key.pem
 
+Due to this, when Cockpit is deployed as an Openshift Pod it can use certificates
+provided by Openshift.
+
 ### Cockpit respects /etc/shells
 
 Martin fixed Cockpit so it only allows the user to log in if the user has a
@@ -67,7 +70,7 @@ The change will apply immediately and without any interruption in service.
 
 ### Rename cockpit-shell to cockpit-system
 
-The ```cockpit-shell``` subpackage has been renamed to ```cockpit-system`` to
+The ```cockpit-shell``` subpackage has been renamed to ```cockpit-system``` to
 better reflect its focus: configuring and troubleshooting the local system.
 
 ### Kerberos authentication now work even if gss-proxy is in use
