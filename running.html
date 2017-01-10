@@ -161,10 +161,10 @@ sudo firewall-cmd --reload</pre>
         <div>
           <div class="col-md-12 os-info os-info-debian" style="display: none;">
             <div class="os-infobox">
-              <p>Cockpit is not yet part of the official Debian repositories, but you can add a repository which contains weekly builds targeting debian unstable:</p>
+              <p>Cockpit is not yet part of the official Debian repositories, but you can add a repository which contains weekly builds targeting Debian Jessie (8.x) and Debian Unstable:</p>
               <ol>
-                <li>Add the following line to <tt>/etc/apt/sources.list</tt>
-                  <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ unstable main</pre></li>
+                <li>Add the following line to <tt>/etc/apt/sources.list</tt>. Replace the distribution name as appropriate.
+                  <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main</pre></li>
                 <li>Import Cockpit's signing key to the apt sources keyring:
                   <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</pre></li>
                 <li>Update package information with that source:
