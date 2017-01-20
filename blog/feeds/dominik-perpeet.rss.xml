@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Cockpit Project - Dominik Perpeet</title><link>http://cockpit-project.org/blog/</link><description></description><lastBuildDate>Tue, 19 Jan 2016 09:00:00 +0000</lastBuildDate><item><title>Cockpit 128 and 129</title><link>http://cockpit-project.org/blog/cockpit-129.html</link><description>&lt;p&gt;Cockpit supports rebasing on Atomic Host with&amp;nbsp;OSTree.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Dominik Perpeet</dc:creator><pubDate>Tue, 19 Jan 2016 09:00:00 +0000</pubDate><guid isPermaLink="false">tag:cockpit-project.org,2016-01-19:/blog/cockpit-129.html</guid><category>cockpit</category><category>linux</category></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cockpit Project</title><link>http://cockpit-project.org/blog/</link><description></description><atom:link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 19 Jan 2017 09:00:00 +0000</lastBuildDate><item><title>Cockpit 128 and 129</title><link>http://cockpit-project.org/blog/cockpit-129.html</link><description>&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+regularly. Here are the release notes from version 128 and&amp;nbsp;129.&lt;/p&gt;
+&lt;h3&gt;Manage remotes and rebasing in&amp;nbsp;OSTree&lt;/h3&gt;
+&lt;p&gt;When working with OSTrees on operating systems like &lt;a href="http://www.projectatomic.io/docs/os-updates/"&gt;Atomic Host&lt;/a&gt;
+there will often be multiple branches to choose from. For example there may be a beta version of the operating system.
+Thanks to Peter&amp;#8217;s work, Cockpit can now switch between branches and view and activate OSTrees from those branches.
+Also, Cockpit supports managing multiple remotes and viewing their branches. Remotes are a way of describing
+where OSTree should pull updates from. Take a look at the video below for a&amp;nbsp;demo.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dF8M3xq9FcI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;The subpackage cockpit-dashboard has been split&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;The new &lt;code&gt;cockpit-dashboard&lt;/code&gt; subpackage contains the dashboard itself and
+the &lt;code&gt;cockpit-ssh&lt;/code&gt; process. Eventually this paves the way for more flexibility
+regarding authentication processes, but for now &lt;code&gt;cockpit-ws&lt;/code&gt; unconditionally
+depends on &lt;code&gt;cockpit-dashboard&lt;/code&gt;, and also requires the identical versions.
+Nothing changes for those who install the &lt;code&gt;cockpit&lt;/code&gt; package. But this allows more
+flexibility when using Cockpit for specific use&amp;nbsp;cases.&lt;/p&gt;
+&lt;h3&gt;Issues upgrading Cockpit on Debian and Fedora have been&amp;nbsp;fixed&lt;/h3&gt;
+&lt;p&gt;Our packaging changes in recent versions broke upgrading Cockpit on Debian and Fedora.
+This is fixed now and updates should work properly once&amp;nbsp;again.&lt;/p&gt;
+&lt;h3&gt;On Atomic, sosreport works&amp;nbsp;again&lt;/h3&gt;
+&lt;p&gt;A bug that prevented the diagnostic tool sosreport from working on Atomic systems was fixed.
+Generating and accessing these diagnostic reports can be very helpful when diagnosing or
+reporting an issue on the&amp;nbsp;system.&lt;/p&gt;
+&lt;h3&gt;Optionally disable the dependency on&amp;nbsp;libssh&lt;/h3&gt;
+&lt;p&gt;When configuring Cockpit, the option &lt;code&gt;disable-ssh&lt;/code&gt; disables building &lt;code&gt;cockpit-ssh&lt;/code&gt; and removes the
+dependency on &lt;code&gt;libssh&lt;/code&gt;. This is useful when building on an operating system where &lt;code&gt;libssh&lt;/code&gt; is not&amp;nbsp;available.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 129 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/129"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-129-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Dominik Perpeet</dc:creator><pubDate>Thu, 19 Jan 2017 09:00:00 +0000</pubDate><guid>tag:cockpit-project.org,2017-01-19:blog/cockpit-129.html</guid><category>cockpit</category><category>linux</category></item></channel></rss>

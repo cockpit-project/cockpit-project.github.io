@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-11-03T20:31:00+00:00</updated><entry><title>Cockpit 122</title><link href="http://cockpit-project.org/blog/cockpit-122.html" rel="alternate"></link><published>2016-11-03T20:31:00+00:00</published><updated>2016-11-03T20:31:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-11-03:/blog/cockpit-122.html</id><summary type="html">&lt;p&gt;About bastion hosts and other highlights from version&amp;nbsp;122&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/cockpit-project.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2016-11-03T20:31:00+00:00</updated><entry><title>Cockpit 122</title><link href="http://cockpit-project.org/blog/cockpit-122.html" rel="alternate"></link><published>2016-11-03T20:31:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-11-03:blog/cockpit-122.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version&amp;nbsp;122&lt;/p&gt;
 &lt;h3&gt;Logging into a system via a Bastion&amp;nbsp;Host&lt;/h3&gt;
 &lt;p&gt;On the Cockpit login screen you can now choose an alternate host to connect
@@ -35,7 +35,7 @@ during development we pull them in using the standard
 &lt;p&gt;Lars has worked on functionality to show the OpenSCAP security scan results
 for containers. This uses the usual &lt;code&gt;atomic scan&lt;/code&gt; functionality that
 you see on Atomic&amp;nbsp;Host.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Virtual Machines" src="images/image-scanning.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/image-scanning.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 122 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -43,7 +43,7 @@ you see on Atomic&amp;nbsp;Host.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/122"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-122-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 121</title><link href="http://cockpit-project.org/blog/cockpit-121.html" rel="alternate"></link><published>2016-10-28T18:06:00+00:00</published><updated>2016-10-28T18:06:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-10-28:/blog/cockpit-121.html</id><summary type="html">&lt;p&gt;Cockpit releases regularly. Network Checkpoints and other highlights from version&amp;nbsp;121&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 121</title><link href="http://cockpit-project.org/blog/cockpit-121.html" rel="alternate"></link><published>2016-10-28T18:06:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-10-28:blog/cockpit-121.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version&amp;nbsp;121&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
@@ -63,7 +63,7 @@ case we can test the connectivity&amp;nbsp;automatically.&lt;/p&gt;
 &lt;h3&gt;Debian&amp;nbsp;Branding&lt;/h3&gt;
 &lt;p&gt;Cockpit now shows proper branding when running on Debian, and uses the
 logo installed on the system on its login&amp;nbsp;screen.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Virtual Machines" src="images/debian-branding.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/debian-branding.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Fix Kerberos single sign on Debian and&amp;nbsp;Ubuntu&lt;/h3&gt;
 &lt;p&gt;Stef fixed Kerberos single sign on Debian and Ubuntu. More changes are
 coming in the next release including support for use with
@@ -90,7 +90,7 @@ in projects such as ManageIQ or &lt;span class="caps"&gt;RHEV&lt;/span&gt;.&lt;/
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/121"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-121-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 120</title><link href="http://cockpit-project.org/blog/cockpit-120.html" rel="alternate"></link><published>2016-10-21T13:22:00+00:00</published><updated>2016-10-21T13:22:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-10-21:/blog/cockpit-120.html</id><summary type="html">&lt;p&gt;Cockpit releases regularly. Here&amp;#8217;s highlights from 119 and&amp;nbsp;120&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 120</title><link href="http://cockpit-project.org/blog/cockpit-120.html" rel="alternate"></link><published>2016-10-21T13:22:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-10-21:blog/cockpit-120.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from versions 119 and&amp;nbsp;120.&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
@@ -107,7 +107,7 @@ image and container by using the filter bar to search for&amp;nbsp;it.&lt;/p&gt;
 virtual machines running on the current system. This has the ability to
 grow into something like the desktop &lt;code&gt;virt-manager&lt;/code&gt; tool.&lt;/p&gt;
 &lt;p&gt;It looks something like&amp;nbsp;this:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Virtual Machines" src="images/vms.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual Machines" src="images/vms.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Unmanaged Network&amp;nbsp;Devices&lt;/h3&gt;
 &lt;p&gt;Cockpit now shows unmanaged network devices in its listing. You can&amp;#8217;t configure
 them or do much with them, but their presence is acknowledged. This should make
@@ -116,7 +116,7 @@ troubleshooting non-standard configurations&amp;nbsp;easier.&lt;/p&gt;
 &lt;p&gt;Marius added a sidebar that shows up on &lt;span class="caps"&gt;LVM&lt;/span&gt; groups or volumes, that shows
 which physical devices are&amp;nbsp;involved.&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s an&amp;nbsp;example:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-pv-sidebar.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-pv-sidebar.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; connections are run in a separate&amp;nbsp;process&lt;/h3&gt;
 &lt;p&gt;When Cockpit connects to an additional server it uses &lt;span class="caps"&gt;SSH&lt;/span&gt;, much like
 Ansible or other tools. We now launch a separate &lt;code&gt;cockpit-ssh&lt;/code&gt; process
@@ -125,7 +125,7 @@ for each outgoing connection to another&amp;nbsp;server.&lt;/p&gt;
 benefits. But it also makes it possible to insert additional logic when
 embedding Cockpit. It&amp;#8217;s possible to put in shims to lookup keys, single-sign-on
 tokens or keytabs, and so&amp;nbsp;on.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-ssh.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH subprocesses" src="images/cockpit-ssh.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Only connect to remote machines already known to&amp;nbsp;Cockpit&lt;/h3&gt;
 &lt;p&gt;When connecting to additional machines via &lt;span class="caps"&gt;SSH&lt;/span&gt;, Cockpit now refuses to
 connect to machines it doesn&amp;#8217;t have a host key for. This tightens up
@@ -137,7 +137,7 @@ version includes a fix for&amp;nbsp;that.&lt;/p&gt;
 &lt;p&gt;When configuring local user accounts, one can assign various roles such
 as &amp;#8216;Server Administrator&amp;#8217; to the account. Cockpit now displays the Unix
 user group that is involved in the&amp;nbsp;role.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="User Unix Group" src="images/cockpit-unix-group.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="User Unix Group" src="images/cockpit-unix-group.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
 &lt;p&gt;Marius added support for NetworkManager checkpoints. This means that
 while configuring network interfaces, if a change would cause Cockpit
@@ -153,7 +153,7 @@ case we can test the connectivity&amp;nbsp;automatically.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/120"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-120-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 118</title><link href="http://cockpit-project.org/blog/cockpit-118.html" rel="alternate"></link><published>2016-09-08T14:50:00+00:00</published><updated>2016-09-08T14:50:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-09-08:/blog/cockpit-118.html</id><summary type="html">&lt;p&gt;Cockpit releases regularly. Here&amp;#8217;s highlights from&amp;nbsp;118&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s usually
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 118</title><link href="http://cockpit-project.org/blog/cockpit-118.html" rel="alternate"></link><published>2016-09-08T14:50:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-09-08:blog/cockpit-118.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s usually
 a release every week, but this time around we were delinquent and it&amp;#8217;s been nearly a&amp;nbsp;month.&lt;/p&gt;
 &lt;p&gt;You&amp;#8217;ll notice that we&amp;#8217;ve dropped the &lt;code&gt;0.x&lt;/code&gt; from the beginning of the
 version numbers. This underscores the fact that Cockpit is stable. We&amp;#8217;ve been
@@ -168,7 +168,7 @@ Timers let users schedule tasks similar to cron jobs. Timers are now listed,
 and dialogs for defining jobs and their recurring patterns are now included
 in&amp;nbsp;Cockpit.&lt;/p&gt;
 &lt;p&gt;Harish &lt;a href="https://medium.com/@harishanand95/gsoc-creating-timers-in-cockpit-f4034c79df51#.wdq8gtdxc"&gt;detailed his work in a blog post&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Timers" src="images/cockpit-timers.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Timers" src="images/cockpit-timers.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Two factor auth on login&amp;nbsp;screen&lt;/h3&gt;
 &lt;p&gt;Peter pulled off a major change to have full &lt;span class="caps"&gt;PAM&lt;/span&gt; conversations supported
 on the Cockpit login screen. This means you can use two factor
@@ -205,7 +205,7 @@ or container&amp;nbsp;functionality.&lt;/p&gt;
 &lt;p&gt;These components can now indicate which part of the base javascript and base
 &lt;code&gt;cockpit-bridge&lt;/code&gt; they require in order to function. This is
 &lt;a href="http://cockpit-project.org/guide/latest/packages.html#package-manifest"&gt;configured in the package manifest&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Incompatible Cockpit" src="images/cockpit-incompatible.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Incompatible Cockpit" src="images/cockpit-incompatible.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 118 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -213,7 +213,7 @@ or container&amp;nbsp;functionality.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/118"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-118-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 24, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.117</title><link href="http://cockpit-project.org/blog/cockpit-0.117.html" rel="alternate"></link><published>2016-08-11T12:36:00+00:00</published><updated>2016-08-11T12:36:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-08-11:/blog/cockpit-0.117.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from 0.115, 0.116 and&amp;nbsp;0.117.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&amp;nbsp;releases.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.117</title><link href="http://cockpit-project.org/blog/cockpit-0.117.html" rel="alternate"></link><published>2016-08-11T12:36:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-08-11:blog/cockpit-0.117.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release almost every week. Here are the highlights from this the 0.115, 0.116 and 0.117&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;Configure volumes and environment for a Docker&amp;nbsp;container&lt;/h3&gt;
 &lt;p&gt;Vanlos Wang implemented support for configuring volumes and environment
 variables when running a container in the Cockpit &lt;span class="caps"&gt;UI&lt;/span&gt;. This allows you
@@ -275,7 +275,7 @@ extended partitions containing other logical&amp;nbsp;partitions.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.117"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.117-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.114</title><link href="http://cockpit-project.org/blog/cockpit-0.114.html" rel="alternate"></link><published>2016-07-12T13:51:00+00:00</published><updated>2016-07-12T13:51:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-12:/blog/cockpit-0.114.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.114.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.114&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.114</title><link href="http://cockpit-project.org/blog/cockpit-0.114.html" rel="alternate"></link><published>2016-07-12T13:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-12:blog/cockpit-0.114.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.114&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Test every change on&amp;nbsp;CentOS&lt;/h3&gt;
 &lt;p&gt;Cockpit runs all its tests suites against code before that code is merged, much less
 becomes part of a release. This isn&amp;#8217;t just unit tests, but integration booting of
@@ -289,7 +289,7 @@ easy&amp;nbsp;access.&lt;/p&gt;
 &lt;p&gt;You can also see the fingerprints of all the &lt;a href="https://en.wikipedia.org/wiki/Secure_Shell"&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; host keys&lt;/a&gt;.
 These are the fingerprints that you would be expected to recognize and/or add to the
 &lt;code&gt;known_hosts&lt;/code&gt; file when accessing the machine over &lt;span class="caps"&gt;SSH&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="SSH host keys" src="images/cockpit-ssh-host-keys.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SSH host keys" src="images/cockpit-ssh-host-keys.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Allow changing the ethernet &lt;span class="caps"&gt;MTU&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;You can now change the ethernet
 &lt;a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit"&gt;maximum transmission unit&lt;/a&gt; in the
@@ -297,7 +297,7 @@ network&amp;nbsp;configuration.&lt;/p&gt;
 &lt;h3&gt;Show intelligent password error&amp;nbsp;messages&lt;/h3&gt;
 &lt;p&gt;When choosing a password Cockpit validates the password using the &lt;code&gt;pwscore&lt;/code&gt; tool.
 Appropriate and descriptive error messages are now shown when the validation&amp;nbsp;fails:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-pwscore-message.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-pwscore-message.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Red Hat subscription registration&amp;nbsp;options&lt;/h3&gt;
 &lt;p&gt;The Red Hat subscriptions functionality has been enhanced. You can now specify an activation
 key when registering the system. This key is generated in your organization in such a
@@ -307,7 +307,7 @@ way that it uniquely identifies whan kind of software should be available on the
 &lt;p&gt;Marek &lt;a href="https://github.com/cockpit-project/cockpit/pull/4434"&gt;is working on&lt;/a&gt; a new part of
 the admin interface to list the virtual machines running on the current system. This is
 the beginnings of a web accessible &lt;a href="https://virt-manager.org/"&gt;virt-manager&lt;/a&gt;&amp;nbsp;tool:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-libvirt-message.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="pwscore message" src="images/cockpit-libvirt-message.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.114 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -315,7 +315,7 @@ the beginnings of a web accessible &lt;a href="https://virt-manager.org/"&gt;vir
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.114"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.114-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.113</title><link href="http://cockpit-project.org/blog/cockpit-0.113.html" rel="alternate"></link><published>2016-07-07T17:30:00+00:00</published><updated>2016-07-07T17:30:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-07:/blog/cockpit-0.113.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from 0.112 and&amp;nbsp;0.113.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.111 and 0.112&amp;nbsp;releases.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.113</title><link href="http://cockpit-project.org/blog/cockpit-0.113.html" rel="alternate"></link><published>2016-07-07T17:30:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-07-07:blog/cockpit-0.113.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.111 and 0.112&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;Display time information for systemd timer&amp;nbsp;jobs&lt;/h3&gt;
 &lt;p&gt;Harish Anand a Google Summer of Code student working on Cockpit, and he&amp;#8217;s implementing
 systemd timers. These are similar to cron jobs, and are a structured way of running
@@ -334,11 +334,11 @@ and hides such interfaces from its Network&amp;nbsp;configuration.&lt;/p&gt;
 &lt;p&gt;When a new network bond is created the &lt;em&gt;Active/Backup&lt;/em&gt; mode is used as
 the default. This is a more common choice for admins, and makes sense
 to point people in this&amp;nbsp;direction.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Bond Active/Backup" src="images/cockpit-active-backup.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bond Active/Backup" src="images/cockpit-active-backup.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Added textual fields to container resource&amp;nbsp;sliders&lt;/h3&gt;
 &lt;p&gt;Users can now type actual amounts in memory megabytes, or &lt;span class="caps"&gt;CPU&lt;/span&gt; shares
 when starting a container, in addition to being able to use a&amp;nbsp;slider.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Resource Slider Text" src="images/cockpit-resource-sliders-text.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Resource Slider Text" src="images/cockpit-resource-sliders-text.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Disable tuned correctly when disabling performance&amp;nbsp;profiles&lt;/h3&gt;
 &lt;p&gt;The tuned service needs to be stopped and disabled when choosing the &amp;#8220;none&amp;#8221;
 performance profile. The behavior now lines up with what users expect
@@ -354,12 +354,12 @@ the&amp;nbsp;machine.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.113"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.113-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.111</title><link href="http://cockpit-project.org/blog/cockpit-0.111.html" rel="alternate"></link><published>2016-06-26T09:00:00+00:00</published><updated>2016-06-26T09:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-06-26:/blog/cockpit-0.111.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from 0.107 through&amp;nbsp;0.111.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.111</title><link href="http://cockpit-project.org/blog/cockpit-0.111.html" rel="alternate"></link><published>2016-06-26T09:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-06-26:blog/cockpit-0.111.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week, although it&amp;#8217;s been a while since the release notes were posted. Here are the highlights from this weeks 0.107 through 0.111&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;SELinux enforcing&amp;nbsp;policy&lt;/h3&gt;
 &lt;p&gt;You can now temporarily disable SELinux enforcing mode from the SELinux troubleshooting
 dashboard. This is useful when diagnosing permission issues that you might think are
 SELinux&amp;nbsp;related.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="SELinux Enforcing" src="images/cockpit-selinux-enforcing.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SELinux Enforcing" src="images/cockpit-selinux-enforcing.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Stable Javascript &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;Cockpit now has a &lt;a href="http://cockpit-project.org/guide/latest/api-base1.html"&gt;stable Javascript &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;
 for components or plugins to build off of. Various unstable portions were removed from the
@@ -368,13 +368,13 @@ out of tree components or&amp;nbsp;plugins.&lt;/p&gt;
 &lt;h3&gt;GlusterFS in Kubernetes&amp;nbsp;Dashboard&lt;/h3&gt;
 &lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard now lists &lt;a href="http://gluster.org/"&gt;Gluster&lt;/a&gt;
 volumes in the dashboard, lets you configure them for pods to&amp;nbsp;use.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="GlusterFS Persistent Volumes" src="images/cockpit-glusterfs-volume.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GlusterFS Persistent Volumes" src="images/cockpit-glusterfs-volume.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Kubernetes pending Persistent Volume&amp;nbsp;Claims&lt;/h3&gt;
 &lt;p&gt;The &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; dashboard lists pods which have
 outstanding volume claims, and then allows you to fulfill those claims
 by creating appropriate persistent&amp;nbsp;volumes.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-dashboard-claim.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-volume-claims.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-dashboard-claim.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Persistent Volume Claims" src="images/cockpit-volume-claims.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
 &lt;p&gt;Marius &lt;a href="https://github.com/cockpit-project/cockpit/pull/4571"&gt;has worked on&lt;/a&gt; adding support
 for Linux &lt;a href="http://libteam.org/"&gt;network teaming&lt;/a&gt; to the Cockpit admin interface. Teaming
@@ -386,7 +386,7 @@ is a better more coherent way of building a network&amp;nbsp;bond.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.111"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.111-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.106</title><link href="http://cockpit-project.org/blog/cockpit-0.106.html" rel="alternate"></link><published>2016-05-12T15:40:00+00:00</published><updated>2016-05-12T15:40:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-05-12:/blog/cockpit-0.106.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.106&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.106&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.106</title><link href="http://cockpit-project.org/blog/cockpit-0.106.html" rel="alternate"></link><published>2016-05-12T15:40:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-05-12:blog/cockpit-0.106.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.106&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Stable Cockpit&amp;nbsp;Styles&lt;/h3&gt;
 &lt;p&gt;One of the annoying things about &lt;span class="caps"&gt;CSS&lt;/span&gt; is that when you bring in stylesheets from
 multiple projects, they can conflict. You have to choose a nomen-clature to
@@ -400,7 +400,7 @@ those styles at&amp;nbsp;all.&lt;/p&gt;
 &lt;h3&gt;Container Image&amp;nbsp;Layers&lt;/h3&gt;
 &lt;p&gt;Docker container image layers are now shown much more clearly. It should be clearer to tell
 which is the base layer, and how the others are layered on&amp;nbsp;top:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image Layers" src="images/cockpit-image-layers.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image Layers" src="images/cockpit-image-layers.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.106 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -408,7 +408,7 @@ which is the base layer, and how the others are layered on&amp;nbsp;top:&lt;/p&g
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.106"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.106-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.105</title><link href="http://cockpit-project.org/blog/cockpit-0.105.html" rel="alternate"></link><published>2016-05-04T14:27:00+00:00</published><updated>2016-05-04T14:27:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-05-04:/blog/cockpit-0.105.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.105&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.105&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.105</title><link href="http://cockpit-project.org/blog/cockpit-0.105.html" rel="alternate"></link><published>2016-05-04T14:27:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-05-04:blog/cockpit-0.105.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.105&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Strict Content-Security-Policy enforced&amp;nbsp;everywhere&lt;/h3&gt;
 &lt;p&gt;All of the Cockpit components now ship strict Content-Security-Policy. This is like
 SELinux in your browser, where you declare the kind of things the application is
@@ -429,13 +429,13 @@ them with a few clicks. Here&amp;#8217;s a short&amp;nbsp;video:&lt;/p&gt;
 &lt;p&gt;In &lt;a href="http://www.projectatomic.io/registry/"&gt;the Registry user interface&lt;/a&gt; there&amp;#8217;s now a
 checkbox that allows you to choose whether the registry from which you&amp;#8217;re mirroring
 container images is insecure or&amp;nbsp;not.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Insecure Registry option" src="images/cockpit-insecure-registry.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Insecure Registry option" src="images/cockpit-insecure-registry.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Deletion of Kubernetes&amp;nbsp;Nodes&lt;/h3&gt;
 &lt;p&gt;In the Cluster admin interface you can now delete Nodes from the cluster, and select
 which ones to delete. Andreas has also done design work to allow upgrading the
 node operating system as well as cordoning nodes, which makes them unavailable for
 scheduling&amp;nbsp;containers.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Deleting Nodes" src="images/cockpit-delete-nodes.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Deleting Nodes" src="images/cockpit-delete-nodes.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.105 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -443,7 +443,7 @@ scheduling&amp;nbsp;containers.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.105"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.105-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.104</title><link href="http://cockpit-project.org/blog/cockpit-0.104.html" rel="alternate"></link><published>2016-04-28T15:21:00+00:00</published><updated>2016-04-28T15:21:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-28:/blog/cockpit-0.104.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.104&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.104&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.104</title><link href="http://cockpit-project.org/blog/cockpit-0.104.html" rel="alternate"></link><published>2016-04-28T15:21:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-28:blog/cockpit-0.104.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.104&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes iSCSI&amp;nbsp;Volumes&lt;/h3&gt;
 &lt;p&gt;Peter added support for iSCSI Kubernetes Volumes in the Cockpit Cluster dashboard. When you
 have container pods that need to store data somewhere, it&amp;#8217;s now real easy to configure use
@@ -476,7 +476,7 @@ data on its host. Take a look at the demo below. Marius adds disks to the contai
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.104"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.104-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.103</title><link href="http://cockpit-project.org/blog/cockpit-0.103.html" rel="alternate"></link><published>2016-04-20T15:45:00+00:00</published><updated>2016-04-20T15:45:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-20:/blog/cockpit-0.103.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.102&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.103</title><link href="http://cockpit-project.org/blog/cockpit-0.103.html" rel="alternate"></link><published>2016-04-20T15:45:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-20:blog/cockpit-0.103.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.103&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes connection&amp;nbsp;configuration&lt;/h3&gt;
 &lt;p&gt;When a Kubernetes client wants to access the &lt;span class="caps"&gt;API&lt;/span&gt; of the cluster, it looks for a &amp;#8220;kubeconfig&amp;#8221; file to tell it how to find the cluster and how to authenticate when accessing the &lt;span class="caps"&gt;API&lt;/span&gt;. The usual location for this file is in the current user&amp;#8217;s home directory at the &lt;code&gt;~/.kube/config&lt;/code&gt; file path. If that doesn&amp;#8217;t exist, then usually the cluster isn&amp;#8217;t available. This applies to both clients like the &lt;code&gt;kubectl&lt;/code&gt; command as well as Cockpit&amp;#8217;s cluster&amp;nbsp;dashboard.&lt;/p&gt;
 &lt;p&gt;Cockpit can now prompt for this information, and build this file for you. If it doesn&amp;#8217;t exist, then there&amp;#8217;s a helpful &amp;#8220;Troubleshoot&amp;#8221; button to help get this configuration in&amp;nbsp;place.&lt;/p&gt;
@@ -499,7 +499,7 @@ sudo apt-get install cockpit
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.103"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.103-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit with Docker Restart Policy</title><link href="http://cockpit-project.org/blog/cockpit-0.102.html" rel="alternate"></link><published>2016-04-14T13:33:00+00:00</published><updated>2016-04-14T13:33:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-14:/blog/cockpit-0.102.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.102&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit with Docker Restart Policy</title><link href="http://cockpit-project.org/blog/cockpit-0.102.html" rel="alternate"></link><published>2016-04-14T13:33:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-14:blog/cockpit-0.102.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.102&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Docker Restart&amp;nbsp;Policy&lt;/h3&gt;
 &lt;p&gt;When running a Docker container in Cockpit, you can now set the restart policy, so when the docker daemon restarts the containers will be restarted too. Justin Robertson contributed this feature. Take a&amp;nbsp;look.&lt;/p&gt;
 &lt;iframe width="853" height="480" src="https://www.youtube.com/embed/8YYHui-FQco?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -507,7 +507,7 @@ sudo apt-get install cockpit
 &lt;h3&gt;Single Dialog for Creating Logical&amp;nbsp;Volumes&lt;/h3&gt;
 &lt;p&gt;The storage interface in Cockpit now has a single combined dialog when creating logical volumes.
 This is a first tiny step towards advanced &lt;span class="caps"&gt;LVM2&lt;/span&gt; features such as &lt;span class="caps"&gt;RAID&lt;/span&gt; layouts and caches. The dialog will get more fields and more interesting behavior as we implement more of the features offered by &lt;span class="caps"&gt;LVM2&lt;/span&gt;, such as the various &lt;span class="caps"&gt;RAID&lt;/span&gt; levels, as indicated by the hidden options for the &amp;#8220;Purpose&amp;#8221; and &amp;#8220;Layout&amp;#8221;&amp;nbsp;fields.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Single dialog for logical volumes" src="images/cockpit-logical-volume-one-dialog.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Single dialog for logical volumes" src="images/cockpit-logical-volume-one-dialog.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Storage interface now available on&amp;nbsp;Debian&lt;/h3&gt;
 &lt;p&gt;The storage interface in Cockpit has been enabled and built on Debian. The
 &lt;a href="https://github.com/storaged-project/storaged/"&gt;storaged &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; is now available on Debian&amp;nbsp;too.&lt;/p&gt;
@@ -521,7 +521,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.102"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.102-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit does Kubernetes Data Volumes</title><link href="http://cockpit-project.org/blog/cockpit-0.101.html" rel="alternate"></link><published>2016-04-08T12:35:00+00:00</published><updated>2016-04-08T12:35:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-08:/blog/cockpit-0.101.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.101&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.101&amp;nbsp;release.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit does Kubernetes Data Volumes</title><link href="http://cockpit-project.org/blog/cockpit-0.101.html" rel="alternate"></link><published>2016-04-08T12:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-08:blog/cockpit-0.101.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.101&amp;nbsp;release.&lt;/p&gt;
 &lt;h3&gt;Kubernetes&amp;nbsp;Volumes&lt;/h3&gt;
 &lt;p&gt;You can now set up Kubernetes &lt;a href="http://kubernetes.io/docs/user-guide/persistent-volumes/"&gt;persistent volume claims&lt;/a&gt; through the Cockpit cluster admin interface. These volumes are used to store persistent container data and possibly share them between containers. Each container pod declares the volumes it needs, and when deploying such an application admins configure the locations to store the data in those&amp;nbsp;volumes.&lt;/p&gt;
 &lt;p&gt;Take a&amp;nbsp;look:&lt;/p&gt;
@@ -536,7 +536,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.101"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.101-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.100 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.100.html" rel="alternate"></link><published>2016-04-01T15:30:00+00:00</published><updated>2016-04-01T15:30:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-01:/blog/cockpit-0.100.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from&amp;nbsp;0.100&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.100 release. Even though 0.100 may seem to be a magical number &amp;#8230; it&amp;#8217;s really just the number after 0.99&amp;nbsp;:D&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.100 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.100.html" rel="alternate"></link><published>2016-04-01T15:30:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-04-01:blog/cockpit-0.100.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from this weeks 0.100 release. Even though 0.100 may seem to be a magical number &amp;#8230; it&amp;#8217;s really just the number after 0.99&amp;nbsp;:D&lt;/p&gt;
 &lt;h3&gt;SELinux&amp;nbsp;Troubleshooting&lt;/h3&gt;
 &lt;p&gt;Cockpit can now help you troubleshoot &lt;a href="http://stopdisablingselinux.com/"&gt;SELinux&lt;/a&gt; problems, and show you fixes for repairing the various issues. This is pretty amazing for system admins who really would rather be secure, but keep bumping into stuff that SELinux is blocking. There&amp;#8217;s more to come on both SELinux and troubleshooting in the future. Take a look at what landed in this&amp;nbsp;release:&lt;/p&gt;
 &lt;iframe width="960" height="720" src="https://www.youtube.com/embed/eBGK6qSmnng?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -549,11 +549,11 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 
 &lt;h3&gt;Storage sliders and&amp;nbsp;more&lt;/h3&gt;
 &lt;p&gt;Marius has been working on cleaning up the storage &lt;span class="caps"&gt;UI&lt;/span&gt;. One of the changes you&amp;#8217;ll notice is that you can now use a slider to choose a size for new volumes or file systems, and specify the size units you want to&amp;nbsp;use:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Storage number slider" src="images/cockpit-storage-slider.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Storage number slider" src="images/cockpit-storage-slider.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Debian builds now also include the Storage&amp;nbsp;page.&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
 &lt;p&gt;Peter worked on adding Cluster storage configuration to the Kubernetes admin dashboard. Basic support will be in the next release. Here&amp;#8217;s a&amp;nbsp;screenshot:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Kubernetes persistent volume" src="images/cockpit-kubernetes-storage.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Kubernetes persistent volume" src="images/cockpit-kubernetes-storage.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.100 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -561,7 +561,7 @@ to its &lt;a href="https://github.com/jshint/jshint/issues/1234"&gt;controversia
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.100"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.100-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.99 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.99.html" rel="alternate"></link><published>2016-03-24T18:35:00+00:00</published><updated>2016-03-24T18:35:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-03-24:/blog/cockpit-0.99.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from 0.96 through&amp;nbsp;0.99&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from 0.96 through&amp;nbsp;0.99.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Cockpit 0.99 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.99.html" rel="alternate"></link><published>2016-03-24T18:35:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-03-24:blog/cockpit-0.99.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. There&amp;#8217;s a new release every week. Here are the highlights from 0.96 through&amp;nbsp;0.99.&lt;/p&gt;
 &lt;h3&gt;Kubernetes Cockpit&amp;nbsp;Pod&lt;/h3&gt;
 &lt;p&gt;The Kubernetes cluster admin interface is now deployable as a &lt;a href="http://kubernetes.io"&gt;Kubernetes&lt;/a&gt; pod. Peter did a lot of work to make this happen. It&amp;#8217;s a good example of taking just one part Cockpit, containerizing it and running it in a completely different&amp;nbsp;environment.&lt;/p&gt;
 &lt;p&gt;You can use the &lt;a href="http://cockpit-project.org/guide/latest/feature-kubernetes.html"&gt;commands listed in the documentation&lt;/a&gt; to run the pod. Here&amp;#8217;s a&amp;nbsp;demo:&lt;/p&gt;
@@ -579,7 +579,7 @@ what your application is allowed to do, and the browser prevents other things fr
 &lt;iframe width="960" height="720" src="https://www.youtube.com/embed/s6C29f8dSRQ?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;Garret designed a &lt;span class="caps"&gt;UI&lt;/span&gt; for using Docker with an &lt;span class="caps"&gt;LVM&lt;/span&gt; pool as you would on &lt;a href="http://www.projectatomic.io/download/"&gt;Atomic Host&lt;/a&gt;. That is: A &lt;span class="caps"&gt;UI&lt;/span&gt; for &lt;a href="https://github.com/projectatomic/docker-storage-setup"&gt;docker-storage-setup&lt;/a&gt;. I&amp;#8217;m looking forward to this in Cockpit. Sneak peak&amp;nbsp;here:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Container Storage Designs" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/9bd7086a4a8492b72269c58272d063b3372116c3/containers/container-storage.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Container Storage Designs" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/9bd7086a4a8492b72269c58272d063b3372116c3/containers/container-storage.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.99 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -587,7 +587,7 @@ what your application is allowed to do, and the browser prevents other things fr
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.95"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.99-1.fc24"&gt;Fedora&amp;nbsp;24&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 23, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.95 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.95.html" rel="alternate"></link><published>2016-02-12T20:32:00+00:00</published><updated>2016-02-12T20:32:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-02-12:/blog/cockpit-0.95.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s highlights from 0.90 through&amp;nbsp;0.95&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. Here are the highlights from 0.90 through&amp;nbsp;0.95.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.95 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.95.html" rel="alternate"></link><published>2016-02-12T20:32:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2016-02-12:blog/cockpit-0.95.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here are the highlights from 0.90 through&amp;nbsp;0.95.&lt;/p&gt;
 &lt;h2&gt;Set &lt;span class="caps"&gt;CPU&lt;/span&gt; performance profile via&amp;nbsp;tuned&lt;/h2&gt;
 &lt;p&gt;Cockpit can now talk to tuned and set the &lt;span class="caps"&gt;CPU&lt;/span&gt; performance profile of the
 system. Thanks to Ryan Barry for doing the initial prototype, and
@@ -672,7 +672,7 @@ repo for more&amp;nbsp;details.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.95"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-0.95-1.fc23"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.89 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.89.html" rel="alternate"></link><published>2015-12-22T13:04:00+00:00</published><updated>2015-12-22T13:04:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-22:/blog/cockpit-0.89.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.89&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s a summary of the 0.87, 0.88 and 0.89&amp;nbsp;releases.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.89 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.89.html" rel="alternate"></link><published>2015-12-22T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-22:blog/cockpit-0.89.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. Here&amp;#8217;s a summary of the 0.87, 0.88 and 0.89&amp;nbsp;releases.&lt;/p&gt;
 &lt;h3&gt;OSTree upgrades and&amp;nbsp;rollbacks&lt;/h3&gt;
 &lt;p&gt;Peter worked to finish the basic OSTree &lt;span class="caps"&gt;UI&lt;/span&gt; has been merged into Cockpit.
 This lets the admin perform upgrades and rollbacks on Atomic&amp;nbsp;Host.&lt;/p&gt;
@@ -750,7 +750,7 @@ profile) support to&amp;nbsp;Cockpit:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-36d1df063f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.86 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.86.html" rel="alternate"></link><published>2015-12-04T13:04:00+00:00</published><updated>2015-12-04T13:04:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-04:/blog/cockpit-0.86.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.86&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.86.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.86 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.86.html" rel="alternate"></link><published>2015-12-04T13:04:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-12-04:blog/cockpit-0.86.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.86.&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;SOS&lt;/span&gt;&amp;nbsp;Reporting&lt;/h3&gt;
 &lt;p&gt;Users can now prepare an &lt;span class="caps"&gt;SOS&lt;/span&gt; Report containing information about the system and send it to their support&amp;nbsp;representative.&lt;/p&gt;
 &lt;iframe width="640" height="480" src="https://www.youtube.com/embed/-6rfWUoOQbs?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -773,7 +773,7 @@ into the various Cockpit packages. These are &lt;code&gt;bower_components&lt;/co
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-36d1df063f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.85 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.85.html" rel="alternate"></link><published>2015-11-27T11:24:00+00:00</published><updated>2015-11-27T11:24:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-27:/blog/cockpit-0.85.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.85&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.85.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.85 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.85.html" rel="alternate"></link><published>2015-11-27T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-27:blog/cockpit-0.85.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.85.&lt;/p&gt;
 &lt;h3&gt;Varying users on dashboard&amp;nbsp;machines&lt;/h3&gt;
 &lt;p&gt;Cockpit now supports adding machines to the dashboard with different
 user logins for each one. This can be useful in cases where you&amp;#8217;re
@@ -789,7 +789,7 @@ does so over &lt;span class="caps"&gt;SSH&lt;/span&gt;. Cockpit can now connect 
 &lt;p&gt;Cockpit now allows you to fix connectivity issues for servers that are
 added to the dashboard. This includes adjusting authentication, checking
 on host keys and&amp;nbsp;more.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/add-system/machine-dialogs.png"&gt;&lt;img alt="Machine Dialogs Wireframes" src="images/machine-dialogs.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/add-system/machine-dialogs.png"&gt;&lt;img alt="Machine Dialogs Wireframes" src="images/machine-dialogs.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Fix SELinux certificate file type&amp;nbsp;bug&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.84 failed to start on certain distros because SELinux wasn&amp;#8217;t
 available or couldn&amp;#8217;t be used to reset the certificate file context.
@@ -814,7 +814,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.85"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-e368240084"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.83 and 0.84 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.84.html" rel="alternate"></link><published>2015-11-19T11:24:00+00:00</published><updated>2015-11-19T11:24:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-19:/blog/cockpit-0.84.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.84&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was 0.84. I&amp;#8217;ll also include notes from 0.83&amp;nbsp;here.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.83 and 0.84 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.84.html" rel="alternate"></link><published>2015-11-19T11:24:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-11-19:blog/cockpit-0.84.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was 0.84. I&amp;#8217;ll also include notes from 0.83&amp;nbsp;here.&lt;/p&gt;
 &lt;h3&gt;Building Cockpit on&amp;nbsp;Debian&lt;/h3&gt;
 &lt;p&gt;At systemd.conf Dominik worked with Michael Biebl one of the Debian systemd maintainers on packaging Cockpit for Debian. We&amp;#8217;re still looking for a maintainer long&amp;nbsp;term.&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s a &lt;a href="http://dominik.perpeet.eu/cockpit-on-debian-8-2"&gt;blog post&lt;/a&gt; with more&amp;nbsp;details.&lt;/p&gt;
@@ -830,14 +830,14 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;iframe width="640" height="480" src="https://www.youtube.com/embed/-6rfWUoOQbs?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt;Peter has mostly completed the work to add machines with alternate users, and non-standard &lt;span class="caps"&gt;SSH&lt;/span&gt; ports. Among other things, this is useful for cloud instances. I&amp;#8217;m looking forward to seeing this in Cockpit&amp;nbsp;0.85.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/add-system/machine-dialogs.png"&gt;&lt;img alt="Machine Dialogs Wireframes" src="images/machine-dialogs.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/add-system/machine-dialogs.png"&gt;&lt;img alt="Machine Dialogs Wireframes" src="images/machine-dialogs.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.84 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.84"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-96b41c5190"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.82 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.82.html" rel="alternate"></link><published>2015-10-28T19:05:00+00:00</published><updated>2015-10-28T19:05:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-28:/blog/cockpit-0.82.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.82&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.82&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.82 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.82.html" rel="alternate"></link><published>2015-10-28T19:05:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-28:blog/cockpit-0.82.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.82&lt;/p&gt;
 &lt;h3&gt;Distributed&amp;nbsp;Tests&lt;/h3&gt;
 &lt;p&gt;In Cockpit we run thousands of integration tests per day against pull requests and git master. Each test brings up up Cockpit in a full operating system &lt;span class="caps"&gt;VM&lt;/span&gt;, and hammers on it in some way. Without these tests it&amp;#8217;s impossible to validate that Cockpit actually&amp;nbsp;works.&lt;/p&gt;
 &lt;p&gt;Last week, the server doing this testing work broke down. I&amp;#8217;ve been working over the last week to fix that, along with&amp;nbsp;others.&lt;/p&gt;
@@ -852,7 +852,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.82"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-273bc74c11"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.81 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.81.html" rel="alternate"></link><published>2015-10-21T22:19:00+00:00</published><updated>2015-10-21T22:19:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-21:/blog/cockpit-0.81.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.81&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.81&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.81 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.81.html" rel="alternate"></link><published>2015-10-21T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-21:blog/cockpit-0.81.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.81&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;NTP&lt;/span&gt;&amp;nbsp;servers&lt;/h3&gt;
 &lt;p&gt;Cockpit now allows configuration of which &lt;span class="caps"&gt;NTP&lt;/span&gt; servers are used for time syncing.  This configuration is possible when &lt;a href="http://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html"&gt;timesyncd&lt;/a&gt; is being used as the &lt;span class="caps"&gt;NTP&lt;/span&gt;&amp;nbsp;service.&lt;/p&gt;
 &lt;iframe width="640" height="480" src="https://www.youtube.com/embed/Rmzt1L4ANgo?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
@@ -871,7 +871,7 @@ actually works&amp;nbsp;there.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.81"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-c3b74dffee"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.80 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.80.html" rel="alternate"></link><published>2015-10-14T22:19:00+00:00</published><updated>2015-10-14T22:19:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-14:/blog/cockpit-0.80.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.80&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.80&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.80 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.80.html" rel="alternate"></link><published>2015-10-14T22:19:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-14:blog/cockpit-0.80.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.80&lt;/p&gt;
 &lt;h3&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; private&amp;nbsp;keys&lt;/h3&gt;
 &lt;p&gt;You can now use Cockpit to load &lt;span class="caps"&gt;SSH&lt;/span&gt; private keys into the ssh-agent that&amp;#8217;s
 running in the Cockpit login session. These keys are used to authenticate
@@ -885,7 +885,7 @@ this would happen if the correct &lt;span class="caps"&gt;PAM&lt;/span&gt; modul
 &lt;h3&gt;From the&amp;nbsp;future&lt;/h3&gt;
 &lt;p&gt;Peter has done work to build an OSTree &lt;span class="caps"&gt;UI&lt;/span&gt;, useful for upgrading and rolling back
 the operating system on Atomic&amp;nbsp;Host:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/software-updates/software-updates-ostree-alt.png"&gt;&lt;img alt="OSTree Design Work" src="images/cockpit-ostree-design.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/software-updates/software-updates-ostree-alt.png"&gt;&lt;img alt="OSTree Design Work" src="images/cockpit-ostree-design.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Subin has done work to get Nulecule Kubernetes applications working with Atomic
 and larger Kubernetes&amp;nbsp;clusters.&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
@@ -894,10 +894,7 @@ and larger Kubernetes&amp;nbsp;clusters.&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.80"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-28a7f2b07f"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Using Vagrant to Develop Cockpit</title><link href="http://cockpit-project.org/blog/cockpit-vagrantfile.html" rel="alternate"></link><published>2015-10-08T00:00:00+00:00</published><updated>2015-10-08T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-08:/blog/cockpit-vagrantfile.html</id><summary type="html">&lt;p&gt;Starting with Cockpit release 0.79 you can use &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; to bring up a &lt;span class="caps"&gt;VM&lt;/span&gt; in which
-you can test or develop Cockpit. The &lt;span class="caps"&gt;VM&lt;/span&gt; is isolated from your main system so any system configuration
-you change via Cockpit will only happen in the &lt;span class="caps"&gt;VM&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;The Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; mounts the …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Starting with Cockpit release 0.79 you can use &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; to bring up a &lt;span class="caps"&gt;VM&lt;/span&gt; in which
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Using Vagrant to Develop Cockpit</title><link href="http://cockpit-project.org/blog/cockpit-vagrantfile.html" rel="alternate"></link><published>2015-10-08T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-08:blog/cockpit-vagrantfile.html</id><summary type="html">&lt;p&gt;Starting with Cockpit release 0.79 you can use &lt;a href="https://www.vagrantup.com/"&gt;Vagrant&lt;/a&gt; to bring up a &lt;span class="caps"&gt;VM&lt;/span&gt; in which
 you can test or develop Cockpit. The &lt;span class="caps"&gt;VM&lt;/span&gt; is isolated from your main system so any system configuration
 you change via Cockpit will only happen in the &lt;span class="caps"&gt;VM&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;The Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; mounts the Cockpit package assets from your git repository checkout, so when you make on the
@@ -959,7 +956,7 @@ to be rebuilt, and testing it via Vagrant won&amp;#8217;t&amp;nbsp;work.&lt;/p&g
 
 
 &lt;p&gt;And after refreshing Cockpit, I can see that&amp;nbsp;change:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Showing the change made" src="images/vagrant-change.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Showing the change made" src="images/vagrant-change.png" /&gt;&lt;/p&gt;
 &lt;p&gt;The same applies to javascript or &lt;span class="caps"&gt;CSS&lt;/span&gt; changes as well. In order to actually contribute a change to Cockpit
 you&amp;#8217;ll want to look at the information about
 &lt;a href="https://github.com/cockpit-project/cockpit/wiki/Contributing"&gt;Contributing&lt;/a&gt; and if you need help
@@ -969,7 +966,7 @@ you can look at the &lt;a href="http://files.cockpit-project.org/guide/latest/de
 &lt;h2&gt;Bringing the Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; in&amp;nbsp;sync&lt;/h2&gt;
 &lt;p&gt;After each Cockpit release, there will be new binary parts to Cockpit. In order to continue to use the
 Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt;, you&amp;#8217;ll need to rebuild it. A message like this should appear when that&amp;#8217;s&amp;nbsp;necessary.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit is incompatible with sources" src="images/cockpit-incompatible-sources.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Cockpit is incompatible with sources" src="images/cockpit-incompatible-sources.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Rebuild the Vagrant &lt;span class="caps"&gt;VM&lt;/span&gt; like&amp;nbsp;this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo vagrant destroy
 $ sudo vagrant up
@@ -980,7 +977,7 @@ $ sudo vagrant up
 &lt;p&gt;On Fedora, FirewallD got in the way of Vagrants use of &lt;span class="caps"&gt;NFS&lt;/span&gt;. On my machine, I had to do this
 to get it to&amp;nbsp;work:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo firewall-cmd --set-default-zone=trusted
-&lt;/pre&gt;&lt;/div&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 0.79 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.79.html" rel="alternate"></link><published>2015-10-07T22:23:00+00:00</published><updated>2015-10-07T22:23:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-07:/blog/cockpit-0.79.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.79&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.79&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 0.79 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.79.html" rel="alternate"></link><published>2015-10-07T22:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-10-07:blog/cockpit-0.79.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.79&lt;/p&gt;
 &lt;h3&gt;Vagrant&amp;nbsp;File&lt;/h3&gt;
 &lt;p&gt;Cockpit now has a vagrant file. If you want to checkout the latest
 Cockpit, test pull requests, or hack on Cockpit, you&amp;nbsp;can:&lt;/p&gt;
@@ -1005,7 +1002,7 @@ be in a release&amp;nbsp;soon:&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.79"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-7e1880ba02"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.78 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.78.html" rel="alternate"></link><published>2015-09-30T21:23:00+00:00</published><updated>2015-09-30T21:23:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-30:/blog/cockpit-0.78.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.78&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.78&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.78 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.78.html" rel="alternate"></link><published>2015-09-30T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-30:blog/cockpit-0.78.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.78&lt;/p&gt;
 &lt;!--BREAK--&gt;
 
 &lt;h3&gt;Multipath&amp;nbsp;Storage&lt;/h3&gt;
@@ -1032,7 +1029,7 @@ the &lt;a href="http://files.cockpit-project.org/guide/latest/privileges.html"&g
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.78"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-977ba13a92"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.77 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.77.html" rel="alternate"></link><published>2015-09-23T21:23:00+00:00</published><updated>2015-09-23T21:23:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-23:/blog/cockpit-0.77.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.77&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.77&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Cockpit 0.77 Released</title><link href="http://cockpit-project.org/blog/cockpit-0.77.html" rel="alternate"></link><published>2015-09-23T21:23:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-09-23:blog/cockpit-0.77.html</id><summary type="html">&lt;p&gt;Cockpit releases every week. This week it was&amp;nbsp;0.77&lt;/p&gt;
 &lt;h3&gt;Componentizing&amp;nbsp;Cockpit&lt;/h3&gt;
 &lt;p&gt;Marius and Stef completed a long running refactoring task of splitting
 Cockpit into&amp;nbsp;components.&lt;/p&gt;
@@ -1063,19 +1060,17 @@ the number of replicas in Replication&amp;nbsp;Controllers.&lt;/p&gt;
 &lt;p&gt;Cockpit now gives a warning when adding &amp;#8220;too many&amp;#8221; machines to the
 dashboard. We&amp;#8217;ve set the warning to 20 machines, but various operating
 systems can set this warning to be&amp;nbsp;lower.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Screenshot" src="https://trello-attachments.s3.amazonaws.com/55d623eddcb5795e8b5cff13/968x790/0e77b8ce653b79d29a2cc9de75b86b03/dc0c74d8-5e2f-11e5-91fc-901b633a059d.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot" src="https://trello-attachments.s3.amazonaws.com/55d623eddcb5795e8b5cff13/968x790/0e77b8ce653b79d29a2cc9de75b86b03/dc0c74d8-5e2f-11e5-91fc-901b633a059d.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;From the&amp;nbsp;Future&lt;/h3&gt;
 &lt;p&gt;Andreas did designs for managing the &lt;span class="caps"&gt;SSH&lt;/span&gt; keys loaded for use when connecting to&amp;nbsp;machines:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Wireframes" src="https://trello-attachments.s3.amazonaws.com/55f14b769262e42e89775936/3555x3301/0c0166255eaf092025c8a5c95f84f15f/ssh-keys-v2.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Wireframes" src="https://trello-attachments.s3.amazonaws.com/55f14b769262e42e89775936/3555x3301/0c0166255eaf092025c8a5c95f84f15f/ssh-keys-v2.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 0.77 is available now&amp;nbsp;here:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/0.77"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/FEDORA-2015-16557"&gt;Fedora 23 and Fedora&amp;nbsp;Rawhide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://copr.fedoraproject.org/coprs/sgallagh/cockpit-preview/"&gt;&lt;span class="caps"&gt;COPR&lt;/span&gt; for Fedora 21, 22, CentOS and &lt;span class="caps"&gt;RHEL&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Making REST calls from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/making-rest-calls-from-javascript-in-cockpit.html" rel="alternate"></link><published>2015-07-10T00:00:00+00:00</published><updated>2015-07-10T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-07-10:/blog/making-rest-calls-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. In &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;earlier&lt;/a&gt; &lt;a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html"&gt;tutorials&lt;/a&gt; there&amp;#8217;s a guide on how to add components to&amp;nbsp;Cockpit.&lt;/p&gt;
-&lt;p&gt;Not all of the &lt;a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html"&gt;system APIs use DBus&lt;/a&gt;. So sometimes we find ourselves in a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="technical"></category></entry><entry><title>Making REST calls from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/making-rest-calls-from-javascript-in-cockpit.html" rel="alternate"></link><published>2015-07-10T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-07-10:blog/making-rest-calls-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. In &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;earlier&lt;/a&gt; &lt;a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html"&gt;tutorials&lt;/a&gt; there&amp;#8217;s a guide on how to add components to&amp;nbsp;Cockpit.&lt;/p&gt;
 &lt;p&gt;Not all of the &lt;a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html"&gt;system APIs use DBus&lt;/a&gt;. So sometimes we find ourselves in a situation where we have to use &lt;span class="caps"&gt;REST&lt;/span&gt; (which is often just treated as another word for &lt;span class="caps"&gt;HTTP&lt;/span&gt;) to talk to certain parts of the system. For example &lt;a href="https://docs.docker.com/reference/api/docker_remote_api/"&gt;Docker has a &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;For this tutorial you&amp;#8217;ll need at least Cockpit 0.58. There was one last tweak that helped with the &lt;code&gt;superuser&lt;/code&gt; option you see below. You can install it in &lt;a href="http://cockpit-project.org/running.html"&gt;Fedora 22&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
@@ -1097,7 +1092,7 @@ docker-info: .../.local/share/cockpit/docker-info
 
 
 &lt;p&gt;If you&amp;#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the &lt;em&gt;Tools&lt;/em&gt; menu called &lt;em&gt;Docker Info&lt;/em&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Docker Info tool" src="images/cockpit-docker-info.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Docker Info tool" src="images/cockpit-docker-info.png" /&gt;&lt;/p&gt;
 &lt;p&gt;After a moment, you should see numbers pop up with some stats about the docker daemon. Now in a terminal try to run something&amp;nbsp;like:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo docker run -ti fedora /bin/bash
 &lt;/pre&gt;&lt;/div&gt;
@@ -1216,15 +1211,13 @@ docker-info: .../.local/share/cockpit/docker-info
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This is a simple example, but I hope it helps you get started. There are further &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http"&gt;javascript calls&lt;/a&gt;. Obviously you can also do &lt;code&gt;POST&lt;/code&gt; and so&amp;nbsp;on.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit’s Kubernetes Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-kubernetes-dashboard.html" rel="alternate"></link><published>2015-06-09T23:51:00+00:00</published><updated>2015-06-09T23:51:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-06-09:/blog/cockpit-kubernetes-dashboard.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a video showing what I&amp;#8217;ve been working on together with some help from a couple Cockpit folks. It&amp;#8217;s a &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; dashboard for&amp;nbsp;Kubernetes.&lt;/p&gt;
-&lt;p&gt;If you haven&amp;#8217;t heard about &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; &amp;#8230; it&amp;#8217;s a way to schedule docker containers across a cluster of machines, and take care …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here&amp;#8217;s a video showing what I&amp;#8217;ve been working on together with some help from a couple Cockpit folks. It&amp;#8217;s a &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; dashboard for&amp;nbsp;Kubernetes.&lt;/p&gt;
+&lt;p&gt;This is a simple example, but I hope it helps you get started. There are further &lt;span class="caps"&gt;REST&lt;/span&gt; &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http"&gt;javascript calls&lt;/a&gt;. Obviously you can also do &lt;code&gt;POST&lt;/code&gt; and so&amp;nbsp;on.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit’s Kubernetes Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-kubernetes-dashboard.html" rel="alternate"></link><published>2015-06-09T23:51:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2015-06-09:blog/cockpit-kubernetes-dashboard.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a video showing what I&amp;#8217;ve been working on together with some help from a couple Cockpit folks. It&amp;#8217;s a &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; dashboard for&amp;nbsp;Kubernetes.&lt;/p&gt;
 &lt;p&gt;If you haven&amp;#8217;t heard about &lt;a href="http://kubernetes.io/"&gt;Kubernetes&lt;/a&gt; &amp;#8230; it&amp;#8217;s a way to schedule docker containers across a cluster of machines, and take care of their networking, storage, name resolution etc. It&amp;#8217;s not completely baked, but pretty cool when it&amp;nbsp;works.&lt;/p&gt;
 &lt;iframe src="http://www.youtube.com/embed/Fcfsu22RssU" html5=1 frameborder="0" height="450" width="800" type="text/html"&gt;
 &lt;/iframe&gt;
 
 &lt;p&gt;The Cockpit dashboard you see in the video isn&amp;#8217;t done by any means &amp;#8230; there&amp;#8217;s a lot missing. But I&amp;#8217;m pretty happy with what we have so far. I&amp;#8217;m using Cockpit 0.61 in the demo. There are some nagging details to make things work, but hopefully we can solve them later. The Nulecule support isn&amp;#8217;t merged yet, &lt;a href="https://github.com/cockpit-project/cockpit/pull/2332"&gt;Subin has been working on it&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The Cockpit dashboard actually mostly works with &lt;a href="https://github.com/openshift/origin"&gt;Openshift v3&lt;/a&gt;. Openshift v3 is based on Kubernetes underneath, which makes apps that are developed there really&amp;nbsp;portable.&lt;/p&gt;</content><category term="cockpit"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Protocol for Web access to System APIs</title><link href="http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html" rel="alternate"></link><published>2014-12-16T00:00:00+00:00</published><updated>2014-12-16T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-12-16:/blog/protocol-for-web-access-to-system-apis.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.48 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;A Linux system today has a lot of local system configuration APIs. I&amp;#8217;m not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.48 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The Cockpit dashboard actually mostly works with &lt;a href="https://github.com/openshift/origin"&gt;Openshift v3&lt;/a&gt;. Openshift v3 is based on Kubernetes underneath, which makes apps that are developed there really&amp;nbsp;portable.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category><category term="kubernetes"></category></entry><entry><title>Protocol for Web access to System APIs</title><link href="http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html" rel="alternate"></link><published>2014-12-16T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-12-16:blog/protocol-for-web-access-to-system-apis.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.48 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;A Linux system today has a lot of local system configuration APIs. I&amp;#8217;m not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the &lt;span class="caps"&gt;API&lt;/span&gt; by which we configure a Linux system. In &lt;a href="http://cockpit-project.org"&gt;Cockpit&lt;/a&gt; we access these APIs from a web browser (after authentication of&amp;nbsp;course).&lt;/p&gt;
 &lt;p&gt;How do we access the system APIs? The answer is the &lt;code&gt;cockpit-bridge&lt;/code&gt; tool. It proxies requests from the Cockpit user interface, running in a web browser, to the system. Typically the &lt;code&gt;cockpit-bridge&lt;/code&gt; runs as the logged in user, in a user session. It has similar permissions and capabilities as if you had used &lt;code&gt;ssh&lt;/code&gt; to log into the&amp;nbsp;system.&lt;/p&gt;
 &lt;p&gt;Lets look at an example DBus &lt;span class="caps"&gt;API&lt;/span&gt; that we call from Cockpit. systemd has an &lt;span class="caps"&gt;API&lt;/span&gt; to set the system host name, called &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/hostnamed/"&gt;SetStaticHostname&lt;/a&gt;. In Cockpit we can invoke that &lt;span class="caps"&gt;API&lt;/span&gt; using simple &lt;span class="caps"&gt;JSON&lt;/span&gt; like&amp;nbsp;this:&lt;/p&gt;
@@ -1382,12 +1375,7 @@ mydbus
 &lt;p&gt;Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by &lt;code&gt;cockpit-ws&lt;/code&gt;. &lt;code&gt;cockpit-ws&lt;/code&gt; then passes them on to &lt;code&gt;cockpit-bridge&lt;/code&gt;. You can communicate this way too, if you &lt;a href="http://files.cockpit-project.org/guide/cockpit.conf.5.html"&gt;configure Cockpit to accept different Websocket Origins&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;And on it&amp;nbsp;goes&lt;/h2&gt;
 &lt;p&gt;There are payload types for reading files, replacing them, connecting to unix sockets, accessing system resource metrics, doing local &lt;span class="caps"&gt;HTTP&lt;/span&gt; requests, and more. Once the protocol is stable, solid documentation is in&amp;nbsp;order.&lt;/p&gt;
-&lt;p&gt;I hope that this has given some insight into how Cockpit works under the hood. If you&amp;#8217;re interested in using this same protocol, I&amp;#8217;d love to get feedback &amp;#8230; especially while the basics of the protocol are not yet&amp;nbsp;frozen.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit on RHEL Atomic Beta</title><link href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html" rel="alternate"></link><published>2014-11-20T00:00:00+00:00</published><updated>2014-11-20T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-20:/blog/cockpit-on-rhel-atomic-beta.html</id><summary type="html">&lt;p&gt;If you&amp;#8217;ve tried out the &lt;a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"&gt;&lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic Host Beta&lt;/a&gt; you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&amp;#8217;s an easy work&amp;nbsp;around:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This is an …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you&amp;#8217;ve tried out the &lt;a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"&gt;&lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic Host Beta&lt;/a&gt; you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&amp;#8217;s an easy work&amp;nbsp;around:&lt;/p&gt;
+&lt;p&gt;I hope that this has given some insight into how Cockpit works under the hood. If you&amp;#8217;re interested in using this same protocol, I&amp;#8217;d love to get feedback &amp;#8230; especially while the basics of the protocol are not yet&amp;nbsp;frozen.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit on RHEL Atomic Beta</title><link href="http://cockpit-project.org/blog/cockpit-on-rhel-atomic-beta.html" rel="alternate"></link><published>2014-11-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-20:blog/cockpit-on-rhel-atomic-beta.html</id><summary type="html">&lt;p&gt;If you&amp;#8217;ve tried out the &lt;a href="http://developerblog.redhat.com/2014/11/11/red-hat-enterprise-linux-7-atomic-host-beta-now-available/"&gt;&lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic Host Beta&lt;/a&gt; you might notice that Cockpit is not included by default, like it is in the Fedora Atomic or CentOS Atomic. But there&amp;#8217;s an easy work&amp;nbsp;around:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo docker run --privileged -v /:/host -d stefwalter/cockpit-atomic:wip
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1397,11 +1385,10 @@ mydbus
 &lt;li&gt;Only really allows Cockpit to be used as&amp;nbsp;root.&lt;/li&gt;
 &lt;li&gt;The Storage and user accounts UIs don&amp;#8217;t&amp;nbsp;work.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;And in general privileged containers are a mixed bag. They&amp;#8217;re not portable, and really not containers at all, in the sense that they&amp;#8217;re not contained.  But this is an easy way to get Cockpit going on &lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic for the time&amp;nbsp;being.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category><category term="rhel"></category><category term="atomic"></category></entry><entry><title>Creating Plugins for the Cockpit User Interface</title><link href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><updated>2014-11-13T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:/blog/creating-plugins-for-the-cockpit-user-interface.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is &lt;span class="caps"&gt;HTML&lt;/span&gt;, with Javascript logic that makes it work, and &lt;span class="caps"&gt;CSS …&lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And in general privileged containers are a mixed bag. They&amp;#8217;re not portable, and really not containers at all, in the sense that they&amp;#8217;re not contained.  But this is an easy way to get Cockpit going on &lt;span class="caps"&gt;RHEL&lt;/span&gt; Atomic for the time&amp;nbsp;being.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category><category term="rhel"></category><category term="atomic"></category></entry><entry><title>Creating Plugins for the Cockpit User Interface</title><link href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:blog/creating-plugins-for-the-cockpit-user-interface.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is &lt;span class="caps"&gt;HTML&lt;/span&gt;, with Javascript logic that makes it work, and &lt;span class="caps"&gt;CSS&lt;/span&gt; to make it&amp;nbsp;pretty.&lt;/p&gt;
 &lt;p&gt;It&amp;#8217;s real easy to create these components. Tools are components that show up in the &lt;em&gt;Tools&lt;/em&gt; menu in&amp;nbsp;Cockpit:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Tools menu" src="images/cockpit-tools-default.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Tools menu" src="images/cockpit-tools-default.png" /&gt;&lt;/p&gt;
 &lt;p&gt;For example the &lt;em&gt;Terminal&lt;/em&gt; that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you&amp;#8217;ll need Cockpit 0.41. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;So break out your terminal, lets make a package called &lt;em&gt;pinger&lt;/em&gt; that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&amp;#8217;ll just be spawning a process on the server to do the work. I&amp;#8217;ve prepared it for you as &lt;a href="http://cockpit-project.org/files/pinger.tgz"&gt;an example here&lt;/a&gt;, and we can look it over, and modify it. To download the example to your current&amp;nbsp;directory:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
@@ -1446,9 +1433,9 @@ pinger: /home/.../.local/share/cockpit/pinger
 
 
 &lt;p&gt;If you&amp;#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the &lt;em&gt;Tools&lt;/em&gt;&amp;nbsp;menu:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Tools menu with pinger" src="images/cockpit-tools-pinger.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Tools menu with pinger" src="images/cockpit-tools-pinger.png" /&gt;&lt;/p&gt;
 &lt;p&gt;The pinger tool itself looks like&amp;nbsp;this:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-pinger-tool.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-pinger-tool.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Lets take a look at the pinger &lt;span class="caps"&gt;HTML&lt;/span&gt;, and see how it&amp;nbsp;works.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Pinger&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
@@ -1537,9 +1524,7 @@ Next we attach a handler to the &lt;em&gt;Ping&lt;/em&gt; button so that the &lt
 
 
 &lt;p&gt;The &lt;code&gt;ping_success()&lt;/code&gt; and &lt;code&gt;ping_fail()&lt;/code&gt; and &lt;code&gt;ping_output()&lt;/code&gt; update the display as you would&amp;nbsp;expect.&lt;/p&gt;
-&lt;p&gt;So there you go &amp;#8230; it&amp;#8217;s a simple plugin to start off with &amp;#8230; next time we&amp;#8217;ll cover &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;how to use DBus&lt;/a&gt;, and then the real fun&amp;nbsp;begins.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Using DBus from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><updated>2014-11-13T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:/blog/using-dbus-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. As we covered in the &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;last tutorial&lt;/a&gt; you can add user interface component to Cockpit, and build your own parts of the Server &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;Much of Cockpit interacts with …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So there you go &amp;#8230; it&amp;#8217;s a simple plugin to start off with &amp;#8230; next time we&amp;#8217;ll cover &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;how to use DBus&lt;/a&gt;, and then the real fun&amp;nbsp;begins.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Using DBus from Javascript in Cockpit</title><link href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html" rel="alternate"></link><published>2014-11-13T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-13:blog/using-dbus-from-javascript-in-cockpit.html</id><summary type="html">&lt;p&gt;&lt;em&gt;Note: This post has been updated for changes in Cockpit 0.90 and&amp;nbsp;later.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://cockpit-project.org"&gt;Cockpit is a user interface for servers&lt;/a&gt;. As we covered in the &lt;a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html"&gt;last tutorial&lt;/a&gt; you can add user interface component to Cockpit, and build your own parts of the Server &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Much of Cockpit interacts with the server using DBus. We have a powerful yet simple &lt;span class="caps"&gt;API&lt;/span&gt; for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you&amp;#8217;ll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in &lt;a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html"&gt;Fedora 21&lt;/a&gt; or &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md"&gt;build it from git&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here we&amp;#8217;ll make a package called &lt;em&gt;zoner&lt;/em&gt; which lets you set the time zone of your server. We use the systemd &lt;a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/"&gt;timedated DBus &lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; to do actually switch time&amp;nbsp;zones.&lt;/p&gt;
@@ -1560,7 +1545,7 @@ zoner: .../.local/share/cockpit/zoner
 
 
 &lt;p&gt;If you&amp;#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the &lt;em&gt;Tools&lt;/em&gt; menu called &lt;em&gt;Time Zone&lt;/em&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-zoner-tool.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pinger tool" src="images/cockpit-zoner-tool.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Try it out by typing &lt;code&gt;Australia/Tasmania&lt;/code&gt; in the box, and clicking &lt;em&gt;Change&lt;/em&gt;. You should see that the &lt;em&gt;Time Zone&lt;/em&gt; changes. You can verify this by typing the following on the same server in a&amp;nbsp;terminal:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ date
 Sa 15. Nov 01:48:01 AEDT 2014
@@ -1679,10 +1664,7 @@ Next we attach a handler to the &lt;em&gt;Change&lt;/em&gt; button so that the &
 
 &lt;p&gt;The &lt;code&gt;change_fail()&lt;/code&gt; displays any failures that happen. In this case, &lt;code&gt;SetTimezone&lt;/code&gt; DBus method has no return value, however if there were, we could use something like &lt;code&gt;call.done(myhandler)&lt;/code&gt; to register a handler to receive&amp;nbsp;them.&lt;/p&gt;
 &lt;p&gt;Notice that we relied on DBus to tell us when things changed and just updated the display from our event handler. That way we reacted both when the time zone changed due to an action in Cockpit, as well as an action on the&amp;nbsp;server.&lt;/p&gt;
-&lt;p&gt;Again this is a simple example, but I hope it will whet your appetite to what &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;Cockpit can do with DBus&lt;/a&gt;. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&amp;nbsp;client.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit Multi-Server Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><updated>2014-11-04T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:/blog/cockpit-multi-server-dashboard.html</id><summary type="html">&lt;p&gt;Andreas and Marius have been working on implementing a new multi-server dash
-board for Cockpit. It&amp;#8217;s really looking&amp;nbsp;great.&lt;/p&gt;
-&lt;p&gt;The goal here is that the dash board should work with either one server or several,
-and give you an overview of what&amp;#8217;s going on. Problems that require attention …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Andreas and Marius have been working on implementing a new multi-server dash
+&lt;p&gt;Again this is a simple example, but I hope it will whet your appetite to what &lt;a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus"&gt;Cockpit can do with DBus&lt;/a&gt;. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&amp;nbsp;client.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit Multi-Server Dashboard</title><link href="http://cockpit-project.org/blog/cockpit-multi-server-dashboard.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:blog/cockpit-multi-server-dashboard.html</id><summary type="html">&lt;p&gt;Andreas and Marius have been working on implementing a new multi-server dash
 board for Cockpit. It&amp;#8217;s really looking&amp;nbsp;great.&lt;/p&gt;
 &lt;p&gt;The goal here is that the dash board should work with either one server or several,
 and give you an overview of what&amp;#8217;s going on. Problems that require attention should
@@ -1698,12 +1680,8 @@ If running a &lt;a href="https://github.com/GoogleCloudPlatform/kubernetes"&gt;K
 and Cockpit is loaded on the master, we should use information from Kubernetes to
 populate the&amp;nbsp;dashboard.&lt;/p&gt;
 &lt;p&gt;Here are some wireframes, click to&amp;nbsp;expand:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Multi server dashboard wireframes" src="images/navigation-horizontal-2.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/cockpit-project/cockpit/pull/1455"&gt;Pull request is&amp;nbsp;here &lt;/a&gt;&lt;/p&gt;</content><category term="cockpit"></category><category term="kubernetes"></category></entry><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><updated>2014-11-04T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:/blog/d-bus-is-powerful-ipc.html</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
-&lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md"&gt;WebSocket transport&lt;/a&gt;,
-and marshal them in &lt;span class="caps"&gt;JSON&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
-these capabilities are what allow Cockpit to implement its &lt;span class="caps"&gt;UI …&lt;/span&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
+&lt;p&gt;&lt;img alt="Multi server dashboard wireframes" src="images/navigation-horizontal-2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/cockpit-project/cockpit/pull/1455"&gt;Pull request is&amp;nbsp;here &lt;/a&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="kubernetes"></category></entry><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:blog/d-bus-is-powerful-ipc.html</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
 &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md"&gt;WebSocket transport&lt;/a&gt;,
 and marshal them in &lt;span class="caps"&gt;JSON&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
@@ -1731,43 +1709,24 @@ these capabilities are what allow Cockpit to implement its &lt;span class="caps"
 &lt;li&gt;High-level error&amp;nbsp;concept&lt;/li&gt;
 &lt;li&gt;Adhoc type&amp;nbsp;definitions&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Lennart goes into these further &lt;a href="http://youtu.be/HPbQzm_iz_k?t=2m6s"&gt;in a kdbus talk&lt;/a&gt;, as well as some of the weaknesses of&amp;nbsp;DBus.&lt;/p&gt;</content><category term="dbus"></category><category term="linux"></category></entry><entry><title>Cockpit has Docker pull support</title><link href="http://cockpit-project.org/blog/cockpit-has-docker-pull-support.html" rel="alternate"></link><published>2014-06-24T00:00:00+00:00</published><updated>2014-06-24T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-24:/blog/cockpit-has-docker-pull-support.html</id><summary type="html">&lt;p&gt;Cockpit 0.12 now has support for pulling Docker images from the
+&lt;p&gt;Lennart goes into these further &lt;a href="http://youtu.be/HPbQzm_iz_k?t=2m6s"&gt;in a kdbus talk&lt;/a&gt;, as well as some of the weaknesses of&amp;nbsp;DBus.&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry><entry><title>Cockpit has Docker pull support</title><link href="http://cockpit-project.org/blog/cockpit-has-docker-pull-support.html" rel="alternate"></link><published>2014-06-24T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-24:blog/cockpit-has-docker-pull-support.html</id><summary type="html">&lt;p&gt;Cockpit 0.12 now has support for pulling Docker images from the
 &lt;a href="https://registry.hub.docker.com/"&gt;Docker registry&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Docker pull support" src="images/cockpit-docker-pull.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Docker pull support" src="images/cockpit-docker-pull.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Unfortunately Docker doesn&amp;#8217;t have support for cancelling the pull of an image. So that
-sort of hampers the &lt;span class="caps"&gt;UI&lt;/span&gt; a bit. At least for&amp;nbsp;now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit 0.12 now has support for pulling Docker images from the
-&lt;a href="https://registry.hub.docker.com/"&gt;Docker registry&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Docker pull support" src="images/cockpit-docker-pull.png"&gt;&lt;/p&gt;
-&lt;p&gt;Unfortunately Docker doesn&amp;#8217;t have support for cancelling the pull of an image. So that
-sort of hampers the &lt;span class="caps"&gt;UI&lt;/span&gt; a bit. At least for&amp;nbsp;now.&lt;/p&gt;</content><category term="cockpit"></category><category term="docker"></category></entry><entry><title>Cockpit Simple Networking Configuration</title><link href="http://cockpit-project.org/blog/cockpit-simple-networking-configuration.html" rel="alternate"></link><published>2014-06-20T00:00:00+00:00</published><updated>2014-06-20T00:00:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-20:/blog/cockpit-simple-networking-configuration.html</id><summary type="html">&lt;p&gt;Cockpit 0.11 now has an all new simple Networking &lt;span class="caps"&gt;UI&lt;/span&gt;. Still some work to do, but it&amp;#8217;s
+sort of hampers the &lt;span class="caps"&gt;UI&lt;/span&gt; a bit. At least for&amp;nbsp;now.&lt;/p&gt;</summary><category term="cockpit"></category><category term="docker"></category></entry><entry><title>Cockpit Simple Networking Configuration</title><link href="http://cockpit-project.org/blog/cockpit-simple-networking-configuration.html" rel="alternate"></link><published>2014-06-20T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-06-20:blog/cockpit-simple-networking-configuration.html</id><summary type="html">&lt;p&gt;Cockpit 0.11 now has an all new simple Networking &lt;span class="caps"&gt;UI&lt;/span&gt;. Still some work to do, but it&amp;#8217;s
 coming together. You can see it&amp;nbsp;here:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit 0.11 now has an all new simple Networking &lt;span class="caps"&gt;UI&lt;/span&gt;. Still some work to do, but it&amp;#8217;s
-coming together. You can see it&amp;nbsp;here:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png"&gt;&lt;/p&gt;</content><category term="cockpit"></category><category term="network-manager"></category><category term="linux"></category></entry><entry><title>Cockpit does Docker</title><link href="http://cockpit-project.org/blog/cockpit-does-docker.html" rel="alternate"></link><published>2014-04-25T19:39:00+00:00</published><updated>2014-04-25T19:39:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-25:/blog/cockpit-does-docker.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a short video showing how Cockpit manages Docker containers.
+&lt;p&gt;&lt;img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="network-manager"></category><category term="linux"></category></entry><entry><title>Cockpit does Docker</title><link href="http://cockpit-project.org/blog/cockpit-does-docker.html" rel="alternate"></link><published>2014-04-25T19:39:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-25:blog/cockpit-does-docker.html</id><summary type="html">&lt;p&gt;Here&amp;#8217;s a short video showing how Cockpit manages Docker containers.
 Cockpit is in &lt;span class="caps"&gt;RHEL&lt;/span&gt; branding here, but it&amp;#8217;s basically the same thing as
 you get from &lt;a href="http://cockpit-project.org/"&gt;cockpit-project.org&lt;/a&gt;&lt;/p&gt;
 &lt;iframe src="//www.youtube.com/embed/5dM4CqIp2s4" allowfullscreen="" frameborder="0" height="480" width="853"&gt;&lt;/iframe&gt;
 
 &lt;p&gt;This &lt;span class="caps"&gt;UI&lt;/span&gt; is going to be refined somewhat, but it&amp;#8217;s nice to see things
-coming&amp;nbsp;together.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here&amp;#8217;s a short video showing how Cockpit manages Docker containers.
-Cockpit is in &lt;span class="caps"&gt;RHEL&lt;/span&gt; branding here, but it&amp;#8217;s basically the same thing as
-you get from &lt;a href="http://cockpit-project.org/"&gt;cockpit-project.org&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src="//www.youtube.com/embed/5dM4CqIp2s4" allowfullscreen="" frameborder="0" height="480" width="853"&gt;&lt;/iframe&gt;
-
-&lt;p&gt;This &lt;span class="caps"&gt;UI&lt;/span&gt; is going to be refined somewhat, but it&amp;#8217;s nice to see things
-coming&amp;nbsp;together.&lt;/p&gt;</content><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Cockpit has a terminal</title><link href="http://cockpit-project.org/blog/cockpit-has-terminal.html" rel="alternate"></link><published>2014-04-22T16:06:00+00:00</published><updated>2014-04-22T16:06:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-22:/blog/cockpit-has-terminal.html</id><summary type="html">&lt;p&gt;&lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt; 0.5 now has a nice terminal in a web browser. &lt;span class="caps"&gt;AKA&lt;/span&gt;
+coming&amp;nbsp;together.&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Cockpit has a terminal</title><link href="http://cockpit-project.org/blog/cockpit-has-terminal.html" rel="alternate"></link><published>2014-04-22T16:06:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-04-22:blog/cockpit-has-terminal.html</id><summary type="html">&lt;p&gt;&lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt; 0.5 now has a nice terminal in a web browser. &lt;span class="caps"&gt;AKA&lt;/span&gt;
 &lt;a href="https://github.com/chjj/term.js/"&gt;term.js&lt;/a&gt; is&amp;nbsp;awesome.  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit terminal" src="images/cockpit-terminal.png"&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt; 0.5 now has a nice terminal in a web browser. &lt;span class="caps"&gt;AKA&lt;/span&gt;
-&lt;a href="https://github.com/chjj/term.js/"&gt;term.js&lt;/a&gt; is&amp;nbsp;awesome.  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit terminal" src="images/cockpit-terminal.png"&gt;&lt;/p&gt;</content><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Introducing Cockpit</title><link href="http://cockpit-project.org/blog/introducing-cockpit.html" rel="alternate"></link><published>2014-02-13T12:46:00+00:00</published><updated>2014-02-13T12:46:00+00:00</updated><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-02-13:/blog/introducing-cockpit.html</id><summary type="html">&lt;p&gt;Gave a &lt;a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf"&gt;talk at DevConf&lt;/a&gt; in Brno about the project a bunch of us have
+&lt;p&gt;&lt;img alt="Cockpit terminal" src="images/cockpit-terminal.png" /&gt;&lt;/p&gt;</summary><category term="cockpit"></category><category term="technical"></category></entry><entry><title>Introducing Cockpit</title><link href="http://cockpit-project.org/blog/introducing-cockpit.html" rel="alternate"></link><published>2014-02-13T12:46:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-02-13:blog/introducing-cockpit.html</id><summary type="html">&lt;p&gt;Gave a &lt;a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf"&gt;talk at DevConf&lt;/a&gt; in Brno about the project a bunch of us have
 been working on: &lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt;. It&amp;#8217;s a &lt;span class="caps"&gt;UI&lt;/span&gt; for Linux Servers. Currently in
 the prototype&amp;nbsp;stage&amp;#8230;  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit login" src="images/cockpit1.png"&gt;&lt;/p&gt;
-&lt;p&gt;Hopefully there&amp;#8217;ll be a video of the talk available soon. You can try
-out the Cockpit prototype in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Gave a &lt;a href="http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf"&gt;talk at DevConf&lt;/a&gt; in Brno about the project a bunch of us have
-been working on: &lt;a href="http://cockpit-project.org/"&gt;Cockpit&lt;/a&gt;. It&amp;#8217;s a &lt;span class="caps"&gt;UI&lt;/span&gt; for Linux Servers. Currently in
-the prototype&amp;nbsp;stage&amp;#8230;  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cockpit login" src="images/cockpit1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Cockpit login" src="images/cockpit1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Hopefully there&amp;#8217;ll be a video of the talk available soon. You can try
 out the Cockpit prototype in Fedora like&amp;nbsp;so:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# yum install --enablerepo=updates-testing cockpit
@@ -1779,4 +1738,4 @@ $ xdg-open http://localhost:21064
 
 &lt;p&gt;&lt;strong&gt;Don&amp;#8217;t run this on a system you care about (yet).&lt;/strong&gt; Sorry about the
 certificate warning. Groan &amp;#8230; I know &amp;#8230; working on&amp;nbsp;that.  &lt;/p&gt;
-&lt;p&gt;Needless to say I&amp;#8217;m excited about where this is&amp;nbsp;going&amp;#8230;&lt;/p&gt;</content><category term="technical"></category></entry></feed>
+&lt;p&gt;Needless to say I&amp;#8217;m excited about where this is&amp;nbsp;going&amp;#8230;&lt;/p&gt;</summary><category term="technical"></category></entry></feed>
