@@ -29,10 +29,10 @@
   </script>
 
 
-<meta name="keywords" content="cockpit, linux, technical, kubernetes">
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-Cockpit 0.103  </title>
+Cockpit 128 and 129  </title>
 
 </head>
 
@@ -58,39 +58,49 @@ Cockpit 0.103  </title>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.103.html">Cockpit&nbsp;0.103</a></h1>
+    <h1><a href="http://cockpit-project.org/blog/cockpit-129.html">Cockpit 128 and&nbsp;129</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. There&#8217;s a new release every week. Here are the highlights from this weeks 0.103&nbsp;release.</p>
-<h3>Kubernetes connection&nbsp;configuration</h3>
-<p>When a Kubernetes client wants to access the <span class="caps">API</span> of the cluster, it looks for a &#8220;kubeconfig&#8221; file to tell it how to find the cluster and how to authenticate when accessing the <span class="caps">API</span>. The usual location for this file is in the current user&#8217;s home directory at the <code>~/.kube/config</code> file path. If that doesn&#8217;t exist, then usually the cluster isn&#8217;t available. This applies to both clients like the <code>kubectl</code> command as well as Cockpit&#8217;s cluster&nbsp;dashboard.</p>
-<p>Cockpit can now prompt for this information, and build this file for you. If it doesn&#8217;t exist, then there&#8217;s a helpful &#8220;Troubleshoot&#8221; button to help get this configuration in&nbsp;place.</p>
-<iframe width="853" height="480" src="https://www.youtube.com/embed/WSh7wYhAXrA" frameborder="0" allowfullscreen></iframe>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release
+regularly. Here are the release notes from version 128 and&nbsp;129.</p>
+<h3>Manage remotes and rebasing in&nbsp;OSTree</h3>
+<p>When working with OSTrees on operating systems like <a href="http://www.projectatomic.io/docs/os-updates/">Atomic Host</a>
+there will often be multiple branches to choose from. For example there may be a beta version of the operating system.
+Thanks to Peter&#8217;s work, Cockpit can now switch between branches and view and activate OSTrees from those branches.
+Also, Cockpit supports managing multiple remotes and viewing their branches. Remotes are a way of describing
+where OSTree should pull updates from. Take a look at the video below for a&nbsp;demo.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dF8M3xq9FcI" frameborder="0" allowfullscreen></iframe>
 
-<h3>Upload each Release to an Ubuntu <span class="caps">PPA</span></h3>
-<p>Each weekly release of Cockpit is now uploaded to an Ubuntu <span class="caps">PPA</span>. Here&#8217;s how to make use of&nbsp;it:</p>
-<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:cockpit-project/cockpit
-sudo apt-get update
-sudo apt-get install cockpit
-</pre></div>
-
-
-<h3>Remove jQuery Usage from cockpit.js <span class="caps">API</span></h3>
-<p>As part of stabilizing the internals of Cockpit, we removed jQuery usage from the cockpit.js file. <a href="http://cockpit-project.org/guide/latest/api-base1.html">The javascript <span class="caps">API</span> itself</a> hasn&#8217;t changed, but this change helps to help keep a stable <span class="caps">API</span> in the&nbsp;future.</p>
+<h3>The subpackage cockpit-dashboard has been split&nbsp;out</h3>
+<p>The new <code>cockpit-dashboard</code> subpackage contains the dashboard itself and
+the <code>cockpit-ssh</code> process. Eventually this paves the way for more flexibility
+regarding authentication processes, but for now <code>cockpit-ws</code> unconditionally
+depends on <code>cockpit-dashboard</code>, and also requires the identical versions.
+Nothing changes for those who install the <code>cockpit</code> package. But this allows more
+flexibility when using Cockpit for specific use&nbsp;cases.</p>
+<h3>Issues upgrading Cockpit on Debian and Fedora have been&nbsp;fixed</h3>
+<p>Our packaging changes in recent versions broke upgrading Cockpit on Debian and Fedora.
+This is fixed now and updates should work properly once&nbsp;again.</p>
+<h3>On Atomic, sosreport works&nbsp;again</h3>
+<p>A bug that prevented the diagnostic tool sosreport from working on Atomic systems was fixed.
+Generating and accessing these diagnostic reports can be very helpful when diagnosing or
+reporting an issue on the&nbsp;system.</p>
+<h3>Optionally disable the dependency on&nbsp;libssh</h3>
+<p>When configuring Cockpit, the option <code>disable-ssh</code> disables building <code>cockpit-ssh</code> and removes the
+dependency on <code>libssh</code>. This is useful when building on an operating system where <code>libssh</code> is not&nbsp;available.</p>
 <h3>Try it&nbsp;out</h3>
-<p>Cockpit 0.103 is available&nbsp;now:</p>
+<p>Cockpit 129 is available&nbsp;now:</p>
 <ul>
 <li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
-<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/0.103">Source&nbsp;Tarball</a></li>
-<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-0.103-1.fc24">Fedora&nbsp;24</a></li>
-<li><a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/"><span class="caps">COPR</span> for Fedora 23, CentOS and <span class="caps">RHEL</span></a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/129">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-129-1.fc25">Fedora&nbsp;25</a></li>
 </ul>
   </div>
   <div class="article_meta">
-    <p>Posted on: Wed 20 April 2016</p>
+    <p>Posted on: Tue 19 January 2016</p>
     <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
  &ndash; Tags:
-      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>,      <a href="http://cockpit-project.org/blog/tag/technical.html">technical</a>,      <a href="http://cockpit-project.org/blog/tag/kubernetes.html">kubernetes</a>    </p>
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
 
 
