@@ -1,7 +1,7 @@
 ---
 title: Cockpit 128 and 129
 author: Dominik Perpeet
-date: 2016-01-19 09:00
+date: 2017-01-19 09:00
 tags: cockpit, linux
 slug: cockpit-129
 category: release

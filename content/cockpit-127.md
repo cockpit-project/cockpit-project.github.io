@@ -1,7 +1,7 @@
 ---
 title: Cockpit 126 and 127
 author: Stef Walter
-date: 2016-01-09 09:44
+date: 2017-01-09 09:44
 tags: cockpit, linux
 slug: cockpit-127
 category: release
