@@ -216,7 +216,7 @@ mydbus
 </pre>
 
 <h2>Doing it over a&nbsp;WebSocket</h2>
-<p>Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by <code>cockpit-ws</code>. <code>cockpit-ws</code> then passes them on to <code>cockpit-bridge</code>. You can communicate this way too, if you <a href="http://files.cockpit-project.org/guide/cockpit.conf.5.html">configure Cockpit to accept different Websocket Origins</a>.</p>
+<p>Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by <code>cockpit-ws</code>. <code>cockpit-ws</code> then passes them on to <code>cockpit-bridge</code>. You can communicate this way too, if you <a href="http://cockpit-project.org/guide/cockpit.conf.5.html">configure Cockpit to accept different Websocket Origins</a>.</p>
 <h2>And on it&nbsp;goes</h2>
 <p>There are payload types for reading files, replacing them, connecting to unix sockets, accessing system resource metrics, doing local <span class="caps">HTTP</span> requests, and more. Once the protocol is stable, solid documentation is in&nbsp;order.</p>
 <p>I hope that this has given some insight into how Cockpit works under the hood. If you&#8217;re interested in using this same protocol, I&#8217;d love to get feedback &#8230; especially while the basics of the protocol are not yet&nbsp;frozen.</p>

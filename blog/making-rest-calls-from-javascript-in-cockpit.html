@@ -147,7 +147,7 @@ docker-info: .../.local/share/cockpit/docker-info
 </pre></div>
 
 
-<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
+<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
 <div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
@@ -168,7 +168,7 @@ docker-info: .../.local/share/cockpit/docker-info
 </pre></div>
 
 
-<p>In a browser you cannot stop and wait until a <span class="caps">REST</span> call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering&nbsp;callbacks.</p>
+<p>In a browser you cannot stop and wait until a <span class="caps">REST</span> call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering&nbsp;callbacks.</p>
 <p>The result of the <code>/info</code> call is <span class="caps">JSON</span>, and we process it here. This is standard jQuery for filling in text data into the various&nbsp;elements:</p>
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">process_info</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">resp</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
@@ -202,7 +202,7 @@ docker-info: .../.local/share/cockpit/docker-info
 </pre></div>
 
 
-<p>This is a simple example, but I hope it helps you get started. There are further <span class="caps">REST</span> <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http">javascript calls</a>. Obviously you can also do <code>POST</code> and so&nbsp;on.</p>
+<p>This is a simple example, but I hope it helps you get started. There are further <span class="caps">REST</span> <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-http">javascript calls</a>. Obviously you can also do <code>POST</code> and so&nbsp;on.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 10 July 2015</p>

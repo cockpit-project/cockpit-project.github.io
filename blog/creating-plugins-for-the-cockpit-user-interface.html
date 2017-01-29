@@ -170,7 +170,7 @@ pinger: /home/.../.local/share/cockpit/pinger
 
 
 <p></html></p>
-<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
+<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
 <div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
@@ -185,12 +185,12 @@ Next we attach a handler to the <em>Ping</em> button so that the <code>ping_run(
 </pre></div>
 
 
-<p>In the <code>ping_run()</code> function is where the magic happens. <code>cockpit.spawn</code> is a function, <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn">documented here</a> that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the <code>ping</code> command with some&nbsp;arguments:</p>
+<p>In the <code>ping_run()</code> function is where the magic happens. <code>cockpit.spawn</code> is a function, <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn">documented here</a> that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the <code>ping</code> command with some&nbsp;arguments:</p>
 <div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">proc</span> <span class="o">=</span> <span class="nx">cockpit</span><span class="p">.</span><span class="nx">spawn</span><span class="p">([</span><span class="s2">&quot;ping&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="nx">address</span><span class="p">.</span><span class="nx">val</span><span class="p">()]);</span>
 </pre></div>
 
 
-<p>In a web browser you cannot block and wait until a method call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering callbacks. <code>proc.stream()</code> registers a callback to be invoked whenever the process produces&nbsp;output.</p>
+<p>In a web browser you cannot block and wait until a method call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering callbacks. <code>proc.stream()</code> registers a callback to be invoked whenever the process produces&nbsp;output.</p>
 <div class="highlight"><pre><span></span>    <span class="nx">proc</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="nx">ping_success</span><span class="p">);</span>
     <span class="nx">proc</span><span class="p">.</span><span class="nx">stream</span><span class="p">(</span><span class="nx">ping_output</span><span class="p">);</span>
     <span class="nx">proc</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="nx">ping_fail</span><span class="p">);</span>
@@ -200,7 +200,7 @@ Next we attach a handler to the <em>Ping</em> button so that the <code>ping_run(
 
 
 <p>The <code>ping_success()</code> and <code>ping_fail()</code> and <code>ping_output()</code> update the display as you would&nbsp;expect.</p>
-<p>So there you go &#8230; it&#8217;s a simple plugin to start off with &#8230; next time we&#8217;ll cover <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus">how to use DBus</a>, and then the real fun&nbsp;begins.</p>
+<p>So there you go &#8230; it&#8217;s a simple plugin to start off with &#8230; next time we&#8217;ll cover <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus">how to use DBus</a>, and then the real fun&nbsp;begins.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 13 November 2014</p>

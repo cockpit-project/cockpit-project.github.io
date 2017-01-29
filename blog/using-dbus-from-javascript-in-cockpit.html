@@ -151,7 +151,7 @@ Sa 15. Nov 01:48:01 AEDT 2014
 </pre></div>
 
 
-<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
+<p>First we include <code>jquery.js</code> and <code>cockpit.js</code>. <code>cockpit.js</code> defines the basic <span class="caps">API</span> for interacting with the system, as well as Cockpit itself. You can find <a href="http://cockpit-project.org/guide/latest/api-cockpit.html">detailed documentation here</a>.</p>
 <div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/jquery.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../base1/cockpit.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
@@ -164,17 +164,17 @@ Next we attach a handler to the <em>Change</em> button so that the <code>change_
 </pre></div>
 
 
-<p>Next we connect to the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated</a> DBus service using the <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus"><code>cockpit.dbus()</code></a>&nbsp;function:</p>
+<p>Next we connect to the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated</a> DBus service using the <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus"><code>cockpit.dbus()</code></a>&nbsp;function:</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">cockpit</span><span class="p">.</span><span class="nx">dbus</span><span class="p">(</span><span class="s1">&#39;org.freedesktop.timedate1&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<p>Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy"><code>.proxy()</code></a> method that you can&nbsp;specify.</p>
+<p>Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy"><code>.proxy()</code></a> method that you can&nbsp;specify.</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">timedate</span> <span class="o">=</span> <span class="nx">service</span><span class="p">.</span><span class="nx">proxy</span><span class="p">();</span>
 </pre></div>
 
 
-<p>Each interface proxy has a <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged"><code>"changed"</code></a> event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our <code>display_zone()</code> function and update the display of the current time&nbsp;zone:</p>
+<p>Each interface proxy has a <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged"><code>"changed"</code></a> event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our <code>display_zone()</code> function and update the display of the current time&nbsp;zone:</p>
 <div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">(</span><span class="nx">timedate</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;changed&quot;</span><span class="p">,</span> <span class="nx">display_zone</span><span class="p">);</span>
 </pre></div>
 
@@ -192,7 +192,7 @@ Next we attach a handler to the <em>Change</em> button so that the <code>change_
 </pre></div>
 
 
-<p>In a web browser you cannot block and wait until a method call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering&nbsp;callbacks.</p>
+<p>In a web browser you cannot block and wait until a method call completes. Anything that doesn&#8217;t happen instantaneously gets its results reported back to you by <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done">means of callback handlers</a>. jQuery has a standard interface <a href="http://api.jquery.com/deferred.promise/">called a promise</a>. You add handlers by calling the <code>.done()</code> or <code>.fail()</code> methods and registering&nbsp;callbacks.</p>
 <div class="highlight"><pre><span></span>    call.fail(change_fail);
     failure.empty();
 }
@@ -201,7 +201,7 @@ Next we attach a handler to the <em>Change</em> button so that the <code>change_
 
 <p>The <code>change_fail()</code> displays any failures that happen. In this case, <code>SetTimezone</code> DBus method has no return value, however if there were, we could use something like <code>call.done(myhandler)</code> to register a handler to receive&nbsp;them.</p>
 <p>Notice that we relied on DBus to tell us when things changed and just updated the display from our event handler. That way we reacted both when the time zone changed due to an action in Cockpit, as well as an action on the&nbsp;server.</p>
-<p>Again this is a simple example, but I hope it will whet your appetite to what <a href="http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus">Cockpit can do with DBus</a>. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&nbsp;client.</p>
+<p>Again this is a simple example, but I hope it will whet your appetite to what <a href="http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus">Cockpit can do with DBus</a>. Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus&nbsp;client.</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 13 November 2014</p>
