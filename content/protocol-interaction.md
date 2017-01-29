@@ -197,7 +197,7 @@ The process will send its output in the payload of one or more messages of the `
 Doing it over a WebSocket
 -------------------------
 
-Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by `cockpit-ws`. `cockpit-ws` then passes them on to `cockpit-bridge`. You can communicate this way too, if you [configure Cockpit to accept different Websocket Origins](http://files.cockpit-project.org/guide/cockpit.conf.5.html).
+Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by `cockpit-ws`. `cockpit-ws` then passes them on to `cockpit-bridge`. You can communicate this way too, if you [configure Cockpit to accept different Websocket Origins](http://cockpit-project.org/guide/cockpit.conf.5.html).
 
 And on it goes
 --------------

@@ -100,7 +100,7 @@ You should see your timezone on your screen update immediately to reflect the ne
     </body>
     </html>
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://files.cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
 
     :::html
     <script src="../base1/jquery.js"></script>
@@ -114,17 +114,17 @@ Next we attach a handler to the *Change* button so that the `change_zone()` func
     :::javascript
     $("#change").on("click", change_zone);
 
-Next we connect to the [timedated](http://www.freedesktop.org/wiki/Software/systemd/timedated/) DBus service using the [`cockpit.dbus()`](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus) function:
+Next we connect to the [timedated](http://www.freedesktop.org/wiki/Software/systemd/timedated/) DBus service using the [`cockpit.dbus()`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus) function:
 
     :::javascript
     var service = cockpit.dbus('org.freedesktop.timedate1');
 
-Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the [`.proxy()`](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy) method that you can specify.
+Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the [`.proxy()`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy) method that you can specify.
 
     :::javascript
     var timedate = service.proxy();
 
-Each interface proxy has a [`"changed"`](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged) event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our `display_zone()` function and update the display of the current time zone:
+Each interface proxy has a [`"changed"`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged) event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our `display_zone()` function and update the display of the current time zone:
 
     :::javascript
     $(timedate).on("changed", display_zone);
@@ -140,7 +140,7 @@ Each interface proxy has a [`"changed"`](http://files.cockpit-project.org/guide/
     function change_zone() {
         var call = timedate.SetTimezone(input.val(), true);
 
-In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
+In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
 
         call.fail(change_fail);
         failure.empty();
@@ -150,4 +150,4 @@ The `change_fail()` displays any failures that happen. In this case, `SetTimezon
 
 Notice that we relied on DBus to tell us when things changed and just updated the display from our event handler. That way we reacted both when the time zone changed due to an action in Cockpit, as well as an action on the server.
 
-Again this is a simple example, but I hope it will whet your appetite to what [Cockpit can do with DBus](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus). Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus client.
+Again this is a simple example, but I hope it will whet your appetite to what [Cockpit can do with DBus](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus). Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus client.

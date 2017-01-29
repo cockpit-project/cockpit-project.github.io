@@ -21,8 +21,8 @@ The Cockpit Guide has been updated and includes information about how
 various features are implemented, and what sort of privileges they use
 on the system.
 
-Here's a link to [the guide](http://files.cockpit-project.org/guide/latest/) or you can take a look at
-the [privileges docs](http://files.cockpit-project.org/guide/latest/privileges.html).
+Here's a link to [the guide](http://cockpit-project.org/guide/latest/) or you can take a look at
+the [privileges docs](http://cockpit-project.org/guide/latest/privileges.html).
 
 
 ### Compatibility with old Cockpit

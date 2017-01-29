@@ -123,7 +123,7 @@ Lets take a look at the pinger HTML, and see how it works.
     </body>
 </html>
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://files.cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
 
     :::html
     <script src="../base1/jquery.js"></script>
@@ -139,12 +139,12 @@ Next we attach a handler to the *Ping* button so that the `ping_run()` function 
 
     function ping_run() {
 
-In the `ping_run()` function is where the magic happens. `cockpit.spawn` is a function, [documented here](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn) that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the `ping` command with some arguments:
+In the `ping_run()` function is where the magic happens. `cockpit.spawn` is a function, [documented here](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn) that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the `ping` command with some arguments:
 
     :::javascript
         var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
 
-In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks. `proc.stream()` registers a callback to be invoked whenever the process produces output.
+In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks. `proc.stream()` registers a callback to be invoked whenever the process produces output.
 
     :::javascript
         proc.done(ping_success);
@@ -155,4 +155,4 @@ In a web browser you cannot block and wait until a method call completes. Anythi
 
 The `ping_success()` and `ping_fail()` and `ping_output()` update the display as you would expect.
 
-So there you go ... it's a simple plugin to start off with ... next time we'll cover [how to use DBus](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus), and then the real fun begins.
+So there you go ... it's a simple plugin to start off with ... next time we'll cover [how to use DBus](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus), and then the real fun begins.

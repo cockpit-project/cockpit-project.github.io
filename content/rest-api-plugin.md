@@ -97,7 +97,7 @@ You should see the numbers update as the container is pulled and started. When y
     </body>
     </html>
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://files.cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
 
     :::html
     <script src="../base1/jquery.js"></script>
@@ -119,7 +119,7 @@ First we define how to retrieve info from Docker. We use the REST `/info` API to
         info.fail(print_failure);
     }
 
-In a browser you cannot stop and wait until a REST call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://files.cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
+In a browser you cannot stop and wait until a REST call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
 
 The result of the `/info` call is JSON, and we process it here. This is standard jQuery for filling in text data into the various elements:
 
@@ -154,4 +154,4 @@ The `.get("/events")` call returns a jQuery Promise. When a line of event data a
         retrieve_info();
     }
 
-This is a simple example, but I hope it helps you get started. There are further REST [javascript calls](http://files.cockpit-project.org/guide/latest/api-cockpit.html#latest-http). Obviously you can also do `POST` and so on.
+This is a simple example, but I hope it helps you get started. There are further REST [javascript calls](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-http). Obviously you can also do `POST` and so on.
