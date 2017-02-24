@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+
+<meta name="keywords" content="cockpit, linux">
+
+  <title>
+Cockpit 130, 131 and 132  </title>
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-132.html">Cockpit 130, 131 and&nbsp;132</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release
+regularly. Here are the release notes from version 130, 131 and&nbsp;132.</p>
+<h3>Kernel dump configuration support&nbsp;added</h3>
+<p>Kernel crash dump configuration is now possible in Cockpit: view and toggle the status of the kdump service,
+with hints how to enable if the kernel boot parameters need to be changed. Cockpit shows the amount of reserved
+memory and setting a path for dumping the kernel on the local filesystem, with a toggle for compressing the crash dumps.
+Take a look at the video below for a&nbsp;demo.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VXhuqPR2K5c?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<h3><span class="caps">MAC</span> addresses for ethernet adapters and bonds can be&nbsp;modified</h3>
+<p>On the Networking page, <span class="caps">MAC</span> addresses for ethernet adapters can now be clicked to edit them, starting with
+NetworkManager version 1.4. For bonds, the <span class="caps">MAC</span> addresses are shown and can be edited starting with NetworkManager
+version 1.6. Take a look at the video below for a&nbsp;demo.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JIHQmFHOrO4?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<h3>Show session virtual Machines on the machines&nbsp;page</h3>
+<p>Libvirt differentiates between system virtual machines and session ones, which are tied to the user. In Cockpit
+all the virtual machines accessible to the logged in user, system and session, are now shown in a combined&nbsp;list.</p>
+<p><img alt="Session virtual machines" src="http://cockpit-project.org/blog/images/cockpit-machines-session.png"></p>
+<h3>SELinux functionality is now available without&nbsp;setroubleshootd</h3>
+<p>The SELinux page in Cockpit can do more than just troubleshoot. It was therefore renamed to <code>SELinux</code> and
+the functionality of toggling between enforcing/permissive mode is now also available even if <code>setroubleshoot-server</code>
+isn&#8217;t installed. This was cause for unexpected behavior on Atomic Host systems without <code>setroubleshoot-server</code>
+where it&#8217;s non-trivial and often undesired to add that&nbsp;package.</p>
+<p><img alt="SELinux without troubleshooting" src="http://cockpit-project.org/blog/images/cockpit-selinux-disabled.png"></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 132 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/132">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-132-1.fc25">Fedora&nbsp;25</a></li>
+</ul>
+<p>Use the packages to install this version of Cockpit. When installing from the tarball, remove
+/etc/systemd/system/cockpit.service.d/fatal.conf manually afterwards to prevent Cockpit from exiting in rare&nbsp;cases.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 24 February 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2016</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
+  </main>
+
+</body>
+</html>
