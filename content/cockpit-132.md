@@ -1,0 +1,57 @@
+---
+title: Cockpit 130, 131 and 132
+author: Dominik Perpeet
+date: 2017-02-24 09:00
+tags: cockpit, linux
+slug: cockpit-132
+category: release
+summary: Cockpit supports configuring kdump and MAC addresses
+comments: true
+---
+
+Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release
+regularly. Here are the release notes from version 130, 131 and 132.
+
+### Kernel dump configuration support added
+
+Kernel crash dump configuration is now possible in Cockpit: view and toggle the status of the kdump service,
+with hints how to enable if the kernel boot parameters need to be changed. Cockpit shows the amount of reserved
+memory and setting a path for dumping the kernel on the local filesystem, with a toggle for compressing the crash dumps.
+Take a look at the video below for a demo.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VXhuqPR2K5c?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+### MAC addresses for ethernet adapters and bonds can be modified
+
+On the Networking page, MAC addresses for ethernet adapters can now be clicked to edit them, starting with
+NetworkManager version 1.4. For bonds, the MAC addresses are shown and can be edited starting with NetworkManager
+version 1.6. Take a look at the video below for a demo.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JIHQmFHOrO4?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+### Show session virtual Machines on the machines page
+
+Libvirt differentiates between system virtual machines and session ones, which are tied to the user. In Cockpit
+all the virtual machines accessible to the logged in user, system and session, are now shown in a combined list.
+
+![Session virtual machines](http://cockpit-project.org/blog/images/cockpit-machines-session.png)
+
+### SELinux functionality is now available without setroubleshootd
+
+The SELinux page in Cockpit can do more than just troubleshoot. It was therefore renamed to ```SELinux``` and
+the functionality of toggling between enforcing/permissive mode is now also available even if ```setroubleshoot-server```
+isn't installed. This was cause for unexpected behavior on Atomic Host systems without ```setroubleshoot-server```
+where it's non-trivial and often undesired to add that package.
+
+![SELinux without troubleshooting](http://cockpit-project.org/blog/images/cockpit-selinux-disabled.png)
+
+### Try it out
+
+Cockpit 132 is available now:
+
+ * [For your Linux system](http://cockpit-project.org/running.html)
+ * [Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/132)
+ * [Fedora 25](https://bodhi.fedoraproject.org/updates/cockpit-132-1.fc25)
+
+Use the packages to install this version of Cockpit. When installing from the tarball, remove
+/etc/systemd/system/cockpit.service.d/fatal.conf manually afterwards to prevent Cockpit from exiting in rare cases.
