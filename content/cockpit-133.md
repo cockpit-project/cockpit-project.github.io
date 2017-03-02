@@ -1,0 +1,50 @@
+---
+title: Cockpit 133
+author: Dominik Perpeet
+date: 2017-03-02 09:00
+tags: cockpit, linux
+slug: cockpit-133
+category: release
+summary: Cockpit supports alternate bridges via packages
+comments: true
+---
+
+Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release
+regularly. Here are the release notes from version 133.
+
+### Remotely managed machines are now configured in /etc/cockpit/machines.d
+
+Cockpit plugins, other packages, admins, VM management software, or config management systems like
+Ansible/puppet/cloud-init might want to pre-configure machines for cockpit. Previously this information
+was stored in ```/var/lib/cockpit/machines.json```, but now that information is stored in individual json
+files in ```/etc/cockpit/machines.d```. Existing ```machines.json``` files are migrated automatically to the new
+format. Check out the documentation below for more information on the format and use.
+
+[Multiple machines documentation](http://cockpit-project.org/guide/133/feature-machines.html)
+
+### Packages can register additional bridges
+
+On the server side the ```cockpit-bridge``` connects to various system APIs. There are additional bridges for specific
+tasks that the main ```cockpit-bridge``` cannot handle, such as tasks that should be carried out with privilege
+escalation. These additional bridges can be registered in the ```bridges``` section of a package's ```manifest.json```
+file. Check out the documentation below for more information on the format and use.
+
+[Additional bridges](http://cockpit-project.org/guide/133/packages.html#package-bridges)
+
+### Split translations into individual packages
+
+Behind the scenes there's been a lot of work on making translations work more smoothly and future-proof.
+As part of this the translations have been split into the individual packages, which also means they can be updated
+per package in the future. Check out the Zanata link below, it's very easy to contribute translations to Cockpit.
+At this time our top 3 translations (>90%) are Polish (pl), Ukranian (uk) and Chinese (zh-CN). Every bit of help
+here is greatly appreciated and a big thank you to our contributors!
+
+[Cockpit translations](https://fedora.zanata.org/project/view/cockpit?dswid=-8859)
+
+### Try it out
+
+Cockpit 133 is available now:
+
+ * [For your Linux system](http://cockpit-project.org/running.html)
+ * [Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/133)
+ * [Fedora 25](https://bodhi.fedoraproject.org/updates/cockpit-133-1.fc25)
