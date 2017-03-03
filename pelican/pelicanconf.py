@@ -14,9 +14,14 @@ TIMEZONE = 'Utc'
 DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+# FEED_ALL_ATOM = None
+# CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
+
+# We don't distingish between publish/html
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+DELETE_OUTPUT_DIRECTORY = True
 
 # Blogroll
 LINKS =  ()

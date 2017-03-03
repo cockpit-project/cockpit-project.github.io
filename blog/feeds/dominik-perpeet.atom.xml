@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Dominik Perpeet</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-02-24T09:00:00+00:00</updated><entry><title>Cockpit 130, 131 and 132</title><link href="http://cockpit-project.org/blog/cockpit-132.html" rel="alternate"></link><published>2017-02-24T09:00:00+00:00</published><updated>2017-02-24T09:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-02-24:/blog/cockpit-132.html</id><summary type="html">&lt;p&gt;Cockpit supports configuring kdump and &lt;span class="caps"&gt;MAC&lt;/span&gt;&amp;nbsp;addresses&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-02-24T09:00:00+00:00</updated><entry><title>Cockpit 130, 131 and 132</title><link href="http://cockpit-project.org/blog/cockpit-132.html" rel="alternate"></link><published>2017-02-24T09:00:00+00:00</published><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-02-24:blog/cockpit-132.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version 130, 131 and&amp;nbsp;132.&lt;/p&gt;
 &lt;h3&gt;Kernel dump configuration support&amp;nbsp;added&lt;/h3&gt;
 &lt;p&gt;Kernel crash dump configuration is now possible in Cockpit: view and toggle the status of the kdump service,
@@ -17,13 +17,13 @@ version 1.6. Take a look at the video below for a&amp;nbsp;demo.&lt;/p&gt;
 &lt;h3&gt;Show session virtual Machines on the machines&amp;nbsp;page&lt;/h3&gt;
 &lt;p&gt;Libvirt differentiates between system virtual machines and session ones, which are tied to the user. In Cockpit
 all the virtual machines accessible to the logged in user, system and session, are now shown in a combined&amp;nbsp;list.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Session virtual machines" src="http://cockpit-project.org/blog/images/cockpit-machines-session.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Session virtual machines" src="http://cockpit-project.org/blog/images/cockpit-machines-session.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;SELinux functionality is now available without&amp;nbsp;setroubleshootd&lt;/h3&gt;
 &lt;p&gt;The SELinux page in Cockpit can do more than just troubleshoot. It was therefore renamed to &lt;code&gt;SELinux&lt;/code&gt; and
 the functionality of toggling between enforcing/permissive mode is now also available even if &lt;code&gt;setroubleshoot-server&lt;/code&gt;
 isn&amp;#8217;t installed. This was cause for unexpected behavior on Atomic Host systems without &lt;code&gt;setroubleshoot-server&lt;/code&gt;
 where it&amp;#8217;s non-trivial and often undesired to add that&amp;nbsp;package.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="SELinux without troubleshooting" src="http://cockpit-project.org/blog/images/cockpit-selinux-disabled.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="SELinux without troubleshooting" src="http://cockpit-project.org/blog/images/cockpit-selinux-disabled.png" /&gt;&lt;/p&gt;
 &lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
 &lt;p&gt;Cockpit 132 is available&amp;nbsp;now:&lt;/p&gt;
 &lt;ul&gt;
@@ -32,7 +32,7 @@ where it&amp;#8217;s non-trivial and often undesired to add that&amp;nbsp;packag
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-132-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Use the packages to install this version of Cockpit. When installing from the tarball, remove
-/etc/systemd/system/cockpit.service.d/fatal.conf manually afterwards to prevent Cockpit from exiting in rare&amp;nbsp;cases.&lt;/p&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 128 and 129</title><link href="http://cockpit-project.org/blog/cockpit-129.html" rel="alternate"></link><published>2017-01-19T09:00:00+00:00</published><updated>2017-01-19T09:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-01-19:/blog/cockpit-129.html</id><summary type="html">&lt;p&gt;Cockpit supports rebasing on Atomic Host with&amp;nbsp;OSTree.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+/etc/systemd/system/cockpit.service.d/fatal.conf manually afterwards to prevent Cockpit from exiting in rare&amp;nbsp;cases.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 128 and 129</title><link href="http://cockpit-project.org/blog/cockpit-129.html" rel="alternate"></link><published>2017-01-19T09:00:00+00:00</published><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-01-19:blog/cockpit-129.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version 128 and&amp;nbsp;129.&lt;/p&gt;
 &lt;h3&gt;Manage remotes and rebasing in&amp;nbsp;OSTree&lt;/h3&gt;
 &lt;p&gt;When working with OSTrees on operating systems like &lt;a href="http://www.projectatomic.io/docs/os-updates/"&gt;Atomic Host&lt;/a&gt;
@@ -65,4 +65,4 @@ dependency on &lt;code&gt;libssh&lt;/code&gt;. This is useful when building on a
 &lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/129"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-129-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category></entry></feed>
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry></feed>
