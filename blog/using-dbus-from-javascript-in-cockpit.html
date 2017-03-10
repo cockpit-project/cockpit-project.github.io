@@ -182,15 +182,15 @@ Next we attach a handler to the <em>Change</em> button so that the <code>change_
 
 
 <p><code>Timezone</code> is a property on the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus interface</a>. We can access these properties directly, and the proxy will keep them up to date. Here we use the property to update our display of the current time&nbsp;zone:</p>
-<div class="highlight"><pre><span></span>function display_zone() {
-    current.text(timedate.Timezone);
-}
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">display_zone() {</span>
+    <span class="nx">current</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">timedate</span><span class="p">.</span><span class="nx">Timezone</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <p><code>SetTimezone</code> is a method on the <a href="http://www.freedesktop.org/wiki/Software/systemd/timedated/">timedated DBus interface</a> interface, and we can invoke it directly as we would a javascript function. In this case we pass the arguments the DBus method expects, a <code>timezone</code> string, and a <code>user_interaction</code> boolean.</p>
-<div class="highlight"><pre><span></span>function change_zone() {
-    var call = timedate.SetTimezone(input.val(), true);
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">change_zone() {</span>
+    <span class="kd">var</span> <span class="nx">call</span> <span class="o">=</span> <span class="nx">timedate</span><span class="p">.</span><span class="nx">SetTimezone</span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">val</span><span class="p">(),</span> <span class="kc">true</span><span class="p">);</span>
 </pre></div>
 
 

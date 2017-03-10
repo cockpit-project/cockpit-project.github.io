@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Dominik Perpeet</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-03-02T09:00:00+00:00</updated><entry><title>Cockpit 133</title><link href="http://cockpit-project.org/blog/cockpit-133.html" rel="alternate"></link><published>2017-03-02T09:00:00+00:00</published><updated>2017-03-02T09:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-02:/blog/cockpit-133.html</id><summary type="html">&lt;p&gt;Cockpit supports alternate bridges via&amp;nbsp;packages&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Dominik Perpeet</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-03-09T18:00:00+00:00</updated><entry><title>Cockpit 134</title><link href="http://cockpit-project.org/blog/cockpit-134.html" rel="alternate"></link><published>2017-03-09T18:00:00+00:00</published><updated>2017-03-09T18:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-09:/blog/cockpit-134.html</id><summary type="html">&lt;p&gt;Cockpit is now fully&amp;nbsp;translatable&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+Here are the release notes from version&amp;nbsp;134.&lt;/p&gt;
+&lt;h3&gt;Login page is now&amp;nbsp;translatable&lt;/h3&gt;
+&lt;p&gt;The majority of Cockpit has long been translatable. Since the login page is a bit of a special case, it required some
+special attention to make that also play well with the language display settings. Take a look at the video below for a demo.
+Check out the Zanata link below, it&amp;#8217;s very easy to contribute translations to Cockpit.
+At this time our top 3 translations (&amp;gt;90%) are Polish (pl), Ukranian (uk) and Chinese (zh-&lt;span class="caps"&gt;CN&lt;/span&gt;). Every bit of help
+here is greatly appreciated and a big thank you to our&amp;nbsp;contributors!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fedora.zanata.org/project/view/cockpit?dswid=-8859"&gt;Cockpit&amp;nbsp;translations&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/_4jQ6NYSL-c?ecver=1" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Show message of the day on the System&amp;nbsp;page&lt;/h3&gt;
+&lt;p&gt;Cockpit now supports one more feature it was previously missing compared to the command line login: the &lt;code&gt;System&lt;/code&gt;
+page now shows the current message of the day (&lt;code&gt;/etc/motd&lt;/code&gt;). When dismissed by clicking on the &lt;code&gt;X&lt;/code&gt; close button,
+the message is hidden until it&amp;nbsp;changes.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Message of the day" src="http://cockpit-project.org/blog/images/cockpit-motd.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Expose fewer system service&amp;nbsp;actions&lt;/h3&gt;
+&lt;p&gt;Cockpit previously exposed systemd unit actions such as &lt;code&gt;Reload or Try Restart&lt;/code&gt; which are primarily intended for
+scripts. The dropdown list now only shows actions which are useful for interactive human usage: &lt;code&gt;Start&lt;/code&gt;, &lt;code&gt;Stop&lt;/code&gt;,
+&lt;code&gt;Restart&lt;/code&gt; and &lt;code&gt;Reload&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Service actions" src="http://cockpit-project.org/blog/images/cockpit-service-actions.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 134 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/134"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-134-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 133</title><link href="http://cockpit-project.org/blog/cockpit-133.html" rel="alternate"></link><published>2017-03-02T09:00:00+00:00</published><updated>2017-03-02T09:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-02:/blog/cockpit-133.html</id><summary type="html">&lt;p&gt;Cockpit supports alternate bridges via&amp;nbsp;packages&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release
 regularly. Here are the release notes from version&amp;nbsp;133.&lt;/p&gt;
 &lt;h3&gt;Remotely managed machines are now configured in&amp;nbsp;/etc/cockpit/machines.d&lt;/h3&gt;
 &lt;p&gt;Cockpit plugins, other packages, admins, &lt;span class="caps"&gt;VM&lt;/span&gt; management software, or config management systems like

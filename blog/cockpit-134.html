@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-&ndash; Tag: cockpit  </title>
+Cockpit 134  </title>
 
 </head>
 
@@ -54,98 +55,53 @@
       <p>
       <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
       &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-&gt; Tag: cockpit
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.100.html">Cockpit 0.100&nbsp;Released</a></h1>
+    <h1><a href="http://cockpit-project.org/blog/cockpit-134.html">Cockpit&nbsp;134</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.100</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from version&nbsp;134.</p>
+<h3>Login page is now&nbsp;translatable</h3>
+<p>The majority of Cockpit has long been translatable. Since the login page is a bit of a special case, it required some
+special attention to make that also play well with the language display settings. Take a look at the video below for a demo.
+Check out the Zanata link below, it&#8217;s very easy to contribute translations to Cockpit.
+At this time our top 3 translations (&gt;90%) are Polish (pl), Ukranian (uk) and Chinese (zh-<span class="caps">CN</span>). Every bit of help
+here is greatly appreciated and a big thank you to our&nbsp;contributors!</p>
+<p><a href="https://fedora.zanata.org/project/view/cockpit?dswid=-8859">Cockpit&nbsp;translations</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_4jQ6NYSL-c?ecver=1" frameborder="0" allowfullscreen></iframe>
+
+<h3>Show message of the day on the System&nbsp;page</h3>
+<p>Cockpit now supports one more feature it was previously missing compared to the command line login: the <code>System</code>
+page now shows the current message of the day (<code>/etc/motd</code>). When dismissed by clicking on the <code>X</code> close button,
+the message is hidden until it&nbsp;changes.</p>
+<p><img alt="Message of the day" src="http://cockpit-project.org/blog/images/cockpit-motd.png"></p>
+<h3>Expose fewer system service&nbsp;actions</h3>
+<p>Cockpit previously exposed systemd unit actions such as <code>Reload or Try Restart</code> which are primarily intended for
+scripts. The dropdown list now only shows actions which are useful for interactive human usage: <code>Start</code>, <code>Stop</code>,
+<code>Restart</code> and <code>Reload</code>.</p>
+<p><img alt="Service actions" src="http://cockpit-project.org/blog/images/cockpit-service-actions.png"></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 134 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/134">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-134-1.fc25">Fedora&nbsp;25</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.99.html">Cockpit 0.99&nbsp;Released</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Thu 09 March 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.96 through&nbsp;0.99</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.95.html">Cockpit 0.95&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.90 through&nbsp;0.95</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.89.html">Cockpit 0.89&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.89</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.86.html">Cockpit 0.86&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.86</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.85.html">Cockpit 0.85&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.85</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.84.html">Cockpit 0.83 and 0.84&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.84</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.82.html">Cockpit 0.82&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.82</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.81.html">Cockpit 0.81&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.81</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.80.html">Cockpit 0.80&nbsp;Released</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. This week it was&nbsp;0.80</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/tag/cockpit4.html" class="button_accent">&larr; Older Posts</a>
-
-<a href="http://cockpit-project.org/blog/tag/cockpit2.html" class="button_accent">Newer Posts &rarr;</a>
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
