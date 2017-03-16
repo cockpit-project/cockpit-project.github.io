@@ -37,23 +37,6 @@ formatEvents = (data) ->
 
   items_displayed = 0
 
-  # TODO: See if there's a better way to get locale-specific short
-  # months in JavaScript
-  month = [
-    'Jan'
-    'Feb'
-    'Mar'
-    'Apr'
-    'May'
-    'Jun'
-    'Jul'
-    'Aug'
-    'Sep'
-    'Oct'
-    'Nov'
-    'Dec'
-  ]
-
   # Process each conference
   events
     .sort (a,b) -> a.start > b.start
@@ -78,7 +61,7 @@ formatEvents = (data) ->
       # Insert proper date
       $date
         .find('.day').html(date.getDate()).end()
-        .find('.month').html(month[date.getMonth()]).end()
+        .find('.month').html(date.toLocaleFormat('%b')).end()
         .attr('title', item.start)
 
       # Insert event title and link

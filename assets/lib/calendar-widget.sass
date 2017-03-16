@@ -1,3 +1,6 @@
+---
+---
+
 /* Based on FullCalendar v2.4.0 Stylesheet
   Docs & License: http://arshaw.com/fullcalendar/
   (c) 2013 Adam Shaw
@@ -1230,3 +1233,11 @@ a.fc-event:hover .fc-event-title:first-child:hover
     display: inline-block
     min-width: 9ex
     opacity: 0.75
+
+
+/* Workarounds to make FC work with Gridlex */
+
+.fc table,
+.fc-day-grid,
+.fc-day-grid-container
+  margin: 0 !important
