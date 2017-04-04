@@ -166,7 +166,10 @@ sudo firewall-cmd --reload</pre>
                 <li>Add the following line to <tt>/etc/apt/sources.list</tt>. Replace the distribution name as appropriate.
                   <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main</pre></li>
                 <li>Import Cockpit's signing key to the apt sources keyring:
-                  <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys F1BAA57C</pre></li>
+                  <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C</pre></li>
+                <li>Verify fingerprint:
+                   <pre>sudo apt-key finger F1BAA57C</pre>
+                   <p>Compare the output: <tt>Key fingerprint = FD9A 5764 17F7 B1D8 63C4  7A5A 0D2A 45C3 F1BA A57C</tt></p></li>
                 <li>Update package information with that source:
                   <pre>sudo apt-get update</pre></li>
                 <li>Install cockpit:
