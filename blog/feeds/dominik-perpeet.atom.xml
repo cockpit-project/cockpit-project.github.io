@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Dominik Perpeet</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-03-09T18:00:00+00:00</updated><entry><title>Cockpit 134</title><link href="http://cockpit-project.org/blog/cockpit-134.html" rel="alternate"></link><published>2017-03-09T18:00:00+00:00</published><updated>2017-03-09T18:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-09:/blog/cockpit-134.html</id><summary type="html">&lt;p&gt;Cockpit is now fully&amp;nbsp;translatable&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Dominik Perpeet</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/dominik-perpeet.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-03-30T22:00:00+00:00</updated><entry><title>Cockpit 136 and 137</title><link href="http://cockpit-project.org/blog/cockpit-137.html" rel="alternate"></link><published>2017-03-30T22:00:00+00:00</published><updated>2017-03-30T22:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-30:/blog/cockpit-137.html</id><summary type="html">&lt;p&gt;Cockpit with menu and storage&amp;nbsp;changes&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+Here are the release notes from versions 136 and&amp;nbsp;137.&lt;/p&gt;
+&lt;h3&gt;Reordered entries in the sidebar&amp;nbsp;menu&lt;/h3&gt;
+&lt;p&gt;As a followup to the new look, the entries in the sidebar menu have now been reordered in a more sensible&amp;nbsp;fashion:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;System&amp;nbsp;information&lt;/li&gt;
+&lt;li&gt;Logs for&amp;nbsp;troubleshooting&lt;/li&gt;
+&lt;li&gt;Configuring major subsystems: Storage,&amp;nbsp;Networking&lt;/li&gt;
+&lt;li&gt;What&amp;#8217;s running: Containers and Virtual&amp;nbsp;Machines&lt;/li&gt;
+&lt;li&gt;Implementation details: Admin accounts,&amp;nbsp;Services/Units&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Check out the screenshot below to see how this looks&amp;nbsp;now.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sidebar order" src="http://cockpit-project.org/blog/images/cockpit-menu-order.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Storage management is more&amp;nbsp;convenient&lt;/h3&gt;
+&lt;p&gt;In order to make configuring storage more convenient, the Cockpit &lt;span class="caps"&gt;UI&lt;/span&gt; now prevents removing disks from a &lt;span class="caps"&gt;RAID&lt;/span&gt; when
+removal would lead to data loss due to an insufficient number of remaining volumes in the &lt;span class="caps"&gt;RAID&lt;/span&gt;. Also, when creating
+a Volume Group (&lt;span class="caps"&gt;LVM&lt;/span&gt;) or adding disk space to a Volume Group, unpartitioned space is now offered as a choice.
+If selected, Cockpit automatically creates a partition before adding it to the Volume Group. Check out the screenshots
+below to see how these features&amp;nbsp;look.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Remove RAID disk" src="http://cockpit-project.org/blog/images/cockpit-remove-raid-disk.png"&gt;
+&lt;img alt="Add unpartitioned disk" src="http://cockpit-project.org/blog/images/cockpit-storage-add-unpartitioned.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Consider user known_hosts for ssh&amp;nbsp;connections&lt;/h3&gt;
+&lt;p&gt;When managing remote machines, Cockpit now considers known host keys in the user&amp;#8217;s &lt;code&gt;~/.ssh/known_hosts&lt;/code&gt; in addition to
+the system-wide &lt;code&gt;/etc/ssh/ssh_known_hosts&lt;/code&gt;. This makes Cockpit behave more like the standard ssh&amp;nbsp;client.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 137 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/137"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-137-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 135</title><link href="http://cockpit-project.org/blog/cockpit-135.html" rel="alternate"></link><published>2017-03-15T22:00:00+00:00</published><updated>2017-03-15T22:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-15:/blog/cockpit-135.html</id><summary type="html">&lt;p&gt;Cockpit with authorization and authentication&amp;nbsp;changes&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+Here are the release notes from version&amp;nbsp;135.&lt;/p&gt;
+&lt;h3&gt;Redesigned sidebar&amp;nbsp;navigation&lt;/h3&gt;
+&lt;p&gt;The existing page menu took some getting used to for some use cases. It&amp;#8217;s now easier to use when connected to multiple
+hosts and provides the basis for future improvements that will reduce or remove the horizontal menu entries. On systems
+where the top navigation bar doesn&amp;#8217;t have any useful information, such as when there is no Dashboard, the top
+navigation bar is removed entirely. Check out the screenshot below for a peek at the new sidebar&amp;nbsp;design.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Sidebar navigation" src="http://cockpit-project.org/blog/images/cockpit-page-menu.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Indicator in top bar shows privilege&amp;nbsp;escalation&lt;/h3&gt;
+&lt;p&gt;On the login page a user can allow Cockpit to use the password for privileged tasks. A new indicator in the top bar
+shows an &lt;code&gt;unlocked&lt;/code&gt; state when these privileges are available and a &lt;code&gt;locked&lt;/code&gt; state if they aren&amp;#8217;t. The user
+can click on the indicator in the &lt;code&gt;unlocked&lt;/code&gt; state to drop privileges for the rest of the session. In some cases
+privileges cannot be dropped - among others for root and no-password sudo users - and the indicator will disappear.
+Check out the video below to see this in&amp;nbsp;action.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/3eZSYW89zMI?ecver=1" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Disks are now shown for virtual&amp;nbsp;machines&lt;/h3&gt;
+&lt;p&gt;The expanded information for entries on the &lt;code&gt;Virtual Machines&lt;/code&gt; page now contains information on a machine&amp;#8217;s disks,
+such as the device, read only state and for disk images the local file path. Information on disk capacity is only
+available with more recent versions of libvirt. Check out the screenshot below to see how this&amp;nbsp;looks.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Virtual machine disks" src="http://cockpit-project.org/blog/images/cockpit-vm-disks.png"&gt;&lt;/p&gt;
+&lt;h3&gt;New developer tool can close active Cockpit&amp;nbsp;pages&lt;/h3&gt;
+&lt;p&gt;Once pages in Cockpit, such as &lt;code&gt;Networking&lt;/code&gt; or &lt;code&gt;System&lt;/code&gt;, are opened they usually stay open in the background,
+even if they aren&amp;#8217;t visible. This is important on most pages to ensure the code can continue interacting with the
+system in the background, user input isn&amp;#8217;t lost, and the page doesn&amp;#8217;t have to be reloaded when the user returns to it.
+For the cases when a user wishes to actually close the page there is a new entry next to &lt;code&gt;Display Language&lt;/code&gt; in
+the user drop down menu, named &lt;code&gt;Active Pages&lt;/code&gt;. It only becomes visible when the &lt;code&gt;ALT&lt;/code&gt; key is pressed while
+clicking on the menu dropdown. On some drag enabled browsers it doesn&amp;#8217;t work to just use &lt;code&gt;ALT&lt;/code&gt;, but any combination
+involving &lt;code&gt;ALT&lt;/code&gt;, such as &lt;code&gt;CTRL+ALT&lt;/code&gt;, also works. Check out the screenshot below for a&amp;nbsp;peek.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Active Pages" src="http://cockpit-project.org/blog/images/cockpit-active-pages.png"&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; connections established within the user&amp;nbsp;session&lt;/h3&gt;
+&lt;p&gt;When one Cockpit instance connects to other machines it does so via &lt;span class="caps"&gt;SSH&lt;/span&gt;. Previously
+these connections were launched from cockpit-ws, the process listening on the&amp;nbsp;network.&lt;/p&gt;
+&lt;p&gt;As part of making Cockpit mirror standard Linux practices better, &lt;span class="caps"&gt;SSH&lt;/span&gt; connections are
+now made from within the logged in user session, launched from the cockpit-bridge
+process. This allows Cockpit to use credentials from the logged in user session while
+establishing those &lt;span class="caps"&gt;SSH&lt;/span&gt; connections, such as kerberos tickets, the ssh-agent or private&amp;nbsp;keys.&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 135 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/135"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-135-1.fc25"&gt;Fedora&amp;nbsp;25&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 134</title><link href="http://cockpit-project.org/blog/cockpit-134.html" rel="alternate"></link><published>2017-03-09T18:00:00+00:00</published><updated>2017-03-09T18:00:00+00:00</updated><author><name>Dominik Perpeet</name></author><id>tag:cockpit-project.org,2017-03-09:/blog/cockpit-134.html</id><summary type="html">&lt;p&gt;Cockpit is now fully&amp;nbsp;translatable&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
 Here are the release notes from version&amp;nbsp;134.&lt;/p&gt;
 &lt;h3&gt;Login page is now&amp;nbsp;translatable&lt;/h3&gt;
 &lt;p&gt;The majority of Cockpit has long been translatable. Since the login page is a bit of a special case, it required some

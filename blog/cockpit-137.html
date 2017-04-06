@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-  </title>
+Cockpit 136 and 137  </title>
 
 </head>
 
@@ -59,92 +60,51 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-120.html">Cockpit&nbsp;120</a></h1>
+    <h1><a href="http://cockpit-project.org/blog/cockpit-137.html">Cockpit 136 and&nbsp;137</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit releases regularly. Here&#8217;s highlights from 119 and&nbsp;120</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from versions 136 and&nbsp;137.</p>
+<h3>Reordered entries in the sidebar&nbsp;menu</h3>
+<p>As a followup to the new look, the entries in the sidebar menu have now been reordered in a more sensible&nbsp;fashion:</p>
+<ul>
+<li>System&nbsp;information</li>
+<li>Logs for&nbsp;troubleshooting</li>
+<li>Configuring major subsystems: Storage,&nbsp;Networking</li>
+<li>What&#8217;s running: Containers and Virtual&nbsp;Machines</li>
+<li>Implementation details: Admin accounts,&nbsp;Services/Units</li>
+</ul>
+<p>Check out the screenshot below to see how this looks&nbsp;now.</p>
+<p><img alt="Sidebar order" src="http://cockpit-project.org/blog/images/cockpit-menu-order.png"></p>
+<h3>Storage management is more&nbsp;convenient</h3>
+<p>In order to make configuring storage more convenient, the Cockpit <span class="caps">UI</span> now prevents removing disks from a <span class="caps">RAID</span> when
+removal would lead to data loss due to an insufficient number of remaining volumes in the <span class="caps">RAID</span>. Also, when creating
+a Volume Group (<span class="caps">LVM</span>) or adding disk space to a Volume Group, unpartitioned space is now offered as a choice.
+If selected, Cockpit automatically creates a partition before adding it to the Volume Group. Check out the screenshots
+below to see how these features&nbsp;look.</p>
+<p><img alt="Remove RAID disk" src="http://cockpit-project.org/blog/images/cockpit-remove-raid-disk.png">
+<img alt="Add unpartitioned disk" src="http://cockpit-project.org/blog/images/cockpit-storage-add-unpartitioned.png"></p>
+<h3>Consider user known_hosts for ssh&nbsp;connections</h3>
+<p>When managing remote machines, Cockpit now considers known host keys in the user&#8217;s <code>~/.ssh/known_hosts</code> in addition to
+the system-wide <code>/etc/ssh/ssh_known_hosts</code>. This makes Cockpit behave more like the standard ssh&nbsp;client.</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 137 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/137">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-137-1.fc25">Fedora&nbsp;25</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-118.html">Cockpit&nbsp;118</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Thu 30 March 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit releases regularly. Here&#8217;s highlights from&nbsp;118</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.117.html">Cockpit&nbsp;0.117</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.115, 0.116 and&nbsp;0.117.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.114.html">Cockpit&nbsp;0.114</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.114.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.113.html">Cockpit&nbsp;0.113</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.112 and&nbsp;0.113.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.111.html">Cockpit&nbsp;0.111</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.107 through&nbsp;0.111.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.106.html">Cockpit&nbsp;0.106</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.106</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.105.html">Cockpit&nbsp;0.105</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.105</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.104.html">Cockpit&nbsp;0.104</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.104</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.103.html">Cockpit&nbsp;0.103</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.102</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/index3.html" class="button_accent">&larr; Older Posts</a>
-
-<a href="http://cockpit-project.org/blog/index.html" class="button_accent">Newer Posts &rarr;</a>
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
