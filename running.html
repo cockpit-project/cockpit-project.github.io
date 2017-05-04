@@ -149,10 +149,6 @@ sudo firewall-cmd --reload</pre>
             </div>
           </div>
 
-        <div class="row">
-          <div class="col-md-12"><div class="browser-header"><p>Stable, tested, delivered in a repository</p></div></div>
-        </div>
-
 	 <div class="row">
           <div class="col-md-3 col-xs-4 col-sm-4"><div class="os-selector os-selector-debian"><img src="images/os-debian.png"></div></div>
           <div class="col-md-3 col-xs-4 col-sm-4"><div class="os-selector os-selector-ubuntu"><img src="images/os-ubuntu.png"></div></div>
@@ -161,9 +157,17 @@ sudo firewall-cmd --reload</pre>
         <div>
           <div class="col-md-12 os-info os-info-debian" style="display: none;">
             <div class="os-infobox">
-              <p>Cockpit is not yet part of the official Debian repositories, but you can add a repository which contains weekly builds targeting Debian Jessie (8.x) and Debian Unstable:</p>
+              <p>Cockpit is included in Debian unstable.</p>
               <ol>
-                <li>Add the following line to <tt>/etc/apt/sources.list</tt>. Replace the distribution name as appropriate.
+                <li>Install the package:</li>
+                <pre>sudo apt-get install cockpit</pre>
+              </ol>
+            </div>
+
+            <div class="os-infobox">
+              <p>For Debian Jessie (8.x) you can add a repository which always has the latest Cockpit release:</p>
+              <ol>
+                <li>Add the following line to <tt>/etc/apt/sources.list</tt>.
                   <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main</pre></li>
                 <li>Import Cockpit's signing key to the apt sources keyring:
                   <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C</pre></li>
@@ -180,9 +184,17 @@ sudo firewall-cmd --reload</pre>
 
           <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
             <div class="os-infobox">
-		    <p>Cockpit is not yet part of the official Ubuntu repositories. You can install it from the
+              <p>Cockpit is included in Ubuntu 17.04 and later.</p>
+              <ol>
+                <li>Install the package:</li>
+                <pre>sudo apt-get install cockpit</pre>
+              </ol>
+            </div>
+
+            <div class="os-infobox">
+              <p>For Ubuntu 16.04 LTS you can install it from the
               <a href="https://launchpad.net/~cockpit-project/+archive/ubuntu/cockpit">Cockpit PPA</a>
-	      by executing the following commands:</p>
+              by executing the following commands:</p>
               <ol>
                 <li>Add the PPA for Cockpit:
                   <pre>sudo add-apt-repository ppa:cockpit-project/cockpit</pre>
@@ -197,6 +209,12 @@ sudo firewall-cmd --reload</pre>
             </div>
           </div>
         </div>
+
+        <!-- no current entries
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Stable, tested, delivered in a repository</p></div></div>
+        </div>
+        -->
 
         <div class="row">
           <div class="col-md-12"><div class="browser-header"><p>Less tested and irregularly updated</p></div></div>
