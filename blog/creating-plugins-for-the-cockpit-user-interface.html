@@ -66,7 +66,7 @@ Creating Plugins for the Cockpit User Interface  </title>
     <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
 <p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is <span class="caps">HTML</span>, with Javascript logic that makes it work, and <span class="caps">CSS</span> to make it&nbsp;pretty.</p>
 <p>It&#8217;s real easy to create these components. Tools are components that show up in the <em>Tools</em> menu in&nbsp;Cockpit:</p>
-<p><img alt="Tools menu" src="images/cockpit-tools-default.png"></p>
+<p><img alt="Tools menu" src="images/cockpit-tools-default.png" /></p>
 <p>For example the <em>Terminal</em> that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you&#8217;ll need Cockpit 0.41. You can install it in <a href="https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html">Fedora 21</a> or <a href="https://github.com/cockpit-project/cockpit/blob/master/HACKING.md">build it from git</a>.</p>
 <p>So break out your terminal, lets make a package called <em>pinger</em> that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We&#8217;ll just be spawning a process on the server to do the work. I&#8217;ve prepared it for you as <a href="http://cockpit-project.org/files/pinger.tgz">an example here</a>, and we can look it over, and modify it. To download the example to your current&nbsp;directory:</p>
 <div class="highlight"><pre><span></span>$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
@@ -111,9 +111,9 @@ pinger: /home/.../.local/share/cockpit/pinger
 
 
 <p>If you&#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the <em>Tools</em>&nbsp;menu:</p>
-<p><img alt="Tools menu with pinger" src="images/cockpit-tools-pinger.png"></p>
+<p><img alt="Tools menu with pinger" src="images/cockpit-tools-pinger.png" /></p>
 <p>The pinger tool itself looks like&nbsp;this:</p>
-<p><img alt="Pinger tool" src="images/cockpit-pinger-tool.png"></p>
+<p><img alt="Pinger tool" src="images/cockpit-pinger-tool.png" /></p>
 <p>Lets take a look at the pinger <span class="caps">HTML</span>, and see how it&nbsp;works.</p>
 <div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Pinger<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
@@ -159,8 +159,8 @@ pinger: /home/.../.local/share/cockpit/pinger
         <span class="p">}</span>
 
         <span class="kd">function</span> <span class="nx">ping_fail</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">status</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
-            <span class="nx">status</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;fail&quot;</span><span class="p">);</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">);</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;fail&quot;</span><span class="p">);</span>
         <span class="p">}</span>
 
         <span class="kd">function</span> <span class="nx">ping_output</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>

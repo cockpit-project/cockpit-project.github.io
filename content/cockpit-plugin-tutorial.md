@@ -112,8 +112,8 @@ Lets take a look at the pinger HTML, and see how it works.
             }
 
             function ping_fail() {
-                status.css("color", "red");
-                status.text("fail");
+                result.css("color", "red");
+                result.text("fail");
             }
 
             function ping_output(data) {
