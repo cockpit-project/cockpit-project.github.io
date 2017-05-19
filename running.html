@@ -184,27 +184,13 @@ sudo firewall-cmd --reload</pre>
 
           <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
             <div class="os-infobox">
-              <p>Cockpit is included in Ubuntu 17.04 and later.</p>
+              <p>Cockpit is included in Ubuntu 17.04 and later, and available
+              <a href="https://help.ubuntu.com/community/UbuntuBackports">as an official backport</a>
+              for 16.04 LTS and later. Backports are enabled by default, but if you customized apt sources you might need to
+              <a href="https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports">enable them manually</a>.</p>
               <ol>
                 <li>Install the package:</li>
                 <pre>sudo apt-get install cockpit</pre>
-              </ol>
-            </div>
-
-            <div class="os-infobox">
-              <p>For Ubuntu 16.04 LTS you can install it from the
-              <a href="https://launchpad.net/~cockpit-project/+archive/ubuntu/cockpit">Cockpit PPA</a>
-              by executing the following commands:</p>
-              <ol>
-                <li>Add the PPA for Cockpit:
-                  <pre>sudo add-apt-repository ppa:cockpit-project/cockpit</pre>
-                </li>
-                <li>Update the package information:
-                  <pre>sudo apt-get update</pre>
-                </li>
-                <li>Install cockpit:
-                  <pre>sudo apt-get install cockpit</pre>
-                </li>
               </ol>
             </div>
           </div>
