@@ -2,102 +2,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cockpit Guide</title>
+<title>Part III. Developer Guide</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="Cockpit Guide">
-<link rel="next" href="guide.html" title="Part I. Deployment Guide">
+<link rel="up" href="index.html" title="Cockpit Guide">
+<link rel="prev" href="feature-ostree.html" title="RPM OSTree">
+<link rel="next" href="embedding.html" title="Embedding and Integrating Cockpit">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<div class="book">
-<div class="titlepage">
-<div>
-<div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">Cockpit Guide</p></th></tr></table></div>
-<div><p class="releaseinfo">Documentation for Cockpit 141
- --
-    latest version available at:
-      <a class="ulink" href="http://cockpit-project.org/guide/latest" target="_top">http://cockpit-project.org/guide/latest/</a></p></div>
-</div>
-<hr>
-</div>
-<div class="toc"><dl class="toc">
-<dt><span class="part"><a href="guide.html">I. Deployment Guide</a></span></dt>
-<dd><dl>
-<dt><span class="chapter"><a href="cockpit-manual.html">Manual pages</a></span></dt>
-<dd><dl>
-<dt>
-<span class="refentrytitle"><a href="cockpit.conf.5.html">cockpit.conf</a></span><span class="refpurpose"> — Cockpit configuration file</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="cockpit-ws.8.html">cockpit-ws</a></span><span class="refpurpose"> — Cockpit web service</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="remotectl.8.html">remotectl</a></span><span class="refpurpose"> — Remote Access Configuration</span>
-</dt>
-<dt>
-<span class="refentrytitle"><a href="cockpit-bridge.1.html">cockpit-bridge</a></span><span class="refpurpose"> — Cockpit Host Bridge</span>
-</dt>
-</dl></dd>
-<dt><span class="chapter"><a href="https.html">SSL/TLS Usage</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="https.html#https-required">HTTPS Requirement</a></span></dt>
-<dt><span class="section"><a href="https.html#https-certificates">Certificates</a></span></dt>
-<dt><span class="section"><a href="https.html#https-compat">SSL Versions and Ciphers</a></span></dt>
-</dl></dd>
-<dt><span class="chapter"><a href="listen.html">TCP Port and Address</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="listen.html#listen-systemd">Cockpit systemd Socket</a></span></dt>
-<dt><span class="section"><a href="listen.html#listen-selinux">SELinux Port</a></span></dt>
-<dt><span class="section"><a href="listen.html#listen-firewalld">Firewalld Port</a></span></dt>
-</dl></dd>
-<dt><span class="chapter"><a href="startup.html">Start up</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="startup.html#startup-shutdown">Process exit</a></span></dt>
-<dt><span class="section"><a href="startup.html#startup-boot">Boot start up</a></span></dt>
-</dl></dd>
-<dt><span class="chapter"><a href="authentication.html">Cockpit Authentication</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="authentication.html#initial-auth">Primary server authentication</a></span></dt>
-<dt><span class="section"><a href="authentication.html#secondary-auth">Secondary server authentication</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="authentication.html#password">Password</a></span></dt>
-<dt><span class="section"><a href="authentication.html#kerberos">Kerberos</a></span></dt>
-<dt><span class="section"><a href="authentication.html#public-key">Public key</a></span></dt>
-</dl></dd>
-</dl></dd>
-<dt><span class="chapter"><a href="sso.html">Single Sign On</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="sso.html#sso-server">Server Requirements</a></span></dt>
-<dt><span class="section"><a href="sso.html#sso-client">Client Requirements</a></span></dt>
-</dl></dd>
-<dt><span class="chapter"><a href="privileges.html">Privileges and Permissions</a></span></dt>
-</dl></dd>
-<dt><span class="part"><a href="features.html">II. Feature Internals</a></span></dt>
-<dd><dl>
-<dt><span class="chapter"><a href="feature-systemd.html">systemd</a></span></dt>
-<dt><span class="chapter"><a href="feature-journal.html">Journal</a></span></dt>
-<dt><span class="chapter"><a href="feature-docker.html">Docker</a></span></dt>
-<dt><span class="chapter"><a href="feature-networkmanager.html">NetworkManager</a></span></dt>
-<dt><span class="chapter"><a href="feature-storaged.html">storaged</a></span></dt>
-<dt><span class="chapter"><a href="feature-users.html">User Tools</a></span></dt>
-<dt><span class="chapter"><a href="feature-realmd.html">realmd</a></span></dt>
-<dt><span class="chapter"><a href="feature-terminal.html">Terminal</a></span></dt>
-<dt><span class="chapter"><a href="feature-pcp.html">PCP</a></span></dt>
-<dt><span class="chapter"><a href="feature-subscription.html">Subscription Manager</a></span></dt>
-<dt><span class="chapter"><a href="feature-kubernetes.html">Kubernetes</a></span></dt>
-<dd><dl>
-<dt><span class="section"><a href="feature-kubernetes.html#feature-kubernetes-package">Used in a standard Cockpit session</a></span></dt>
-<dt><span class="section"><a href="feature-kubernetes.html#feature-kubernetes-pod">Used as a Kubernetes Pod</a></span></dt>
-<dt><span class="section"><a href="feature-kubernetes.html#feature-openshift-pod">Used as an Openshift Pod</a></span></dt>
-</dl></dd>
-<dt><span class="chapter"><a href="feature-machines.html">Multiple Machines</a></span></dt>
-<dt><span class="chapter"><a href="feature-selinux.html">SELinux Policy</a></span></dt>
-<dt><span class="chapter"><a href="feature-tuned.html">Tuned Profiles</a></span></dt>
-<dt><span class="chapter"><a href="feature-sosreport.html">SOS Report</a></span></dt>
-<dt><span class="chapter"><a href="feature-ostree.html">RPM OSTree</a></span></dt>
-</dl></dd>
-<dt><span class="part"><a href="development.html">III. Developer Guide</a></span></dt>
-<dd><dl>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="feature-ostree.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="embedding.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="part">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="development"></a>Part III. Developer Guide</h1></div></div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
 <dt><span class="chapter"><a href="embedding.html">Embedding and Integrating Cockpit</a></span></dt>
 <dd><dl>
 <dt><span class="section"><a href="embedding.html#embedding-full">Embedding the Cockpit Interface</a></span></dt>
@@ -191,8 +117,8 @@
 <span class="refentrytitle"><a href="api-terminal-html.html">terminal.html</a></span><span class="refpurpose"> — Server terminal component</span>
 </dt>
 </dl></dd>
-</dl></dd>
-</dl></div>
+</dl>
+</div>
 </div>
 <div class="footer"><hr></div>
 </body>
