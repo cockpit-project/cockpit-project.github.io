@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-&ndash; Tag: linux  </title>
+Cockpit 142  </title>
 
 </head>
 
@@ -54,58 +55,55 @@
       <p>
       <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
       &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-&gt; Tag: linux
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">Creating Plugins for the Cockpit User&nbsp;Interface</a></h1>
+    <h1><a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit&nbsp;142</a></h1>
   </div>
   <div class="article_text">
-    <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
-<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is <span class="caps">HTML</span>, with Javascript logic that makes it work, and <span class="caps">CSS …</span></p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from versions 141 and&nbsp;142.</p>
+<h3>Virtual machines display an interactive&nbsp;console</h3>
+<p>The Virtual Machines page now offers easy access to graphical consoles in the new &#8220;Console&#8221; tab. If the <span class="caps">VM</span> has a <span class="caps">VNC</span> server
+enabled, then there is now an inline <a href="https://github.com/novnc/noVNC">noVNC</a>&nbsp;console:</p>
+<p><img alt="Machines inline console" src="images/machines-inline-console.png"></p>
+<p>If the <span class="caps">VM</span> only has a <span class="caps">SPICE</span> server, or the inline console is not sufficient, you can use &#8220;Switch to Desktop Viewer&#8221; and with a
+single button click open virt-viewer for that <span class="caps">VM</span>:</p>
+<p><img alt="Machines external console" src="images/machines-external-console.png"></p>
+<p>See it in&nbsp;action:</p>
+<iframe width="960" height="720" src="https://www.youtube.com/embed/_zVi44KQ8KU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Document how to grant/restrict access via polkit&nbsp;rules</h3>
+<p>Users who are not administrators can normally not perform actions such as
+changing the hostname or start/stop systemd services. The
+<a href="http://cockpit-project.org/guide/latest/privileges.html#privileges-polkit">Privileges and Permissions</a>
+section in the guide and the
+<a href="http://cockpit-project.org/guide/latest/feature-systemd.html">systemd feature page</a> now describe how to use polkit
+rules allow fine-grained permissions such as &#8220;that user can restart this particular&nbsp;service&#8221;.</p>
+<h3>Attempt to tear down used partitions when formatting&nbsp;disks</h3>
+<p>Trying to format a disk on the &#8220;Disks&#8221; page which still has partitions which are in use (mounted or used as an <span class="caps">LVM</span>
+physical volume) will now attempt to unmount/remove the physical volume, instead of just&nbsp;failing:</p>
+<p><img alt="Automatic device teardown" src="images/cockpit-storage-teardown-device.png"></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 142 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/142">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-142-1.fc26">Fedora&nbsp;26</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html">Using DBus from Javascript in&nbsp;Cockpit</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Fri 09 June 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p><em>Note: This post has been updated for changes in Cockpit 0.90 and&nbsp;later.</em></p>
-<p><a href="http://cockpit-project.org">Cockpit is a user interface for servers</a>. As we covered in the <a href="http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html">last tutorial</a> you can add user interface component to Cockpit, and build your own parts of the Server <span class="caps">UI</span>.</p>
-<p>Much of Cockpit interacts with …</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html">DBus is powerful <span class="caps">IPC</span></a></h1>
-  </div>
-  <div class="article_text">
-    <p>D-Bus is powerful <span class="caps">IPC</span> Cockpit is heavily built around DBus. We send DBus over our
-<a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md">WebSocket transport</a>,
-and marshal them in <span class="caps">JSON</span>.</p>
-<p>DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
-these capabilities are what allow Cockpit to implement its <span class="caps">UI …</span></p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-simple-networking-configuration.html">Cockpit Simple Networking&nbsp;Configuration</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit 0.11 now has an all new simple Networking <span class="caps">UI</span>. Still some work to do, but it&#8217;s
-coming together. You can see it&nbsp;here:</p>
-<p><img alt="Cockpit simple networking configuration" src="images/cockpit-simple-network.png"></p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-
-<a href="http://cockpit-project.org/blog/tag/linux4.html" class="button_accent">Newer Posts &rarr;</a>
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the

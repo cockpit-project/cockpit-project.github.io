@@ -10,7 +10,7 @@ comments: true
 ---
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release regularly.
-Here are the release notes from version 142.
+Here are the release notes from versions 141 and 142.
 
 ### Virtual machines display an interactive console
 
@@ -23,6 +23,26 @@ If the VM only has a SPICE server, or the inline console is not sufficient, you 
 single button click open virt-viewer for that VM:
 
 ![Machines external console](images/machines-external-console.png)
+
+See it in action:
+
+<iframe width="960" height="720" src="https://www.youtube.com/embed/_zVi44KQ8KU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+### Document how to grant/restrict access via polkit rules
+
+Users who are not administrators can normally not perform actions such as
+changing the hostname or start/stop systemd services. The
+[Privileges and Permissions](http://cockpit-project.org/guide/latest/privileges.html#privileges-polkit)
+section in the guide and the
+[systemd feature page](http://cockpit-project.org/guide/latest/feature-systemd.html) now describe how to use polkit
+rules allow fine-grained permissions such as "that user can restart this particular service".
+
+### Attempt to tear down used partitions when formatting disks
+
+Trying to format a disk on the "Disks" page which still has partitions which are in use (mounted or used as an LVM
+physical volume) will now attempt to unmount/remove the physical volume, instead of just failing:
+
+![Automatic device teardown](images/cockpit-storage-teardown-device.png)
 
 ### Try it out
 
