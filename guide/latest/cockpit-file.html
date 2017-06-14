@@ -38,6 +38,7 @@ file = cockpit.file(path,
                     { syntax: syntax_object,
                       binary: boolean,
                       max_read_size: int,
+                      superuser: string
                     })
 
 promise = file.read()
@@ -84,6 +85,12 @@ cockpit.file("/path/to/file").read()
 <p>It is not an error when the file does not exist. In this case, the
       <code class="code">done()</code> callback will be called with a <code class="code">null</code>
       value for <code class="code">content</code> and <code class="code">tag</code> is <code class="code">"-"</code>.</p>
+<p>Set <code class="code">superuser</code> to "require" for reading or writing a file as root instead of the logged 
+      in user. If the currently logged in user is not permitted to become 
+      root (eg: via pkexec) then the client will immediately be 
+      <a class="link" href="cockpit-dbus.html#cockpit-dbus-onclose" title="client.onclose">closed</a> with
+       a "access-denied" problem code. Set to "try" to try to run the command 
+       as root, but if that fails, fall back to an unprivileged command.  
 <p>You can use the <code class="code">max_read_size</code> option to limit
       the amount of data that is read.  If the file is larger than the
       given limit, no data is read and the channel is closed with
