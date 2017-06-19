@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-&ndash; Tag: linux  </title>
+Cockpit 143  </title>
 
 </head>
 
@@ -54,98 +55,55 @@
       <p>
       <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
       &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-&gt; Tag: linux
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-122.html">Cockpit&nbsp;122</a></h1>
+    <h1><a href="http://cockpit-project.org/blog/cockpit-143.html">Cockpit&nbsp;143</a></h1>
   </div>
   <div class="article_text">
-    <p>About bastion hosts and other highlights from version&nbsp;122</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from version&nbsp;143.</p>
+<h3><span class="dquo">&#8220;</span>Software Updates&#8221; page for package based operating&nbsp;systems</h3>
+<p>There is a new &#8220;Software Updates&#8221; page for classic dnf/yum/apt based systems,
+to complement the already existing one for OSTree on
+<a href="https://www.projectatomic.io">Atomic</a>. This uses the <a href="https://www.freedesktop.org/software/PackageKit/">PackageKit
+<span class="caps">API</span></a> for platform
+independence. This feature is shipped in the new <code>cockpit-packagekit</code>
+sub-package.</p>
+<p>See it in&nbsp;action:</p>
+<iframe width="720" height="540" src="https://www.youtube.com/embed/BENWI-dTKMs?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<h3>Inline <span class="caps">VNC</span>&nbsp;consoles</h3>
+<p>The inline <span class="caps">VNC</span> console advertised in <a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit 142</a>
+was not actually working from the released <code>cockpit-machine</code> package due to a
+packaging problem. Cockpit 143 corrects this problem. Thanks to Marek&nbsp;Libra!</p>
+<h3>Kubernetes <span class="caps">RBAC</span> authorization&nbsp;support</h3>
+<p>The Kubernetes page can now be used to log into Kubernetes installations that
+use <a href="https://kubernetes.io/docs/admin/authorization/rbac/"><span class="caps">RBAC</span> authorization</a>.</p>
+<h3><span class="caps">RPM</span> packages for <span class="caps">IBM</span> Z&nbsp;systems</h3>
+<p>The <code>cockpit-docker</code> <span class="caps">RPM</span> package is now being built on the s390x (<span class="caps">IBM</span> Z
+Systems) architecture, as the Fedora Docker package is available there.
+(<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1462113">#1462113</a>)</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 143 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/143">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-143-1.fc26">Fedora&nbsp;26</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-121.html">Cockpit&nbsp;121</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Mon 19 June 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit releases regularly. Network Checkpoints and other highlights from version&nbsp;121</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-120.html">Cockpit&nbsp;120</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases regularly. Here&#8217;s highlights from 119 and&nbsp;120</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-118.html">Cockpit&nbsp;118</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases regularly. Here&#8217;s highlights from&nbsp;118</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.117.html">Cockpit&nbsp;0.117</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.115, 0.116 and&nbsp;0.117.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.114.html">Cockpit&nbsp;0.114</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.114.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.113.html">Cockpit&nbsp;0.113</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.112 and&nbsp;0.113.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.111.html">Cockpit&nbsp;0.111</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from 0.107 through&nbsp;0.111.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.106.html">Cockpit&nbsp;0.106</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.106</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-0.105.html">Cockpit&nbsp;0.105</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit releases every week. Here&#8217;s highlights from&nbsp;0.105</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/tag/linux3.html" class="button_accent">&larr; Older Posts</a>
-
-<a href="http://cockpit-project.org/blog/tag/linux.html" class="button_accent">Newer Posts &rarr;</a>
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
