@@ -80,7 +80,7 @@ image and container by using the filter bar to search for&nbsp;it.</p>
 virtual machines running on the current system. This has the ability to
 grow into something like the desktop <code>virt-manager</code> tool.</p>
 <p>It looks something like&nbsp;this:</p>
-<p><img alt="Virtual Machines" src="images/vms.png"></p>
+<p><img alt="Virtual Machines" src="images/vms.png" /></p>
 <h3>Unmanaged Network&nbsp;Devices</h3>
 <p>Cockpit now shows unmanaged network devices in its listing. You can&#8217;t configure
 them or do much with them, but their presence is acknowledged. This should make
@@ -89,7 +89,7 @@ troubleshooting non-standard configurations&nbsp;easier.</p>
 <p>Marius added a sidebar that shows up on <span class="caps">LVM</span> groups or volumes, that shows
 which physical devices are&nbsp;involved.</p>
 <p>Here&#8217;s an&nbsp;example:</p>
-<p><img alt="SSH subprocesses" src="images/cockpit-pv-sidebar.png"></p>
+<p><img alt="SSH subprocesses" src="images/cockpit-pv-sidebar.png" /></p>
 <h3><span class="caps">SSH</span> connections are run in a separate&nbsp;process</h3>
 <p>When Cockpit connects to an additional server it uses <span class="caps">SSH</span>, much like
 Ansible or other tools. We now launch a separate <code>cockpit-ssh</code> process
@@ -98,7 +98,7 @@ for each outgoing connection to another&nbsp;server.</p>
 benefits. But it also makes it possible to insert additional logic when
 embedding Cockpit. It&#8217;s possible to put in shims to lookup keys, single-sign-on
 tokens or keytabs, and so&nbsp;on.</p>
-<p><img alt="SSH subprocesses" src="images/cockpit-ssh.png"></p>
+<p><img alt="SSH subprocesses" src="images/cockpit-ssh.png" /></p>
 <h3>Only connect to remote machines already known to&nbsp;Cockpit</h3>
 <p>When connecting to additional machines via <span class="caps">SSH</span>, Cockpit now refuses to
 connect to machines it doesn&#8217;t have a host key for. This tightens up
@@ -110,7 +110,7 @@ version includes a fix for&nbsp;that.</p>
 <p>When configuring local user accounts, one can assign various roles such
 as &#8216;Server Administrator&#8217; to the account. Cockpit now displays the Unix
 user group that is involved in the&nbsp;role.</p>
-<p><img alt="User Unix Group" src="images/cockpit-unix-group.png"></p>
+<p><img alt="User Unix Group" src="images/cockpit-unix-group.png" /></p>
 <h3>From the&nbsp;future</h3>
 <p>Marius added support for NetworkManager checkpoints. This means that
 while configuring network interfaces, if a change would cause Cockpit

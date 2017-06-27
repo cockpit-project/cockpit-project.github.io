@@ -1,2 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - Martin Pitt</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/martin-pitt.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-06-19T14:00:00+00:00</updated><entry><title>Cockpit 143</title><link href="http://cockpit-project.org/blog/cockpit-143.html" rel="alternate"></link><published>2017-06-19T14:00:00+00:00</published><author><name>Martin Pitt</name></author><id>tag:cockpit-project.org,2017-06-19:/blog/cockpit-143.html/</id><summary type="html">&lt;p&gt;Cockpit with new Software Updates&amp;nbsp;page&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 142</title><link href="http://cockpit-project.org/blog/cockpit-142.html" rel="alternate"></link><published>2017-06-09T16:00:00+00:00</published><author><name>Martin Pitt</name></author><id>tag:cockpit-project.org,2017-06-09:/blog/cockpit-142.html/</id><summary type="html">&lt;p&gt;Cockpit with Virtual Machine&amp;nbsp;improvements&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/martin-pitt.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-06-19T14:00:00+00:00</updated><entry><title>Cockpit 143</title><link href="http://cockpit-project.org/blog/cockpit-143.html" rel="alternate"></link><published>2017-06-19T14:00:00+00:00</published><author><name>Martin Pitt</name></author><id>tag:cockpit-project.org,2017-06-19:blog/cockpit-143.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+Here are the release notes from version&amp;nbsp;143.&lt;/p&gt;
+&lt;h3&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;Software Updates&amp;#8221; page for package based operating&amp;nbsp;systems&lt;/h3&gt;
+&lt;p&gt;There is a new &amp;#8220;Software Updates&amp;#8221; page for classic dnf/yum/apt based systems,
+to complement the already existing one for OSTree on
+&lt;a href="https://www.projectatomic.io"&gt;Atomic&lt;/a&gt;. This uses the &lt;a href="https://www.freedesktop.org/software/PackageKit/"&gt;PackageKit
+&lt;span class="caps"&gt;API&lt;/span&gt;&lt;/a&gt; for platform
+independence. This feature is shipped in the new &lt;code&gt;cockpit-packagekit&lt;/code&gt;
+sub-package.&lt;/p&gt;
+&lt;p&gt;See it in&amp;nbsp;action:&lt;/p&gt;
+&lt;iframe width="720" height="540" src="https://www.youtube.com/embed/BENWI-dTKMs?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Inline &lt;span class="caps"&gt;VNC&lt;/span&gt;&amp;nbsp;consoles&lt;/h3&gt;
+&lt;p&gt;The inline &lt;span class="caps"&gt;VNC&lt;/span&gt; console advertised in &lt;a href="http://cockpit-project.org/blog/cockpit-142.html"&gt;Cockpit 142&lt;/a&gt;
+was not actually working from the released &lt;code&gt;cockpit-machine&lt;/code&gt; package due to a
+packaging problem. Cockpit 143 corrects this problem. Thanks to Marek&amp;nbsp;Libra!&lt;/p&gt;
+&lt;h3&gt;Kubernetes &lt;span class="caps"&gt;RBAC&lt;/span&gt; authorization&amp;nbsp;support&lt;/h3&gt;
+&lt;p&gt;The Kubernetes page can now be used to log into Kubernetes installations that
+use &lt;a href="https://kubernetes.io/docs/admin/authorization/rbac/"&gt;&lt;span class="caps"&gt;RBAC&lt;/span&gt; authorization&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;&lt;span class="caps"&gt;RPM&lt;/span&gt; packages for &lt;span class="caps"&gt;IBM&lt;/span&gt; Z&amp;nbsp;systems&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;cockpit-docker&lt;/code&gt; &lt;span class="caps"&gt;RPM&lt;/span&gt; package is now being built on the s390x (&lt;span class="caps"&gt;IBM&lt;/span&gt; Z
+Systems) architecture, as the Fedora Docker package is available there.
+(&lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=1462113"&gt;#1462113&lt;/a&gt;)&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 143 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/143"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-143-1.fc26"&gt;Fedora&amp;nbsp;26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit 142</title><link href="http://cockpit-project.org/blog/cockpit-142.html" rel="alternate"></link><published>2017-06-09T16:00:00+00:00</published><author><name>Martin Pitt</name></author><id>tag:cockpit-project.org,2017-06-09:blog/cockpit-142.html</id><summary type="html">&lt;p&gt;Cockpit is the &lt;a href="http://cockpit-project.org/"&gt;modern Linux admin interface&lt;/a&gt;. We release regularly.
+Here are the release notes from versions 141 and&amp;nbsp;142.&lt;/p&gt;
+&lt;h3&gt;Virtual machines display an interactive&amp;nbsp;console&lt;/h3&gt;
+&lt;p&gt;The Virtual Machines page now offers easy access to graphical consoles in the new &amp;#8220;Console&amp;#8221; tab. If the &lt;span class="caps"&gt;VM&lt;/span&gt; has a &lt;span class="caps"&gt;VNC&lt;/span&gt; server
+enabled, then there is now an inline &lt;a href="https://github.com/novnc/noVNC"&gt;noVNC&lt;/a&gt;&amp;nbsp;console:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Machines inline console" src="images/machines-inline-console.png" /&gt;&lt;/p&gt;
+&lt;p&gt;If the &lt;span class="caps"&gt;VM&lt;/span&gt; only has a &lt;span class="caps"&gt;SPICE&lt;/span&gt; server, or the inline console is not sufficient, you can use &amp;#8220;Switch to Desktop Viewer&amp;#8221; and with a
+single button click open virt-viewer for that &lt;span class="caps"&gt;VM&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Machines external console" src="images/machines-external-console.png" /&gt;&lt;/p&gt;
+&lt;p&gt;See it in&amp;nbsp;action:&lt;/p&gt;
+&lt;iframe width="960" height="720" src="https://www.youtube.com/embed/_zVi44KQ8KU?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Document how to grant/restrict access via polkit&amp;nbsp;rules&lt;/h3&gt;
+&lt;p&gt;Users who are not administrators can normally not perform actions such as
+changing the hostname or start/stop systemd services. The
+&lt;a href="http://cockpit-project.org/guide/latest/privileges.html#privileges-polkit"&gt;Privileges and Permissions&lt;/a&gt;
+section in the guide and the
+&lt;a href="http://cockpit-project.org/guide/latest/feature-systemd.html"&gt;systemd feature page&lt;/a&gt; now describe how to use polkit
+rules allow fine-grained permissions such as &amp;#8220;that user can restart this particular&amp;nbsp;service&amp;#8221;.&lt;/p&gt;
+&lt;h3&gt;Attempt to tear down used partitions when formatting&amp;nbsp;disks&lt;/h3&gt;
+&lt;p&gt;Trying to format a disk on the &amp;#8220;Disks&amp;#8221; page which still has partitions which are in use (mounted or used as an &lt;span class="caps"&gt;LVM&lt;/span&gt;
+physical volume) will now attempt to unmount/remove the physical volume, instead of just&amp;nbsp;failing:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Automatic device teardown" src="images/cockpit-storage-teardown-device.png" /&gt;&lt;/p&gt;
+&lt;h3&gt;Try it&amp;nbsp;out&lt;/h3&gt;
+&lt;p&gt;Cockpit 142 is available&amp;nbsp;now:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cockpit-project.org/running.html"&gt;For your Linux&amp;nbsp;system&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/142"&gt;Source&amp;nbsp;Tarball&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bodhi.fedoraproject.org/updates/cockpit-142-1.fc26"&gt;Fedora&amp;nbsp;26&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry></feed>

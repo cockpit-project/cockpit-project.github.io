@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-  </title>
+Cockpit Virtual Hackfest  </title>
 
 </head>
 
@@ -62,88 +63,38 @@
     <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html">Cockpit Virtual&nbsp;Hackfest</a></h1>
   </div>
   <div class="article_text">
-    <p>There&#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&#8217;re working on virtual machine functionality in&nbsp;Cockpit.</p>
+    <p>There&#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&#8217;re working on the
+virtual machine functionality in&nbsp;Cockpit.</p>
+<p><img alt="Hackfest" src="images/hackfest-1.jpg" /></p>
+<p>That means interacting with libvirt. Although libvirt has remoting functionality
+it has no <span class="caps">API</span> that&#8217;s actually remotable and callable from Cockpit javascript code.
+So Lars and Pavel started working on a DBus wrapper for the <span class="caps">API</span>.</p>
+<p>At the same time, Martin is working on making the current
+<a href="http://libvirt.org/virshcmdref.html">virsh</a> based access to libvirt more
+performant, so we don&#8217;t block on waiting until the DBus wrapper is&nbsp;done.</p>
+<p>Lots of work was done understanding <a href="http://redux.js.org/">redux</a>. The initial
+machines code in Cockpit was written using redux, and we needed to map it&#8217;s
+concept of models and state to the Cockpit way of storing state on the server
+and <span class="caps">UI</span> concepts like dialogs. Everyone was&nbsp;involved.</p>
+<p>Andreas, Garrett have been working on designs for creating a virtual machine
+and editing virtual machines. Dominik started work on implementing that&nbsp;code.</p>
+<p>Marius worked on deletion of virtual machines, and already has a
+<a href="https://github.com/cockpit-project/cockpit/pull/7113">pull request</a>&nbsp;open.</p>
+<p>Stef worked is working on the integration tests for the virtual machine stuff
+and is booting nested VMs <a href="https://github.com/cockpit-project/cockpit/pull/7117">using nested images</a>.</p>
+<p><img alt="Hackfest" src="images/hackfest-2.jpg" /></p>
+<p>Wheeee.</p>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-143.html">Cockpit&nbsp;143</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Tue 27 June 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit with new Software Updates&nbsp;page</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit&nbsp;142</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Virtual Machine&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-137.html">Cockpit 136 and&nbsp;137</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with menu and storage&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-135.html">Cockpit&nbsp;135</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with authorization and authentication&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-134.html">Cockpit&nbsp;134</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit is now fully&nbsp;translatable</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-133.html">Cockpit&nbsp;133</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit supports alternate bridges via&nbsp;packages</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-132.html">Cockpit 130, 131 and&nbsp;132</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit supports configuring kdump and <span class="caps">MAC</span>&nbsp;addresses</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-129.html">Cockpit 128 and&nbsp;129</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit supports rebasing on Atomic Host with&nbsp;OSTree.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-127.html">Cockpit 126 and&nbsp;127</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit shows container image security scan&nbsp;info.</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/index2.html" class="button_accent">&larr; Older Posts</a>
-
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
