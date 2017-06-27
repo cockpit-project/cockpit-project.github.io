@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - linux</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/linux.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2014-11-04T00:00:00+00:00</updated><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:/blog/d-bus-is-powerful-ipc.html/</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/linux.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2014-11-04T00:00:00+00:00</updated><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:blog/d-bus-is-powerful-ipc.html</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
 &lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md"&gt;WebSocket transport&lt;/a&gt;,
 and marshal them in &lt;span class="caps"&gt;JSON&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
-these capabilities are what allow Cockpit to implement its &lt;span class="caps"&gt;UI …&lt;/span&gt;&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry></feed>
+these capabilities are what allow Cockpit to implement its &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Method Call&amp;nbsp;Transactions&lt;/li&gt;
+&lt;li&gt;Object&amp;nbsp;Oriented&lt;/li&gt;
+&lt;li&gt;Efficient&amp;nbsp;Signalling&lt;/li&gt;
+&lt;li&gt;Properties and&amp;nbsp;notifications&lt;/li&gt;
+&lt;li&gt;Race free watching of entire Object trees for&amp;nbsp;changes&lt;/li&gt;
+&lt;li&gt;Broadcasting&lt;/li&gt;
+&lt;li&gt;Discovery&lt;/li&gt;
+&lt;li&gt;Introspection&lt;/li&gt;
+&lt;li&gt;Policy&lt;/li&gt;
+&lt;li&gt;Activation&lt;/li&gt;
+&lt;li&gt;Synchronization&lt;/li&gt;
+&lt;li&gt;Type-safe&amp;nbsp;Marshalling&lt;/li&gt;
+&lt;li&gt;Caller&amp;nbsp;Credentials&lt;/li&gt;
+&lt;li&gt;Security&lt;/li&gt;
+&lt;li&gt;Debug&amp;nbsp;Monitoring&lt;/li&gt;
+&lt;li&gt;File Descriptor&amp;nbsp;Passing&lt;/li&gt;
+&lt;li&gt;Language&amp;nbsp;agnostic&lt;/li&gt;
+&lt;li&gt;Network&amp;nbsp;transparency&lt;/li&gt;
+&lt;li&gt;No trust&amp;nbsp;required&lt;/li&gt;
+&lt;li&gt;High-level error&amp;nbsp;concept&lt;/li&gt;
+&lt;li&gt;Adhoc type&amp;nbsp;definitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lennart goes into these further &lt;a href="http://youtu.be/HPbQzm_iz_k?t=2m6s"&gt;in a kdbus talk&lt;/a&gt;, as well as some of the weaknesses of&amp;nbsp;DBus.&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry></feed>

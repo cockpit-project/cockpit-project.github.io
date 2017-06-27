@@ -85,7 +85,7 @@ docker-info: .../.local/share/cockpit/docker-info
 
 
 <p>If you&#8217;re logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the <em>Tools</em> menu called <em>Docker Info</em>:</p>
-<p><img alt="Docker Info tool" src="images/cockpit-docker-info.png"></p>
+<p><img alt="Docker Info tool" src="images/cockpit-docker-info.png" /></p>
 <p>After a moment, you should see numbers pop up with some stats about the docker daemon. Now in a terminal try to run something&nbsp;like:</p>
 <div class="highlight"><pre><span></span>$ sudo docker run -ti fedora /bin/bash
 </pre></div>
@@ -162,11 +162,11 @@ docker-info: .../.local/share/cockpit/docker-info
 
 
 <p>First we define how to retrieve info from Docker. We use the <span class="caps">REST</span> <code>/info</code> <span class="caps">API</span> to do&nbsp;this.</p>
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">retrieve_info() {</span>
-    <span class="kd">var</span> <span class="nx">info</span> <span class="o">=</span> <span class="nx">docker</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">);</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="nx">process_info</span><span class="p">);</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="nx">print_failure</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>function retrieve_info() {
+    var info = docker.get(&quot;/info&quot;);
+    info.done(process_info);
+    info.fail(print_failure);
+}
 </pre></div>
 
 
