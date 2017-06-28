@@ -32,7 +32,7 @@ and editing virtual machines. Dominik started work on implementing that code.
 Marius worked on deletion of virtual machines, and already has a
 [pull request](https://github.com/cockpit-project/cockpit/pull/7113) open.
 
-Stef worked is working on the integration tests for the virtual machine stuff
+Stef worked on the integration tests for the virtual machine stuff
 and is booting nested VMs [using nested images](https://github.com/cockpit-project/cockpit/pull/7117).
 
 ![Hackfest](images/hackfest-2.jpg)
