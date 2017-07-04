@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/release.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-06-27T10:25:00+00:00</updated><entry><title>Cockpit Virtual Hackfest</title><link href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html" rel="alternate"></link><published>2017-06-27T10:25:00+00:00</published><author><name>Stef Walter</name></author><id>tag:cockpit-project.org,2017-06-27:blog/cockpit-virtual-hackfest.html</id><summary type="html">&lt;p&gt;There&amp;#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&amp;#8217;re working on the
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/release.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2017-07-03T16:25:00+00:00</updated><entry><title>Cockpit Virtual Hackfest Wrapup</title><link href="http://cockpit-project.org/blog/cockpit-virtual-hackfest-wrapup.html" rel="alternate"></link><published>2017-07-03T16:25:00+00:00</published><author><name>Stef Walter</name></author><id>tag:cockpit-project.org,2017-07-03:blog/cockpit-virtual-hackfest-wrapup.html</id><summary type="html">&lt;p&gt;Last week a bunch of us met up in Karlsruhe in Germany to work on virtual
+machines support in Cockpit. We had some specialists there who helped us
+get up to speed with VMs. Tons of pull requests opened, designs put together.
+Some of the changes are already merged and
+&lt;a href="https://github.com/cockpit-project/cockpit/releases/tag/144"&gt;released in Cockpit 144&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Marek helped all of us understand how
+&lt;a href="http://redux.js.org/"&gt;Redux&lt;/a&gt;
+stores
+and models data. The oVirt folks are using Redux a lot in front end code
+and want to be able to share code. Marius
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7121"&gt;managed to reconcile&lt;/a&gt;
+Redux with our dialog and
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;promise&lt;/a&gt;&amp;nbsp;code.&lt;/p&gt;
+&lt;p&gt;Creating virtual machines is hard. There&amp;#8217;s a surprising amount of strange
+little details and corner cases. Andreas, Garrett, Pavel, Dominik and Michal were
+involved in long discussions about how to make this work. And Dominik opened a
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7128"&gt;pull request&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create dialog" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/virtual-machines/create-new-vm.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create dialog details" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/virtual-machines/create-vm-dialog.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Stef and Marek worked on
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7139"&gt;sharing&lt;/a&gt;
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7133"&gt;code&lt;/a&gt;
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7128"&gt;between&lt;/a&gt;
+the oVirt javascript code based on Cockpit and the more general
+virtual machines code in Cockpit. Since most of the code is shared, we decided we
+didn&amp;#8217;t want to create any further &lt;span class="caps"&gt;API&lt;/span&gt; here that we had to keep stable, but rather
+build and develop the two in tandem. In the future some of the specific &lt;span class="caps"&gt;UI&lt;/span&gt; widgets
+will be factored out into reusable stable javascript &lt;span class="caps"&gt;NPM&lt;/span&gt;&amp;nbsp;components.&lt;/p&gt;
+&lt;p&gt;Martin
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7131"&gt;refactored Cockpit&amp;#8217;s access to libvirt&lt;/a&gt;
+to be more efficient and scalable with the number of VMs.
+It currently uses &lt;a href="https://libvirt.org/sources/virshcmdref/html-single/"&gt;virsh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At the same time Lars and Pavel started a
+&lt;a href="https://github.com/larskarlitski/libvirt-dbus"&gt;DBus based wrapper for libvirt&lt;/a&gt;. This
+wrapper should be maintained near other libvirt bindings, such as
+&lt;a href="https://libvirt.org/python.html"&gt;libvirt-python&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Marius added functionality to
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7113"&gt;Delete virtual machines&lt;/a&gt; from the
+Cockpit &lt;span class="caps"&gt;UI&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Stef wrote code to
+&lt;a href="https://github.com/cockpit-project/cockpit/pull/7117"&gt;boot real virtual machines&lt;/a&gt; during
+&lt;span class="caps"&gt;CI&lt;/span&gt; testing. We&amp;#8217;re using the same &lt;a href="http://cirros-cloud.net/"&gt;Cirros&lt;/a&gt; Linux that oVirt and
+Openstack use during&amp;nbsp;testing.&lt;/p&gt;
+&lt;p&gt;And there were more pull requests and discussions, but I&amp;#8217;m running out of&amp;nbsp;space.&lt;/p&gt;</summary><category term="cockpit"></category><category term="linux"></category></entry><entry><title>Cockpit Virtual Hackfest</title><link href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html" rel="alternate"></link><published>2017-06-27T10:25:00+00:00</published><author><name>Stef Walter</name></author><id>tag:cockpit-project.org,2017-06-27:blog/cockpit-virtual-hackfest.html</id><summary type="html">&lt;p&gt;There&amp;#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&amp;#8217;re working on the
 virtual machine functionality in&amp;nbsp;Cockpit.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Hackfest" src="images/hackfest-1.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;That means interacting with libvirt. Although libvirt has remoting functionality

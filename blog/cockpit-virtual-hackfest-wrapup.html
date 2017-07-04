@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
+  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
+  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Cockpit Project">
+  <meta name="description" content="Posts and writings by Cockpit Project">
+
+  <script>
+    $(function() {
+       $("article img").each(function() {
+	   var a = $("<a>", {href: this.src});
+	   $(this).replaceWith(a);
+	   a.append(this);
+	});
+    });
+  </script>
+
+  <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
+
+<meta name="keywords" content="cockpit, linux">
+
+  <title>
+Cockpit Virtual Hackfest Wrapup  </title>
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
+        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
+	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
+    </ul>
+    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+	  
+
+  <main>
+    <header>
+      <p>
+      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
+      &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest-wrapup.html">Cockpit Virtual Hackfest&nbsp;Wrapup</a></h1>
+  </div>
+  <div class="article_text">
+    <p>Last week a bunch of us met up in Karlsruhe in Germany to work on virtual
+machines support in Cockpit. We had some specialists there who helped us
+get up to speed with VMs. Tons of pull requests opened, designs put together.
+Some of the changes are already merged and
+<a href="https://github.com/cockpit-project/cockpit/releases/tag/144">released in Cockpit 144</a>.</p>
+<p>Marek helped all of us understand how
+<a href="http://redux.js.org/">Redux</a>
+stores
+and models data. The oVirt folks are using Redux a lot in front end code
+and want to be able to share code. Marius
+<a href="https://github.com/cockpit-project/cockpit/pull/7121">managed to reconcile</a>
+Redux with our dialog and
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promise</a>&nbsp;code.</p>
+<p>Creating virtual machines is hard. There&#8217;s a surprising amount of strange
+little details and corner cases. Andreas, Garrett, Pavel, Dominik and Michal were
+involved in long discussions about how to make this work. And Dominik opened a
+<a href="https://github.com/cockpit-project/cockpit/pull/7128">pull request</a>.</p>
+<p><img alt="Create dialog" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/virtual-machines/create-new-vm.png" /></p>
+<p><img alt="Create dialog details" src="https://raw.githubusercontent.com/cockpit-project/cockpit-design/master/virtual-machines/create-vm-dialog.png" /></p>
+<p>Stef and Marek worked on
+<a href="https://github.com/cockpit-project/cockpit/pull/7139">sharing</a>
+<a href="https://github.com/cockpit-project/cockpit/pull/7133">code</a>
+<a href="https://github.com/cockpit-project/cockpit/pull/7128">between</a>
+the oVirt javascript code based on Cockpit and the more general
+virtual machines code in Cockpit. Since most of the code is shared, we decided we
+didn&#8217;t want to create any further <span class="caps">API</span> here that we had to keep stable, but rather
+build and develop the two in tandem. In the future some of the specific <span class="caps">UI</span> widgets
+will be factored out into reusable stable javascript <span class="caps">NPM</span>&nbsp;components.</p>
+<p>Martin
+<a href="https://github.com/cockpit-project/cockpit/pull/7131">refactored Cockpit&#8217;s access to libvirt</a>
+to be more efficient and scalable with the number of VMs.
+It currently uses <a href="https://libvirt.org/sources/virshcmdref/html-single/">virsh</a>.</p>
+<p>At the same time Lars and Pavel started a
+<a href="https://github.com/larskarlitski/libvirt-dbus">DBus based wrapper for libvirt</a>. This
+wrapper should be maintained near other libvirt bindings, such as
+<a href="https://libvirt.org/python.html">libvirt-python</a>.</p>
+<p>Marius added functionality to
+<a href="https://github.com/cockpit-project/cockpit/pull/7113">Delete virtual machines</a> from the
+Cockpit <span class="caps">UI</span>.</p>
+<p>Stef wrote code to
+<a href="https://github.com/cockpit-project/cockpit/pull/7117">boot real virtual machines</a> during
+<span class="caps">CI</span> testing. We&#8217;re using the same <a href="http://cirros-cloud.net/">Cirros</a> Linux that oVirt and
+Openstack use during&nbsp;testing.</p>
+<p>And there were more pull requests and discussions, but I&#8217;m running out of&nbsp;space.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 03 July 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+  <footer class="footer-cockpit">
+    <p>Cockpit is free software and released under the
+    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+    <p>&copy; Cockpit contributors 2016</p>
+    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
+  </footer>
+
+  </main>
+
+</body>
+</html>
