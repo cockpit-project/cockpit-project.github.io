@@ -75,15 +75,15 @@ Here are the release notes from versions 136 and&nbsp;137.</p>
 <li>Implementation details: Admin accounts,&nbsp;Services/Units</li>
 </ul>
 <p>Check out the screenshot below to see how this looks&nbsp;now.</p>
-<p><img alt="Sidebar order" src="http://cockpit-project.org/blog/images/cockpit-menu-order.png" /></p>
+<p><img alt="Sidebar order" src="http://cockpit-project.org/blog/images/cockpit-menu-order.png"></p>
 <h3>Storage management is more&nbsp;convenient</h3>
 <p>In order to make configuring storage more convenient, the Cockpit <span class="caps">UI</span> now prevents removing disks from a <span class="caps">RAID</span> when
 removal would lead to data loss due to an insufficient number of remaining volumes in the <span class="caps">RAID</span>. Also, when creating
 a Volume Group (<span class="caps">LVM</span>) or adding disk space to a Volume Group, unpartitioned space is now offered as a choice.
 If selected, Cockpit automatically creates a partition before adding it to the Volume Group. Check out the screenshots
 below to see how these features&nbsp;look.</p>
-<p><img alt="Remove RAID disk" src="http://cockpit-project.org/blog/images/cockpit-remove-raid-disk.png" />
-<img alt="Add unpartitioned disk" src="http://cockpit-project.org/blog/images/cockpit-storage-add-unpartitioned.png" /></p>
+<p><img alt="Remove RAID disk" src="http://cockpit-project.org/blog/images/cockpit-remove-raid-disk.png">
+<img alt="Add unpartitioned disk" src="http://cockpit-project.org/blog/images/cockpit-storage-add-unpartitioned.png"></p>
 <h3>Consider user known_hosts for ssh&nbsp;connections</h3>
 <p>When managing remote machines, Cockpit now considers known host keys in the user&#8217;s <code>~/.ssh/known_hosts</code> in addition to
 the system-wide <code>/etc/ssh/ssh_known_hosts</code>. This makes Cockpit behave more like the standard ssh&nbsp;client.</p>
