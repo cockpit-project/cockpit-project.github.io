@@ -10,7 +10,7 @@ comments: true
 ---
 
 Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release regularly.
-Here are the release notes from version 144 and 154.
+Here are the release notes from version 144 and 145.
 
 ### Terminal size
 
