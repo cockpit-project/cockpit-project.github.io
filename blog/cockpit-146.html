@@ -30,10 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
-<link href="http://cockpit-project.org/blog/feeds/release.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project release Category Atom" />
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-&ndash; Category: release  </title>
+Cockpit 146  </title>
 
 </head>
 
@@ -55,8 +55,6 @@
       <p>
       <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
       &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-&gt; Category: release
-&brvbar; <a href="http://cockpit-project.org/blog/feeds/release.atom.xml">Atom</a>
       </p>
     </header>
 
@@ -65,88 +63,53 @@
     <h1><a href="http://cockpit-project.org/blog/cockpit-146.html">Cockpit&nbsp;146</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit with Software Updates improvements and <span class="caps">GCE</span>&nbsp;support</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from version&nbsp;146.</p>
+<h3>Software Updates page shows more&nbsp;information</h3>
+<p>The Available Updates and Restart recommended pages now show the packages
+from the previous update run. This makes it easier to see which services to
+check or to decide whether a restart is really&nbsp;necessary:</p>
+<p><img alt="Update History" src="images/updates-history.png"></p>
+<p>The new Update Log expander shows the previous steps of the running&nbsp;update:</p>
+<p><img alt="Update Log" src="images/updates-live-log.png"></p>
+<h3>Improve available Software Updates layout for small/mobile&nbsp;screens</h3>
+<p>The Available Updates page now folds all information into a single column on
+very narrow/mobile screens, to stay&nbsp;readable:</p>
+<p><img alt="Narrow Updates Page" src="images/updates-narrow.png"></p>
+<p>In addition, updates with a long changelog or a large number of subpackages now
+get truncated, with a <code>More information…</code> expander. This avoids lots of empty
+space that makes it difficult browse the updates&nbsp;list.</p>
+<h3>Support OAuth Kubernetes logins with Google Compute&nbsp;Engine</h3>
+<p>The Kubernetes pages (Cluster) can now log into Google Compute Engine. Note
+that there is no way to get information about the user, so they are being
+displayed as <code>Unknown</code>.</p>
+<h3>Fix reporting <span class="caps">ABRT</span> crashes that are already known to the&nbsp;server</h3>
+<p>Trying to report a crash (<code>Problems</code> category on the Logs page) that the <span class="caps">FAF</span>
+server already knows previously caused an error message. This has been
+corrected, and the report is now properly shown as <code>Reported</code>.</p>
+<p>Thanks to Matej Marušák for this&nbsp;fix!</p>
+<h3>Scroll the virtual machine <span class="caps">VNC</span> console into view&nbsp;automatically</h3>
+<p>When opening the builtin <span class="caps">VNC</span> console of a virtual machine, the page now
+automatically gets scrolled to maximize visibility of the&nbsp;console.</p>
+<p>Thanks to Marek Libra for this&nbsp;improvement!</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 146 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/146">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-146-1.fc26">Fedora&nbsp;26</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-145.html">Cockpit&nbsp;145</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Fri 21 July 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit with Machines, Terminal, and Software Updates&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest-wrapup.html">Cockpit Virtual Hackfest&nbsp;Wrapup</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Here&#8217;s what happened at the Cockpit Hackfest last week in Karlsruhe, Germany. We&#8217;ve were working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html">Cockpit Virtual&nbsp;Hackfest</a></h1>
-  </div>
-  <div class="article_text">
-    <p>There&#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&#8217;re working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-143.html">Cockpit&nbsp;143</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with new Software Updates&nbsp;page</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit&nbsp;142</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Virtual Machine&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-137.html">Cockpit 136 and&nbsp;137</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with menu and storage&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-135.html">Cockpit&nbsp;135</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with authorization and authentication&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-134.html">Cockpit&nbsp;134</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit is now fully&nbsp;translatable</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-133.html">Cockpit&nbsp;133</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit supports alternate bridges via&nbsp;packages</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/category/release2.html" class="button_accent">&larr; Older Posts</a>
-
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
