@@ -25,7 +25,7 @@ $grey-color-light: lighten($grey-color, 40%)
 $grey-color-dark: darken($grey-color, 25%)
 
 // Width of the content area
-$content-width: 60rem
+$content-width: 70rem
 
 // Import partials from the `minima` theme.
 @import minima
@@ -143,3 +143,101 @@ h2.browser-header
 
 html.body-cockpit > body
   color: #3e5375
+
+html.front-page
+  .page-content
+    padding-top: 0
+
+  .intro
+    background: #3e5375
+    color: #eeeeec
+    font-size: 18px
+    margin: 0 0 3rem
+    padding: 48px 0 0
+
+    p:first-child:last-child
+      margin: 0
+
+    .grid > div
+      padding-bottom: 0
+
+    ul, li
+      margin: 0
+      padding: 0
+      list-style: none
+      display: inline
+
+    %btn
+      display: inline-block
+      background: #eeeeec
+      border-radius: 6px
+      box-shadow: 0 3px 0 rgba(46, 61, 86, 1)
+      color: #3e5375
+      font-size: 18px
+      line-height: 1.33
+      margin: 10px 10px 20px 0px
+      padding: 10px 16px
+
+      &:hover
+        text-decoration: none
+        background: white
+        color: #333
+
+    li a
+      @extend %btn
+
+    li.with-img img
+      vertical-align: top
+      margin: -1px 2px 0 0
+
+  .blurbs
+    .col
+      padding: 1rem 2rem 4rem
+
+    h3
+      text-transform: uppercase
+      color: #3e5375
+      font-size: 24px
+      margin: 20px 0 10px
+
+  footer.footer-cockpit
+    margin-top: 0
+
+.screenshot
+  border: 1px solid #d3d7cf
+
+footer.footerlinks
+  background: #eeeeec
+  border-top: 1px solid #d3d7cf
+  border-bottom: 1px solid #d3d7cf
+  padding: 20px 10%
+  font-size: 18px
+  line-height: 1.4285
+
+  dl a,
+  dt
+    padding: 5px 20px
+
+  dt
+    font-weight: bold
+
+    a
+      margin: -5px -20px
+
+  dd
+    a
+      padding-left: 30px
+
+  a:hover
+    background: white
+
+footer.footer-cockpit
+  text-align: center
+  padding: 20px
+  background-color: #333
+  color: white
+  margin-top: 3em
+  padding-bottom: 0.5em
+
+  a
+    color: #84bbef
