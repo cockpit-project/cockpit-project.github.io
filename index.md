@@ -75,20 +75,22 @@ About Cockpit
 ##### Scaffolding #####
 {% endcomment %}
 
-<section class="intro">
-  <div class="wrapper"><div class="grid">
-    <div class="col-7">{{ intro-left  | markdownify }}</div>
-    <div class="col-5">{{ intro-right | markdownify }}</div>
-  </div></div>
-</section>
-
-<section class="wrapper">
-  <section class="grid blurbs">
-    <div class="col">{{ blurb_easy        | markdownify }}</div>
-    <div class="col">{{ blurb_interactive | markdownify }}</div>
-    <div class="col">{{ blurb_multiserver | markdownify }}</div>
+<div id="page-wrap">
+  <section class="intro">
+    <div class="wrapper"><div class="grid">
+      <div class="col-7">{{ intro-left  | markdownify }}</div>
+      <div class="col-5">{{ intro-right | markdownify }}</div>
+    </div></div>
   </section>
-</section>
+
+  <section class="wrapper">
+    <section class="grid blurbs">
+      <div class="col">{{ blurb_easy        | markdownify }}</div>
+      <div class="col">{{ blurb_interactive | markdownify }}</div>
+      <div class="col">{{ blurb_multiserver | markdownify }}</div>
+    </section>
+  </section>
+</div>
 
 <footer class="footerlinks">
   <div class="wrapper"><div class="grid">
