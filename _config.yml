@@ -30,6 +30,8 @@ paginate_path: "/blog/page=:num"
 
 lang: en
 
+logo: /images/site/cockpit-logo-small.png
+
 # Build settings
 markdown: kramdown
 theme: minima
