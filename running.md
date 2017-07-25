@@ -14,19 +14,19 @@ Use your system user account and password to log in. See [the guide](guide/lates
 
 
 {% capture stable1 %}
-{:.os-list.grid-4}
+{:.os-list.grid-4.grid_xs-2}
 - {:.col}[![](/images/site/os-fedora.png)](#fedora)
 - {:.col}[![](/images/site/os-rhel.png)](#rhel)
 - {:.col}[![](/images/site/os-atomic.png)](#atomic)
 - {:.col}[![](/images/site/os-centos.png)](#centos)
 {% endcapture %}
 {% capture stable2 %}
-{:.os-list.grid-4}
+{:.os-list.grid-4.grid_xs-2}
 - {:.col}[![](/images/site/os-debian.png)](#debian)
 - {:.col}[![](/images/site/os-ubuntu.png)](#ubuntu)
 {% endcapture %}
 {% capture unstable1 %}
-{:.os-list.grid-4}
+{:.os-list.grid-4.grid_xs-2}
 - {:.col}[![](/images/site/os-archlinux.png)](#arch)
 {% endcapture %}
 
