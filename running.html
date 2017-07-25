@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+
+  <title>Running Cockpit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+
+    <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $( document ).ready( function() {
+            $( "div.os-selector" ).click( function() {
+                // gets the name of the OS selected
+                classes = ( $( this ).attr( "class" ).split( "-" ));
+                OSName = classes[ classes.length - 1 ];
+
+                // hide all divs
+                $( "div.os-info" ).not("div.os-info-" + OSName).hide();
+
+                // toggle the correct div
+                $( "div.os-info-" + OSName ).toggle();
+            });
+        });
+    </script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="body-cockpit">
+
+<div class="jumbotron jumbotron-cockpit jumbotron-static">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a href="index.html">Home</a></li>
+        <li role="presentation"><a href="blog/">Blog</a></li>
+        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
+    </ul>
+    <a href="index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
+</div>
+
+    <main class="container-fluid">
+      <div class="container">
+	<h1>Running Cockpit</h1>
+
+        <div class="row">
+	    <div class="col-md-12">
+                <p class="port-info">If you already have Cockpit on your server, point your web browser to: <strong>https://<span>ip-address-of-machine</span>:9090</strong></p>
+		<p class="port-info">Use your system user account and password to log in. See
+                      <a href="http://cockpit-project.org/guide/latest/guide.html">the guide</a> for more info.</p>
+	    </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Stable, tested, and included in</p></div></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-fedora"><img src="images/os-fedora.png"></div></div>
+          <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-rhel"><img src="images/os-rhel.png"></div></div>
+          <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-atomic"><img src="images/os-atomic.png"></div></div>
+          <div class="col-md-3 col-xs-4 col-sm-3"><div class="os-selector os-selector-centos"><img src="images/os-centos.png"></div></div>
+	 </div>
+
+          <div class="col-md-12 os-info os-info-fedora" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit comes <b>installed by default in Fedora Server</b>.</p>
+	      <p>To install Cockpit on other variants of Fedora use the following commands. For the latest versions <a href="https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/">use COPR</a>.</p>
+              <ol>
+                <li>Install cockpit:
+                        <pre>sudo dnf install cockpit</pre>
+                </li>
+                <li>Enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --add-service=cockpit
+sudo firewall-cmd --add-service=cockpit --permanent</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="col-md-12 os-info os-info-rhel" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit is included in the Red Hat Enterprise Linux <i>Extras</i> repository in versions 7.1 and later:</p>
+              <ol>
+                <li>Enable the <i>Extras</i> repository:
+                        <pre>sudo subscription-manager repos --enable rhel-7-server-extras-rpms</pre>
+                </li>
+                <li>Install cockpit:
+                        <pre>sudo yum install cockpit</pre>
+                </li>
+                <li>Enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --add-service=cockpit
+sudo firewall-cmd --add-service=cockpit --permanent</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12 os-info os-info-atomic" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+	      <p><strong>Connect to an Atomic Host from another instance of Cockpit</strong> with the <i>Add Server</i> dashboard UI.<br/>
+              <p>Alternatively you can access Cockpit directly on the Atomic Host if SSH password authentication is enabled:</p>
+              <ol>
+                <li>Run the Cockpit web service container:
+                <pre>sudo atomic run cockpit/ws</pre>
+              </ol>
+            </div>
+          </div>
+	 </div>
+          <div class="col-md-12 os-info os-info-centos" style="display: none;">
+            <div class="os-infobox">
+              <div class="os-infobox-stable">&nbsp;</div>
+              <p>Cockpit is included in CentOS 7.x:</p>
+              <ol>
+                <li>Install cockpit:
+                        <pre>sudo yum install cockpit</pre>
+                </li>
+                <li>Enable cockpit:
+                        <pre>sudo systemctl enable --now cockpit.socket</pre>
+                </li>
+                <li>Open the firewall if necessary:
+<pre>sudo firewall-cmd --permanent --zone=public --add-service=cockpit
+sudo firewall-cmd --reload</pre>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+	 <div class="row">
+          <div class="col-md-3 col-xs-4 col-sm-4"><div class="os-selector os-selector-debian"><img src="images/os-debian.png"></div></div>
+          <div class="col-md-3 col-xs-4 col-sm-4"><div class="os-selector os-selector-ubuntu"><img src="images/os-ubuntu.png"></div></div>
+        </div>
+
+        <div>
+          <div class="col-md-12 os-info os-info-debian" style="display: none;">
+            <div class="os-infobox">
+              <p>Cockpit is included in Debian unstable.</p>
+              <ol>
+                <li>Install the package:</li>
+                <pre>sudo apt-get install cockpit</pre>
+              </ol>
+            </div>
+
+            <div class="os-infobox">
+              <p>For Debian Jessie (8.x) you can add a repository which always has the latest Cockpit release:</p>
+              <ol>
+                <li>Add the following line to <tt>/etc/apt/sources.list</tt>.
+                  <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main</pre></li>
+                <li>Import Cockpit's signing key to the apt sources keyring:
+                  <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C</pre></li>
+                <li>Verify fingerprint:
+                   <pre>sudo apt-key finger F1BAA57C</pre>
+                   <p>Compare the output: <tt>Key fingerprint = FD9A 5764 17F7 B1D8 63C4  7A5A 0D2A 45C3 F1BA A57C</tt></p></li>
+                <li>Update package information with that source:
+                  <pre>sudo apt-get update</pre></li>
+                <li>Install cockpit:
+                  <pre>sudo apt-get install cockpit</pre></li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="col-md-12 os-info os-info-ubuntu" style="display: none;">
+            <div class="os-infobox">
+              <p>Cockpit is included in Ubuntu 17.04 and later, and available
+              <a href="https://help.ubuntu.com/community/UbuntuBackports">as an official backport</a>
+              for 16.04 LTS and later. Backports are enabled by default, but if you customized apt sources you might need to
+              <a href="https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports">enable them manually</a>.</p>
+              <ol>
+                <li>Install the package:</li>
+                <pre>sudo apt-get install cockpit</pre>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- no current entries
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Stable, tested, delivered in a repository</p></div></div>
+        </div>
+        -->
+
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Less tested and irregularly updated</p></div></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4 col-sm-3"><div class="os-selector os-selector-archlinux"><img src="images/os-archlinux.png"></div></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 os-info os-info-archlinux" style="display: none;">
+            <div class="os-infobox">
+            Cockpit can be found in the <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository">Arch User Repository</a> as package
+            <a href="https://aur.archlinux.org/packages/cockpit/">cockpit</a>.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-12"><div class="browser-header"><p>Minimum client browser versions</p></div></div>
+        </div>
+
+        <div class="row browser-list">
+          <div class="col-md-4"><img src="images/browser-firefox.png"> Mozilla Firefox 11+</div>
+          <div class="col-md-4"><img src="images/browser-explorer.png"> Internet Explorer 10+</div>
+          <div class="col-md-4"><img src="images/browser-ios.png"> Apple iOS Safari 6.1+</div>
+          <div class="col-md-4"><img src="images/browser-chrome.png"> Google Chrome 16+</div>
+          <div class="col-md-4"><img src="images/browser-opera.png"> Opera 21.1+</div>
+          <div class="col-md-4"><img src="images/browser-android.png"> Android Browser 4.4+</div>
+        </div>
+      </div>
+    </main>
+
+
+    <footer class="footer-cockpit">
+      <p>Cockpit is free software and released under the
+      	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
+      <p>&copy; Cockpit contributors 2016</p>
+    </footer>
+  </body>
+</html>
