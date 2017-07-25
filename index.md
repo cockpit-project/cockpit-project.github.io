@@ -50,7 +50,8 @@ You can monitor and administer several servers at the same time. Just add it eas
 {% capture footer_links_1 %}
 About Cockpit
 : [Project Ideals and Goals](ideals.html)
-: [Cockpit Blog](blog.1.html)
+: [Cockpit Blog](blog)
+: [Search](search)
 {% endcapture %}
 
 {% capture footer_links_2 %}
