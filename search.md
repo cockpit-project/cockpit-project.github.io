@@ -1,5 +1,6 @@
 ---
 index: false
+layout: default
 ---
 
 ## Search
