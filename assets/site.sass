@@ -1,0 +1,134 @@
+// Please copy default.scss to site.scss to customize your site.
+//
+// If site.scss (or site) exists, then default.scss will not
+// be used. (You can then use it for reference later.)
+//
+// Be sure to `@import "minima"` after the variables needed for it
+// and before your own custom CSS, so you can easily override
+// (if you really need to).
+
+// Our variables
+$base-font-family: "Helvetica Neue", Helvetica, Arial, Liberation Sans, sans-serif
+$base-font-size: 14px
+$base-font-weight: 400
+$small-font-size: $base-font-size * 0.875
+$base-line-height: 1.5
+
+$spacing-unit: 1rem
+
+$text-color: #333
+$background-color: #fff
+$brand-color: #3e5375
+
+$grey-color: #828282
+$grey-color-light: lighten($grey-color, 40%)
+$grey-color-dark: darken($grey-color, 25%)
+
+// Width of the content area
+$content-width: 60rem
+
+// Import partials from the `minima` theme.
+@import minima
+
+// Import grid (see http://gridlex.devlint.fr/ for docs)
+@import vendor/gridlex
+
+// Comment out or remove the follow if you don't use the feature
+////////////////////////////////////////////////////////////////////////
+// Navbar (see opts in lib/navbar.sass)
+//@import lib/nav
+// Styles for the search page
+@import lib/search
+// Default blog style
+@import lib/blog
+// Blog pagination
+@import lib/pagination
+// Stretch page with footer on bottom
+@import lib/stickyfooter
+// Stop page shift by keeping scrollbar on
+@import lib/scrollbar-on
+
+//@import "lib/quicklinks"   // Quick jump links needed for events
+//@import "lib/events"       // Events and upcoming support.
+//@import "lib/stickyheader" // Keep header at the top
+
+// Minima also includes a mixin for defining media queries.
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2
+//         padding-left: $spacing-unit / 2
+//     }
+// }
+
+header.masthead
+  padding: 2rem
+  margin: 0 0 3rem
+  background: $brand-color
+  color: white
+  display: flex
+
+  a
+    color: white
+
+  .hgroup,
+  .nav-wrap
+    flex: auto
+
+  .nav-wrap
+    text-align: right
+
+  .nav-menu
+
+    &, & li
+      list-style: none
+      display: inline
+
+    li a
+      display: block-inline
+      padding: 2ex 3ex
+
+html.running-cockpit
+  .os-instructions
+    background: #eeeeec
+    border-radius: 5px
+    margin-top: 20px
+    padding: 20px
+    min-height: 100px
+    font-size: 15px
+    display: none
+
+    &.active,
+    &:target
+      display: block
+
+    pre, code
+      background: #fff
+
+  ul, li
+    list-style: none
+
+  .os-list
+
+    ul, li
+      padding: 0
+      margin: 0
+
+    a
+      display: block
+      padding: 5px
+      border-radius: 5px
+
+      &:active,
+      &:hover
+        background: #eeeeec
+
+h2.browser-header
+  color: #979c91
+  font-size: 16px
+  font-weight: 300
+  text-align: center
+  margin: 40px 0 15px
+
+html.body-cockpit > body
+  color: #3e5375
