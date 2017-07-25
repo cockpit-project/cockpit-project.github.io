@@ -62,31 +62,42 @@ $content-width: 60rem
 // }
 
 header.masthead
-  padding: 2rem
+  padding: 0
   margin: 0 0 3rem
   background: $brand-color
   color: white
   display: flex
+  align-items: baseline
 
   a
     color: white
+    padding: 1.25rem 1rem
 
   .hgroup,
   .nav-wrap
     flex: auto
 
+  h1,
+  ul
+    margin: 0
+
   .nav-wrap
     text-align: right
+    font-size: 140%
 
   .nav-menu
 
     &, & li
       list-style: none
-      display: inline
+      display: inline-block
+      margin: 0
+      padding: 0
 
     li a
-      display: block-inline
-      padding: 2ex 3ex
+      display: inline-block
+
+pre
+  white-space: pre-wrap
 
 html.running-cockpit
   .os-instructions
