@@ -80,7 +80,7 @@ About Cockpit
   <section class="intro">
     <div class="wrapper"><div class="grid">
       <div class="col-7">{{ intro-left  | markdownify }}</div>
-      <div class="col-5">{{ intro-right | markdownify }}</div>
+      <div class="col-5"><span class="intro-image">{{ intro-right | markdownify }}</span></div>
     </div></div>
   </section>
 
