@@ -177,7 +177,7 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 <div class="browser-header"><h2>Less tested and irregularly updated</h2></div>
 
 {{ unstable1 | markdownify }}
-<section id="arch" class="os-instructions">{{ arch | markdownify }}</section>
+<section id="arch" class="os-instructions os-block">{{ arch | markdownify }}</section>
 
 
 <div class="browser-header"><h2>Minimum client browser versions</h2></div>
