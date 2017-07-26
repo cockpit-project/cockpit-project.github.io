@@ -157,45 +157,73 @@ pre
 
 html.running-cockpit
   .os-instructions
-    background: #eeeeec
-    border-radius: 5px
-    margin-top: 20px
-    padding: 20px
-    min-height: 100px
-    font-size: 15px
     display: none
+    margin-top: 10px
 
     &.active,
     &:target
       display: block
 
+  .os-block
+    background: #eeeeec
+    border-radius: 5px
+    margin-bottom: 20px
+    padding: 20px
+    min-height: 100px
+    font-size: 15px
+    position: relative
+
+    li
+      margin-top: 2ex
+
+    pre
+      margin: 1ex 0
+
     pre, code
       background: #fff
 
-  ul, li
-    list-style: none
+    &.stable:after
+      position: absolute
+      content: url(../images/site/os-stable.png)
+      top: 0
+      right: 0
+      width: auto
+      height: auto
+
+  .browser-support,
+  .os-list
+    li
+      list-style: none
 
   .os-list
 
-    ul, li
+    &, > li
       padding: 0
       margin: 0
 
     a
       display: block
-      padding: 5px
+      padding: 10px
       border-radius: 5px
 
       &:active,
       &:hover
         background: #eeeeec
 
-h2.browser-header
-  color: #979c91
-  font-size: 16px
-  font-weight: 300
+.browser-header 
   text-align: center
-  margin: 40px 0 15px
+  background: linear-gradient(transparent calc(50% - 1px), #babdb6 50%, transparent calc(50% + 1px))
+  margin: 3rem 0 2rem
+
+  h2
+    color: #979c91
+    font-size: 16px
+    font-weight: 300
+    text-align: center
+    display: inline
+
+    background: #fff
+    padding: 1ex
 
 html.body-cockpit > body
   color: #3e5375
@@ -307,6 +335,7 @@ footer.footer-cockpit
   img
     height: 20px
     width: auto
+    margin-right: 0.75ex
 
 article
   h1, h3, h2

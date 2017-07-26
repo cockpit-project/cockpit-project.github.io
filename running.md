@@ -4,8 +4,6 @@ class: running-cockpit body-cockpit
 ---
 
 {% capture intro %}
-# Running Cockpit
-
 If you already have Cockpit on your server, point your web browser to:
 **https://**_ip-address-of-machine_**:9090**
 
@@ -106,15 +104,17 @@ sudo firewall-cmd --reload
 {% endcapture %}
 
 
-{% capture debian %}
+{% capture debian-unstable %}
 Cockpit is included in Debian unstable.
 
 1. Install the package:
-
 ```
 sudo apt-get install cockpit
 ```
+{% endcapture %}
 
+
+{% capture debian-jessie %}
 For Debian Jessie (8.x) you can add a repository which always has the latest Cockpit release:
 
 1. Add the following line to . 
@@ -129,9 +129,7 @@ sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C
 ```
 sudo apt-key finger F1BAA57C
 ```
-
-Compare the output:
-
+Compare the output: <tt>Key fingerprint = FD9A 5764 17F7 B1D8 63C4 7A5A 0D2A 45C3 F1BA A57C</tt>
 4. Update package information with that source: 
 ```
 sudo apt-get update
@@ -161,27 +159,28 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 
 {{ intro | markdownify }}
 
-## Stable, tested, and included in
-{:.browser-header}
+<div class="browser-header"><h2>Stable, tested, and included in</h2></div>
 
 {{ stable1 | markdownify }}
-<section id="fedora" class="os-instructions">{{ fedora | markdownify }}</section>
-<section id="rhel" class="os-instructions">{{ rhel | markdownify }}</section>
-<section id="atomic" class="os-instructions">{{ atomic | markdownify }}</section>
-<section id="centos" class="os-instructions">{{ centos | markdownify }}</section>
+<section id="fedora" class="os-instructions os-block stable">{{ fedora | markdownify }}</section>
+<section id="rhel" class="os-instructions os-block stable">{{ rhel | markdownify }}</section>
+<section id="atomic" class="os-instructions os-block stable">{{ atomic | markdownify }}</section>
+<section id="centos" class="os-instructions os-block stable">{{ centos | markdownify }}</section>
 
 {{ stable2 | markdownify }}
-<section id="debian" class="os-instructions">{{ debian | markdownify }}</section>
-<section id="ubuntu" class="os-instructions">{{ ubuntu | markdownify }}</section>
+<section id="debian" class="os-instructions">
+  <div class="os-block">{{ debian-unstable | markdownify }}</div>
+  <div class="os-block">{{ debian-jessie | markdownify }}</div>
+</section>
+<section id="ubuntu" class="os-instructions os-block">{{ ubuntu | markdownify }}</section>
 
-## Less tested and irregularly updated
-{:.browser-header}
+<div class="browser-header"><h2>Less tested and irregularly updated</h2></div>
 
 {{ unstable1 | markdownify }}
 <section id="arch" class="os-instructions">{{ arch | markdownify }}</section>
 
-## Minimum client browser versions
-{:.browser-header}
+
+<div class="browser-header"><h2>Minimum client browser versions</h2></div>
 
 {:.browser-support.grid-3.grid_sm-2.grid_xs-1}
 - {:.col}![](/images/site/browser-firefox.svg) Mozilla Firefox 11+
