@@ -30,7 +30,7 @@ paginate_path: "/blog/page=:num"
 
 lang: en
 
-logo: /images/site/cockpit-logo-small.png
+logo: /images/site/cockpit-logo.svg
 
 # Build settings
 markdown: kramdown

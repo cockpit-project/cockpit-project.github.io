@@ -15,19 +15,19 @@ Use your system user account and password to log in. See [the guide](guide/lates
 
 {% capture stable1 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-fedora.png)](#fedora)
-- {:.col}[![](/images/site/os-rhel.png)](#rhel)
-- {:.col}[![](/images/site/os-atomic.png)](#atomic)
-- {:.col}[![](/images/site/os-centos.png)](#centos)
+- {:.col}[![](/images/site/os-fedora.svg)](#fedora)
+- {:.col}[![](/images/site/os-rhel.svg)](#rhel)
+- {:.col}[![](/images/site/os-atomic.svg)](#atomic)
+- {:.col}[![](/images/site/os-centos.svg)](#centos)
 {% endcapture %}
 {% capture stable2 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-debian.png)](#debian)
-- {:.col}[![](/images/site/os-ubuntu.png)](#ubuntu)
+- {:.col}[![](/images/site/os-debian.svg)](#debian)
+- {:.col}[![](/images/site/os-ubuntu.svg)](#ubuntu)
 {% endcapture %}
 {% capture unstable1 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-archlinux.png)](#arch)
+- {:.col}[![](/images/site/os-archlinux.svg)](#arch)
 {% endcapture %}
 
 
@@ -184,12 +184,12 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 {:.browser-header}
 
 {:.browser-support.grid-3.grid_sm-2.grid_xs-1}
-- {:.col}![](/images/site/browser-firefox.png) Mozilla Firefox 11+
-- {:.col}![](/images/site/browser-explorer.png) Internet Explorer 10+
-- {:.col}![](/images/site/browser-ios.png) Apple iOS Safari 6.1+
-- {:.col}![](/images/site/browser-chrome.png) Google Chrome 16+
-- {:.col}![](/images/site/browser-opera.png) Opera 21.1+
-- {:.col}![](/images/site/browser-android.png) Android Browser 4.4+
+- {:.col}![](/images/site/browser-firefox.svg) Mozilla Firefox 11+
+- {:.col}![](/images/site/browser-explorer.svg) Internet Explorer 10+
+- {:.col}![](/images/site/browser-ios.svg) Apple iOS Safari 6.1+
+- {:.col}![](/images/site/browser-chrome.svg) Google Chrome 16+
+- {:.col}![](/images/site/browser-opera.svg) Opera 21.1+
+- {:.col}![](/images/site/browser-android.svg) Android Browser 4.4+
 
 <script>
 $(function(){

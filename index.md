@@ -11,7 +11,7 @@ First we set up & capture the content, then we render it in the scaffolding belo
 
 
 {% capture intro-left %}
-# ![Cockpit](/images/site/cockpit-logo.png)
+# ![Cockpit](/images/site/cockpit-logo.svg)
 {:.logo}
 
 Cockpit makes it easy to administer your GNU/Linux servers via a web browser.
