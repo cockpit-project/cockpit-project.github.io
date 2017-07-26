@@ -1,6 +1,6 @@
 ---
 title: Cockpit Virtual Hackfest Wrapup
-author: Stef Walter
+author: stef
 date: 2017-07-03 16:25
 tags: cockpit, linux
 slug: cockpit-virtual-hackfest-wrapup
