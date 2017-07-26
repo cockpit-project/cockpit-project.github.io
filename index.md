@@ -78,14 +78,14 @@ About Cockpit
 
 <div id="page-wrap">
   <section class="intro">
-    <div class="wrapper"><div class="grid">
-      <div class="side-left col-7_md-12">{{ intro-left  | markdownify }}</div>
-      <div class="side-right col-5_md-12"><span class="intro-image">{{ intro-right | markdownify }}</span></div>
+    <div class="wrapper"><div class="grid-center-noBottom">
+      <div class="side-left col-7_md-11">{{ intro-left  | markdownify }}</div>
+      <div class="side-right col-5_md-11-bottom"><span class="intro-image">{{ intro-right | markdownify }}</span></div>
     </div></div>
   </section>
 
   <section class="wrapper">
-    <section class="grid blurbs">
+    <section class="grid-center_md-2_sm-1 blurbs">
       <div class="col">{{ blurb_easy        | markdownify }}</div>
       <div class="col">{{ blurb_interactive | markdownify }}</div>
       <div class="col">{{ blurb_multiserver | markdownify }}</div>
@@ -94,9 +94,11 @@ About Cockpit
 </div>
 
 <footer class="footerlinks">
-  <div class="wrapper"><div class="grid">
+  <div class="wrapper"><div class="grid-wrap-3_md-2_xs-1">
     <div class="col">
       {{ footer_links_1 | markdownify }}
+    </div>
+    <div class="col">
       {{ footer_links_2 | markdownify }}
     </div>
     <div class="col">
