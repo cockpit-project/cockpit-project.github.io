@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-  </title>
+Cockpit 147  </title>
 
 </head>
 
@@ -62,88 +63,41 @@
     <h1><a href="http://cockpit-project.org/blog/cockpit-147.html">Cockpit&nbsp;147</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit with Accounts&nbsp;improvements</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from version&nbsp;147.</p>
+<h3>Add configuration of expiry to Accounts&nbsp;page</h3>
+<p>The Accounts page can now display and change the expiration of user accounts
+and their passwords. Note that the login page supports changing expired&nbsp;passwords.</p>
+<p>See it in&nbsp;action:</p>
+<iframe width="960" height="720" src="https://www.youtube.com/embed/q4JCoDF7XwY?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<p>Thanks to Fridolin Pokorny for this&nbsp;improvement!</p>
+<h3>Consistently ignore loopback traffic on all network load&nbsp;graphs</h3>
+<p>The network load graphics on the System, Networking, and Dashboard pages
+sometimes accounted traffic on the loopback network device (<code>lo</code>), which in
+most cases is not interesting for administrators. Now the graphs always ignore
+the loopback&nbsp;device.</p>
+<h3>Fix the Kdump page in Internet&nbsp;Exporer</h3>
+<p>This page previously produced errors when being opened in Internet Explorer due
+to using unsupported JavaScript functions. These got&nbsp;replaced.</p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 147 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/147">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-147-1.fc26">Fedora&nbsp;26</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-146.html">Cockpit&nbsp;146</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Thu 27 July 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit with Software Updates improvements and <span class="caps">GCE</span>&nbsp;support</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-145.html">Cockpit&nbsp;145</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Machines, Terminal, and Software Updates&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest-wrapup.html">Cockpit Virtual Hackfest&nbsp;Wrapup</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Here&#8217;s what happened at the Cockpit Hackfest last week in Karlsruhe, Germany. We&#8217;ve were working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html">Cockpit Virtual&nbsp;Hackfest</a></h1>
-  </div>
-  <div class="article_text">
-    <p>There&#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&#8217;re working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-143.html">Cockpit&nbsp;143</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with new Software Updates&nbsp;page</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit&nbsp;142</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Virtual Machine&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-137.html">Cockpit 136 and&nbsp;137</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with menu and storage&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-135.html">Cockpit&nbsp;135</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with authorization and authentication&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-134.html">Cockpit&nbsp;134</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit is now fully&nbsp;translatable</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/index2.html" class="button_accent">&larr; Older Posts</a>
-
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
