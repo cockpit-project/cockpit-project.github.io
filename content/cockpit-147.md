@@ -1,0 +1,45 @@
+---
+title: Cockpit 147
+author: Martin Pitt
+date: 2017-07-27 15:00
+tags: cockpit, linux
+slug: cockpit-147
+category: release
+summary: Cockpit with Accounts improvements
+comments: true
+---
+
+Cockpit is the [modern Linux admin interface](http://cockpit-project.org/). We release regularly.
+Here are the release notes from version 147.
+
+### Add configuration of expiry to Accounts page
+
+The Accounts page can now display and change the expiration of user accounts
+and their passwords. Note that the login page supports changing expired
+passwords.
+
+See it in action:
+
+<iframe width="960" height="720" src="https://www.youtube.com/embed/q4JCoDF7XwY?rel=0" frameborder="0" allowfullscreen></iframe>
+
+Thanks to Fridolin Pokorny for this improvement!
+
+### Consistently ignore loopback traffic on all network load graphs
+
+The network load graphics on the System, Networking, and Dashboard pages
+sometimes accounted traffic on the loopback network device (`lo`), which in
+most cases is not interesting for administrators. Now the graphs always ignore
+the loopback device.
+
+### Fix the Kdump page in Internet Exporer
+
+This page previously produced errors when being opened in Internet Explorer due
+to using unsupported JavaScript functions. These got replaced.
+
+### Try it out
+
+Cockpit 147 is available now:
+
+ * [For your Linux system](http://cockpit-project.org/running.html)
+ * [Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/147)
+ * [Fedora 26](https://bodhi.fedoraproject.org/updates/cockpit-147-1.fc26)
