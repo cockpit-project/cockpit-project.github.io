@@ -157,18 +157,23 @@ sudo firewall-cmd --reload</pre>
         <div>
           <div class="col-md-12 os-info os-info-debian" style="display: none;">
             <div class="os-infobox">
-              <p>Cockpit is included in Debian unstable.</p>
+              <p>Cockpit is included in Debian 9 (Stretch) and unstable.</p>
               <ol>
+                <li>For Debian 9 you have to enable the <a href="https://backports.debian.org">backports repository</a>:
+                  <pre>echo 'deb http://deb.debian.org/debian stretch-backports main' > /etc/apt/sources.list.d/backports.list
+apt-get update</pre>
+                </li>
                 <li>Install the package:</li>
                 <pre>sudo apt-get install cockpit</pre>
               </ol>
             </div>
 
             <div class="os-infobox">
-              <p>For Debian Jessie (8.x) you can add a repository which always has the latest Cockpit release:</p>
+              <p>For Debian 8 (Jessie) you can add a repository which always has the latest Cockpit release:</p>
               <ol>
-                <li>Add the following line to <tt>/etc/apt/sources.list</tt>.
-                  <pre>deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main</pre></li>
+                <li>Add the repository:
+                  <pre>echo 'deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main' > /etc/apt/sources.list.d/cockpit.list</pre>
+                </li>
                 <li>Import Cockpit's signing key to the apt sources keyring:
                   <pre>sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C</pre></li>
                 <li>Verify fingerprint:
