@@ -30,9 +30,10 @@
 
   <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
 
+<meta name="keywords" content="cockpit, linux">
 
   <title>
-&ndash; Tag: cockpit  </title>
+Cockpit 148  </title>
 
 </head>
 
@@ -54,7 +55,6 @@
       <p>
       <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
       &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-&gt; Tag: cockpit
       </p>
     </header>
 
@@ -63,88 +63,45 @@
     <h1><a href="http://cockpit-project.org/blog/cockpit-148.html">Cockpit&nbsp;148</a></h1>
   </div>
   <div class="article_text">
-    <p>Cockpit with Internet Explorer&nbsp;support</p>
+    <p>Cockpit is the <a href="http://cockpit-project.org/">modern Linux admin interface</a>. We release regularly.
+Here are the release notes from version&nbsp;148.</p>
+<h3>Support Cockpit in Internet&nbsp;Explorer</h3>
+<p>When using Microsoft Windows Internet Explorer, navigating between pages and
+various other operations caused lost state changes, flickering, and lots of
+JavaScript errors. These have been corrected, and automatic tests now run with
+Internet Explorer as&nbsp;well.</p>
+<h3>Update Cluster/Registry design for image&nbsp;streams</h3>
+<p>The design of the image streams on the Cluster and Registry pages has been
+updated to match the design of the current OpenShift Web&nbsp;Console.</p>
+<p><img alt="Image Stream Tag Design" src="images/registry-imagestreams-design.png"></p>
+<h3>Delete Kubernetes session tokens on&nbsp;logout</h3>
+<p>In situations where the Registry Console or the Dashboard is being used on a
+public computer with multiple untrusted users, this could have allowed
+subsequent browser users to operate on the previous Kubernetes/OpenShift
+session. Now logging out properly cleans the session&nbsp;tokens.</p>
+<h3>Detect unregistered <span class="caps">RHEL</span> systems on Software Updates&nbsp;page</h3>
+<p>On <span class="caps">RHEL</span> systems which have not yet been registered or whose registration
+expired, the Software Page would previously have claimed that &#8220;the system is up
+to date&#8221;. Now it detects if the system is unregistered and thus cannot receive&nbsp;updates:</p>
+<p><img alt="Software Updates on unregistered RHEL system" src="images/updates-unregistered.png"></p>
+<h3>Try it&nbsp;out</h3>
+<p>Cockpit 148 is available&nbsp;now:</p>
+<ul>
+<li><a href="http://cockpit-project.org/running.html">For your Linux&nbsp;system</a></li>
+<li><a href="https://github.com/cockpit-project/cockpit/releases/tag/148">Source&nbsp;Tarball</a></li>
+<li><a href="https://bodhi.fedoraproject.org/updates/cockpit-148-1.fc26">Fedora&nbsp;26</a></li>
+</ul>
   </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-147.html">Cockpit&nbsp;147</a></h1>
+  <div class="article_meta">
+    <p>Posted on: Fri 04 August 2017</p>
+    <p>Category: <a href="http://cockpit-project.org/blog/category/release.html">release</a>
+ &ndash; Tags:
+      <a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a>,      <a href="http://cockpit-project.org/blog/tag/linux.html">linux</a>    </p>
   </div>
-  <div class="article_text">
-    <p>Cockpit with Accounts&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-146.html">Cockpit&nbsp;146</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Software Updates improvements and <span class="caps">GCE</span>&nbsp;support</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-145.html">Cockpit&nbsp;145</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Machines, Terminal, and Software Updates&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest-wrapup.html">Cockpit Virtual Hackfest&nbsp;Wrapup</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Here&#8217;s what happened at the Cockpit Hackfest last week in Karlsruhe, Germany. We&#8217;ve were working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-virtual-hackfest.html">Cockpit Virtual&nbsp;Hackfest</a></h1>
-  </div>
-  <div class="article_text">
-    <p>There&#8217;s a Cockpit Hackfest underway in Karlsruhe, Germany. We&#8217;re working on virtual machine functionality in&nbsp;Cockpit.</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-143.html">Cockpit&nbsp;143</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with new Software Updates&nbsp;page</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-142.html">Cockpit&nbsp;142</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with Virtual Machine&nbsp;improvements</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-137.html">Cockpit 136 and&nbsp;137</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with menu and storage&nbsp;changes</p>
-  </div>
-</article>
-<article>
-  <div class="article_title">
-    <h1><a href="http://cockpit-project.org/blog/cockpit-135.html">Cockpit&nbsp;135</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Cockpit with authorization and authentication&nbsp;changes</p>
-  </div>
+
+
 </article>
 
-<footer>
-<div id="paginator">
-<a href="http://cockpit-project.org/blog/tag/cockpit2.html" class="button_accent">&larr; Older Posts</a>
-
-</div>
-</footer>
 
   <footer class="footer-cockpit">
     <p>Cockpit is free software and released under the
