@@ -74,11 +74,10 @@ Internet Explorer as&nbsp;well.</p>
 <p>The design of the image streams on the Cluster and Registry pages has been
 updated to match the design of the current OpenShift Web&nbsp;Console.</p>
 <p><img alt="Image Stream Tag Design" src="images/registry-imagestreams-design.png"></p>
-<h3>Delete Kubernetes session tokens on&nbsp;logout</h3>
-<p>In situations where the Registry Console or the Dashboard is being used on a
-public computer with multiple untrusted users, this could have allowed
-subsequent browser users to operate on the previous Kubernetes/OpenShift
-session. Now logging out properly cleans the session&nbsp;tokens.</p>
+<h3>Delete OpenShift session tokens on&nbsp;logout</h3>
+<p>If the Registry Console or Dashboard creates a new OpenShift session token on
+login, it will now delete that token again on logout. This behaviour now
+matches what the OpenShift Web Console&nbsp;does.</p>
 <h3>Detect unregistered <span class="caps">RHEL</span> systems on Software Updates&nbsp;page</h3>
 <p>On <span class="caps">RHEL</span> systems which have not yet been registered or whose registration
 expired, the Software Page would previously have claimed that &#8220;the system is up
