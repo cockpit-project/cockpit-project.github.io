@@ -26,12 +26,11 @@ updated to match the design of the current OpenShift Web Console.
 
 ![Image Stream Tag Design](images/registry-imagestreams-design.png)
 
-### Delete Kubernetes session tokens on logout
+### Delete OpenShift session tokens on logout
 
-In situations where the Registry Console or the Dashboard is being used on a
-public computer with multiple untrusted users, this could have allowed
-subsequent browser users to operate on the previous Kubernetes/OpenShift
-session. Now logging out properly cleans the session tokens.
+If the Registry Console or Dashboard creates a new OpenShift session token on
+login, it will now delete that token again on logout. This behaviour now
+matches what the OpenShift Web Console does.
 
 ### Detect unregistered RHEL systems on Software Updates page
 
