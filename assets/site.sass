@@ -160,9 +160,9 @@ html.running-cockpit
     display: none
     margin-top: 10px
 
-    &.active,
-    &:target
-      display: block
+  &:not(.pushState) section:target,
+  section.active
+    display: block
 
   .os-block
     background: #eeeeec

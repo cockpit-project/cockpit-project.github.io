@@ -194,9 +194,43 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 $(function(){
   var windowOffset = window.pageYOffset;
 
+  var switchActive = function(location) {
+    if (history.pushState) {
+      $('html').addClass('pushState');
+      $('a.active,section.active').removeClass('active');
+
+      if (location.startsWith('#')) {
+        $('a[href="' + location + '"]').addClass('active');
+        $(location).addClass('active');
+      }
+    }
+  };
+
   $('.os-list').on('click', 'a', function(ev){
-    windowOffset = window.pageYOffset;
+    var hash = '',
+        location = '';
+
+    if (history.pushState) {
+      hash = $(this).attr('href');
+
+      if ($(hash).hasClass('active')) {
+        location = window.location.pathname;
+      } else {
+        location = hash;
+      };
+
+      history.pushState(null, null, location);
+      switchActive(location);
+      ev.preventDefault();
+    } else {
+      windowOffset = window.pageYOffset;
+    }
   });
+
+  $(window).on('popstate', function(ev){
+    switchActive(window.location.hash);
+  });
+
   $(window).on('hashchange', function(ev){
     window.scroll(0, windowOffset);
     ev.preventDefault();
