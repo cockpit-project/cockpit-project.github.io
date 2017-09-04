@@ -18,6 +18,21 @@
           {% assign active = "" %}
         {% endif %}
 
+        {% assign protocol = nav.url | split: ':' | first | downcase %}
+        {% if protocol == 'https' %}
+          {% assign baseurl = '' %}
+        {% elsif protocol == 'http' %}
+          {% assign baseurl = '' %}
+        {% elsif protocol == 'ftps' %}
+          {% assign baseurl = '' %}
+        {% elsif protocol == 'ftp' %}
+          {% assign baseurl = '' %}
+        {% elsif protocol == 'mailto' %}
+          {% assign baseurl = '' %}
+        {% else %}
+          {% assign baseurl = site.baseurl %}
+        {% endif %}
+
         {% if nav.nav %}
           {% assign navgroup = " nav-group" %}
         {% else %}
@@ -46,7 +61,7 @@
 
       <li class="nav--{{ nav.title | slugify | default: "home" }}{{ nav_class }}{{ navgroup }}{{ active }}" role="menuitem">
         {% if nav.url %}
-          <a href="{{ nav.url | prepend: site.baseurl }}">{{
+          <a href="{{ nav.url | prepend: baseurl }}">{{
             nav_icon | strip
             }}{{
             nav_label | strip
