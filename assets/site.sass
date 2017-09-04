@@ -164,6 +164,12 @@ html.running-cockpit
   section.active
     display: block
 
+  section.active
+    animation: 600ms ease-out fadeIn
+
+    &, *
+      animation: 200ms ease-out growIn
+
   .os-block
     background: #eeeeec
     border-radius: 5px
@@ -336,28 +342,16 @@ a.screenshot img
     right: 0
     bottom: 0
     background: rgba(#000, 0.7)
-    animation: bigImageFadeIn 200ms
+    animation: fadeIn 200ms
     z-index: -1
 
   img
     margin: auto
     max-width: 100%
     max-height: 100%
-    animation: 300ms ease-in-out bigImageFadeIn, 300ms ease-in-out bigImageReveal
+    animation: 300ms ease-in-out fadeIn, 300ms ease-in-out Reveal
     border: 1px solid #333
     box-shadow: 0 6px 12px rgba(#000, 0.25)
-
-@keyframes bigImageFadeIn
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
-@keyframes bigImageReveal
-  0%
-    max-width: 0
-  100%
-    max-width: 100%
 
 footer.footerlinks
   background: #eeeeec
@@ -424,3 +418,31 @@ article
     h2
       margin: 0 0 0.5rem
       font-size: 150%
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes zoomWidth
+  0%
+    max-width: 0
+  100%
+    max-width: 100%
+
+@keyframes growIn
+  0%
+    font-size: 0
+    height: 0
+    max-height: 0
+    opacity: 0
+  25%
+    font-size: auto
+    height: auto
+    max-height: 100%
+    opacity: 0
+  50%
+    opacity: 0
+  100%
+    opacity: 1
