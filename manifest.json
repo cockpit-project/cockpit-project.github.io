@@ -28,7 +28,7 @@ layout:
   {% if _favicon[0] %}
   {
     "src": {{ _favicon[0].path | prepend: site.baseurl | jsonify }},
-    "sizes": "192x192",
+    "sizes": "512x512",
     "type": "image/{{ _favicon[0].extname | replace: '.', '' }}"
   }
   {% endif %}
