@@ -31,6 +31,7 @@ paginate_path: "/blog/page=:num"
 lang: en
 
 logo: /images/site/cockpit-logo.svg
+color: #3e5375
 
 # Build settings
 markdown: kramdown
