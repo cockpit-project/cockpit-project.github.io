@@ -1,7 +1,9 @@
 {%
-assign cat_default = page.url | split: '/' | last
+assign cat_default = page.url | split: '/' | last | split: '.' | first
 %}{%
 assign category = include.category | default: cat_default
 %}{%
 assign category_posts = site.posts | where: 'category', category
-%}{% include feed.html posts=category_posts %}
+%}{%
+assign title = category | capitalize | prepend: " - " | prepend: site.title
+%}{% include feed.html posts=category_posts title=title %}
