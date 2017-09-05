@@ -19,6 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="FIXME">
     <meta property="og:image" content="FIXME">
+    {% if site.color %}<meta name="theme-color" content="{{ site.color }}">{% endif %}
 
     <!-- Favicon -->
     {% assign _favicon = site.static_files | where_exp: "item", "item.path contains '/images/favicon.'" %}
