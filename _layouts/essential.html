@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="{{ page.class }} {{ page.url | replace: "/", "-" | prepend: "-path"}}" lang="en">
+<html class="{{ page.class }} {{ page.url | replace: "/", "-" | prepend: "-path"}}" lang="{{ site.lang | default: 'en' }}">
 
   <head>
     <meta charset="utf-8">
