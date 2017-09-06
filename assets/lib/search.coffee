@@ -58,8 +58,8 @@ $ ->
     if matches.length > 0
       fakedate = (new Date).toISOString()
 
-      # Sort by date
       matches.sort (a, b) ->
+        # Sort by date
         dateA = pages[a].date || fakedate
         dateB = pages[b].date || fakedate
 
