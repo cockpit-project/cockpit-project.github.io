@@ -198,6 +198,20 @@ $ ->
     window.location.hash = "#" + $input.val().trim()
 
 
+  window.trigger404 = (val) ->
+    if $input.val() == ''
+      keywords= decodeURIComponent(document.location.pathname)
+        .replace val, ''
+        .replace '{{ site.permalink | split: '/' | first }}', ''
+        .replace /.html$/, ''
+        .replace /.md$/, ''
+        .replace /[\/\-\_\+]/g, ' '
+        .replace /^\s+|\s+$/g, ''
+
+      $input.val(keywords)
+      do parseForm
+
+
   do loadsearchIndex
 
   $form
