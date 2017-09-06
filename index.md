@@ -111,7 +111,8 @@ About Cockpit
 <script>
 $(function(){
   $(document).on('click', 'a.screenshot.zoom', function(ev){
-    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '"></div>');
+    desc = $('img', this).attr('alt');
+    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '" alt="' + desc + '"><p>' + desc + '</p></div>');
     $('body').append(code);
     ev.preventDefault();
   }).on('click', '#imagePreview', function(ev){
