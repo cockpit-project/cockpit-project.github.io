@@ -2,7 +2,7 @@
 title: Cockpit Virtual Hackfest
 author: stef
 date: 2017-06-27 10:25
-tags: cockpit, linux
+tags: cockpit linux
 slug: cockpit-virtual-hackfest
 category: release
 summary: There's a Cockpit Hackfest underway in Karlsruhe, Germany. We're working

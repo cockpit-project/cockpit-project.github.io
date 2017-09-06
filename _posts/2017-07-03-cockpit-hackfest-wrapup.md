@@ -2,7 +2,7 @@
 title: Cockpit Virtual Hackfest Wrapup
 author: stef
 date: 2017-07-03 16:25
-tags: cockpit, linux
+tags: cockpit linux
 slug: cockpit-virtual-hackfest-wrapup
 category: release
 summary: Here's what happened at the Cockpit Hackfest last week in Karlsruhe, Germany.

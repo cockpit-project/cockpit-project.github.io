@@ -2,7 +2,7 @@
 title: Cockpit Simple Networking Configuration
 date: '2014-06-20'
 category: release
-tags: cockpit, network-manager, linux
+tags: cockpit network-manager linux
 ---
 
  Cockpit 0.11 now has an all new simple Networking UI. Still some work to do, but it's

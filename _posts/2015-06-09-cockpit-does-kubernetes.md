@@ -1,7 +1,7 @@
 ---
 title: Cockpit's Kubernetes Dashboard
 date: 2015-06-09 23:51
-tags: cockpit, technical, kubernetes
+tags: cockpit technical kubernetes
 slug: cockpit-kubernetes-dashboard
 category: release
 ---

@@ -2,7 +2,7 @@
 title: Protocol for Web access to System APIs
 date: '2014-12-16'
 category: tutorial
-tags: cockpit, linux
+tags: cockpit linux
 slug: protocol-for-web-access-to-system-apis
 ---
 

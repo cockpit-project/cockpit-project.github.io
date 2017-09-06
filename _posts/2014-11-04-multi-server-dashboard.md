@@ -2,7 +2,7 @@
 title: Cockpit Multi-Server Dashboard
 date: '2014-11-04'
 category: release
-tags: cockpit, kubernetes
+tags: cockpit kubernetes
 ---
 
 Andreas and Marius have been working on implementing a new multi-server dash

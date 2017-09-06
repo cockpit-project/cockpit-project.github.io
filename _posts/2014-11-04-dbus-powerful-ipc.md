@@ -2,7 +2,7 @@
 title: DBus is powerful IPC
 date: '2014-11-04'
 category: linux
-tags: dbus, linux
+tags: dbus linux
 slug: d-bus-is-powerful-ipc
 ---
 

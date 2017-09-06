@@ -2,7 +2,7 @@
 title: Cockpit has Docker pull support
 date: '2014-06-24'
 category: release
-tags: cockpit, docker
+tags: cockpit docker
 ---
 
 Cockpit 0.12 now has support for pulling Docker images from the

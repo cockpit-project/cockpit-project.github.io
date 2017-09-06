@@ -2,7 +2,7 @@
 title: Using DBus from Javascript in Cockpit
 date: '2014-11-13'
 category: tutorial
-tags: cockpit, linux
+tags: cockpit linux
 slug: using-dbus-from-javascript-in-cockpit
 ---
 

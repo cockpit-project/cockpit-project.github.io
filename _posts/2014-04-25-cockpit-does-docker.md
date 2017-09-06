@@ -1,7 +1,7 @@
 ---
 title: Cockpit does Docker
 date: 2014-04-25 19:39
-tags: cockpit, technical
+tags: cockpit technical
 slug: cockpit-does-docker
 category: release
 ---

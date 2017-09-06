@@ -1,7 +1,7 @@
 ---
 title: Cockpit has a terminal
 date: 2014-04-22 16:06
-tags: cockpit, technical
+tags: cockpit technical
 slug: cockpit-has-terminal
 category: release
 ---

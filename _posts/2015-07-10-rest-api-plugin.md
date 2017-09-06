@@ -2,7 +2,7 @@
 title: Making REST calls from Javascript in Cockpit
 date: '2015-07-10'
 category: tutorial
-tags: cockpit, linux
+tags: cockpit linux
 slug: making-rest-calls-from-javascript-in-cockpit
 ---
 
