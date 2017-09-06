@@ -152,6 +152,25 @@ header.masthead
     li a
       display: inline-block
 
+  @media screen and (max-width: $on-laptop)
+    flex-direction: column
+
+    .hgroup,
+    .nav-wrap
+      text-align: center
+      width: 100%
+      margin: 0
+
+    .hgroup a
+      padding: 1rem 1rem 0
+      display: block
+
+    .nav-wrap
+      line-height: 1
+
+      a
+        padding: 1rem 0.7rem
+
 pre
   white-space: pre-wrap
 
