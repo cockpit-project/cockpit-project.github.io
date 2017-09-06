@@ -22,26 +22,26 @@ Cockpit makes it easy to administer your GNU/Linux servers via a web browser.
 {% endcapture %}
 
 {% capture intro-right %}
-[![Docker screenshot]({{ site.baseurl }}/images/site/screenshot-docker.png)]({{ site.baseurl }}/images/site/screenshot-docker.png){:.screenshot}
+[![Docker screenshot]({{ site.baseurl }}/images/site/screenshot-docker.png)]({{ site.baseurl }}/images/site/screenshot-docker.png){:.screenshot.zoom}
 {% endcapture %}
 
 
 {% capture blurb_easy %}
-[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png){:.screenshot}
+[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png){:.screenshot.zoom}
 ### Easy to use
 Cockpit makes Linux discoverable, allowing sysadmins to easily perform tasks such as starting containers, storage administration, network configuration, inspecting logs and so on.
 {% endcapture %}
 
 
 {% capture blurb_interactive %}
-[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png){:.screenshot}
+[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png){:.screenshot.zoom}
 ### No interference
 Jumping between the terminal and the web tool is no problem. A service started via Cockpit can be stopped via the terminal. Likewise, if an error occurs in the terminal, it can be seen in the Cockpit journal interface.
 {% endcapture %}
 
 
 {% capture blurb_multiserver %}
-[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png){:.screenshot}
+[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png){:.screenshot.zoom}
 ### Multi-server
 You can monitor and administer several servers at the same time. Just add it easily and your server will look after its buddies.
 {% endcapture %}
@@ -110,8 +110,8 @@ About Cockpit
 
 <script>
 $(function(){
-  $(document).on('click', 'a.screenshot', function(ev){
-    code = $('<div id="imagePreview" class="image-container"><img src="' + this.href + '"></div>');
+  $(document).on('click', 'a.screenshot.zoom', function(ev){
+    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '"></div>');
     $('body').append(code);
     ev.preventDefault();
   }).on('click', '#imagePreview', function(ev){
