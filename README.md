@@ -1,24 +1,8 @@
-# Jekyll-Springboard
+# Cockpit Website
 
-Springboard is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly. It has a bunch of good defaults and many features baked-in by default.
+The Cockpit website is based on Springboard, which is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly.
 
-Features include:
-- Everything Jekyll provides by default
-- GitHub Pages auto-builder
-- Responsiveness out of the box
-- Default, easily configurable design (mainly using variables)
-- Flexbox-based grid (based on [Gridlex](http://gridlex.devlint.fr/))
-- Simple navigation set-up
-- Search (client-side)
-- 404 page that auto-searches for the most likely relevant page
-- Better blog formatting
-- Author information support
-- Atom feeds
-- Blog & feed category filtering
-- Calendar events
-- Twitter widget support
-- Basic manifest.json support
-- Automatic image & link rewriting to support alternative baseurls, making image and link creation in Markdown files much nicer (this is especially nice to allow for staging sites on GitHub)
+For more details on Springboard, see [jekyll-springboard](https://github.com/garrett/jekyll-springboard).
 
 ## Get Started
 
@@ -31,7 +15,7 @@ Features include:
      dnf install -y rubygem-bundler ruby-devel libffi-devel make gcc gcc-c++ \
      redhat-rpm-config zlib-devel libxml2-devel libxslt-devel tar
      ```
-     
+
    * **openSUSE**:
      ```
      zypper install ruby2.1-rubygem-bundler ruby2.1-devel make gcc-c++ \
@@ -307,6 +291,9 @@ Exporting rule of thumb: Directories and files starting with an underscore are s
 - **`blog`** — This is not the place for blog posts. It is, however, the place for files that make blogs work (the index file, author file, category files, feeds, etc.). In most cases, you don't need to touch what's here.
 
 - **`events`** — This subdirectory is where the events calendar lives, if your site uses events. Events data is pulled in from `_data/events.yml`, if it exists.
+
+- **`guide`** — Cockpit-specific guides, dumped as HTML and included in the website.
+  - **`latest`** — The latest guide. This is what the other pages should link. Other guides are included for posterity under their version number.
 
 - **`images`** — Images live here. These are the images blog posts and other pages usually link to.
   - **`site`** — Site-specific images (various icons, logos, etc.) should be placed here.
