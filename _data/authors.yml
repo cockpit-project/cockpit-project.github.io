@@ -1,0 +1,30 @@
+default:
+  name: Cockpit Team
+
+example:
+  name: Ann Example
+  twitter: example
+  googleplus: somegoogleaccount
+  facebook: somefacebookaccount
+  # gravatar: 
+  description: |
+    This is an example author. To get a gravatar, do something like:
+    echo -n email@example.com | md5sum
+
+dperpeet:
+  name: Dominik Perpeet
+
+lars:
+  name: Lars Karlitski
+
+pitti:
+  name: Martin Pitt
+
+stef:
+  name: Stef Walter
+
+garrett:
+  name: Garrett LeSage
+  twitter: garrett
+  googleplus: GarrettLeSage
+  gravatar: ee31aa48c51297eb062133b15eaff702

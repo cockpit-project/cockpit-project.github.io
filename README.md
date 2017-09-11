@@ -1,26 +1,14 @@
-# Jekyll-Springboard
+# Cockpit Project Website
 
-Springboard is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly. It has a bunch of good defaults and many features baked-in by default.
+[The Cockpit project website](http://cockpit-project.org/) is based on Springboard, which is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly.
 
-Features include:
-- Everything Jekyll provides by default
-- GitHub Pages auto-builder
-- Responsiveness out of the box
-- Default, easily configurable design (mainly using variables)
-- Flexbox-based grid (based on [Gridlex](http://gridlex.devlint.fr/))
-- Simple navigation set-up
-- Search (client-side)
-- 404 page that auto-searches for the most likely relevant page
-- Better blog formatting
-- Author information support
-- Atom feeds
-- Blog & feed category filtering
-- Calendar events
-- Twitter widget support
-- Basic manifest.json support
-- Automatic image & link rewriting to support alternative baseurls, making image and link creation in Markdown files much nicer (this is especially nice to allow for staging sites on GitHub)
+This repository manages the content and presentation of the Cockpit project's website, including blog articles, release notes, the Cockpit guide, and screenshots.
+
+For more details on Springboard, see [jekyll-springboard](https://github.com/garrett/jekyll-springboard).
 
 ## Get Started
+
+In order to convert content into web pages, you will need to have Ruby, Bundler, and Jekyll installed.
 
 1. Install Ruby & Bundler (as root):
 
@@ -31,7 +19,7 @@ Features include:
      dnf install -y rubygem-bundler ruby-devel libffi-devel make gcc gcc-c++ \
      redhat-rpm-config zlib-devel libxml2-devel libxslt-devel tar
      ```
-     
+
    * **openSUSE**:
      ```
      zypper install ruby2.1-rubygem-bundler ruby2.1-devel make gcc-c++ \
@@ -64,13 +52,19 @@ Features include:
    
    _(Note: If you don't have a system-wide install, you should be able to just type `jekyll`)_
 
-## Work with Your Site
+## Work with the Site
 
 As this site scaffolding is built on Jekyll, most all Jekyll documentation applies.
 
 Useful references:
 - [the official Jekyll documentation](http://jekyllrb.com/docs/home/)
 - [CloudCannon Jekyll tutorials](https://learn.cloudcannon.com/)
+
+### Release Notes
+
+Release notes are in the form of a Markdown-formatted blog post, and are located in `_posts` with the date and URL slug as parts of the filename.
+
+For more details, read [the section on blog posts](#blog-posts).
 
 ### Frontmatter
 
@@ -307,6 +301,9 @@ Exporting rule of thumb: Directories and files starting with an underscore are s
 - **`blog`** — This is not the place for blog posts. It is, however, the place for files that make blogs work (the index file, author file, category files, feeds, etc.). In most cases, you don't need to touch what's here.
 
 - **`events`** — This subdirectory is where the events calendar lives, if your site uses events. Events data is pulled in from `_data/events.yml`, if it exists.
+
+- **`guide`** — Cockpit-specific guides, dumped as HTML and included in the website.
+  - **`latest`** — The latest guide. This is what the other pages should link. Other guides are included for posterity under their version number.
 
 - **`images`** — Images live here. These are the images blog posts and other pages usually link to.
   - **`site`** — Site-specific images (various icons, logos, etc.) should be placed here.
