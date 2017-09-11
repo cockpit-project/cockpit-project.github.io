@@ -1,0 +1,24 @@
+---
+# // Only the main Sass file needs front matter (the dashes are enough)
+# //
+# // Note: Only include Liquid templating in this file.
+# //       It won't work in @imported SASS or SCSS.
+---
+@charset "utf-8";
+
+// Set responsive breakpoints for minima
+// (same as what's used for Gridlex — so the two align)
+$on-palm:          35.5em;
+$on-laptop:        48em;
+
+// Set both $spacing-unit (for minima) and $gl-gutter (for gridlex)
+$spacing-unit: 2rem;
+$gl-gutter: $spacing-unit / 2;
+
+// Import styles from site.sass or site.scss or fall back to default.scss
+{% assign _site_style = site.static_files | where_exp: "item", "item.path contains '/assets/site.'" %}
+{% if _site_style[0] %}
+  @import "site";
+{% else %}
+  @import "default";
+{% endif %}

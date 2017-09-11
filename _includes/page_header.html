@@ -1,0 +1,26 @@
+<header class="masthead hidden-print" id="branding" role="banner">
+
+  <section class="hgroup">
+    {% assign logo_path = site.logo | default: "/images/logo.svg" %}
+    {% assign has_logo = site.static_files | where: "path", logo_path %}
+
+    {% if has_logo[0] %}
+      <h1><a href="{{ "/" | prepend: site.baseurl }}"><img id="logo" class="logo is-svg" alt="{{ site.title }}" src="{{ logo_path | prepend: site.baseurl }}"></a></h1>
+    {% else %}
+      <h1><a href="/">{{ site.title }}</a></h1>
+    {% endif %}
+
+    {% if site.subtitle %}
+      <h2 id="site-title">{{ site.subtitle }}</h2>
+    {% endif %}
+  </section>
+
+  {% if site.data.navigation %}
+
+    <div class="nav-wrap">
+      {% include nav.html role="navigation" %}
+    </div>
+
+  {% endif %}
+
+</header>

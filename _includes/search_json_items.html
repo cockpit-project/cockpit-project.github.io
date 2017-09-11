@@ -1,0 +1,104 @@
+{% capture codeblock %}
+  {% assign docs = include.pages | default: site.documents %}
+  {% assign _first = true %}
+{% endcapture %}
+{% for _page in docs %}{% capture codeblock %}
+  {% assign _content = _page.content | markdownify | strip_html | remove: site.excerpt_separator | strip %}
+
+  {% if _page.summary %}
+    {% assign _blurb = _page.summary | strip_newlines %}
+  {% else %}
+    {% if _content contains site.excerpt_separator %}
+      {% assign _blurb = _content | split: site.excerpt_separator | first %}
+    {% else %}
+      {% assign _blurb = _content | strip_newlines %}
+    {% endif %}
+  {% endif %}
+
+  {% if _page.date %}
+    {% assign _date_parts = _page.date | date: '%Y %B %-d' %}
+  {% endif %}
+
+  {% assign _wordlist = _content
+    | append: " " | append: _page.title
+    | append: " " | append: _page.tags
+    | append: " " | append: _page.category
+    | append: " " | append: _page.url
+    | append: " " | append: _page.author
+    | append: " " | append: _page.summary
+    | append: " " | append: _date_parts
+    | downcase
+    | remove: '!'
+    | remove: '"'
+    | remove: '#'
+    | remove: '$'
+    | remove: '%'
+    | remove: '&'
+    | remove: '('
+    | remove: ')'
+    | remove: '['
+    | remove: ']'
+    | remove: '*'
+    | remove: '+'
+    | remove: ','
+    | remove: ';'
+    | remove: '='
+    | remove: '?'
+    | remove: '“'
+    | remove: '”'
+    | replace: "‘", "'"
+    | replace: "’", "'"
+    | replace: "'s ", " "
+    | replace: " '", " "
+    | replace: "' ", " "
+    | replace: '-', ' '
+    | replace: '–', ' '
+    | replace: '—', ' '
+    | replace: '@', ' '
+    | replace: '...', ' '
+    | replace: '…', ' '
+    | replace: '.', ' '
+    | replace: '/', ' '
+    | replace: ':', ' '
+    | replace: ',', ' '
+    | split: ' '
+    | sort
+    | uniq
+    | where_exp: "item", "item.size > 2"
+    | where_exp: "item", "item.size < 21"
+    %}
+  {% assign _wordlist_string = _wordlist | join: ',' %}
+
+  {% assign _words = _words | append: "," | append: _wordlist_string %}
+  {% assign _wordlists = _wordlists | push: _wordlist %}
+
+  {% assign _id = forloop.index | minus: 1 %}
+
+  {% endcapture %}{% assign codeblock = nil %}{%
+    unless _page.index == false
+      %}{%
+
+        if _first == false
+        %},{%
+        endif
+
+      %}{
+        "id": {{ _id }},
+        "title": {{ _page.title | strip | jsonify }},
+        "slug": {{ _page.slug | strip | jsonify }},
+        "url": "{{ site.baseurl }}{{ _page.url }}",
+        "category": {{ _page.category | join: "," | strip | jsonify }},
+        "tags": {{ _page.tags | join: "," | strip | replace: ", ", "," | replace: ",,", "," | downcase | split: "," | sort | uniq | jsonify }},
+        {% if _page.date %}
+        "date" : "{{ _page.date | date_to_xmlschema }}",
+        "datestring" : "{{ _page.date | date: '%A %-d %B %Y' }}",
+        {% endif %}
+        "wordcount": {{ _content | remove: site.excerpt_separator | number_of_words }},
+        "wordlist": {{ _wordlist | join: " " | jsonify }},
+        "summary": {{ _blurb | truncatewords: 50 | jsonify }}
+      }{%
+
+      assign _first = false
+    %}{%
+  endunless
+%}{% endfor %}
