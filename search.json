@@ -1,0 +1,4 @@
+---
+layout:
+---
+{% include search_json.html %}

@@ -1,0 +1,10 @@
+{% comment %}
+This builds upon nav.html, but feeds it the current directory as the
+navigation source. It's intended for use in special layouts that are
+assigned by directories, but also can be used in individual files.
+
+TODO: Add filtering and weighted sorting.
+{% endcomment %}
+
+{% assign current_dir = site.html_pages | where: "dir", page.dir %}
+{% include nav.html nav=current_dir %}

@@ -1,0 +1,39 @@
+---
+layout:
+---
+{
+  "name": {{ site.title | jsonify }},
+  "short_name": {{ site.title | jsonify }},
+  "lang": {{ site.lang | default: 'en' | jsonify }},
+  "start_url": ".",
+  "scope": {{ site.baseurl | default: '/' | jsonify }},
+  "background_color": "#fff",
+  {% if site.color %}"theme_color": {{ site.color | jsonify }},{% endif %}
+  "description": {{ site.description | strip | jsonify }},
+
+  {% assign _favicon_small = site.static_files | where_exp: "item", "item.path contains '/images/favicon-small.'" %}
+  {% assign _favicon = site.static_files | where_exp: "item", "item.path contains '/images/favicon.'" %}
+
+  {% if _favicon[0] or _favicon_small[0] %}
+  "icons": [
+
+  {% if _favicon_small[0] %}
+  {
+    "src": {{ _favicon_small[0].path | prepend: site.baseurl | jsonify }},
+    "sizes": "16x16",
+    "type": "image/{{ _favicon_small[0].extname | replace: '.', '' }}"
+  }{% if _favicon[0] %},{% endif %}
+  {% endif %}
+
+  {% if _favicon[0] %}
+  {
+    "src": {{ _favicon[0].path | prepend: site.baseurl | jsonify }},
+    "sizes": "512x512",
+    "type": "image/{{ _favicon[0].extname | replace: '.', '' }}"
+  }
+  {% endif %}
+
+  ],{% endif %}
+
+  "display": "{{ site.display | default: 'browser' }}"
+}

@@ -1,0 +1,11 @@
+- title: Home
+  url: "/"
+
+- title: Blog
+  url: /blog/
+
+- title: Contribute
+  url: https://github.com/cockpit-project/cockpit/wiki/Contributing
+
+- title: Search
+  url: /search.html

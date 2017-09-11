@@ -1,0 +1,86 @@
+{% assign post = include.post | default: page %}
+{% assign excerpt = include.excerpt | default: false %}
+{% assign link_title = include.link | default: false %}
+{% assign author_card = include.author_card | default: false %}
+{% assign author = site.data.authors[post.author] %}
+{% assign separator = site.excerpt_separator | prepend: "<p>" | append: "</p>" %}
+
+<article class="post hentry" id="{{ post.url | replace: "/", "-" }}">
+  <header class="post-header">
+    <h2 class="post-title entry-title">
+      {% if link_title %}
+        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+      {% else %}
+        {{ post.title | escape }}
+      {% endif %}
+    </h2>
+    <header class="post-meta">
+      {% if post.author %}
+        {% if author %}
+          <span class="byline">
+            by
+            <span class="author vcard">
+              <a href="{{ site.baseurl }}/blog/authors#{{ post.author }}">{{ author.name }}</a>
+            </span>
+          </span>
+        {% else %}
+          <span class="byline">
+            by
+            <span class="author vcard">
+              {{ post.author }}
+            </span>
+          </span>
+        {% endif %}
+        –
+      {% endif %}
+      <time class="published" datetime="{{ post.date | date: "%u" }}">
+        {{ post.date | date: "%b %-d, %Y" }}
+      </time>
+    </header>
+  </header>
+
+  <section class="post-content entry-content">
+    {% if excerpt %}
+      {{ post.excerpt }}
+    {% else %}
+      {{ post.content | remove_first: separator }}
+    {% endif %}
+  </section>
+
+  {% if excerpt %}
+    <footer class="post-meta">
+      <a class="more-link read-more" href="{{ post.url | prepend: site.baseurl}}">Read More »</a>
+    </footer>
+  {% endif %}
+
+</article>
+
+{% if author_card %}
+  <div class="author-info author-card" id="author-info">
+    <h2>About {{ author.name }}</h2>
+    <div class="author-blurb">
+      {{ author.description | markdownify }}
+
+      <div class="more-link">
+        <a href="{{ site.baseurl }}/blog/authors#{{ post.author }}">
+          View all posts by {{ author.name }} »
+        </a>
+      </div>
+
+      {% if author.twitter or author.googleplus or author.facebook %}
+        <div class="follow-on">
+          Follow {{ author.name | split: " " | first }} on:
+          {% if author.twitter %}
+            <a class="icon-twitter" href="https://twitter.com/{{ author.twitter }}">Twitter</a>
+          {% endif %}
+          {% if author.googleplus %}
+            <a class="icon-googleplus" href="https://plus.google.com/+{{ author.googleplus }}">Google+</a>
+          {% endif %}
+          {% if author.facebook %}
+            <a class="icon-facebook" href="https://facebook.com/{{ author.facebook }}">Facebook</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

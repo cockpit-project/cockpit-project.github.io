@@ -1,0 +1,484 @@
+// Please copy default.scss to site.scss to customize your site.
+//
+// If site.scss (or site) exists, then default.scss will not
+// be used. (You can then use it for reference later.)
+//
+// Be sure to `@import "minima"` after the variables needed for it
+// and before your own custom CSS, so you can easily override
+// (if you really need to).
+
+/* Special headlines
+@font-face
+  font-family: 'beteckna'
+  src: url('fonts/beteckna-webfont.woff2') format('woff2'), url('fonts/beteckna-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+/* Normal headlines
+@font-face
+  font-family: 'Roboto Slab'
+  font-style: normal
+  font-weight: 400
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url('http://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37Zo4P5ICox8Kq3LLUNMylGO4.woff2') format('woff2')
+  unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+/* cyrillic-ext
+@font-face
+  font-family: 'PT Sans'
+  font-style: normal
+  font-weight: 400
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/JX7MlXqjSJNjQvI4heMMGvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2')
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F
+
+/* cyrillic
+@font-face
+  font-family: 'PT Sans'
+  font-style: normal
+  font-weight: 400
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/vtwNVMP8y9C17vLvIBNZI_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2')
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+
+/* latin-ext
+@font-face
+  font-family: 'PT Sans'
+  font-style: normal
+  font-weight: 400
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/9kaD4V2pNPMMeUVBHayd7vY6323mHUZFJMgTvxaG2iE.woff2) format('woff2')
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF
+
+/* latin
+@font-face
+  font-family: 'PT Sans'
+  font-style: normal
+  font-weight: 400
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://fonts.gstatic.com/s/ptsans/v8/ATKpv8nLYAKUYexo8iqqrg.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+
+// Our variables
+$base-font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
+$base-font-size: 16px
+$base-font-weight: 400
+$small-font-size: $base-font-size * 0.875
+$base-line-height: 1.5
+
+$spacing-unit: 1rem
+
+$text-color: #333
+$background-color: #fff
+$brand-color: #3e5375
+
+$grey-color: #828282
+$grey-color-light: lighten($grey-color, 40%)
+$grey-color-dark: darken($grey-color, 25%)
+
+// Width of the content area
+$content-width: 65rem
+
+// Import partials from the `minima` theme.
+@import minima
+
+// Import grid (see http://gridlex.devlint.fr/ for docs)
+@import vendor/gridlex
+
+// Comment out or remove the follow if you don't use the feature
+////////////////////////////////////////////////////////////////////////
+// Navbar (see opts in lib/navbar.sass)
+//@import lib/nav
+// Styles for the search page
+@import lib/search
+// Default blog style
+@import lib/blog
+// Blog pagination
+@import lib/pagination
+// Stretch page with footer on bottom
+@import lib/stickyfooter
+// Stop page shift by keeping scrollbar on
+@import lib/scrollbar-on
+
+//@import "lib/quicklinks"   // Quick jump links needed for events
+//@import "lib/events"       // Events and upcoming support.
+//@import "lib/stickyheader" // Keep header at the top
+
+// Minima also includes a mixin for defining media queries.
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2
+//         padding-left: $spacing-unit / 2
+//     }
+// }
+
+$headline-font: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
+
+h1, h2, h3, h4, h5, h6
+  font-family: $headline-font
+
+header.masthead
+  padding: 0
+  margin: 0 0 3rem
+  background: $brand-color
+  color: white
+  display: flex
+  align-items: baseline
+
+  h1 img
+    height: 42px
+
+  a
+    color: white
+    padding: 1.25rem 1rem
+
+  .hgroup,
+  .nav-wrap
+    flex: auto
+
+  h1,
+  ul
+    margin: 0
+
+  .nav-wrap
+    text-align: right
+    font-size: 130%
+
+  .nav-menu
+
+    &, & li
+      list-style: none
+      display: inline-block
+      margin: 0
+      padding: 0
+
+    li a
+      display: inline-block
+
+  @media screen and (max-width: $on-laptop)
+    flex-direction: column
+
+    .hgroup,
+    .nav-wrap
+      text-align: center
+      width: 100%
+      margin: 0
+
+    .hgroup a
+      padding: 1rem 1rem 0
+      display: block
+
+    .nav-wrap
+      line-height: 1
+
+      a
+        padding: 1rem 0.7rem
+
+pre
+  white-space: pre-wrap
+
+html.running-cockpit
+  .os-instructions
+    display: none
+    margin-top: 10px
+
+  &:not(.pushState) section:target,
+  section.active
+    display: block
+
+  section.active
+    animation: 600ms ease-out fadeIn
+
+    &, *
+      animation: 200ms ease-out growIn
+
+  .os-block
+    background: #eeeeec
+    border-radius: 5px
+    margin-bottom: 20px
+    padding: 20px
+    min-height: 100px
+    font-size: 15px
+    position: relative
+
+    li
+      margin-top: 2ex
+
+    pre
+      margin: 1ex 0
+
+    pre, code
+      background: #fff
+
+    &.stable:after
+      position: absolute
+      content: url(../images/site/os-stable.png)
+      top: 0
+      right: 0
+      width: auto
+      height: auto
+
+  .browser-support,
+  .os-list
+    li
+      list-style: none
+
+  .os-list
+
+    &, > li
+      padding: 0
+      margin: 0
+
+    a
+      display: block
+      padding: 10px
+      border-radius: 5px
+
+      &:active,
+      &:hover
+        background: #eeeeec
+
+.browser-header 
+  text-align: center
+  background: linear-gradient(transparent calc(50% - 1px), #babdb6 50%, transparent calc(50% + 1px))
+  margin: 3rem 0 2rem
+
+  h2
+    color: #979c91
+    font-size: 16px
+    font-weight: 300
+    text-align: center
+    display: inline
+
+    background: #fff
+    padding: 1ex
+
+html.body-cockpit > body
+  color: #3e5375
+
+html.front-page
+  .logo img
+    height: 64px
+    margin-bottom: 20px
+
+  .page-content
+    padding-top: 0
+
+  .intro
+    background: #3e5375
+    color: #eeeeec
+    font-size: 18px
+    margin: 0 0 3rem
+    padding: 48px 0 0
+
+    .side-left p
+      margin-bottom: 15px
+      font-size: 21px
+      font-weight: 200
+      max-width: 44ex
+
+    .intro-image
+      position: relative
+      display: block
+      max-height: 34vw
+      overflow: hidden
+
+      &:before
+        z-index: 100
+        content: ''
+        position: absolute
+        width: 100%
+        height: 100%
+        box-shadow: inset 0px -20px 15px -15px rgba(0,0,0,0.2)
+        pointer-events: none
+
+    p:first-child:last-child
+      margin: 0
+
+    .grid > div
+      padding-bottom: 0
+
+    ul, li
+      margin: 0
+      padding: 0
+      list-style: none
+      display: inline
+
+    %btn
+      display: inline-block
+      background: #eeeeec
+      border-radius: 6px
+      box-shadow: 0 3px 0 rgba(46, 61, 86, 1)
+      color: #3e5375
+      font-size: 18px
+      line-height: 1.33
+      margin: 10px 10px 20px 0px
+      padding: 10px 16px
+
+      &:hover
+        text-decoration: none
+        background: white
+        color: #333
+
+    li a
+      @extend %btn
+
+    li.with-img img
+      vertical-align: top
+      margin: -1px 2px 0 0
+
+  .blurbs
+    .col
+      padding: 1rem 2rem 4rem
+
+    h3
+      color: #3e5375
+      font-size: 24px
+      margin: 20px 0 10px
+      font-family: beteckna, sans-serif
+
+  footer.footer-cockpit
+    margin-top: 0
+
+img.screenshot,
+a.screenshot img
+  border: 1px solid #d3d7cf
+
+.image-container
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: 1000
+  display: flex
+  flex-direction: column
+  align-content: center
+  padding: 1rem
+
+  &:before
+    display: block
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: rgba(#000, 0.7)
+    animation: 200ms fadeIn
+    z-index: -1
+
+  img
+    margin: auto auto 0
+    max-width: 100%
+    max-height: 100%
+    animation: 300ms ease-in-out fadeIn, 300ms ease-in-out zoomWidth
+    border: 1px solid #333
+    box-shadow: 0 6px 12px rgba(#000, 0.25)
+
+  p
+    background: rgba(#000, 0.5)
+    border-radius: 3ex
+    color: #fff
+    margin: 1ex auto auto
+    padding: 0.5ex 2ex
+    text-shadow: 1px 1px 3px #000
+    animation: 300ms ease-in-out fadeIn
+    text-align: center
+
+.zoom
+  cursor: zoom-in
+
+.zoom-out
+  cursor: zoom-out
+
+footer.footerlinks
+  background: #eeeeec
+  border-top: 1px solid #d3d7cf
+  border-bottom: 1px solid #d3d7cf
+  padding: 20px 0
+  font-size: 18px
+
+  dl a,
+  dt
+    padding: 5px 20px
+
+  dt
+    font-weight: bold
+
+    a
+      margin: -5px -20px
+
+  dd
+    a
+      padding-left: 30px
+
+  a
+    color: #093d69
+
+    &:hover
+      background: white
+
+footer.footer-cockpit
+  text-align: center
+  padding: 20px
+  background-color: #333
+  color: white
+  margin-top: 3em
+  padding-bottom: 0.5em
+
+  a
+    color: #84bbef
+
+.browser-support
+  img
+    height: 20px
+    width: auto
+    margin-right: 0.75ex
+
+article
+  h1, h3, h2
+    font-family: $headline-font
+    font-weight: 400
+    margin-top: 1.5em
+    margin-bottom: 1em
+
+    a
+      color: inherit
+
+.post-link
+  font-size: inherit
+
+.search-page .articles
+  article.post
+    margin-top: 0
+    margin-bottom: 0
+
+    h2
+      margin: 0 0 0.5rem
+      font-size: 150%
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes zoomWidth
+  0%
+    max-width: 0
+  100%
+    max-width: 100%
+
+@keyframes growIn
+  0%
+    font-size: 0
+    height: 0
+    max-height: 0
+    opacity: 0
+  25%
+    font-size: auto
+    height: auto
+    max-height: 100%
+    opacity: 0
+  50%
+    opacity: 0
+  100%
+    opacity: 1

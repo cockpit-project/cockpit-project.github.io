@@ -1,0 +1,52 @@
+.search-page
+
+  .search-form
+    //@extend .row
+
+  .search-input
+    //@extend .col-md-10
+
+  .similar
+    padding: 1ex 0 2ex
+    color: #999
+
+  .progress-container
+    position: absolute
+    left: 0
+    right: 0
+    text-align: center
+
+  .spinner
+    font-size: 6em
+    margin: 1em auto
+    color: rgba(black, 0.25)
+
+  .articles
+    margin: 0
+
+  article.post
+    padding: 1em 1em 1em
+    margin: 0 -1em
+
+    &.highlight
+      background: rgba(yellow, 0.125)
+      outline: 1px solid rgba(orange, 0.25)
+      border-radius: 6px
+
+    h2
+      @extend h3
+      padding: 0
+      margin: 0
+
+  .date
+    padding: 0 0 0.5ex
+
+  .post-content
+    margin: 0
+
+  .hidden
+    display: none
+
+  #results-none
+    text-align: center
+    padding: 2em 0

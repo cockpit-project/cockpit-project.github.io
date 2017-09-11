@@ -1,0 +1,393 @@
+//// Defaults
+
+// Padding defaults
+$nav-padding: 0.75ex !default
+$nav-padding-ratio: 2.5 !default
+$nav-padding-y: $nav-padding !default
+$nav-padding-x: $nav-padding-y * $nav-padding-ratio !default
+
+// Color defaults
+$nav-color: transparent !default
+$nav-text-color: $text-color !default
+$nav-menu-color: $grey-color-light !default
+$nav-menu-top-color: $nav-menu-color !default
+$nav-menu-top-text-color: $nav-text-color !default
+$nav-highlight-color: $brand-color !default
+$nav-highlight-text-color: #fff !default
+$nav-active: transparent !default
+
+// Icons
+$nav-icon-opacity: 0.5 !default
+$nav-icon-menu: "≡" !default
+$nav-icon-right: "⯈" !default
+$nav-icon-down: "▾" !default
+
+// Styling defaults (shadow and rounded radius)
+$nav-menu-shadow: 2px 2px 2px rgba(black, 0.125) !default
+$nav-menu-radius: 3px !default
+
+// Animation timing defaults
+$nav-animation: 150ms !default
+$nav-menu-animation: $nav-animation * 2 !default
+$nav-mobile-menu-animation: all 300ms ease-in-out
+
+// These should be set in theme.scss/theme.sass or minima already...
+// but just in case, we're defining fallbacks here
+$on-palm: 600px !default
+$on-laptop: 800px !default
+
+// Responsive breakpoint
+$nav-min-width: $on-laptop !default
+
+// Mobile menu colors
+$nav-mobile-text: white !default
+$nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default
+$nav-mobile-menu: darken($brand-color, 20%) !default
+$nav-mobile-menu-highlight: mix($nav-mobile-menu, $nav-mobile-text, 80%) !default
+$nav-mobile-button-size: 32px !default
+$nav-mobile-font-size: 16px !default
+$nav-mobile-item-height: 48px !default
+$nav-mobile-item-padding: 0 16px !default
+$nav-mobile-menu-padding: 8px 0 !default
+$nav-mobile-menu-min-width: 56px * 3 !default
+
+// Select the mobile menu style
+// styles include: sidebar, menu, none
+$nav-mobile-style: menu !default
+
+// Native iOS or Android fonts when installed, else use website fonts
+$nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-family !default
+
+////////////////////////////////////////////////////////////////////////
+
+@mixin no-select
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.nav-check
+  display: none
+
+@media screen and (min-width: $nav-min-width + 1)
+  nav.menu
+    position: relative
+    z-index: 100
+    cursor: default
+
+    // Cleafix hack to make nav act more like block
+    // without having to set an overflow property
+    // (which would hide menus)
+    &::after
+      content: ""
+      display: table
+      clear: both
+
+    // Remove list styles
+    ul, li
+      transition: all $nav-animation
+      list-style: none
+      margin: 0
+      padding: 0
+
+    a, .not-a-link
+      transition: all $nav-menu-animation
+      display: block
+      color: $nav-text-color !important
+      padding: $nav-padding-y $nav-padding-x
+      text-decoration: none !important
+
+    ul
+      background: $nav-color
+
+      ul
+        position: absolute
+        left: 0
+        top: 100%
+        visibility: hidden
+        opacity: 0
+        box-shadow: $nav-menu-shadow
+
+        li
+          &:last-child
+            border-radius: 0 0 $nav-menu-radius $nav-menu-radius
+
+          &.nav-group:hover
+            border-radius: 0 0 0 $nav-menu-radius
+
+          ul li:first-child
+            border-radius: 0 $nav-menu-radius 0 0
+
+        ul
+          left: 100%
+          top: 0
+
+    li
+      float: left
+      position: relative
+
+      > ul
+        transform: scaleY(0)
+        transform-origin: top left
+
+        ul
+          transform: scale(0)
+
+      &:hover
+        background: $nav-menu-color
+
+        li
+          background: $nav-menu-color
+
+        > ul
+          // Activate the immediate submenu
+          visibility: visible
+          opacity: 1
+          // Make sure menus are on top (z-index is relative to parent z-index)
+          z-index: 1
+          transform: scale(1)
+
+          a, .not-a-link
+            margin: 0 #{$nav-padding-x * -1}
+            padding: $nav-padding-y #{$nav-padding-x * 2}
+
+          li:last-child a, .not-a-link
+            margin-bottom: #{$nav-padding-y * -4}
+            padding-bottom: #{$nav-padding-y * 5}
+
+      li
+        width: 100%
+        white-space: nowrap
+        min-width: 10rem
+
+        &:hover,
+        li:hover
+          background: $nav-highlight-color
+
+          > a
+            color: $nav-highlight-text-color !important
+
+    > ul > li
+
+      &:hover
+        background: $nav-menu-top-color
+
+        > a
+          color: $nav-menu-top-text-color !important
+
+      &.active
+        background: $nav-active
+
+      &.nav-group >
+        a, .not-a-link
+          &::after
+            opacity: $nav-icon-opacity
+            content: $nav-icon-down
+            margin-left: 1ex
+
+    li .nav-group >
+      a, .not-a-link
+        &::after
+          content: ""
+          display: inline-block
+          width: 3ex
+
+        &::before
+          opacity: $nav-icon-opacity
+          content: $nav-icon-right
+          float: right
+
+@media screen and (max-width: $nav-min-width)
+  %sidebar
+    nav
+      font-family: $nav-mobile-font-family
+      font-size: $nav-mobile-font-size
+      z-index: 1000
+      cursor: default
+
+      ul, li
+        padding: 0
+        margin: 0
+        list-style: none
+
+      li.active
+        background-color: $nav-mobile-menu-highlight
+
+      > .nav-menu
+        transition: $nav-mobile-menu-animation
+        visibility: hidden
+        position: fixed
+        top: 0
+        left: -100%
+        overflow: auto
+        height: 100vh
+        background-color: $nav-mobile-menu
+        z-index: 2
+        box-shadow: 0 0 6px rgba(black, 0.25)
+        min-width: 25vw
+        max-width: 75vw
+        padding: $nav-mobile-button-size 0 0 1ex
+
+        > li
+          margin-top: 2ex
+
+        ul
+          padding: 0 2ex 0 2ex
+
+        a, .not-a-link
+          display: block
+          padding: 0 1ex
+          color: $nav-mobile-text !important
+          text-shadow: $nav-mobile-text-shadow
+
+        .not-a-link
+          opacity: 0.4
+
+      > .nav-screen
+        @include no-select
+        transition: $nav-mobile-menu-animation
+        opacity: 0
+
+      .nav-toggle:before
+        transition: $nav-mobile-menu-animation
+        display: block
+        width: $nav-mobile-button-size
+        height: $nav-mobile-button-size
+        cursor: pointer
+        content: $nav-icon-menu
+        font-size: $nav-mobile-button-size
+        color: $nav-text-color
+        background: $nav-menu-color
+        z-index: 3
+        position: fixed
+        top: 0
+        left: 0
+        padding: 0.5ex
+        line-height: $nav-mobile-button-size
+        border-radius: $nav-menu-radius
+
+    .nav-check:checked + nav >
+      .nav-menu
+        visibility: visible
+        left: 0
+        display: block
+
+      .nav-screen
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 1
+        background: black
+        opacity: 0.5
+
+      .nav-toggle:before
+        background: transparent
+
+    .hgroup
+      padding-left: calc(#{$nav-mobile-button-size} + 1.5ex)
+
+  %menu
+    &
+      display: flex
+      align-items: baseline
+      justify-content: space-between
+
+    nav
+      font-family: $nav-mobile-font-family
+      font-size: $nav-mobile-font-size
+      z-index: 1000
+      cursor: default
+      position: relative
+      margin: 1rem
+
+      ul, li
+        padding: 0
+        margin: 0
+        list-style: none
+
+      > .nav-menu
+        transition: all 100ms
+        visibility: hidden
+        transform: scale(0)
+        transform-origin: calc(100% - 2.5ex) 2.5ex
+        position: absolute
+        top: 0
+        right: 0
+        overflow: auto
+        background-color: $nav-mobile-menu
+        z-index: 2
+        box-shadow: 0 0 6px rgba(black, 0.25)
+        max-height: 75vh
+        padding: $nav-mobile-menu-padding
+        min-width: $nav-mobile-menu-min-width
+
+        ul
+          padding: 0 2ex 0 2ex
+
+        a, .not-a-link
+          display: block
+          line-height: $nav-mobile-item-height
+          padding: $nav-mobile-item-padding
+          color: $nav-mobile-text !important
+          text-shadow: $nav-mobile-text-shadow
+          text-decoration: none !important
+
+        a:hover
+          background-color: rgba($nav-mobile-menu-highlight, 0.5)
+
+        .not-a-link
+          opacity: 0.4
+
+      li.active
+        background-color: $nav-mobile-menu-highlight
+
+      .nav-toggle:before
+        transition: $nav-mobile-menu-animation
+        display: inline-block
+        width: $nav-mobile-button-size
+        height: $nav-mobile-button-size
+        cursor: pointer
+        content: $nav-icon-menu
+        font-size: $nav-mobile-button-size
+        color: $nav-text-color
+        z-index: 3
+        padding: 0.5ex
+        line-height: $nav-mobile-button-size
+        border-radius: $nav-menu-radius
+
+    .nav-check:checked + nav >
+      .nav-menu
+        visibility: visible
+        transform: scale(1)
+
+      // Invisible screen to capture clicks
+      // (and not trigger page links)
+      .nav-screen
+        @include no-select
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 1
+
+      .nav-toggle:before
+        background: transparent
+
+  %none
+    background: none
+
+//// Make the masthead a menu
+// It's also possible to extend nav.menu for other nav elements
+// ...or make nav elements with a class of menu in document bodies too
+.masthead
+  @extend %#{$nav-mobile-style}
+
+  nav
+    @extend nav.menu
+
+@media screen and (max-width: $nav-min-width)
