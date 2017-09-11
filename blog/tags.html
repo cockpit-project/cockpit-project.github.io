@@ -1,0 +1,60 @@
+---
+index: false
+---
+
+{% capture tag_downcase %}{% for tag in site.tags %}{{ tag[0] | downcase }}:::{{ tag[0] }}|||{% endfor %}{% endcapture %}
+{% assign tag_downcase = tag_downcase | split: "|||" | sort %}
+
+<section class="tag-cloud">
+  <h2>All Tags</h2>
+
+  {% assign max_height = 1 %}
+  {% for tag in site.tags %}
+    {% if tag[1].size > max_height %}
+      {% assign max_height = tag[1].size | plus: 0.0 %}
+    {% endif %}
+  {% endfor %}
+
+  {% for tagline in tag_downcase %}
+    {% assign tag_info = tagline | split: ":::" %}
+    {% assign tag_label = tag_info[0] %}
+    {% assign tag_title = tag_info[1] %}
+    {% assign tag_id = tag_label | replace: " ", "-" | urlencode | remove: "." %}
+    {% assign size = site.tags[tag_title].size | divided_by: max_height | add: 1 | times: 100 | plus: 100 %}
+
+    {% unless tag_label == previous_tag %}
+      <span class="tag" style="font-size:{{ size }}%">
+        <a href="#{{ tag_id }}">{{ tag_title }}</a>
+      </span>
+    {% endunless %}
+
+    {% assign previous_tag = tag_label %}
+  {% endfor %}
+</section>
+
+{% assign taglist = "" | split: "," %}
+
+{% for tagline in tag_downcase %}
+  {% assign tag_info = tagline | split: ":::" %}
+  {% assign tag_label = tag_info[0] %}
+  {% assign tag_title = tag_info[1] %}
+  {% assign tag_id = tag_label | replace: " ", "-" | urlencode %}
+
+  {% unless tag_label == previous_tag %}
+    {% assign title = tag_title | prepend: "## " %}
+    {% assign taglist = taglist | push: "" %}
+    {% assign taglist = taglist | push: title %}
+  {% endunless %}
+
+  {% for post in site.tags[tag_title] %}
+    {% assign FOOli = '* <time class="published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time> ({{ post.title }})[{{ site.baseurl }}{{ post.url }}">{{ post.title }}' %}
+    {% assign datestring = post.date | date_to_string | prepend: '<span class="published">' | append: '</span>' %}
+    {% assign li = "* " | append: datestring | append: " [" | append: post.title | append: "](" | append: site.baseurl | append: post.url | append: ")" %}
+    {% assign taglist = taglist | push: li %}
+  {% endfor %}
+
+  {% assign previous_tag = tag_label %}
+{% endfor %}
+
+<section class="tag-list">{{ taglist | join: "
+" | markdownify | replace: "<span", "<time" | replace: "span>", "time>" }}</section>

@@ -1,0 +1,15 @@
+<script src="{{ "/assets/lib/events.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/vendor/fullcalendar.js" | prepend: site.baseurl }}"></script>
+<link rel="stylesheet" href="{{ "/assets/lib/calendar-widget.css" | prepend: site.baseurl }}">
+
+<div class="grid upcoming-events">
+  {% if include.blurb %}
+    <div class="page-blurb col-6">{{ include.blurb | markdownify }}</div>
+  {% endif %}
+  <div id="calendar-widget" class="col"></div>
+</div>
+
+<div id="all-events">
+  <div class="events-loading">Loading events&hellip;</div>
+  <noscript>Please enable JavaScript to view the calendar events. Thanks!</noscript>
+</div>

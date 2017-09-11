@@ -1,0 +1,229 @@
+/* ==========================================================================
+    GRIDLEX
+    Just a Flexbox Grid System
+========================================================================== */
+
+@import "gridlex-vars";
+
+.#{$gl-gridName},
+[class*="#{$gl-gridName}"]{
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 (-$gl-gutter/2);
+}
+.#{$gl-colName},
+[class*="#{$gl-colName}-"]{
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 0 ($gl-gutter/2) $gl-col-bottom;
+}
+.#{$gl-colName}{
+  flex: 1 1 0%;
+}
+.#{$gl-gridName}.#{$gl-colName},
+.#{$gl-gridName}[class*="#{$gl-colName}-"]{
+  margin: 0;
+  padding: 0;
+}
+
+/************************
+    HELPERS SUFFIXES
+*************************/
+// FOR GRID
+[class*="#{$gl-gridName}-"]{
+// No spacing between cols : noGutter
+  &[class*="-noGutter"]{
+    margin: 0;
+    > [class*="#{$gl-colName}"]{
+      padding: 0;
+    }
+  }
+
+// No Wrapping
+  &[class*="-noWrap"]{
+    flex-wrap: nowrap;
+  }
+// Horizontal alignment
+  &[class*="-center"]{
+    justify-content: center;
+  }
+  &[class*="-right"]{
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+// Vertical alignment
+  &[class*="-top"]{
+    align-items: flex-start;
+  }
+  &[class*="-middle"]{
+    align-items: center;
+  }
+  &[class*="-bottom"]{
+    align-items: flex-end;
+  }
+
+// Orders
+  &[class*="-reverse"]{
+    flex-direction: row-reverse;
+  }
+  &[class*="-column"] {
+    flex-direction: column;
+    > [class*="#{$gl-colName}-"] {
+      flex-basis: auto;
+    }
+  }
+  &[class*="-column-reverse"]{
+    flex-direction: column-reverse;
+  }
+
+// Spaces between and around cols
+  &[class*="-spaceBetween"]{
+    justify-content: space-between;
+  }
+  &[class*="-spaceAround"]{
+    justify-content: space-around;
+  }
+
+// Equal heights columns
+  &[class*="-equalHeight"] > [class*="#{$gl-colName}"]{
+    display: flex;
+    > *{
+      flex: 1;
+    }
+  }
+// Removes the padding-bottom
+  &[class*="-noBottom"] > [class*="#{$gl-colName}"]{
+    padding-bottom: 0;
+  }
+}
+
+// FOR COL
+[class*="#{$gl-colName}-"]{
+  &[class*="-top"]{
+    align-self: flex-start;
+  }
+  &[class*="-middle"]{
+    align-self: center;
+  }
+  &[class*="-bottom"]{
+    align-self: flex-end;
+  }
+  &[class*="-first"]{
+    order: -1;
+  }
+  &[class*="-last"]{
+    order: 1;
+  }
+}
+
+/************************
+    GRID BY NUMBER
+*************************/
+@include makeGridByNumber(#{$gl-gridName});
+
+@media #{$gl-lg}{
+  @include makeGridByNumber(_lg);
+}
+@media #{$gl-md}{
+  @include makeGridByNumber(_md);
+}
+@media #{$gl-sm}{
+  @include makeGridByNumber(_sm);
+}
+@media #{$gl-xs}{
+  @include makeGridByNumber(_xs);
+}
+
+/************************
+    COLS SIZES
+*************************/
+@include makeCol(#{$gl-colName});
+@include makeOff(off);
+
+@media #{$gl-lg}{
+  @include makeCol(_lg);
+  @include makeOff(_lg);
+}
+@media #{$gl-md}{
+  @include makeCol(_md);
+  @include makeOff(_md);
+}
+@media #{$gl-sm}{
+  @include makeCol(_sm);
+  @include makeOff(_sm);
+}
+@media #{$gl-xs}{
+  @include makeCol(_xs);
+  @include makeOff(_xs);
+}
+
+/************************
+    HIDING COLS
+*************************/
+[class*="#{$gl-colName}-"]:not([class*="#{$gl-colName}-0"]) {
+  display: block;
+}
+[class*="#{$gl-gridName}"][class*="#{$gl-colName}-"]:not([class*="#{$gl-colName}-0"]) {
+  display: flex;
+}
+[class*="#{$gl-colName}-"][class*="#{$gl-colName}-0"] {
+  display: none;
+}
+@media #{$gl-lg}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_lg-0"]){
+      display: block;
+    }
+    &:not([class*="_lg-0"]) {
+      display: flex;
+    }
+    >[class*="_lg-0"],
+    &[class*="-equalHeight"] > [class*="_lg-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-md}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_md-0"]){
+      display: block;
+    }
+    &:not([class*="_md-0"]) {
+      display: flex;
+    }
+    >[class*="_md-0"],
+    &[class*="-equalHeight"] > [class*="_md-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-sm}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_sm-0"]){
+      display: block;
+    }
+    &:not([class*="_sm-0"]) {
+      display: flex;
+    }
+    >[class*="_sm-0"],
+    &[class*="-equalHeight"] > [class*="_sm-0"]{
+      display: none;
+    }
+  }
+}
+@media #{$gl-xs}{
+  [class*="#{$gl-gridName}"] {
+    > :not([class*="_xs-0"]){
+      display: block;
+    }
+    &:not([class*="_xs-0"]) {
+      display: flex;
+    }
+    >[class*="_xs-0"],
+    &[class*="-equalHeight"] > [class*="_xs-0"]{
+      display: none;
+    }
+  }
+}
