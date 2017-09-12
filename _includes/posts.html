@@ -1,0 +1,13 @@
+{% assign post_set = include.posts | default: site.posts %}
+{% assign limiter = include.limit | default: site.paginate %}
+
+<div class="blog-posts-list">
+  <section class="articles">
+
+    {% for post in post_set limit: limiter %}
+
+      {% include post.html post=post excerpt=true link=true %}
+
+    {% endfor %}
+  </section>
+</div>

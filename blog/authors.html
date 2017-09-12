@@ -1,82 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+index: false
+---
 
-<head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
-  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
-  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+{% assign posts_by_author = site.posts | group_by: "author" %}
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Cockpit Project">
-  <meta name="description" content="Posts and writings by Cockpit Project">
+<section class="grid-2_sm-1">
+  {% for author_posts in posts_by_author %}
+    {% if author_posts.name != "" %}
+      {% assign author_info = site.data.authors[author_posts.name] %}
+      <div class="col" id="{{ author_posts.name }}">
+        <h2>{{ author_info.name | default: author_posts.name }}</h2>
 
-  <script>
-    $(function() {
-       $("article img").each(function() {
-	   var a = $("<a>", {href: this.src});
-	   $(this).replaceWith(a);
-	   a.append(this);
-	});
-    });
-  </script>
+        <div class="description">
+          {{ author_info.description | markdownify }}
+        </div>
 
-  <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
+        <ul class="social">
+          {% if author_info.twitter %}
+            <li class="twitter"><span class="label">Twitter:</span> <a href="https://twitter.com/{{ author_info.twitter }}">@{{ author_info.twitter }}</a></li>
+          {% endif %}
 
+          {% if author_info.googleplus %}
+            <li class="googleplus"><span class="label">Google Plus:</span> <a href="https://googleplus.com/{{ author_info.googleplus }}">{{ author_info.googleplus }}</a></li>
+          {% endif %}
 
-  <title>
-&ndash; Authors  </title>
+          {% if author_info.facebook %}
+            <li class="facebook"><span class="label">Facebook:</span> <a href="https://facebook.com/{{ author_info.facebook }}">{{ author_info.facebook }}</a></li>
+          {% endif %}
+        </ul>
 
-</head>
-
-<body>
-<div class="jumbotron jumbotron-cockpit jumbotron-static">
-    <ul class="nav nav-pills">
-        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
-        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
-        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
-	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
-	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
-    </ul>
-    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
-</div>
-	  
-
-  <main>
-    <header>
-      <p>
-      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
-      &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-      </p>
-    </header>
-
-<article>
-  <div class="article_text">
-    <ul>
-      <li><a href="http://cockpit-project.org/blog/author/cockpit-project.html">Cockpit Project</a> (41)</li>
-      <li><a href="http://cockpit-project.org/blog/author/dominik-perpeet.html">Dominik Perpeet</a> (6)</li>
-      <li><a href="http://cockpit-project.org/blog/author/martin-pitt.html">Martin Pitt</a> (7)</li>
-      <li><a href="http://cockpit-project.org/blog/author/stef-walter.html">Stef Walter</a> (4)</li>
-    </ul>
-  </div>
-</article>
-
-
-  <footer class="footer-cockpit">
-    <p>Cockpit is free software and released under the
-    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
-    <p>&copy; Cockpit contributors 2016</p>
-    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
-  </footer>
-
-  </main>
-
-</body>
-</html>
+        {% assign article_number = author_posts.items | size %}
+        <h3>
+          {{ article_number}} article{% if article_number != 1 %}s{% endif %}
+        </h3>
+        <ul>
+          {% for _post in author_posts.items %}
+            <li>
+              <a href="{{ site.baseurl }}{{ _post.url }}">{{ _post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>

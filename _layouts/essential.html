@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="{{ page.class }} {{ page.url | replace: "/", "-" | prepend: "-path"}}" lang="{{ site.lang | default: 'en' }}">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+
+    <meta name="description" content="{{ site.description }}">
+    <!--<meta name="author" content="">-->
+    <meta property="og:title" content="{{ site.name }}">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="FIXME">
+    <meta property="og:image" content="FIXME">
+    {% if site.color %}<meta name="theme-color" content="{{ site.color }}">{% endif %}
+
+    <!-- Favicon -->
+    {% assign _favicon = site.static_files | where_exp: "item", "item.path contains '/images/favicon.'" %}
+    {% if _favicon[0] %}
+      <link rel="shortcut icon" href="{{ _favicon[0].path | prepend: site.baseurl }}" type="image/png">
+    {% endif %}
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="{{ "/assets/main.js" | prepend: site.baseurl }}"></script>
+    <link rel="stylesheet" href="{{ "/assets/main.css" | prepend: site.baseurl }}">
+  </head>
+
+
+  <body id="page-top">
+    {% if site.rewrite_images == false %}
+      {{ content }}
+    {% else %}
+      {% assign img_untreated = 'img src="/' %}
+      {% assign baseurlslash = site.baseurl | append: "/" %}
+      {% assign img_baseurl = img_untreated | replace: "/", baseurlslash %}
+      {% assign rewritten = content | replace: img_untreated, img_baseurl %}
+
+      {% if site.baseurl != "" %}
+        {% assign doublebase = site.baseurl | append: site.baseurl %}
+        {{ rewritten | replace: doublebase, site.baseurl }}
+      {% else %}
+        {{ rewritten }}
+      {% endif %}
+    {% endif %}
+  </body>
+
+</html>

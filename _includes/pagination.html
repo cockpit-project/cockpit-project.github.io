@@ -1,0 +1,51 @@
+{% if paginator.total_pages > 1 %}
+  {% assign display_before = paginator.page | minus: 5 %}
+  {% assign display_after = paginator.page | plus: 5 %}
+
+  {% comment %}
+  Balance after pages based on lack of previous pages
+  {% endcomment %}
+  {% if display_before < 0 %}
+    {% assign display_after = display_after | minus: display_before %}
+  {% endif %}
+
+  <ul class="pagination">
+
+    {% if paginator.previous_page %}
+      <li class="newest">
+        <a href="{{ site.paginate_path | remove: "page" | remove: "=" | remove: ":num" | prepend: site.baseurl }}">Newest</a>
+      </li>
+      <li class="newer">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+      </li>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+
+      {% if page > display_before and page < display_after %}
+
+        <li>
+          {% if page == paginator.page %}
+            <span class="current">{{ page }}</span>
+          {% elsif page == 1 %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: ":num", page }}">{{ page }}</a>
+          {% endif %}
+        </li>
+
+      {% endif %}
+
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <li class="older">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next">Older</a>
+      </li>
+      <li class="oldest">
+        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: ":num", paginator.total_pages }}" class="next">Oldest</a>
+      </li>
+    {% endif %}
+
+  </ul>
+{% endif %}

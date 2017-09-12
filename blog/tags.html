@@ -1,86 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+index: false
+---
 
-<head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="http://cockpit-project.org/blog/theme/css/pygments.css">
-  <link href="http://cockpit-project.org/blog/../bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="http://cockpit-project.org/blog/../main.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Roboto+Slab:400,700">
-  <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+{% capture tag_downcase %}{% for tag in site.tags %}{{ tag[0] | downcase }}:::{{ tag[0] }}|||{% endfor %}{% endcapture %}
+{% assign tag_downcase = tag_downcase | split: "|||" | sort %}
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Cockpit Project">
-  <meta name="description" content="Posts and writings by Cockpit Project">
+<section class="tag-cloud">
+  <h2>All Tags</h2>
 
-  <script>
-    $(function() {
-       $("article img").each(function() {
-	   var a = $("<a>", {href: this.src});
-	   $(this).replaceWith(a);
-	   a.append(this);
-	});
-    });
-  </script>
+  {% assign max_height = 1 %}
+  {% for tag in site.tags %}
+    {% if tag[1].size > max_height %}
+      {% assign max_height = tag[1].size | plus: 0.0 %}
+    {% endif %}
+  {% endfor %}
 
-  <link href="http://cockpit-project.org/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cockpit Project Atom" />
+  {% for tagline in tag_downcase %}
+    {% assign tag_info = tagline | split: ":::" %}
+    {% assign tag_label = tag_info[0] %}
+    {% assign tag_title = tag_info[1] %}
+    {% assign tag_id = tag_label | replace: " ", "-" | urlencode | remove: "." %}
+    {% assign size = site.tags[tag_title].size | divided_by: max_height | add: 1 | times: 100 | plus: 100 %}
 
+    {% unless tag_label == previous_tag %}
+      <span class="tag" style="font-size:{{ size }}%">
+        <a href="#{{ tag_id }}">{{ tag_title }}</a>
+      </span>
+    {% endunless %}
 
-  <title>
-&ndash; Tags  </title>
+    {% assign previous_tag = tag_label %}
+  {% endfor %}
+</section>
 
-</head>
+{% assign taglist = "" | split: "," %}
 
-<body>
-<div class="jumbotron jumbotron-cockpit jumbotron-static">
-    <ul class="nav nav-pills">
-        <li role="presentation"><a href="http://cockpit-project.org/blog/../index.html">Home</a></li>
-        <li role="presentation" class="active"><a href="http://cockpit-project.org/blog">Blog</a></li>
-        <li role="presentation"><a href="https://github.com/cockpit-project/cockpit/wiki/Contributing">Contribute</a></li>
-	<li role="presentation"><a href="http://cockpit-project.org/blog/category/release.html">Releases</a></li>
-	<li role="presentation"><a href="http://cockpit-project.org/blog/category/tutorial.html">Tutorials</a></li>
-    </ul>
-    <a href="http://cockpit-project.org/blog/../index.html"><div class="logo-small"><h1>Cockpit</h1></div></a>
-</div>
-	  
+{% for tagline in tag_downcase %}
+  {% assign tag_info = tagline | split: ":::" %}
+  {% assign tag_label = tag_info[0] %}
+  {% assign tag_title = tag_info[1] %}
+  {% assign tag_id = tag_label | replace: " ", "-" | urlencode %}
 
-  <main>
-    <header>
-      <p>
-      <a href="http://cockpit-project.org/blog">Index</a> &brvbar; <a href="http://cockpit-project.org/blog/archives.html">Archives</a>
-      &brvbar; <a href="http://cockpit-project.org/blog/feeds/all.atom.xml">Atom</a>
-      </p>
-    </header>
+  {% unless tag_label == previous_tag %}
+    {% assign title = tag_title | prepend: "## " %}
+    {% assign taglist = taglist | push: "" %}
+    {% assign taglist = taglist | push: title %}
+  {% endunless %}
 
-<article>
-  <div class="article_text">
-    <ul>          <li><a href="http://cockpit-project.org/blog/tag/atomic.html">atomic</a> (1)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/cockpit.html">cockpit</a> (56)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/dbus.html">dbus</a> (1)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/docker.html">docker</a> (1)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/kubernetes.html">kubernetes</a> (9)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/linux.html">linux</a> (52)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/network-manager.html">network-manager</a> (1)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/rhel.html">rhel</a> (1)</li>
-          <li><a href="http://cockpit-project.org/blog/tag/technical.html">technical</a> (31)</li>
-    </ul>
-  </div>
-</article>
+  {% for post in site.tags[tag_title] %}
+    {% assign FOOli = '* <time class="published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time> ({{ post.title }})[{{ site.baseurl }}{{ post.url }}">{{ post.title }}' %}
+    {% assign datestring = post.date | date_to_string | prepend: '<span class="published">' | append: '</span>' %}
+    {% assign li = "* " | append: datestring | append: " [" | append: post.title | append: "](" | append: site.baseurl | append: post.url | append: ")" %}
+    {% assign taglist = taglist | push: li %}
+  {% endfor %}
 
+  {% assign previous_tag = tag_label %}
+{% endfor %}
 
-  <footer class="footer-cockpit">
-    <p>Cockpit is free software and released under the
-    	<a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
-    <p>&copy; Cockpit contributors 2016</p>
-    <p>Blog built using <a href="http://getpelican.com" target="_blank">Pelican</a> with a theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a></p>
-  </footer>
-
-  </main>
-
-</body>
-</html>
+<section class="tag-list">{{ taglist | join: "
+" | markdownify | replace: "<span", "<time" | replace: "span>", "time>" }}</section>

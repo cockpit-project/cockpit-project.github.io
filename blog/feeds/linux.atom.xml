@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Cockpit Project - linux</title><link href="http://cockpit-project.org/blog/" rel="alternate"></link><link href="http://cockpit-project.org/blog/feeds/linux.atom.xml" rel="self"></link><id>http://cockpit-project.org/blog/</id><updated>2014-11-04T00:00:00+00:00</updated><entry><title>DBus is powerful IPC</title><link href="http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html" rel="alternate"></link><published>2014-11-04T00:00:00+00:00</published><author><name>Cockpit Project</name></author><id>tag:cockpit-project.org,2014-11-04:/blog/d-bus-is-powerful-ipc.html/</id><summary type="html">&lt;p&gt;D-Bus is powerful &lt;span class="caps"&gt;IPC&lt;/span&gt; Cockpit is heavily built around DBus. We send DBus over our
-&lt;a href="https://github.com/cockpit-project/cockpit/blob/master/doc/protocol.md"&gt;WebSocket transport&lt;/a&gt;,
-and marshal them in &lt;span class="caps"&gt;JSON&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;DBus is powerful, with lots of capabilities. Not all projects use all of these, but so many of
-these capabilities are what allow Cockpit to implement its &lt;span class="caps"&gt;UI …&lt;/span&gt;&lt;/p&gt;</summary><category term="dbus"></category><category term="linux"></category></entry></feed>
+---
+layout: null
+---
+{% include feed_category.html %}
