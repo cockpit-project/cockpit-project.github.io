@@ -105,7 +105,7 @@ sudo firewall-cmd --reload
 
 
 {% capture debian-official %}
-Cockpit is included in Debian 9 (Stretch) and unstable.
+Cockpit is included in Debian unstable and in backports for Debian 8 (Jessie) and 9 (Stretch).
 
 1. For Debian 9 you have to enable the [backports repository](https://backports.debian.org):
 ```
@@ -114,35 +114,14 @@ echo 'deb http://deb.debian.org/debian stretch-backports main' > \
 apt-get update
 ```
 
-2. Install the package:
+2. For Debian 8 you have to enable the [backports-sloppy repository](https://backports.debian.org):
 ```
-sudo apt-get install cockpit
+echo 'deb http://deb.debian.org/debian jessie-backports-sloppy main' > \
+    /etc/apt/sources.list.d/backports.list
+apt-get update
 ```
-{% endcapture %}
 
-
-{% capture debian-customrepo %}
-For Debian 8 (Jessie) you can add a repository which always has the latest Cockpit release:
-
-1. Add the repository:
-```
-echo 'deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main' > \
-    /etc/apt/sources.list.d/cockpit.list
-```
-2. Import Cockpit's signing key to the apt sources keyring:
-```
-sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C
-```
-3. Verify fingerprint: 
-```
-sudo apt-key finger F1BAA57C
-```
-Compare the output: <tt>Key fingerprint = FD9A 5764 17F7 B1D8 63C4 7A5A 0D2A 45C3 F1BA A57C</tt>
-4. Update package information with that source: 
-```
-sudo apt-get update
-```
-5. Install cockpit: 
+3. Install the package:
 ```
 sudo apt-get install cockpit
 ```
@@ -178,7 +157,6 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 {{ stable2 | markdownify }}
 <section id="debian" class="os-instructions">
   <div class="os-block">{{ debian-official | markdownify }}</div>
-  <div class="os-block">{{ debian-customrepo | markdownify }}</div>
 </section>
 <section id="ubuntu" class="os-instructions os-block">{{ ubuntu | markdownify }}</section>
 
