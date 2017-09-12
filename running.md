@@ -104,24 +104,32 @@ sudo firewall-cmd --reload
 {% endcapture %}
 
 
-{% capture debian-unstable %}
-Cockpit is included in Debian unstable.
+{% capture debian-official %}
+Cockpit is included in Debian 9 (Stretch) and unstable.
 
-1. Install the package:
+1. For Debian 9 you have to enable the [backports repository](https://backports.debian.org):
+```
+echo 'deb http://deb.debian.org/debian stretch-backports main' > \
+    /etc/apt/sources.list.d/backports.list
+apt-get update
+```
+
+2. Install the package:
 ```
 sudo apt-get install cockpit
 ```
 {% endcapture %}
 
 
-{% capture debian-jessie %}
-For Debian Jessie (8.x) you can add a repository which always has the latest Cockpit release:
+{% capture debian-customrepo %}
+For Debian 8 (Jessie) you can add a repository which always has the latest Cockpit release:
 
-1. Add the following line to . 
+1. Add the repository:
 ```
-deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main
+echo 'deb http://repo-cockpitproject.rhcloud.com/debian/ jessie main' > \
+    /etc/apt/sources.list.d/cockpit.list
 ```
-2. Import Cockpit's signing key to the apt sources keyring: 
+2. Import Cockpit's signing key to the apt sources keyring:
 ```
 sudo apt-key adv --keyserver sks-keyservers.net --recv-keys 0D2A45C3F1BAA57C
 ```
@@ -169,8 +177,8 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 
 {{ stable2 | markdownify }}
 <section id="debian" class="os-instructions">
-  <div class="os-block">{{ debian-unstable | markdownify }}</div>
-  <div class="os-block">{{ debian-jessie | markdownify }}</div>
+  <div class="os-block">{{ debian-official | markdownify }}</div>
+  <div class="os-block">{{ debian-customrepo | markdownify }}</div>
 </section>
 <section id="ubuntu" class="os-instructions os-block">{{ ubuntu | markdownify }}</section>
 
