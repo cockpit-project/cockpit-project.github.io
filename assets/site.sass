@@ -117,13 +117,13 @@ h1, h2, h3, h4, h5, h6
 header.masthead
   padding: 0
   margin: 0 0 3rem
-  background: $brand-color
+  background: #1a1e1e
   color: white
   display: flex
   align-items: baseline
 
   h1 img
-    height: 42px
+    height: 32px
 
   a
     color: white
@@ -151,6 +151,23 @@ header.masthead
 
     li a
       display: inline-block
+
+  li.nav--home
+    display: none !important
+
+  @media screen and (min-width: $on-laptop)
+    $gutter-width: calc((100vw - 65rem) / 2)
+    padding: 0 $gutter-width
+    align-items: space-between
+
+    .hgroup
+      flex: none
+
+    .nav-wrap ul
+      display: flex
+
+      li
+        flex: auto
 
   @media screen and (max-width: $on-laptop)
     flex-direction: column
@@ -254,25 +271,34 @@ html.body-cockpit > body
   color: #3e5375
 
 html.front-page
-  .logo img
-    height: 64px
-    margin-bottom: 20px
+  header.masthead
+    margin-bottom: 0
 
   .page-content
     padding-top: 0
 
   .intro
-    background: #3e5375
+    background: #4c6690
     color: #eeeeec
     font-size: 18px
     margin: 0 0 3rem
     padding: 48px 0 0
 
-    .side-left p
-      margin-bottom: 15px
-      font-size: 21px
-      font-weight: 200
-      max-width: 44ex
+    .logo img
+      height: 64px
+      margin-bottom: 20px
+
+    .side-left
+      padding-top: 1.5rem
+
+      p
+        margin-bottom: 15px
+        font-size: 21px
+        font-weight: 200
+        max-width: 60ex
+
+        @media screen and (min-width: $content-width)
+          max-width: 36ex
 
     .intro-image
       position: relative
