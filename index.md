@@ -4,6 +4,8 @@ layout: essential
 class: front-page
 ---
 
+{% include page_header.html %}
+
 {% comment %}
 ##### Content #####
 First we set up & capture the content, then we render it in the scaffolding below.
@@ -14,11 +16,8 @@ First we set up & capture the content, then we render it in the scaffolding belo
 # ![Cockpit](/images/site/cockpit-logo.svg)
 {:.logo}
 
-Cockpit makes it easy to administer your GNU/Linux servers via a web browser.
+Cockpit is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.
 
-* {:.with-img} [![''](/images/site/item-git.png) Try it out](running.html)
-* [Get the source](https://github.com/cockpit-project/cockpit)
-* [Contribute](https://github.com/cockpit-project/cockpit/wiki/Contributing)
 {% endcapture %}
 
 {% capture intro-right %}

@@ -4,8 +4,14 @@
 - title: Blog
   url: /blog/
 
+- title: Try it out
+  url: /running.html
+
 - title: Contribute
   url: https://github.com/cockpit-project/cockpit/wiki/Contributing
+
+- title: Documentation
+  url: /guide/latest/
 
 - title: Search
   url: /search.html
