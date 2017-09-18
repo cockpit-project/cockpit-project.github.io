@@ -1,27 +1,35 @@
 ---
 layout:
 ---
-{% comment %} Cockpit-specific guide template {% endcomment %}
+{% capture empty %}
+  {% comment %} Cockpit-specific guide template {% endcomment %}
 
-{% assign html_orig = '<html' %}
-{% assign css_orig = '</head>' %}
-{% assign nav_orig = '<table class="navigation"' %}
+  {% assign html_tag = '<html' %}
+  {% assign css_tag = '</head>' %}
+  {% assign nav_tag = '<table class="navigation"' %}
+  {% assign book_tag = '<div class="book"'%}
 
+  {% assign html_mod = '<html class="cockpit-guide"'%}
 
-{% assign html_mod = '<html class="cockpit-guide"'%}
+  {% capture css_mod %}
+    <link rel="stylesheet" href="{{ "/assets/main.css" | prepend: site.baseurl }}">
+    {{ css_tag }}
+  {% endcapture %}
 
-{% capture css_mod %}
-  <link rel="stylesheet" href="{{ "/assets/main.css" | prepend: site.baseurl }}">
-  {{ css_orig }}
-{% endcapture %}
+  {% capture header_html %}{% include page_header.html %}{% endcapture %}
 
-{% capture nav_mod %}
-  {% include page_header.html %}
-  {{ nav_orig }}
-{% endcapture %}
+  {% if content contains book_tag %}
+    {% assign header_orig = book_tag %}
+    {% assign header_mod = book_tag | prepend: header_html %}
+  {% else %}
+    {% assign header_orig = nav_tag %}
+    {% assign header_mod = nav_tag | prepend: header_html %}
+  {% endif %}
 
-{{ content
-  | replace: html_orig , html_mod
-  | replace: css_orig , css_mod
-  | replace: nav_orig , nav_mod
+{%
+  endcapture
+%}{{ content
+  | replace_first: html_tag, html_mod
+  | replace_first: css_tag, css_mod
+  | replace_first: header_orig, header_mod
 }}
