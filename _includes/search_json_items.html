@@ -1,18 +1,36 @@
 {% capture codeblock %}
   {% assign docs = include.pages | default: site.documents %}
+  {% assign _type = include.type | default: 'doc' %}
   {% assign _first = true %}
 {% endcapture %}
 {% for _page in docs %}{% capture codeblock %}
-  {% assign _content = _page.content | markdownify | strip_html | remove: site.excerpt_separator | strip %}
+  {% assign _content = _page.content
+    | strip_html
+    | markdownify
+    | strip_html
+    | remove: site.excerpt_separator
+    | strip
+  %}
 
   {% if _page.summary %}
-    {% assign _blurb = _page.summary | strip_newlines %}
+    {% assign _blurb = _page.summary %}
   {% else %}
     {% if _content contains site.excerpt_separator %}
       {% assign _blurb = _content | split: site.excerpt_separator | first %}
     {% else %}
-      {% assign _blurb = _content | strip_newlines %}
+      {% assign _blurb = _content %}
     {% endif %}
+  {% endif %}
+
+  {% if _type == 'page' %}
+    {% assign fallback_title = _page.content
+      | split: "</title>"
+      | first
+      | strip_html
+      | truncatewords: 10
+      | strip
+    %}
+    {% assign _blurb = _blurb | replace_first: fallback_title, '' %}
   {% endif %}
 
   {% if _page.date %}
@@ -84,9 +102,10 @@
 
       %}{
         "id": {{ _id }},
-        "title": {{ _page.title | strip | jsonify }},
+        "title": {{ _page.title | strip | default: fallback_title | jsonify }},
         "slug": {{ _page.slug | strip | jsonify }},
         "url": "{{ site.baseurl }}{{ _page.url }}",
+        "type": {{ _type | jsonify }},
         "category": {{ _page.category | join: "," | strip | jsonify }},
         "tags": {{ _page.tags | join: "," | strip | replace: ", ", "," | replace: ",,", "," | downcase | split: "," | sort | uniq | jsonify }},
         {% if _page.date %}
@@ -95,7 +114,7 @@
         {% endif %}
         "wordcount": {{ _content | remove: site.excerpt_separator | number_of_words }},
         "wordlist": {{ _wordlist | join: " " | jsonify }},
-        "summary": {{ _blurb | truncatewords: 50 | jsonify }}
+        "summary": {{ _blurb | replace: "\n", " " | strip | truncatewords: 50 | jsonify }}
       }{%
 
       assign _first = false

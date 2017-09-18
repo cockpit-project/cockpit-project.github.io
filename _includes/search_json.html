@@ -6,7 +6,7 @@
   {%
     capture _docs
       %}{%
-      include search_json_items.html
+      include search_json_items.html type="doc"
       %}{%
     endcapture
   %}{%
@@ -14,7 +14,7 @@
   %}{%
     capture _pages
       %}{%
-      include search_json_items.html pages=site.html_pages
+      include search_json_items.html pages=site.html_pages type="page"
       %}{%
     endcapture
   %}{%
