@@ -489,10 +489,33 @@ html.cockpit-guide
     th
       text-align: center !important
       padding: 0.5rem
+      font-family: $headline-font
 
     img
       max-width: 100vh
       padding: 0.5rem
+
+  .releaseinfo
+    text-align: center
+
+  dl.toc
+    dd, dt
+      padding-left: 3ex
+
+    .refpurpose
+      color: #777
+
+    > dd > dl
+      margin-bottom: 3ex
+
+      dl
+        margin: 1ex 0 2ex
+
+  .book
+    dl.toc > dt
+      margin: 6ex 0 3ex
+      font-size: 120%
+      font-weight: bold
 
 @keyframes fadeIn
   0%
