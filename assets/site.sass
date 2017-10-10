@@ -66,7 +66,7 @@ $spacing-unit: 1rem
 
 $text-color: #333
 $background-color: #fff
-$brand-color: #3e5375
+$brand-color: #4c6690
 
 $grey-color: #828282
 $grey-color-light: lighten($grey-color, 40%)
@@ -112,6 +112,24 @@ $content-width: 65rem
 $headline-font: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
 
 $gutter-width: calc((100vw - 65rem) / 2)
+
+.page-content,
+.cockpit-guide .book,
+.cockpit-guide .chapter
+  a[href]
+    $link-color: saturate($brand-color, 60%)
+
+    &:link, &:visited, &:hover
+      text-decoration: underline
+
+    &:link
+      color: $link-color
+
+    &:visited
+      color: lighten(desaturate(mix($link-color, purple, 50%), 20%), 20%)
+
+    &:hover
+      color: lighten($link-color, 15%)
 
 h1, h2, h3, h4, h5, h6
   font-family: $headline-font
@@ -267,9 +285,6 @@ html.running-cockpit
 
     background: #fff
     padding: 1ex
-
-html.body-cockpit > body
-  color: #3e5375
 
 html.front-page
   header.masthead
