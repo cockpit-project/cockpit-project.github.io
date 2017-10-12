@@ -5,15 +5,25 @@ layout:
   {% comment %} Cockpit-specific guide template {% endcomment %}
 
   {% assign html_tag = '<html' %}
-  {% assign css_tag = '</head>' %}
+  {% assign head_tag = '</head>' %}
   {% assign nav_tag = '<table class="navigation"' %}
   {% assign book_tag = '<div class="book"'%}
 
   {% assign html_mod = '<html class="cockpit-guide"'%}
 
-  {% capture css_mod %}
+  {% capture head_mod %}
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+
+    {% assign _favicon = site.static_files | where_exp: "item", "item.path contains '/images/favicon.'" %}
+    {% if _favicon[0] %}
+      <link rel="shortcut icon" href="{{ _favicon[0].path | prepend: site.baseurl }}" type="image/png">
+    {% endif %}
+
     <link rel="stylesheet" href="{{ "/assets/main.css" | prepend: site.baseurl }}">
-    {{ css_tag }}
+    {{ head_tag }}
   {% endcapture %}
 
   {% capture header_html %}{% include page_header.html %}{% endcapture %}
@@ -30,6 +40,6 @@ layout:
   endcapture
 %}{{ content
   | replace_first: html_tag, html_mod
-  | replace_first: css_tag, css_mod
+  | replace_first: head_tag, head_mod
   | replace_first: header_orig, header_mod
 }}

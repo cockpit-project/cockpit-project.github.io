@@ -517,6 +517,7 @@ html.cockpit-guide
     margin-bottom: 0
 
   table.navigation
+    position: sticky !important
 
     @media screen and (min-width: $on-laptop)
       padding-left: $gutter-width
@@ -524,8 +525,13 @@ html.cockpit-guide
 
     th
       text-align: center !important
-      padding: 0.5rem
       font-family: $headline-font
+      font-size: 1.75rem !important
+      line-height: 3rem
+
+      > p
+        font: inherit !important
+        margin: 0
 
     img
       max-width: 100vh
@@ -552,6 +558,16 @@ html.cockpit-guide
       margin: 6ex 0 3ex
       font-size: 120%
       font-weight: bold
+
+  @media screen and (max-width: $on-laptop)
+    table.navigation
+
+      th
+        font-size: 1.2rem !important
+
+    pre
+      max-width: calc(100vw - 6rem)
+      overflow: auto
 
 @keyframes fadeIn
   0%
