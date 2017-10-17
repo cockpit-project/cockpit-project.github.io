@@ -521,6 +521,10 @@ html.cockpit-guide
     margin-bottom: 0
 
   table.navigation
+    /* First fallback for Safari/Epiphany/non-sticky-browsers
+    /* (!important is used to override guide CSS)
+    position: static !important
+    /* Use sticky override for browsers that support it
     position: sticky !important
 
     @media screen and (min-width: $on-laptop)
