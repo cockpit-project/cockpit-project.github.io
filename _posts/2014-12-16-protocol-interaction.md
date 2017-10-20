@@ -135,7 +135,7 @@ To make a DBus method call, we open a channel with the payload type `"dbus-json3
   "command": "open",
   "channel": "mydbus",
   "payload": "dbus-json3",
-  "name": "org.freedesktop.systemd1"
+  "name": "org.freedesktop.hostname1"
 }
 </pre>
 
