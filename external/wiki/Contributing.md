@@ -29,6 +29,8 @@ Cockpit's user interface is based on [PatternFly](https://www.patternfly.org/). 
 An overview of things currently in design can be found [here](https://github.com/cockpit-project/cockpit/wiki/Design).
 
 ### Further reading
- * [Create plugins for the user interface](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html)
- * [Use DBUS from javascript in Cockpit](http://stef.thewalter.net/using-dbus-from-javascript-in-cockpit.html)
- * [Protocol for web access to system APIs](http://stef.thewalter.net/protocol-for-web-access-to-system-apis.html)
+ * [Create plugins for the user interface](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html)
+ * [Use DBUS from javascript in Cockpit](http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html)
+ * [Protocol for web access to system APIs](http://cockpit-project.org/blog/protocol-for-web-access-to-system-apis.html)
+ * [Making REST calls from Javascript in Cockpit](http://cockpit-project.org/blog/making-rest-calls-from-javascript-in-cockpit.html)
+ * [Using Vagrant to Develop Cockpit](http://cockpit-project.org/blog/cockpit-vagrantfile.html)
