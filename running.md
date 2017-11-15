@@ -170,11 +170,11 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 
 {:.browser-support.grid-3.grid_sm-2.grid_xs-1}
 - {:.col}![](/images/site/browser-firefox.svg) Mozilla Firefox 11+
-- {:.col}![](/images/site/browser-explorer.svg) Internet Explorer 10+
-- {:.col}![](/images/site/browser-ios.svg) Apple iOS Safari 6.1+
 - {:.col}![](/images/site/browser-chrome.svg) Google Chrome 16+
+- {:.col}![](/images/site/browser-edge.svg) Microsoft Edge
+- {:.col}![](/images/site/browser-explorer.svg) Microsoft Internet Explorer 10+
+- {:.col}![](/images/site/browser-ios.svg) Apple iOS Safari 6.1+
 - {:.col}![](/images/site/browser-opera.svg) Opera 21.1+
-- {:.col}![](/images/site/browser-android.svg) Android Browser 4.4+
 
 <script>
 $(function(){
