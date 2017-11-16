@@ -6,7 +6,7 @@ layout: guide
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Single Sign On</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
 <link rel="home" href="index.html" title="Cockpit Guide">
 <link rel="up" href="guide.html" title="Part I. Deployment Guide">
 <link rel="prev" href="authentication.html" title="Cockpit Authentication">
@@ -47,8 +47,10 @@ _kerberos._udp.example.com has SRV record 0 100 88 dc.example.com
 <p>The server running Cockpit should have a fully qualified name that ends with
       the domain name.</p>
 <p>There must be a valid Kerberos host key for the server in the <code class="code">/etc/krb5.keytab</code>
-      file. It may be necessary to create a kerberos service principal and update the keytab if it
-      is not present. Depending on your domain type different service names are required:</p>
+      file. Alternatively, if you would like to use a different keytab, you can do so
+      by placing it in <code class="code">/etc/cockpit/krb5.keytab</code>. It may be necessary to
+      create a kerberos service principal and update the keytab if it is not present.
+      Depending on your domain type different service names are required:</p>
 <div class="variablelist"><table border="0" class="variablelist">
 <colgroup>
 <col align="left" valign="top">
