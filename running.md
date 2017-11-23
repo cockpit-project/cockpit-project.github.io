@@ -80,6 +80,7 @@ Alternatively you can access Cockpit directly on the Atomic Host if SSH password
 
 1. Run the Cockpit web service container: 
 ```
+sudo atomic install cockpit/ws
 sudo atomic run cockpit/ws
 ```
 {% endcapture %}
