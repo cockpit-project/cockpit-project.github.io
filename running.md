@@ -26,6 +26,7 @@ Use your system user account and password to log in. See [the guide](guide/lates
 {% capture unstable1 %}
 {:.os-list.grid-4.grid_xs-2}
 - {:.col}[![](/images/site/os-archlinux.svg)](#arch)
+- {:.col}[![](/images/site/os-clearlinux.svg)](#clearlinux)
 {% endcapture %}
 
 
@@ -144,6 +145,15 @@ sudo apt-get install cockpit
 Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/index.php/Arch_User_Repository) as package [cockpit](https://aur.archlinux.org/packages/cockpit/). 
 {% endcapture %}
 
+{% capture clearlinux %}
+Cockpit is in Clear Linux* OS and can be installed using `swupd`:
+
+```
+sudo swupd bundle-add sysadmin-remote
+sudo systemctl enable --now cockpit.socket
+```
+{% endcapture %}
+
 
 {{ intro | markdownify }}
 
@@ -165,6 +175,7 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 
 {{ unstable1 | markdownify }}
 <section id="arch" class="os-instructions os-block">{{ arch | markdownify }}</section>
+<section id="clearlinux" class="os-instructions os-block">{{ clearlinux | markdownify }}</section>
 
 
 <div class="browser-header"><h2>Minimum client browser versions</h2></div>
