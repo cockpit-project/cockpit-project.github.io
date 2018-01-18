@@ -225,11 +225,9 @@ $(function(){
     }
   });
 
-  $(window).on('popstate', function(ev){
+  $(window).on('load popstate', function(ev){
     switchActive(window.location.hash);
-  });
-
-  $(window).on('hashchange', function(ev){
+  }).on('hashchange', function(ev){
     window.scroll(0, windowOffset);
     ev.preventDefault();
   });
