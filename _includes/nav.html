@@ -7,7 +7,7 @@
   <label for="nav-toggle" class="nav-screen"></label>
 {% endunless %}
 
-  <ul class="nav-menu">
+  <ul class="nav-menu" role="menubar">
     {% for nav in navs %}
       {% capture vars %}
         {% if nav.url == page.url | replace: ".html", "/" %}
