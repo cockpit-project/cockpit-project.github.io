@@ -146,7 +146,7 @@ Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/in
 {% endcapture %}
 
 {% capture clearlinux %}
-Cockpit is in Clear Linux* OS and can be installed using `swupd`:
+Cockpit is in [Clear Linux](https://clearlinux.org/) OS and can be installed using `swupd`:
 
 ```
 sudo swupd bundle-add sysadmin-remote
