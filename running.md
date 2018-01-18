@@ -13,20 +13,20 @@ Use your system user account and password to log in. See [the guide](guide/lates
 
 {% capture stable1 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-fedora.svg)](#fedora)
-- {:.col}[![](/images/site/os-rhel.svg)](#rhel)
-- {:.col}[![](/images/site/os-atomic.svg)](#atomic)
-- {:.col}[![](/images/site/os-centos.svg)](#centos)
+- {:.col}[![Fedora](/images/site/os-fedora.svg)](#fedora)
+- {:.col}[![Red Hat Enterprise Linux](/images/site/os-rhel.svg)](#rhel)
+- {:.col}[![Project Atomic](/images/site/os-atomic.svg)](#atomic)
+- {:.col}[![CentOS](/images/site/os-centos.svg)](#centos)
 {% endcapture %}
 {% capture stable2 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-debian.svg)](#debian)
-- {:.col}[![](/images/site/os-ubuntu.svg)](#ubuntu)
+- {:.col}[![Debian](/images/site/os-debian.svg)](#debian)
+- {:.col}[![Ubuntu](/images/site/os-ubuntu.svg)](#ubuntu)
 {% endcapture %}
 {% capture unstable1 %}
 {:.os-list.grid-4.grid_xs-2}
-- {:.col}[![](/images/site/os-archlinux.svg)](#arch)
-- {:.col}[![](/images/site/os-clearlinux.svg)](#clearlinux)
+- {:.col}[![Arch Linux](/images/site/os-archlinux.svg)](#arch)
+- {:.col}[![Clear Linux](/images/site/os-clearlinux.svg)](#clearlinux)
 {% endcapture %}
 
 
