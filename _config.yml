@@ -28,6 +28,15 @@ permalink: blog/:slug.html
 paginate: 10
 paginate_path: "/blog/page=:num"
 
+# Ignore certain phrases from the blog listing (comma-separated)
+blog_ignore: "We release regularly,Here are the release notes,Try it out,From the future,Note:,Cockpit is a user interface for servers"
+
+# Summarize to blog content to headings?
+blog_summary_headings: true
+
+# Truncate blog summaries to this length
+blog_summary_length: 50
+
 lang: en
 
 logo: /images/site/cockpit-logo.svg
