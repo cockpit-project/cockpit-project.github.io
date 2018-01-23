@@ -1,10 +1,7 @@
 {% assign navs = include.nav | default: site.data.navigation %}
 
 {% unless include.wrap == false %}
-  <input type="checkbox" id="nav-toggle" class="nav-check" hidden="hidden">
   <nav role="{{ include.role }}" class="{{ include.class }}">
-  <label for="nav-toggle" class="nav-toggle" title="Menu"></label>
-  <label for="nav-toggle" class="nav-screen"></label>
 {% endunless %}
 
   <ul class="nav-menu" role="menubar">
