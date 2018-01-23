@@ -22,7 +22,7 @@ At the same time, Martin is working on making the current
 [virsh](http://libvirt.org/virshcmdref.html) based access to libvirt more
 performant, so we don't block on waiting until the DBus wrapper is done.
 
-Lots of work was done understanding [redux](http://redux.js.org/). The initial
+Lots of work was done understanding [redux](https://redux.js.org/). The initial
 machines code in Cockpit was written using redux, and we needed to map it's
 concept of models and state to the Cockpit way of storing state on the server
 and UI concepts like dialogs. Everyone was involved.
