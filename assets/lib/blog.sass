@@ -20,8 +20,6 @@ body.archive
         &:hover
           text-decoration: underline
 
-/* Make titles the header color & underline on hover
-
 /* Make comments come from avatars
 
 .commentlist
@@ -41,6 +39,9 @@ body.archive
 
 .singular .entry-header .entry-meta, .entry-header .entry-meta
   position: static
+
+.wrapper > article > .entry-content
+  margin: 2rem 0
 
 article.post
   overflow: hidden
@@ -68,8 +69,9 @@ article.post
   + article.post
     margin-top: 3em
 
-.articles > .pagination
-  margin: 3em 0 0
+.articles
+  h2.post-title
+    margin: 2rem 0 1rem
 
 .post-meta
   margin: 1ex 0 0
@@ -118,7 +120,6 @@ article.post
     line-height: 3
 
 .post-content
-  margin-top: 2em
 
   p
     > img:first-child,
@@ -214,6 +215,7 @@ article.post
       padding-top: 1.5em
       display: block
 
-.blog-posts-list + .pagination
-  margin-top: 3em
+/* Pagination
 
+.blog-posts-list + nav > .pagination
+  margin: 4rem 0 0
