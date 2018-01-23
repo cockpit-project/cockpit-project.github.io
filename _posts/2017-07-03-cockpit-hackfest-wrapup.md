@@ -16,7 +16,7 @@ Some of the changes are already merged and
 [released in Cockpit 144](https://github.com/cockpit-project/cockpit/releases/tag/144).
 
 Marek helped all of us understand how
-[Redux](http://redux.js.org/)
+[Redux](https://redux.js.org/)
 stores
 and models data. The oVirt folks are using Redux a lot in front end code
 and want to be able to share code. Marius
