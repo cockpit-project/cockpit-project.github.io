@@ -7,9 +7,9 @@
 <div class="search-page">
 
   <!-- Search form -->
-  <form class="grid-noGutter" id="search-form" role="form">
-    <input autocomplete="off" id="search-input" name="entry" class="col-10_xs-8" aria-labelledby="searchFormButton">
-    <button class="col" id="searchFormButton">Search</button>
+  <form class="grid-noGutter search-form" id="search-form" role="form">
+    <input autocomplete="off" id="search-input" name="entry" class="col-10_xs-8 search-input" aria-labelledby="searchFormButton">
+    <button class="col search-button" id="searchFormButton">Search</button>
   </form>
 
   <!-- Spinner while the JSON DB is loading -->
@@ -17,16 +17,16 @@
     <i class="spinner fa fa-circle-o-notch fa-spin hidden" id="progress"></i>
   </div>
 
-  <!-- Display number of results -->
-  <div class="search-match-string hidden" id="matches">
-    <span class="number">#</span>
-    result<span class="plural">s</span> found.
-  </div>
-
   <!-- Possibly related keywords -->
   <div class="similar hidden" id="similar">
     Possibly related:
     <span id="similar-list">...</span>
+  </div>
+
+  <!-- Display number of results -->
+  <div class="search-match-string hidden" id="matches">
+    <span class="number">#</span>
+    result<span class="plural">s</span> found.
   </div>
 
   <!-- Search results go here -->
