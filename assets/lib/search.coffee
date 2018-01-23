@@ -95,7 +95,10 @@ $ ->
           .find('.url').html(page.url).attr('href', page.url).end()
           .find('.summary').html(page.summary).end()
 
-        $snippet.find('.date').text(page.datestring).end() if page.date
+        if page.date
+          $snippet.find('.date').text(page.datestring).end()
+        else
+          $snippet.find('.date').remove().end()
 
         # Add snippet to pending (off-page) search results
         $pending.append $snippet
