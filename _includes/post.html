@@ -4,6 +4,11 @@
 {% assign author_card = include.author_card | default: false %}
 {% assign author = site.data.authors[post.author] %}
 {% assign separator = site.excerpt_separator | prepend: "<p>" | append: "</p>" %}
+{% assign summary_length = site.blog_summary_length | default: 50 %}
+{% assign ignore = include.ignore | default: site.blog_ignore | split: ',' %}
+{% assign summary_headings = site.blog_summary_headings %}
+{% assign newline = '
+' %}
 
 <article class="post hentry" id="{{ post.url | replace: "/", "-" }}">
   <header class="post-header">
@@ -39,9 +44,43 @@
     </header>
   </header>
 
+  {% assign content_stripped = '' %}
+  {% assign content_headings = '' %}
+  {% assign content_lines = post.excerpt | split: newline %}
+  {% for line in content_lines %}
+    {% assign skip = ignore
+    | where_exp: "item", "line contains item"
+    | join: ''
+    | strip
+    %}
+    {% if skip == '' %}
+      {% if line contains '<h' %}
+        {% assign content_headings = line 
+        | strip_html 
+        | prepend: '- ' 
+        | prepend: newline 
+        | prepend: content_headings
+        %}
+        {% assign content_stripped = content_stripped
+        | append: line
+        | append: newline
+        %}
+      {% else %}
+        {% assign content_stripped = line 
+        | strip_html 
+        | prepend: content_stripped
+        %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
   <section class="post-content entry-content">
     {% if excerpt %}
-      {{ post.excerpt }}
+      {% if summary_headings and content_headings != '' %}
+        {{ content_headings | markdownify }}
+      {% else %}
+        {{ content_stripped | truncatewords: summary_length }}
+      {% endif %}
     {% else %}
       {{ post.content | remove_first: separator }}
     {% endif %}
