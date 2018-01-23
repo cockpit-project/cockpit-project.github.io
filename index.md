@@ -13,10 +13,10 @@ First we set up & capture the content, then we render it in the scaffolding belo
 
 
 {% capture intro-left %}
-# ![Cockpit](/images/site/cockpit-logo.svg)
+## ![Cockpit](/images/site/cockpit-logo.svg)
 {:.logo}
 
-Cockpit is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.
+<span aria-hidden="true" role="presentation">Cockpit</span> is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.
 
 {% endcapture %}
 
@@ -79,7 +79,7 @@ About Cockpit
   <section class="intro">
     <div class="wrapper"><div class="grid-center-noBottom">
       <div class="side-left col-7_md-11">{{ intro-left  | markdownify }}</div>
-      <div class="side-right col-5_md-11-bottom"><span class="intro-image">{{ intro-right | markdownify }}</span></div>
+      <div class="side-right col-5_md-11-bottom"><div class="intro-image">{{ intro-right | markdownify }}</div></div>
     </div></div>
   </section>
 
@@ -108,10 +108,11 @@ About Cockpit
 {% include page_footer.html %}
 
 <script>
+<!--
 $(function(){
   $(document).on('click', 'a.screenshot.zoom', function(ev){
     desc = $('img', this).attr('alt');
-    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '" alt="' + desc + '"><p>' + desc + '</p></div>');
+    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '" alt="' + desc + '"><p>' + desc + "<\/p><\/div>");
     $('body').append(code);
     ev.preventDefault();
   }).on('click', '#imagePreview', function(ev){
@@ -120,4 +121,5 @@ $(function(){
     });
   });
 });
+//-->
 </script>
