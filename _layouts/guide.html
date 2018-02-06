@@ -8,8 +8,15 @@ layout:
   {% assign head_tag = '</head>' %}
   {% assign nav_tag = '<table class="navigation"' %}
   {% assign book_tag = '<div class="book"'%}
+  {% assign toc_tag = '<div class="toc"'%}
+  {% assign part_tag = '<div class="part"'%}
+  {% assign ref_tag = '<div class="refentry"'%}
+  {% assign chap_tag = '<div class="chapter"'%}
 
   {% assign html_mod = '<html class="cockpit-guide" lang="en"'%}
+    
+  {% assign role_main = ' role="main"'%}
+  {% assign role_nav = ' role="navigation"'%}
 
   {% capture head_mod %}
     <meta name="viewport" content="width=device-width initial-scale=1" />
@@ -31,9 +38,14 @@ layout:
   {% if content contains book_tag %}
     {% assign header_orig = book_tag %}
     {% assign header_mod = book_tag | prepend: header_html %}
+    {% assign toc_mod = toc_tag | append: role_main %}
   {% else %}
     {% assign header_orig = nav_tag %}
-    {% assign header_mod = nav_tag | prepend: header_html %}
+    {% assign header_mod = nav_tag | prepend: header_html | append: role_nav %}
+    {% assign ref_mod = ref_tag | append: role_main %}
+    {% assign chap_mod = chap_tag | append: role_main %}
+    {% assign part_mod = part_tag | append: role_main %}
+    {% assign toc_mod = toc_tag %}
   {% endif %}
 
 {%
@@ -41,5 +53,9 @@ layout:
 %}{{ content
   | replace_first: html_tag, html_mod
   | replace_first: head_tag, head_mod
+  | replace_first: ref_tag, ref_mod
+  | replace_first: chap_tag, chap_mod
+  | replace_first: part_tag, part_mod
+  | replace_first: toc_tag, toc_mod
   | replace_first: header_orig, header_mod
 }}
