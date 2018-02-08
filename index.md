@@ -75,7 +75,7 @@ About Cockpit
 ##### Scaffolding #####
 {% endcomment %}
 
-<div id="page-wrap">
+<div id="page-wrap" role="main">
   <section class="intro">
     <div class="wrapper"><div class="grid-center-noBottom">
       <div class="side-left col-7_md-11">{{ intro-left  | markdownify }}</div>
