@@ -25,7 +25,7 @@ description: > # this means to ignore newlines until "baseurl:"
 
 #permalink: blog/:year/:month/:slug/
 permalink: blog/:slug.html
-paginate: 10
+paginate: 12
 paginate_path: "/blog/page=:num"
 
 # Ignore certain phrases from the blog listing (comma-separated)
