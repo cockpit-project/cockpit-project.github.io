@@ -608,3 +608,13 @@ html.cockpit-guide
     opacity: 0
   100%
     opacity: 1
+
+/* Display the article list in a grid
+@supports (display: grid)
+  .blog-posts-list > .articles
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr))
+    grid-gap: 2rem
+
+    > article
+      margin: 0 !important
