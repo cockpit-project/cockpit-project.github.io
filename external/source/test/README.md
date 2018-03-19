@@ -49,6 +49,13 @@ will be printed of the test instance.
 
     $ ./test/verify/check-session --trace --sit
 
+Normally each test starts its own chromium headless browser process on a
+separate random port. To interactively follow what a test is doing, start the
+browser manually and tell the test which debug port it should attach to:
+
+    $ chromium-browser --remote-debugging-port=9222 about:blank
+    $ TEST_CDP_PORT=9222 ./test/verify/check-session --trace
+
 ## Details
 
 The verify test suite is the main test suite:
@@ -64,18 +71,22 @@ You can set these environment variables to configure the test suite:
                 "centos-7"
                 "debian-stable"
                 "debian-testing"
-                "fedora-25"
                 "fedora-26"
+                "fedora-27"
                 "fedora-atomic"
                 "fedora-testing"
                 "rhel-7"
                 "ubuntu-1604"
-             "fedora-26" is the default (testvm.py)
+             "fedora-27" is the default (testvm.py)
 
   TEST_DATA  Where to find and store test machine images.  The
              default is the same directory that this README file is in.
 
   TEST_JOBS  How many tests to run in parallel.  The default is 1.
+
+  TEST_CDP_PORT  Attach to an actually running browser that is compatible with
+                 the Chrome Debug Protocol, on the given port. Don't use this
+                 with parallel tests.
 
 ## Test machines and their images
 
@@ -128,7 +139,7 @@ A test machine image created by image-create doesn't contain any Cockpit
 code in it yet.  You can build and install the currently checked out
 working copy of Cockpit like this:
 
-  $ bots/image-prepare fedora-25
+  $ bots/image-prepare
 
 This either needs a configured/built tree (build in mock or a development VM)
 or cockpit's build dependencies installed.
@@ -187,7 +198,7 @@ log in without authentication:
         User root
         StrictHostKeyChecking no
         UserKnownHostsFile /dev/null
-        IdentityFile ~/src/cockpit/test/common/identity
+        IdentityFile ~/src/cockpit/bots/machine/identity
 
 You can also put calls to sit() into the tests themselves to stop them
 at strategic places.
