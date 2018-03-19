@@ -23,6 +23,9 @@ source_pages = [
   "https://github.com/cockpit-project/cockpit/blob/master/test/README" =>
   "{{ site.baseurl }}/external/source/test/README.html",
 
+  "http://cockpit-project.org/ideals.html" =>
+  "{{ site.baseurl }}/ideals.html",
+
   "About#project-ideals" =>
   "{{ site.baseurl }}/ideals.html",
 
