@@ -3,5 +3,11 @@ title: Blog posts
 index: false
 ---
 
+{% capture md %}
+You can also [Subscribe to Atom feeds](/blog/feeds/) in a feed reader.
+{% endcapture %}
+
+{{ md | markdownify }}
+
 {% include posts.html posts=paginator.posts %}
 {% include pagination.html %}
