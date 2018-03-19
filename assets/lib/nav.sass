@@ -72,7 +72,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
   display: none
 
 @media screen and (min-width: $nav-min-width + 1)
-  nav.menu
+  nav.menu, %nav-menu
     position: relative
     z-index: 100
     cursor: default
@@ -388,6 +388,6 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
   @extend %#{$nav-mobile-style}
 
   nav
-    @extend nav.menu
+    @extend %nav-menu
 
 @media screen and (max-width: $nav-min-width)
