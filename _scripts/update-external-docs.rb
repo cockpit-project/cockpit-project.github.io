@@ -5,7 +5,6 @@
 # Pages to fetch from the Cockpit wiki
 wiki_pages = [
   "Cockpit-Coding-Guidelines",
-  "Contributing",
   "Workflow",
 ]
 

@@ -8,7 +8,7 @@
   url: /running.html
 
 - title: Contribute
-  url: /external/wiki/Contributing.html
+  url: https://github.com/cockpit-project/cockpit/wiki/Contributing
 
 - title: Documentation
   url: /guide/latest/
