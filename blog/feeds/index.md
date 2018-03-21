@@ -2,7 +2,7 @@
 title: Atom Feeds
 ---
 
-Follow along in an feed reader! Subscribe to our Atom (similar to RSS) feed:
+Follow [the blog](/blog/) in an feed reader! Subscribe to our Atom (similar to RSS) feed:
 
 - [All blog posts](all.atom.xml)
 
