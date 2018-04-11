@@ -1,5 +1,5 @@
 ---
-title: How to make your Cockpit page easily discoverable in Cockpit itself
+title: Make your Cockpit page easily installable
 author: mvo
 date: 2018-04-09 10:00
 tags: cockpit
@@ -10,7 +10,7 @@ comments: 'true'
 
 Since version 152, Cockpit can discover and install packages that add
 pages to Cockpit.  We call them "Applications" and as of now, only two
-of them exist: We haveFleet Commander and Cockpit's own Diagnostic
+of them exist: We have Fleet Commander and Cockpit's own Diagnostic
 Reports in Fedora.  You might have seen them on the Applications page:
 
 ![Two Cockpit Applications](/images/cockpit-two-apps.png)

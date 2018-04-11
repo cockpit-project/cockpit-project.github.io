@@ -30,6 +30,7 @@ An overview of things currently in design can be found [here](https://github.com
 
 ### Further reading
  * [Create plugins for the user interface](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html)
- * [Starter Kit - the turn-key template for your own pages](http://cockpit-project.org/blog/cockpit-starter-kit.html)
+ * [Starter Kit - the turn-key template for your own pages](/blog/cockpit-starter-kit.html)
+ * [Make your Cockpit page easily installable](/blog/making-a-cockpit-application.html)
  * [Use DBUS from javascript in Cockpit](http://stef.thewalter.net/using-dbus-from-javascript-in-cockpit.html)
  * [Protocol for web access to system APIs](http://stef.thewalter.net/protocol-for-web-access-to-system-apis.html)
