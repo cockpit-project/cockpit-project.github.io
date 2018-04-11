@@ -28,6 +28,9 @@ permalink: blog/:slug.html
 paginate: 12
 paginate_path: "/blog/page=:num"
 
+# Publish articles with a date/time set in the future
+future: true
+
 # Ignore certain phrases from the blog listing (comma-separated)
 blog_ignore: "We release regularly,Here are the release notes,Try it out,From the future,Note:,Cockpit is a user interface for servers"
 
