@@ -6,7 +6,7 @@ example:
   twitter: example
   googleplus: somegoogleaccount
   facebook: somefacebookaccount
-  # gravatar: 
+  # gravatar:
   description: |
     This is an example author. To get a gravatar, do something like:
     echo -n email@example.com | md5sum
@@ -28,3 +28,6 @@ garrett:
   twitter: garrett
   googleplus: GarrettLeSage
   gravatar: ee31aa48c51297eb062133b15eaff702
+
+mvo:
+  name: Marius Vollmer
