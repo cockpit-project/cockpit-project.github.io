@@ -11,7 +11,7 @@ $ ->
   $matchesString = $('#matches')
   $results = $('#results')
   $progress = $('#progress')
-  $template = $('#template')
+  template = $('#template').html()
 
   searchIndex = null
 
@@ -87,7 +87,7 @@ $ ->
         page = pages[match]
 
         # Clone search result snippet
-        $snippet = $template.children().clone()
+        $snippet = $(template)
 
         # Add data to the cloned template
         $snippet.removeClass('hidden')
