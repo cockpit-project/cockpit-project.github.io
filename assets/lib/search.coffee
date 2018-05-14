@@ -218,7 +218,7 @@ $ ->
   do loadsearchIndex
 
   $form
-    .on 'keypress', (e)->
+    .on 'keydown', (e)->
       switch e.key
         when "Tab", "Down", "ArrowDown"
           $('#similar a:first,#results a').first().focus()
@@ -233,7 +233,7 @@ $ ->
       do updateHash
       do e.preventDefault
 
-  $similar.on 'keypress', 'a', (e)->
+  $similar.on 'keydown', 'a', (e)->
     switch e.key
       when "Right", "ArrowRight"
         $(@).next().focus()
@@ -249,7 +249,7 @@ $ ->
         selectForm()
 
   $results
-    .on 'keypress', 'a', (e) ->
+    .on 'keydown', 'a', (e) ->
       $article = $(@).parentsUntil('#results')
       switch e.key
         when "Down", "ArrowDown"
@@ -266,7 +266,7 @@ $ ->
       $(@).parentsUntil('#results').removeClass('highlight')
 
   $(document)
-    .on 'keypress', (e) ->
+    .on 'keydown', (e) ->
       switch e.key
         when "Esc", "Escape"
           $input.val('')
