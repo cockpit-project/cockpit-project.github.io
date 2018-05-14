@@ -94,8 +94,8 @@ The same applies to javascript or CSS changes as well. In order to actually cont
 you'll want to look at the information about
 [Contributing](https://github.com/cockpit-project/cockpit/wiki/Contributing) and if you need help
 understanding how to add a
-[plugin package](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html)
-you can look at the [Developer Guide](http://cockpit-project.org/guide/latest/development.html).
+[plugin package](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html)
+you can look at the [Developer Guide](https://cockpit-project.org/guide/latest/development.html).
 
 
 ## Bringing the Vagrant VM in sync

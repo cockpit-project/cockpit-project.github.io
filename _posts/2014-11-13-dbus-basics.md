@@ -8,22 +8,22 @@ slug: using-dbus-from-javascript-in-cockpit
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
 
-[Cockpit is a user interface for servers](http://cockpit-project.org). As we covered in the [last tutorial](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) you can add user interface component to Cockpit, and build your own parts of the Server UI.
+[Cockpit is a user interface for servers](https://cockpit-project.org). As we covered in the [last tutorial](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) you can add user interface component to Cockpit, and build your own parts of the Server UI.
 
 Much of Cockpit interacts with the server using DBus. We have a powerful yet simple API for doing that, and you should use DBus too when building your own Cockpit user interfaces. For this tutorial you'll need at least Cockpit 0.41. A few tweaks landed in that release to solve a couple rough edges we had in our DBus support. You can install it in [Fedora 21](https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
 Here we'll make a package called *zoner* which lets you set the time zone of your server. We use the systemd [timedated DBus API](http://www.freedesktop.org/wiki/Software/systemd/timedated/) to do actually switch time zones.
 
-I've prepared the [zoner package here](http://cockpit-project.org/files/zoner.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
+I've prepared the [zoner package here](https://cockpit-project.org/files/zoner.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
 
 ```text
-$ wget http://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
+$ wget https://cockpit-project.org/files/zoner.tgz -O - | tar -xzf -
 $ cd zoner/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/zoner
 ```
 
-Previously we [talked about](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `zoner` listed in the output:
+Previously we [talked about](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `zoner` listed in the output:
 
 ```text
 $ cockpit-bridge --packages
@@ -107,7 +107,7 @@ You should see your timezone on your screen update immediately to reflect the ne
 </html>
 ```
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](https://cockpit-project.org/guide/latest/api-cockpit.html).
 
 ```html
 <script src="../base1/jquery.js"></script>
@@ -123,19 +123,19 @@ Next we attach a handler to the *Change* button so that the `change_zone()` func
 $("#change").on("click", change_zone);
 ```
 
-Next we connect to the [timedated](http://www.freedesktop.org/wiki/Software/systemd/timedated/) DBus service using the [`cockpit.dbus()`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus) function:
+Next we connect to the [timedated](http://www.freedesktop.org/wiki/Software/systemd/timedated/) DBus service using the [`cockpit.dbus()`](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-dbus) function:
 
 ```javascript
 var service = cockpit.dbus('org.freedesktop.timedate1');
 ```
 
-Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the [`.proxy()`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy) method that you can specify.
+Now we make a proxy which represents a particular DBus interface containing methods and properties. Simple services have only one interface. When more than one interface or instance of that interface is present, there are additional arguments to the [`.proxy()`](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy) method that you can specify.
 
 ```javascript
 var timedate = service.proxy();
 ```
 
-Each interface proxy has a [`"changed"`](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged) event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our `display_zone()` function and update the display of the current time zone:
+Each interface proxy has a [`"changed"`](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-proxy-onchanged) event we can connect to. When properties on the proxy change, or are received for the first time, this event is fired. We use this to call our `display_zone()` function and update the display of the current time zone:
 
 ```javascript
 $(timedate).on("changed", display_zone);
@@ -152,7 +152,7 @@ function change_zone() {
     var call = timedate.SetTimezone(input.val(), true);
 ```
 
-In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
+In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
 
 ```unknown
     call.fail(change_fail);
@@ -164,4 +164,4 @@ The `change_fail()` displays any failures that happen. In this case, `SetTimezon
 
 Notice that we relied on DBus to tell us when things changed and just updated the display from our event handler. That way we reacted both when the time zone changed due to an action in Cockpit, as well as an action on the server.
 
-Again this is a simple example, but I hope it will whet your appetite to what [Cockpit can do with DBus](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus). Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus client.
+Again this is a simple example, but I hope it will whet your appetite to what [Cockpit can do with DBus](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus). Obviously you can also do signal handling, working with return values from methods, tracking all instances of a given interface, and other stuff you would expect to do as a DBus client.

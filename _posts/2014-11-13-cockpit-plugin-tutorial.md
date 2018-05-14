@@ -8,7 +8,7 @@ slug: creating-plugins-for-the-cockpit-user-interface
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
 
-[Cockpit is a user interface for servers](http://cockpit-project.org). And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is HTML, with Javascript logic that makes it work, and CSS to make it pretty.
+[Cockpit is a user interface for servers](https://cockpit-project.org). And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is HTML, with Javascript logic that makes it work, and CSS to make it pretty.
 
 It's real easy to create these components. Tools are components that show up in the *Tools* menu in Cockpit:
 
@@ -16,10 +16,10 @@ It's real easy to create these components. Tools are components that show up in 
 
 For example the *Terminal* that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you'll need Cockpit 0.41. You can install it in [Fedora 21](https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
-So break out your terminal, lets make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We'll just be spawning a process on the server to do the work. I've prepared it for you as [an example here](http://cockpit-project.org/files/pinger.tgz), and we can look it over, and modify it. To download the example to your current directory:
+So break out your terminal, lets make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We'll just be spawning a process on the server to do the work. I've prepared it for you as [an example here](https://cockpit-project.org/files/pinger.tgz), and we can look it over, and modify it. To download the example to your current directory:
 
 ```text
-$ wget http://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
+$ wget https://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
 $ cd pinger/
 ```
 
@@ -130,7 +130,7 @@ Lets take a look at the pinger HTML, and see how it works.
 </html>
 ```
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](https://cockpit-project.org/guide/latest/api-cockpit.html).
 
 ```html
 <script src="../base1/jquery.js"></script>
@@ -148,13 +148,13 @@ $("#ping").on("click", ping_run);
 function ping_run() {
 ```
 
-In the `ping_run()` function is where the magic happens. `cockpit.spawn` is a function, [documented here](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn) that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the `ping` command with some arguments:
+In the `ping_run()` function is where the magic happens. `cockpit.spawn` is a function, [documented here](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn) that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the `ping` command with some arguments:
 
 ```javascript
     var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
 ```
 
-In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks. `proc.stream()` registers a callback to be invoked whenever the process produces output.
+In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks. `proc.stream()` registers a callback to be invoked whenever the process produces output.
 
 ```javascript
     proc.done(ping_success);
@@ -166,4 +166,4 @@ In a web browser you cannot block and wait until a method call completes. Anythi
 
 The `ping_success()` and `ping_fail()` and `ping_output()` update the display as you would expect.
 
-So there you go ... it's a simple plugin to start off with ... next time we'll cover [how to use DBus](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus), and then the real fun begins.
+So there you go ... it's a simple plugin to start off with ... next time we'll cover [how to use DBus](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus), and then the real fun begins.

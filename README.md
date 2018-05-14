@@ -1,6 +1,6 @@
 # Cockpit Project Website
 
-[The Cockpit project website](http://cockpit-project.org/) is based on Springboard, which is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly.
+[The Cockpit project website](https://cockpit-project.org/) is based on Springboard, which is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly.
 
 This repository manages the content and presentation of the Cockpit project's website, including blog articles, release notes, the Cockpit guide, and screenshots.
 

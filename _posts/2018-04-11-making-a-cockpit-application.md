@@ -49,7 +49,7 @@ your package.
 The important bit is the `launchable` element with type
 `cockpit-manifest`.  Any such AppStream component will be offered for
 installation by Cockpit.  The value is the name of the [Cockpit
-package](http://cockpit-project.org/guide/latest/packages.html) for
+package](https://cockpit-project.org/guide/latest/packages.html) for
 your page.
 
 Use the component type `addon` and add an `extends` element for

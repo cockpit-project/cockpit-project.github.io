@@ -10,17 +10,17 @@ comments: true
 
 ## The bare minimum
 
-[Cockpit's API](http://cockpit-project.org/guide/latest/development.html) makes it easy to create your own pages (or
+[Cockpit's API](https://cockpit-project.org/guide/latest/development.html) makes it easy to create your own pages (or
 "extensions" if you will) that appear in Cockpit's menu and interact with your system in any way you like. Our pet
 example is the [Pinger](https://github.com/cockpit-project/cockpit/tree/master/examples/pinger) which is just the bare
 minimum: a [HTML file](https://github.com/cockpit-project/cockpit/blob/master/examples/pinger/ping.html) with a form to
 enter an IP, a small [piece of JavaScript](https://github.com/cockpit-project/cockpit/blob/master/examples/pinger/pinger.js)
-to call the `ping` Linux command  through Cockpit [spawn()](http://cockpit-project.org/guide/latest/cockpit-spawn.html)
+to call the `ping` Linux command  through Cockpit [spawn()](https://cockpit-project.org/guide/latest/cockpit-spawn.html)
 and capture its output; and a
 [manifest file](https://github.com/cockpit-project/cockpit/blob/master/examples/pinger/manifest.json) which tells
 cockpit how to add it to the menu and where the entry point is.
 
-There is a rather old [blog post](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html)
+There is a rather old [blog post](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html)
 which explains the Pinger example in detail. Cockpit changed its visual design quite dramatically since then, Pinger's
 JavaScript got split into a separate file and does not use jQuery any more, but aside from these details that post is
 still generally applicable.
@@ -62,7 +62,7 @@ Starter Kit comes in!
 The [Cockpit Starter Kit](https://github.com/cockpit-project/starter-kit/) is an example project which provides all of
 the above requirements. It provides a simple
 [React page](https://github.com/cockpit-project/starter-kit/blob/master/src/starter-kit.jsx)
-that uses the [cockpit.file() API](http://cockpit-project.org/guide/latest/cockpit-file.html) to read `/etc/hostname`
+that uses the [cockpit.file() API](https://cockpit-project.org/guide/latest/cockpit-file.html) to read `/etc/hostname`
 and show it. There is also an accompanying
 [test](https://github.com/cockpit-project/starter-kit/blob/master/test/check-starter-kit) that verifies this page. The
 other files are mostly build system boilerplate, i. e. the things you don't want to worry about as the first thing when
@@ -90,7 +90,7 @@ The symlink into your source code checkout is a very convenient and efficient wa
 
 You should now play around with this a little by hacking src/starter-kit.jsx, running `make`, and reloading the page.
 For example, try to read and show another file, run a program and show its output, or use
-[cockpit.file("/etc/hostname").watch(callback)](http://cockpit-project.org/guide/latest/cockpit-file.html)
+[cockpit.file("/etc/hostname").watch(callback)](https://cockpit-project.org/guide/latest/cockpit-file.html)
 to react to changes of /etc/hostname and immediately update the page.
 
 ## Testing

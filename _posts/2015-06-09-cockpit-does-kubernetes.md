@@ -6,7 +6,7 @@ slug: cockpit-kubernetes-dashboard
 category: release
 ---
 
-Here's a video showing what I've been working on together with some help from a couple Cockpit folks. It's a [Cockpit](http://cockpit-project.org) dashboard for Kubernetes.
+Here's a video showing what I've been working on together with some help from a couple Cockpit folks. It's a [Cockpit](https://cockpit-project.org) dashboard for Kubernetes.
 
 If you haven't heard about [Kubernetes](http://kubernetes.io/) ... it's a way to schedule docker containers across a cluster of machines, and take care of their networking, storage, name resolution etc. It's not completely baked, but pretty cool when it works.
 

@@ -8,7 +8,7 @@ slug: protocol-for-web-access-to-system-apis
 
 *Note: This post has been updated for changes in Cockpit 0.48 and later.*
 
-A Linux system today has a lot of local system configuration APIs. I'm not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the API by which we configure a Linux system. In [Cockpit](http://cockpit-project.org) we access these APIs from a web browser (after authentication of course).
+A Linux system today has a lot of local system configuration APIs. I'm not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the API by which we configure a Linux system. In [Cockpit](https://cockpit-project.org) we access these APIs from a web browser (after authentication of course).
 
 How do we access the system APIs? The answer is the `cockpit-bridge` tool. It proxies requests from the Cockpit user interface, running in a web browser, to the system. Typically the `cockpit-bridge` runs as the logged in user, in a user session. It has similar permissions and capabilities as if you had used `ssh` to log into the system.
 
@@ -208,7 +208,7 @@ The process will send its output in the payload of one or more messages of the `
 Doing it over a WebSocket
 -------------------------
 
-Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by `cockpit-ws`. `cockpit-ws` then passes them on to `cockpit-bridge`. You can communicate this way too, if you [configure Cockpit to accept different Websocket Origins](http://cockpit-project.org/guide/cockpit.conf.5.html).
+Obviously in Cockpit we send all of these messages from the browser through a WebSocket hosted by `cockpit-ws`. `cockpit-ws` then passes them on to `cockpit-bridge`. You can communicate this way too, if you [configure Cockpit to accept different Websocket Origins](https://cockpit-project.org/guide/cockpit.conf.5.html).
 
 And on it goes
 --------------
