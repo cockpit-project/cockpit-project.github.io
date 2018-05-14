@@ -15,4 +15,4 @@ you get from [cockpit-project.org][]
 This UI is going to be refined somewhat, but it's nice to see things
 coming together.
 
-  [cockpit-project.org]: http://cockpit-project.org/
+  [cockpit-project.org]: https://cockpit-project.org/

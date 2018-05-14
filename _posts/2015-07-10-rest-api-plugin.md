@@ -8,24 +8,24 @@ slug: making-rest-calls-from-javascript-in-cockpit
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
 
-[Cockpit is a user interface for servers](http://cockpit-project.org). In [earlier](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) [tutorials](http://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html) there's a guide on how to add components to Cockpit.
+[Cockpit is a user interface for servers](https://cockpit-project.org). In [earlier](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) [tutorials](https://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html) there's a guide on how to add components to Cockpit.
 
-Not all of the [system APIs use DBus](http://cockpit-project.org/blog/d-bus-is-powerful-ipc.html). So sometimes we find ourselves in a situation where we have to use REST (which is often just treated as another word for HTTP) to talk to certain parts of the system. For example [Docker has a REST API](https://docs.docker.com/reference/api/docker_remote_api/).
+Not all of the [system APIs use DBus](https://cockpit-project.org/blog/d-bus-is-powerful-ipc.html). So sometimes we find ourselves in a situation where we have to use REST (which is often just treated as another word for HTTP) to talk to certain parts of the system. For example [Docker has a REST API](https://docs.docker.com/reference/api/docker_remote_api/).
 
-For this tutorial you'll need at least Cockpit 0.58. There was one last tweak that helped with the ```superuser``` option you see below. You can install it in [Fedora 22](http://cockpit-project.org/running.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
+For this tutorial you'll need at least Cockpit 0.58. There was one last tweak that helped with the ```superuser``` option you see below. You can install it in [Fedora 22](https://cockpit-project.org/running.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
 Here we'll make a package called *docker-info* which shows info about the docker daemon. We use the `/info` [docker API](https://docs.docker.com/reference/api/docker_remote_api_v1.18/#display-system-wide-information) to retrieve that info.
 
-I've prepared the [docker-info package here](http://cockpit-project.org/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
+I've prepared the [docker-info package here](https://cockpit-project.org/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
 
 ```text
-$ wget http://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
+$ wget https://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
 $ cd docker-info/
 $ mkdir -p ~/.local/share/cockpit
 $ ln -snf $PWD ~/.local/share/cockpit/
 ```
 
-Previously we [talked about](http://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `docker-info` listed in the output:
+Previously we [talked about](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) how packages are installed, and what `manifest.json` does so I won't repeat myself here. But to make sure the above worked correctly, you can run the following command. You should see `docker-info` listed in the output:
 
 ```text
 $ cockpit-bridge --packages
@@ -103,7 +103,7 @@ You should see the numbers update as the container is pulled and started. When y
 </html>
 ```
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](http://cockpit-project.org/guide/latest/api-cockpit.html).
+First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](https://cockpit-project.org/guide/latest/api-cockpit.html).
 
 ```html
 <script src="../base1/jquery.js"></script>
@@ -128,7 +128,7 @@ function retrieve_info() {
 }
 ```
 
-In a browser you cannot stop and wait until a REST call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](http://cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
+In a browser you cannot stop and wait until a REST call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](https://cockpit-project.org/guide/latest/api-cockpit.html#cockpit-http-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks.
 
 The result of the `/info` call is JSON, and we process it here. This is standard jQuery for filling in text data into the various elements:
 
@@ -167,4 +167,4 @@ function got_event() {
 }
 ```
 
-This is a simple example, but I hope it helps you get started. There are further REST [javascript calls](http://cockpit-project.org/guide/latest/api-cockpit.html#latest-http). Obviously you can also do `POST` and so on.
+This is a simple example, but I hope it helps you get started. There are further REST [javascript calls](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-http). Obviously you can also do `POST` and so on.

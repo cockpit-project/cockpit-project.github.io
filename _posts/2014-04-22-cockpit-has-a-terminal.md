@@ -11,5 +11,5 @@ category: release
   
 ![Cockpit terminal](/images/cockpit-terminal.png)
 
-  [Cockpit]: http://cockpit-project.org/
+  [Cockpit]: https://cockpit-project.org/
   [term.js]: https://github.com/chjj/term.js/

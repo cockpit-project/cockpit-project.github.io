@@ -31,4 +31,4 @@ Needless to say I'm excited about where this is going...
 
 
   [talk at DevConf]: http://thewalter.net/stef/misc/cockpit-devconf-2014-talk.pdf
-  [Cockpit]: http://cockpit-project.org/
+  [Cockpit]: https://cockpit-project.org/

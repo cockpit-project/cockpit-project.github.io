@@ -12,7 +12,7 @@ The [Cockpit Starter Kit](https://github.com/cockpit-project/starter-kit/) provi
 extensions: a simple page (in React), build system (webpack, babel, eslint, etc.), and an integration test using
 Cockpit's own Python test API on top of the
 [Chromium DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/).  See the recent
-[introduction](http://cockpit-project.org/blog/cockpit-starter-kit.html) for details.
+[introduction](https://cockpit-project.org/blog/cockpit-starter-kit.html) for details.
 
 But in some cases you want to use a different testing framework; perhaps you have an already existing project and tests.
 Then it is convenient and recommended to still using Cockpit's test VM images: they provide an easy way to test your
