@@ -42,13 +42,16 @@
 
 
   <body id="page-top">
+    {% assign content_fixedyt = content
+    | replace: 'youtube.com/embed', 'www.youtube-nocookie.com/embed'
+    | replace: 'www.www.youtube', 'www.youtube' %}
     {% if site.rewrite_images == false %}
-      {{ content }}
+      {{ content_fixedyt }}
     {% else %}
       {% assign img_untreated = 'img src="/' %}
       {% assign baseurlslash = site.baseurl | append: "/" %}
       {% assign img_baseurl = img_untreated | replace: "/", baseurlslash %}
-      {% assign rewritten = content | replace: img_untreated, img_baseurl %}
+      {% assign rewritten = content_fixedyt | replace: img_untreated, img_baseurl %}
 
       {% if site.baseurl != "" %}
         {% assign doublebase = site.baseurl | append: site.baseurl %}
