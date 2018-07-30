@@ -207,63 +207,70 @@ html.running-cockpit
     display: none
     margin-top: 10px
 
-  &:not(.pushState) section:target,
-  section.active
-    display: block
+  .support-table
+    border-collapse: collapse
+    margin-top: -1rem
+    max-width: 100%
+    overflow: hidden
 
-  section.active
-    animation: 600ms ease-out fadeIn
+    a
+      display: block
+      line-height: 3rem
+      padding: 0.5ch 2ch
 
-    &, *
-      animation: 200ms ease-out growIn
+    img
+      min-width: 120px
+      max-width: 200px
+      line-height: 3rem
 
-  .os-block
-    background: #eeeeec
-    border-radius: 5px
-    margin-bottom: 20px
-    padding: 20px
-    min-height: 100px
-    font-size: 15px
-    position: relative
+    tr:nth-child(odd) td
+      background: #f6f6f6
 
-    li
-      margin-top: 2ex
+    th
+      font-weight: normal
+      color: #777
 
-    pre
-      margin: 1ex 0
+    td
+      padding: 0
+      border: 1px solid #ddd
 
-    pre, code
-      background: #fff
+      // Checkmarks
+      &:not(:first-child):not(:last-child)
+        text-align: center
+        font-size: 2rem
+        color: #228747
+        width: 7ch
 
-    &.stable:after
-      position: absolute
-      content: url(../images/site/os-stable.png)
-      top: 0
-      right: 0
-      width: auto
-      height: auto
+      &:last-child
+        width: 0
+        white-space: nowrap
+
+    @media screen and (max-width: 40rem)
+      a
+        padding: 0 1ch
+
+      th:not(:first-child)
+        font-size: 0.85rem
+        transform: rotate(-30deg)
+        height: 3rem
+        padding: 0
+        width: 7ch
+        max-width: 7ch
+
+      td:not(:first-child):not(:last-child)
+        font-size: 32px
+
+      th:last-child, td:last-child
+        display: none
+
+  h4
+    margin-top: 3em
+    font-size: 22px
 
   .browser-support,
   .os-list
     li
       list-style: none
-
-  .os-list
-
-    &, > li
-      padding: 0
-      margin: 0
-
-    a
-      display: block
-      padding: 10px
-      border-radius: 5px
-
-      &:hover
-        background: mix(#eee, #fff, 50)
-
-      &.active
-        background: #eee
 
 .browser-header 
   text-align: center
@@ -467,10 +474,23 @@ footer.footer-cockpit
     color: #84bbef
 
 .browser-support
+  display: grid
+  grid-gap: 2ch
+  grid-template-columns: repeat(auto-fit, 28ch)
+  justify-content: space-between
+  margin: 0 0 4rem
+
+  > li
+    white-space: nowrap
+    line-height: 3ch
+
+    &.browser-explorer
+      order: 2
+
   img
-    height: 20px
+    height: 3ch
     width: auto
-    margin-right: 0.75ex
+    margin-right: 0.5ch
 
 article
   h1, h3, h2
