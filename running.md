@@ -8,6 +8,8 @@ If you already have Cockpit on your server, point your web browser to:
 **https://**_ip-address-of-machine_**:9090**
 
 Use your system user account and password to log in. See [the guide](guide/latest/guide.html) for more info.
+
+Click your distribution logo below to see installation instructions.
 {% endcapture %}
 
 
