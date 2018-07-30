@@ -1,0 +1,42 @@
+- fedora:
+  name: Fedora
+  supported: true
+  tested: true
+  included: true
+
+- rhel:
+  name: Red Hat Enterprise Linux
+  supported: true
+  tested: true
+  included: true
+
+- atomic:
+  name: Project Atomic
+  supported: true
+  tested: true
+  included: true
+
+- centos:
+  name: CentOS
+  supported: true
+  tested: true
+  included: true
+
+- debian:
+  name: Debian GNU/Linux
+  supported: true
+  tested: true
+  included: true
+
+- ubuntu:
+  name: Ubuntu
+  supported: true
+  tested: true
+  included: true
+
+- clearlinux:
+  name: Clear Linux
+  included: true
+
+- archlinux:
+  name: Arch Linux

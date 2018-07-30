@@ -1,0 +1,28 @@
+- firefox:
+  vendor: Mozilla
+  name: Firefox
+  version: 11+
+
+- chrome:
+  vendor: Google
+  name: Chrome
+  version: 16+
+
+- edge:
+  vendor: Microsoft
+  name: Edge
+
+- explorer:
+  vendor: Microsoft
+  name: Internet Explorer
+  version: 11
+
+- ios:
+  vendor: Apple
+  os: iOS
+  name: Safari
+  version: 6.1+
+
+- opera:
+  name: Opera
+  version: 21.1+
