@@ -12,11 +12,11 @@ First we set up & capture the content, then we render it in the scaffolding belo
 
 
 {% capture intro-left %}
-## ![Cockpit](/images/site/cockpit-logo.svg)
-{:.logo}
-
-<span aria-hidden="true" role="presentation">Cockpit</span> is a server manager that makes it easy to administer your GNU/Linux servers via a web browser.
-
+The [easy-to-use](#easy-to-use),
+[integrated](#integrated),
+[glanceable](#glanceable),
+and [open](#open-ended)
+web-based interface for your servers
 {% endcapture %}
 
 {% capture intro-right %}
@@ -24,23 +24,89 @@ First we set up & capture the content, then we render it in the scaffolding belo
 {% endcapture %}
 
 
+{% assign blurbs_highlight = 6 %}
+
 {% capture blurbs %}
 
-[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png){:.screenshot.zoom}
-### Easy to use
-Cockpit makes Linux discoverable, allowing sysadmins to easily perform tasks such as starting containers, storage administration, network configuration, inspecting logs and so on.
+## Easy to use
+
+### Discoverable
+Cockpit makes GNU/Linux discoverable. See your server in a web browser and perform system tasks with a mouse. It's easy to start containers, administer storage, configure networks, and inspect logs.
+
+[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png)
+{:.screenshot.zoom}
+
+### Designed & tested
+Cockpit is designed with your goals in mind. We also routinely test Cockpit with usability studies to make it work the way you'd expect. As a result, Cockpit gets easier to use all the time.
+
+### Team-friendly
+Cockpit is friendly enough for those new to Linux and useful for seasoned admins too.
+
+### Packages included
+[Installing and running Cockpit]({{ site.baseurl }}/running.html) is simple. It's already included in most of the major distributions.
 
 ---
 
-[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png){:.screenshot.zoom}
-### No interference
-Jumping between the terminal and the web tool is no problem. A service started via Cockpit can be stopped via the terminal. Likewise, if an error occurs in the terminal, it can be seen in the Cockpit journal interface.
+## Integrated
+
+### Plays well with others
+You can jump between a terminal and the web interface at any time. There's even an embedded terminal in Cockpit.
+
+Keep using the command line, Ansible, and your other favorite tools and add Cockpit to the mix with no issues.
+
+A service started via Cockpit can be stopped in a terminal. Likewise, if an error occurs in a terminal, it's also in Cockpit's journal.
+
+[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png)
+{:.screenshot.zoom}
+
+### Sign in like normal
+By default, Cockpit uses [your system's normal user logins and privileges]({{ site.baseurl }}/guide/latest/privileges). You don't need to set up any special accounts. Network-wide logins are also supported through [single-sign-on]({{ site.baseurl }}/guide/latest/sso) and other [authentication]({{ site.baseurl }}/guide/latest/authentication) techniques.
+
+### Self-contained
+You don't have to worry about setting up a webserver just to use Cockpit.
+
+### Uses existing APIs
+Cockpit uses APIs that already exist on the system. It doesn't reinvent subsystems or add a layer of its own tooling.
+
+### Efficient
+
+Cockpit only uses memory and CPU when active. When inactive, there is no extra load on your server.
 
 ---
 
-[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png){:.screenshot.zoom}
+## Glanceable
+
+### System overview
+Immediately understand the health of your server. Cockpit's overview page shows current statistics and the status of your system.
+
 ### Multi-server
-You can monitor and administer several servers at the same time. Just add it easily and your server will look after its buddies.
+Monitor and administer [several servers]({{ site.baseurl }}/guide/latest/feature-machines.html) at the same time. Add new hosts and your main server will look after its buddies.
+
+[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png)
+{:.screenshot.zoom}
+
+### Troubleshoot
+Fix pesky problems with ease.
+
+- Diagnose network issues
+- Spot and react to misbehaving virtual machines
+- Inspect SELinux logs and fix common violations in a click
+
+---
+
+## Open-ended
+
+### Pocket-sized
+Around the office or on the road? Use your phone's browser to check and manage systems.
+
+### Learn with Cockpit
+Not sure what you can do with your servers? Explore Cockpit's friendly interface and use features you might not even realized existed!
+
+### Extendable
+Have custom tasks? You can [write your own modules]({{ site.baseurl }}/blog/cockpit-starter-kit.html) to plug into Cockpit.
+
+### Free & free
+Cockpit's completely free to use and [available under the GNU LGPL](https://github.com/cockpit-project/cockpit/blob/master/COPYING).
 
 {% endcapture %}
 
@@ -78,26 +144,46 @@ About Cockpit
 {% capture newline %}
 {% endcapture %}
 
-<div id="page-wrap" role="main">
-  <section class="intro">
-    <div class="wrapper"><div class="grid-center-noBottom">
-      <div class="side-left col-7_md-11">{{ intro-left  | markdownify }}</div>
-      <div class="side-right col-5_md-11-bottom"><div class="intro-image">{{ intro-right | markdownify }}</div></div>
-    </div></div>
-  </section>
+{% capture badge %}
+{% assign release = site.posts | where: "category", "release" | first %}
+{% assign version = release.title | split: " " | last %}
+<a href="{{ site.baseurl }}{{ release.url }}" title="{{ release.summary }}">
+  <span class="badge-new">Just released:</span>
+  <span class="badge-version">Version {{ version }}</span>
+  <span class="badge-date">{{ release.date | date: "%-d %b %Y" }}</span>
+</a>
+{% endcapture %}
 
+<div class="intro-background"></div>
+
+<section class="intro">
+  <div class="wrapper"><div class="grid-center-noBottom lede">
+    <div class="side-left col-7_md-11-middle">{{ intro-left  | markdownify }}</div>
+    <div class="side-right col-5_md-11-bottom"><div class="intro-image">{{ intro-right | markdownify }}</div></div>
+  </div></div>
+</section>
+
+<div id="page-wrap" class="page-content" role="main">
   <section class="wrapper">
-    <section class="grid-center_md-2_sm-1 blurbs">
+    <div class="badge">{{ badge }}</div>
+
+    <section class="blurbs">
       {% assign blurbs_rendered = blurbs | split: '---' %}
       {% for blurb in blurbs_rendered %}
+        {% if blurbs_highlight > forloop.index0 %}
+          {% assign highlight = "highlight" %}
+        {% else %}
+          {% assign highlight = "" %}
+        {% endif %}
+
         {% assign headline = blurb
         | markdownify
         | split: newline
-        | where_exp: "line", "line contains 'h3'"
+        | where_exp: "line", "line contains 'h2'"
         | first
         | strip_html
         %}
-        <div class="col section--{{ headline }}">{{ blurb | markdownify }}</div>
+        <section class="blurb {{ highlight }} section--{{ headline | slugify }}">{{ blurb | markdownify }}</section>
       {% endfor %}
     </section>
   </section>
@@ -113,7 +199,7 @@ About Cockpit
 <script>
 <!--
 $(function(){
-  $(document).on('click', 'a.screenshot.zoom', function(ev){
+  $(document).on('click', 'a.screenshot.zoom, .screenshot.zoom a', function(ev){
     desc = $('img', this).attr('alt');
     code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '" alt="' + desc + '"><p>' + desc + "<\/p><\/div>");
     $('body').append(code);
