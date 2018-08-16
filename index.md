@@ -3,7 +3,6 @@ title: Cockpit Project
 layout: essential
 class: front-page
 ---
-
 {% include page_header.html %}
 
 {% comment %}
@@ -25,24 +24,24 @@ First we set up & capture the content, then we render it in the scaffolding belo
 {% endcapture %}
 
 
-{% capture blurb_easy %}
+{% capture blurbs %}
+
 [![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png){:.screenshot.zoom}
 ### Easy to use
 Cockpit makes Linux discoverable, allowing sysadmins to easily perform tasks such as starting containers, storage administration, network configuration, inspecting logs and so on.
-{% endcapture %}
 
+---
 
-{% capture blurb_interactive %}
 [![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png){:.screenshot.zoom}
 ### No interference
 Jumping between the terminal and the web tool is no problem. A service started via Cockpit can be stopped via the terminal. Likewise, if an error occurs in the terminal, it can be seen in the Cockpit journal interface.
-{% endcapture %}
 
+---
 
-{% capture blurb_multiserver %}
 [![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png){:.screenshot.zoom}
 ### Multi-server
 You can monitor and administer several servers at the same time. Just add it easily and your server will look after its buddies.
+
 {% endcapture %}
 
 
@@ -77,6 +76,8 @@ About Cockpit
 {% comment %}
 ##### Scaffolding #####
 {% endcomment %}
+{% capture newline %}
+{% endcapture %}
 
 <div id="page-wrap" role="main">
   <section class="intro">
@@ -88,9 +89,17 @@ About Cockpit
 
   <section class="wrapper">
     <section class="grid-center_md-2_sm-1 blurbs">
-      <div class="col">{{ blurb_easy        | markdownify }}</div>
-      <div class="col">{{ blurb_interactive | markdownify }}</div>
-      <div class="col">{{ blurb_multiserver | markdownify }}</div>
+      {% assign blurbs_rendered = blurbs | split: '---' %}
+      {% for blurb in blurbs_rendered %}
+        {% assign headline = blurb
+        | markdownify
+        | split: newline
+        | where_exp: "line", "line contains 'h3'"
+        | first
+        | strip_html
+        %}
+        <div class="col section--{{ headline }}">{{ blurb | markdownify }}</div>
+      {% endfor %}
     </section>
   </section>
 </div>
