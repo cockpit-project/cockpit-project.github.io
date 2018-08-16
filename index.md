@@ -45,31 +45,30 @@ You can monitor and administer several servers at the same time. Just add it eas
 {% endcapture %}
 
 
-{% capture footer_links_1 %}
+{% capture footer_links %}
 About Cockpit
 : [Project Ideals and Goals](ideals.html)
 : [Cockpit Blog](blog)
 : [Blog Feeds](blog/feeds/)
 : [Search this site](search.html)
+{:.col.footer-links-1}
 
-*[Feeds]: Atom (similar to RSS), for use in feed readers
-{% endcapture %}
-
-{% capture footer_links_2 %}
 [Running Cockpit](running.html)
 : [Deployment guide](guide/latest/guide.html)
 : [Feature internals](guide/latest/features.html)
 : [Release Notes and Videos](blog/category/release.html)
 : [File a bug in the issue tracker](https://github.com/cockpit-project/cockpit/issues)
-{% endcapture %}
+{:.col.footer-links-2}
 
-{% capture footer_links_3 %}
 [Contributing](https://github.com/cockpit-project/cockpit/wiki/Contributing)
 : [Get the source](https://github.com/cockpit-project/cockpit)
 : [Join the mailing list](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/)
 : [IRC #cockpit on Freenode.net](irc://irc.freenode.net:6667/cockpit)
 : [Developer tutorials](blog/category/tutorial.html)
 : [Developer API reference](guide/latest/development.html)
+{:.col.footer-links-3}
+
+*[Feeds]: Atom (similar to RSS), for use in feed readers
 {% endcapture %}
 
 
@@ -106,15 +105,7 @@ About Cockpit
 
 <footer class="footerlinks">
   <div class="wrapper"><div class="grid-wrap-3_md-2_xs-1">
-    <div class="col">
-      {{ footer_links_1 | markdownify }}
-    </div>
-    <div class="col">
-      {{ footer_links_2 | markdownify }}
-    </div>
-    <div class="col">
-      {{ footer_links_3 | markdownify }}
-    </div>
+    {{ footer_links | markdownify }}
   </div></div>
 </footer>
 {% include page_footer.html %}
