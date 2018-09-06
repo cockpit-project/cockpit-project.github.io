@@ -1,38 +1,6 @@
-// Please copy default.scss to site.scss to customize your site.
-//
-// If site.scss (or site) exists, then default.scss will not
-// be used. (You can then use it for reference later.)
-//
-// Be sure to `@import "minima"` after the variables needed for it
-// and before your own custom CSS, so you can easily override
-// (if you really need to).
-
-/* Body text
-@font-face
-  font-family: 'PT Sans'
-  font-style: normal
-  font-weight: 400
-  src: local('PT Sans'), local('PTSans-Regular'), url('fonts/PTSans-Regular.woff2') format('woff2')
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
-
-/* Normal headlines
-@font-face
-  font-family: 'Roboto Slab'
-  font-style: normal
-  font-weight: 400
-  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url('fonts/RobotoSlab-Regular.woff2') format('woff2')
-  unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
-
-/* Special headlines
-@font-face
-  font-family: 'beteckna'
-  src: url('fonts/beteckna-webfont.woff2') format('woff2'), url('fonts/beteckna-webfont.woff') format('woff')
-  font-weight: normal
-  font-style: normal
-
 // Our variables
-$base-font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
-$base-font-size: 16px
+$base-font-family: 'Open Sans', 'PT Sans', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
+$base-font-size: 17px
 $base-font-weight: 400
 $small-font-size: $base-font-size * 0.875
 $base-line-height: 1.5
@@ -50,18 +18,20 @@ $grey-color-dark: darken($grey-color, 25%)
 // Width of the content area
 $content-width: 65rem
 
+// Redefine laptop breakpoint
+$on-laptop: 52rem
+
+// Import fonts
+@import site/fonts
+
 // Import partials from the `minima` theme.
 @import minima
+// Unset parts of minima (currently styled tables)
+@import lib/minima-unset
 
 // Import grid (see http://gridlex.devlint.fr/ for docs)
 @import vendor/gridlex
 
-// Comment out or remove the follow if you don't use the feature
-////////////////////////////////////////////////////////////////////////
-// Unset parts of minima (currently styled tables)
-@import lib/minima-unset
-// Navbar (see opts in lib/navbar.sass)
-//@import lib/nav
 // Styles for the search page
 @import lib/search
 // Default blog style
@@ -73,28 +43,27 @@ $content-width: 65rem
 // Stop page shift by keeping scrollbar on
 @import lib/scrollbar-on
 
-//@import "lib/quicklinks"   // Quick jump links needed for events
-//@import "lib/events"       // Events and upcoming support.
-//@import "lib/stickyheader" // Keep header at the top
-
-// Minima also includes a mixin for defining media queries.
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2
-//         padding-left: $spacing-unit / 2
-//     }
-// }
-
-$headline-font: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
+$headline-font: Cantarell, 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
 
 $gutter-width: calc((100vw - 65rem) / 2)
+
+$link-color: saturate($brand-color, 60%)
+$link-color-visited: lighten(desaturate(mix($link-color, purple, 50%), 20%), 20%)
+$link-color-hover: lighten($link-color, 15%)
+
+// Import site pieces
+@import site/guide
+@import site/animation
+@import site/frontpage
+
+h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre
+  margin-bottom: 1rem
 
 .page-content,
 .cockpit-guide .book,
 .cockpit-guide .chapter
+
   a[href]
-    $link-color: saturate($brand-color, 60%)
 
     &:link, &:visited, &:hover
       text-decoration: underline
@@ -103,12 +72,13 @@ $gutter-width: calc((100vw - 65rem) / 2)
       color: $link-color
 
     &:visited
-      color: lighten(desaturate(mix($link-color, purple, 50%), 20%), 20%)
+      color: $link-color-visited
 
     &:hover
-      color: lighten($link-color, 15%)
+      color: $link-color-hover
 
 .page-content
+  padding-top: 4rem
 
   dl
     margin: 1em
@@ -126,62 +96,113 @@ $gutter-width: calc((100vw - 65rem) / 2)
 h1, h2, h3, h4, h5, h6
   font-family: $headline-font
 
-header.masthead
-  padding: 0
-  margin: 0 0 3rem
-  background: #1a1e1e
-  color: white
-  display: flex
-  align-items: baseline
+\:root
+  --accent-color: rgba(0,0,0, 0.6)
+  --accent-color-highlight: rgba(0,0,0, 0.4)
+  --accent-color-background: transparent
+  --accent-color-links: var(--accent-color)
 
-  h1 img
-    height: 32px
+html:not(.front-page)
+  --accent-color: #008bad
+  --accent-color-highlight: #bee1f4
+
+//html[class*=-path-search]
+
+html[class*=-Contributing] .nav--contribute,
+html[class*=-path-blog] .nav--blog,
+html.-path-running .nav--try-it-out,
+html.-path-running .nav--install,
+html.cockpit-guide .nav--documentation,
+html[class*=-path-search] .nav--search
 
   a
-    color: white
-    padding: 1.25rem 1rem
+    background: linear-gradient(to top, var(--accent-color) 3px, var(--accent-color-highlight) 3px)
+
+    @media screen and (min-width: $on-laptop)
+      background: linear-gradient(to top, #999 10px, transparent 10px)
+      background: linear-gradient(to top, var(--accent-color-highlight) 10px, transparent 10px)
+
+header.masthead
+  $logo-height: 48px
+  $logo-width: 272px
+  $header-bg: rgba(black, 0.6)
+  $header-line: 10px
+  padding: 0
+  margin: 0
+  color: white
+  display: flex
+  line-height: $logo-height
+  position: relative
+  background: var(--accent-color-background)
+
+  h1
+    background: $header-bg
+    background: var(--accent-color)
+
+    .logo
+      height: $logo-height
+      width: $logo-width
+
+      @media screen and (min-width: $on-laptop)
+        display: block
+
+  a
+    padding: calc(1rem - #{$header-line}) 1rem 0.75rem
+    display: block
+    color: var(--accent-color-links)
 
   .hgroup,
   .nav-wrap
     flex: auto
+    font-family: $headline-font
 
   h1,
   ul
     margin: 0
 
-  .nav-wrap
-    text-align: right
-    font-size: 130%
-
   .nav-menu
 
     &, & li
       list-style: none
-      display: inline-block
       margin: 0
       padding: 0
-
-    li a
-      display: inline-block
 
   li.nav--home
     display: none !important
 
+  .nav-wrap ul
+    display: flex
+    justify-content: space-evenly
+    text-align: center
+    flex-flow: wrap
+
+    li
+      flex: auto
+
+    @media screen and (max-width: #{$on-laptop})
+      background: var(--accent-color-highlight)
+      line-height: 1
+
+      li
+        min-width: 5em
+
   @media screen and (min-width: $on-laptop)
+    border-top: $header-line solid $header-bg
+    border-top: $header-line solid var(--accent-color)
     padding: 0 $gutter-width
     align-items: space-between
 
     .hgroup
       flex: none
 
-    .nav-wrap ul
-      display: flex
+    .nav-wrap
+      margin: 0 1rem
 
-      li
-        flex: auto
-
-  @media screen and (max-width: $on-laptop)
+  @media screen and (max-width: #{$on-laptop})
     flex-direction: column
+
+    .logo
+      margin-bottom: 1rem
 
     .hgroup,
     .nav-wrap
@@ -194,10 +215,10 @@ header.masthead
       display: block
 
     .nav-wrap
-      line-height: 1
+      line-height: $logo-height
 
       a
-        padding: 1rem 0.7rem
+        padding: 1rem 2ex
 
 pre
   white-space: pre-wrap
@@ -272,7 +293,7 @@ html.running-cockpit
     li
       list-style: none
 
-.browser-header 
+.browser-header
   text-align: center
   background: linear-gradient(transparent calc(50% - 1px), #babdb6 50%, transparent calc(50% + 1px))
   margin: 3rem 0 2rem
@@ -280,105 +301,11 @@ html.running-cockpit
   h2
     color: #75786d
     font-size: 16px
-    font-weight: 300
     text-align: center
     display: inline
 
     background: #fff
     padding: 1ex
-
-html.front-page
-  header.masthead
-    margin-bottom: 0
-
-  .page-content
-    padding-top: 0
-
-  .intro
-    background: #4c6690
-    color: #eeeeec
-    font-size: 18px
-    margin: 0 0 3rem
-    padding: 48px 0 0
-
-    .logo img
-      height: 64px
-      margin-bottom: 20px
-
-    .side-left
-      padding-top: 1.5rem
-
-      p
-        margin-bottom: 15px
-        font-size: 21px
-        font-weight: 200
-        max-width: 60ex
-
-        @media screen and (min-width: $content-width)
-          max-width: 36ex
-
-    .intro-image
-      position: relative
-      display: block
-      max-height: 34vw
-      overflow: hidden
-
-      &:before
-        z-index: 100
-        content: ''
-        position: absolute
-        width: 100%
-        height: 100%
-        box-shadow: inset 0px -20px 15px -15px rgba(0,0,0,0.2)
-        pointer-events: none
-
-    p:first-child:last-child
-      margin: 0
-
-    .grid > div
-      padding-bottom: 0
-
-    ul, li
-      margin: 0
-      padding: 0
-      list-style: none
-      display: inline
-
-    %btn
-      display: inline-block
-      background: #eeeeec
-      border-radius: 6px
-      box-shadow: 0 3px 0 rgba(46, 61, 86, 1)
-      color: #3e5375
-      font-size: 18px
-      line-height: 1.33
-      margin: 10px 10px 20px 0px
-      padding: 10px 16px
-
-      &:hover
-        text-decoration: none
-        background: white
-        color: #333
-
-    li a
-      @extend %btn
-
-    li.with-img img
-      vertical-align: top
-      margin: -1px 2px 0 0
-
-  .blurbs
-    .col
-      padding: 1rem 2rem 4rem
-
-    h3
-      color: #3e5375
-      font-size: 24px
-      margin: 20px 0 10px
-      font-family: beteckna, sans-serif
-
-  footer.footer-cockpit
-    margin-top: 0
 
 img.screenshot,
 a.screenshot img
@@ -466,12 +393,15 @@ footer.footer-cockpit
   text-align: center
   padding: 20px
   background-color: #333
-  color: white
+  background: var(--accent-color)
+  color: rgba(white, 0.8)
   margin-top: 3em
   padding-bottom: 0.5em
 
   a
-    color: #84bbef
+    color: white
+    font-weight: bold
+
 
 .browser-support
   display: grid
@@ -493,14 +423,14 @@ footer.footer-cockpit
     margin-right: 0.5ch
 
 article
-  h1, h3, h2
-    font-family: $headline-font
-    font-weight: 400
-    margin-top: 1.5em
-    margin-bottom: 1em
 
     a
       color: inherit
+
+.post-content
+  h2, h3, h4, h5, h6
+    margin-top: 2em
+    margin-bottom: 0.5em
 
 .post-link
   font-size: inherit
@@ -514,100 +444,15 @@ article
       margin: 0 0 0.5rem
       font-size: 150%
 
-html.cockpit-guide
-  body
-    /* Guide CSS has padding-top set as important; let's override to fix Chrome
-    padding-top: 0 !important
+.search-input
+  background-color: #fff
+  color: #333
+  border: 1px solid #999
+  border-radius: 2px
 
-  header.masthead
-    margin-bottom: 0
-
-  table.navigation
-    /* First fallback for Safari/Epiphany/non-sticky-browsers
-    /* (!important is used to override guide CSS)
-    position: static !important
-    /* Use sticky override for browsers that support it
-    position: sticky !important
-    background: #228747 !important
-
-    @media screen and (min-width: $on-laptop)
-      padding-left: $gutter-width
-      padding-right: $gutter-width
-
-    th
-      text-align: center !important
-      font-family: $headline-font
-      font-size: 1.75rem !important
-      line-height: 3rem
-      text-shadow: 1px 1px 2px rgba(black, 0.5)
-
-      > p
-        font: inherit !important
-        margin: 0
-
-    img
-      max-width: 100vh
-      padding: 0.5rem
-
-  .releaseinfo
-    text-align: center
-
-  dl.toc
-    dd, dt
-      padding-left: 3ex
-
-    .refpurpose
-      color: #767676
-
-    > dd > dl
-      margin-bottom: 3ex
-
-      dl
-        margin: 1ex 0 2ex
-
-  .book
-    dl.toc > dt
-      margin: 6ex 0 3ex
-      font-size: 120%
-      font-weight: bold
-
-  @media screen and (max-width: $on-laptop)
-    table.navigation
-
-      th
-        font-size: 1.2rem !important
-
-    pre
-      max-width: calc(100vw - 6rem)
-      overflow: auto
-
-@keyframes fadeIn
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
-@keyframes zoomWidth
-  0%
-    max-width: 0
-  100%
-    max-width: 100%
-
-@keyframes growIn
-  0%
-    font-size: 0
-    height: 0
-    max-height: 0
-    opacity: 0
-  25%
-    font-size: auto
-    height: auto
-    max-height: 100%
-    opacity: 0
-  50%
-    opacity: 0
-  100%
-    opacity: 1
+  &:focus
+    border-color: $link-color
+    box-shadow: 0 0 2px $link-color
 
 /* Display the article list in a grid
 @supports (display: grid)
@@ -618,3 +463,6 @@ html.cockpit-guide
 
     > article
       margin: 0 !important
+
+.highlighter-rouge
+  margin: 1rem 0
