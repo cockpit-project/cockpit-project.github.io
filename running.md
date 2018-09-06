@@ -26,7 +26,7 @@ Use your system user account and password to log in. See [the guide](guide/lates
   browser.version
 }}{% endfor %}
 
-### Installation & Setup
+## Installation & Setup
 
 {% comment %}
 ## Data for the distros table comes from `_data/distros.yml` ##
@@ -46,7 +46,7 @@ Use your system user account and password to log in. See [the guide](guide/lates
   %}|[View instructions](#{{ distro.first }})|{% endfor %}
 {:.support-table}
 
-#### Fedora
+### Fedora
 
 Cockpit comes **installed by default in Fedora Server**.
 
@@ -67,7 +67,7 @@ sudo firewall-cmd --add-service=cockpit --permanent
 ```
 
 
-#### Red Hat Enterprise Linux
+### Red Hat Enterprise Linux
 {:#rhel}
 
 Cockpit is included in the Red Hat Enterprise Linux _Extras_ repository in versions 7.1 and later:
@@ -91,7 +91,7 @@ sudo firewall-cmd --add-service=cockpit --permanent
 ```
 
 
-#### Project Atomic
+### Project Atomic
 {:#atomic}
 
 **Connect to an Atomic Host from another instance of Cockpit** with the _Add Server_ dashboard UI.
@@ -105,7 +105,7 @@ sudo atomic run cockpit/ws
 ```
 
 
-#### CentOS
+### CentOS
 
 Cockpit is included in CentOS 7.x:
 
@@ -124,7 +124,7 @@ sudo firewall-cmd --reload
 ```
 
 
-#### Debian
+### Debian
 
 Cockpit is included in Debian unstable and in backports for Debian 8 (Jessie) and 9 (Stretch).
 
@@ -148,7 +148,7 @@ sudo apt-get install cockpit
 ```
 
 
-#### Ubuntu
+### Ubuntu
 
 Cockpit is included in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later. Backports are enabled by default, but if you customized apt sources you might need to [enable them manually](https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports).
 
@@ -158,7 +158,7 @@ Cockpit is included in Ubuntu 17.04 and later, and available [as an official bac
 sudo apt-get install cockpit
 ```
 
-#### Clear Linux
+### Clear Linux
 {:#clearlinux}
 
 Cockpit is in [Clear Linux](https://clearlinux.org/) OS and can be installed using `swupd`:
@@ -169,7 +169,7 @@ sudo systemctl enable --now cockpit.socket
 ```
 
 
-#### Arch Linux
+### Arch Linux
 {:#archlinux}
 
 Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/index.php/Arch_User_Repository) as package [cockpit](https://aur.archlinux.org/packages/cockpit/).
