@@ -139,15 +139,16 @@ html.front-page
 
     .blurb
       display: grid
-      align-items: baseline
+      align-items: flex-start
 
       @media (min-width: $frontpage-content-breakpoint)
         grid-template-columns: 1fr 2fr
+        grid-gap: 2rem 1.5rem
 
         h3
-          margin: 3rem 1.5rem 0 0
+          margin: 0
           position: relative
-          top: -0.5rem
+          top: -0.75rem
 
       @media (max-width: #{$frontpage-content-breakpoint})
 
@@ -168,8 +169,16 @@ html.front-page
         grid-column: 1
         color: #777
 
+        + p, + ul, + ol
+          margin-top: 0
+
       p, ul, ol
         grid-column: 2 / -1
+
+        @media (min-width: $frontpage-content-breakpoint)
+          /* Rely on vertical grid gap instead */
+          margin-top: -2rem
+          position: relative
 
       .screenshot
         // Automatically size multiple screenshots to the max width
