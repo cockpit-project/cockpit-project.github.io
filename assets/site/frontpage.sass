@@ -37,6 +37,7 @@ html.front-page
 
   .intro-background,
   .intro
+    -webkit-clip-path: polygon(0 0, 0 calc(100% - 32px), 100% 100%, 100% 0)
     clip-path: polygon(0 0, 0 calc(100% - 32px), 100% 100%, 100% 0)
 
   .intro
@@ -54,7 +55,7 @@ html.front-page
       font-weight: bold
       text-decoration: underline
 
-    @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0))
+    @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0))
       background-position: calc((100vw - 65rem)/2 - 11rem) calc(100% - 25px)
 
       @media screen and (min-width: $on-laptop)
