@@ -218,6 +218,7 @@ html.front-page
     &-new,
     &-version,
     &-date
+      transition: all 300ms
       display: block
       opacity: 0.8
 
@@ -229,7 +230,7 @@ html.front-page
       font-weight: bold
 
     a
-      transition: all 100ms
+      transition: all 500ms
       background: $badge-color
       border-radius: 100%
       border: 1px solid $badge-color-border
@@ -240,6 +241,8 @@ html.front-page
       color: #333 !important
 
       &:hover
+        background: mix($badge-color, #fff, 75)
+
         > span
           opacity: 1
 
