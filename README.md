@@ -320,7 +320,11 @@ If you're deploying on GitHub using GitHub pages, all you need to do is:
 3. Select "Master branch" (if it's not already selected)
 4. Click "Save"
 
+The first time it sets up your pages may take several minutes. Please be patient.
+
 _**Tip**: If your development model has others fork this repo into their own personal namespace, they can follow these same directions to have their very own staging version of the site to demonstrate their changes._
+
+_**Note**: GitHub may complain about the CNAME _"The CNAME cockpit-project.org is already taken"_. This is just a warningverything is fine and it should still work._
 
 ### Custom Deployment
 
