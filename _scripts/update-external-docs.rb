@@ -12,7 +12,7 @@ wiki_pages = [
 # Pages to fetch from the Cockpit git repo
 source_pages = [
   "HACKING.md",
-  "test/README",
+  "test/README.md",
 ]
 
 # URLs to rewrite
