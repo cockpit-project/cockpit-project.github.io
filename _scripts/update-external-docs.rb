@@ -94,6 +94,7 @@ def fetch_and_add(pages, type=:source)
     # Rewrite URLs
     @url_rewrites.each do |before, after|
       doc = doc.gsub("](#{before})", "](#{after})")
+      doc = doc.gsub(/]\(http(s)?:\/\/cockpit-project\.org\//, "]({{ site.baseurl }}/")
     end
 
     # Fix issue link URLs
