@@ -96,6 +96,10 @@ def fetch_and_add(pages, type=:source)
       doc = doc.gsub("](#{before})", "](#{after})")
     end
 
+    # Strip cockpit-project.org links
+    doc = doc.gsub("](http://cockpit-project.org", "](")
+    doc = doc.gsub("](https://cockpit-project.org", "](")
+
     # Fix issue link URLs
     doc = doc.gsub(/\]\(..\/issues/m, "](#{@prefix[:issues]}")
 
