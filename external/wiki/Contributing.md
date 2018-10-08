@@ -24,7 +24,7 @@ Cockpit encompasses different languages and is developed by multiple developers.
 Here is a detailed description of the [commit workflow](Workflow) (including [review criteria](/external/wiki/Workflow#review-criteria)) and as an example, [how @mvollmer merges pull requests](https://github.com/cockpit-project/cockpit/wiki/How-@mvollmer-merges-pull-requests).
 
 ### User Interface / Design
-Cockpit's user interface is based on [PatternFly](https://www.patternfly.org/). Please be aware of this, especially of the [design patterns](https://www.patternfly.org/wikis/patterns/) when proposing changes to the user interface.
+Cockpit's user interface is based on [PatternFly](https://www.patternfly.org/). Please be aware of this, especially of the [design patterns](https://www.patternfly.org/pattern-library/) when proposing changes to the user interface.
 
 An overview of things currently in design can be found [here](https://github.com/cockpit-project/cockpit/wiki/Design).
 
