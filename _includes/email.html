@@ -1,0 +1,33 @@
+{% capture output %}
+{% assign email = include.username
+| append: " AT "
+| append: include.domain
+| replace: ".", " DOT "
+| prepend: " RemoveThisText "
+| append: " RemoveThisText "
+%}
+
+{% if include.script != true %}
+
+<a href="mailto:{{ email }}" class="mailto-obfuscated">{{
+  include.name
+}}</a>
+
+{% else %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    document.querySelectorAll('.mailto-obfuscated').forEach(function(el){
+      setTimeout(function(){
+        el['href'] = el['href']
+          .replace(/AT/, '@')
+          .replace(/DOT/g, '.')
+          .replace(/RemoveThisText/g, '')
+          .replace(/ /g, '');
+      }, 300);
+  });
+});
+</script>
+
+{% endif %}
+{% endcapture %}{{ output | strip_newlines | strip }}{{ include.after }}
