@@ -393,13 +393,28 @@ footer.footerlinks
       background: white
 
 footer.footer-cockpit
+  font-size: 0.8rem
   text-align: center
-  padding: 20px
   background-color: #333
   background: var(--accent-color)
   color: rgba(white, 0.8)
-  margin-top: 3em
-  padding-bottom: 0.5em
+  padding: 0.5em $gutter-width
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  align-items: center
+
+  @media screen and (min-width: $on-laptop)
+    padding: 0.5em $gutter-width
+
+  @media screen and (max-width: 64rem)
+    > .copyright
+      flex-basis: 24em
+
+  > p
+    flex-grow: 1
+    margin: 0
+    padding: 0.5em 1em
 
   a
     color: white
@@ -411,6 +426,7 @@ footer.footer-cockpit
   grid-gap: 2ch
   grid-template-columns: repeat(auto-fit, 28ch)
   justify-content: space-between
+  justify-content: space-evenly
   margin: 0 0 4rem
 
   > li
