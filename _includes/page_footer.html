@@ -1,11 +1,29 @@
 <footer class="footer-cockpit" role="contentinfo">
-    <p>Cockpit is free software and released under the
-        <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a></p>
-    <p>
-        © Cockpit contributors 2017
+    <p class="copyright">
+        {% comment %}
+        Copyright dates, mainly to indicate:
+            1. the project has been around for a while 
+            2. currently maintained
+        {% endcomment %}
+
+        © 2013 - {{ site.time | date: "%Y" }}
+
         &mdash;
-        <a href="{{ site.baseurl }}/privacy.html">Privacy Policy</a>
+
+        Cockpit is a <a href="https://redhat.com/">Red Hat</a> sponsored
+        free software project released under the
+        <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">LGPL v2.1+</a>
     </p>
 
-    <p>{% include github.html %}</p>
+    <p class="policy">
+        <a href="{{ site.baseurl }}/privacy.html">
+            Privacy Policy
+        </a>
+        &mdash;
+        <a href="{{ site.baseurl }}/code-of-conduct.html">
+            Code of Conduct
+        </a>
+    </p>
+
+    <p class="edit-page">{% include github.html %}</p>
 </footer>
