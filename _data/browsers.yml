@@ -1,24 +1,24 @@
 - firefox:
   vendor: Mozilla
   name: Firefox
-  version: 23
+  version: 52
 
 - chrome:
   vendor: Google
   name: Chrome
-  version: 28
+  version: 57
 
 - edge:
   vendor: Microsoft
   name: Edge
-  version: 12
+  version: 16
 
 - ios:
   vendor: Apple
   os: iOS
   name: Safari
-  version: 9
+  version: 10.3
 
 - opera:
   name: Opera
-  version: 21
+  version: 44
