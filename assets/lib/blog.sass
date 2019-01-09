@@ -128,7 +128,7 @@ article.post
   p
     > img:first-child,
     > a[href*=flickr] img
-      max-width: 100%
+      max-width: calc(100% - 2px) /* 2px for a 1px border */
       height: auto
       display: block
       text-align: center
