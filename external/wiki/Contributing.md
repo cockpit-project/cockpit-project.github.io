@@ -12,7 +12,7 @@ In order to avoid duplicate work, it is advisable to show others what you are wo
 
 ### Getting Started
  * Guide: [Set up a system and start hacking]({{ site.baseurl }}/external/source/HACKING.html)
- * Guide: [Set up integration tests]({{ site.baseurl }}/external/source/test/README.html). Automated tests are an important part of Cockpit and every new feature should be accompanied by its tests.
+ * Guide: [Set up integration tests](https://github.com/cockpit-project/cockpit/blob/master/test/README.md). Automated tests are an important part of Cockpit and every new feature should be accompanied by its tests.
  * Keep in mind the [project ideals]({{ site.baseurl }}/ideals.html)
  * If you are looking for someplace to start developing, issues are marked [with a starter label](https://github.com/cockpit-project/cockpit/issues?q=is%3Aopen+is%3Aissue+label%3Astarter) when they are a good introduction to Cockpit and of limited scope.
  * For broader inspiration and ideas you may want to look at the [Ideas page](https://github.com/cockpit-project/cockpit/wiki/Ideas).
@@ -29,8 +29,8 @@ Cockpit's user interface is based on [PatternFly](https://www.patternfly.org/). 
 An overview of things currently in design can be found [here](https://github.com/cockpit-project/cockpit/wiki/Design).
 
 ### Further reading
- * [Create plugins for the user interface](http://stef.thewalter.net/creating-plugins-for-the-cockpit-user-interface.html)
+ * [Create plugins for the user interface]({{ site.baseurl }}/blog/creating-plugins-for-the-cockpit-user-interface.html)
  * [Starter Kit - the turn-key template for your own pages]({{ site.baseurl }}/blog/cockpit-starter-kit.html)
  * [Make your Cockpit page easily installable]({{ site.baseurl }}/blog/making-a-cockpit-application.html)
- * [Use DBUS from javascript in Cockpit](http://stef.thewalter.net/using-dbus-from-javascript-in-cockpit.html)
- * [Protocol for web access to system APIs](http://stef.thewalter.net/protocol-for-web-access-to-system-apis.html)
+ * [Use DBUS from javascript in Cockpit]({{ site.baseurl }}/blog/using-dbus-from-javascript-in-cockpit.html)
+ * [Protocol for web access to system APIs]({{ site.baseurl }}/blog/protocol-for-web-access-to-system-apis.html)
