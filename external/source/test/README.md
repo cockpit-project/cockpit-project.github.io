@@ -71,15 +71,15 @@ You can set these environment variables to configure the test suite:
                   "centos-7"
                   "debian-stable"
                   "debian-testing"
-                  "fedora-28"
                   "fedora-29"
+                  "fedora-i386"
                   "fedora-atomic"
                   "fedora-testing"
-                  "rhel-7-5"
-                  "rhel-7-5-distropkg"
                   "rhel-7-6"
-                  "ubuntu-1604"
-               "fedora-28" is the default (testvm.py)
+                  "rhel-7-6-distropkg"
+                  "ubuntu-1804"
+                  "ubuntu-stable"
+               "fedora-29" is the default (bots/machine/machine_core/constants.py)
 
     TEST_DATA  Where to find and store test machine images.  The
                default is the same directory that this README file is in.
@@ -146,22 +146,25 @@ working copy of Cockpit like this:
 This either needs a configured/built tree (build in mock or a development VM)
 or cockpit's build dependencies installed.
 
-image-prepare will prepare a test machine image used for the next test run,
-but will not modify the saved version in `$TEST_DATA/images`.  Use
-vm-reset to revert the test machine images for the next run to the
-versions in `$TEST_DATA/images`.
+image-prepare will prepare a test machine image used for the next test run.
+It will not modify the saved version in `$TEST_DATA/images`, but do all the
+preparation in an overlay in `test/images`.
 
 A typical sequence of steps would thus be the following:
 
-    $ bots/image-download
-    $ test/vm-reset            # Start over
-    $ tools/make-rpms          # Create rpms
+    $ make                     # Build the code
     $ bots/image-prepare ...   # Install code to test
     $ test/verify/check-...    # Run some tests
 
-    $ test/vm-reset            # Start over
-    $ bots/image-prepare ...   # Install code to test
-    $ test/verify/check-...    # Run some tests
+Each image-prepare invocation will always start from the pristine
+`$TEST_DATA/images` and ignore the current overlay in `test/images`. It is
+thorough, but also rather slow. If you want to iterate on changing
+only JavaScript/HTML code, you can use this shortcut to copy updated webpacks
+into a prepared VM overlay image:
+
+    $ make && bots/image-customize -u dist:/usr/share/cockpit/ $TEST_OS
+
+Use `test/vm-reset` to clean up all prepared overlays in `test/images`.
 
 ## Running tests
 
@@ -183,15 +186,12 @@ you run `test/containers/run-tests` you need to use the `-i` option to
 build/install cockpit into the test VM. This needs to be done with a compatible
 `TEST_OS` (usually a recent `fedora-*`).
 
+### Avocado and Selenium tests
 The third class of integration tests use avocado and selenium to cover
-different browsers:
+different browsers.
 
-    $ bots/image-download selenium
-    $ bots/image-prepare fedora-28
-    $ TEST_OS=fedora-28 test/avocado/run-tests --selenium-tests --browser=firefox -v
+For more details on how to run and debug these tests see [selenium hacking guide](./avocado/README.md)
 
-Currently, these tests run on Fedora 28. Other images don't have selenium and
-avocado installed.
 
 ## Debugging tests
 

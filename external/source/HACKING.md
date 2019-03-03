@@ -25,7 +25,7 @@ On Debian or Ubuntu:
 
 On Fedora:
 
-    $ sudo yum install nodejs npm
+    $ sudo dnf install nodejs npm
 
 And lastly get Webpack and the development dependencies:
 
@@ -39,14 +39,17 @@ To actually build the Cockpit binaries themselves from source
 (including to run the integration tests locally), you will need
 additional header files and other components. Check
 `tools/cockpit.spec` for the concrete Fedora build dependencies.
+
+Note that `tools/cockpit.spec` is a template filled in by
+`tools/gen-spec-dependencies`, and cannot be directly parsed by dnf.
 The following should work in a fresh Git clone:
 
-    $ sudo yum install yum-utils
-    $ sudo yum-builddep tools/cockpit.spec
+    $ sudo dnf install dnf-utils
+    $ sed 's/%{npm-version:.*}/0/' tools/cockpit.spec | sudo dnf builddep --spec /dev/stdin
 
 In addition, for testing, the following dependencies are required:
 
-    $ sudo yum install curl expect \
+    $ sudo dnf install curl expect \
         libvirt libvirt-client libvirt-daemon libvirt-python \
         python python-libguestfs python-lxml libguestfs-xfs \
         python3 libvirt-python3 \
@@ -93,6 +96,20 @@ which will output a URL to connect to with a browser, such as
 `http://localhost:8765/dist/base1/test-dbus.html`. Adjust the path
 for different tests and inspect the results there.
 
+You can also run individual tests by specifying the `TESTS` environment
+variable:
+
+    $ make check TESTS=dist/base1/test-chan.html
+
+There are also static code and syntax checks which you should run often:
+
+    $ tools/test-static-code
+
+It is highly recommended to set this up as a git pre-push hook, to avoid
+pushing PRs that will fail on trivial errors:
+
+    $ ln -s ../../tools/test-static-code .git/hooks/pre-push
+
 ## Running the integration test suite
 
 Refer to the [testing README](test/README.md) for details on running
@@ -101,7 +118,7 @@ the Cockpit integration tests locally.
 ## Running eslint
 
 Cockpit uses [ESLint](https://eslint.org/) to automatically check
-JavaScript code style in `.jsx` and `.es6` files.
+JavaScript code style in `.js` and `.jsx` files.
 
 The linter is executed within every build as a webpack preloader.
 
