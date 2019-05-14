@@ -70,12 +70,14 @@ sudo firewall-cmd --add-service=cockpit --permanent
 ### Red Hat Enterprise Linux
 {:#rhel}
 
-Cockpit is included in the Red Hat Enterprise Linux _Extras_ repository in versions 7.1 and later:
+Cockpit is included in Red Hat Enterprise Linux 7 and later.
 
-1. Enable the _Extras_ repository: 
+1. On RHEL 7, enable the _Extras_ repository.
 ```
 sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 ```
+RHEL 8 does not need any non-default repositories.
+
 2. Install cockpit: 
 ```
 sudo yum install cockpit
@@ -84,7 +86,7 @@ sudo yum install cockpit
 ```
 sudo systemctl enable --now cockpit.socket
 ```
-4. Open the firewall if necessary:
+4. On RHEL 7, or if you use non-default zones on RHEL 8, open the firewall:
 ```
 sudo firewall-cmd --add-service=cockpit
 sudo firewall-cmd --add-service=cockpit --permanent
