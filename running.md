@@ -139,7 +139,7 @@ apt-get update
 
 2. For Debian 8 you have to enable the [backports-sloppy repository](https://backports.debian.org):
 ```
-echo 'deb http://deb.debian.org/debian jessie-backports-sloppy main' > \
+echo 'deb http://archive.debian.org/debian jessie-backports-sloppy main' > \
     /etc/apt/sources.list.d/backports.list
 apt-get update
 ```
