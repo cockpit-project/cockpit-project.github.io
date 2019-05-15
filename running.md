@@ -132,7 +132,7 @@ Cockpit is included in Debian unstable and in backports for Debian 8 (Jessie) an
 
 1. For Debian 9 you have to enable the [backports repository](https://backports.debian.org):
 ```
-echo 'deb http://deb.debian.org/debian stretch-backports main' > \
+echo 'deb http://archive.debian.org/debian stretch-backports main' > \
     /etc/apt/sources.list.d/backports.list
 apt-get update
 ```
