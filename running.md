@@ -128,7 +128,7 @@ sudo firewall-cmd --reload
 
 ### Debian
 
-Cockpit is included in Debian unstable and in backports for Debian 8 (Jessie) and 9 (Stretch).
+Cockpit is included in Debian unstable and in backports for 9 (Stretch).
 
 1. For Debian 9 you have to enable the [backports repository](https://backports.debian.org):
 ```
@@ -137,14 +137,7 @@ echo 'deb http://deb.debian.org/debian stretch-backports main' > \
 apt-get update
 ```
 
-2. For Debian 8 you have to enable the [backports-sloppy repository](https://backports.debian.org):
-```
-echo 'deb http://deb.debian.org/debian jessie-backports-sloppy main' > \
-    /etc/apt/sources.list.d/backports.list
-apt-get update
-```
-
-3. Install the package:
+2. Install the package:
 ```
 sudo apt-get install cockpit
 ```
