@@ -40,12 +40,17 @@ In order to convert content into web pages, you will need to have Ruby, Bundler,
      gem install bundler
      ```
 
-2. Install gems (as user):
+2. Configure bundler to work as a user:
+   ```
+   bundle config path ~/.gem
+   ```
+
+3. Install gems (as user):
    ```
    bundle install
    ```
 
-3. Run Jekyll:
+4. Run Jekyll:
    ```
    bundle exec jekyll server
    ```
