@@ -14,7 +14,7 @@ In order to avoid duplicate work, it is advisable to show others what you are wo
  * Guide: [Set up a system and start hacking]({{ site.baseurl }}/external/source/HACKING.html)
  * Guide: [Set up integration tests](https://github.com/cockpit-project/cockpit/blob/master/test/README.md). Automated tests are an important part of Cockpit and every new feature should be accompanied by its tests.
  * Keep in mind the [project ideals]({{ site.baseurl }}/ideals.html)
- * If you are looking for someplace to start developing, issues are marked [with a starter label](https://github.com/cockpit-project/cockpit/issues?q=is%3Aopen+is%3Aissue+label%3Astarter) when they are a good introduction to Cockpit and of limited scope.
+ * If you are looking for someplace to start developing, issues are marked [with a good-first-issue label](https://github.com/cockpit-project/cockpit/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) when they are a good introduction to Cockpit and of limited scope.
  * For broader inspiration and ideas you may want to look at the [Ideas page](https://github.com/cockpit-project/cockpit/wiki/Ideas).
  * [Documentation]({{ site.baseurl }}/guide/latest/) (be aware: possible version differences)
 
