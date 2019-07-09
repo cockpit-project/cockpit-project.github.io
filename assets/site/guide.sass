@@ -8,6 +8,34 @@ html.cockpit-guide
     padding-top: 0 !important
     position: relative
 
+    // Override the font for guides
+    div.book,
+    div.refentry,
+    div.chapter,
+    div.article,
+    div.reference,
+    div.index,
+    div.footer,
+    div.section,
+    div.part,
+    div.variablelist table
+      font-family: inherit
+
+    // Same list as above, but also a <pre>
+    div.book,
+    div.refentry,
+    div.chapter,
+    div.article,
+    div.reference,
+    div.index,
+    div.footer,
+    div.section,
+    div.part,
+    div.variablelist table,
+    pre.programlisting
+      font-size: inherit
+      line-height: inherit
+
   header.masthead
     margin-bottom: 0
 
