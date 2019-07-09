@@ -23,7 +23,7 @@ for more details and recommendations on ensuring it is enabled correctly.
 Before running the tests, ensure Cockpit has been built where the test suite
 expects to find it (do NOT run the build step as root):
 
-    $ ./bots/image-prepare
+    $ ./test/image-prepare
 
 To run the integration tests run the following (do NOT run the integration tests
 as root):
@@ -36,7 +36,7 @@ images to retrieve for different scenario tests).
 
 Alternatively you can run an individual test like this:
 
-    $ ./bots/image-prepare
+    $ ./test/image-prepare
     $ ./test/verify/check-session
 
 To see more verbose output from the test, use the `--verbose` and/or `--trace` flags:
@@ -72,14 +72,19 @@ You can set these environment variables to configure the test suite:
                   "debian-stable"
                   "debian-testing"
                   "fedora-29"
+                  "fedora-30"
                   "fedora-i386"
                   "fedora-atomic"
                   "fedora-testing"
                   "rhel-7-6"
                   "rhel-7-6-distropkg"
+                  "rhel-7-7"
+                  "rhel-8-0"
+                  "rhel-8-0-distropkg"
+                  "rhel-8-1"
                   "ubuntu-1804"
                   "ubuntu-stable"
-               "fedora-29" is the default (bots/machine/machine_core/constants.py)
+               "fedora-30" is the default (bots/machine/machine_core/constants.py)
 
     TEST_DATA  Where to find and store test machine images.  The
                default is the same directory that this README file is in.
@@ -89,6 +94,12 @@ You can set these environment variables to configure the test suite:
     TEST_CDP_PORT  Attach to an actually running browser that is compatible with
                    the Chrome Debug Protocol, on the given port. Don't use this
                    with parallel tests.
+
+In addition, you can also set the `cockpit.bots.images-data-dir` variable with
+`git config` to the location to store the (unprepared) virtual machine images.
+This takes precedence over `TEST_DATA`.  For example:
+
+    $ git config cockpit.bots.images-data-dir ~/.cockpit-bots/images
 
 ## Test machines and their images
 
@@ -141,7 +152,7 @@ A test machine image created by image-create doesn't contain any Cockpit
 code in it yet.  You can build and install the currently checked out
 working copy of Cockpit like this:
 
-    $ bots/image-prepare
+    $ test/image-prepare
 
 This either needs a configured/built tree (build in mock or a development VM)
 or cockpit's build dependencies installed.
@@ -153,7 +164,7 @@ preparation in an overlay in `test/images`.
 A typical sequence of steps would thus be the following:
 
     $ make                     # Build the code
-    $ bots/image-prepare ...   # Install code to test
+    $ test/image-prepare ...   # Install code to test
     $ test/verify/check-...    # Run some tests
 
 Each image-prepare invocation will always start from the pristine
