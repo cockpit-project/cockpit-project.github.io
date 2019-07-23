@@ -1,0 +1,10 @@
+#!/usr/bin/bash -e
+
+echo "## Updating Cockpit website container..."
+
+run="toolbox run -c cockpit-website"
+
+$run bundle install
+
+echo "## Done!"
+echo "## Run _scripts/toolbox-run"

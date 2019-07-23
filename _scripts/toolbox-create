@@ -1,0 +1,21 @@
+#!/usr/bin/bash -e
+
+echo "## Creating website container..."
+toolbox create -c cockpit-website
+
+run="toolbox run -c cockpit-website"
+
+echo "## Installing RPM dependencies inside container..."
+$run sudo dnf install -y rubygem-bundler \
+	ruby-devel libffi-devel make gcc gcc-c++ redhat-rpm-config zlib-devel \
+	libxml2-devel libxslt-devel tar nodejs
+
+echo "## Setting local gem path"
+$run bundle config path .gem
+
+echo "## Installing local gems"
+
+$run bundle install
+
+echo "## Done!"
+echo "## Run _scripts/toolbox-run"

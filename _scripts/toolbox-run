@@ -1,0 +1,3 @@
+#!/bin/sh
+
+toolbox run -c cockpit-website bundle exec jekyll server $@
