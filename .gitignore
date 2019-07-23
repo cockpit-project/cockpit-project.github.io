@@ -1,4 +1,5 @@
 _site
+.gem
 .sass-cache
 .jekyll-metadata
 *.pyc
