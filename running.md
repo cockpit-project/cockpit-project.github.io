@@ -167,6 +167,6 @@ sudo systemctl enable --now cockpit.socket
 ### Arch Linux
 {:#archlinux}
 
-Cockpit can be found in the [Arch User Repository](https://wiki.archlinux.org/index.php/Arch_User_Repository) as package [cockpit](https://aur.archlinux.org/packages/cockpit/).
+Cockpit can be found in the [Arch Community Repository](https://www.archlinux.org/packages/) as package [cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/).
 
 
