@@ -169,4 +169,19 @@ sudo systemctl enable --now cockpit.socket
 
 Cockpit can be found in the [Arch Community Repository](https://www.archlinux.org/packages/) as package [cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/).
 
+1. Install the base Cockpit packages:
+```
+sudo pacman -S cockpit cockpit-dashboard
+```
 
+2. Install the dependencies manually to enable packages updates and storage management:
+```
+sudo pacman -S packagekit udisks2
+```
+
+2. Enable cockpit: 
+```
+sudo systemctl enable --now cockpit.socket
+```
+
+**Important note:** the ArchLinux package shows the **Docker Containers** and **Virtual Machines** tabs even if needed dependencies are not present on your system. Don't try to uninstall the components from the **Applications** page, or it will uninstall Cockpit entirely from your system!
