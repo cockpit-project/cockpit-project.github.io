@@ -11,20 +11,62 @@ If you already have Cockpit on your server, point your web browser to:
 
 Use your system user account and password to log in. See [the guide](guide/latest/guide.html) for more info.
 
+## Recommended client browsers
+
+{% capture icon %}{:.browser-0}![](/images/site/browser-0.svg){% endcapture %}
+
+Cockpit is developed for and routinely tested with:
+
+{:.browser-support}
+- {{icon | replace: "0", "firefox"}} Mozilla Firefox
+- {{icon | replace: "0", "chrome"}} Google Chrome
+- {{icon | replace: "0", "edge"}} Microsoft Edge
+
+<div id="browser-support">
+  <div class="is-supported">
+    <img src="/images/site/icon-ok.svg">
+    Your current browser should work with Cockpit.
+  </div>
+
+  <div class="is-not-supported">
+    <img src="/images/site/icon-warning.svg">
+    Sorry! Your current browser appears to lack necessary features.
+  </div>
+</div>
+
 ### Minimum client browser versions
 
+The following browsers (and up) _may_ also work with Cockpit:
+
 {% comment %}
-## Data for the browser table comes from `_data/browsers.yml` ##
+## Data for the browser table comes from `_data/browsers.yml`
+## Browser versions come from `_data/browser_support.yml` (generated)
+## Browser features are defined in `_scripts/update-browser-data.rb`
 {% endcomment %}
+
 {:.browser-support}
-{% for browser in site.data.browsers %}
-- {:.browser-{{ browser.first }}} ![](/images/site/browser-{{ browser.first }}.svg) {{
+{% for browser in site.data.browsers %}{%
+  assign slug = browser.name | downcase
+%}
+- {{
   browser.vendor
   }} {{
   browser.name
-  }} {{
-  browser.version
-}}{% endfor %}
+  }} {%
+  assign ver_caniuse = site.data.browser_support["browsers"][slug]
+  %}{%
+  assign ver_caniuse_float = ver_caniuse | plus: 0
+  %}{%
+    if (browser.version > ver_caniuse_float)
+  %}{{
+    browser.version
+  }}{% else %}{{
+    ver_caniuse
+  }}{%
+    endif
+  %}{% endfor %}
+
+However, we __strongly__ encurage you to use the latest version of your browser for security reasons.
 
 ## Installation & Setup
 

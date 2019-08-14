@@ -437,7 +437,7 @@ footer.footer-cockpit
   grid-gap: 2ch
   grid-template-columns: repeat(auto-fit, 15rem)
   justify-content: space-between
-  margin: 0 0 4rem
+  margin: 0 0 3rem
 
   > li
     white-space: nowrap
@@ -449,7 +449,32 @@ footer.footer-cockpit
   img
     height: 3ch
     width: auto
-    margin-right: 0.5ch
+    margin-right: 0.5em
+
+#browser-support
+  &[data-browser-supported="true"] .is-not-supported,
+  &:not([data-browser-supported="true"]) .is-supported
+    display: none
+
+  .is-supported,
+  .is-not-supported
+    padding: 1rem 2rem 1rem 1.5rem
+    border-radius: 3px
+    display: inline-block
+
+
+  .is-supported
+    background: #e6f6cc
+    color: #416a00
+
+  .is-not-supported
+    background: #fcefcc
+    color: #4a1000
+
+  img
+    height: 3ch
+    width: auto
+    margin-right: 0.5em
 
 article
 
