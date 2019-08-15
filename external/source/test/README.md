@@ -76,8 +76,6 @@ You can set these environment variables to configure the test suite:
                   "fedora-i386"
                   "fedora-atomic"
                   "fedora-testing"
-                  "rhel-7-6"
-                  "rhel-7-6-distropkg"
                   "rhel-7-7"
                   "rhel-8-0"
                   "rhel-8-0-distropkg"
@@ -197,11 +195,11 @@ you run `test/containers/run-tests` you need to use the `-i` option to
 build/install cockpit into the test VM. This needs to be done with a compatible
 `TEST_OS` (usually a recent `fedora-*`).
 
-### Avocado and Selenium tests
+### Selenium tests
 The third class of integration tests use avocado and selenium to cover
 different browsers.
 
-For more details on how to run and debug these tests see [selenium hacking guide](./avocado/README.md)
+For more details on how to run and debug these tests see [selenium hacking guide](./selenium/README.md)
 
 
 ## Debugging tests
@@ -217,6 +215,7 @@ log in without authentication:
 
     Host 127.0.0.2
         User root
+        Port 2201
         StrictHostKeyChecking no
         UserKnownHostsFile /dev/null
         IdentityFile ~/src/cockpit/bots/machine/identity
