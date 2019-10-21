@@ -6,7 +6,7 @@
 - chrome:
   vendor: Google
   name: Chrome
-  version: 57
+  version: 63
 
 - edge:
   vendor: Microsoft
