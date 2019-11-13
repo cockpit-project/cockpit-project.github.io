@@ -146,7 +146,7 @@ About Cockpit
 
 {% capture badge %}
 {% assign release = site.posts | where: "category", "release" | first %}
-{% assign version = release.title | split: " " | last %}
+{% assign version = release.title | split: "and" | first | split: " " | last %}
 <a href="{{ site.baseurl }}{{ release.url }}" title="{{ release.summary }}">
   <span class="badge-new">Just released:</span>
   <span class="badge-version">Version {{ version }}</span>
