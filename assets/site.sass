@@ -9,7 +9,7 @@ $spacing-unit: 1rem
 
 $text-color: #333
 $background-color: #fff
-$brand-color: #4c6690
+$brand-color: #255ccb
 
 $grey-color: #828282
 $grey-color-light: lighten($grey-color, 40%)
@@ -47,7 +47,7 @@ $headline-font: RedHatDisplay, Cantarell, 'Roboto Slab', 'Helvetica Neue', Helve
 
 $gutter-width: calc((100vw - 65rem) / 2)
 
-$link-color: saturate($brand-color, 60%)
+$link-color: #255ccb
 $link-color-visited: lighten(desaturate(mix($link-color, purple, 50%), 20%), 20%)
 $link-color-hover: lighten($link-color, 15%)
 
@@ -106,8 +106,8 @@ h1, h2, h3, h4, h5, h6
   --accent-color-links: var(--accent-color)
 
 html:not(.front-page)
-  --accent-color: #008bad
-  --accent-color-highlight: #bee1f4
+  --accent-color: #255ccb
+  --accent-color-highlight: #8ba9ff
 
 //html[class*=-path-search]
 
@@ -252,7 +252,7 @@ html.running-cockpit
 
     th
       font-weight: normal
-      color: #777
+      color: #707070
 
     td
       padding: 0
@@ -408,7 +408,7 @@ footer.footer-cockpit
   text-align: center
   background-color: #333
   background: var(--accent-color)
-  color: rgba(white, 0.8)
+  color: rgba(white, 0.9)
   padding: 0.5em $gutter-width
   display: flex
   flex-wrap: wrap
