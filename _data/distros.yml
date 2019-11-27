@@ -10,6 +10,12 @@
   tested: true
   included: true
 
+- coreos:
+  name: Fedora CoreOS
+  supported: true
+  tested: true
+  included: true
+
 - atomic:
   name: Project Atomic
   supported: true
