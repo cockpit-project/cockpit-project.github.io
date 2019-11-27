@@ -191,9 +191,9 @@ Cockpit is included in Ubuntu 17.04 and later, and available [as an official bac
 
 1. Install the package:
 
-```
-sudo apt-get install cockpit
-```
+   ```
+   sudo apt-get install cockpit
+   ```
 
 ### Clear Linux
 {:#clearlinux}
