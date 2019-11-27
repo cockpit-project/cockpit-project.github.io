@@ -134,6 +134,21 @@ sudo firewall-cmd --add-service=cockpit
 sudo firewall-cmd --add-service=cockpit --permanent
 ```
 
+### Fedora CoreOS
+{:#coreos}
+
+The standard Fedora CoreOS image does not contain any Cockpit packages. To install these, run
+
+    # rpm-ostree install cockpit-system cockpit-networkmanager
+
+or include these packages into your own OSTree configs. Depending on your configuration, you may want to use other extensions as well, like cockpit-kdump or cockpit-podman.
+
+After that you can add this host to another Cockpit dashboard, but not connect to it directly. If you want to do that, you need to run the Cockpit web service with this privileged container:
+
+    # podman container runlabel RUN cockpit/ws
+
+Then use your web browser to log into port 9090 on your host IP address as usual.
+
 
 ### Project Atomic
 {:#atomic}
