@@ -296,6 +296,17 @@ html.running-cockpit
     li
       list-style: none
 
+  ol
+    li
+      > p
+        margin: 0 0 1rem
+
+        + p
+          margin-top: 1rem
+
+      &:not(:first-child)
+        margin-top: 2rem
+
 .browser-header
   text-align: center
   background: linear-gradient(transparent calc(50% - 1px), #babdb6 50%, transparent calc(50% + 1px))
