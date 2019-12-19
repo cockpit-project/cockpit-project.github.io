@@ -66,7 +66,7 @@ The following browsers (and up) _may_ also work with Cockpit:
     endif
   %}{% endfor %}
 
-However, we __strongly__ encurage you to use the latest version of your browser for security reasons.
+However, we __strongly__ encourage you to use the latest version of your browser for security reasons.
 
 ## Installation & Setup
 
