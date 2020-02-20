@@ -1,0 +1,23 @@
+#!/bin/bash -e
+
+date=$(date -I)
+branch="update-docs--$date"
+
+git checkout -tb "$branch"
+
+toolbox run -c cockpit-website bundle exec _scripts/update-external-docs.rb
+
+git commit -a -m "Update docs ($date)"
+
+git co -
+
+changes=$(git branch -d "$branch" 2>&1 > /dev/null)
+
+if [ "$changes" -ne 0 ]
+then
+  echo "Docs are up to date."
+else
+  git checkout -
+  echo "Docs have been updated & committed in: $branch."
+  echo "Please send a PR: git push $branch"
+fi
