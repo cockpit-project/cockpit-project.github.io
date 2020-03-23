@@ -46,3 +46,4 @@
 
 - archlinux:
   name: Arch Linux
+  included: true
