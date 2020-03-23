@@ -240,6 +240,10 @@ sudo systemctl enable --now cockpit.socket
 ### Arch Linux
 {:#archlinux}
 
-Cockpit can be found in the [Arch Community Repository](https://www.archlinux.org/packages/) as package [cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/).
+[Cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/) is included in [Arch Linux](https://www.archlinux.org/packages/):
+```
+sudo pacman -Sy cockpit
+sudo systemctl enable --now cockpit.socket
+```
 
 
