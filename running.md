@@ -242,8 +242,8 @@ sudo systemctl enable --now cockpit.socket
 
 [Cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/) is included in [Arch Linux](https://www.archlinux.org/packages/):
 ```
-sudo pacman -Sy cockpit
+sudo pacman -S cockpit
 sudo systemctl enable --now cockpit.socket
 ```
 
-
+If the first command fails with "database file for ... does not exist", refresh/update your system with `sudo pacman -Syu` first.
