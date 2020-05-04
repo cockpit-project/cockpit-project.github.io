@@ -1,29 +1,36 @@
 ---
 title: Creating Plugins for the Cockpit User Interface
-date: '2014-11-13'
+author: stef
+date: '2020-05-04'
 category: tutorial
 tags: cockpit linux
 slug: creating-plugins-for-the-cockpit-user-interface
 ---
 
-*Note: This post has been updated for changes in Cockpit 0.90 and later.*
+_**Note**: This post was updated in May 2020 to adjust to reflect Cockpit UI and development best practices._
 
-[Cockpit is a user interface for servers](https://cockpit-project.org). And you can add stuff to that user interface. Cockpit is internally built of various components. Each component is HTML, with Javascript logic that makes it work, and CSS to make it pretty.
+[Cockpit is a web-based graphical interface for servers](https://cockpit-project.org). You can easily add your own custom pages to the navigation.
 
-It's real easy to create these components. Tools are components that show up in the *Tools* menu in Cockpit:
+![Navigation menu](/images/pages-menu-top.png)
 
-![Tools menu](/images/cockpit-tools-default.png)
+For this tutorial you need to [install your distribution's cockpit packages](../running.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
 
-For example the *Terminal* that you see there is implemented as a tool. But lets make ourselves another one. For this tutorial you'll need Cockpit 0.41. You can install it in [Fedora 21](https://lists.fedorahosted.org/pipermail/cockpit-devel/2014-November/000196.html) or [build it from git](https://github.com/cockpit-project/cockpit/blob/master/HACKING.md).
+We'll make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. It's simple and not too fancy. The package will spawn a process on the server to do all the work.
 
-So break out your terminal, lets make a package called *pinger* that checks whether your server has network connectivity to the Internet by pinging another host. Nothing too fancy. We'll just be spawning a process on the server to do the work. I've prepared it for you as [an example here](https://cockpit-project.org/files/pinger.tgz), and we can look it over, and modify it. To download the example to your current directory:
+This example package is already [included in the Cockpit sources](https://github.com/cockpit-project/cockpit/tree/master/examples/pinger). You can look it over and modify it.
 
-```text
-$ wget https://cockpit-project.org/files/pinger.tgz -O - | tar -xzf -
-$ cd pinger/
+To start, let's get ready for development by launching a terminal on your local computer. 
+
+First, create a project directory and download the example:
+
+```sh
+mkdir pinger; cd pinger
+curl -O https://raw.githubusercontent.com/cockpit-project/cockpit/master/examples/pinger/manifest.json
+curl -O https://raw.githubusercontent.com/cockpit-project/cockpit/master/examples/pinger/ping.html
+curl -O https://raw.githubusercontent.com/cockpit-project/cockpit/master/examples/pinger/pinger.js
 ```
 
-Components, and more specifically their HTML and Javascript files, live in package directories. In the package directory there's also a `manifest.json` file which tells Cockpit about the package. The `pinger` directory above is such a package. It's `manifest.json` file looks like this:
+Cockpit pages — more specifically their HTML and Javascript files — live in [package directories](https://cockpit-project.org/guide/latest/packages.html). In the package directory there's also a [manifest.json](https://cockpit-project.org/guide/latest/packages.html#package-manifest) file which tells Cockpit about the package. The `pinger` directory above is such a package. Its `manifest.json` file looks like this:
 
 ```text
 {
@@ -33,28 +40,25 @@ Components, and more specifically their HTML and Javascript files, live in packa
             "label": "Pinger",
             "path": "ping.html"
         }
-    },
-    "content-security-policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval'"
+    }
 }
 ```
 
-The manifest above has a `"tools"` subsection. Each tool is listed in the *Tools* menu by Cockpit. The `"path"` is the name of the HTML file that implements the tool, and the `"label"` is the text to show in the *Tools* menu.
+The manifest above has a `"tools"` subsection, which means that it will appear in the lower section of the menu (see the [manifest documentation](https://cockpit-project.org/guide/latest/packages.html#package-manifest) for details). Each tool is listed in the menu by Cockpit. The `"path"` is the name of the HTML file that implements the tool, and the `"label"` is the text to show in the menu.
 
-You'll notice that we haven't told Cockpit about the package yet. To do so you either place or symlink the package into one of two places:
+You'll notice that we haven't told Cockpit about how to find the package yet. To do so you either copy or symlink the package into one of two places:
 
- * `~/.local/share/cockpit`<br>
-In your home directory, for user specific packages, and ones that you're working on. You can edit these on the fly and just refresh your browser to see changes.
- * `/usr/share/cockpit`<br>
-For installed packages available to all users. These should not be changed while Cockpit is running.
+ * `~/.local/share/cockpit` in your home directory. It's used for user specific packages and ones that you're developing. You can edit these on the fly and refresh your browser to see changes.
+ * `/usr/share/cockpit` is the location for installed packages available to all users of a system. Changing files in this path requires administrator ("root") privileges. These should not be changed while Cockpit is running.
 
-Since we're going to be messing around with this package, lets symlink it into the former location.
+Since we're going to be actively editing this package, let's symlink it into the first location, in your home directory.
 
-```text
-$ mkdir -p ~/.local/share/cockpit
-$ ln -snf $PWD ~/.local/share/cockpit/pinger
+```sh
+mkdir -p ~/.local/share/cockpit
+ln -snf $PWD ~/.local/share/cockpit/pinger
 ```
 
-You can list which Cockpit packages are installed using the following command, and you should see `pinger` listed among them:
+To list the Cockpit packages which are installed, use the following command:
 
 ```text
 $ cockpit-bridge --packages
@@ -63,7 +67,11 @@ pinger: /home/.../.local/share/cockpit/pinger
 ...
 ```
 
-If you're logged into Cockpit on this machine, first log out. And log in again. Make sure to log into Cockpit with your current user name, since you installed the package in your home directory. You should now see a new item in the *Tools* menu:
+You should see `pinger` listed among all the active modules, like the above example.
+
+Log into Cockpit on this machine with your current user name, as the package is installed in your home directory. (If you're already logged in to Cockpit with your user account, you can simply reload your browser.)
+
+You should now see a new item:
 
 ![Tools menu with pinger](/images/cockpit-tools-pinger.png)
 
@@ -78,92 +86,105 @@ Lets take a look at the pinger HTML, and see how it works.
     <title>Pinger</title>
     <meta charset="utf-8">
     <link href="../base1/cockpit.css" type="text/css" rel="stylesheet">
-    <script src="../base1/jquery.js"></script>
     <script src="../base1/cockpit.js"></script>
 </head>
 <body>
-    <div class="container-fluid" style='max-width: 400px'>
-        <table class="cockpit-form-table">
+    <div class="container-fluid">
+        <table class="form-table-ct">
             <tr>
-                <td>Address</td>
+                <td><label class="control-label" for="address">Address</label></td>
                 <td><input class="form-control" id="address" value="8.8.8.8"></td>
             </tr>
             <tr>
-                <td><button class="btn btn-primary" id="ping">Ping</button></td>
+                <td><button class="pf-c-button pf-m-primary" id="ping">Ping</button></td>
                 <td><span id="result"></span></td>
             </tr>
         </table>
-        <p><pre id="output"></pre></p>
+        <pre id="output"></pre>
     </div>
-    <script>
-        var address = $("#address");
-        var output = $("#output");
-        var result = $("#result");
 
-        $("#ping").on("click", ping_run);
-
-        function ping_run() {
-            var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
-            proc.done(ping_success);
-            proc.stream(ping_output);
-            proc.fail(ping_fail);
-
-            result.empty();
-            output.empty();
-        }
-
-        function ping_success() {
-            result.css("color", "green");
-            result.text("success");
-        }
-
-        function ping_fail() {
-            result.css("color", "red");
-            result.text("fail");
-        }
-
-        function ping_output(data) {
-            output.append(document.createTextNode(data));
-        }
-    </script>
+    <script src="pinger.js"></script>
 </body>
 </html>
+
 ```
 
-First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation here](https://cockpit-project.org/guide/latest/api-cockpit.html).
+The `cockpit.css` file is included so our tool matches the style of the rest of Cockpit.
 
-```html
-<script src="../base1/jquery.js"></script>
-<script src="../base1/cockpit.js"></script>
-```
+Here we include `cockpit.js`: the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation in the Cockpit guide](https://cockpit-project.org/guide/latest/api-base1.html).
 
-We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The HTML is pretty basic, defining a little form with a field to type an address, a button to click to start the pinging, and an area to present output and results.
+The HTML is pretty basic. It defines a little form with a field to type an address, a button to click to start pinging, and an area to present output and results.
 
-In the javascript code, first we get a bunch of variables pointing to the HTML elements we want to interact with.
-Next we attach a handler to the *Ping* button so that the `ping_run()` function is called when it is clicked.
+The logic lives in `pinger.js`, shown in full here:
 
-```javascript
-$("#ping").on("click", ping_run);
+```js
+const address = document.getElementById("address");
+const output = document.getElementById("output");
+const result = document.getElementById("result");
+const button = document.getElementById("ping");
 
 function ping_run() {
+    cockpit.spawn(["ping", "-c", "4", address.value])
+        .stream(ping_output)
+        .then(ping_success)
+        .catch(ping_fail);
+
+    result.innerHTML = "";
+    output.innerHTML = "";
+}
+
+function ping_success() {
+    result.style.color = "green";
+    result.innerHTML = "success";
+}
+
+function ping_fail() {
+    result.style.color = "red";
+    result.innerHTML = "fail";
+}
+
+function ping_output(data) {
+    output.append(document.createTextNode(data));
+}
+
+// Connect the button to starting the "ping" process
+button.addEventListener("click", ping_run);
+
+// Send a 'init' message.  This tells integration tests that we are ready to go
+cockpit.transport.wait(function() { });
 ```
 
-In the `ping_run()` function is where the magic happens. `cockpit.spawn` is a function, [documented here](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn) that lets you spawn processes on the server and interact with them via stdin and stdout. Here we spawn the `ping` command with some arguments:
+First we get a bunch of variables pointing to the HTML elements we want to interact with. Next we attach a handler to the *Ping* button so that the `ping_run()` function is called when it is clicked.
 
-```javascript
-    var proc = cockpit.spawn(["ping", "-c", "4", address.val()]);
+```js
+function ping_run() {
+}
+...
+button.addEventListener("click", ping_run);
 ```
 
-In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-spawn-done). jQuery has a standard interface [called a promise](http://api.jquery.com/deferred.promise/). You add handlers by calling the `.done()` or `.fail()` methods and registering callbacks. `proc.stream()` registers a callback to be invoked whenever the process produces output.
+The `ping_run()` function is where the magic happens. [cockpit.spawn](https://cockpit-project.org/guide/latest/cockpit-spawn.html) lets you spawn processes on the server and interact with them via `stdin` and `stdout`.
 
-```javascript
-    proc.done(ping_success);
-    proc.stream(ping_output);
-    proc.fail(ping_fail);
-    ...
+Here we spawn the `ping` command with some arguments:
+
+```js
+cockpit.spawn(["ping", "-c", "4", address.val()])
+```
+
+In a web browser you cannot block and wait until a method call completes. Anything that doesn't happen instantaneously gets its results reported back to you by [means of callback handlers](https://cockpit-project.org/guide/latest/cockpit-spawn.html#cockpit-spawn-then).
+
+JavaScript has a standard interface called a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). You add handlers by calling the `.then()` or `.catch()` methods and registering callbacks (Note: historically these have been called `.done()` and `.fail()`, but these should not be used any more in new code.) The `cockpit.spawn` specific `.stream()` handler registers a callback to be invoked whenever the process produces output.
+
+```js
+   <some promise>
+   .stream(ping_output)
+   .then(ping_success)
+   .catch(ping_fail);
 }
 ```
 
 The `ping_success()` and `ping_fail()` and `ping_output()` update the display as you would expect.
 
-So there you go ... it's a simple plugin to start off with ... next time we'll cover [how to use DBus](https://cockpit-project.org/guide/latest/api-cockpit.html#latest-dbus), and then the real fun begins.
+**Warning**: Don't start long-running and uninterruptible processes in this naïve way. Browser tabs get closed, internet connections severed, laptops get suspended, etc. Take care to use a mechanism like [systemd-run](https://www.freedesktop.org/software/systemd/man/systemd-run.html) or similar for use cases like installation processes that should not be interrupted by a closing Cockpit session.
+
+This should be enough to get you started with your first useful (but admittedly basic) Cockpit page!  Please see the [Contributing](https://cockpit-project.org/external/wiki/Contributing.html) page for more documentation on where to grow from here.
