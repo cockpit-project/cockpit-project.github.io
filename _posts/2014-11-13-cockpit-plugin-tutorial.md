@@ -82,6 +82,8 @@ The pinger tool itself looks like this:
 Lets take a look at the pinger HTML, and see how it works.
 
 ```html
+<!DOCTYPE html>
+<html>
 <head>
     <title>Pinger</title>
     <meta charset="utf-8">
@@ -106,12 +108,11 @@ Lets take a look at the pinger HTML, and see how it works.
     <script src="pinger.js"></script>
 </body>
 </html>
-
 ```
 
-The `cockpit.css` file is included so our tool matches the style of the rest of Cockpit.
+In `<head>`, the `cockpit.css` file is linked in so our tool matches the style of the rest of Cockpit.
 
-Here we include `cockpit.js`: the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation in the Cockpit guide](https://cockpit-project.org/guide/latest/api-base1.html).
+Also included in the `<head>` block: `cockpit.js` is the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation in the Cockpit guide](https://cockpit-project.org/guide/latest/api-base1.html).
 
 The HTML is pretty basic. It defines a little form with a field to type an address, a button to click to start pinging, and an area to present output and results.
 
@@ -185,6 +186,6 @@ JavaScript has a standard interface called a [Promise](https://developer.mozilla
 
 The `ping_success()` and `ping_fail()` and `ping_output()` update the display as you would expect.
 
-**Warning**: Don't start long-running and uninterruptible processes in this naïve way. Browser tabs get closed, internet connections severed, laptops get suspended, etc. Take care to use a mechanism like [systemd-run](https://www.freedesktop.org/software/systemd/man/systemd-run.html) or similar for use cases like installation processes that should not be interrupted by a closing Cockpit session.
+_**Warning**: Don't start long-running, uninterruptible processes in this naïve way. Browser tabs are easily closed, network connections get severed, laptops suspend, and so on. Take care to use a mechanism like [systemd-run](https://www.freedesktop.org/software/systemd/man/systemd-run.html) (or similar) for processes that should not be interrupted, such as installation procedures._
 
 This should be enough to get you started with your first useful (but admittedly basic) Cockpit page!  Please see the [Contributing](https://cockpit-project.org/external/wiki/Contributing.html) page for more documentation on where to grow from here.
