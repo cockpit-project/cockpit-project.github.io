@@ -8,6 +8,7 @@ slug: creating-plugins-for-the-cockpit-user-interface
 ---
 
 _**Note**: This post was updated in May 2020 to adjust to reflect Cockpit UI and development best practices._
+{:.note}
 
 [Cockpit is a web-based graphical interface for servers](https://cockpit-project.org). You can easily add your own custom pages to the navigation.
 
@@ -187,5 +188,6 @@ JavaScript has a standard interface called a [Promise](https://developer.mozilla
 The `ping_success()` and `ping_fail()` and `ping_output()` update the display as you would expect.
 
 _**Warning**: Don't start long-running, uninterruptible processes in this naïve way. Browser tabs are easily closed, network connections get severed, laptops suspend, and so on. Take care to use a mechanism like [systemd-run](https://www.freedesktop.org/software/systemd/man/systemd-run.html) (or similar) for processes that should not be interrupted, such as installation procedures._
+{:.warning}
 
 This should be enough to get you started with your first useful (but admittedly basic) Cockpit page!  Please see the [Contributing](https://cockpit-project.org/external/wiki/Contributing.html) page for more documentation on where to grow from here.

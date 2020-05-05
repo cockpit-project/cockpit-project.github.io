@@ -7,6 +7,7 @@ slug: protocol-for-web-access-to-system-apis
 ---
 
 *Note: This post has been updated for changes in Cockpit 0.48 and later.*
+{:.note}
 
 A Linux system today has a lot of local system configuration APIs. I'm not talking about library APIs here, but things like DBus services, command/scripts to be executed, or files placed in various locations. All of these constitute the API by which we configure a Linux system. In [Cockpit](https://cockpit-project.org) we access these APIs from a web browser (after authentication of course).
 

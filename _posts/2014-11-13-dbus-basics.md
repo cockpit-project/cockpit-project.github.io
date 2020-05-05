@@ -7,6 +7,7 @@ slug: using-dbus-from-javascript-in-cockpit
 ---
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
+{:.note}
 
 [Cockpit is a user interface for servers](https://cockpit-project.org). As we covered in the [last tutorial](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) you can add user interface component to Cockpit, and build your own parts of the Server UI.
 
