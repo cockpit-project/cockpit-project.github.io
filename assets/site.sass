@@ -534,3 +534,68 @@ article
 
 .post-title
   letter-spacing: 0
+
+%alert
+  --background-color: #fff
+  --base-color: rgb(0 149 150)
+  --border-color: #ededed
+  --text-color: rgb(0 55 55)
+  --icon: url(/images/site/alert-default.svg)
+  --icon-size: 1em
+  --icon-height: var(--icon-size)
+  --icon-width: var(--icon-size)
+  --line-height: #{$base-line-height}
+  --icon-offset: calc(((var(--line-height) * 1em) - var(--icon-size)) / 2)
+  background: var(--background-color)
+  color: var(--text-color)
+  border: 1px solid var(--border-color)
+  border-left: 3px solid var(--base-color)
+  display: flex
+  margin: 2rem 0
+  padding: 1rem
+
+  i, em
+    font-style: normal
+
+  @supports (mask: url())
+
+    &::before
+      background: var(--base-color)
+      content: ''
+      height: var(--icon-height)
+      margin: var(--icon-offset) calc(var(--icon-size) / 2) var(--icon-offset) 0
+      // Chrome is still needs -webkit- prefix for mask sizing
+      -webkit-mask: var(--icon)
+      -webkit-mask-size: cover
+      mask: var(--icon)
+      mask-size: cover
+      min-width: var(--icon-width)
+      width: var(--icon-width)
+
+.info,
+.note
+  --icon: url(../images/site/alert-info.svg)
+  --base-color: rgb(115 188 247)
+  --text-color: rgb(0 67 104)
+  @extend %alert
+
+.success
+  --icon: url(../images/site/alert-success.svg)
+  --base-color: rgb(146 212 0)
+  --text-color: rgb(72 107 0)
+  @extend %alert
+
+.warning,
+.warn
+  --icon: url(../images/site/alert-warning.svg)
+  --base-color: rgb(240 171 0)
+  --text-color: rgb(121 86 0)
+  --icon-width: calc(var(--icon-height) / 16 * 18)
+  @extend %alert
+
+.danger,
+.error
+  --icon: url(../images/site/alert-danger.svg)
+  --base-color: rgb(201 25 11)
+  --text-color: rgb(163 0 0)
+  @extend %alert
