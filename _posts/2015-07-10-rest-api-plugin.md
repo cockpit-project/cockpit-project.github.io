@@ -7,6 +7,7 @@ slug: making-rest-calls-from-javascript-in-cockpit
 ---
 
 *Note: This post has been updated for changes in Cockpit 0.90 and later.*
+{:.note}
 
 [Cockpit is a user interface for servers](https://cockpit-project.org). In [earlier](https://cockpit-project.org/blog/creating-plugins-for-the-cockpit-user-interface.html) [tutorials](https://cockpit-project.org/blog/using-dbus-from-javascript-in-cockpit.html) there's a guide on how to add components to Cockpit.
 
