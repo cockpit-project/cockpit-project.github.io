@@ -17,26 +17,18 @@ Cockpit git repository checkout.
 
 Cockpit uses Node.js during development. Node.js is not used at runtime.
 To make changes on Cockpit you'll want to install Node.js, NPM and
-various development dependencies like Webpack.
+various development dependencies.
 
-On Debian and Ubuntu, the available versions of nodejs and npm are old
-and/or incompatible with each other.  You should not try to use them to
-build cockpit.  You can use the helpful "n" utility to get a more
-reasonable environment to work with.
+On Debian and recent Ubuntu ≥ 19.04:
 
     $ sudo apt-get install nodejs npm
-    $ sudo npm install -g n
-    $ sudo apt-get remove nodejs npm
-    $ sudo n lts
 
-On Fedora, the distribution versions are sufficient:
+On Fedora:
 
     $ sudo dnf install nodejs npm
 
-And lastly get Webpack and the development dependencies:
-
-    $ sudo npm install -g webpack
-    $ npm install
+On older OS releases you can use the [n utility](https://github.com/tj/n) to
+get a current version of npm and nodejs.
 
 When relying on CI to run the test suite, this is all that is
 necessary to work on the JavaScript components of Cockpit.
@@ -141,6 +133,12 @@ Violations of some rules can be fixed automatically by:
 
 Rules configuration can be found in the `.eslintrc.json` file.
 
+During fast iterative development, you can also choose to not run eslint. This
+speeds up the build and avoids build failures due to e. g.  ill-formatted
+comments or unused identifiers:
+
+    $ make ESLINT=0
+
 ## Working on your local machine: Cockpit's session pages
 
 It's easy to set up your local Linux machine for rapid development of Cockpit's
@@ -162,8 +160,19 @@ Use the same user and password that you used to log into your Linux desktop.
 
 http://localhost:9090
 
-After every change to your sources, run `make` to update all the webpacks, and
-reload cockpit in your browser.
+After every change to your sources the webpacks need to be rebuilt: You can
+just run `make` to update everything that has changed; for iterating faster,
+you can run webpack in "watch" mode on the particular page that you are working
+on, which reduces the build time to less than a third. E. g.
+
+    $ tools/webpack-watch systemd
+
+Note that this disables eslint by default -- if you want to enable it, run it
+as
+
+    $ ESLINT=1 tools/webpack-watch systemd
+
+Then reload cockpit in your browser after building the page.
 
 To make Cockpit again use the installed code, rather than that from your
 git checkout directory, run the following, and log into Cockpit again:
@@ -314,6 +323,32 @@ To revert the above logging changes:
     $ sudo systemctl daemon-reload
     $ sudo systemctl restart cockpit
 
+## Debug logging in Javascript console
+
+Various javascript methods in Cockpit can show debug messages. You
+can turn them on by setting a `window.debugging` global, or setting
+up a `debugging` property in the browser storage. To do this
+run the following in your javascript console:
+
+    >> sessionStorage.debugging = "all"
+
+You'll notice that there's a ton of messages that get shown. If you
+want to be more specific, instead of "all" use one of the following
+specific types:
+
+    "all"      // All available debug messages
+    "channel"  // All channel messages sent to server
+    "dbus"     // DBus related debug messages
+    "http"     // HTTP (via the server) related debug messages
+    "spawn"    // Debug messages related to executing processes
+
+There are other strings related to the code you may be working on.
+
+In addition, if you want your debug setting to survive a browser refresh
+or Cockpit log out, use something like:
+
+    >> localStorage.debugging = "spawn"
+
 ## Running Cockpit processes under a debugger
 
 You may want to run cockpit-ws under a debugger such as valgrind or gdb.
@@ -351,7 +386,7 @@ image. This image cannot be freely distributed for licensing reasons.
 Make sure you have the ```virt-viewer``` package installed on your Linux
 machine. And then run the following from the Cockpit checkout directory:
 
-    $ bots/vm-run --network windows-10
+    $ bots/vm-run windows-10
 
 If the image is not yet downloaded, it'll take a while to download and
 you'll see progress on the command line. A screen will pop up and
@@ -361,4 +396,4 @@ started. Ignore or minimize them, before starting Edge.
 Type the following into Edge's address bar to access Cockpit running on your
 development machine:
 
-     https://10.111.112.1:9090
+     https://10.0.2.2:9090
