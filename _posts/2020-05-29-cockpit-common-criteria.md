@@ -8,8 +8,8 @@ slug: cockpit-common-criteria
 comments: true
 ---
 
-In the last few releases new features were delivered to make Cockpit meet the [Common Criteria](https://www.commoncriteriaportal.org/12gg) and thus making it possible to undergo the certification process in the near future.
-This certification is often required for large organizations, particularly in the public sector and also gives more confidence in using the Web Console without risking their security.
+In the last few releases new features were delivered to make Cockpit meet the [Common Criteria](https://www.commoncriteriaportal.org/) and thus making it possible to undergo the certification process in the near future.
+This certification is often required for large organizations, particularly in the public sector, and also gives users more confidence in using the Web Console without risking their security.
 
 This article provides a summary of these new changes with reference to the given CC norms.
 
@@ -50,7 +50,7 @@ Delivered in version [209](https://cockpit-project.org/blog/cockpit-209.html).
 ### Session timeouts
 
 To prevent abusing forgotten Cockpit sessions, Cockpit can be set up to automatically log users out of their current session after some time of inactivity.
-The timeout can be configure, in minutes, in `/etc/cockpit/cockpit.conf`. For example, to logout user after 15 minutes of inactivity:
+The timeout (in minutes) can be configured in `/etc/cockpit/cockpit.conf`. For example, to log out the user after 15 minutes of inactivity:
 
 ```
 [Session]
