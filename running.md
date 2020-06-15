@@ -247,3 +247,24 @@ sudo systemctl enable --now cockpit.socket
 ```
 
 If the first command fails with "database file for ... does not exist", refresh/update your system with `sudo pacman -Syu` first.
+
+
+### openSUSE Tumbleweed
+{:#tumbleweed}
+
+[Cockpit](https://software.opensuse.org/package/cockpit) is included in [openSUSE Tumbleweed](https://software.opensuse.org/distributions/tumbleweed):
+
+
+1. Install cockpit:
+```
+# zypper in cockpit
+```
+2. Enable cockpit:
+```
+# systemctl enable --now cockpit.socket
+```
+3. Open the firewall if necessary:
+```
+# firewall-cmd --permanent --zone=public --add-service=cockpit
+# firewall-cmd --reload
+```
