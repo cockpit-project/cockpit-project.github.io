@@ -47,3 +47,7 @@
 - archlinux:
   name: Arch Linux
   included: true
+
+- tumbleweed:
+  name: openSUSE Tumbleweed
+  included: true
