@@ -93,7 +93,7 @@ the following:
 
 ## Escalating privileges
 
-So if Cockpit only has the priviliges of the authenticated user, how does
+So if Cockpit only has the privileges of the authenticated user, how does
 it perform admin tasks? Well obviously one could log in as root, and the logged
 in session would have all capabilities and access to the system.
 
@@ -133,7 +133,7 @@ On RHEL, Fedora, Ubuntu, Debian and any other distro that we distribute
 Cockpit for ... we test and make sure that this privilege separation is
 in effect: Including correct SELinux policies, and unprivileged unix users.
 
-Here's some of the privelege separation described:
+Here's some of the privilege separation described:
 
     stef        9690  ...  Sl  06:08  0:00 cockpit-bridge
 

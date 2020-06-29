@@ -92,7 +92,7 @@ The `"echo"` channel type just sends the messages you send to the `cockpit-bridg
 
 Now we're ready to play ... Well almost.
 
-The very first control message sent to and from `cockpit-bridge` shuld be an `"init"` message containing a version number. That version number is `1` for the forseeable future.
+The very first control message sent to and from `cockpit-bridge` should be an `"init"` message containing a version number. That version number is `1` for the foreseeable future.
 
 <pre>
 
@@ -122,7 +122,7 @@ This is a test
 ----
 </pre>
 
-You'll notice that `cockpit-bridge` sends your message back. You can use this tecnique to experiment. Unfortunately
+You'll notice that `cockpit-bridge` sends your message back. You can use this technique to experiment. Unfortunately
 `cockpit-bridge` exits immediately when it's stdin closes, so you [can't yet use shell redirection from a file effectively](https://github.com/cockpit-project/cockpit/issues/1594).
 
 Making a DBus method call
@@ -163,7 +163,7 @@ mydbus
 }
 </pre>
 
-If an error occured you would see a reply like this:
+If an error occurred you would see a reply like this:
 
 <pre>
 mydbus
