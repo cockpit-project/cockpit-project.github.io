@@ -105,8 +105,8 @@ $ cockpit-bridge --packages
 <p>By default Cockpit serves packages using a strict
             <a class="ulink" href="https://en.wikipedia.org/wiki/Content_Security_Policy" target="_top">Content Security Policy</a>,
             which among other things does not allow inline styles or scripts. This can
-            be overriden on a per-package basis, with this setting.</p>
-<p>If the overriden content security policy does not contain a <code class="code">default-src</code> or
+            be overridden on a per-package basis, with this setting.</p>
+<p>If the overridden content security policy does not contain a <code class="code">default-src</code> or
             <code class="code">connect-src</code> these will be added to the policy from the manifest.</p>
 </td>
 </tr>
@@ -132,7 +132,7 @@ $ cockpit-bridge --packages
 </tr>
 <tr>
 <td><p><span class="term">priority</span></p></td>
-<td><p>An optional number that specifies which package is prefered in cases
+<td><p>An optional number that specifies which package is preferred in cases
           where there are conflicts. For example given two packages with the same
           <code class="code">name</code> a package is chosen based on its priority.</p></td>
 </tr>

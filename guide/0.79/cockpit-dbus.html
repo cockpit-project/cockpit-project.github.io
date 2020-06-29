@@ -196,7 +196,7 @@ $(client).on("owner", function(event, owner) { ... })
       value will be the id of the name owner on the bus or null if the name
       is unowned. The absence of an owner should not be treated as a disconnection.
       However this makes it possible to take some action based on the
-      actual status of the service, for example disconecting a pending signal handler.</p>
+      actual status of the service, for example disconnecting a pending signal handler.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-dbus-options"></a><h2>client.options</h2>
@@ -261,7 +261,7 @@ proxy.Method(arg1, arg2)
       letter (as is convention) will be automatically defined on this proxy. These
       methods are called with arguments as normal javascript arguments. A
       <a class="ulink" href="http://api.jquery.com/category/deferred-object/" target="_top">jQuery promise</a>
-      that will complete sucessfully when the method returns, or fail if an error occurs.
+      that will complete successfully when the method returns, or fail if an error occurs.
       The return values from the DBus method will be passed to the <code class="code">done</code> handler
       function directly.</p>
 <p>Methods that do not start with an upper case letter can be invoked by using
@@ -333,7 +333,7 @@ invocation = proxy.call(method, args, [options])
 <p>The returned value is identical to the one returned from
       <a class="link" href="cockpit-dbus.html#cockpit-dbus-call" title="client.call()">client.call()</a>. It is a
       <a class="ulink" href="http://api.jquery.com/category/deferred-object/" target="_top">jQuery promise</a>
-      that will complete sucessfully when the method returns, or fail if an error occurs.</p>
+      that will complete successfully when the method returns, or fail if an error occurs.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-dbus-proxy-wait"></a><h2>proxy.wait()</h2>
@@ -480,7 +480,7 @@ invocation = client.call(path, interface, method, args, [options])
       <code class="code">args</code> may be <code class="code">null</code> if no arguments are to be sent.</p>
 <p>The returned value is a
       <a class="ulink" href="http://api.jquery.com/category/deferred-object/" target="_top">jQuery promise</a>
-      that will complete sucessfully when the method returns, or fail if an error occurs.</p>
+      that will complete successfully when the method returns, or fail if an error occurs.</p>
 <p>If <code class="code">options</code> is specified it should be a plain javascript object,
       which may contain the following properties:</p>
 <div class="variablelist"><table border="0" class="variablelist">
@@ -693,7 +693,7 @@ watch = client.watch({ "path_namespace": path_namespace, "interface": interface 
 </table></div>
 <p>The returned value is a
       <a class="ulink" href="http://api.jquery.com/category/deferred-object/" target="_top">jQuery promise</a>
-      that will complete sucessfully when the watch has populated its initial set of properties
+      that will complete successfully when the watch has populated its initial set of properties
       and interfaces, and these have been notified via
       <a class="link" href="cockpit-dbus.html#cockpit-dbus-onnotify" title="client.onnotify"><code class="code">client.onnotify</code></a>.</p>
 <p>A watch can be removed by calling the
@@ -787,7 +787,7 @@ variant = cockpit.variant(type, value)
 </pre>
 <p>A DBus variant is represented as a plain javascript object with a
       <code class="code">"t"</code> property represesting the full DBus type of the variant,
-      and a <code class="code">"v"</code> property containting the variant value.</p>
+      and a <code class="code">"v"</code> property containing the variant value.</p>
 <p>This is a helper function for creating such a variant object.</p>
 </div>
 <div class="refsection">
@@ -795,7 +795,7 @@ variant = cockpit.variant(type, value)
 <pre class="programlisting">
 byte_array = cockpit.byte_array(value)
 </pre>
-<p>A DBus byte array is represnted as base64 data encoded in a string. This
+<p>A DBus byte array is represented as base64 data encoded in a string. This
       is a helper function for creating such a byte array.</p>
 </div>
 </div>

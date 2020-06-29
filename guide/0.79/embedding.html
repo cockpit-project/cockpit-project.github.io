@@ -59,7 +59,7 @@
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="embedding-components"></a>Integrating Cockpit Components into Web Applications</h2></div></div></div>
 <p>Instead of embedding the entirety of Cockpit, you can integrate specific components.
-      Only those components explictly documented as API should be integrated. Other components
+      Only those components explicitly documented as API should be integrated. Other components
       can and will change regularly.</p>
 <p>The component will load from the server in question and establish a WebSocket connection
       will be established with the server to relay the component's message stream.</p>
@@ -111,7 +111,7 @@ GET: https://server.example.com:9090/ping
 </pre>
 <p>The <code class="code">/ping</code> request allows
       <a class="ulink" href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_top">Cross Origin Resource Sharing</a>
-      headers and as such can be performed from Javascript code with any origin. The reqeust can also be
+      headers and as such can be performed from Javascript code with any origin. The request can also be
       made via plain HTTP without SSL. It is by design that no further information is present in the
       response.</p>
 <p>A complete example of using <code class="code">/ping</code> is available in the Cockpit sources in the
