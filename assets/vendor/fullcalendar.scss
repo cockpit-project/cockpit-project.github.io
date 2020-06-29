@@ -354,11 +354,11 @@ hr.fc-divider {
 }
 
 .fc-bg {
-	bottom: 0; /* strech bg to bottom edge */
+	bottom: 0; /* stretch bg to bottom edge */
 }
 
 .fc-bg table {
-	height: 100%; /* strech bg to bottom edge */
+	height: 100%; /* stretch bg to bottom edge */
 }
 
 
@@ -1206,7 +1206,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-time-grid-event.fc-short .fc-time:after {
-	content: "\000A0-\000A0"; /* seperate with a dash, wrapped in nbsp's */
+	content: "\000A0-\000A0"; /* separate with a dash, wrapped in nbsp's */
 }
 
 .fc-time-grid-event.fc-short .fc-title {

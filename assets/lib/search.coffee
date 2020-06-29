@@ -151,12 +151,12 @@ $ ->
         polarity = if word.match(/^-/) then 'antimatches' else 'matches'
         # Strip dashes at the beginning and periods at the end of a word
         word = word.replace(/^-/, '').replace(/\.$/, '')
-        # Search for the existance of words
+        # Search for the existence of words
         wordMatch = data.words[word.toUpperCase()]
 
         if wordMatch
           if matchers[polarity].length < 1
-            # First word; propogate the matches
+            # First word; propagate the matches
             matchers[polarity] = wordMatch
           else
             if polarity == 'matches'
