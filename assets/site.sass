@@ -80,6 +80,10 @@ h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre
 .page-content
   padding-top: 4rem
 
+  > .wrapper
+    padding-left: 1.5rem
+    padding-right: 1.5rem
+
   dl
     margin: 1em
 
@@ -519,7 +523,7 @@ article
     border-color: $link-color
     box-shadow: 0 0 2px $link-color
 
-/* Display the article list in a grid
+/* Display the article list in a grid */
 @supports (display: grid)
   .blog-posts-list > .articles
     display: grid
