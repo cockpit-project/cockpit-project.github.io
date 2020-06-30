@@ -36,6 +36,31 @@ html.cockpit-guide
       font-size: inherit
       line-height: inherit
 
+  /* Evil hack to deconstruct tables
+    as we don't have any way to rewrite the HTML here, it's pretty bad
+    but the variable list doesn't use semantic tables anyway
+    so a11y is questionable at best
+    it really should be a dl (with dt, dd)
+
+  div.variablelist
+    th, td
+      padding: 0
+
+    @media screen and (max-width: $on-laptop)
+      table tr
+        display: flex
+        flex-direction: column
+
+        .term
+          display: block
+          margin-bottom: 0.5rem
+
+        &:not(:last-child)
+          margin-bottom: 3rem
+
+        p:last-child
+          margin-bottom: 0 !important
+
   header.masthead
     margin-bottom: 0
 
