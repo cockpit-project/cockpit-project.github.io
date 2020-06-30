@@ -10,7 +10,7 @@ These are the rules we try to follow when working on Cockpit.
 
   Commits are for people to read, so try to tell the story of a new feature clearly.  For example, refactor the code in a preparatory commit to make the actual change in the next commit easier to understand.  Try to separate changes to separate pieces of the code base.
 
-  Historical accuracy of how you figured out the final form of a change is ususally not very interesting, but it doesn't need to be totally hidden of course.  If rewriting historical commits is tricky and has a high risk of introducing bugs, don't do it.
+  Historical accuracy of how you figured out the final form of a change is usually not very interesting, but it doesn't need to be totally hidden of course.  If rewriting historical commits is tricky and has a high risk of introducing bugs, don't do it.
 
 * Each commit should adhere to the [Cockpit Coding Guidelines](https://github.com/cockpit-project/cockpit/wiki/Cockpit-Coding-Guidelines)
 

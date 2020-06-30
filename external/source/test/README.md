@@ -3,8 +3,6 @@ title: Integration Tests of Cockpit
 source: https://github.com/cockpit-project/cockpit/blob/master/test/README.md
 ---
 
-
-
 This directory contains automated integration tests for Cockpit, and the support
 files for them.
 
@@ -77,7 +75,6 @@ The verify test suite is the main test suite:
 You can set these environment variables to configure the test suite:
 
     TEST_OS    The OS to run the tests in.  Currently supported values:
-                  "centos-7"
                   "centos-8-stream"
                   "debian-stable"
                   "debian-testing"
@@ -85,17 +82,12 @@ You can set these environment variables to configure the test suite:
                   "fedora-32"
                   "fedora-coreos"
                   "fedora-testing"
-                  "rhel-7-7"
-                  "rhel-7-8"
-                  "rhel-8-2"
-                  "rhel-8-2-distropkg"
+                  "rhel-7-9"
                   "rhel-8-3"
+                  "rhel-8-3-distropkg"
                   "ubuntu-2004"
                   "ubuntu-stable"
                "fedora-31" is the default (bots/machine/machine_core/constants.py)
-
-    TEST_DATA  Where to find and store test machine images.  The
-               default is the same directory that this README file is in.
 
     TEST_JOBS  How many tests to run in parallel.  The default is 1.
 
@@ -111,67 +103,25 @@ You can set these environment variables to configure the test suite:
     TEST_SHOW_BROWSER  Set to run browser interactively. When not specified,
                        browser is run in headless mode.
 
-In addition, you can also set the `cockpit.bots.images-data-dir` variable with
-`git config` to the location to store the (unprepared) virtual machine images.
-This takes precedence over `TEST_DATA`.  For example:
-
-    $ git config cockpit.bots.images-data-dir ~/.cockpit-bots/images
-
 ## Test machines and their images
 
 The code under test is executed in one or more dedicated virtual
 machines, called the "test machines".  Fresh test machines are started
-for each test. To pull all the needed images for a given commit, use:
+for each test. See the
+[bots documentation]({{ site.baseurl }}/external/bots/README.html)
+for details about the tools and configuration for these.
 
-    $ bots/image-download
-
-A test machine runs a "test machine image".  Such a test machine image
-contains the root filesystem that is booted inside the virtual
-machine.  A running test machine can write to its root filesystem, of
-course, but these changes are (usually) not propagated back to its
-image.  Thus, you can run multiple test machines from the same image,
-at the same time or one after the other, and each test machine starts
-with a clean state.
-
-A test machine image is created with image-create, like so:
-
-    $ bots/image-create -v fedora-testing
-
-The image will be created in `$TEST_DATA/images/`. In addition a link
-reference will be created in `bots/images/`.
-
-If you wish that others use this new image then you should commit the
-new reference link, and use `image-upload` to upload the new image. You
-would need to have Cockpit commit access to do this:
-
-    $ bots/image-upload fedora-testing
-
-There is more than one test machine image. For example, you might
-want to test a scenario where Cockpit on one machine talks to FreeIPA
-on another, and you want those two machines to use different images.
-
-This is handled by passing a specific image to image-create
-and other scripts that work with test machine images.
-
-    "fedora-NN" -- The basic image for running the development version of Cockpit.
-                   This is the default.
-
-    "ipa"       -- A FreeIPA server.
-
-    "openshift" -- An Openshift Origin server.
-
-A test machine image created by image-create doesn't contain any Cockpit
-code in it yet.  You can build and install the currently checked out
-working copy of Cockpit like this:
+These test machine images don't contain any Cockpit code yet.  You can build
+and install the currently checked out working copy of Cockpit like this:
 
     $ test/image-prepare
 
 This either needs a configured/built tree (build in mock or a development VM)
 or cockpit's build dependencies installed.
 
-image-prepare will prepare a test machine image used for the next test run.
-It will not modify the saved version in `$TEST_DATA/images`, but do all the
-preparation in an overlay in `test/images`.
+image-prepare will prepare a test machine image used for the next test run. It
+will not modify the original image, but do all the preparation in an overlay in
+`test/images`.
 
 A typical sequence of steps would thus be the following:
 
@@ -179,11 +129,10 @@ A typical sequence of steps would thus be the following:
     $ test/image-prepare ...   # Install code to test
     $ test/verify/check-...    # Run some tests
 
-Each image-prepare invocation will always start from the pristine
-`$TEST_DATA/images` and ignore the current overlay in `test/images`. It is
-thorough, but also rather slow. If you want to iterate on changing
-only JavaScript/HTML code, you can use this shortcut to copy updated webpacks
-into a prepared VM overlay image:
+Each image-prepare invocation will always start from the pristine image and
+ignore the current overlay in `test/images`. It is thorough, but also rather
+slow. If you want to iterate on changing only JavaScript/HTML code, you can use
+this shortcut to copy updated webpacks into a prepared VM overlay image:
 
     $ make && bots/image-customize -u dist:/usr/share/cockpit/ $TEST_OS
 
