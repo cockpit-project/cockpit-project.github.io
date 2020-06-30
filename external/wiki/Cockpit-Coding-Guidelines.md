@@ -125,7 +125,7 @@ if (threshold_date > (new Date())) {
 }
 ```
 
-New javascript files should be in the [Asyncronous Module Definition](http://dojotoolkit.org/documentation/tutorials/1.10/modules/index.html) form. For example:
+New javascript files should be in the [Asynchronous Module Definition](http://dojotoolkit.org/documentation/tutorials/1.10/modules/index.html) form. For example:
 
 ```javascript
 define([

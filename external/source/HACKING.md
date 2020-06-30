@@ -3,8 +3,6 @@ title: Hacking on Cockpit
 source: https://github.com/cockpit-project/cockpit/blob/master/HACKING.md
 ---
 
-
-
 Here's where to get the code:
 
     $ git clone https://github.com/cockpit-project/cockpit
