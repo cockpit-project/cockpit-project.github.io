@@ -15,6 +15,11 @@ source_pages = [
   "test/README.md",
 ]
 
+# Pages to fetch from the Cockpit bots repo
+bots_pages = [
+  "README.md"
+]
+
 # URLs to rewrite
 @url_rewrites = {
   "https://github.com/cockpit-project/cockpit/blob/master/HACKING.md" =>
@@ -22,6 +27,9 @@ source_pages = [
 
   "https://github.com/cockpit-project/cockpit/blob/master/test/README" =>
   "{{ site.baseurl }}/external/source/test/README.html",
+
+  "https://github.com/cockpit-project/bots/blob/master/README.md" =>
+  "{{ site.baseurl }}/external/bots/README.html",
 
   "http://cockpit-project.org/ideals.html" =>
   "{{ site.baseurl }}/ideals.html",
@@ -58,6 +66,8 @@ require 'fileutils'
 @prefix = {
   source: 'https://github.com/cockpit-project/cockpit/blob/master/',
   source_raw: 'https://raw.githubusercontent.com/cockpit-project/cockpit/master/',
+  bots: 'https://github.com/cockpit-project/bots/blob/master/',
+  bots_raw: 'https://raw.githubusercontent.com/cockpit-project/bots/master/',
   wiki: 'https://github.com/cockpit-project/cockpit/wiki/',
   wiki_raw: 'https://raw.githubusercontent.com/wiki/cockpit-project/cockpit/',
   issues: 'https://github.com/cockpit-project/cockpit/issues',
@@ -73,14 +83,14 @@ def fetch_and_add(pages, type=:source)
     file = "#{type}/#{page}"
     file += ".md" unless page.match(/\.md$/)
 
-    doc = open(url_raw).read
+    doc = URI.open(url_raw).read
 
-    if (type == :source)
+    if (type == :source || type == :bots)
       # Extract the title for git source, as filenames are often "README"
       title = doc.match(/^#[^\n]*\n/m)[0].gsub(/#/, '').strip
 
       # Strip the title, as it's added in our Jekyll codebase
-      doc = doc.sub(/^#* #{title}/m, '')
+      doc = doc.sub(/^#* #{title}/m, '').strip
     else
       # Show the path as title for wiki pages,
       # as wiki pages need to have relevant names
@@ -112,3 +122,4 @@ end
 
 fetch_and_add(wiki_pages, :wiki)
 fetch_and_add(source_pages, :source)
+fetch_and_add(bots_pages, :bots)
