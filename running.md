@@ -173,20 +173,6 @@ _Steps 3 and 4 are optional if the CoreOS machine will only be connected to from
 Afterward, use a web browser to log into port `9090` on your host IP address as usual.
 
 
-### Project Atomic
-{:#atomic}
-
-**Connect to an Atomic Host from another instance of Cockpit** with the _Add Server_ dashboard UI.
-
-Alternatively you can access Cockpit directly on the Atomic Host if SSH password authentication is enabled:
-
-1. Run the Cockpit web service container: 
-```
-sudo atomic install cockpit/ws
-sudo atomic run cockpit/ws
-```
-
-
 ### CentOS
 
 Cockpit is included in CentOS 7.x:
