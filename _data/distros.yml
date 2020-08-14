@@ -16,12 +16,6 @@
   tested: true
   included: true
 
-- atomic:
-  name: Project Atomic
-  supported: true
-  tested: true
-  included: true
-
 - centos:
   name: CentOS
   supported: true
