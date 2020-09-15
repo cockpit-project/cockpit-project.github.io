@@ -8,7 +8,8 @@ run="toolbox run -c cockpit-website"
 echo "## Installing RPM dependencies inside container..."
 $run sudo dnf install -y rubygem-bundler \
 	ruby-devel libffi-devel make gcc gcc-c++ redhat-rpm-config zlib-devel \
-	libxml2-devel libxslt-devel tar nodejs
+	libxml2-devel libxslt-devel tar nodejs \
+	glibc-all-langpacks
 
 echo "## Setting local gem path"
 $run bundle config path .gem
