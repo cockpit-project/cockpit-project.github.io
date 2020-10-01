@@ -202,20 +202,22 @@ sudo firewall-cmd --reload
 
 ### Debian
 
-Cockpit is included in Debian unstable and in backports for 9 (Stretch).
+Cockpit is included in Debian unstable and in backports for 10 (Buster).
 
-1. For Debian 9 you have to enable the [backports repository](https://backports.debian.org):
+1. For Debian 10 you have to enable the [backports repository](https://backports.debian.org):
 ```
-echo 'deb http://deb.debian.org/debian stretch-backports main' > \
+echo 'deb http://deb.debian.org/debian buster-backports main' > \
     /etc/apt/sources.list.d/backports.list
-apt-get update
+apt update
 ```
 
 2. Install the package:
 ```
-sudo apt-get install cockpit
+sudo apt install -t buster-backports cockpit
 ```
 
+{:.note}
+When installing and updating Cockpit-related packages and any dependencies, make sure to use `-t buster-backports` so backports are included.
 
 ### Ubuntu
 
