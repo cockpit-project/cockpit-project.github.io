@@ -228,16 +228,11 @@ html.cockpit-guide
 /* Adapt warnings to Cockpit's PF4 inspired style */
 div.warning
   margin: 0 !important
-  padding: 0
-  display: grid
-  grid-template-columns: max-content
-  grid-gap: 0.5rem
-  padding: 1rem
+  padding: var(--alert-padding)
 
   > .title
   > h3,
   > p
-    grid-column: -1
     padding: 0
     margin: 0
     font-size: inherit

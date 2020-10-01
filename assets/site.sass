@@ -550,13 +550,17 @@ article
   --icon-width: var(--icon-size)
   --line-height: #{$base-line-height}
   --icon-offset: calc(((var(--line-height) * 1em) - var(--icon-size)) / 2)
+  --alert-padding-y: 1rem
+  --alert-padding-x: 1rem
+  --alert-padding: var(--alert-padding-y) var(--alert-padding-x) var(--alert-padding-y) calc(var(--icon-width) + (var(--alert-padding-x) * 2))
   background: var(--background-color)
   color: var(--text-color)
   border: 1px solid var(--border-color)
   border-left: 3px solid var(--base-color)
-  display: flex
+  display: block
   margin: 2rem 0
-  padding: 1rem
+  padding: var(--alert-padding)
+  position: relative
 
   i, em
     font-style: normal
@@ -567,14 +571,17 @@ article
       background: var(--base-color)
       content: ''
       height: var(--icon-height)
-      margin: var(--icon-offset) calc(var(--icon-size) / 2) var(--icon-offset) 0
       // Chrome is still needs -webkit- prefix for mask sizing
       -webkit-mask: var(--icon)
       -webkit-mask-size: cover
       mask: var(--icon)
       mask-size: cover
-      min-width: var(--icon-width)
       width: var(--icon-width)
+      left: var(--alert-padding-x)
+      top: var(--alert-padding-y)
+      display: block
+      position: absolute
+      margin-top: var(--icon-offset)
 
 .info,
 .note
