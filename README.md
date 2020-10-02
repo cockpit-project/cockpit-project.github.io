@@ -1,3 +1,5 @@
+an amazing project sir but plz make index page of resources
+
 # Cockpit Project Website
 
 [The Cockpit project website](https://cockpit-project.org/) is based on Springboard, which is a MIT-licensed preconfigured build of Jekyll, used for starting up a site quickly.
