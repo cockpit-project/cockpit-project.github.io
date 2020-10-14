@@ -27,7 +27,7 @@ The cockpit-podman plugin gained the ability to delete pod groups.
 
 ### Try it out
 
-Cockpit 226 and Cockpit-podman 26 are available now:
+Cockpit 226 and Cockpit-podman 22 are available now:
 
  * [For your Linux system](https://cockpit-project.org/running.html)
  * [Cockpit Source Tarball](https://github.com/cockpit-project/cockpit/releases/tag/226)
