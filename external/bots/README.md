@@ -136,11 +136,11 @@ You can also invoke bots/tests/trigger from any project checkout, in which case
 you don't need the explicit `--repo` -- it will default to the GitHub origin of
 the current directory's project.
 
-### Testing a pull request by a non-whitelisted user
+### Testing a pull request by a non-allowed user
 
-If you want to run all tests on pull request #1234 that has been
-opened by someone who is not in our white-list, run tests-trigger
-with `--allow`:
+If you want to run all tests on pull request #1234 that has been opened by someone
+who does not have push access to the repository nor isn't in the 'Contributors' team,
+run tests-trigger with `--allow`:
 
     $ ./tests-trigger --allow [...]
 
