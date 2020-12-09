@@ -40,17 +40,13 @@ These are the rules we try to follow when working on Cockpit.
 
   See https://sandofsky.com/blog/git-workflow.html for the motivation.  In brief, merge commits are confusing when rolling back history to find the commit that introduced a particular bug/feature.
 
-  Thus, we normally use "Rebase and Merge" when merging pull requests, but see below for the special "Closes #nnnn" line that needs to be present for this to work.
+  Thus, we normally use "Rebase and Merge" when merging pull requests.
 
 * Each commit on master should have been reviewed.  (Almost each.)
 
   The commits made during a release to bump the version number etc don't need to be formally reviewed.
 
-  We trust that all information about the review process will be available from GitHub, thus we don't add Reviewed-By lines or similar markers to the commit messages anymore.  However, we need a strong connection between the commits and the actual pull request so that the review for every commit on master can be found.
-
-  Thus, commits should explicitly reference their pull request. The last line of the commit message should just be "Closes #nnnn".
-
-  It is best if the author of a pull request adds the "Closes #nnnn" line to his/her own pull requests.  This requires rewriting the PR since the number isn't known yet when creating the pull request.
+  We trust that all information about the review process will be available from GitHub, thus we don't add Reviewed-By lines or similar markers to the commit messages anymore. We also trust that GitHub can find the pull request for a given SHA1 by itself. (Thus, we no longer add the "Closes: #NNN" lines to commit messages.)
 
 * The subject of a commit should start with a short `<topic>: ` prefix.
 
@@ -58,11 +54,9 @@ These are the rules we try to follow when working on Cockpit.
 
 * If a commit fixes an issue, it should have a `Fixes #NNN` line.
 
-* Force pushing to master is allowed, BUT...
+* Force pushing to master or other release branches is not allowed.
 
-  ...write an email to `cockpit-devel@lists.fedorahosted.org` to explain what has been done and why.
-
-  Don't force push master lightly of course.  One reason would be to remove an accidental merge commit, or to quickly correct wrong or missing `Closes` or `Fixes` lines.  When in doubt, don't force push master, close/reopen issues manually as needed, and live with the shame.
+  The only way to get commits onto master is to rebase/merge a pull request onto it. If you regret merging a pull request, revert its changes with a new pull request.
  
 * The main cockpit-project/cockpit repository should not have any work-in-progress branches.
 
