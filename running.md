@@ -152,13 +152,12 @@ The standard Fedora CoreOS image does not contain Cockpit packages.
 
 3. Run the Cockpit web service with this privileged container (as root):
    ```
-   podman pull cockpit/ws
-   podman container runlabel --name cockpit-ws RUN cockpit/ws
+   podman container runlabel --name cockpit-ws RUN docker.io/cockpit/ws
    ```
 
 4. Make Cockpit start on boot:
    ```
-   podman container runlabel INSTALL cockpit/ws
+   podman container runlabel INSTALL docker.io/cockpit/ws
    systemctl enable cockpit.service
    ```
 
