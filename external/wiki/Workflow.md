@@ -21,9 +21,9 @@ These are the rules we try to follow when working on Cockpit.
   The integration tests performed are slow and brittle, and not all failures are caused by bugs in the pull request, but don't just blame every failure on the crappy tests.
 
 * Whenever a pull request changes the API or makes other significant changes, the documentation needs to be updated. Documentation locations that require manual updating include:
-  * https://github.com/cockpit-project/cockpit/blob/master/README.md
-  * https://github.com/cockpit-project/cockpit/blob/master/HACKING.md
-  * https://github.com/cockpit-project/cockpit/blob/master/test/README
+  * [the top-level README.md](https://github.com/cockpit-project/cockpit/blob/master/README.md) about the most important user-facing information about Cockpit
+  * [HACKING.md]({{ site.baseurl }}/external/source/HACKING.html) for development information
+  * [test/README.md](https://github.com/cockpit-project/cockpit/blob/master/test/README.md) for how to set up and run the integration tests
   * the [documentation tree](https://github.com/cockpit-project/cockpit/tree/master/doc), used for [the guide]({{ site.baseurl }}/guide/latest/)
 
 * [Screenshots](#screenshot) and/or [videos](#video) should be included in every pull request that causes visual changes.
