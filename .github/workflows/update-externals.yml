@@ -1,0 +1,30 @@
+name: Update external pages
+on:
+  schedule:
+    - cron: '30 1 * * 4'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby-bundler
+
+      - name: Run update script
+        run: _scripts/update-external-docs.rb
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: Update external docs
+          body: ''
+          commit-message: Update external docs
+          # do *not* use any suffix here -- if there is an open unreviewed PR,
+          # we want to force-push to that, not create a new one
+          branch: update-externals
