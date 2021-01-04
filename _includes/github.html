@@ -1,13 +1,20 @@
 {% if site.github %}{% capture github_link %}
   {% assign github_edit_text = site.github_edit_text | default: "Edit page on GitHub" %}
-  <a
-    href="https://github.com/{{
-      site.github.owner_name
-    }}/{{
-      site.github.repository_name
-    }}/edit/master/{{
-      page.path
-    }}">{{
-      github_edit_text
-    }}</a>
+  {% if page.source %}
+    {% if page.source contains '/wiki/' %}
+      {% assign wiki = '/_edit'%}
+    {% endif %}
+    <a href="{{ page.source | replace_first: '/blob/', '/edit/' }}{{ wiki }}">{{ github_edit_text }}</a>
+  {% else %}
+    <a
+      href="https://github.com/{{
+        site.github.owner_name
+      }}/{{
+        site.github.repository_name
+      }}/edit/master/{{
+        page.path
+      }}">{{
+        github_edit_text
+      }}</a>
+  {% endif %}
 {% endcapture %}{{ github_link | strip_new_lines | lstrip | rstrip }}{% endif %}
