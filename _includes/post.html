@@ -95,14 +95,21 @@
 </article>
 
 {% if author_card %}
+  {% if author.name %}
+    {% assign author_title = "About " | append: author.name %}
+    {% assign author_blurb = "View all posts by " | append: author.name | append: " »" %}
+  {% else %}
+    {% assign author_title = "Other posts" %}
+    {% assign author_blurb = "View all posts »" %}
+  {% endif %}
   <div class="author-info author-card" id="author-info">
-    <h2>About {{ author.name }}</h2>
+    <h2>{{ author_title }}</h2>
     <div class="author-blurb">
       {{ author.description | markdownify }}
 
       <div class="more-link">
         <a href="{{ site.baseurl }}/blog/authors#{{ post.author }}">
-          View all posts by {{ author.name }} »
+          {{ author_blurb }}
         </a>
       </div>
 
