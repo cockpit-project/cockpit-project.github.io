@@ -10,63 +10,70 @@ html.front-page
   .masthead
     margin-bottom: 0
 
-    @supports (display: grid)
-      grid-column: 1
-      grid-row: 1
-
-      a
-        color: #fff
+    a
+      color: #fff
 
   .page-content
-    padding-top: 2rem
+    padding-top: 4rem
 
     > .wrapper
-      position: relative
+      display: grid
+      grid-template-columns: 1fr minmax(auto, 65rem) 1fr
+      margin: 0
+      padding: 0 1.5rem
+      max-width: 100%
+      --grid-column: 2
+      
+      > *
+        grid-column: var(--grid-column)
 
-  .intro-background
-    background: url(../images/site/bg-triangles.png) no-repeat,linear-gradient(180deg,#065e8e 0,#0469a8 25%,#048bc1 75%,#03b9e4)
+  .frontpage-background
+    background: var(--masthead-background) url(../images/site/clouds-bw.jpg)
+    background-blend-mode: screen
     background-size: cover
-    background-position: 50% 0
-    grid-column: 1
-    grid-row: 1/3
-    z-index: 1
+    background-repeat: no-repeat
+    background-position: bottom
+    backdrop-filter: blur(3px)
 
-  .masthead,
-  .intro
-    z-index: 2
+    > header.masthead
+      background: none
+      background: linear-gradient(to bottom, hsla(var(--color-blue), 38%, 100%) 1rem, hsla(var(--color-blue), 40%, 0%))
 
-  .intro-background,
-  .intro
-    -webkit-clip-path: polygon(0 0, 0 calc(100% - 32px), 100% 100%, 100% 0)
-    clip-path: polygon(0 0, 0 calc(100% - 32px), 100% 100%, 100% 0)
+  .intro-lede
+    max-width: 24em
+    padding: 2rem 8rem 0 1rem
+    grid-area: lede
+    font-size: 1.5rem
+
+    @media (min-width: $on-laptop)
+      padding: 4rem 0 3rem 4rem
+      font-size: 1.75rem
 
   .intro
+    --remainder: calc((100vw - 65rem) / 2)
+    --offset: 1rem
     font-family: $headline-font
-    font-size: 24px
     line-height: 1.4
-    background: url(../images/site/planes.svg) no-repeat left bottom
-    background-size: auto 4.25rem
-    background-position: calc((100vw - 65rem)/2 - 11rem) 100%
-    z-index: 10
-    min-height: 220px
+    color: #eeeeec
+    display: grid
+    grid-template: ". lede planes ." "badge badge badge badge"
+    grid-template-columns: var(--remainder) auto 1fr var(--remainder)
+    padding: 0
 
-    a
-      color: inherit
-      font-weight: bold
-      text-decoration: underline
+    .planes
+      --planes-height: 5rem
+      --planes-offset: 2.5rem
+      grid-area: planes
+      background: url(../images/site/planes.svg) no-repeat right calc(100% - var(--planes-offset))
+      background-size: auto var(--planes-height)
+      grid-row: 1 / -1
+      grid-column: 1 / -2
+      margin-right: 1rem
+      
+      @media screen and (min-width: $content-width)
+        margin-right: 0
 
     @supports (clip-path: polygon(0 0, 0 0, 0 0, 0 0)) or (-webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0))
-      background-position: calc((100vw - 65rem)/2 - 11rem) calc(100% - 25px)
-
-      @media screen and (min-width: $on-laptop)
-        .side-left
-          top: -0.5rem
-          position: relative
-
-    @supports (display: grid)
-      grid-column: 1
-      grid-row: 2
-      color: #eeeeec
 
     .side-left
       padding: 3rem 1rem 1rem
@@ -135,116 +142,196 @@ html.front-page
       vertical-align: top
       margin: -1px 2px 0 0
 
-  .blurbs
-    margin: 1rem 0 4rem
+  .intro-text
+    padding: 0 0 2rem
 
-    .blurb
-      display: grid
-      align-items: flex-start
-
-      @media (min-width: $frontpage-content-breakpoint)
-        grid-template-columns: 1fr 2fr
-        grid-gap: 2rem 1.5rem
-
-        h3
-          margin: 0
-          position: relative
-          top: -0.75rem
-
-      @media (max-width: #{$frontpage-content-breakpoint})
-
-        h3
-          padding-top: 2rem
-
-      h2
-        font-size: 2.5rem
-        grid-column: 1 / -1
+    h2
+      font-size: 2rem
 
       &:not(:first-child)
+        padding-top: 2rem
 
-        h2
-          margin-top: 4rem
+    h3
+      font-size: 1.5rem
+
+      &:not(:first-child)
+        padding-top: 1.5rem
+
+    @media (min-width: $on-laptop)
+      h2
+        font-size: 2.953125rem
+
+        &:not(:first-child)
+          padding-top: 2.5rem
 
       h3
-        font-size: 1.5rem
-        grid-column: 1
-        color: #777
+        font-size: 1.828125rem
 
-        + p, + ul, + ol
-          margin-top: 0
+        &:not(:first-child)
+          padding-top: 2rem
 
-      p, ul, ol
-        grid-column: 2 / -1
+    .audience-list
+      display: grid
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr))
+      grid-gap: 1rem 2rem
+      padding: 0.5rem 1rem
 
-        @media (min-width: $frontpage-content-breakpoint)
-          /* Rely on vertical grid gap instead */
-          margin-top: -2rem
-          position: relative
+      strong
+        display: block
 
-      .screenshot
-        // Automatically size multiple screenshots to the max width
-        display: grid
-        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr))
-        grid-gap: 0.5rem
+      @media (max-width: 32rem)
+        grid-template-columns: auto
 
-        > a
-          border: 2px solid #ccc
-          border-radius: 2px
+    .using-cockpit
+      columns: 20rem 2
+      column-gap: 2rem
 
-        img
-          display: flex
 
-    @media (min-width: $frontpage-content-breakpoint)
-      h3
-        border-bottom: 1px dashed #aaa
 
   footer.footer-cockpit
     margin-top: 0
 
   .badge
-    $badge-color: #fbeabc
-    $badge-color-border: #f0ab00
-    position: absolute
-    right: 3em
-    top: calc(-8rem + 1vw)
-    z-index: 100
-    line-height: 1.4
-    text-align: center
-    font-size: 0.85rem
-
-    @media screen and (min-width: #{$content-width})
-      right: -2em
+    // Mix PF gold-50 and gold-100
+    $badge-color: mix(#fdf7e7, #f9e0a2, 50)
+    $badge-color-hover: mix(#fdf7e7, #f9e0a2, 25)
+    grid-area: badge
+    text-align: right
+    position: relative
+    top: var(--offset)
 
     &-new,
     &-version,
     &-date
       transition: all 300ms
-      display: block
-      opacity: 0.8
+      font-size: 0.9rem
 
     &-new
       font-weight: inherit
 
     &-version
-      font-size: 130%
+      font-size: 1.4rem
       font-weight: bold
+      color: var(--masthead-background)
 
     a
-      transition: all 500ms
+      --offset1: var(--offset)
+      --offset2: var(--offset)
+      transition: background 500ms, clip-path 500ms
       background: $badge-color
-      border-radius: 100%
-      border: 1px solid $badge-color-border
-      box-shadow: rgba(255, 255, 255, 0.5) 6px 6px 6px inset, rgba(0, 0, 0, 0.125) 4px 4px 12px
       display: block
-      padding: 1.25em 1.75em
+      padding: 1.5rem 0 1.25rem
+      padding: calc((var(--offset) + 0.5vw) * 1.125) 1rem calc((var(--offset) + 0.25vw) * 1)
       text-decoration: none !important
       color: #333 !important
+      clip-path: polygon(0 calc(100% - var(--offset1)), 0 calc(100% - var(--offset2)), 100% 100%, 100% 0)
+      display: grid
+      grid-template-columns: 1fr auto var(--remainder)
+      grid-template-rows: 33%
+      align-items: baseline
+      // align-content: center
+      grid-gap: 0 0.5rem
+      
+      @media (max-width: $frontpage-content-breakpoint)
+        --offset1: calc(100% - 1.5rem)
+        --offset2: 0.5rem
+
+
 
       &:hover
-        background: mix($badge-color, #fff, 75)
+        background: $badge-color-hover
 
         > span
           opacity: 1
 
         > .badge-version
           text-decoration: underline
+
+.distro-logos
+  display: grid
+  align-items: center
+  grid-gap: 1rem 2rem
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr))
+  margin: 1rem 0
+
+  > li
+    margin: 0
+    padding: 0
+    flex: 1 1 12rem
+    list-style: none
+
+    > a
+      filter: grayscale(1) contrast(50%) brightness(125%)
+      //opacity: 0.5
+      transition: 300ms all
+
+      &:hover
+        opacity: 1
+        filter: grayscale(0)
+
+  img
+    max-height: 3rem
+    max-width: 100%
+
+.footerlinks
+  background: #eeeeec
+  padding: 2rem 0
+  margin: 4rem 0 2rem
+  clip-path: polygon(0 32px, 0 calc(100% - 32px), 100% 100%, 100% 0)
+
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(auto, calc(#{$content-width} / 3)))
+  justify-content: center
+  align-items: center
+
+  dl a,
+  dt
+    padding: 5px 20px
+
+  dt
+    font-weight: bold
+
+    a
+      margin: -5px -20px
+
+  dd
+    a
+      padding-left: 30px
+
+  a
+    color: #093d69
+
+    &:hover
+      background: white
+
+.screenshots
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))
+  align-items: center
+
+  &:hover
+    > .screenshot
+      transition: opacity 100ms ease-in-out
+    
+    > :not(:hover)
+      opacity: 0.75
+      transition-duration: 200ms
+
+  > .screenshot
+    opacity: 1
+    margin: 0.5rem
+    box-shadow: none
+
+    &, > img
+      transition: all 100ms ease-in-out
+
+    &:hover
+      z-index: 2
+      outline-offset: 0
+      cursor: pointer
+
+      > img
+        outline: 2px solid hsl(var(--color-blue), 40%)
+        transform: scale(125%)
+        transition-duration: 200ms
+        box-shadow: 0 0.125rem 1rem hsla(0,0,0%,50%)
