@@ -9,11 +9,11 @@ $spacing-unit: 1rem
 
 $text-color: #333
 $background-color: #fff
-$brand-color: #255ccb
+$brand-color: #0066cc
 
-$grey-color: #828282
-$grey-color-light: lighten($grey-color, 40%)
-$grey-color-dark: darken($grey-color, 25%)
+$grey-color: #8a8d89
+$grey-color-light: #f0f0f0
+$grey-color-dark: #6a6e73
 
 // Width of the content area
 $content-width: 65rem
@@ -43,11 +43,11 @@ $on-laptop: 52rem
 // Stop page shift by keeping scrollbar on
 @import lib/scrollbar-on
 
-$headline-font: RedHatDisplay, Cantarell, 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
+$headline-font: RedHatDisplay, RedHatText, Cantarell, 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, Liberation Sans, sans-serif
 
 $gutter-width: calc((100vw - 65rem) / 2)
 
-$link-color: #255ccb
+$link-color: #0066cc
 $link-color-visited: lighten(desaturate(mix($link-color, purple, 50%), 20%), 20%)
 $link-color-hover: lighten($link-color, 15%)
 
@@ -64,18 +64,28 @@ h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre
 .cockpit-guide .chapter
 
   a[href]
+    --link-color-base: var(--color-blue)
+    --link-color-base-lightness: 40%
+    --link-underline-transparency: 25%
+    --link-color: hsl(var(--link-color-base), var(--link-color-base-lightness))
+    --link-color-underline: hsla(var(--link-color-base), var(--link-color-base-lightness), var(--link-underline-transparency))
+    color: var(--link-color)
+    text-decoration: underline
+    text-decoration-color: var(--link-color-underline)
+    text-decoration-thickness: 1px
+    text-underline-offset: 3px
+    transition: text-decoration-thickness 300ms, text-underline-offset 300ms
 
-    &:link, &:visited, &:hover
-      text-decoration: underline
-
-    &:link
-      color: $link-color
+    &:hover,
+    &:active
+      --link-color-base-lightness: 55%
+      --link-underline-transparency: 40%
+      text-decoration-thickness: 2px
+      text-underline-offset: 2px
 
     &:visited
-      color: $link-color-visited
-
-    &:hover
-      color: $link-color-hover
+      --link-color-base: 240, 40%
+      --link-color-base-lightness: 60%
 
 .page-content
   padding-top: 4rem
@@ -104,14 +114,16 @@ h1, h2, h3, h4, h5, h6
   font-family: $headline-font
 
 \:root
-  --accent-color: rgba(0,0,0, 0.6)
-  --accent-color-highlight: rgba(0,0,0, 0.4)
+  --accent-color: #fff
+  --accent-color-highlight: #fff
   --accent-color-background: transparent
-  --accent-color-links: var(--accent-color)
+  --accent-color-links: #fff
+  --color-blue: 210, 100%
+  --masthead-background: hsl(var(--color-blue), 40%)
 
 html:not(.front-page)
-  --accent-color: #255ccb
-  --accent-color-highlight: #8ba9ff
+  // --accent-color: #255ccb
+  // --accent-color-highlight: #8ba9ff
 
 //html[class*=-path-search]
 
@@ -132,20 +144,20 @@ html[class*=-path-search] .nav--search
 
 header.masthead
   $logo-height: 48px
-  $logo-width: 272px
+  $logo-width: 208px
   $header-bg: rgba(black, 0.6)
   $header-line: 10px
-  padding: 0
   margin: 0
   color: white
   display: flex
   line-height: $logo-height
   position: relative
-  background: var(--accent-color-background)
+  background: var(--masthead-background)
+  align-items: center
 
   h1
-    background: $header-bg
-    background: var(--accent-color)
+    //background: $header-bg
+    //background: var(--accent-color)
 
     .logo
       height: $logo-height
@@ -155,7 +167,7 @@ header.masthead
         display: block
 
   a
-    padding: calc(1rem - #{$header-line}) 1rem 0.75rem
+    padding: 1rem
     display: block
     color: var(--accent-color-links)
 
@@ -188,15 +200,15 @@ header.masthead
       flex: auto
 
     @media screen and (max-width: #{$on-laptop})
-      background: var(--accent-color-highlight)
+      // background: var(--accent-color-highlight)
       line-height: 1
 
       li
         min-width: 5em
 
   @media screen and (min-width: $on-laptop)
-    border-top: $header-line solid $header-bg
-    border-top: $header-line solid var(--accent-color)
+    // border-top: $header-line solid $header-bg
+    // border-top: $header-line solid var(--accent-color)
     padding: 0 $gutter-width
     align-items: space-between
 
@@ -339,7 +351,8 @@ html.running-cockpit
 img.screenshot,
 a.screenshot img,
 p.screenshot img
-  border: 1px solid #d3d7cf
+  border: 1px solid hsl(90, 0%, 80%)
+  background: hsl(90, 0%, 80%)
 
 .image-container
   position: fixed
@@ -368,10 +381,10 @@ p.screenshot img
   img
     margin: auto auto 0
     max-width: 100%
-    max-height: 100%
     animation: 300ms ease-in-out fadeIn, 300ms ease-in-out zoomWidth
-    border: 1px solid #333
-    box-shadow: 0 6px 12px rgba(#000, 0.25)
+    border: none
+    max-height: calc(100% - 5rem)
+    box-shadow: none
 
   p
     background: rgba(#000, 0.5)
@@ -404,39 +417,9 @@ a > abbr
   text-decoration-style: dotted
   text-decoration-thickness: 2px
 
-footer.footerlinks
-  background: #eeeeec
-  border-top: 1px solid #d3d7cf
-  border-bottom: 1px solid #d3d7cf
-  padding: 20px 0
-  font-size: 18px
-
-  dl a,
-  dt
-    padding: 5px 20px
-
-  dt
-    font-weight: bold
-
-    a
-      margin: -5px -20px
-
-  dd
-    a
-      padding-left: 30px
-
-  a
-    color: #093d69
-
-    &:hover
-      background: white
-
 footer.footer-cockpit
   font-size: 0.8rem
   text-align: center
-  background-color: #333
-  background: var(--accent-color)
-  color: rgba(white, 0.9)
   padding: 0.5em $gutter-width
   display: flex
   flex-wrap: wrap
@@ -456,7 +439,6 @@ footer.footer-cockpit
     padding: 0.5em 1em
 
   a
-    color: white
     font-weight: bold
 
 

@@ -16,7 +16,7 @@
 title: Cockpit Project
 #email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Cockpit makes it easy to administer your GNU/Linux servers via a web browser.
+  Cockpit makes it easy to administer your Linux servers via a web browser.
 #baseurl: "/cockpit" # the subpath of your site, e.g. /blog
 #url: "http://example.com" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
