@@ -12,7 +12,7 @@ assign url_prefix = site.url | append: site.baseurl | append: '/'
     <title>{{ title | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
     <link>{{ url_prefix }}</link>
-    <atom:link href="{{ "/feed.xml" | prepend: url_prefix }}" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ page.url | remove_first: '/' | prepend: url_prefix }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
