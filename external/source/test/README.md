@@ -13,7 +13,7 @@ will handle that.
 
 If test failures are encountered that look like they may be related to problems
 with nested virtualization, refer to
-[this Fedora guide](https://fedoraproject.org/wiki/How_to_enable_nested_virtualization_in_KVM)
+[this Fedora guide](https://docs.fedoraproject.org/en-US/quick-docs/using-nested-virtualization-in-kvm/index.html)
 for more details and recommendations on ensuring it is enabled correctly.
 
 ## Introduction
@@ -26,7 +26,7 @@ expects to find it (do NOT run the build step as root):
 To run the integration tests run the following (do NOT run the integration tests
 as root):
 
-    $ ./test/verify/run-tests
+    $ ./test/common/run-tests
 
 The tests will automatically download the VM images they need, so expect
 that the initial run may take a couple of hours (there are quite a few
@@ -67,7 +67,7 @@ ssh and web.  See the "Helpful tips" section below.
 
 The verify test suite is the main test suite:
 
- * `test/verify/run-tests`: Run all tests
+ * `test/common/run-tests`: Run all tests
  * `test/verify/check-*`: Run the selected tests
 
 ## Test Configuration
