@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+# To use with a toolbox, make sure your toolbox exists and run:
+# toolbox run -c cockpit-website sh -c _scripts/update-browser-data.rb
+
 #require 'bundler'
 require 'open-uri'
 require 'json'
