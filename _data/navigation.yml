@@ -1,17 +1,17 @@
 - title: Home
   url: "/"
 
-- title: Blog
-  url: /blog/
-
 - title: Install
   url: /running.html
+
+- title: Documentation
+  url: /guide/latest/
 
 - title: Contribute
   url: /external/wiki/Contributing.html
 
-- title: Documentation
-  url: /guide/latest/
+- title: Blog
+  url: /blog/
 
 - title: Search
   url: /search.html
