@@ -60,11 +60,11 @@ The following browsers (and up) _may_ also work with Cockpit:
   }} {{
   browser.name
   }} {%
-  assign ver_caniuse = site.data.browser_support["browsers"][slug]
+  assign ver_caniuse = site.data.browser_support["browsers"][slug] | plus: 0
   %}{%
   assign ver_caniuse_float = ver_caniuse | plus: 0
   %}{%
-    if (browser.version > ver_caniuse_float)
+    if browser.version > ver_caniuse_float
   %}{{
     browser.version
   }}{% else %}{{
