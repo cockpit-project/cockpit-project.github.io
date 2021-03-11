@@ -14,13 +14,20 @@ Use your system user account and password to log in. See [the guide](guide/lates
 ## Recommended client browsers
 
 {% capture icon %}{:.browser-0}![](/images/site/browser-0.svg){% endcapture %}
+{% capture label %}<span class="browser-name">0</span>{% endcapture %}
 
-Cockpit is developed for and routinely tested with:
+Cockpit is developed with and has automated tests for:
 
 {:.browser-support}
-- {{icon | replace: "0", "firefox"}} Mozilla Firefox
-- {{icon | replace: "0", "chrome"}} Google Chrome
-- {{icon | replace: "0", "edge"}} Microsoft Edge
+- {{icon | replace: "0", "firefox"}}{{label | replace: "0", "Mozilla Firefox"}}
+- {{icon | replace: "0", "chrome"}}{{label | replace: "0", "Google Chrome"}}
+
+Cockpit is also periodically checked with:
+
+{:.browser-support}
+- {{icon | replace: "0", "edge"}}{{label | replace: "0", "Microsoft Edge"}}
+- {{icon | replace: "0", "safari"}}{{label | replace: "0", "Apple Safari"}}
+- {{icon | replace: "0", "epiphany"}}{{label | replace: "0", "GNOME Web (Epiphany)"}}
 
 <div id="browser-support">
   <div class="is-supported">
