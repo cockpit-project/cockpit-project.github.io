@@ -136,11 +136,7 @@ html.cockpit-guide .nav--documentation,
 html[class*=-path-search] .nav--search
 
   a
-    background: linear-gradient(to top, var(--accent-color) 3px, var(--accent-color-highlight) 3px)
-
-    @media screen and (min-width: $on-laptop)
-      background: linear-gradient(to top, #999 10px, transparent 10px)
-      background: linear-gradient(to top, var(--accent-color-highlight) 10px, transparent 10px)
+    background: linear-gradient(to top, var(--accent-color-highlight) 10px, transparent 10px)
 
 header.masthead
   $logo-height: 48px
@@ -260,9 +256,11 @@ html.running-cockpit
       padding: 0.5ch 2ch
 
     img
-      min-width: 120px
-      max-width: 200px
-      line-height: 3rem
+      --optimal-size: 2.5rem
+      --multiplier: 1
+      margin: 1rem 0
+      max-height: calc(var(--optimal-size) * var(--multiplier))
+      width: auto
 
     tr:nth-child(odd) td
       background: #f6f6f6
@@ -274,17 +272,28 @@ html.running-cockpit
     td
       padding: 0
       border: 1px solid #ddd
+      text-align: left
 
       // Checkmarks
       &:not(:first-child):not(:last-child)
         text-align: center
         font-size: 2rem
         color: #228747
-        width: 7ch
 
       &:last-child
         width: 0
         white-space: nowrap
+
+    /* Size overrides, to visually balance the various logos
+
+    a[href*=debian] img
+      --multiplier: 0.8
+      
+    a[href*=ubuntu] img
+      --multiplier: 0.75
+
+    a[href*=tumbleweed] img
+      --multiplier: 0.55
 
     @media screen and (max-width: 46rem)
       a
