@@ -448,23 +448,37 @@ footer.footer-cockpit
 
 
 .browser-support
+  --browser-support-columns: 1
   display: grid
-  grid-gap: 2ch
-  grid-template-columns: repeat(auto-fit, 15rem)
-  justify-content: space-between
-  margin: 0 0 3rem
+  grid-gap: 1rem
+  grid-template-columns: repeat(var(--browser-support-columns), minmax(10rem, 1fr))
+  margin: 1rem 0 3rem
 
+  @media (min-width: 34rem)
+    --browser-support-columns: 2
+    
+  @media (min-width: 48rem)
+    --browser-support-columns: 3
+    
   > li
-    white-space: nowrap
-    line-height: 3ch
-
-    &.browser-explorer
-      order: 2
+    display: flex
+    align-items: start
 
   img
-    height: 3ch
-    width: auto
-    margin-right: 0.5em
+    width: 2rem
+    height: auto
+    min-height: 2rem
+    margin-right: 0.75em
+
+  .browser-name
+    // Adjust for the difference between the icon height and the text height
+    // (We align to the top instead of to the center in the cases where text wraps)
+    padding-top: 0.125rem
+
+  .browser-firefox > img
+    position: relative
+    // Firefox's tail is slightly taller
+    top: -1px
 
 #browser-support
   &[data-browser-supported="true"] .is-not-supported,
