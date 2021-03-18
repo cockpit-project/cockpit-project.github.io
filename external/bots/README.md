@@ -93,6 +93,26 @@ the [GitHub CLI](https://cli.github.com/) configuration in
 When generating a new personal access token, the scope only needs to
 encompass `public_repo` (or `repo` if you're accessing a private repo).
 
+If you'd like to download Red Hat-only internal images from S3, you'll
+need to create a key file in `~/.config/cockpit-dev/s3-keys/[endpoint]`.
+The contents of this file should be a single line containing the "access
+key" and the "secret key" separated by whitespace.
+
+For the currently configured mirrors this means that you'd expect to
+have the following files:
+
+- `~/.config/cockpit-dev/s3-keys/eu-central-1.linodeobjects.com`
+- `~/.config/cockpit-dev/s3-keys/us-east-1.linodeobjects.com`
+
+each each file would be a single line which looks like
+
+```
+EEVIDIDFSOQ0ABJ2LGTT    009rKOypIoqO44Q3VQGRyYPfugi84zANHF0pOW9f
+```
+
+The "access key" and "secret key" is unique per-developer and can be
+obtained by talking to Allison.
+
 ### Test contexts
 
 For describing tests which we want to run we use __contexts__. A context has the form:
