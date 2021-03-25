@@ -94,17 +94,24 @@ When generating a new personal access token, the scope only needs to
 encompass `public_repo` (or `repo` if you're accessing a private repo).
 
 If you'd like to download Red Hat-only internal images from S3, you'll
-need to create a key file in `~/.config/cockpit-dev/s3-keys/[endpoint]`.
-The contents of this file should be a single line containing the "access
-key" and the "secret key" separated by whitespace.
+need to create a key file in `~/.config/cockpit-dev/s3-keys/[domain]`.
+The `[domain]` can be any non-toplevel domain which contains the S3 URL
+in question.  The contents of this file should be a single line
+containing the "access key" and the "secret key" separated by
+whitespace.
 
-For the currently configured mirrors this means that you'd expect to
-have the following files:
+For the currently configured mirrors this means that you'd likely have the
+following file:
 
+- `~/.config/cockpit-dev/s3-keys/linodeobjects.com`
+
+For more control, you could also use the following:
+
+- `~/.config/cockpit-dev/s3-keys/cockpit-images.eu-central-1.linodeobjects.com`
 - `~/.config/cockpit-dev/s3-keys/eu-central-1.linodeobjects.com`
-- `~/.config/cockpit-dev/s3-keys/us-east-1.linodeobjects.com`
+- either of the above, with `us-east` instead of `eu-central`
 
-each each file would be a single line which looks like
+each file would be a single line which looks like
 
 ```
 EEVIDIDFSOQ0ABJ2LGTT    009rKOypIoqO44Q3VQGRyYPfugi84zANHF0pOW9f
