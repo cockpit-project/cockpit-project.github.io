@@ -42,6 +42,20 @@
       <time class="published" datetime="{{ post.date | date: "%u" }}">
         {{ post.date | date: "%b %-d, %Y" }}
       </time>
+
+      {% if post.category %}
+        {% assign cat_path = "/blog/category/" | append: post.category %}
+        {% assign cat_url = site.baseurl | append: cat_path | append: ".html" %}
+        {% assign cat_page = site.html_pages | where: 'url', cat_path | first %}
+
+        <div class="category">
+          {% if cat_page.path %}
+            category: <a href="{{ cat_url }}">{{ post.category }}</a>
+          {% else %}
+            category: {{ post.category }}
+          {% endif %}
+        </div>
+      {% endif %}
     </header>
   </header>
 
