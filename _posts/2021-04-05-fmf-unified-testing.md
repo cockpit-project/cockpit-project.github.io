@@ -14,31 +14,17 @@ I'm especially happy gating is now in Fedora, as I had worked on [testing in Ubu
 
 ## Fedora gating woes
 
-But there's a problem of scale: The more tests we add to gating, the more likely any one of them may fail.
+But there's a problem of scale: The more tests we added to gating, the more likely any one of them failed. Fedora's distribution gating tests also failed at the worst possible time: After an upstream release. It felt like every single bodhi update in the last year had failing tests. I couldn't remember a single time when tests were green.
 
-Fedora's distribution gating tests also failed at the worst possible time: After an upstream release. This means Fedora's package would have to drift from Cockpit's own release. Cockpit would have to make Fedora-specific hotfixes to make the tests happy.
+Fedora's test VMs use different settings from Cockpit's, such as the number of CPUs and amount of RAM, or the list of preinstalled packages. The time it takes to perform each test varies as well; e.g. Fedora's testing VMs (running on EC2) are especially slow during evenings in Europe.
 
-### Problem 1: Fedora's test environment is different from our own in many subtle ways
+Running Fedora's tests locally requires know-how and several tricks:
 
-Cockpit gates on a dozen operating systems with several hundred complex integration tests.  Fedora's testing is much simpler, as Fedora does not need to test how well Cockpit works on Debian, of course.
-
-Fedora's VMs use different settings from Cockpit's, such as the number of CPUs and amount of RAM.
-
-The time it takes to perform each test varies as well. (Fedora's testing VMs are especially slow during evenings in Europe.)
-
-### Problem 2: Reproducing Fedora's tests locally has been difficult
-
-Running Fedora's tests outside of its testing environment requires know-how and several tricks.
-
+- How is the test environment defined and configured?
 - Where can someone download the gating VM images?
-- How are the gating VM images invoked?
-- How is the test environment pinned down? The documentation was not specific enough, saying "just run `ansible-playbook` in a VM".
+- How exactly do I start them to get a similar environment as the CI system?
 
-Fedora's [Standard Test Interface](https://docs.fedoraproject.org/en-US/ci/standard-test-interface/) was flexible and precise when covering the API, but lacked details in usage.
-
-### Time to fix
-
-It felt like every single bodhi update in the last year had failing tests. I couldn't remember a single time when tests were green by default.
+Fedora's [Standard Test Interface](https://docs.fedoraproject.org/en-US/ci/standard-test-interface/) was flexible and precise when covering the API, but lacked pinning down the test environment. The documentation more or less says "just run `ansible-playbook` in a VM", but there is no tool to provide such a VM.
 
 It was time to fix this once and for all.
 
@@ -49,13 +35,13 @@ The concept to fix the tests is simple:
 2. Make it trivial to locally run and debug a package’s gating tests.
 3. Run gating tests for *every* upstream change (i.e. pull request), using *the exact same* environment, test metadata, and configuration.
 
-I'm happy to say that, after a lot of work, all these now exist!
+I'm happy to say that, after a lot of work from several differet teams, all these now exist!
 
 ## Flexible Medadata Format
 
 [FMF](https://tmt.readthedocs.io/en/latest/spec.html) (Flexible Metadata Format) is the successor of the Ansible-based Standard Test Interface. It is declarative YAML and completely distribution/project agnostic. The "flexible" in FMF is rich, so that (by design) it does not limit what tests can do or where to they run. Despite its complexity, most settings have good defaults, so you don’t need to know about every detail.
 
-We first added FMF to Cockpit's [starter kit](https://github.com/cockpit-project/starter-kit/commit/09823650e222da0). As a reference, the central file is `[test/browser/main.fmf](https://github.com/cockpit-project/starter-kit/blob/master/test/browser/main.fmf)`. This lists the test dependencies, the entry script, and a timeout:
+We first added FMF to Cockpit's [starter kit](https://github.com/cockpit-project/starter-kit/commit/09823650e222da0). As a reference, the central file is [`test/browser/main.fmf`](https://github.com/cockpit-project/starter-kit/blob/master/test/browser/main.fmf). This lists the test dependencies, the entry script, and a timeout:
 
 ```yaml
 summary:
@@ -95,14 +81,14 @@ It is a pretty straightforward translation from [the STI Ansible tests.yml](http
 
 Aside from the above, there's a little bit of boilerplate needed:
 
-- `.fmf/version` (just “1”) 
-- At least one top-level `[plans/*.fmf](https://github.com/cockpit-project/starter-kit/blob/master/plans/all.fmf)`. This can be the same for every project. Hopefully, it may be the implied default some day).
+- `.fmf/version` (just “1”)
+- At least one top-level [`plans/*.fmf`](https://github.com/cockpit-project/starter-kit/blob/master/plans/all.fmf). This can be the same for every project. Hopefully, it may be the implied default some day.
 
 This test metadata format provides underpinnings for the following new tools.
 
 ## Test Management Tool
 
-Test Management Tool (tmt) addresses the first two points (pinning the environment and running locally). If a project has FMF metadata for its tests, running tmt as simple as:
+[Test Management Tool](https://docs.fedoraproject.org/en-US/ci/tmt/) (tmt) addresses the first two points (pinning the environment and running locally). If a project has FMF metadata for its tests, running tmt as simple as:
 
 ```sh
 tmt run
@@ -136,15 +122,15 @@ tmt run -l login
 
 See `--help` and the documentation for details.
 
-Until recently, this only worked with `qemu:///system` libvirt. (That is: not in containers or `toolbox`.)
+Until recently, this only worked with `qemu:///system` libvirt. (That is: not in containers or [`toolbox`](https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/).)
 
 The latest testcloud and tmt versions have switched to `qemu:///session` by default. (Thanks to Petr Šplíchal for responding to my nagging so quickly!) Using session enables tmt to run without root privileges, bridges, or services.
 
 ## Packit
 
-[Packit](https://packit.dev/) is a tool (and a service) to automatically package upstream releases into Fedora or COPR. 
+[Packit](https://packit.dev/) is a tool and a service to automatically package upstream releases into Fedora or COPR.
 
-It recently learned a cool new trick: The [Packit-as-a-Service GitHub app](https://github.com/marketplace/packit-as-a-service) runs a project's FMF test plans in pull requests. Packit-as-a-Service is open source, [simple to set up](https://packit.dev/docs/packit-as-a-service/), and free to use. For Cockpit, this addresses point 3 above (running gating tests for every upstream change).
+It recently learned a cool new trick: The [Packit-as-a-Service GitHub app](https://github.com/marketplace/packit-as-a-service) runs a project's FMF test plans in pull requests. Packit-as-a-Service is open source, [simple to set up](https://packit.dev/docs/packit-as-a-service/), and free to use. For projects that use it, this addresses point 3 above (running gating tests for every upstream change).
 
 Tests run on the [testing-farm](https://testing-farm.gitlab.io/api/), which provides reasonable (1 CPU, 2 GiB RAM) AWS EC2 instances. Critically, this is the exact same  infrastructure that the Fedora gating tests use.  This is by design. It’s easier to maintain one testing farm than two sets of infrastructure. Using the same infrastructure provides the necessary reproducibility for project maintainers.
 
@@ -179,21 +165,21 @@ Packit will then use this information to:
 
 1. build the tarball (create-archive)
 2. build an SRPM with the spec file
-3. build it in a temporary COPR
+3. build the SRPM in a temporary COPR
 4. use tmt to run your tests against these built RPMs
 
 For an upstream project relying on tests, it really can’t get much simpler!
 
 ### An in-practice example with starter-kit
 
-As an example: Look at a recent starter-kit PR. Click on “View Details” to expand the tests. It shows four Packit runs.
+As an example: Look at a [recent starter-kit PR](https://github.com/cockpit-project/starter-kit/pull/442). Click on “View Details” to expand the tests. It shows four Packit runs.
 
-It's great, but not yet perfect. It is still not obvious how to get from such a result link to all artifacts.
+It's great, but not yet perfect. It is still not obvious how to get from such a [result link](http://artifacts.dev.testing-farm.io/f24bede3-995e-4f10-970f-dc849e950e3a/) to all artifacts.
 
-A few minor quality-of-life improvements that are likely forthcoming: 
+A few minor quality-of-life improvements that are likely forthcoming:
 
-- Fixing the path (append /results.xml to find out the path to the /work-allXXXXXX directory)
-- Seeing live logs while a test is running
+- Finding test artifacts (for now, look at the log to find out the path to the `/work-allXXXXXX` directory and append that to the URL)
+- Seeing [live logs while a test is running](https://gitlab.com/testing-farm/general/-/issues/13)
 
 
 
@@ -201,12 +187,12 @@ A few minor quality-of-life improvements that are likely forthcoming:
 
 As mentioned above, Fedora's gating tests are now using the very same testing farm as Packit. This recent switch allows the test to run in the same environment. It also supports the new FMF+TMT test metadata and the legacy STI format.
 
-These changes get us really close to the goal of sharing tests  upstream and downstream. 
+These changes get us really close to the goal of sharing tests upstream and downstream.
 
 ### Missing: embedded test support
 
-While it's almost complete, there is a missing part. There is no current clean way to run tests contained in the upstream tarball. 
-Right now, the packaging dist-git must have a top-level FMF test plan like this:
+While it's almost complete, there is a missing part. There is no current clean way to run tests contained in the upstream tarball.
+Right now, the packaging dist-git must have a [top-level FMF test plan](https://src.fedoraproject.org/rpms/cockpit/blob/rawhide/f/plans/upstream.fmf) like this:
 
 ```yaml
 discover:
@@ -220,7 +206,7 @@ execute:
 
 The workaround, seen in the above snippet, uses tests from a specific tag in the upstream project git. The git tag must match the release in the spec file, to keep tests in-sync with the tested packages. This is awkward, as it requires accessing a remote git (at a specific tag), even though tests exist in the source tarball.
 
-Changing this requires some [tmt design discussion](https://github.com/psss/tmt/issues/585). For now, we [hacked our release scripts](https://github.com/cockpit-project/cockpituous/commit/2ef3f6c99912) to bump up the test plan's ref  when committing a new release to dist-git. If you use this in your project, you need similar "magic" or always update the test plan’s ref along with your spec file.
+Changing this requires some [tmt design discussion](https://github.com/psss/tmt/issues/585). For now, we [hacked our release scripts](https://github.com/cockpit-project/cockpituous/commit/2ef3f6c99912) to bump up the test plan's `ref:`  when committing a new release to dist-git. If you use this in your project, you need similar "magic" or always update the test plan’s `ref:` along with your spec file.
 
 Even with this hack, Cockpit’s [commit to move from STI to upstream FMF](https://src.fedoraproject.org/rpms/cockpit/c/0fee2830080033ea2be13be30d156b51dcf75b7d) was still a major net gain. Cockpit's tests run straight from upstream now.
 
@@ -228,11 +214,11 @@ Even with this hack, Cockpit’s [commit to move from STI to upstream FMF](https
 
 Cockpit’s [starter-kit](https://github.com/cockpit-project/starter-kit/#running-tests-in-ci), the basis for creating your own Cockpit UIs, implements this all now: FMF metadata, [setup scripts](https://github.com/cockpit-project/starter-kit/tree/master/test/browser), [packit.yaml](https://github.com/cockpit-project/starter-kit/blob/master/packit.yaml), and [documentation](https://github.com/cockpit-project/starter-kit#running-tests-in-ci).
 
-[Doing the same for Cockpit itself](https://github.com/cockpit-project/cockpit/pull/15504) was more involved, because packit’s create-archive step has limits. Packit needs to work in a 768 MiB VM and finish within 30 minutes, but this is too limited for webpack. Instead, [a GitHub workflow builds tarballs](https://github.com/cockpit-project/cockpit/blob/master/.github/workflows/build-dist.yml) and Packit downloads the pre-built artifacts. (We want to do that anyway, as pre-building is useful for speeding up reviews and  local development as well.) 
+[Doing the same for Cockpit itself](https://github.com/cockpit-project/cockpit/pull/15504) was more involved, because packit’s `create-archive` step has limits: it needs to work in a 768 MiB VM and finish within 30 minutes, but for larger projects this is not enough for webpack. Instead, [a GitHub workflow builds the tarballs](https://github.com/cockpit-project/cockpit/blob/master/.github/workflows/build-dist.yml) and Packit downloads the pre-built artifacts. (We want to do that anyway, as pre-building is useful for speeding up reviews and local development as well.)
 
 The VM constraints are not an issue for smaller projects like [cockpit-podman](https://github.com/cockpit-project/cockpit-podman). The entire webpack build does fit within Packit's limits.
 
-It should also not be an issue for most C/Python/etc. projects where make dist (or meson dist, ./setup.py sdist, etc.) will usually be quick and lean.
+It should also not be an issue for most C/Python/etc. projects where `make dist` (or `meson dist`, `./setup.py sdist`, etc.) will usually be quick and lean.
 
 Finally, we were able to collect the prize... Thanks to the new testing frameworks, Cockpit release 241 [passed Fedora gating tests](https://bodhi.fedoraproject.org/updates/FEDORA-2021-abd3934d7b) for the first time in roughly a year! 🎉
 
