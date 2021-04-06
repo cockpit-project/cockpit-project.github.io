@@ -6,7 +6,13 @@
 
     {% for post in post_set limit: limiter %}
 
-      {% include post.html post=post excerpt=true link=true %}
+      {% if post.category == "release" %}
+        {% assign heading_summary = true %}
+      {% else %}
+        {% assign heading_summary = false %}
+      {% endif %}
+
+      {% include post.html post=post excerpt=true link=true heading_summary=heading_summary %}
 
     {% endfor %}
   </section>

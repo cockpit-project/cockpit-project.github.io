@@ -7,6 +7,7 @@
 {% assign summary_length = site.blog_summary_length | default: 50 %}
 {% assign ignore = include.ignore | default: site.blog_ignore | split: ',' %}
 {% assign summary_headings = site.blog_summary_headings %}
+{% assign heading_summary = include.heading_summary %}
 {% assign newline = '
 ' %}
 
@@ -76,7 +77,7 @@
 
   <section class="post-content entry-content">
     {% if excerpt %}
-      {% if summary_headings and content_headings != '' %}
+      {% if summary_headings and content_headings != '' and heading_summary %}
         {{ content_headings | markdownify }}
       {% else %}
         {{ content_stripped | truncatewords: summary_length }}
