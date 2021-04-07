@@ -1,5 +1,5 @@
 ---
-title: Unified upstream and downstream testing with TMT and Packit
+title: Unified upstream and downstream testing with tmt and Packit
 author: pitti
 date: 2021-04-05
 category: howto
@@ -103,7 +103,7 @@ The tool then:
 5. copies out all the test logs and artifacts
 6. cleans up everything in the previous steps
 
-### TMT customization
+### tmt customization
 
 The run command uses a lot of defaults, but supports customization.
 
@@ -185,7 +185,7 @@ Minor quality-of-life improvements that are likely forthcoming:
 
 ## Recent Fedora CI changes
 
-As mentioned above, Fedora's gating tests are now using the exact same testing farm as Packit. This recent switch allows the test to run in the same environment. It also supports the new FMF+TMT test metadata and the legacy STI format.
+As mentioned above, Fedora's gating tests are now using the exact same testing farm as Packit. This recent switch allows the test to run in the same environment. It also supports the new FMF+tmt test metadata and the legacy STI format.
 
 These changes get us close to the goal of sharing tests upstream and downstream.
 
@@ -235,7 +235,7 @@ Many thanks in particular to [Petr Šplíchal](https://github.com/psss) (testclo
 *[FMF]: Flexible Metadata Format
 *[SRPM]: source RPM
 *[STI]: Fedora's Standard Test Interface
-*[TMT]: test management tool
+*[tmt]: test management tool
 *[VM]: virtual machine
 *[VMs]: virtual machines
 *[tmt]: test management tool
