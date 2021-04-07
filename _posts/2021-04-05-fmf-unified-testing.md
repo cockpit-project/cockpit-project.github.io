@@ -14,7 +14,7 @@ I'm especially happy gating is now in Fedora, as I had worked on [testing in Ubu
 
 ## Fedora gating woes
 
-But there's a problem of scale: The more tests we added to gating, the more likely any one of them failed. Fedora's distribution gating tests also failed at the worst possible time: After an upstream release. It felt like every single bodhi update in the last year had failing tests. I couldn't remember a single time when tests were green.
+But there's a problem of scale: The more tests we added to gating, the more likely any one of them failed. Fedora's distribution gating tests also failed at the worst possible time: After an upstream release. It felt like every single Bodhi update in the last year had failing tests. I couldn't remember a single time when tests were green.
 
 Fedora's test VMs use different settings from Cockpit's, such as the number of CPUs and amount of RAM, or the list of preinstalled packages. The time it takes to perform each test varies as well; e.g. Fedora's testing VMs (running on EC2) are especially slow during evenings in Europe.
 
@@ -35,9 +35,9 @@ The concept to fix the tests is simple:
 2. Make it trivial to locally run and debug a package’s gating tests.
 3. Run gating tests for *every* upstream change (i.e. pull request), using *the exact same* environment, test metadata, and configuration.
 
-I'm happy to say that, after a lot of work from several differet teams, all these now exist!
+I'm happy to say that, after a lot of work from several different teams, all these now exist!
 
-## Flexible Medadata Format
+## Flexible Metadata Format
 
 [FMF](https://tmt.readthedocs.io/en/latest/spec.html) (Flexible Metadata Format) is the successor of the Ansible-based Standard Test Interface. It is declarative YAML and completely distribution/project agnostic. The "flexible" in FMF is rich, so that (by design) it does not limit what tests can do or where to they run. Despite its complexity, most settings have good defaults, so you don’t need to know about every detail.
 
@@ -216,7 +216,7 @@ Cockpit’s [starter-kit](https://github.com/cockpit-project/starter-kit/#runnin
 
 [Doing the same for Cockpit itself](https://github.com/cockpit-project/cockpit/pull/15504) was more involved, because packit’s `create-archive` step has limits: it needs to work in a 768 MiB VM and finish within 30 minutes, but for larger projects this is not enough for webpack. Instead, [a GitHub workflow builds the tarballs](https://github.com/cockpit-project/cockpit/blob/master/.github/workflows/build-dist.yml) and Packit downloads the pre-built artifacts. (We want to do that anyway, as pre-building is useful for speeding up reviews and local development as well.)
 
-The VM constraints are not an issue for smaller projects like [cockpit-podman](https://github.com/cockpit-project/cockpit-podman). The entire webpack build does fit within Packit's limits.
+The VM constraints are not an issue for smaller projects like [cockpit-podman](https://github.com/cockpit-project/cockpit-podman). The entire webpack build does fit within packit's limits.
 
 It should also not be an issue for most C/Python/etc. projects where `make dist` (or `meson dist`, `./setup.py sdist`, etc.) will usually be quick and lean.
 
@@ -228,7 +228,7 @@ There are finally tools to for cloud-first, proper, consistent, and free upstrea
 
 Many thanks in particular to [Petr Šplíchal](https://github.com/psss) (testcloud/tmt), [Tomas Tomecek](https://github.com/TomasTomecek/) (packit), and [Miroslav Vadkerti](https://github.com/thrix) (Testing Farm) for tirelessly fixing stuff, responding to my nagging, and helping me with figuring out how it all hangs together!
 
-*[FMF]: Flexible Medadata Format
+*[FMF]: Flexible Metadata Format
 *[VM]: virtual machine
 *[CI]: continuous integration (testing)
 *[SRPM] source RPM (package source)
