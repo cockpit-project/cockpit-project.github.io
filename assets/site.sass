@@ -390,6 +390,18 @@ p.screenshot img
 
 abbr
   cursor: help
+  // Webkit does not support combining these values with a shorthand text-decoration
+  text-decoration: underline
+  text-decoration-color: #aaa
+  text-decoration-skip-ink: none
+  text-decoration-style: wavy
+  text-decoration-thickness: 1px
+  text-underline-offset: 0.2em
+
+a > abbr
+  text-decoration-color: #fff
+  text-decoration-style: dotted
+  text-decoration-thickness: 2px
 
 footer.footerlinks
   background: #eeeeec
