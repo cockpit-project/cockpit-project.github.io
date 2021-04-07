@@ -128,7 +128,7 @@ The latest testcloud and tmt versions have switched to `qemu:///session` by defa
 
 ## Packit
 
-[Packit](https://packit.dev/) is a tool and a service to automatically package upstream releases into Fedora or COPR.
+[Packit](https://packit.dev/) is a tool and a service to automatically package upstream releases into Fedora or Copr.
 
 It recently learned a cool new trick: The [Packit-as-a-Service GitHub app](https://github.com/marketplace/packit-as-a-service) runs a project's FMF test plans in pull requests. Packit-as-a-Service is open source, [simple to set up](https://packit.dev/docs/packit-as-a-service/), and free to use. For projects that use it, this addresses point 3 above (running gating tests for every upstream change).
 
@@ -163,9 +163,9 @@ The YAML above binds together:
 
 Packit will then use this information to:
 
-1. build the tarball (create-archive)
+1. build the tarball (`create-archive`)
 2. build an SRPM with the spec file
-3. build the SRPM in a temporary COPR
+3. build the SRPM in a temporary Copr
 4. use tmt to run your tests against these built RPMs
 
 For an upstream project relying on tests, it really can’t get much simpler!
@@ -228,8 +228,14 @@ There are finally tools to for cloud-first, proper, consistent, and free upstrea
 
 Many thanks in particular to [Petr Šplíchal](https://github.com/psss) (testcloud/tmt), [Tomas Tomecek](https://github.com/TomasTomecek/) (packit), and [Miroslav Vadkerti](https://github.com/thrix) (Testing Farm) for tirelessly fixing stuff, responding to my nagging, and helping me with figuring out how it all hangs together!
 
-*[FMF]: Flexible Metadata Format
-*[VM]: virtual machine
+*[AWS]: Amazon Web Services
 *[CI]: continuous integration (testing)
-*[SRPM] source RPM (package source)
+*[Copr]: A build service for unofficial / semi-official Fedora community projects. It's a portmanteau, short for "Community Projects". Pronounced like the metal "copper".
+*[EC2]: Amazon Elastic Compute Cloud
+*[FMF]: Flexible Metadata Format
+*[SRPM]: source RPM
+*[STI]: Fedora's Standard Test Interface
 *[TMT]: test management tool
+*[VM]: virtual machine
+*[VMs]: virtual machines
+*[tmt]: test management tool
