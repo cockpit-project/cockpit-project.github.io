@@ -134,7 +134,8 @@ where items have the following meaning:
   bots from this PR would be used instead of master.
 - owner/project: Name of github project (e.g. 'cockpit-project/cockpit'). This part can
   be omitted when testing in the same project and no 'ref' is needed.
-- ref: Reference in the project (usually branch) (e.g. 'rhel-8.2'). Default is 'master'.
+- ref: Reference in the project (usually branch) (e.g. 'rhel-8.2'). Default is
+  the project's primary branch.
 
 For example, context for scenario 'firefox' on 'fedora-testing' is:
 
@@ -144,7 +145,7 @@ If we want to trigger it on 'cockpit-project/cockpit':
 
     fedora-testing/firefox@cockpit-project/cockpit
 
-If we want to also not run it on master branch, but on 'rhel-8-0' branch:
+If we want to also not run it on the primary branch, but on 'rhel-8-0' branch:
 
     fedora-testing/firefox@cockpit-project/cockpit/rhel-8-0
 
@@ -202,7 +203,7 @@ any way you like.
 
 If you are certain about the changes to the images, it is probably a
 good idea to make a dedicated pull request just for the images.  That
-pull request can then hopefully be merged to master faster.  If
+pull request can then hopefully be merged faster.  If
 instead the images are created on the main feature pull request and
 sit there for a long time, they might cause annoying merge conflicts.
 
