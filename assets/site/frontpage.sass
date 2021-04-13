@@ -205,6 +205,8 @@ html.front-page
     &-date
       transition: all 300ms
       font-size: 0.9rem
+      @media (prefers-reduced-motion: reduce)
+        transition: none
 
     &-new
       font-weight: inherit
@@ -229,8 +231,9 @@ html.front-page
       grid-template-columns: 1fr auto var(--remainder)
       grid-template-rows: 33%
       align-items: baseline
-      // align-content: center
       grid-gap: 0 0.5rem
+      @media (prefers-reduced-motion: reduce)
+        transition: none
       
       @media (max-width: $frontpage-content-breakpoint)
         --offset1: calc(100% - 1.5rem)
@@ -262,8 +265,9 @@ html.front-page
 
     > a
       filter: grayscale(1) contrast(50%) brightness(125%)
-      //opacity: 0.5
       transition: 300ms all
+      @media (prefers-reduced-motion: reduce)
+        transition: none
 
       &:hover
         opacity: 1
@@ -312,10 +316,14 @@ html.front-page
   &:hover
     > .screenshot
       transition: opacity 100ms ease-in-out
+      @media (prefers-reduced-motion: reduce)
+        transition: none
     
     > :not(:hover)
       opacity: 0.75
       transition-duration: 200ms
+      @media (prefers-reduced-motion: reduce)
+        transition: none
 
   > .screenshot
     opacity: 1
@@ -324,6 +332,8 @@ html.front-page
 
     &, > img
       transition: all 100ms ease-in-out
+      @media (prefers-reduced-motion: reduce)
+        transition: none
 
     &:hover
       z-index: 2
