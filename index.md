@@ -241,20 +241,5 @@ Contributing
 </footer>
 {% include page_footer.html %}
 
-<script>
-<!--
-$(function(){
-  $(document).on('click', 'a.screenshot.zoom, .screenshot.zoom a', function(ev){
-    desc = $('img', this).attr('alt');
-    code = $('<div id="imagePreview" class="image-container zoom-out"><img src="' + this.href + '" alt="' + desc + '"><p>' + desc + "<\/p><\/div>");
-    $('body').append(code);
-    ev.preventDefault();
-  }).on('click', '#imagePreview', function(ev){
-    $(this).fadeOut(200, function(){
-      $(this).remove();
-    });
-  });
-});
-//-->
-</script>
+<script src="{{ site.baseurl }}/assets/lib/screenshot-gallery.js"></script>
 {% endcapture %}{{ output }}

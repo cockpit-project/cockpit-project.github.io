@@ -59,6 +59,9 @@ $link-color-hover: lighten($link-color, 15%)
 h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre
   margin-bottom: 1rem
 
+.noScroll
+  overflow: hidden
+
 .page-content,
 .cockpit-guide .book,
 .cockpit-guide .chapter
@@ -386,14 +389,20 @@ p.screenshot img
     background: rgba(#000, 0.7)
     animation: 200ms fadeIn
     z-index: -1
+    @media (prefers-reduced-motion: reduce)
+      animation: none
 
-  img
+  > img
     margin: auto auto 0
     max-width: 100%
-    animation: 300ms ease-in-out fadeIn, 300ms ease-in-out zoomWidth
     border: none
     max-height: calc(100% - 5rem)
     box-shadow: none
+
+  &:not(.no-anim) > img
+      animation: 300ms ease-in-out fadeIn, 300ms ease-in-out zoomWidth
+      @media (prefers-reduced-motion: reduce)
+        animation: none
 
   p
     background: rgba(#000, 0.5)
@@ -404,6 +413,42 @@ p.screenshot img
     text-shadow: 1px 1px 3px #000
     animation: 300ms ease-in-out fadeIn
     text-align: center
+    @media (prefers-reduced-motion: reduce)
+      animation: none
+
+  a
+    position: absolute
+    top: 5vw
+    bottom: 5vw
+    width: 10vw
+    width: max(20vw, 5rem)
+    opacity: 0.5
+    display: flex
+
+    > img
+      max-width: 2rem
+      margin: auto
+      pointer-events: none
+
+    &:hover,
+    &:focus
+      opacity: 1
+
+    &.pulse
+      animation: 400ms ease-out pulse
+
+    &.screenshot-prev
+      left: 0
+
+      > img
+        margin-left: 2rem
+
+    &.screenshot-next
+      right: 0
+
+      > img
+        margin-right: 2rem
+
 
 .zoom
   cursor: zoom-in
