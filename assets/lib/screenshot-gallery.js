@@ -122,5 +122,9 @@ $(function(){
 
       ev.preventDefault();
     }
+  }).on('wheel', function(ev){
+    // Handle mouse scroll events
+    var action = (ev.originalEvent.deltaY > 0) ? 'next' : 'prev';
+    switchPreview(action);
   });
 });
