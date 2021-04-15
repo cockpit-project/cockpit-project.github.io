@@ -49,6 +49,10 @@ rules:
     req:
     - supports
     - window.CSS
+  replaceAll:
+    req:
+    - replaceAll
+    - String.prototype
   flexbox:
     css:
     - display

@@ -47,6 +47,11 @@ supports = YAML.load("
     #promise-finally:
         #req: [finally, Promise.prototype]
 
+    ## `replaceAll` isn't in the caniuse compiled database at the moment (oversight)
+    ## Adding it here strictly for the live in-browser JavaScript check (as a passthrough)
+    replaceAll:
+        req: [replaceAll, String.prototype]
+
     flexbox:
         css: [display, flex]
 
@@ -54,7 +59,7 @@ supports = YAML.load("
         css: [display, grid]
 ")
 
-caniuse_db = "https://raw.githubusercontent.com/Fyrd/caniuse/master/data.json"
+caniuse_db = "https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json"
 support_file = File.expand_path "#{__dir__}/../_data/" + "browser_support.yml"
 
 puts "Downloading caniuse database..."
@@ -69,8 +74,10 @@ browsers = {}
 terminator = 999999
 
 supports.each do |support, vals|
-    #puts support[0]
-    data[support]["stats"].each do |browser, version|
+    # First check to see if the support data is in the caniuse DB.
+    # It really should be, but sometimes it's missing something.
+    # Regardless, it needs to be passed through still, for the live JS browser check.
+    data[support] && data[support]["stats"].each do |browser, version|
         # Edge _almost_ supports @supports API; close enough for us
         if (support == "css-supports-api")
             low_version = version.reject {|k,v| v == "n"}.keys.first
