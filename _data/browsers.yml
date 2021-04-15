@@ -1,17 +1,20 @@
 - firefox:
   vendor: Mozilla
   name: Firefox
+  version: 77
 
 - chrome:
   vendor: Google
   name: Chrome
+  version: 85
 
 - edge:
   vendor: Microsoft
   name: Edge
+  version: 85
 
 - safari:
   vendor: Apple
   os: iOS
   name: Safari
-  version: 10.3
+  version: 13.4
