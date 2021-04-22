@@ -1,0 +1,62 @@
+.apps
+
+    .app
+        padding: 2rem 0.5rem
+        display: grid
+        grid-gap: 1rem
+        align-items: baseline
+        // Mobile first
+        grid-template: "title tag" "description description" "meta meta"
+        grid-template-columns: auto 1fr
+
+        @media (min-width: #{$on-laptop})
+            grid-template: "title description tag" "title meta ."
+            grid-template-columns: 25% 1fr auto
+
+        &:not(:first-child)
+            border-top: 1px dotted #888
+
+        &-title
+            grid-area: title
+            font-size: 1.3rem
+            margin: 0
+            line-height: inherit
+
+        &-description
+            grid-area: description
+
+            p:last-child
+                margin-bottom: 0
+
+        &-tag
+            grid-area: tag
+            --hue: 150
+            --saturation: 0%
+            --color: var(--hue), var(--saturation)
+            border: 1px solid hsl(var(--color), 70%)
+            background: hsl(var(--color), 95%)
+            color: hsl(var(--color), 25%)
+            padding: 0.125em 0.5em
+            border-radius: 3em
+            font-size: 0.9rem
+            white-space: nowrap
+
+            &.app-official
+                --hue: 150
+                --saturation: 50%
+
+            &.app-prerelease
+                --hue: 40
+                --saturation: 100%
+
+        &-details
+            grid-area: meta
+            font-size: 0.9rem
+            margin: 0
+
+            dd, dt
+                margin: 0
+                padding: 0
+
+            dt:not(:first-child)
+                margin-top: 1em

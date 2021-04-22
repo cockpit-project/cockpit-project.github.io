@@ -11,6 +11,8 @@ If you already have Cockpit on your server, point your web browser to:
 
 Use your system user account and password to log in. See [the guide](guide/latest/guide.html) for more info.
 
+After installing Cockpit itself, consider [installing additional applications in Cockpit](applications.html).
+
 ## Recommended client browsers
 
 {% capture icon %}{:.browser-0}![](/images/site/browser-0.svg){% endcapture %}

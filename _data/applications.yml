@@ -1,0 +1,175 @@
+# Entries on the page show up in the order listed here, but with
+# official: true (official) first
+# official: nil (unofficial; non-team RH developed) second (this is omission of `official`),
+# official: false (third party) last
+
+# The Cockpit group is special, it inherits source, issues, license for the `source: cockpit` entries
+cockpit:
+  source: https://github.com/cockpit-project/cockpit/
+  issues: https://github.com/cockpit-project/cockpit/issues
+  license: LGPL 2.1
+  comment: |
+    This is the default template that "source: cockpit" pulls from, so source, issues, and license don't need to be filled out everywhere.
+
+storaged:
+  title: Storage
+  package: cockpit-storaged
+  source: cockpit
+  official: true
+  description: |
+    Manage your system's storage. Supports local partitions, encryption, NFS, RAID, iSCSI, and more.
+
+networkmanager:
+  title: Network
+  package: cockpit-networkmanager
+  source: cockpit
+  official: true
+  description: |
+    Manage your network interfaces and edit your firewall with ease.
+
+packagekit:
+  title: Software Updates (PackageKit)
+  package: cockpit-packagekit
+  source: cockpit
+  official: true
+  description: |
+    See and apply updates to your system. Supports RPM and DEB based systems through PackageKit.
+
+ostree:
+  title: Software Updates (OSTree)
+  package: cockpit-ostree
+  official: true
+  source: https://github.com/cockpit-project/cockpit-ostree
+  issues: https://github.com/cockpit-project/cockpit-ostree/issues
+  license: LGPL 2.1
+  description: |
+    Upgrade OSTree-based systems in your browser.
+
+machines:
+  title: Virtual Machines
+  package: cockpit-machines
+  source: https://github.com/cockpit-project/cockpit-machines
+  issues: https://github.com/cockpit-project/cockpit-machines/issues
+  license: LGPL 2.1
+  official: true
+  description: |
+    Create, run, and manage virtual machines in your browser.
+
+podman:
+  title: Podman Containers
+  package: cockpit-podman
+  source: https://github.com/cockpit-project/cockpit-podman
+  issues: https://github.com/cockpit-project/cockpit-podman/issues
+  license: LGPL 2.1
+  official: true
+  description: |
+    Download, use, and manage containers in your browser. (Podman replaces Docker.)
+
+selinux:
+  title: SELinux
+  package: cockpit-selinux
+  source: cockpit
+  official: true
+  description: |
+    View and manage SELinux exceptions. Instantly apply overrides and export your rules to apply to other systems.
+
+kdump:
+  title: Kernel Dump
+  package: cockpit-kdump
+  source: cockpit
+  official: true
+  description: |
+    Debugging the Linux kernel? This `kdump` add-on helps with catching stack traces.
+
+composer:
+  title: Cockpit Composer
+  package: cockpit-composer
+  source: https://github.com/osbuild/cockpit-composer/
+  issues: https://github.com/osbuild/cockpit-composer/issues
+  description: |
+     Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
+
+certificates:
+  title: Certificate Management
+  package: cockpit-certificates
+  source: https://github.com/skobyda/cockpit-certificates
+  issues: https://github.com/skobyda/cockpit-certificates/issues
+  prerelease: true
+  description: |
+    Certificate management app for Cockpit.
+
+sosreport:
+  title: Diagnostic Reports
+  package: cockpit-sosreport
+  source: cockpit
+  official: true
+  description: |
+    Collect system configuration and diagnostic information from systems, to help with diagnosing problems.
+
+389-ds:
+  title: 389 Directory Server
+  package: cockpit-389-ds
+  homepage: https://directory.fedoraproject.org/docs/389ds/download.html
+  source: 
+  description: |
+    A web-based interface to the enterprise-class Open Source LDAP server for Linux.
+
+session-recording:
+  title: Session Recording
+  package: cockpit-session-recording
+  source: https://github.com/Scribery/cockpit-session-recording
+  issues: https://github.com/Scribery/cockpit-session-recording/issues
+  description: |
+    Session recording configuration and playback for Cockpit, based on [Scribery](https://scribery.github.io/), to record a user's actions for watching later.
+
+subscriptions:
+  title: Subscription Manager
+  package: cockpit-subscriptions
+  source: https://github.com/candlepin/subscription-manager
+  issues: 
+  description: |
+    Manage subscriptions to Red Hat Enterprise Linux from your web browser.
+
+# leapp:
+#   package: cockpit-leap
+#   title: Leapp
+#   homepage: https://leapp.readthedocs.io/en/latest/
+#   source: https://github.com/oamg/leapp
+#   license: Apache 2
+#   issues: https://github.com/oamg/leapp/issues
+#   description: |
+#     Leapp is an OS and application modernization framework. It is used to upgrade Red Hat Enterprise Linux. (For example: Upgrading RHEL 7 to 8.)
+
+ovirt-dashboard:
+  title: oVirt Dashboard
+  package: cockpit-ovirt-dashboard
+  source: https://github.com/oVirt/cockpit-ovirt
+  issues: https://bugzilla.redhat.com/buglist.cgi?product=cockpit-ovirt&resolution=---
+  description: |
+    oVirt manages Virtual Machines (VMs) in a datacenter/cluster. Scales easily from tens to tens of thousands VMs running on multiple KVM hypervisor hosts.
+
+zfs:
+  title: ZFS Manager
+  package: cockpit-zfs
+  source: https://github.com/optimans/cockpit-zfs-manager
+  issues: https://github.com/optimans/cockpit-zfs-manager/issues
+  official: false
+  prerelease: true
+  description: |
+    An interactive ZFS on Linux admin package for Cockpit.
+
+samba:
+  title: Samba Manager
+  source: https://github.com/45Drives/cockpit-samba-manager
+  official: false
+  prerelease: true
+  description: |
+    A Cockpit plugin to manage Samba shares and users. 
+
+smb:
+  title: SMB Plugin
+  source: https://github.com/enira/cockpit-smb-plugin
+  official: false
+  prerelease: true
+  description: |
+    Manage your Samba shares through the Cockpit user interface.
