@@ -93,6 +93,10 @@ By default, Cockpit uses [your system's normal user logins and privileges]({{ si
 
 Cockpit itself doesn't eat resources or even run in the background when you're not using it. It runs on demand, thanks to systemd socket activation.
 
+### Extendable
+
+Cockpit also supports [a large list of optional and third-party applications](applications.html).
+
 ## Using Cockpit
 
 Here's a subset of tasks you can perform on each host running Cockpit:
@@ -111,7 +115,7 @@ Here's a subset of tasks you can perform on each host running Cockpit:
 - Inspect and interact with systemd-based services
 - Use a terminal on a remote server in your local web browser
 - Switch between [multiple Cockpit servers]({{ site.baseurl }}/guide/latest/feature-machines.html)
-- Extend Cockpit's functionality by installing a growing list of apps and add-ons
+- Extend Cockpit's functionality by installing [a growing list of apps and add-ons](applications.html)
 - [Write your own custom modules]({{ site.baseurl }}/blog/cockpit-starter-kit.html) to make Cockpit do anything you want
 
 *[RAID]: Redundant Array of Inexpensive Disks

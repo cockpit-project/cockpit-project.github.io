@@ -1,0 +1,78 @@
+{% capture apps_html %}
+{% assign default = site.data.applications.cockpit %}
+{% assign href = '<a href="#">#</a>' %}
+{% assign https = '>https://' %}
+{% assign gt = '>' %}
+
+{% for app_data in include.apps %}
+  {% assign slug = app_data | first %}
+  {% assign app = app_data | last %}
+
+  {% comment %} Title is mandatory for output {% endcomment %}
+  {% unless app.title %}{% continue %}{% endunless %}
+
+  {% if app.source == 'cockpit'
+    %}{% comment %}
+    Graft in Cockpit's defaults
+    {% endcomment %}{% 
+    assign app_source = default.source
+    %}{% 
+    assign app_issues = default.issues
+    %}{% 
+    assign app_license = default.license
+  %}{% else %}{%
+    assign app_source = app.source
+    %}{% 
+    assign app_issues = app.issues
+    %}{% 
+    assign app_license = app.license
+  %}{% endif %}
+
+{% assign link_url = app.homepage | default: app_source %}
+
+<article id="slug" class="app">
+  <h4 class="app-title">
+  {{ app.title }}
+  </h4>
+
+  <header class="app-tags">
+    {% if app.official %}
+      <span class="app-tag app-official">official</span>
+    {% endif %}
+    {% if app.prerelease %}
+      <span class="app-tag app-prerelease">pre-release</span>
+    {% endif %}
+  </header>
+
+  <section class="app-description">
+  {{ app.description | markdownify }}
+  </section>
+
+  <dl class="app-details">
+    {% if app.package %}
+      <dt>Package</dt>
+      <dd class="app-package"><kbd>{{ app.package }}</kbd></dd>
+    {% endif %}
+
+    {% if app.homepage %}
+      <dt>Homepage</dt>
+      {% assign link_html = href | replace: '#', app.homepage | replace: https, gt %}
+      <dd>{{ link_html }}</dd>
+    {% endif %}
+
+    {% if app.source %}
+      <dt>Source</dt>
+      {% assign source = href | replace: '#', app_source | replace: https, gt %}
+      <dd class="app-source">{{ source }}</dd>
+    {% endif %}
+
+    {% if app.issues %}
+      <dt>Issue tracker</dt>
+      {% assign issues = href | replace: '#', app.issues | replace: https, gt %}
+      <dd class="app-issues">{{ issues }}</dd>
+    {% endif %}
+  </dl>
+</article>
+{% endfor %}
+{% endcapture %}
+<section class="apps">{{ apps_html }}</section>
