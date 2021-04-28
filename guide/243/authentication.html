@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cockpit Authentication</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Cockpit Guide">
+<link rel="up" href="guide.html" title="Part I. Deployment Guide">
+<link rel="prev" href="startup.html" title="Start up">
+<link rel="next" href="sso.html" title="Single Sign On">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="startup.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="guide.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="sso.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="authentication"></a>Cockpit Authentication</h2></div></div></div>
+<div class="toc"><dl class="toc">
+<dt><span class="section"><a href="authentication.html#initial-auth">Directly logging into the primary server</a></span></dt>
+<dt><span class="section"><a href="authentication.html#secondary-auth">Logging into a secondary server from the primary session</a></span></dt>
+<dd><dl>
+<dt><span class="section"><a href="authentication.html#password">Password</a></span></dt>
+<dt><span class="section"><a href="authentication.html#kerberos">Kerberos</a></span></dt>
+<dt><span class="section"><a href="authentication.html#public-key">Public key</a></span></dt>
+<dt><span class="section"><a href="authentication.html#host-keys">SSH host keys</a></span></dt>
+</dl></dd>
+<dt><span class="section"><a href="authentication.html#direct-secondary-auth">Directly logging into a secondary server without a primary session</a></span></dt>
+</dl></div>
+<p>While cockpit allows you to monitor and administer several servers at the
+      same time, there is always a primary server your browser connects to
+      that runs the Cockpit web service (cockpit-ws) through which connections to
+      additional servers are established.
+      See <a class="ulink" href="https://raw.githubusercontent.com/cockpit-project/cockpit/master/doc/cockpit-transport.png" target="_top">this diagram</a> for how it works.</p>
+<p>Normally, a session is established on the primary server,
+      and you use the Shell UI of that session to connect to secondary
+      servers.</p>
+<p>However, it is also possible to instruct the
+      <code class="filename">cockpit-ws</code> process on the primary server to
+      directly connect to a secondary server, without opening a
+      session on the primary server at all. This is done on the main
+      login page of Cockpit, by filling out the "Connect to"
+      field.</p>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="initial-auth"></a>Directly logging into the primary server</h2></div></div></div>
+<p>The most common way to use Cockpit is to just log directly
+    into the server that you want to access. This can be done if you
+    have direct network access to port 9090 on that server.</p>
+<p>By default the cockpit web service is installed on the base system and
+      <a class="link" href="listen.html" title="TCP Port and Address">socket activated by systemd</a>. In this setup
+      access is controlled by a cockpit specific pam stack, generally located
+      at <code class="filename">/etc/pam.d/cockpit</code>. By default this is configured
+      to allow you to login with the username and password of any local account on the
+      system. You can also setup a <a class="link" href="sso.html" title="Single Sign On">Kerberos based SSO
+      solution</a> or <a class="link" href="cert-authentication.html" title="Certificate/smart card authentication">certificate/smart
+      card authentication</a>.
+    </p>
+<p>You can also <a class="ulink" href="https://github.com/cockpit-project/cockpit/blob/master/doc/authentication.md#actions" target="_top">disable
+    authentication schemes</a> to enforce authentication policies, or to suppress
+    undesired browser GSSAPI authentication dialogs.</p>
+<p>The web server can also be run from the
+      <a class="ulink" href="https://hub.docker.com/r/cockpit/ws/" target="_top">cockpit/ws</a>
+      container. If you are running cockpit on a container host operating system like
+      <a class="ulink" href="https://getfedora.org/coreos/" target="_top">Fedora CoreOS</a>
+      this will be the only supported mode. In this setup, cockpit establishes an
+      SSH connection from the container to the underlying host, meaning that it is up to
+      your SSH server to grant access. To login with a local account, <code class="filename">sshd
+      </code> will need to be configured to allow password based authentication.
+      Alternatively you can setup a <a class="link" href="sso.html" title="Single Sign On">Kerberos based SSO
+      solution</a>.</p>
+<p>Like <code class="filename">sshd</code>, cockpit can be configured to limit the number
+      of concurrent login attempts allowed. This is done by adding a <code class="code">MaxStartups</code>
+      option to the <code class="code">WebService</code> section of your <code class="code">cockpit.conf</code>.
+      Additional connections will be dropped until authentication succeeds or
+      the connections are closed.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="secondary-auth"></a>Logging into a secondary server from the primary session</h2></div></div></div>
+<p>Once you have a session on the primary server you will be
+    able to connect to additional servers by using the host switching
+    UI of the Cockpit Shell. This is useful if you have direct network
+    access to the primary server, but not to the secondary server.</p>
+<p>On the command line, you would log into the primary server
+    and then use SSH to log into the secondary one. Cockpit does just
+    the same, and uses SSH to log into the secondary server. Instead
+    of running a interactive shell there, however, it starts a
+    <code class="filename">cockpit-bridge</code> process.</p>
+<p>Thus, these servers will need to be running an SSH server on
+    port 22 and be configured to support one of the following
+    authentication methods.</p>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="password"></a>Password</h3></div></div></div>
+<p>The target server will need to have password based authentication
+        enabled in <code class="filename">sshd</code>.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="kerberos"></a>Kerberos</h3></div></div></div>
+<p>The target server will need to be a member of the same domain as the
+        primary server and your domain must be whitelisted in your browser.
+        See the <a class="link" href="sso.html" title="Single Sign On">SSO documentation</a> for how to set
+        this up.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="public-key"></a>Public key</h3></div></div></div>
+<p>When you successfully log into the primary server, a
+    <code class="filename">ssh-agent</code> is started and keys are loaded into
+    it by running <code class="filename">ssh-add</code> without any arguments.
+    Any passphrase prompt is answered with the password used to log
+    into the primary server.</p>
+<p>Cockpit provides a user interface for loading other keys into the agent
+      that could not be automatically loaded.</p>
+<p>The target server will need to have public key
+    authentication enabled in <code class="filename">sshd</code>, and the
+    public key you wish to use must be present in
+    <code class="filename">~/.ssh/authorized_keys</code>. Cockpit has a user
+    interface for creating SSH keys and for authorizing them.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="host-keys"></a>SSH host keys</h3></div></div></div>
+<p>Cockpit will prompt the user to verify unknown SSH host
+      keys, and will write accepted host keys into
+      <code class="filename">~/.ssh/known_hosts</code>.</p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="direct-secondary-auth"></a>Directly logging into a secondary server without a primary session</h2></div></div></div>
+<p>It is also possible to log into a secondary server without
+    opening a session on the primary server. This is useful if you
+    are not actually interested in the primary server and would only
+    use it because you do not have direct network access to the
+    secondary server.</p>
+<p>In this case, <code class="filename">cockpit-ws</code> still runs on
+    the primary server, but the credentials from the login screen are
+    directly used with SSH to log into the secondary server given in
+    the "Connect To" field of the login screen.</p>
+<p>Thus, the PAM configuration and accounts on the primary
+    server don't matter at all. Often, the only purpose of the primary
+    server is to sit on the boundary of your network and forward
+    connections to internal machines.</p>
+<p>In this case, the login page will prompt you to verify
+    unknown SSH keys. Accepted keys will be remembered in the local
+    storage of your browser.</p>
+</div>
+</div>
+<div class="footer"><hr></div>
+</body>
+</html>
