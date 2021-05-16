@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Journal</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Cockpit Guide">
+<link rel="up" href="features.html" title="Part II. Feature Internals">
+<link rel="prev" href="feature-systemd.html" title="systemd">
+<link rel="next" href="feature-networkmanager.html" title="NetworkManager">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="feature-systemd.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="features.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="feature-networkmanager.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="feature-journal"></a>Journal</h2></div></div></div>
+<p>The systemd journal provides Cockpit with indexed log data. This log data
+    is found on the Journal page, as well as in various other places when configuring
+    services, storage, networking etc.</p>
+<p>Cockpit accesses Journal data via the
+    <a class="ulink" href="https://www.freedesktop.org/software/systemd/man/journalctl.html" target="_top"><code class="code">journalctl</code></a>
+    command. Similar tasks can be performed at the command line:</p>
+<pre class="programlisting">
+$ <span class="command"><strong>sudo journalctl -f -u docker</strong></span>
+...
+</pre>
+</div>
+<div class="footer"><hr></div>
+</body>
+</html>

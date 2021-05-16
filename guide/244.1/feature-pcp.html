@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PCP Metrics</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Cockpit Guide">
+<link rel="up" href="features.html" title="Part II. Feature Internals">
+<link rel="prev" href="feature-terminal.html" title="Terminal">
+<link rel="next" href="feature-machines.html" title="Multiple Machines">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="feature-terminal.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="features.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="feature-machines.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="feature-pcp"></a>PCP Metrics</h2></div></div></div>
+<p>If available, Cockpit uses the
+    <a class="ulink" href="https://pcp.io/" target="_top">Performance Co-Pilot</a> framework to
+    gather metrics data about the system. This data is used to display the history
+    graphs on the "Performance Metrics" page.
+    Cockpit can use the PCP logging feature to display archived data about the
+    system from a different point in time. If PCP is not available, then Cockpit
+    gathers the metrics data itself, but archival features are not available.</p>
+<p>Whether or not metrics are archived depends on whether the
+    <a class="ulink" href="https://linux.die.net/man/1/pmlogger" target="_top"><code class="code">pmlogger.service</code></a> and
+    <a class="ulink" href="https://linux.die.net/man/1/pmcd" target="_top"><code class="code">pmcd.service</code></a>
+    systemd units are running or not. The "Store metrics" switch in the "Configuration" card on
+    the "Overview" page will enable and start these services.</p>
+<p>To see similar metrics data from the command line, you can use tools like
+    <a class="ulink" href="https://pcp.io/books/PCP_UAG/html/LE38515-PARENT.html#LE91266-PARENT" target="_top"><code class="code">pmstat</code></a>
+    or <a class="ulink" href="https://pcp.io/books/PCP_UAG/html/LE60452-PARENT.html" target="_top"><code class="code">pminfo</code></a>:</p>
+<pre class="programlisting">
+$ <span class="command"><strong>pmstat</strong></span>
+@ Sat Sep 26 15:30:10 2015
+ loadavg                      memory      swap        io    system         cpu
+   1 min   swpd   free   buff  cache   pi   po   bi   bo   in   cs  us  sy  id
+    4.19      0 20710m 605148  6450m    0    0    0 2548 5688  14K  19   3  76
+...
+</pre>
+<p>These metrics can also be exposed to other machines on a TCP port with
+  <a class="ulink" href="https://linux.die.net/man/1/pmproxy" target="_top">pmproxy</a>
+  and <a class="ulink" href="https://redis.io/" target="_top">Redis</a>:</p>
+<pre class="programlisting">
+systemctl enable --now redis pmproxy
+# if you use firewalld, open port 44322:
+firewall-cmd --permanent --add-service pmproxy
+firewall-cmd --reload
+</pre>
+<p>This allows you to gather and visualize PCP metrics from multiple machines with
+  <a class="ulink" href="https://grafana.com/" target="_top">Grafana</a> and the
+  <a class="ulink" href="https://grafana-pcp.readthedocs.io" target="_top">PCP Grafana plugin</a>.</p>
+</div>
+<div class="footer"><hr></div>
+</body>
+</html>
