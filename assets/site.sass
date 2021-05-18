@@ -337,6 +337,29 @@ html.running-cockpit
       &:not(:first-child)
         margin-top: 2rem
 
+.-path-running-safari .page-content ol
+  @media (min-width: $on-laptop)
+    margin: 2rem 2rem 3rem
+
+  li + li
+    margin-top: 2rem
+
+  img
+    max-width: 250px
+    height: auto
+    display: inline-block
+
+    &.full-width
+      max-width: 100%
+
+    + img
+      @media (min-width: $on-laptop)
+        margin-left: 1rem
+
+  .safari-icon
+    // Will use max-width for images 😉
+    width: 100%
+
 .browser-header
   text-align: center
   background: linear-gradient(transparent calc(50% - 1px), #babdb6 50%, transparent calc(50% + 1px))
@@ -512,13 +535,15 @@ footer.footer-cockpit
     
   > li
     display: flex
+    display: grid
+    grid-template-columns: auto 1fr
+    grid-gap: 0 0.75rem
     align-items: start
 
   img
     width: 2rem
     height: auto
     min-height: 2rem
-    margin-right: 0.75em
 
   .browser-name
     // Adjust for the difference between the icon height and the text height
@@ -530,6 +555,11 @@ footer.footer-cockpit
     // Firefox's tail is slightly taller
     top: -1px
 
+  .note-safari
+    font-size: 0.8em
+    grid-column: 2
+    font-style: normal
+
 #browser-support
   &[data-browser-supported="true"] .is-not-supported,
   &:not([data-browser-supported="true"]) .is-supported
@@ -540,7 +570,6 @@ footer.footer-cockpit
     padding: 1rem 2rem 1rem 1.5rem
     border-radius: 3px
     display: inline-block
-
 
   .is-supported
     background: #e6f6cc

@@ -29,6 +29,7 @@ Cockpit is also periodically checked with:
 {:.browser-support}
 - {{icon | replace: "0", "edge"}}{{label | replace: "0", "Microsoft Edge"}}
 - {{icon | replace: "0", "safari"}}{{label | replace: "0", "Apple Safari"}}
+  _[iPhones, iPads, and macOS on ARM/M1 may require a workaround]({{ site.baseurl }}/running/safari.html)_{:.note-safari}
 - {{icon | replace: "0", "epiphany"}}{{label | replace: "0", "GNOME Web (Epiphany)"}}
 
 <div id="browser-support">
