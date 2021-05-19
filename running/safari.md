@@ -43,7 +43,7 @@ As an alternative workaround, you can enable Apple's future/experimental WebSock
 
 ## macOS on ARM (M1)
 
-1. Open Safari's settings and select "**Advanced**"
+1. Open Safari's settings, select "**Advanced**", and enable "**Show Develop menu in menu bar**"
 
    ![Safari's settings]({{ site.baseurl }}/images/safari/macos-safari-advanced.png){:.full-width}
 
