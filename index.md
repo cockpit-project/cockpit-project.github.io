@@ -184,7 +184,7 @@ Contributing
 : [Contribution overview](https://github.com/cockpit-project/cockpit/wiki/Contributing)
 : [Get the source](https://github.com/cockpit-project/cockpit)
 : [Join the mailing list](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/)
-: [IRC #cockpit on Freenode.net](irc://irc.freenode.net:6667/cockpit)
+: [IRC #cockpit on libera.chat](ircs://irc.libera.chat:6697)
 : [Developer tutorials](blog/category/tutorial.html)
 : [Developer API reference](guide/latest/development.html)
 {:.col.footer-links-3}
