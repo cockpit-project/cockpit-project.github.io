@@ -10,7 +10,7 @@ There are some third party places where the Cockpit Project stores data:
 
 - [GitHub Pages](https://help.github.com/articles/what-is-github-pages/) is the website host. Please [refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
 - [YouTube](https://youtube.com/) videos are embedded in some pages on the website. YouTube embeds are rewritten as to not use cookies. [Refer to YouTube's privacy policy for details](https://support.google.com/youtube/answer/7671399?hl=en).
-- [Freenode.net](https://freenode.net/) is the location of the Cockpit Project's IRC channel, #cockpit. [Refer to Freenode's policies for details](https://freenode.net/policies)
+- [libera.chat](https://libera.chat/) is the location of the Cockpit Project's IRC channel, #cockpit. [Refer to libera.chat's policies for details](https://libera.chat/privacy)
 - The Cockpit Project has [a mailing list for development](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/), hosted by [the Fedora Project](https://fedora.org/). [Refer to Fedora's privacy policy for more details](https://fedoraproject.org/wiki/Legal:PrivacyPolicy).
 - The Cockpit software is stored in git, on [GitHub](https://github.com/). The git software does collect names and email addresses in repositories. GitHub has account information. [Refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
 
@@ -108,9 +108,9 @@ Where the EU General Data Protection Regulation 2016/679 (“GDPR”) applies to
 * The right to receive your personal data in a usable electronic format and transmit it to a third party (also known as the right of data portability); and
 * The right to lodge a complaint with your local data protection authority.
 
-If you would like to exercise any of these rights, you may do so by [contacting the Cockpit Project on IRC](https://webchat.freenode.net/?channels=%23cockpit). Please understand, however, the rights enumerated above are not absolute in all cases.
+If you would like to exercise any of these rights, you may do so by [contacting the Cockpit Project on IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit). Please understand, however, the rights enumerated above are not absolute in all cases.
 
-Where the GDPR applies, you also have the right to withdraw any consent you have given to uses of your personal data. If you wish to withdraw consent that you have previously provided to the Cockpit Project, [please contact us via IRC](https://webchat.freenode.net/?channels=%23cockpit) (#cockpit on irc.freenode.net). However, the withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
+Where the GDPR applies, you also have the right to withdraw any consent you have given to uses of your personal data. If you wish to withdraw consent that you have previously provided to the Cockpit Project, [please contact us via IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit) (#cockpit on irc.libera.chat/6697). However, the withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
 
 ### How to Access, Modify or Update Your Information
 
@@ -118,7 +118,7 @@ If you wish to remove your personal data from the Cockpit Project website, you m
 
 ### How to Contact Us
 
-If you have any questions about any of these practices or the Cockpit Project's use of your personal information, please feel free to [contact us on IRC](https://webchat.freenode.net/?channels=%23cockpit) (#cockpit on irc.freenode.net).
+If you have any questions about any of these practices or the Cockpit Project's use of your personal information, please feel free to [contact us on IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit) (#cockpit on [irc.libera.chat](https://libera.chat/)).
 
 The Cockpit Project will work with you to resolve any concerns you may have about this Statement.
 
