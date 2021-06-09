@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cockpit URLs</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Cockpit Guide">
+<link rel="up" href="development.html" title="Part III. Developer Guide">
+<link rel="prev" href="packages.html" title="Cockpit Packages">
+<link rel="next" href="api-base1.html" title="API: base1">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="packages.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="development.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="api-base1.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="urls"></a>Cockpit URLs</h2></div></div></div>
+<div class="toc"><dl class="toc">
+<dt><span class="section"><a href="urls.html#urls-components">Component URLs</a></span></dt>
+<dt><span class="section"><a href="urls.html#urls-visible">Visible URLs</a></span></dt>
+</dl></div>
+<p>Cockpit URLs follow a specific structure, related to the components they are
+    loading. Various components are loaded in <code class="code">&lt;iframe&gt;</code> tags. The
+    URLs for these components are described first. Further down below you can
+    find information about the top level bookmarkable Cockpit address URLs.</p>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="urls-components"></a>Component URLs</h2></div></div></div>
+<p>Cockpit components are HTML documents. They are organized into
+      <a class="link" href="packages.html" title="Cockpit Packages">packages</a>. Each package contains information about
+      which HTML components are available in that package. Components should always use
+      relative URLs to access resources, such as images, scripts or CSS files, even
+      if they refer to a resource in another package.</p>
+<p>The following are valid component URLs, each bit will be discussed
+      below:</p>
+<pre class="programlisting">
+/cockpit/@localhost/package/component.html#/hash
+/cockpit/$checksum/package/component.html#/hash
+/cockpit/@server.example.com/package/component.html#/hash
+/cockpit+embedder/@localhost/package/component.html#/hash
+</pre>
+<p>All resource URLs are under the <code class="code">/cockpit</code> namespace. In cases
+      where a Cockpit component is being <a class="link" href="embedding.html" title="Embedding and Integrating Cockpit">embedded</a>
+      the <code class="code">/cockpit</code> may be followed by a plus sign and another
+      <code class="code">embedder</code> specific identifier.</p>
+<p>What follows is either a <code class="code">@host</code> or <code class="code">$checksum</code> which
+      tells cockpit where to <a class="link" href="packages.html" title="Cockpit Packages">find the package</a>.
+      Checksums are used when more than one host has identical packages and the resources
+      can be cached.</p>
+<p>The <code class="code">package</code> name is next, followed by the <code class="code">component</code>
+      HTML path inside that package. And lastly a hash allows for navigation within a
+      single component. The hash should follow a URL path and/or query string form.</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p>Never assume that the <code class="code">@host</code> or <code class="code">$checksum</code> portion
+        is predictable. Only refer to resources in packages on the same host.</p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="urls-visible"></a>Visible URLs</h2></div></div></div>
+<p>The above Component URLs are usually not visible to the user. Instead the
+      Cockpit Web Service wraps the components in a shell which allows navigation, and
+      provides bookmarkable clean URLs to the component. These URLs do not affect
+      <a class="link" href="embedding.html" title="Embedding and Integrating Cockpit">embedders</a> or
+      <a class="link" href="packages.html" title="Cockpit Packages">components</a> directly.</p>
+<p>If no path is present then the Cockpit will redirect to the default page for the server.</p>
+<p>If the first segment of the path begins with an <code class="code">@</code> sign, then
+      the component is being shown from a non-local host.</p>
+<p>The next segment of the path, (or first if the component is being shown on
+      the local host) is the <a class="link" href="packages.html" title="Cockpit Packages">package name</a>.
+      The remainder of the path is a component file in the package. If no further path
+      segments are present, a default <code class="code">index.html</code> component in the package
+      is loaded. An extension of <code class="filename">.html</code> is automatically
+      appended.</p>
+<p>The hash portion of the path is automatically transferred to the component
+      as the hash of its <a class="link" href="urls.html#urls-components" title="Component URLs">resource URL</a>.</p>
+</div>
+</div>
+<div class="footer"><hr></div>
+</body>
+</html>
