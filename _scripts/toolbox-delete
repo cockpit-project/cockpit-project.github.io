@@ -1,4 +1,4 @@
-#!/usr/bin/bash -e
+#!/bin/sh -e
 
 echo "## Deleting Cockpit website container..."
 

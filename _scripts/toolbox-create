@@ -1,4 +1,4 @@
-#!/usr/bin/bash -e
+#!/bin/sh -e
 
 echo "## Creating website container..."
 toolbox create -c cockpit-website -r 34
@@ -18,4 +18,4 @@ echo "## Installing local gems"
 $run bundle install
 
 echo "## Done!"
-echo "## Run _scripts/toolbox-run"
+echo "## Run _scripts/toolbox-jekyll"
