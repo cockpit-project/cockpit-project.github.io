@@ -26,6 +26,15 @@ bots_pages = %w[
 
 # URLs to rewrite
 @url_rewrites = {
+  'https://github.com/cockpit-project/cockpit/blob/main/HACKING.md' =>
+  '{{ site.baseurl }}/external/source/HACKING.html',
+
+  'https://github.com/cockpit-project/cockpit/blob/main/test/README' =>
+  '{{ site.baseurl }}/external/source/test/README.html',
+
+  'https://github.com/cockpit-project/bots/blob/main/README.md' =>
+  '{{ site.baseurl }}/external/bots/README.html',
+
   'https://github.com/cockpit-project/cockpit/blob/master/HACKING.md' =>
   '{{ site.baseurl }}/external/source/HACKING.html',
 
