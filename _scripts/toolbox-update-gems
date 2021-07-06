@@ -1,10 +1,10 @@
 #!/usr/bin/bash -e
 
-echo "## Updating Cockpit website container..."
+echo "## Updating Cockpit website gems..."
 
 run="toolbox run -c cockpit-website"
 
 $run bundle install
 
 echo "## Done!"
-echo "## Run _scripts/toolbox-run"
+echo "## Run _scripts/toolbox-jekyll"
