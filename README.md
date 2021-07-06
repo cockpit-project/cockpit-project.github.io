@@ -21,21 +21,21 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 
 Run the website locally using Jekyll with:
 
-1. `_scripts/toolbox-run`
+1. `_scripts/toolbox-jekyll`
 2. Visit <http://127.0.0.1:4000/>
 
-You can pass arguments to the run command. To see everything available, pass `--help`.
+You can pass arguments to the toolbox-jekyll command. To see everything available, pass `--help`.
 The most useful arguments are:
 - `-I` for incremental, which speeds up page compilation by recompiling only parts that have changed
 - `-l` for livereload, which updates the browser when parts of the page change
 
 So, for instant rendering of local changes, you'd run:
 
-- `_scripts/toolbox-run -Il`
+- `_scripts/toolbox-jekyll -Il`
 
 #### Updating when Gemfile / Gemfile.lock changes
 
-1. `_scripts/toolbox-update`
+1. `_scripts/toolbox-update-gems`
 
 #### Deleting the container
 
