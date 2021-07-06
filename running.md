@@ -154,7 +154,7 @@ The standard Fedora CoreOS image does not contain Cockpit packages.
    rpm-ostree install cockpit-system cockpit-ostree cockpit-podman
    ```
 
-   Depending on your configuration, you may want to use other `cockpit-*` extensions as well, such as `cockpit-kdump` or `cockpit-networkmanager`.
+   Depending on your configuration, you may want to use other [`cockpit-*` extensions](https://cockpit-project.org/applications.html) as well, such as `cockpit-kdump` or `cockpit-networkmanager`.
 
    If you have a custom-built OSTree, simply include the same packages in your build.
 
