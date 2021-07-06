@@ -124,6 +124,10 @@ def fetch_and_add(pages, type = :source)
   end
 end
 
-fetch_and_add(wiki_pages, :wiki)
+puts 'Updating source pages'
 fetch_and_add(source_pages, :source)
+puts 'Updating wiki pages'
+fetch_and_add(wiki_pages, :wiki)
+puts 'Updating bots pages'
 fetch_and_add(bots_pages, :bots)
+puts 'All pages updated'
