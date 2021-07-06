@@ -44,12 +44,6 @@ For running and debugging the images:
    overlay in test/images/ instead.
  * `vm-reset`: Remove all overlays from test/images/
 
-If you use `vm-run` with the `--network` option and you get an error:
-
-    qemu-system-x86_64: -netdev bridge,br=cockpit1,id=bridge0: bridge helper failed
-
-then please [allow][1] `qemu-bridge-helper` to access the bridge settings.
-
 ## Image location
 
 Downloaded images are stored into ~/.cache/cockpit-images/ by default. If you
@@ -132,7 +126,7 @@ where items have the following meaning:
 - scenario: Name of a specific test. This is specific for each separate project and
   is passed verbatim to 'test/run' in `$TEST_SCENARIO`.
 - bots_pr: Number of pull request that exists in bots repository. When specified,
-  bots from this PR would be used instead of master.
+  bots from this PR would be used instead of main.
 - owner/project: Name of github project (e.g. 'cockpit-project/cockpit'). This part can
   be omitted when testing in the same project and no 'ref' is needed.
 - ref: Reference in the project (usually branch) (e.g. 'rhel-8.2'). Default is
@@ -207,5 +201,3 @@ good idea to make a dedicated pull request just for the images.  That
 pull request can then hopefully be merged faster.  If
 instead the images are created on the main feature pull request and
 sit there for a long time, they might cause annoying merge conflicts.
-
-[1]: https://blog.christophersmart.com/2016/08/31/configuring-qemu-bridge-helper-after-access-denied-by-acl-file-error/
