@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # Run with:
-# toolbox run -c cockpit-website sh -c "bundle exec _scripts/generate-release-notes.rb"
+# _scripts/toolbox-ruby _scripts/generate-release-notes.rb
 
 ### Editable variables ###
 
