@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+# Run using toolbox-ruby:
+# _scripts/toolbox-ruby _scripts/update-external-docs.rb
+
 ### Editable variables ###
 
 # Pages to fetch from the Cockpit wiki
