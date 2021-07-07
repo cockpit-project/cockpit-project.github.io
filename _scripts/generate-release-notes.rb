@@ -229,10 +229,9 @@ def find_terms(doc)
   end
 end
 
-# Reformat lower-case repo name to titlecase
+# Reformat repo name when appropriate
 def repo_human(repo)
-  repo.split('-').map(&:capitalize).join('-')
-      .sub('Ostree', 'OSTree')
+  repo.match('-') ? repo : repo.capitalize
 end
 
 # Generate headers and footers based on the template, with substitions for versions
