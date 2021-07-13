@@ -165,7 +165,7 @@ file-sharing:
   official: false
   prerelease: false
   description: |
-    A Cockpit plugin to easily manage samba and NFS file sharing.
+    A Cockpit plugin to easily manage Samba and NFS file sharing.
 
 smb:
   title: SMB Plugin
