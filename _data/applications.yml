@@ -184,3 +184,11 @@ navigator:
   description: |
     A Featureful File Browser for Cockpit.
  
+benchmark:
+  title: Benchmark
+  source: https://github.com/45Drives/cockpit-benchmark
+  issues: https://github.com/45Drives/cockpit-benchmark/issues
+  official: false
+  prerelease: false
+  description: |
+    A Storage Benchmark Utility for Cockpit.
