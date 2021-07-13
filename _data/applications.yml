@@ -158,13 +158,14 @@ zfs:
   description: |
     An interactive ZFS on Linux admin package for Cockpit.
 
-samba:
-  title: Samba Manager
-  source: https://github.com/45Drives/cockpit-samba-manager
+file-sharing:
+  title: File Sharing
+  source: https://github.com/45Drives/cockpit-file-sharing
+  issues: https://github.com/45Drives/cockpit-file-sharing/issues
   official: false
-  prerelease: true
+  prerelease: false
   description: |
-    A Cockpit plugin to manage Samba shares and users. 
+    A Cockpit plugin to easily manage samba and NFS file sharing.
 
 smb:
   title: SMB Plugin
@@ -173,3 +174,13 @@ smb:
   prerelease: true
   description: |
     Manage your Samba shares through the Cockpit user interface.
+
+navigator:
+  title: Navigator
+  source: https://github.com/45Drives/cockpit-navigator
+  issues: https://github.com/45Drives/cockpit-navigator/issues
+  official: false
+  prerelease: false
+  description: |
+    A Featureful File Browser for Cockpit.
+ 
