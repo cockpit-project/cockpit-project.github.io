@@ -133,13 +133,15 @@ def drop_prefix(repo)
 end
 
 # Make frontmatter metadata based on logged in user and release notes
-def build_frontmatter(opts)
+def build_frontmatter
+  cockpit_title = "Cockpit #{@cockpit_version}"
+
   @frontmatter = {
-    title: opts[:title],
+    title: cockpit_title,
     author: Etc.getlogin,
     date: Time.now.strftime('%F'),
     tags: @tags.join(', '),
-    slug: opts[:slug],
+    slug: slugify(cockpit_title),
     category: 'release',
     summary: ''
   }.to_yaml.gsub(/^:/, '')
@@ -270,6 +272,7 @@ def process_repos
     # Process versions
     url_tags = tags_template.sub('REPO', repo)
     versions = get_json(url_tags).map { |tag| tag['name'].to_i }.sort
+    # Set the Cockpit version from the first repo (which is always Cockpit)
     @cockpit_version ||= versions.last + 1
 
     notes = get_json(url)['items']
@@ -286,7 +289,7 @@ def construct_all_the_notes
   # All the release note text
   release_notes = process_repos
 
-  build_frontmatter({ title: @releases.first, slug: slugify(@releases.first) })
+  build_frontmatter
 
   [
     @frontmatter, '---', "\n",
