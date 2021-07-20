@@ -114,7 +114,7 @@ end
 def oxfordize(parts)
   case parts.size
   when 0..1
-    parts.to_s
+    parts.first
   when 2
     parts.join(' and ')
   else
@@ -238,7 +238,7 @@ end
 def headfoot(template)
   template
     .gsub('VERSIONS', oxfordize(@releases))
-    .gsub('ARE', @releases != 1 ? 'are' : 'is')
+    .gsub('ARE', @releases.count != 1 ? 'are' : 'is')
 end
 
 # Construct footer locations per repo, with version-specific URLs
