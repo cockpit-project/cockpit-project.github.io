@@ -14,17 +14,17 @@ These are the rules we try to follow when working on Cockpit.
 
 * Each commit should adhere to the [Cockpit Coding Guidelines](https://github.com/cockpit-project/cockpit/wiki/Cockpit-Coding-Guidelines)
 
-* The tip of master must always pass the test suites
+* The tip of main must always pass the test suites
 
   A fleet of robots run the test suites for each pull request.  This includes unit tests, integration tests, and browser-compatibility tests.
 
   The integration tests performed are slow and brittle, and not all failures are caused by bugs in the pull request, but don't just blame every failure on the crappy tests.
 
 * Whenever a pull request changes the API or makes other significant changes, the documentation needs to be updated. Documentation locations that require manual updating include:
-  * [the top-level README.md](https://github.com/cockpit-project/cockpit/blob/master/README.md) about the most important user-facing information about Cockpit
+  * [the top-level README.md](https://github.com/cockpit-project/cockpit/blob/main/README.md) about the most important user-facing information about Cockpit
   * [HACKING.md]({{ site.baseurl }}/external/source/HACKING.html) for development information
-  * [test/README.md](https://github.com/cockpit-project/cockpit/blob/master/test/README.md) for how to set up and run the integration tests
-  * the [documentation tree](https://github.com/cockpit-project/cockpit/tree/master/doc), used for [the guide]({{ site.baseurl }}/guide/latest/)
+  * [test/README.md](https://github.com/cockpit-project/cockpit/blob/main/test/README.md) for how to set up and run the integration tests
+  * the [documentation tree](https://github.com/cockpit-project/cockpit/tree/main/doc), used for [the guide]({{ site.baseurl }}/guide/latest/)
 
 * [Screenshots](#screenshot) and/or [videos](#video) should be included in every pull request that causes visual changes.
 
@@ -36,13 +36,13 @@ These are the rules we try to follow when working on Cockpit.
 
 ## Git-related / Merging Conventions
 
-* No merge commits on master.
+* No merge commits on main.
 
   See https://sandofsky.com/blog/git-workflow.html for the motivation.  In brief, merge commits are confusing when rolling back history to find the commit that introduced a particular bug/feature.
 
   Thus, we normally use "Rebase and Merge" when merging pull requests.
 
-* Each commit on master should have been reviewed.  (Almost each.)
+* Each commit on main should have been reviewed.  (Almost each.)
 
   The commits made during a release to bump the version number etc don't need to be formally reviewed.
 
@@ -54,9 +54,9 @@ These are the rules we try to follow when working on Cockpit.
 
 * If a commit fixes an issue, it should have a `Fixes #NNN` line.
 
-* Force pushing to master or other release branches is not allowed.
+* Force pushing to main or other release branches is not allowed.
 
-  The only way to get commits onto master is to rebase/merge a pull request onto it. If you regret merging a pull request, revert its changes with a new pull request.
+  The only way to get commits onto main is to rebase/merge a pull request onto it. If you regret merging a pull request, revert its changes with a new pull request.
  
 * The main cockpit-project/cockpit repository should not have any work-in-progress branches.
 
@@ -74,7 +74,7 @@ These are the rules we try to follow when working on Cockpit.
 
 * A pull request is updated with copious rewrites and rebases until it has a small number of 'perfect' commits.
 
-  These commits should be fit for master and the pull request is merged by rebasing these commits onto master.
+  These commits should be fit for main and the pull request is merged by rebasing these commits onto main.
 
 * A pull request that depends on other pull requests declares that in its description.
 
@@ -87,13 +87,13 @@ We usually merge requests from the GitHub Web UI with the "Rebase and Merge" but
 This is Git, so there are many ways to arrive at the wanted result, and all are equally obscure.  Use whatever method is most familiar to you.  Here is one way:
 
 ```
-$ git fetch origin master
+$ git fetch origin main
 $ git fetch origin pull/<PR-ID>/head
-$ git rebase -i origin/master FETCH_HEAD
+$ git rebase -i origin/main FETCH_HEAD
 $ git log
 ## Check if everything looks good
-$ git push origin HEAD:master
-$ git checkout master
+$ git push origin HEAD:main
+$ git checkout main
 ```
 
 ## Screenshot
