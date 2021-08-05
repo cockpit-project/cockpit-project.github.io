@@ -3,9 +3,9 @@ title: Cockpit Bots
 source: https://github.com/cockpit-project/bots/blob/master/README.md
 ---
 
-These are automated bots and tools that work on Cockpit. This
-includes updating operating system images, testing changes,
-releasing Cockpit and more.
+These are automated bots and tools that work on Cockpit. This includes updating
+operating system images, updating translations or NPM modules, testing PRs, and
+more.
 
 ## Images
 
@@ -17,9 +17,10 @@ on another, and you want those two machines to use different images.
 This is handled by passing a specific image to image-create
 and other scripts that work with test machine images. Available images include:
 
- - fedora-*, rhel-*, debian-*, etc: Various operating systems for testing Cockpit related projects
- - services: Auxiliary network services for tests which are independent from the OS where Cockpit runs: FreeIPA, Samba AD, candlepin, selenium containers
- - openshift: An Openshift Origin server
+ - `fedora-*`, `rhel-*`, `debian-*`, etc: Various operating systems for testing Cockpit related projects
+ - `services`: Auxiliary network services for tests which are independent from
+   the OS where Cockpit runs: FreeIPA, Samba AD, candlepin, Grafana
+ - `openshift`: An Openshift Origin server
 
 These well known image names are expected to contain no `.`
 characters and have no file name extension.
@@ -30,19 +31,21 @@ or using the [machine Python API](./machine/machine_core/).
 
 For managing these images:
 
- * `image-download`: Download selected or all test images
- * `image-create`: Create test machine images from scratch (usually through
+ - `image-download`: Download selected or all test images
+ - `image-create`: Create test machine images from scratch (usually through
    virt-install or downloading a cloud image), with common build and test
    dependencies for Cockpit projects preinstalled
- * `image-upload`: Upload a locally built test image to the official image servers
+ - `image-upload`: Upload a locally built test image to the official image servers
 
 For running and debugging the images:
 
- * `image-customize`: Install packages, upload files, or run commands in a test machine image; this keeps the original image intact, and puts the changes into an image overlay into test/images/.
- * `vm-run`: Run a test machine image; by default this happens in an ephemeral
+ - `image-customize`: Install packages, upload files, or run commands in a test
+   machine image; this keeps the original image intact, and puts the changes
+   into an image overlay into test/images/.
+ - `vm-run`: Run a test machine image; by default this happens in an ephemeral
    overlay. You can use the `--maintain` option to write into the persistent
    overlay in test/images/ instead.
- * `vm-reset`: Remove all overlays from test/images/
+ - `vm-reset`: Remove all overlays from test/images/
 
 ## Image location
 
@@ -70,7 +73,7 @@ cockpit-bots.
 
 ## Integration with GitHub
 
-A number of machines are watching our GitHub repository and are
+A number of machines are watching our GitHub repositories and are
 executing tests for pull requests as well as making new images.
 
 Most of this happens automatically, but you can influence their
@@ -81,12 +84,11 @@ actions with the tests-trigger utility in this directory.
 You need a GitHub token in ~/.config/cockpit-dev/github-token or from
 the [GitHub CLI](https://cli.github.com/) configuration in
 ~/.config/gh/config.yml.  You can create one for your account at
-
-    https://github.com/settings/tokens
+[Developer Settings → Personal access tokens](https://github.com/settings/tokens).
 
 When generating a new personal access token, the scope should only contain
-`repo:status` and `read:org`.  Note in particular, that `repo` and
-`public_repo` scopes each grant full push access, and should not be used.
+`repo:status`. Note in particular, that `repo` and `public_repo` scopes each
+grant full push access, and should not be used.
 
 If you'd like to download Red Hat-only internal images from S3, you'll
 need to create a key file in `~/.config/cockpit-dev/s3-keys/[domain]`.
@@ -161,8 +163,9 @@ the current directory's project.
 
 ### Testing a pull request by a non-allowed user
 
-If you want to run all tests on pull request #1234 that has been opened by someone
-who does not have push access to the repository nor isn't in the 'Contributors' team,
+If you want to run all tests on pull request #1234 that has been opened by
+someone who does not have push access to the repository nor isn't in the
+[Contributors team](https://github.com/orgs/cockpit-project/teams/contributors/members),
 run tests-trigger with `--allow`:
 
     $ ./tests-trigger --allow [...]
@@ -195,9 +198,3 @@ The machines will post comments to the pull request about their
 progress and at the end there will be links to commits with the new
 images.  You can then include these commits into the pull request in
 any way you like.
-
-If you are certain about the changes to the images, it is probably a
-good idea to make a dedicated pull request just for the images.  That
-pull request can then hopefully be merged faster.  If
-instead the images are created on the main feature pull request and
-sit there for a long time, they might cause annoying merge conflicts.
