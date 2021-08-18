@@ -31,6 +31,7 @@ layout: guide
 <dt><span class="section"><a href="cert-authentication.html#certauth-server-samba-ad">Certificate mapping with Samba Active Directory</a></span></dt>
 <dt><span class="section"><a href="cert-authentication.html#certauth-server-cockpitconf">Cockpit web server configuration</a></span></dt>
 <dt><span class="section"><a href="cert-authentication.html#certauth-server-resourcelimits">Cockpit web server resource limits</a></span></dt>
+<dt><span class="section"><a href="cert-authentication.html#certauth-forwarding">Authentication to other services like sudo and ssh</a></span></dt>
 </dl></div>
 <p>
     Cockpit can use TLS client certificates for authenticating users. Commonly
@@ -201,6 +202,69 @@ TasksMax=100
 # add new restriction
 CPUQuota=30%
 </pre>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="certauth-forwarding"></a>Authentication to other services like sudo and ssh</h2></div></div></div>
+<p>Once you logged into Cockpit with a certificate, you likely need to switch to administative mode
+      (root privileges through sudo), or connect to remote machines through SSH. If your user account has a password,
+      that can be used for authenticating to sudo or ssh as usual.</p>
+<p><span class="emphasis"><em>Supported with FreeIPA only:</em></span> As an alternative to password authentication, you can
+      also declare the initial Cockpit certificate authentication as trusted for authenticating to SSH,
+      sudo, or other services. For that purpose, Cockpit automatically creates an
+      <a class="ulink" href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-sfu/bde93b0e-f3c9-4ddf-9f44-e1453be7af5a" target="_top">S4U2Proxy Kerberos ticket</a>
+      in the user session:
+    </p>
+<pre class="programlisting">
+$ klist
+Ticket cache: FILE:/run/user/1894000001/cockpit-session-3692.ccache
+Default principal: user@EXAMPLE.COM
+
+Valid starting     Expires            Service principal
+07/30/21 09:19:06  07/31/21 09:19:06  HTTP/myhost.example.com@EXAMPLE.COM
+07/30/21 09:19:06  07/31/21 09:19:06  krbtgt/EXAMPLE.COM@EXAMPLE.COM
+	for client HTTP/myhost.example.com@EXAMPLE.COM
+</pre>
+<p>You can set up <a class="ulink" href="https://www.freeipa.org/page/V4/Service_Constraint_Delegation" target="_top">constrained delegation rules</a>
+      to enumerate which hosts (including its own) that ticket is trusted to access. For example, if the cockpit session runs on host
+      <code class="code">myhost.example.com</code> and should be trusted to access its own host (through sudo) and another host
+      <code class="code">remote.example.com</code> (through ssh), create a delegation like this:
+    </p>
+<pre class="programlisting">
+# a list of target machines which can be accessed by a particular rule
+ipa servicedelegationtarget-add cockpit-target
+ipa servicedelegationtarget-add-member cockpit-target \
+  --principals=host/myhost.example.com@EXAMPLE.COM \
+  --principals=host/remote.example.com@EXAMPLE.COM
+
+# allow cockpit sessions (HTTP/ principal) to access that host list
+ipa servicedelegationrule-add cockpit-delegation
+ipa servicedelegationrule-add-member cockpit-delegation \
+  --principals=HTTP/myhost.example.com@EXAMPLE.COM
+ipa servicedelegationrule-add-target cockpit-delegation \
+  --servicedelegationtargets=cockpit-target
+</pre>
+<p>In addition, you need to enable GSS (Kerberos) authentication in the corresponding services.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>For SSH, enable <code class="code">GSSAPIAuthentication yes</code> in
+          <a class="ulink" href="https://linux.die.net/man/5/sshd_config" target="_top">/etc/ssh/sshd_config</a>.</p></li>
+<li class="listitem">
+<p>For sudo, enable <code class="code">pam_sss_gss</code> as described in the
+          <a class="ulink" href="https://www.mankier.com/8/pam_sss_gss" target="_top">manpage</a>:
+          In <code class="code">/etc/sssd/sssd.conf</code>: Add an entry for your domain:</p>
+<pre class="programlisting">
+[domain/example.com]
+pam_gssapi_services = sudo, sudo-i
+</pre>
+<p>In <code class="code">/etc/pam.d/sudo</code>, enable the module in the first line:</p>
+<pre class="programlisting">
+auth sufficient pam_sss_gss.so
+</pre>
+</li>
+</ul></div>
+<p><span class="emphasis"><em>Caveat:</em></span> The delegated S4U ticket is not yet forwarded to remote SSH
+    hosts when connecting to them from Cockpit, so authenticating to sudo on the remote host with
+    that ticket does not work. This will be provided in a future version.</p>
 </div>
 </div>
 <div class="footer"><hr></div>

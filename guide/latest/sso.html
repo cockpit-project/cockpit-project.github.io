@@ -69,10 +69,17 @@ _kerberos._udp.example.com has SRV record 0 100 88 dc.example.com
 <p>When joining an IPA domain with Cockpit and the <code class="code">ipa</code> command line tool is
       available, both the service principal name and a <code class="code">/etc/cockpit/krb5.keytab</code> get
       created automatically, so that Kerberos based single sign on into Cockpit works out of the
-      box. If you want/need to do this by hand or in a script, the
-      corresponding commands with IPA are:</p>
+      box. If you want/need to do this by hand or in a script, first create or modify the
+      <code class="code">HTTP/</code> service principal:</p>
 <pre class="programlisting">
-$ sudo ipa service-add --ok-as-delegate=true --force HTTP/server.example.com@EXAMPLE.COM
+$ sudo ipa service-add --ok-as-delegate=true --ok-to-auth-as-delegate=true \
+    HTTP/server.example.com@EXAMPLE.COM
+# or, if it already exists, just enable delegation:
+$ sudo ipa service-mod --ok-as-delegate=true --ok-to-auth-as-delegate=true \
+    HTTP/server.example.com@EXAMPLE.COM
+</pre>
+<p>Then generate a key for that principal:</p>
+<pre class="programlisting">
 $ sudo ipa-getkeytab -p HTTP/server.example.com@EXAMPLE.COM -k /etc/cockpit/krb5.keytab
 </pre>
 <p>The following command can be used to list the <code class="code">/etc/cockpit/krb5.keytab</code>:</p>
