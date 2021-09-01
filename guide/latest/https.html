@@ -84,7 +84,11 @@ MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyOJ5garOYw0sm
 <p>To check which certificate <code class="code">cockpit-ws</code> will use run
       the following command.</p>
 <pre class="programlisting">
-$ sudo remotectl certificate
+$ sudo /usr/libexec/cockpit-certificate-ensure --check
+</pre>
+<p>Or, on Debian-based systems:</p>
+<pre class="programlisting">
+$ sudo /usr/lib/cockpit/cockpit-certificate-ensure --check
 </pre>
 <p>If using <code class="code">certmonger</code> to manage certificates, following command can
     be used to automatically prepare concatenated .cert file:</p>

@@ -72,7 +72,11 @@ layout: guide
 <p>To check which certificate <span class="command"><strong>cockpit-ws</strong></span> will use,
       run the following command.</p>
 <pre class="programlisting">
-$ sudo remotectl certificate
+$ sudo /usr/libexec/cockpit-certificate-ensure --check
+</pre>
+<p>Or, on Debian-based systems:</p>
+<pre class="programlisting">
+$ sudo /usr/lib/cockpit/cockpit-certificate-ensure --check
 </pre>
 <p>If using <code class="literal">certmonger</code> to manage certificates, following command can
       be used to automatically prepare concatenated <code class="literal">.cert</code> file:</p>
