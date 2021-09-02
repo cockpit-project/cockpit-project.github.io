@@ -86,9 +86,9 @@ the [GitHub CLI](https://cli.github.com/) configuration in
 ~/.config/gh/config.yml.  You can create one for your account at
 [Developer Settings → Personal access tokens](https://github.com/settings/tokens).
 
-When generating a new personal access token, the scope should only contain
-`repo:status`. Note in particular, that `repo` and `public_repo` scopes each
-grant full push access, and should not be used.
+When generating a new personal access token, the scopes should contain
+`repo:status` and `read:org`. Note in particular, that `repo` and
+`public_repo` scopes each grant full push access, and should not be used.
 
 If you'd like to download Red Hat-only internal images from S3, you'll
 need to create a key file in `~/.config/cockpit-dev/s3-keys/[domain]`.
