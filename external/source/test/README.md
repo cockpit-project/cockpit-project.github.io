@@ -85,18 +85,16 @@ You can set these environment variables to configure the test suite:
                   "centos-8-stream"
                   "debian-stable"
                   "debian-testing"
-                  "fedora-33"
                   "fedora-34"
+                  "fedora-35"
                   "fedora-coreos"
                   "fedora-testing"
-                  "rhel-8-4"
-                  "rhel-8-4-distropkg"
                   "rhel-8-5"
                   "rhel-8-5-distropkg"
                   "rhel-9-0"
                   "ubuntu-2004"
                   "ubuntu-stable"
-               "fedora-33" is the default (bots/machine/machine_core/constants.py)
+               "fedora-34" is the default (bots/machine/machine_core/constants.py)
 
     TEST_JOBS  How many tests to run in parallel.  The default is 1.
 
@@ -111,6 +109,8 @@ You can set these environment variables to configure the test suite:
 
     TEST_SHOW_BROWSER  Set to run browser interactively. When not specified,
                        browser is run in headless mode.
+
+    TEST_MOBILE  Set to run browser with mobile screen window size.
 
     TEST_TIMEOUT_FACTOR Scale normal timeouts by given integer. Useful for
                         slow/busy testbeds or architectures.
