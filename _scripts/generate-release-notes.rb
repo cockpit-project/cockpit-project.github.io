@@ -88,11 +88,21 @@ VERSIONS ARE available now:
 
 ### Code below ###
 
+require 'optparse'
+require 'ostruct'
 require 'bundler'
 require 'net/http'
 require 'json'
 require 'yaml'
 require 'etc'
+
+@options = OpenStruct.new
+
+OptionParser.new do |opt|
+  opt.on('-p', '--preview', 'Preview release notes with open PRs and more info') { @options[:preview] = true }
+  opt.on('-r', '--released', 'Cockpit has been released (do not increment version)') { @options[:increment] = true }
+  opt.on('-v', '--verbose', 'Show additional information on the command line') { @options[:debug] = true }
+end.parse!
 
 @cockpit_version = nil
 @frontmatter = ''
@@ -100,6 +110,7 @@ require 'etc'
 @footer_locations = []
 @tags = []
 @files_images = []
+@increment = @options.released ? 0 : 1
 
 # Simple method to make a sanitized string for slugs and filenames
 def slugify(filename)
@@ -125,6 +136,8 @@ end
 # Fetch, parse, and return JSON from a URI
 def get_json(url)
   JSON.parse(Net::HTTP.get(URI(url)))
+rescue StandardError => e
+  puts "Could not fetch notes from the GitHub API (#{e})"
 end
 
 # Drop the 'cockpit-' prefix
@@ -213,9 +226,29 @@ def format_issue(issue, repo)
   # Prepend an issue title when a heading wasn't extracted
   issue_title = release_note.match(/^#/) ? '' : "## #{heading_prefix}#{issue['title']}\n\n"
 
+  puts issue.to_yaml if @options.debug
+
+  state_info = if @options.preview
+                 state = issue['state']
+                 if state == 'open'
+                   alert = 'warn'
+                   included = '(will not be included) '
+                   merged = 'OPEN'
+                 else
+                   alert = 'note'
+                   included = ''
+                   merged = 'merged'
+                 end
+                 url = issue['html_url']
+                 "State: **#{merged}** #{included}@ <#{url}>\n{:.#{alert}}\n\n"
+               else
+                 ''
+               end
+
   full_note = "#{issue_title}#{release_note.strip}"
               # Normalize headings to H2
               .sub(/^#+/, '##')
+              .sub(/\n\n/, "\n\n#{state_info}")
 
   process_images(full_note)
 end
@@ -253,15 +286,18 @@ end
 # Process release version, add locations boilerplate, and construct tags
 # (Used once per repo)
 def process_meta(repo, versions)
-  @releases.push("#{repo_human(repo)} #{versions.last + 1}")
-  @footer_locations.push(build_footer_locations(repo, versions.last + 1))
+  @releases.push("#{repo_human(repo)} #{versions.last + @increment}")
+  @footer_locations.push(build_footer_locations(repo, versions.last + @increment))
   @tags.push(repo.sub('cockpit-', ''))
 end
 
 # Main loop to process all the repos
 def process_repos
-  url_template = 'https://api.github.com/search/issues?q=is:pr+repo:cockpit-project/REPO+label:release-note+is%3Aclosed'
-  # url_template = 'https://api.github.com/search/issues?q=is:pr+repo:cockpit-project/REPO+label:release-note'
+  url_template = if @options.preview
+                   'https://api.github.com/search/issues?q=is:pr+repo:cockpit-project/REPO+label:release-note'
+                 else
+                   'https://api.github.com/search/issues?q=is:pr+repo:cockpit-project/REPO+label:release-note+is%3Aclosed'
+                 end
   tags_template = 'https://api.github.com/repos/cockpit-project/REPO/tags'
 
   @repos.map do |repo|
@@ -272,7 +308,7 @@ def process_repos
     url_tags = tags_template.sub('REPO', repo)
     versions = get_json(url_tags).map { |tag| tag['name'].to_i }.sort
     # Set the Cockpit version from the first repo (which is always Cockpit)
-    @cockpit_version ||= versions.last + 1
+    @cockpit_version ||= versions.last + @increment
 
     notes = get_json(url)['items']
             .map { |issue| format_issue(issue, repo) }
@@ -300,13 +336,17 @@ def construct_all_the_notes
   ].join('').gsub("\r\n", "\n").gsub(/\n{4,}/m, "\n\n\n")
 end
 
-# Run the main function; store in a variable
-# (Running the release notes construction also generates the filename, so we
-# need to run it _before_ the File.write())
-release_notes = construct_all_the_notes
+begin
+  # Run the main function; store in a variable
+  # (Running the release notes construction also generates the filename, so we
+  # need to run it _before_ the File.write())
+  release_notes = construct_all_the_notes
 
-File.write("_posts/#{markdown_filename}", release_notes)
+  File.write("_posts/#{markdown_filename}", release_notes)
 
-# Show the files that have been created
-puts "Generated release notes for Cockpit #{@cockpit_version}: _posts/#{markdown_filename}"
-puts "Downloaded images: #{@files_images.join(' ')}"
+  # Show the files that have been created
+  puts "Generated release notes for Cockpit #{@cockpit_version}: _posts/#{markdown_filename}"
+  puts "Downloaded images: #{@files_images.join(' ')}"
+rescue StandardError => e
+  puts "Error (#{e})"
+end
