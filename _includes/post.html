@@ -128,14 +128,11 @@
         </a>
       </div>
 
-      {% if author.twitter or author.googleplus or author.facebook %}
+      {% if author.twitter or author.facebook %}
         <div class="follow-on">
           Follow {{ author.name | split: " " | first }} on:
           {% if author.twitter %}
             <a class="icon-twitter" href="https://twitter.com/{{ author.twitter }}">Twitter</a>
-          {% endif %}
-          {% if author.googleplus %}
-            <a class="icon-googleplus" href="https://plus.google.com/+{{ author.googleplus }}">Google+</a>
           {% endif %}
           {% if author.facebook %}
             <a class="icon-facebook" href="https://facebook.com/{{ author.facebook }}">Facebook</a>
