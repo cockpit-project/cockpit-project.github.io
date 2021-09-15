@@ -25,9 +25,10 @@ stef:
 
 garrett:
   name: Garrett LeSage
-  twitter: garrett
-  googleplus: GarrettLeSage
   gravatar: ee31aa48c51297eb062133b15eaff702
+  description: |
+    Garrett has been a designer in the FOSS (free and open source software)
+    world since the late 90s and works at Red Hat in the Cockpit team.
 
 mvo:
   name: Marius Vollmer
