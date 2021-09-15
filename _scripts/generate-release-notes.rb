@@ -100,7 +100,7 @@ require 'etc'
 
 OptionParser.new do |opt|
   opt.on('-p', '--preview', 'Preview release notes with open PRs and more info') { @options[:preview] = true }
-  opt.on('-r', '--released', 'Cockpit has been released (do not increment version)') { @options[:increment] = true }
+  opt.on('-r', '--released', 'Cockpit has been released (do not increment version)') { @options[:released] = true }
   opt.on('-v', '--verbose', 'Show additional information on the command line') { @options[:debug] = true }
 end.parse!
 
@@ -332,7 +332,7 @@ def construct_all_the_notes
     release_notes.join("\n\n"),
     headfoot(@footer), "\n",
     @footer_locations.join("\n"), "\n\n",
-    find_terms(release_notes)
+    find_terms(release_notes).join("\n")
   ].join('').gsub("\r\n", "\n").gsub(/\n{4,}/m, "\n\n\n")
 end
 
