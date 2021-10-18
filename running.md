@@ -205,34 +205,25 @@ sudo firewall-cmd --reload
 
 ### Debian
 
+{:.note}
+These commands require a POSIX compatible shell like `bash`. For other shells like `fish`, temporarily run `bash -i`.
+
 Cockpit is included in Debian since version 10 (Buster).
 
-1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org). For Debian 10:
+1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org) (as root):
+   ```
+   . /etc/os-release
+   echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" > \
+       /etc/apt/sources.list.d/backports.list
+   apt update
+   ```
+2. Install or update the package:
 ```
-echo 'deb http://deb.debian.org/debian buster-backports main' > \
-    /etc/apt/sources.list.d/backports.list
-apt update
-```
-
-   For Debian 11:
-```
-echo 'deb http://deb.debian.org/debian bullseye-backports main' > \
-    /etc/apt/sources.list.d/backports.list
-apt update
-```
-
-2. Install the package. For Debian 10:
-```
-sudo apt install -t buster-backports cockpit
-```
-
-   For Debian 11:
-```
-sudo apt install -t bullseye-backports cockpit
+apt install -t ${VERSION_CODENAME}-backports cockpit
 ```
 
 {:.note}
-When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` so backports are included.
+When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` as above, so backports are included.
 
 ### Ubuntu
 
