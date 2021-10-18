@@ -236,13 +236,17 @@ When updating Cockpit-related packages and any dependencies, make sure to use `-
 
 ### Ubuntu
 
-Cockpit is included in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later. Backports are enabled by default, but if you customized apt sources you might need to [enable them manually](https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports).
+{:.note}
+These commands require a POSIX compatible shell like `bash`. For other shells like `fish`, temporarily run `bash -i`.
 
-1. Install the package:
+Cockpit is included in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later.
 
-   ```
-   sudo apt-get install cockpit
-   ```
+We recommend installing or updating the latest version from backports. This repository is enabled by default, but if you customized apt sources you might need to [enable them manually](https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports).
+
+```
+. /etc/os-release
+sudo apt install -t ${VERSION_CODENAME}-backports cockpit
+```
 
 ### Clear Linux
 {:#clearlinux}
