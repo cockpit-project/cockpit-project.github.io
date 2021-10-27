@@ -61,19 +61,12 @@ ListenStream=443
 <pre class="programlisting">
 [Socket]
 ListenStream=
+ListenStream=7777
 ListenStream=192.168.1.1:443
 FreeBind=yes
 </pre>
-<p>NOTE: The first empty line is intentional. <code class="code">systemd</code> allows multiple <code class="code">Listen</code> directives to be declared in a single socket unit. To change the activation port instead of adding a second port, use a full override unit instead of a snippet.</p>
+<p>NOTE: The first line with an empty value is intentional. <code class="code">systemd</code> allows multiple <code class="code">Listen</code> directives to be declared in a single socket unit; an empty value in a drop-in file resets the list and thus disables the default port 9090 from the original unit.</p>
 <p>The <code class="code">FreeBind</code> option is highly recommended when defining specific IP addresses. See the <a class="ulink" href="https://www.freedesktop.org/software/systemd/man/systemd.socket.html" target="_top"><code class="code">systemd.socket</code> manpage</a> for details.</p>
-<p>Cockpit can actually listen on multiple ports, also:</p>
-<pre class="programlisting">
-[Socket]
-ListenStream=
-ListenStream=443
-ListenStream=7777
-</pre>
-<p>As above, it's recommended to start with an override unit, otherwise it's possible one of your multiple listen addresses might conflict.</p>
 <p>In order for the changes to take effect, run the following commands:</p>
 <pre class="programlisting">
 $ sudo systemctl daemon-reload
