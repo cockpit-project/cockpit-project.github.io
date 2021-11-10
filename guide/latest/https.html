@@ -53,34 +53,16 @@ layout: guide
       extension in alphabetical order. The file should contain one or more OpenSSL
       style <code class="literal">BEGIN CERTIFICATE</code> blocks for the server certificate and
       the intermediate certificate authorities.</p>
-<p>The private key can either be contained in the same <code class="code">.cert</code>/<code class="code">.crt</code>
-    file as an additional <code class="literal">BEGIN PRIVATE KEY</code> or similar block, or in
-    a separate file with the same name as the certificate, but with a <code class="code">.key</code>
-    suffix instead. The key must not be encrypted. For example, a merged file looks like this:</p>
-<pre class="programlisting">
------BEGIN CERTIFICATE-----
-MIIDUzCCAjugAwIBAgIJAPXW+CuNYS6QMA0GCSqGSIb3DQEBCwUAMD8xKTAnBgNV
-BAoMIGI0OGE2NGNkNmMwNTQ1YThhZTgxOTEzZDE5YmJjMmRjMRIwEAYDVQQDDAls
-...
------END CERTIFICATE-----
------BEGIN CERTIFICATE-----
-MIIDUzCCAjugAwIBAgIJAPXW+CuNYS6QMA0GCSqGSIb3DQEBCwUAMD8xKTAnBgNV
-BAoMIGI0OGE2NGNkNmMwNTQ1YThhZTgxOTEzZDE5YmJjMmRjMRIwEAYDVQQDDAls
-...
------END CERTIFICATE-----
------BEGIN PRIVATE KEY-----
-MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyOJ5garOYw0sm
-8TBCDSqQ/H1awGMzDYdB11xuHHsxYS2VepPMzMzryHR137I4dGFLhvdTvJUH8lUS
-...
------END PRIVATE KEY-----
-</pre>
-<p>Note that for EC keys, the <code class="literal">BEGIN EC PARAMETERS</code> block must occur
-      <span class="emphasis"><em>before</em></span> the <code class="literal">BEGIN EC PRIVATE KEY</code> block (this
-      is how OpenSSL, LetsEncrypt, etc. generate the key files).</p>
+<p>
+      The private key must be contained in a separate file with the same name as the
+      certificate, but with a <code class="code">.key</code> suffix instead. The key must not be
+      encrypted.</p>
 <p>If no certificate is found, a self-signed certificate is created and
       stored in the <code class="filename">0-self-signed.cert</code> file. On some
       platforms, Cockpit will also generate a ca.crt in that directory, which
       may be safely imported into client browsers.</p>
+<p>Cockpit will read the files as root, so they can have tight
+      permissions.</p>
 <p>To check which certificate <code class="code">cockpit-ws</code> will use run
       the following command.</p>
 <pre class="programlisting">
@@ -96,7 +78,6 @@ $ sudo /usr/lib/cockpit/cockpit-certificate-ensure --check
 getcert request -f /etc/cockpit/ws-certs.d/50-certmonger.cert \
                 -k /etc/cockpit/ws-certs.d/50-certmonger.key \
                 -D myhostname.example.com \
-                -m 640 -o root:cockpit-ws -M 644 \
                 [--ca=...]</pre>
 <p>This will not work on Red Hat Enterprise Linux/CentOS 8 by default. Adjust the SELinux type of the certificate directory to <code class="code">cert_t</code> to allow certmonger to write its certificates there:</p>
 <pre class="programlisting">
