@@ -86,7 +86,7 @@ sass:
   style: :compressed
 
 # Let the following Jekyll plugins work in safemode
-# (mimicing GitHub's config)
+# (mimicking GitHub's config)
 whitelist:
   - jekyll-redirect-from
   - jekyll-sass-converter
