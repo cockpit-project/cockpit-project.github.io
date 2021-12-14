@@ -36,7 +36,7 @@ aggressively pruned.
 
 Developers are mostly isolated from this via the new
 `test/common/pixel-tests` tool.  But if you are familiar with git
-submodules, there should be no suprises for you here.
+submodules, there should be no surprises for you here.
 
 A source repository needs to be prepared before it can store reference
 images in a external storage repository. You can let the tool do it by
@@ -143,7 +143,7 @@ complete with reference images:
 
 When making changes that change how the UI looks, some pixel tests
 will fail.  The test results will contain the new pixels, and you can
-compare them with the referene image right in the browser when looking
+compare them with the reference image right in the browser when looking
 at the test logs.
 
 Here is a PR that makes the two pixel tests fail that had been added

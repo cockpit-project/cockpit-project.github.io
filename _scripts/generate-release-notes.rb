@@ -209,7 +209,7 @@ def format_issue(issue, repo)
   # Attempt to split release notes from the body with the splitter
   release_note = issue_body.split(splitter, 2).last.strip
 
-  # Attempt header & further content extaction, if there was no splitter
+  # Attempt header & further content extraction, if there was no splitter
   if release_note == issue_body
     # Discard everything before the first heading
     release_note = issue_body.split(/^#/, 2).last
@@ -267,7 +267,7 @@ def repo_human(repo)
   repo.match('-') ? repo : repo.capitalize
 end
 
-# Generate headers and footers based on the template, with substitions for versions
+# Generate headers and footers based on the template, with substitutions for versions
 def headfoot(template)
   template
     .gsub('VERSIONS', oxfordize(@releases))
