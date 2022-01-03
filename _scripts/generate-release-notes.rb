@@ -204,7 +204,7 @@ def format_issue(issue, repo)
   heading_prefix = repo.match('-') ? "#{drop_prefix(repo)}: " : ''
 
   # Start polishing the issue body into release note text
-  issue_body = issue['body'].gsub(/\r\n/, "\n").strip
+  issue_body = issue['body']&.gsub(/\r\n/, "\n")&.strip || ' '
 
   # Attempt to split release notes from the body with the splitter
   release_note = issue_body.split(splitter, 2).last.strip
@@ -218,13 +218,13 @@ def format_issue(issue, repo)
   end
 
   # Remove extraneous lines, like ==== ---- ####
-  release_note.sub!(/^.*$/, '').strip! if release_note.split("\n").first.match(underlines)
+  release_note.sub!(/^.*$/, '').strip! if release_note.split("\n").first&.match(underlines)
 
   # Handle underline-style headings at the top; converting to ATX-stle
-  release_note.sub!(/^(.*)$\n^.*$/, '## \1') if release_note.split("\n")[1].match(underlines)
+  release_note.sub!(/^(.*)$\n^.*$/, '## \1') if release_note.split("\n")[1]&.match(underlines)
 
   # Prepend an issue title when a heading wasn't extracted
-  issue_title = release_note.match(/^#/) ? '' : "## #{heading_prefix}#{issue['title']}\n\n"
+  issue_title = release_note&.match(/^#/) ? '' : "## #{heading_prefix}#{issue['title']}\n\n"
 
   puts issue.to_yaml if @options.debug
 
