@@ -53,20 +53,21 @@ layout: guide
 <p>Generating the certificates for users is usually done with a certificate management system like
       <a class="ulink" href="https://pagure.io/certmonger" target="_top">certmonger</a> or
       <a class="ulink" href="https://www.freeipa.org/page/PKI" target="_top">FreeIPA</a>, which are not documented here.
-      For testing purposes, these commands will generate a self-signed certificate/key for the "alice" user:</p>
+      This command generates a simple key and certificate request for the "alice" user:</p>
 <pre class="programlisting">
-# create self-signed certificate and key
-# some browsers insist on specifying key usage, so it needs a config file
-printf '[req]\ndistinguished_name=dn\nextensions=v3_req\n[dn]\n
-    [v3_req]\nkeyUsage=digitalSignature,keyEncipherment,keyAgreement\n' &gt; /tmp/openssl.cnf
-
-openssl req -x509 -newkey rsa:2048 -days 365 -nodes -keyout alice.key \
-    -out alice.pem -subj "/CN=alice" -config /tmp/openssl.cnf -extensions v3_req
-
-# browsers and smart cart utilities accept PKCS#12 format, convert it
-# this needs to set a transfer/import password
-openssl pkcs12 -export -password pass:somepassword \
-    -in alice.pem -inkey alice.key -out alice.p12
+openssl req -new -newkey rsa:2048 -days 365 \
+    -keyout alice.key -out alice.csr -subj "/CN=alice"
+</pre>
+<p>Now get this certificate request signed by the Certificate Authority of your Identity
+    Management domain, to get a PEM certificate. Browsers and smart cart utilities accept PKCS#12 format
+    for importing/transfer, so convert the certificate/key pair; it will ask for and protect it
+    with a transfer password:</p>
+<pre class="programlisting">
+openssl pkcs12 -export -in alice.pem -inkey alice.key -out alice.p12
+</pre>
+<p>Don't forget to clean up the key file when you do not need it any more:</p>
+<pre class="programlisting">
+shred -u alice.key
 </pre>
 <p>You can now import <code class="code">alice.p12</code> directly into your browser,
     with giving the transfer password set above. Or
@@ -78,14 +79,20 @@ pkcs15-init --store-private-key alice.p12 --format pkcs12 --auth-id 01
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="certauth-server-ipa"></a>Certificate mapping with FreeIPA</h2></div></div></div>
-<p>The domain's users get associated to certificates with
-      the <span class="command"><strong>ipa user-add-cert</strong></span> command. This expects PEM format, but without the
-      <code class="code">-----BEGIN</code>/<code class="code">-----END</code> markers.  See the
-      <a class="ulink" href="https://www.freeipa.org/page/V4/User_Certificates#Feature_Management" target="_top">
-      FreeIPA User Certificates documentation</a>:</p>
+<p>The recommended method to sign a user certificate request and associate it to a user is
+      <span class="command"><strong>ipa cert-request</strong></span>: </p>
+<pre class="programlisting">
+ipa cert-request alice.csr --principal=alice --certificate-out=alice.pem
+</pre>
+<p>Alternatively, if you are using a different CA, you can use
+    <span class="command"><strong>ipa user-add-cert</strong></span> to associate the signed certificate to the user.
+    This expects PEM format, but without the <code class="code">-----BEGIN</code>/<code class="code">-----END</code>
+    markers:</p>
 <pre class="programlisting">
 ipa user-add-cert alice --certificate="$(grep -v ^---- alice.pem)"
 </pre>
+<p>See the <a class="ulink" href="https://www.freeipa.org/page/V4/User_Certificates#Feature_Management" target="_top">
+      FreeIPA User Certificates documentation</a> for details.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -93,7 +100,7 @@ ipa user-add-cert alice --certificate="$(grep -v ^---- alice.pem)"
 <p>The domain user certificates get imported into the <code class="code">userCertificate;binary</code>
       LDAP attribute. The following commands convert the PEM certificate into binary DER form, create an
       <a class="ulink" href="https://ldap.com/ldif-the-ldap-data-interchange-format/" target="_top">LDIF</a>
-      file and apply it to the LDAP server running on the domain contoller
+      file and apply it to the LDAP server running on the domain controller
       "dc.example.com":</p>
 <pre class="programlisting">
 openssl x509 -outform der -in alice.pem -out alice.der
@@ -142,6 +149,14 @@ maprule = LDAP:(userCertificate={cert!base64})
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="certauth-server-cockpitconf"></a>Cockpit web server configuration</h2></div></div></div>
+<p>Set the trusted Certificate Authority of your user certificates in <span class="command"><strong>sssd</strong></span>,
+    either by copying the CA PEM file to <code class="code">/etc/sssd/pki/sssd_auth_ca_db.pem</code> or setting the
+    <a class="ulink" href="https://www.mankier.com/5/sssd.conf#Services_Sections-PAM_configuration_options" target="_top">
+    <span class="command"><strong>pam_cert_db_path</strong></span></a> configuration option to the path of the CA.
+    If you use FreeIPA and its CA:</p>
+<pre class="programlisting">
+cp /etc/ipa/ca.crt /etc/sssd/pki/sssd_auth_ca_db.pem
+</pre>
 <p>Certificate authentication needs to be enabled in
       <a class="ulink" href="./cockpit.conf.5.html" target="_top">cockpit.conf</a> explicitly:</p>
 <pre class="programlisting">
@@ -152,12 +167,15 @@ ClientCertAuthentication = yes
 <h3 class="title">Warning</h3>
 <p>Any client can generate certificates with arbitrary information, thus
       the client certificates must be checked for validity. Cockpit currently
-      accepts any client certificate and relies on sssd to verify their validity.
-      This is secure only when the entire certificate gets matched, i.e. when
-      importing the complete certificates into Identity Management as shown above.
-      <span class="emphasis"><em>Do not use this with local sssd <code class="code">certmap</code> rules</em></span>
-      which only match on Subject/Issuer properties!
-  </p>
+      accepts any client certificate and relies on sssd to verify their validity.</p>
+<p>Check if your <span class="command"><strong>sssd</strong></span> version is at least 2.6.1, as earlier
+      versions did not validate the user certificate against the configured CA with
+      Cockpit logins. With earlier versions, this is secure only when the
+      entire certificate gets matched, i.e. when importing the complete
+      certificates into Identity Management as shown above. Also, certificate
+      revocations are <span class="emphasis"><em>not checked with earlier sssd versions</em></span>.</p>
+<p><span class="emphasis"><em>Do not use this with local sssd <code class="code">certmap</code> rules</em></span>
+      which only match on Subject/Issuer properties, if you run sssd earlier than 2.6.1!</p>
 </div>
 <p>When enabling this mode,
     <a class="ulink" href="https://github.com/cockpit-project/cockpit/blob/main/doc/authentication.md" target="_top">
