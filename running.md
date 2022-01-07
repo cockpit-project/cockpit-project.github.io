@@ -239,6 +239,11 @@ We recommend installing or updating the latest version from backports. This repo
 sudo apt install -t ${VERSION_CODENAME}-backports cockpit
 ```
 
+On Linux Mint, use `UBUNTU_CODENAME` instead of `VERSION_CODENAME` like so:
+```
+sudo apt install -t ${UBUNTU_CODENAME}-backports cockpit
+```
+
 ### Clear Linux
 {:#clearlinux}
 
