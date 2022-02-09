@@ -151,10 +151,10 @@ ovirt-dashboard:
 zfs:
   title: ZFS Manager
   package: cockpit-zfs
-  source: https://github.com/optimans/cockpit-zfs-manager
-  issues: https://github.com/optimans/cockpit-zfs-manager/issues
+  source: https://github.com/45Drives/cockpit-zfs-manager
+  issues: https://github.com/45Drives/cockpit-zfs-manager/issues
   official: false
-  prerelease: true
+  prerelease: false
   description: |
     An interactive ZFS on Linux admin package for Cockpit.
 
