@@ -8,6 +8,7 @@
             valid = undefined;
         }
 
+        if (valid === undefined && console) console.log('Missing JS feature: ' + name);
         return (valid !== undefined);
     }
 
@@ -15,11 +16,17 @@
         var valid;
 
         try {
-            valid = CSS.supports(prop, val);
+            if (val) {
+                valid = CSS && CSS.supports && CSS.supports(prop, val);
+            } else {
+                // Support query string (instead of prop:val)
+                valid = CSS && CSS.supports && CSS.supports(prop);
+            }
         } catch (err) {
             valid = false;
         }
 
+        if (!valid && console) console.log('Missing CSS feature: ' + [prop, val].join(', '));
         return valid;
     }
 
@@ -27,15 +34,33 @@
         var browserTest = true,
             valid;
 
-        {% for rule in site.data.browser_support.rules %}{% if rule[1].req %}
-        /* Check {{ rule[0] }}: {{ rule[1].req[0] }} in {{ rule[1].req[1] }} */
-        if (!req('{{ rule[1].req[0] }}', {{ rule[1].req[1] }})) browserTest = false;
-        {% endif %}{% if rule[1].css %}
-        /* Check {{ rule[0] }}: @supports({{ rule[1].css[0] }}:{{ rule[1].css[1] }}) */
-        if (!css('{{ rule[1].css[0] }}', '{{ rule[1].css[1] }}')) browserTest = false;
-        {% endif %}{% endfor %}
+        return ({% for rule in site.data.browser_support.rules %}{%
+            if rule[1].req 
 
-        return browserTest;
+                %}
+            /* Check {{ rule[0] }}: {{ rule[1].req[0] }} in {{ rule[1].req[1] }} */
+            req('{{ rule[1].req[0] }}', {{ rule[1].req[1] }}) && {%
+
+            elsif rule[1].css
+            %}{%
+                if rule[1].css[1] 
+
+                    %}
+            /* Check {{ rule[0] }}: @supports({{ rule[1].css[0] }}:{{ rule[1].css[1] }}) */
+            css('{{ rule[1].css[0] }}', '{{ rule[1].css[1] }}') && {%
+
+                else
+
+                    %}
+            /* Check {{ rule[0] }}: @supports({{ rule[1].css }}) */
+            css('{{ rule[1].css }}') && {%
+
+                endif
+                %}{%
+            endif
+            %}{%
+        endfor %}
+        true);
     }
 
     // Success handler
