@@ -45,12 +45,10 @@ supports = YAML.safe_load("
     css-supports-api:
         req: [supports, window.CSS]
 
-    #promise-finally:
-        #req: [finally, Promise.prototype]
+    promise-finally:
+        req: [finally, Promise.prototype]
 
-    ## `replaceAll` isn't in the caniuse compiled database at the moment (oversight)
-    ## Adding it here strictly for the live in-browser JavaScript check (as a passthrough)
-    replaceAll:
+    mdn-javascript_builtins_string_replaceall:
         req: [replaceAll, String.prototype]
 
     flexbox:
@@ -58,6 +56,12 @@ supports = YAML.safe_load("
 
     css-grid:
         css: [display, grid]
+
+    css-supports-api:
+        css: 'selector(test)'
+
+    mdn-css_selectors_where:
+        css: 'selector(:is():where())'
 ")
 
 caniuse_db = 'https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json'
