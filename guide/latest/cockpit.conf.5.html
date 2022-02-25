@@ -74,6 +74,18 @@ ProtocolHeader = X-Forwarded-Proto
 </td>
 </tr>
 <tr>
+<td><p><span class="term"><code class="option">ForwardedForHeader</code></span></p></td>
+<td>
+<p>Configure cockpit to look at the contents of this header to determine the real origin of a
+              connection.  This should only be used when cockpit is behind a reverse proxy, and care
+              should be taken to make sure that incoming requests cannot set this header.</p>
+<div class="informalexample"><pre class="programlisting">
+[WebService]
+ForwardedForHeader = X-Forwarded-For
+</pre></div>
+</td>
+</tr>
+<tr>
 <td><p><span class="term"><code class="option">LoginTitle</code></span></p></td>
 <td><p>Set the browser title for the login screen.</p></td>
 </tr>
