@@ -69,20 +69,21 @@
     | strip
     %}
     {% if skip == '' %}
+      {% assign line_stripped = line | strip_html %}
       {% if line contains '<h' %}
-        {% assign content_headings = line 
-        | strip_html 
+        {% assign content_headings = line_stripped
         | prepend: '- ' 
         | prepend: newline 
         | prepend: content_headings
         %}
         {% assign content_stripped = content_stripped
-        | append: line
-        | append: newline
+        | append: ' <h3 class="post-content-subtitle">'
+        | append: line_stripped
+        | append: '</h3> '
+        | append: newline 
         %}
       {% else %}
-        {% assign content_stripped = line 
-        | strip_html 
+        {% assign content_stripped = line_stripped
         | prepend: content_stripped
         %}
       {% endif %}
