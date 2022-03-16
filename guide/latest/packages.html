@@ -27,6 +27,7 @@ layout: guide
 <div class="toc"><dl class="toc">
 <dt><span class="section"><a href="packages.html#package-layout">Layout of Package Files</a></span></dt>
 <dt><span class="section"><a href="packages.html#package-manifest">Package Manifest</a></span></dt>
+<dt><span class="section"><a href="packages.html#package-manifest-override">Manifest overrides</a></span></dt>
 <dt><span class="section"><a href="packages.html#package-links">Package Links and Paths</a></span></dt>
 <dt><span class="section"><a href="packages.html#package-minified">Content Negotiation</a></span></dt>
 <dt><span class="section"><a href="packages.html#package-api">Using Cockpit API</a></span></dt>
@@ -286,9 +287,30 @@ $ cockpit-bridge --packages
   }
 }
 </pre>
-<p>A file called <code class="filename">override.json</code> may be placed next to the manifest.
-      containing overrides to the information in the manifest. These override files are in the
-      simple <a class="ulink" href="https://tools.ietf.org/html/rfc7386" target="_top">JSON Merge Patch</a> format.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="package-manifest-override"></a>Manifest overrides</h2></div></div></div>
+<p>A file called <code class="filename">override.json</code> may be placed next to the manifest, or a file
+      <code class="filename">&lt;package-directory-name&gt;.override.json</code> may be placed into <code class="filename">/etc/cockpit/</code>
+      or <code class="filename">~/.config/cockpit</code>.
+      These contain overrides to the information in the manifest in the simple
+      <a class="ulink" href="https://tools.ietf.org/html/rfc7386" target="_top">JSON Merge Patch</a> format.</p>
+<p>This can be used to hide or modify menu items of an existing package.
+      For example <code class="filename">/etc/cockpit/systemd.override.json</code> or
+      <code class="filename">~/.config/cockpit/systemd.override.json</code> could
+      hide the <span class="emphasis"><em>Logs</em></span> menu item and move the <span class="emphasis"><em>Services</em></span>
+      menu item to the top of the menu.</p>
+<pre class="programlisting">
+{
+  "menu": {
+    "logs": null,
+    "services": {
+      "order": -1
+    }
+  }
+}
+</pre>
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
@@ -454,22 +476,6 @@ mypackage/test.min.js.gz
         "label": "Disk Storage",
         "order": 15
      }
-  }
-}
-</pre>
-<p>It is also possible to hide or change labels on the menu items of an existing
-      package by including a <code class="filename">override.json</code> in that existing package's
-      directory.</p>
-<p>For example an <code class="filename">/usr/share/cockpit/systemd/override.json</code> could
-      hide the <span class="emphasis"><em>Logs</em></span> menu item and move the <span class="emphasis"><em>Services</em></span>
-      menu item to the top of the menu.</p>
-<pre class="programlisting">
-{
-  "menu": {
-    "logs": null,
-    "services": {
-      "order": -1
-    }
   }
 }
 </pre>
