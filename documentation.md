@@ -12,6 +12,16 @@ After Cockpit is running, visit **ip-address-of-machine:9090** in your web brows
 
 [The Red Hat Customer Portal product documentation pages](https://access.redhat.com/pilot-documentation/red_hat_enterprise_linux/8) document how to use the "web console" (another name for Cockpit). While this is specifically for the version of Cockpit that ships in Red Hat Enterprise Linux, the interface and its usage is similar on other distributions where the Cockpit web console exists.
 
+### Red Hat Enterprise Linux 9 documentation
+
+Red Hat Enterprise Linux 9 is currently in beta. This documentation is more up-to-date, but there may be less of it for the time being.
+
+- [Managing systems using the RHEL 9 web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9-beta/html/managing_systems_using_the_rhel_9_web_console/index)
+
+### Red Hat Enterprise Linux 8 documentation
+
+While this documentation is for an older version of Cockpit, most is still current enough and there may be more detailed information:
+
 - [Getting started using the RHEL web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/8c44950e-29f0-4150-89a5-036f57bf775e)
 - [Managing user accounts in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/715670f6-0eb9-4175-a36f-445acd1b1b25)
 - [Managing services in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/032603a4-660f-4c0b-97ba-20d32479998e)
