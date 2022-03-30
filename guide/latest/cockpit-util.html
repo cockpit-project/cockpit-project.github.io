@@ -47,49 +47,54 @@ string = cockpit.format(template, [arg, ...])
       replaced by an empty string.</p>
 </div>
 <div class="refsection">
+<a name="cockpit-format-number"></a><h2>cockpit.format_number()</h2>
+<pre class="programlisting">
+string = cockpit.format_number(number, [precision])
+</pre>
+<p>Formats <code class="code">number</code> into a displayable <code class="code">string</code>. If the number is not
+      an integer, it is rounded to the given number of decimal places, defaulting to 3. If the number
+      is near zero, but not quite zero it is rounded to the smallest non-zero value of the given precision;
+      i.e. ±0.001 for default precision 3.</p>
+<p>If <code class="code">number</code> is <code class="code">null</code> or <code class="code">undefined</code> an empty string
+      will be returned.</p>
+</div>
+<div class="refsection">
 <a name="cockpit-format-bytes"></a><h2>cockpit.format_bytes()</h2>
 <pre class="programlisting">
 string = cockpit.format_bytes(number, [factor])
-array = cockpit.format_bytes(number, [factor, separate])
+array = cockpit.format_bytes(number, [factor, options])
 </pre>
 <p>Formats <code class="code">number</code> into a displayable <code class="code">string</code> with a suffix, such as
       <span class="emphasis"><em>KB</em></span> or <span class="emphasis"><em>MB</em></span>. Returns an <code class="code">array</code> of the
-      formatted number and the suffix if <code class="code">separate</code> is set to <code class="code">true</code>.</p>
+      formatted number and the suffix if <code class="code">options.separate</code> is set to <code class="code">true</code>.</p>
 <p>If specifying 1000 or 1024 is specified as a <code class="code">factor</code> then an appropriate suffix
       will be chosen. By default the <code class="code">factor</code> is 1024.  You can pass a string suffix as a
       <code class="code">factor</code> in which case the resulting number will be formatted with the same suffix.</p>
 <p>If the <code class="code">number</code> is less than the <code class="code">factor</code> or an unknown factor
-      was passed in, then the formatted number is returned without a suffix. If <code class="code">separate</code>
+      was passed in, then the formatted number is returned without a suffix. If <code class="code">options.separate</code>
       is true, returns an array of <code class="code">[formatted_number, suffix]</code> or
       <code class="code">[formatted_number]</code> if returned without a suffix.</p>
+<p>By default, non-integer numbers will be formatted with 3 digits of precision. This can be changed
+      with <code class="code">options.precision</code>.</p>
 <p>If <code class="code">number</code> is <code class="code">null</code> or <code class="code">undefined</code> an empty string or
       an array without a suffix will be returned.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-format-number"></a><h2>cockpit.format_number()</h2>
-<pre class="programlisting">
-string = cockpit.format_number(number)
-</pre>
-<p>Formats <code class="code">number</code> into a displayable <code class="code">string</code>. If the number is not
-      an integer, it is rounded to a single decimal place precision. If the number is near zero, but
-      not quite zero it is rounded up or down to a single decimal place.</p>
-<p>If <code class="code">number</code> is <code class="code">null</code> or <code class="code">undefined</code> an empty string
-      will be returned.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-format-bytes-per-sec"></a><h2>cockpit.format_bytes_per_sec()</h2>
 <pre class="programlisting">
  string = cockpit.format_bytes_per_sec(number, [factor])
- array = cockpit.format_bytes_per_sec(number, [factor, separate])
+ array = cockpit.format_bytes_per_sec(number, [factor, options])
 </pre>
 <p>Format <code class="code">number</code> of bytes into a displayable speed <code class="code">string</code>.</p>
 <p>If specifying 1000 or 1024 is specified as a <code class="code">factor</code> then an appropriate suffix
       will be chosen. By default the <code class="code">factor</code> is 1024.  You can pass a string suffix as a
       <code class="code">factor</code> in which case the resulting number will be formatted with the same suffix.</p>
 <p>If the <code class="code">number</code> is less than the <code class="code">factor</code> or an unknown factor
-      was passed in, then the formatted number is returned without a suffix. If <code class="code">separate</code>
+      was passed in, then the formatted number is returned without a suffix. If <code class="code">options.separate</code>
       is true, returns an array of <code class="code">[formatted_number, suffix]</code> or
       <code class="code">[formatted_number]</code> if returned without a suffix.</p>
+<p>By default, non-integer numbers will be formatted with 3 digits of precision. This can be changed
+      with <code class="code">options.precision</code>.</p>
 <p>If <code class="code">number</code> is <code class="code">null</code> or <code class="code">undefined</code> an empty string or array
       will be returned.</p>
 </div>
@@ -97,16 +102,18 @@ string = cockpit.format_number(number)
 <a name="cockpit-format-bits-per-sec"></a><h2>cockpit.format_bits_per_sec()</h2>
 <pre class="programlisting">
   string = cockpit.format_bits_per_sec(number, [factor])
- array = cockpit.format_bytes_per_sec(number, [factor, separate])
+ array = cockpit.format_bytes_per_sec(number, [factor, options])
 </pre>
 <p>Format <code class="code">number</code> of bits into a displayable speed <code class="code">string</code>.</p>
 <p>If specifying 1000 or 1024 is specified as a <code class="code">factor</code> then an appropriate suffix
       will be chosen. By default the <code class="code">factor</code> is 1024.  You can pass a string suffix as a
       <code class="code">factor</code> in which case the resulting number will be formatted with the same suffix.</p>
 <p>If the <code class="code">number</code> is less than the <code class="code">factor</code> or an unknown factor
-      was passed in, then the formatted number is returned without a suffix. If <code class="code">separate</code>
+      was passed in, then the formatted number is returned without a suffix. If <code class="code">options.separate</code>
       is true, returns an array of <code class="code">[formatted_number, suffix]</code> or
       <code class="code">[formatted_number]</code> if returned without a suffix.</p>
+<p>By default, non-integer numbers will be formatted with 3 digits of precision. This can be changed
+      with <code class="code">options.precision</code>.</p>
 <p>If <code class="code">number</code> is <code class="code">null</code> or <code class="code">undefined</code> an empty string or array
       will be returned.</p>
 </div>
