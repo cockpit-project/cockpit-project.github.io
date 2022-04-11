@@ -255,9 +255,6 @@ Simply add navigation info in the correct format and your site will take care of
 - title: Home
   url: "/"
 
-- title: Events
-  url: /events/
-
 - title: Software
   url: /software/
 
@@ -323,7 +320,6 @@ Exporting rule of thumb: Directories and files starting with an underscore are s
 - **`_data`** — [Data files](http://jekyllrb.com/docs/datafiles/), in YAML (`yml`) or JSON format. Referenced in Liquid tags as `site.data.`_`FILENAME`_`.`_`DATA…`_.
   - `navigation.yml` _(optional, but strongly recommended)_ — Navigation used across the site
   - `authors.yml` _(optional, but recommended)_ — Information about blog authors
-  - `events` _(optional)_ — Directory (with subdirectories and conference files such as `year/conference.yml`) of in the [rh-events format](https://github.com/OSAS/rh-events/wiki/Formatting) for the optional events calendar.
 
 - **`_includes`** — Partials used for inclusion in documents and layouts, useful for abstracting complex HTML & Liquid logic, especially when it may be reused across the site. Includes are invoked as `{% include FILENAME.html key=value %}` (key and value are optional, and can be anything — value itself can be a variable or a string enclosed in quotes).
 
@@ -339,8 +335,6 @@ Exporting rule of thumb: Directories and files starting with an underscore are s
   - **`vendor`** — Included CSS & JavaScript from other projects (such as jQuery, etc.)
 
 - **`blog`** — This is not the place for blog posts. It is, however, the place for files that make blogs work (the index file, author file, category files, feeds, etc.). In most cases, you don't need to touch what's here.
-
-- **`events`** — This subdirectory is where the events calendar lives, if your site uses events. Events data is pulled in from `_data/events.yml`, if it exists.
 
 - **`guide`** — Cockpit-specific guides, dumped as HTML and included in the website.
   - **`latest`** — The latest guide. This is what the other pages should link. Other guides are included for posterity under their version number.
