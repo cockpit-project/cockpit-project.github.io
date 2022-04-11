@@ -332,7 +332,7 @@ Exporting rule of thumb: Directories and files starting with an underscore are s
 - **`assets`** — This is the place for CSS, JavaScript, and fonts. CoffeScript (`.coffee`) and SASS (`.sass`, `.scss`) are supported as Jekyll will process them to CSS and JavaScript, provided they have a Frontmatter directive (which can be empty, as in two immediate lines of three dashes `---`) for top-level processed files (files which are included via SASS includes need not — and even should not — have Frontmatter).
   - **`fonts`** — Any fonts served locally should go here.
   - **`lib`** — Custom CSS & JavaScript.
-  - **`vendor`** — Included CSS & JavaScript from other projects (such as jQuery, etc.)
+  - **`vendor`** — Included CSS & JavaScript from other projects (such as gridlex, etc.)
 
 - **`blog`** — This is not the place for blog posts. It is, however, the place for files that make blogs work (the index file, author file, category files, feeds, etc.). In most cases, you don't need to touch what's here.
 
