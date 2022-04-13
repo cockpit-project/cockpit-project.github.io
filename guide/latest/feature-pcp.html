@@ -27,14 +27,14 @@ layout: guide
 <p>If available, Cockpit uses the
     <a class="ulink" href="https://pcp.io/" target="_top">Performance Co-Pilot</a> framework to
     gather metrics data about the system. This data is used to display the history
-    graphs on the "Performance Metrics" page.
+    graphs on the "Metrics and history" page.
     Cockpit can use the PCP logging feature to display archived data about the
     system from a different point in time. If PCP is not available, then Cockpit
     gathers the metrics data itself, but archival features are not available.</p>
 <p>Whether or not metrics are archived depends on whether the
     <a class="ulink" href="https://linux.die.net/man/1/pmlogger" target="_top"><code class="code">pmlogger.service</code></a>
     systemd unit is running or not. The "Enable PCP metrics collector" button on the
-    "Performance Metrics" page will enable and start this service.</p>
+    Metrics page will enable and start this service.</p>
 <p>To see similar metrics data from the command line, you can use tools like
     <a class="ulink" href="https://linux.die.net/man/1/pmstat" target="_top"><code class="code">pmstat</code></a>
     or <a class="ulink" href="https://linux.die.net/man/1/pminfo" target="_top"><code class="code">pminfo</code></a>:</p>
