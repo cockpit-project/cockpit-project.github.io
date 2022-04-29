@@ -124,8 +124,8 @@ session-recording:
 
 subscriptions:
   title: Subscription Manager
-  package: cockpit-subscriptions
-  source: https://github.com/candlepin/subscription-manager
+  package: subscription-manager-cockpit
+  source: https://github.com/candlepin/subscription-manager-cockpit
   issues: 
   description: |
     Manage subscriptions to Red Hat Enterprise Linux from your web browser.
