@@ -192,3 +192,14 @@ benchmark:
   prerelease: false
   description: |
     A Storage Benchmark Utility for Cockpit.
+
+tukit:
+  title: Software Updates (transactional-update from OpenSUSE with tukit)
+  package: cockpit-tukit
+  official: false
+  source: https://github.com/openSUSE/cockpit-tukit
+  issues: https://github.com/openSUSE/cockpit-tukit/issues
+  license: LGPL 2.1
+  description: |
+    Upgrade systems based on transactional-update from OpenSUSE with tukit in
+    your browser.
