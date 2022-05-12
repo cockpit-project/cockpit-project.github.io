@@ -167,14 +167,6 @@ file-sharing:
   description: |
     A Cockpit plugin to easily manage Samba and NFS file sharing.
 
-smb:
-  title: SMB Plugin
-  source: https://github.com/enira/cockpit-smb-plugin
-  official: false
-  prerelease: true
-  description: |
-    Manage your Samba shares through the Cockpit user interface.
-
 navigator:
   title: Navigator
   source: https://github.com/45Drives/cockpit-navigator
