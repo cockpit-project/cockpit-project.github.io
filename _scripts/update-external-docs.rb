@@ -11,6 +11,8 @@ wiki_pages = %w[
   Cockpit-Coding-Guidelines
   Contributing
   Workflow
+  Proxying-Cockpit-over-NGINX
+  Proxying-Cockpit-over-Apache-with-LetsEncrypt
 ]
 
 # Pages to fetch from the Cockpit git repo
