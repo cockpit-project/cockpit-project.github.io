@@ -106,6 +106,8 @@ You can set these environment variables to configure the test suite:
                   "fedora-testing"
                   "rhel-8-6"
                   "rhel-8-6-distropkg"
+                  "rhel-8-7"
+                  "rhel-8-7-distropkg"
                   "rhel-9-0"
                   "rhel-9-1"
                   "ubuntu-2204"
