@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # Run using toolbox-ruby:
-# _scripts/toolbox-ruby _scripts/update-external-docs.rb
+# _scripts/container-ruby _scripts/update-external-docs.rb
 
 ### Editable variables ###
 

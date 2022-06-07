@@ -8,38 +8,38 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 
 ## Get Started
 
-### Fedora fast-track using a "toolbox" container
+### Using a Podman container
 
 #### Setting up the container for the first time
 
-0. Install toolbox (if you haven't already — it's preinstalled with Silverblue):
-   `sudo dnf install toolbox`
+0. Install Podman (if you haven't already; it's preinstalled with Silverblue and available elsewhere):
+   `sudo dnf install podman`
 1. Create the container and install the dependencies with:
-   `_scripts/toolbox-create`
+   `_scripts/container-create`
 
 #### Running the Jekyll server locally
 
 Run the website locally using Jekyll with:
 
-1. `_scripts/toolbox-jekyll`
+1. `_scripts/container-jekyll`
 2. Visit <http://127.0.0.1:4000/>
 
-You can pass arguments to the toolbox-jekyll command. To see everything available, pass `--help`.
+You can pass arguments to the `container-jekyll` command. To see everything available, pass `--help`.
 The most useful arguments are:
 - `-I` for incremental, which speeds up page compilation by recompiling only parts that have changed
 - `-l` for livereload, which updates the browser when parts of the page change
 
 So, for instant rendering of local changes, you'd run:
 
-- `_scripts/toolbox-jekyll -Il`
+- `_scripts/container-jekyll -Il`
 
 #### Updating when Gemfile / Gemfile.lock changes
 
-1. `_scripts/toolbox-update-gems`
+1. `_scripts/container-update-gems`
 
 #### Deleting the container
 
-1. `_scripts/toolbox-delete`
+1. `_scripts/container-delete`
 
 This removes the container and the local `.gem` directory.
 

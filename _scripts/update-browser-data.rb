@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # To use with a toolbox, make sure your toolbox exists and run:
-# _scripts/toolbox-ruby _scripts/update-browser-data.rb
+# _scripts/container-ruby _scripts/update-browser-data.rb
 
 require 'bundler'
 require 'net/http'

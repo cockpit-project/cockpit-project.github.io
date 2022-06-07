@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/motevets/pathutil.git
-  revision: 3451a10c362fc867b20c7e471a551b31c40a0246
-  ref: 3451a10
-  specs:
-    pathutil (0.16.2)
-      forwardable-extended (~> 2.6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -225,6 +217,8 @@ GEM
     octokit (4.24.0)
       faraday (>= 1, < 3)
       sawyer (~> 0.9)
+    pathutil (0.16.2)
+      forwardable-extended (~> 2.6)
     public_suffix (4.0.7)
     racc (1.6.0)
     rb-fsevent (0.11.1)
@@ -266,11 +260,10 @@ DEPENDENCIES
   faraday-retry
   github-pages
   minima
-  pathutil!
   webrick
 
 RUBY VERSION
-   ruby 3.0.4p208
+   ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.33
+   2.2.31
