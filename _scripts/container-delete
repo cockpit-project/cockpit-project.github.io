@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+in_toolbox=/run/.containerenv
+
+if [ -f $in_toolbox ]; then
+  podman="flatpak-spawn --host env podman"
+else
+  podman="env podman"
+fi
+
+container_exists=$( $podman container exists cockpit-website )
+
+if [[ -n $container_exists ]]; then
+  echo "## Removing local .gem directory..."
+  "$(dirname "$0")"/container-run rm -rf .gem
+  echo "## Deleting Cockpit website container..."
+  $podman rmi -f cockpit-website
+  echo "## Done! "
+else
+  echo "## Container does not exist"
+fi

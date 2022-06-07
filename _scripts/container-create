@@ -1,0 +1,19 @@
+#!/bin/bash -e
+
+in_toolbox=/run/.containerenv
+
+if [ -f $in_toolbox ]; then
+  podman="flatpak-spawn --host env podman"
+else
+  podman="env podman"
+fi
+
+echo "## Creating website container..."
+# Use GitHub's official pages container as a base
+# but use local .gem directory (which will be mounted in /src/site)
+cat <<'EOF' | $podman build -t cockpit-website --pull -
+FROM ghcr.io/github/pages-gem
+RUN bundle config path /src/site/.gem
+EOF
+
+"$(dirname "$0")"/container-update-gems

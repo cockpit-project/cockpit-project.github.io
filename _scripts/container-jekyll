@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+"$(dirname "$0")"/container-run bundle exec jekyll server -H 0.0.0.0 "$*"

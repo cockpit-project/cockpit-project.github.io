@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # Run with:
-# _scripts/toolbox-ruby _scripts/generate-release-notes.rb
+# _scripts/container-ruby _scripts/generate-release-notes.rb
 
 ### Editable variables ###
 

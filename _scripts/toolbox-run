@@ -1,8 +1,0 @@
-#!/bin/sh -e
-
-if [ -n "$1" ]
-then
-	toolbox run -c cockpit-website "$@"
-else
-	toolbox run -c cockpit-website bundle exec jekyll server -l
-fi

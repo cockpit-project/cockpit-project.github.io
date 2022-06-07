@@ -1,8 +1,0 @@
-#!/bin/sh -e
-
-echo "## Deleting Cockpit website container..."
-
-toolbox rm -f cockpit-website
-rm -rf .gem
-
-echo "## Done! "

@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+"$(dirname "$0")"/container-run bundle install
+
+echo "## Done!"
+echo "## Run _scripts/container-jekyll"
