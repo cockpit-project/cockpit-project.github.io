@@ -24,3 +24,6 @@ gem "pathutil", github: "motevets/pathutil", ref: "3451a10"
 # Ruby 3.x doesn't have webrick; so it needs to be manually added
 # https://github.com/github/pages-gem/issues/752#issuecomment-764647862
 gem "webrick"
+
+# Squelch Jekyll run's faraday message by installing the gem it recommends
+gem "faraday-retry"
