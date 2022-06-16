@@ -16,9 +16,9 @@ Cockpit git repository checkout.
 Cockpit uses Node.js during development. Node.js is not used at runtime.
 To make changes on Cockpit you'll want to install Node.js.
 
-On Debian and recent Ubuntu ≥ 19.04:
+On Debian/Ubuntu:
 
-    $ sudo apt-get install nodejs
+    $ sudo apt install nodejs
 
 On Fedora:
 
@@ -35,14 +35,7 @@ locally (see [testing README](test/README.md)), you will need additional header
 files and other components. The following should work in a fresh Git clone:
 
     $ sudo dnf install dnf-utils python-srpm-macros
-    $ TEMPFILE=$(mktemp -u --suffix=.spec) && \
-      ./tools/create-spec --version 1 -o "$TEMPFILE" tools/cockpit.spec.in && \
-      sudo dnf builddep --spec "$TEMPFILE" &&
-      rm "$TEMPFILE"
-
-Note that `tools/cockpit.spec.in` is a template filled in by
-`tools/create-spec` when building RPMs, and cannot be directly parsed
-by dnf.
+    $ sudo dnf builddep --spec tools/cockpit.spec
 
 For running the browser unit tests, the following dependencies are required:
 
@@ -51,8 +44,8 @@ For running the browser unit tests, the following dependencies are required:
 For running integration tests, the following dependencies are required:
 
     $ sudo dnf install curl expect xz rpm-build chromium-headless \
-        libvirt-daemon-kvm libvirt-client python3-libvirt python3-pyflakes \
-        python3-pycodestyle python3-pyyaml
+        libvirt-daemon-driver-storage-core libvirt-daemon-driver-qemu libvirt-client python3-libvirt \
+        python3-pyflakes python3-pycodestyle python3-pyyaml
 
 Creating VM images locally (not necessary for running tests) needs the
 following:
