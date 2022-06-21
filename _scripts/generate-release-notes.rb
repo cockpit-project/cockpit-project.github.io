@@ -2,7 +2,10 @@
 # frozen_string_literal: true
 
 # Run with:
-# _scripts/container-ruby _scripts/generate-release-notes.rb
+# _scripts/container-ruby _scripts/generate-release-notes.rb --user=me
+#
+# User name is optional. If you do not provide it, the script will attempt to
+# discover it.
 
 ### Editable variables ###
 
@@ -102,6 +105,7 @@ require 'etc'
 OptionParser.new do |opt|
   opt.on('-p', '--preview', 'Preview release notes with open PRs and more info') { @options[:preview] = true }
   opt.on('-r', '--released', 'Cockpit has been released (do not increment version)') { @options[:released] = true }
+  opt.on('-u USER', '--user=USER', 'Specify user name (instead of discovering it)') { |user| @options[:user] = user }
   opt.on('-v', '--verbose', 'Show additional information on the command line') { @options[:debug] = true }
 end.parse!
 
@@ -112,6 +116,19 @@ end.parse!
 @tags = []
 @files_images = []
 @increment = @options.released ? 0 : 1
+
+# Prefer user-specified user. If user isn't specified, attempt to discover it.
+#
+# As Podman mounts the filesystem as an overlay from
+# $USER/.local/share/containers.
+#
+# User discovery works for user session containers. System containers do not run
+# as a user, so there's nothing to discover. To ensure there's always a string
+# (instead of an error if detection doesn't work), convert to an array.
+@user = @options[:user] || File.open('/proc/self/mounts', 'r')
+                               .read
+                               .match('/([^/]*)/.local/share/containers')
+                               .to_a[1]
 
 # Simple method to make a sanitized string for slugs and filenames
 def slugify(filename)
@@ -152,7 +169,7 @@ def build_frontmatter
 
   @frontmatter = {
     title: cockpit_title,
-    author: Etc.getlogin,
+    author: @user,
     date: Time.now.strftime('%F'),
     tags: @tags.join(', '),
     slug: slugify(cockpit_title),
