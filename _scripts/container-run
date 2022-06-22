@@ -14,7 +14,7 @@ if [[ -n $container_exists ]]; then
   # Use the container with podman; first assign to $run
   # Port 35729 is for the port when Jekyll auto-reloads
   # Port 4000 is the Jekyll server port
-  run="$podman run -it -p 4000:4000 -p 35729:35729 -v $PWD:/src/site:Z cockpit-website"
+  run="$podman run -it -p 4000:4000 -p 35729:35729 -v $PWD:/src/site:Z --replace --name cockpit-website cockpit-website"
 
   if [ -n "$1" ]; then
     $run "$@"
