@@ -92,8 +92,9 @@ composer:
 certificates:
   title: Certificate Management
   package: cockpit-certificates
-  source: https://github.com/skobyda/cockpit-certificates
-  issues: https://github.com/skobyda/cockpit-certificates/issues
+  source: https://github.com/cockpit-project/cockpit-certificates
+  issues: https://github.com/cockpit-project/cockpit-certificates/issues
+  official: true
   prerelease: true
   description: |
     Certificate management app for Cockpit.
