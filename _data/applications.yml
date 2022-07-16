@@ -196,3 +196,13 @@ tukit:
   description: |
     Upgrade systems based on transactional-update from OpenSUSE with tukit in
     your browser.
+    
+sensors:
+  title: Sensors
+  package: sensors-plugin
+  official: false
+  source: https://github.com/ocristopfer/sensors-plugin
+  issues: https://github.com/ocristopfer/sensors-plugin/issues
+  license: LGPL 2.1
+  description: |
+    Lists all available sensors on the machine provide by lm-sensors 
