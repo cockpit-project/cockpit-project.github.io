@@ -7,6 +7,15 @@ Cockpit works on a **web socket combined with http/https** interface, Web Socket
 
 We will need to create a virtual host, give the virtual host a domain name, install TLS/SSL certificate and set up a reverse proxy. (instructions adapted from [here](https://www.linuxbabe.com/cloud-storage/integrate-collabora-online-server-nextcloud-ubuntu-16-04) and [here](https://stackoverflow.com/questions/27526281/websockets-and-apache-proxy-how-to-configure-mod-proxy-wstunnel))
 
+## Set up Apache X-Frame-Options
+
+Edit Apache X-Frame-Options policy by running:
+
+`sudo nano /etc/apache2/conf-available/ssl-params.conf`
+
+Find a line that says `Header always set X-Frame-Options DENY`
+and change it to `Header always set X-Frame-Options SAMEORIGIN`
+
 ## Set up Apache Virtual Host
 
 Install Apache web server with the following command:
