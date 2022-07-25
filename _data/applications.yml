@@ -199,10 +199,10 @@ tukit:
     
 sensors:
   title: Sensors
-  package: sensors-plugin
+  package: cockpit-sensors
   official: false
-  source: https://github.com/ocristopfer/sensors-plugin
-  issues: https://github.com/ocristopfer/sensors-plugin/issues
+  source: https://github.com/ocristopfer/cockpit-sensors
+  issues: https://github.com/ocristopfer/cockpit-sensors/issues
   license: LGPL 2.1
   description: |
-    Lists all available sensors on the machine provide by lm-sensors 
+    List all available sensors on the machine provided by `lm-sensors`.
