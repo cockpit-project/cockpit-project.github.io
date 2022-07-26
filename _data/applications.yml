@@ -196,3 +196,13 @@ tukit:
   description: |
     Upgrade systems based on transactional-update from OpenSUSE with tukit in
     your browser.
+    
+sensors:
+  title: Sensors
+  package: cockpit-sensors
+  official: false
+  source: https://github.com/ocristopfer/cockpit-sensors
+  issues: https://github.com/ocristopfer/cockpit-sensors/issues
+  license: LGPL 2.1
+  description: |
+    List all available sensors on the machine provided by `lm-sensors`.
