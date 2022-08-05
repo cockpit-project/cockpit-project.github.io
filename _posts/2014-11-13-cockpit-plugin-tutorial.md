@@ -82,6 +82,9 @@ The pinger tool itself looks like this:
 
 Lets take a look at the pinger HTML, and see how it works.
 
+_**Warning**: Since Cockpit 273 ([relevant pull request](https://github.com/cockpit-project/cockpit/pull/17486)), `cockpit.css` can no longer be included as described below, since it was removed from Cockpit._
+{:.warning}
+
 ```html
 <!DOCTYPE html>
 <html>
