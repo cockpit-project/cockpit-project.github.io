@@ -7,7 +7,7 @@ tags: cockpit linux
 slug: creating-plugins-for-the-cockpit-user-interface
 ---
 
-_**Note**: This post was updated in May 2020 to adjust to reflect Cockpit UI and development best practices._
+_**Note**: This post was updated in Aug 2022 to adjust to reflect Cockpit UI and development best practices._
 {:.note}
 
 [Cockpit is a web-based graphical interface for servers](https://cockpit-project.org). You can easily add your own custom pages to the navigation.
@@ -20,7 +20,7 @@ We'll make a package called *pinger* that checks whether your server has network
 
 This example package is already [included in the Cockpit sources](https://github.com/cockpit-project/cockpit/tree/master/examples/pinger). You can look it over and modify it.
 
-To start, let's get ready for development by launching a terminal on your local computer. 
+To start, let's get ready for development by launching a terminal on your local computer.
 
 First, create a project directory and download the example:
 
@@ -88,32 +88,33 @@ Lets take a look at the pinger HTML, and see how it works.
 <head>
     <title>Pinger</title>
     <meta charset="utf-8">
-    <link href="../base1/cockpit.css" type="text/css" rel="stylesheet">
     <script src="../base1/cockpit.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <table class="form-table-ct">
-            <tr>
-                <td><label class="control-label" for="address">Address</label></td>
-                <td><input class="form-control" id="address" value="8.8.8.8"></td>
-            </tr>
-            <tr>
-                <td><button class="pf-c-button pf-m-primary" id="ping">Ping</button></td>
-                <td><span id="result"></span></td>
-            </tr>
-        </table>
-        <pre id="output"></pre>
-    </div>
+    <main tabindex="-1">
+        <section>
+            <div>
+                <div>
+                    <label for="address">Address</label>
+                    <input id="address" value="8.8.8.8">
+                </div>
+                <div>
+                    <button id="ping">Ping</button>
+                    <span id="result"></span>
+                </div>
+                <div>
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="pinger.js"></script>
 </body>
 </html>
 ```
 
-In `<head>`, the `cockpit.css` file is linked in so our tool matches the style of the rest of Cockpit.
-
-Also included in the `<head>` block: `cockpit.js` is the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation in the Cockpit guide](https://cockpit-project.org/guide/latest/api-base1.html).
+Included in the `<head>` block: `cockpit.js` is the basic API for interacting with the system, as well as Cockpit itself. You can find [detailed documentation in the Cockpit guide](https://cockpit-project.org/guide/latest/api-base1.html).
 
 The HTML is pretty basic. It defines a little form with a field to type an address, a button to click to start pinging, and an area to present output and results.
 
