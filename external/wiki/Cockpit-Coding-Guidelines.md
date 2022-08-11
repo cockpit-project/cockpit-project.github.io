@@ -175,7 +175,7 @@ var panel = (
 * Use dashes instead of underscores in ids
 * Use namespaces for ids if writing code that is consumed as part of a larger whole.
 
-[Sample code](https://github.com/cockpit-project/cockpit/blob/30270ca580159cc4a0e0238b17f75bc7e03cbe2f/pkg/base/cockpit.css#L37-L45)
+[Sample code](https://github.com/cockpit-project/cockpit/blob/97e0a7d7a11bc64da7f6a48ae27039f061977f6e/pkg/lib/page.scss#L99)
 ```css
 /* Panels don't draw borders between them */
 .panel > .table > tbody:first-child td {
