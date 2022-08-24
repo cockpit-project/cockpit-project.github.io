@@ -53,8 +53,8 @@ layout: guide
 <td><p><span class="term"><code class="option">Origins</code></span></p></td>
 <td>
 <p>By default cockpit will not accept crossdomain websocket connections. Use this
-                  setting to allow access from alternate domains. Origins should include scheme, host
-                  and port, if necessary.</p>
+            setting to allow access from alternate domains. Origins should include scheme, host
+            and port, if necessary.</p>
 <div class="informalexample"><pre class="programlisting">
 [WebService]
 Origins = https://somedomain1.com https://somedomain2.com:9090
@@ -65,8 +65,8 @@ Origins = https://somedomain1.com https://somedomain2.com:9090
 <td><p><span class="term"><code class="option">ProtocolHeader</code></span></p></td>
 <td>
 <p>Configure cockpit to look at the contents of this header to determine if a connection
-                  is using tls. This should only be used when cockpit is behind a reverse proxy, and care
-                  should be taken to make sure that incoming requests cannot set this header.</p>
+          is using tls. This should only be used when cockpit is behind a reverse proxy, and care
+          should be taken to make sure that incoming requests cannot set this header.</p>
 <div class="informalexample"><pre class="programlisting">
 [WebService]
 ProtocolHeader = X-Forwarded-Proto
@@ -77,8 +77,8 @@ ProtocolHeader = X-Forwarded-Proto
 <td><p><span class="term"><code class="option">ForwardedForHeader</code></span></p></td>
 <td>
 <p>Configure cockpit to look at the contents of this header to determine the real origin of a
-              connection.  This should only be used when cockpit is behind a reverse proxy, and care
-              should be taken to make sure that incoming requests cannot set this header.</p>
+          connection.  This should only be used when cockpit is behind a reverse proxy, and care
+          should be taken to make sure that incoming requests cannot set this header.</p>
 <div class="informalexample"><pre class="programlisting">
 [WebService]
 ForwardedForHeader = X-Forwarded-For
