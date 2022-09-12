@@ -61,7 +61,7 @@ supports = YAML.safe_load("
         css: 'selector(test)'
 
     mdn-css_selectors_where:
-        css: 'selector(:is():where())'
+        css: 'selector(:is(*):where(*))'
 ")
 
 caniuse_db = 'https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json'

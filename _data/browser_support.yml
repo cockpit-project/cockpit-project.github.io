@@ -63,4 +63,4 @@ rules:
     - display
     - grid
   mdn-css_selectors_where:
-    css: selector(:is():where())
+    css: selector(:is(*):where(*))
