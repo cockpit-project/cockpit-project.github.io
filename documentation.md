@@ -16,7 +16,7 @@ After Cockpit is running, visit **ip-address-of-machine:9090** in your web brows
 
 The documentation for Red Hat Enterprise Linux 9 is the most up-to-date.
 
-- [Managing systems using the RHEL 9 web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9-beta/html/managing_systems_using_the_rhel_9_web_console/index)
+- [Managing systems using the RHEL 9 web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/managing_systems_using_the_rhel_9_web_console/index)
 
 ### Red Hat Enterprise Linux 8 documentation
 
