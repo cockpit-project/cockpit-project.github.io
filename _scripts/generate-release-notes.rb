@@ -85,8 +85,8 @@ VERSIONS ARE available now:
 
 @footer_dynamic = "
 * [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
+* [NAME Fedora 37](https://bodhi.fedoraproject.org/updates/?releases=F37&packages=REPO)
 * [NAME Fedora 36](https://bodhi.fedoraproject.org/updates/?releases=F36&packages=REPO)
-* [NAME Fedora 35](https://bodhi.fedoraproject.org/updates/?releases=F35&packages=REPO)
 * [Cockpit Client](https://flathub.org/apps/details/org.cockpit_project.CockpitClient)
 "
 
