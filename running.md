@@ -290,3 +290,26 @@ If the first command fails with "database file for ... does not exist", refresh/
 # firewall-cmd --permanent --zone=public --add-service=cockpit
 # firewall-cmd --reload
 ```
+
+### SUSE Linux Enterprise Micro
+{:#slemicro}
+
+Cockpit is included in SUSE Linux Enterprise (SLE) Micro 5.x.
+
+1. Install cockpit (already present in the pre-built images):
+```
+transactional-update pkg install -t pattern microos-cockpit
+```
+2. Enable the socket:
+```
+systemctl enable --now cockpit.socket
+```
+3. In case you have enabled the firewall, you also must open the port:
+```
+firewall-cmd --permanent --zone=public --add-service=cockpit
+firewall-cmd --reload
+```
+4. Access through the web interface:
+```
+https://IP_ADDRESS_OF_MACHINE:9090
+```
