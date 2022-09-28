@@ -39,3 +39,7 @@
 - tumbleweed:
   name: openSUSE Tumbleweed
   included: true
+
+- slemicro:
+  name: SUSE Linux Enterprise Micro
+  included: true
