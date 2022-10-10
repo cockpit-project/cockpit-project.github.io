@@ -244,6 +244,9 @@ On Linux Mint, use `UBUNTU_CODENAME` instead of `VERSION_CODENAME` like so:
 sudo apt install -t ${UBUNTU_CODENAME}-backports cockpit
 ```
 
+{:.note}
+When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` as above, so backports are included.
+
 ### Clear Linux
 {:#clearlinux}
 
