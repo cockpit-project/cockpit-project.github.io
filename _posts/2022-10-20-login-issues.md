@@ -20,7 +20,7 @@ Logging in with new versions of browsers into a few older versions of Cockpit is
 
 We fixed this bug as soon as it was discovered (a month ago) and pushed [a new release of Cockpit](cockpit-277) and also backported it as a hotfix to all the "stable" slower-moving distributions.
 
-All distributions have had the fix for a around a month. Most distributions have accepted and published the fix, including Arch Linux, CentOS Stream 8 & 9, Debian, Fedora, openSUSE Tumbleweed, Red Hat Linux Enterprise Linux versions prior to 8.8, and Ubuntu Kenetic.
+All distributions have had the fix for a around a month. Most distributions have accepted and published the fix, including Arch Linux, CentOS Stream 8 & 9, Debian, Fedora, openSUSE Tumbleweed, Red Hat Linux Enterprise Linux versions prior to 8.8, and Ubuntu Kinetic.
 
 Due to the nature of enterprise/LTS distributions the fixes have not landed yet in Red Hat Enterprise Linux 8.6 & 9.0, Ubuntu 22.04 LTS, Alma Linux, and Rocky Linux.
 
