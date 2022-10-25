@@ -6,13 +6,15 @@ tags: cockpit
 
 ## Quick summary
 
+*Updated on 2022-10-25*: Fix for Ubuntu 22.04 LTS becomes available as official update.
+
 Firstly, there's a fix.
 
 In most cases, update. [Cockpit 277](cockpit-277), released last month, has the fix.
 
-Updating Cockpit should work for Arch, CentOS Stream, Debian, Fedora, openSUSE, non-LTS versions of Ubuntu.
+Updating Cockpit should work for Arch, CentOS Stream, Debian, Fedora, openSUSE, and Ubuntu.
 
-If updating doesn't work (in Ubuntu LTS, some versions of RHEL, Alma Linux, and Rocky Linux), then hopefully it will work very soon. For the time being, please [look at the bottom of this post for some workarounds](#workarounds).
+If updating doesn't work (in some versions of RHEL, Alma Linux, and Rocky Linux), then hopefully it will work very soon. For the time being, please [look at the bottom of this post for some workarounds](#workarounds).
 
 ## Summary
 
@@ -20,29 +22,17 @@ Logging in with new versions of browsers into a few older versions of Cockpit is
 
 We fixed this bug as soon as it was discovered (a month ago) and pushed [a new release of Cockpit](cockpit-277) and also backported it as a hotfix to all the "stable" slower-moving distributions.
 
-All distributions have had the fix for a around a month. Most distributions have accepted and published the fix, including Arch Linux, CentOS Stream 8 & 9, Debian, Fedora, openSUSE Tumbleweed, Red Hat Linux Enterprise Linux versions prior to 8.8, and Ubuntu Kinetic.
+All distributions have had the fix for a around a month. Most distributions have accepted and published the fix, including Arch Linux, CentOS Stream 8 & 9, Debian, Ubuntu, Fedora, openSUSE Tumbleweed, and Red Hat Linux Enterprise Linux 8.7 and 9.1.
 
-Due to the nature of enterprise/LTS distributions the fixes have not landed yet in Red Hat Enterprise Linux 8.6 & 9.0, Ubuntu 22.04 LTS, Alma Linux, and Rocky Linux.
+Due to the nature of enterprise/LTS distributions the fixes have not landed yet in Red Hat Enterprise Linux 8.6 & 9.0, Alma Linux, and Rocky Linux.
 
 ## Affected browsers
 
 Right now (2022-10-20): Using Firefox 106 with Cockpit is affected. However, Chrome, Edge, Brave, and any other Chromium-based browser will have versions in the very near future which will also be affected. WebKit-based browsers, such as Safari and GNOME Web will likely be affected soon as well.
 
-Firefox ESR (Extended Support Release) is slower-moving and is on 102.x and is not affected, nor will it be affected until Q3 2023 (2023-07-04 specifically, according to [the Firefox release schedule](https://wiki.mozilla.org/Release_Management/Calendar)). 
+Firefox ESR (Extended Support Release) is slower-moving and is on 102.x and is not affected, nor will it be affected until Q3 2023 (2023-07-04 specifically, according to [the Firefox release schedule](https://wiki.mozilla.org/Release_Management/Calendar)).
 
 ## Workarounds
-
-### Ubuntu
-
-#### Official packages in "proposed"
-
-For Ubuntu, the fix should be out in the main repo next week.
-
-In the meantime, the fixed version of Cockpit has been accepted to the proposed repository (a staging repo). You can enable this repository or even just cherry-pick specific packages (such as Cockpit packages, like `cockpit-ws`). More information is available at [Ubuntu's EnableProposed wiki page](https://wiki.ubuntu.com/Testing/EnableProposed) and [at Launchpad](https://bugs.launchpad.net/ubuntu/+source/cockpit/+bug/1990623/comments/10). If you test this and it works for you (it should!) please also leave a comment [at the Launchpad issue](https://bugs.launchpad.net/ubuntu/+source/cockpit/+bug/1990623) to let them know to push it to the main repos sooner, so everyone will get the fix!
-
-#### Unofficial testing PPA
-
-If you can't use the proposed packages for whatever reason, then [Martin Pitt, an official member of the Cockpit team and Ubuntu and Debian package maintainer, has his own testing PPA](https://launchpad.net/~pitti/+archive/ubuntu/fixes/). This is almost as official as it gets, coming from Martin. It's just not an "official" package by the distribution.
 
 ### Rocky Linux 9 and Alma Linux 9
 
