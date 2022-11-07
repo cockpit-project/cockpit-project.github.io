@@ -83,20 +83,21 @@ However, we __strongly__ encourage you to use the latest version of your browser
 {% comment %}
 ## Data for the distros table comes from `_data/distros.yml` ##
 {% endcomment %}
-{% assign check = '<span aria-label="#">✓</span>' %}
+{% assign check = '<span aria-label="check">✓</span>' %}
 
-| |Supported|Tested|Included||
+| |Tested|Included||
 |-|-|-|-|-|-|{%
   for distro in site.data.distros
 %}
 |[![{{ distro.name }}](/images/site/os-{{ distro.first}}.svg)](#{{ distro.first }})|{%
-  if distro.supported %}{{ check | replace: "#", "supported" }}{% endif
-  %}|{%
   if distro.tested %}{{ check | replace: "#", "tested" }}{% endif
   %}|{%
   if distro.included %}{{ check | replace: "#", "included" }}{% endif
   %}|[View instructions](#{{ distro.first }})|{% endfor %}
 {:.support-table}
+
+{:.note}
+"Tested" in this table means actively tested by the Cockpit team using automated integration testing with a specific virtual machine image. Distributions listed on this page likely do their own downstream testing in addition.
 
 ### Fedora
 
