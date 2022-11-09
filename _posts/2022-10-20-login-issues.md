@@ -6,15 +6,16 @@ tags: cockpit
 
 ## Quick summary
 
-*Updated on 2022-10-25*: Fix for Ubuntu 22.04 LTS becomes available as official update.
+**_Last updated on 2022-11-09**: All major distributions should now have fixed packages._
 
-Firstly, there's a fix.
+If you're experiencing an issue logging in to Cockpit with an error about `:where():is()` support:
 
-In most cases, update. [Cockpit 277](cockpit-277), released last month, has the fix.
+- In most cases, update your servers. [Cockpit 277](cockpit-277), released last month, has the fix.
+- After updating, if you see the error, it may be cached. Reload the page. In some cases, you may even need to hold down shift, just to be sure. (`Shift`+`Ctrl`+`R` or `Shift`+`F5` or hold down Shift while clicking the refresh icon)
 
-Updating Cockpit should work for Arch, CentOS Stream, Debian, Fedora, openSUSE, and Ubuntu.
+Updating Cockpit should work for Arch, CentOS Stream, Debian, Fedora, openSUSE, Ubuntu, Red Hat Enterprise Linux (and derivatives, such as Alma Linux and Rocky Linux), and likely other distributions that ship Cockpit.
 
-If updating doesn't work (in some versions of RHEL, Alma Linux, and Rocky Linux), then hopefully it will work very soon. For the time being, please [look at the bottom of this post for some workarounds](#workarounds).
+If updating still doesn't work for your distribution, then hopefully it will work very soon. For the time being, please [look at the bottom of this post for some workarounds](#workarounds).
 
 ## Summary
 
@@ -34,17 +35,11 @@ Firefox ESR (Extended Support Release) is slower-moving and is on 102.x and is n
 
 ## Workarounds
 
-### Rocky Linux 9 and Alma Linux 9
+### If packages are not yet available for your distribution
 
-CentOS Stream has fixes. The packages are likely binary compatible, but you can rebuild the source packages. It's unknown at this time if Alma and Rocky are building the new version or not.
+We suggest using an official package, but if packages are not yet available for your distribution, we have a simple, quick fix.
 
-### If you cannot install non-official packages or packages are not yet available
-
-If you can't use either packages (for whatever reson) or packages for your distribution are not yet available, then [I wrote a simple 1-line sed command that you can use as well](https://github.com/cockpit-project/cockpit/discussions/17800#discussioncomment-3840603). It hotpatches your existing system by adding two (necessary) characters to a JavaScript file.
-
-We suggest using an official or semi-official package instead, if you can. But we're including this quick fix for those who do not have packages available or who cannot update package versions (for whatever reason).
-
-This is a simple `sed` command that adds the two characters to the webpacked JS file for the login page. Run it as an administrator (`root` account) on a server with Cockpit installed:
+This sed command adds the two characters to the webpacked JS file for the login page. Run it as an administrator (`root` account) on a server with Cockpit installed:
 
 ```
 sed -i 's/is():where()/is(*):where(*)/' /usr/share/cockpit/static/login.js
