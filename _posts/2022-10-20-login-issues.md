@@ -6,7 +6,7 @@ tags: cockpit
 
 ## Quick summary
 
-*Updated on 2022-10-25*: Fix for Ubuntu 22.04 LTS becomes available as official update.
+**_Last updated on 2022-11-09**: All major distributions should now have fixed packages._
 
 If you're experiencing an issue logging in to Cockpit with an error about `:where():is()` support:
 
