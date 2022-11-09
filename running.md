@@ -105,11 +105,11 @@ Cockpit comes **installed by default in Fedora Server**.
 
 To install Cockpit on other variants of Fedora use the following commands. For the latest versions [use COPR](https://copr.fedoraproject.org/coprs/g/cockpit/cockpit-preview/).
 
-1. Install cockpit: 
+1. Install cockpit:
 ```
 sudo dnf install cockpit
 ```
-2. Enable cockpit: 
+2. Enable cockpit:
 ```
 sudo systemctl enable --now cockpit.socket
 ```
@@ -131,11 +131,11 @@ sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 ```
 RHEL 8 does not need any non-default repositories.
 
-2. Install cockpit: 
+2. Install cockpit:
 ```
 sudo yum install cockpit
 ```
-3. Enable cockpit: 
+3. Enable cockpit:
 ```
 sudo systemctl enable --now cockpit.socket
 ```
@@ -189,11 +189,11 @@ Afterward, use a web browser to log into port `9090` on your host IP address as 
 
 Cockpit is included in CentOS 7.x:
 
-1. Install cockpit: 
+1. Install cockpit:
 ```
 sudo yum install cockpit
 ```
-2. Enable cockpit: 
+2. Enable cockpit:
 ```
 sudo systemctl enable --now cockpit.socket
 ```
