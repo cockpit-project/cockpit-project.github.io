@@ -187,7 +187,7 @@ Afterward, use a web browser to log into port `9090` on your host IP address as 
 
 ### CentOS
 
-Cockpit is included in CentOS 7.x:
+Cockpit is included in CentOS 7 and later:
 
 1. Install cockpit:
 ```
