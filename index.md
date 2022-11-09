@@ -245,5 +245,7 @@ Contributing
 </footer>
 {% include page_footer.html %}
 
+<a rel="me" href="https://fosstodon.org/@Cockpit" class="hidden">Mastodon</a>
+
 <script src="{{ site.baseurl }}/assets/lib/screenshot-gallery.js"></script>
 {% endcapture %}{{ output }}
