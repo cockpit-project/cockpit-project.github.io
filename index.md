@@ -7,18 +7,18 @@ class: front-page
 {% endcapture %}
 
 {% capture screenshots %}
-login-opt.png: Cockpit's log in prompt (on Fedora 34)
-debian-in-windows-edge.jpg: Cockpit works where you are (Pictured: Connecting to Debian server from Microsoft Edge on Windows 10)
-journal.png: View, filter, and search system logs
-accounts.png: Edit accounts
-firewall-rhel.png: Edit the firewall with ease (Pictured: Cockpit Web Console on Red Hat Enterprise Linux, connected from Fedora 34 Workstation)
-network-overview.png: Manage your network
-overview-f33.png: Have a high-level overview of a server
-software-updates-cve-auto.png: Examine and apply software updates (with changelogs and links to CVEs)
-storage-overview.png: Look at and manage your storage
-system-services-ssh.png: See system services
-system-service-details.png: Manage an individual system service
-vm-create.png: Create and manage virtual machines
+login-opt.webp: Cockpit's log in prompt (on Fedora 34)
+debian-in-windows-edge.webp: Cockpit works where you are (Pictured: Connecting to Debian server from Microsoft Edge on Windows 10)
+journal.webp: View, filter, and search system logs
+accounts.webp: Edit accounts
+firewall-rhel.webp: Edit the firewall with ease (Pictured: Cockpit Web Console on Red Hat Enterprise Linux, connected from Fedora 34 Workstation)
+network-overview.webp: Manage your network
+overview-f33.webp: Have a high-level overview of a server
+software-updates-cve-auto.webp: Examine and apply software updates (with changelogs and links to CVEs)
+storage-overview.webp: Look at and manage your storage
+system-services-ssh.webp: See system services
+system-service-details.webp: Manage an individual system service
+vm-create.webp: Create and manage virtual machines
 {% endcapture %}
 {% assign screenshots = screenshots | split: newline %}
 
@@ -206,13 +206,13 @@ Contributing
 {% endcapture %}
 
 {% capture screenshots %}
-[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.png)]({{ site.baseurl}}/images/site/screenshot-storage.png)
+[![Storage screenshot]({{ site.baseurl }}/images/site/screenshot-storage.webp)]({{ site.baseurl}}/images/site/screenshot-storage.webp)
 {:.screenshot.zoom}
 
-[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.png)]({{ site.baseurl }}/images/site/screenshot-network.png)
+[![Network screenshot]({{ site.baseurl }}/images/site/screenshot-network.webp)]({{ site.baseurl }}/images/site/screenshot-network.webp)
 {:.screenshot.zoom}
 
-[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.png)]({{ site.baseurl }}/images/site/screenshot-dashboard.png)
+[![Dashboard screenshot]({{ site.baseurl }}/images/site/screenshot-dashboard.webp)]({{ site.baseurl }}/images/site/screenshot-dashboard.webp)
 {:.screenshot.zoom}
 {% endcapture %}
 
