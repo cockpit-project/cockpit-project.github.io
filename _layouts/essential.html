@@ -50,7 +50,7 @@
     {% else %}
       {% assign img_untreated = 'img src="/' %}
       {% assign baseurlslash = site.baseurl | append: "/" %}
-      {% assign img_baseurl = img_untreated | replace: "/", baseurlslash %}
+      {% assign img_baseurl = img_untreated | replace: "/", baseurlslash | replace: 'img', 'img loading="lazy"' %}
       {% assign rewritten = content_fixedyt | replace: img_untreated, img_baseurl %}
 
       {% if site.baseurl != "" %}
