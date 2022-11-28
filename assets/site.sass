@@ -728,3 +728,25 @@ article
   --base-color: rgb(201 25 11)
   --text-color: rgb(163 0 0)
   @extend %alert
+
+#markdown-toc
+  margin: 2rem 0
+
+  li > a
+    display: inline-block
+    padding: 0.25rem 0
+
+  > li
+    list-style: none
+    margin: 0
+
+    > a
+      font-size: 1.3rem
+      font-weight: bold
+
+  > li > ul
+    margin-top: 0.5rem
+    margin-bottom: 1rem
+
+  > li > ul > li
+    margin-bottom: 0.25rem
