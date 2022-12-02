@@ -81,13 +81,13 @@ Here are the release notes from VERSIONS:
 VERSIONS ARE available now:
 
 * [For your Linux system](https://cockpit-project.org/running.html)
+* [Cockpit Client](https://flathub.org/apps/details/org.cockpit_project.CockpitClient)
 "
 
 @footer_dynamic = "
 * [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
 * [NAME Fedora 37](https://bodhi.fedoraproject.org/updates/?releases=F37&packages=REPO)
 * [NAME Fedora 36](https://bodhi.fedoraproject.org/updates/?releases=F36&packages=REPO)
-* [Cockpit Client](https://flathub.org/apps/details/org.cockpit_project.CockpitClient)
 "
 
 ### Code below ###
