@@ -40,4 +40,3 @@ More [developer-focused resources are on the contribute page](external/wiki/Cont
 
 - [Frequently Asked Questions (FAQ)](faq.html)
 - [Cockpit's forum @ GitHub Discussions](https://github.com/cockpit-project/cockpit/discussions/)
-- 
