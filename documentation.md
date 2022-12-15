@@ -35,3 +35,9 @@ The [Cockpit guide](guide/latest/) contains:
 3. [Developer guide](guide/latest/development.html) contains topics such as embedding and integrating Cockpit, packages, and the Cockpit API.
 
 More [developer-focused resources are on the contribute page](external/wiki/Contributing.html).
+
+## Additional help
+
+- [Frequently Asked Questions (FAQ)](faq.html)
+- [Cockpit's forum @ GitHub Discussions](https://github.com/cockpit-project/cockpit/discussions/)
+- 

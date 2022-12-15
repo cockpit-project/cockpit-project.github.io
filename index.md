@@ -165,10 +165,10 @@ After [installing and enabling Cockpit]({{ site.baseurl }}/running.html), visit 
 
 {% capture footer_links %}
 About Cockpit
-: [Project Ideals and Goals](ideals.html)
-: [Cockpit Blog](blog)
-: [Blog Feeds](blog/feeds/)
-: [Release Notes and Videos](blog/category/release.html)
+: [Frequently Asked Questions (FAQ)](faq.html)
+: [Project ideals and goals](ideals.html)
+: [Blog](blog) &amp; [Blog feeds](blog/feeds/)
+: [Release notes](blog/category/release.html)
 : [Search this site](search.html)
 {:.col.footer-links-1}
 
@@ -177,7 +177,7 @@ Running Cockpit
 : [Documentation](documentation.html)
 : [Deployment guide](guide/latest/guide.html)
 : [Feature internals](guide/latest/features.html)
-: [File a bug in the issue tracker](https://github.com/cockpit-project/cockpit/issues)
+: [File a bug in the issue tracker](https://github.com/cockpit-project/cockpit/issues/new?assignees=&labels=bug&template=bug_report.yml)
 {:.col.footer-links-2}
 
 Contributing
