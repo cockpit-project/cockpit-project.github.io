@@ -85,7 +85,7 @@ However, we __strongly__ encourage you to use the latest version of your browser
 {% endcomment %}
 {% assign check = '<span aria-label="check">✓</span>' %}
 
-| |Tested|Included||
+| |Tested|Available||
 |-|-|-|-|-|-|{%
   for distro in site.data.distros
 %}
@@ -123,7 +123,7 @@ sudo firewall-cmd --add-service=cockpit --permanent
 ### Red Hat Enterprise Linux
 {:#rhel}
 
-Cockpit is included in Red Hat Enterprise Linux 7 and later.
+Cockpit is available in Red Hat Enterprise Linux 7 and later.
 
 1. On RHEL 7, enable the _Extras_ repository.
 ```
@@ -187,7 +187,7 @@ Afterward, use a web browser to log into port `9090` on your host IP address as 
 
 ### CentOS
 
-Cockpit is included in CentOS 7 and later:
+Cockpit is available in CentOS 7 and later:
 
 1. Install cockpit:
 ```
@@ -209,7 +209,7 @@ sudo firewall-cmd --reload
 {:.note}
 These commands require a POSIX compatible shell like `bash`. For other shells like `fish`, temporarily run `bash -i`.
 
-Cockpit is included in Debian since version 10 (Buster).
+Cockpit is available in Debian since version 10 (Buster).
 
 1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org) (as root):
    ```
@@ -231,7 +231,7 @@ When updating Cockpit-related packages and any dependencies, make sure to use `-
 {:.note}
 These commands require a POSIX compatible shell like `bash`. For other shells like `fish`, temporarily run `bash -i`.
 
-Cockpit is included in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later.
+Cockpit is available in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later.
 
 We recommend installing or updating the latest version from backports. This repository is enabled by default, but if you customized apt sources you might need to [enable them manually](https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports).
 
@@ -262,7 +262,7 @@ sudo systemctl enable --now cockpit.socket
 ### Arch Linux
 {:#archlinux}
 
-[Cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/) is included in [Arch Linux](https://www.archlinux.org/packages/):
+[Cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/) is available in [Arch Linux](https://www.archlinux.org/packages/):
 ```
 sudo pacman -S cockpit
 sudo systemctl enable --now cockpit.socket
@@ -274,7 +274,7 @@ If the first command fails with "database file for ... does not exist", refresh/
 ### openSUSE Tumbleweed
 {:#tumbleweed}
 
-[Cockpit](https://software.opensuse.org/package/cockpit) is included in [openSUSE Tumbleweed](https://software.opensuse.org/distributions/tumbleweed):
+[Cockpit](https://software.opensuse.org/package/cockpit) is available in [openSUSE Tumbleweed](https://software.opensuse.org/distributions/tumbleweed):
 
 
 1. Install cockpit:
