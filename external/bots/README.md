@@ -198,3 +198,44 @@ The machines will post comments to the pull request about their
 progress and at the end there will be links to commits with the new
 images.  You can then include these commits into the pull request in
 any way you like.
+
+### Updating CI to a new Fedora release
+
+`TEST_OS_DEFAULT` is usually set to the latest (stable) Fedora released,
+used as default OS for test VMs.
+
+1. If this is a new image, add `_manual` test contexts for the new image to `lib/testmap.py`, and land that into `main`.
+2. Create a PR that updates `TEST_OS_DEFAULT` in `lib/constants.py`, and trigger all tests for that image there.
+
+#### Fedora testing image
+
+The `fedora-testing` image is a Fedora image with updates-testing enabled,
+the version of the image is determined by what the
+`fedora-testing.bootstrap` symlink points too.
+
+To update the Fedora version used:
+
+1. Update the `fedora-testing.bootstrap` symlink to the latest Fedora
+   release.
+2. Update the naughty symlink `naughty/fedora-testing` to the latest
+   Fedora release.
+3. Create a new PR and refresh the image.
+
+
+#### Fedora CoreOS
+
+The Fedora CoreOS image is updated to a new Fedora release out of our
+control, when this occurs:
+
+1. Update the naughty symlink `naughty/fedora-coreos` to the release
+   CoreOS uses.
+2. Update `OSTREE_BUILD_IMAGE` to point to the Fedora release CoreOS
+   uses.
+
+####  Pixel tests
+
+The pixel tests used in Cockpit projects use `test/reference-image` to
+determine what image to run the pixel tests on.
+
+1. Create a PR which updates `test/reference-image`.
+2. Update the pixel tests if required.
