@@ -40,6 +40,10 @@ bots_pages = %w[
   'https://github.com/cockpit-project/cockpit/blob/master/HACKING.md' =>
   '{{ site.baseurl }}/external/source/HACKING.html',
 
+  './pkg/' => 'https://github.com/cockpit-project/cockpit/tree/main/pkg',
+
+  './pkg/systemd/' => 'https://github.com/cockpit-project/cockpit/tree/main/pkg/systemd/',
+
   'https://github.com/cockpit-project/cockpit/blob/master/test/README' =>
   '{{ site.baseurl }}/external/source/test/README.html',
 
