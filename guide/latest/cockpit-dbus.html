@@ -153,13 +153,6 @@ client = cockpit.dbus(name, [options])
             <code class="code">"none"</code>.</p></td>
 </tr>
 <tr>
-<td><p><span class="term"><code class="code">"host"</code></span></p></td>
-<td><p>The host to open the channel to. If an alternate user or port is
-          required it can be specified as <code class="code">"user@myhost:port"</code>. If no host is
-          specified then the correct one will be automatically selected based on the page
-          calling this function.</p></td>
-</tr>
-<tr>
 <td><p><span class="term"><code class="code">"superuser"</code></span></p></td>
 <td>
 <p>Set to <code class="code">"require"</code> to talk to this service as root.
@@ -857,43 +850,6 @@ client.onmeta = (ev, data) =&gt; { ... }
 <p>Multiple interfaces may be present, each of which may have methods and properties.
       This is emitted before the first <a class="link" href="cockpit-dbus.html#cockpit-dbus-proxy" title="client.proxy()"><code class="code">client.onnotify</code></a>
       event for the relevant interface.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-dbus-meta"></a><h2>client.meta()</h2>
-<pre class="programlisting">
-client.meta(data)
-</pre>
-<p>Populate DBus introspection metadata about DBus interfaces. Usually this metadata
-      is automatically introspected from the DBus services called by the <code class="code">client</code>,
-      but in certain cases it is useful to populate this info from javascript code. One such
-      case is when exporting a DBus service from javascript.</p>
-<p>The <a class="link" href="cockpit-dbus.html#cockpit-dbus-onmeta" title="client.onmeta"><code class="code">client.onmeta</code></a> event will
-      be emitted by this method call. It's documentation includes information about the form
-      of the <code class="code">data</code>.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-dbus-publish"></a><h2>client.publish()</h2>
-<pre class="programlisting">
-published = client.publish(path, interface, object, [options])
-</pre>
-<p>Publish a DBus <code class="code">interface</code> at the specified object <code class="code">path</code>.
-      Methods on the Javascript <code class="code">object</code> will be invoked when DBus methods on the
-      specified <code class="code">interface</code> are invoked by callers.</p>
-<p>The meta data for the DBus interface must have been populated using the
-      <a class="link" href="cockpit-dbus.html#cockpit-dbus-meta" title="client.meta()"><code class="code">client.meta()</code></a> function. The
-      returned <code class="code">published</code> object is a promise object. It will resolve when the
-      DBus interface has been published on the bus. It is not an error to publish the same
-      interface and path repeatedly: Previously published objects at the interface and
-      path are replaced by those published later.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-dbus-published"></a><h2>published.remove()</h2>
-<pre class="programlisting">
-published.remove()
-</pre>
-<p>Un-publishes a DBus interface at an object path. This method can be invoked
-      on the <code class="code">published</code> result returned from the
-      <a class="link" href="cockpit-dbus.html#cockpit-dbus-publish" title="client.publish()"><code class="code">client.publish()</code></a> function.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-dbus-variant"></a><h2>cockpit.variant()</h2>

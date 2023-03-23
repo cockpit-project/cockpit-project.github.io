@@ -71,13 +71,6 @@ process = cockpit.spawn(args, [options])
           When the <code class="code">"pty"</code> field is set, this field has no effect.</p></td>
 </tr>
 <tr>
-<td><p><span class="term"><code class="code">"host"</code></span></p></td>
-<td><p>The remote host to spawn the process on. If an alternate user or port is
-          required it can be specified as <code class="code">"user@myhost:port"</code>. If no host is
-          specified then the correct one will be automatically selected based on the page
-          calling this function.</p></td>
-</tr>
-<tr>
 <td><p><span class="term"><code class="code">"environ"</code></span></p></td>
 <td><p>An optional array that contains strings to be used as
           additional environment variables for the new process. These are
