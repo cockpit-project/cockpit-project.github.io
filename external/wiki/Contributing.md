@@ -31,7 +31,7 @@ Here is a detailed description of the [commit workflow](Workflow) (including [re
 
 ### Contact us!
 
-You can contact us on [irc or the mailing list](https://github.com/cockpit-project/cockpit/wiki/About) or by discussing issues in their respective GitHub thread. If an issue has a developer assigned, you may wish to check with that developer to see if they are already working on the issue.
+You can contact us on [Matrix or the mailing list](https://github.com/cockpit-project/cockpit/wiki/About) or by discussing issues in their respective GitHub thread. If an issue has a developer assigned, you may wish to check with that developer to see if they are already working on the issue.
 
 ### User interface & design
 Cockpit's user interface is based on [PatternFly](https://patternfly.org/). Please be aware of this, especially of the design patterns (listed on the design tab of each component) when proposing changes to the user interface. Be sure to also read the general guidelines on the PatternFly website as well.
