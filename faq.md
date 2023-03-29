@@ -17,9 +17,9 @@ title: Frequently Asked Questions (FAQ)
       - [Podman UI related issues](https://github.com/cockpit-project/cockpit-podman/issues)
       - [OStree related issues](https://github.com/cockpit-project/cockpit-ostree/issues)
     - If you're not sure where to file the issue, [use the general issue tracker](https://github.com/cockpit-project/cockpit/issues). (We can move it if necessary.)
-    - If it's not an issue, ask us in the forum or IRC.
+    - If it's not an issue, ask us in the forum or Matrix.
 - There's [a discussion forum for Cockpit on GitHub](https://github.com/cockpit-project/cockpit/discussions).
-- The Cockpit team is on IRC, usually during European business hours, from Monday through Friday, at #cockpit on irc.libera.chat. You need [a registered nick](https://libera.chat/guides/registration) in order to join.
+- The Cockpit team is on Matrix, usually during European business hours, from Monday through Friday, at [#cockpit:fedoraproject.org](https://matrix.to/#/#cockpit:fedoraproject.org).
 - [Cockpit has a mailing list](https://lists.fedorahosted.org/admin/lists/cockpit-devel.lists.fedorahosted.org/).
 
 ### How do I create an application for Cockpit?

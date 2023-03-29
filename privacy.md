@@ -10,8 +10,7 @@ There are some third party places where the Cockpit Project stores data:
 
 - [GitHub Pages](https://help.github.com/articles/what-is-github-pages/) is the website host. Please [refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
 - [YouTube](https://youtube.com/) videos are embedded in some pages on the website. YouTube embeds are rewritten as to not use cookies. [Refer to YouTube's privacy policy for details](https://support.google.com/youtube/answer/7671399?hl=en).
-- [libera.chat](https://libera.chat/) is the location of the Cockpit Project's IRC channel, #cockpit. [Refer to libera.chat's policies for details](https://libera.chat/privacy)
-- The Cockpit Project has [a mailing list for development](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/), hosted by [the Fedora Project](https://fedora.org/). [Refer to Fedora's privacy policy for more details](https://fedoraproject.org/wiki/Legal:PrivacyPolicy).
+- The Cockpit Project has [a mailing list for development](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/), and a [Matrix channel](https://matrix.to/#/#cockpit:fedoraproject.org) hosted by [the Fedora Project](https://fedora.org/). [Refer to Fedora's privacy policy for more details](https://fedoraproject.org/wiki/Legal:PrivacyPolicy).
 - The Cockpit software is stored in git, on [GitHub](https://github.com/). The git software does collect names and email addresses in repositories. GitHub has account information. [Refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
 
 ## Privacy Statement for the Cockpit Project
@@ -43,12 +42,12 @@ The types of personal data collected may include (but are not limited to):
 * your home, billing, or other physical address (including street name, name of a city or town, state/province);
 * your country code;
 * your e-mail address;
+* your Matrix identity,
 * your telephone number;
 * any other identifier that permits the Cockpit Project to make physical or online contact with you;
 * any information that the Cockpit Project collects online from you and maintains in association with your account, such as:
 * your GPG key ID,
 * your SSH public key,
-* your IRC nickname,
 * your language preference,
 * your timezone,
 * your geographic coordinates (longitude/latitude),
@@ -108,17 +107,17 @@ Where the EU General Data Protection Regulation 2016/679 (“GDPR”) applies to
 * The right to receive your personal data in a usable electronic format and transmit it to a third party (also known as the right of data portability); and
 * The right to lodge a complaint with your local data protection authority.
 
-If you would like to exercise any of these rights, you may do so by [contacting the Cockpit Project on IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit). Please understand, however, the rights enumerated above are not absolute in all cases.
+If you would like to exercise any of these rights, you may do so by [contacting the Cockpit Project on Matrix](https://matrix.to/#/#cockpit:fedoraproject.org). Please understand, however, the rights enumerated above are not absolute in all cases.
 
-Where the GDPR applies, you also have the right to withdraw any consent you have given to uses of your personal data. If you wish to withdraw consent that you have previously provided to the Cockpit Project, [please contact us via IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit) (#cockpit on irc.libera.chat/6697). However, the withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
+Where the GDPR applies, you also have the right to withdraw any consent you have given to uses of your personal data. If you wish to withdraw consent that you have previously provided to the Cockpit Project, [please contact us via Matrix](https://matrix.to/#/#cockpit:fedoraproject.org) (`#cockpit:fedoraproject.org`). However, the withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal.
 
 ### How to Access, Modify or Update Your Information
 
-If you wish to remove your personal data from the Cockpit Project website, you may contact us on IRC and request that we remove this information from the Cockpit Project website. Other locations where you may have used your personal data as an identifier (e.g. GitHub comments, list postings in the archives, git history, chat rooms, and changelogs) will not be altered.
+If you wish to remove your personal data from the Cockpit Project website, you may contact us on Matrix and request that we remove this information from the Cockpit Project website. Other locations where you may have used your personal data as an identifier (e.g. GitHub comments, list postings in the archives, git history, chat rooms, and changelogs) will not be altered.
 
 ### How to Contact Us
 
-If you have any questions about any of these practices or the Cockpit Project's use of your personal information, please feel free to [contact us on IRC](https://kiwiirc.com/nextclient/irc.libera.chat/#cockpit) (#cockpit on [irc.libera.chat](https://libera.chat/)).
+If you have any questions about any of these practices or the Cockpit Project's use of your personal information, please feel free to [contact us on Matrix](https://matrix.to/#/#cockpit:fedoraproject.org) (`#cockpit:fedoraproject.org`).
 
 The Cockpit Project will work with you to resolve any concerns you may have about this Statement.
 
