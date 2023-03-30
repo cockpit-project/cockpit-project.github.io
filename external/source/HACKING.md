@@ -22,26 +22,36 @@ recommended to do that:
  - It avoids having to install development packages on your main machine.
  - It avoids having to map the build and test dependencies to package names of various distributions.
 
-On Fedora/CentOS/RHEL based distributions, install toolbox with
+1. Install `toolbox`
 
-    sudo dnf install toolbox
+   - Fedora/CentOS/RHEL based distributions:
 
-On Debian/Ubuntu based distributions, install it with
+         sudo dnf install toolbox
 
-    sudo apt install podman-toolbox
+   - Debian/Ubuntu based distributions:
 
-After that, create a cockpit development toolbox:
+         sudo apt install podman-toolbox
 
-    toolbox create --image quay.io/cockpit/tasks -c cockpit
+2. Create a development toolbox for Cockpit
 
-Enter the toolbox with
+       toolbox create --image quay.io/cockpit/tasks -c cockpit
 
-    toolbox enter cockpit
+3. Enter the toolbox:
+
+       toolbox enter cockpit
 
 Your home directory, user D-Bus, etc. are shared with the host, so you can
 edit files as you normally would. Building and running tests happens inside the
 toolbox container. If desired, you can install additional packages with
 `sudo dnf install`.
+
+The Cockpit team occasionally refreshes the `tasks` container image. 
+To re-create your development container from the latest image, run:
+
+    podman pull quay.io/cockpit/tasks
+    toolbox rm cockpit
+
+...and then repeat steps 2 and 3 from above.
 
 ## Working on Cockpit's session pages
 
@@ -201,11 +211,10 @@ Most rule violations can be automatically fixed by running:
 
 Rules configuration can be found in the `.eslintrc.json` file.
 
-During fast iterative development, you can also choose to not run eslint. This
-can speed up the build and avoid build failures due to ill-formatted comments,
-unused identifiers, and other JavaScript-related issues:
-
-    make ESLINT=0
+During fast iterative development, you can also choose to not run eslint, by
+running `./build.js` with the `-e`/`--no-eslint` option. This
+speeds up the build and avoid build failures due to ill-formatted comments,
+unused identifiers, and other JavaScript-related issues.
 
 ## Running stylelint
 
@@ -224,11 +233,9 @@ Some rule violations can be automatically fixed by running:
 
 Rules configuration can be found in the `.stylelintrc.json` file.
 
-During fast iterative development, you can also choose to not run stylelint.
-This speeds up the build and avoids build failures due to ill-formatted CSS
-or other issues:
-
-    make STYLELINT=0
+During fast iterative development, you can also choose to not run stylelint, by
+running `./build.js` with the `-s`/`--no-stylelint` option. This speeds up the
+build and avoids build failures due to ill-formatted CSS or other issues.
 
 ## Working on your local machine: Web server
 
@@ -346,7 +353,9 @@ unrelated to the commit message.
 Cockpit is a designed project. Anything that the user will see should have
 design done first. This is done on the wiki and mailing list.
 
-Bigger changes need to be discussed on the Matrix channel or our mailing list
+Bigger changes need to be discussed on the
+[#cockpit:fedoraproject.org](https://matrix.to/#/#cockpit:fedoraproject.org)
+Matrix channel or our mailing list
 [cockpit-devel@lists.fedoraproject.org](https://lists.fedorahosted.org/admin/lists/cockpit-devel.lists.fedorahosted.org/)
 before you invest too much time and energy.
 
