@@ -12,14 +12,14 @@ source: https://github.com/cockpit-project/cockpit/wiki/Cockpit-Coding-Guideline
 * [C](#cstyle)
 * [JavaScript](#jsstyle)
 * [CSS/HTML](#cssstyle)
-* [Python](#pythonstyle) (only for testing, not a runtime or build dependency of Cockpit)
+* [Python](#pythonstyle)
 
 <a name="cstyle"/>
 
 ## C style
 
-* [Gtk+ coding standards](https://github.com/GNOME/gtk/blob/master/docs/CODING-STYLE)
-* C99 is allowed and the default.
+* [Gtk+ coding standards](https://github.com/GNOME/gtk/blob/main/docs/CODING-STYLE.md)
+* GNU C with C11 features is allowed and the default.
 * When in doubt, check the surrounding code and try to imitate it.
 
 * Exception: We don't require tabular alignment of function arguments like GTK and Glib do. Function definitions look like this:
