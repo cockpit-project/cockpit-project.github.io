@@ -26,6 +26,10 @@ While this documentation is for an older version of Cockpit, most is still curre
 - [Managing user accounts in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/715670f6-0eb9-4175-a36f-445acd1b1b25)
 - [Managing services in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/032603a4-660f-4c0b-97ba-20d32479998e)
 
+### SUSE ALP documentation
+- [Administering SUSE ALP Micro using Cockpit](https://documentation.suse.com/alp/micro/html/cockpit-alp-micro/index.html)
+- [Administering SUSE ALP Bedrock using Cockpit](https://documentation.suse.com/alp/bedrock/html/cockpit-alp-bedrock/index.html)
+
 ## Cockpit Guide
 
 The [Cockpit guide](guide/latest/) contains:
