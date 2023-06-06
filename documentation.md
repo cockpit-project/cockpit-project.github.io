@@ -28,7 +28,6 @@ While this documentation is for an older version of Cockpit, most is still curre
 
 ### SUSE ALP documentation
 - [Administering SUSE ALP Micro using Cockpit](https://documentation.suse.com/alp/micro/html/cockpit-alp-micro/index.html)
-- [Administering SUSE ALP Bedrock using Cockpit](https://documentation.suse.com/alp/bedrock/html/cockpit-alp-bedrock/index.html)
 
 ## Cockpit Guide
 
