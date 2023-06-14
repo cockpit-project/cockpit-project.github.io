@@ -33,11 +33,13 @@ layout: guide
 <div class="refsect1">
 <a name="cockpit-conf-description"></a><h2>DESCRIPTION</h2>
 <p>
-    Cockpit can be configured via /etc/cockpit/cockpit.conf.  This file is not required
-    and may need to be created manually.  The file has a INI file syntax and thus
-    contains key / value pairs, grouped into topical groups. See the examples below for
-    details..
-  </p>
+    Cockpit can be configured via /etc/cockpit/cockpit.conf. If <code class="code">$XDG_CONFIG_DIRS</code>
+    is set, then the first path containing a <code class="filename">../cockpit/cockpit.conf</code> is used
+    instead. Other configuration files and directories are searched for in the same way.</p>
+<p>
+    This file is not required and may need to be created manually.  The file has a INI file
+    syntax and thus contains key / value pairs, grouped into topical groups. See the examples
+    below for details. </p>
 <p>Note: The port that cockpit listens on cannot be changed in this file. To change
     the port change the systemd <code class="filename">cockpit.socket</code> file.</p>
 </div>

@@ -291,10 +291,11 @@ $ cockpit-bridge --packages
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="package-manifest-override"></a>Manifest overrides</h2></div></div></div>
-<p>A file called <code class="filename">override.json</code> may be placed next to the manifest, or a file
-      <code class="filename">&lt;package-directory-name&gt;.override.json</code> may be placed into <code class="filename">/etc/cockpit/</code>
-      or <code class="filename">~/.config/cockpit</code>.
-      These contain overrides to the information in the manifest in the simple
+<p>To change a manifest system-wide, a file <code class="filename">&lt;package-directory-name&gt;.override.json</code>
+      may be placed into <code class="filename">/etc/cockpit/</code>, or below <code class="code">$XDG_CONFIG_DIRS</code>
+      if set (see <a class="ulink" href="./cockpit.conf.5.html" target="_top">cockpit.conf</a>). To change it for a particular user only, put the
+      override into <code class="filename">~/.config/cockpit</code>.</p>
+<p>These override the information in the manifest in the simple
       <a class="ulink" href="https://tools.ietf.org/html/rfc7386" target="_top">JSON Merge Patch</a> format.</p>
 <p>This can be used to hide or modify menu items of an existing package.
       For example <code class="filename">/etc/cockpit/systemd.override.json</code> or

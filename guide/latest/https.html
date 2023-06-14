@@ -48,8 +48,10 @@ layout: guide
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="https-certificates"></a>Certificates</h2></div></div></div>
-<p>Cockpit will load a certificate from the <code class="code">/etc/cockpit/ws-certs.d</code>
-      directory. It will use the last file with a <code class="code">.cert</code> or <code class="code">.crt</code>
+<p>Cockpit will load a certificate from the <code class="code">/etc/cockpit/ws-certs.d</code>,
+    directory, or below <code class="code">$XDG_CONFIG_DIRS</code> if set (see
+      <a class="ulink" href="./cockpit.conf.5.html" target="_top">cockpit.conf</a>).
+      It will use the last file with a <code class="code">.cert</code> or <code class="code">.crt</code>
       extension in alphabetical order. The file should contain one or more OpenSSL
       style <code class="literal">BEGIN CERTIFICATE</code> blocks for the server certificate and
       the intermediate certificate authorities.</p>

@@ -55,7 +55,8 @@ layout: guide
 <p>
       To specify the TLS certificate the web service should use, simply
       drop a file with the extension <code class="literal">.cert</code> in the
-      <code class="filename">/etc/cockpit/ws-certs.d</code> directory. If there are
+      <code class="filename">/etc/cockpit/ws-certs.d</code> directory, or below <code class="code">$XDG_CONFIG_DIRS</code>
+      if set (see <a class="ulink" href="./cockpit.conf.5.html" target="_top">cockpit.conf</a>). If there are
       multiple files in this directory, then the highest priority one
       is chosen after sorting.</p>
 <p>The <code class="literal">.cert</code> file should contain at least two

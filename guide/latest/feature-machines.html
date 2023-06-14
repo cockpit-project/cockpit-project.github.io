@@ -35,7 +35,8 @@ layout: guide
 <p>SSH host keys are stored in
     <code class="filename">/etc/ssh/ssh_known_hosts</code>.</p>
 <p>The machine data is stored in
-    <code class="filename">/etc/cockpit/machines.d/*.json</code>.  Settings in
+    <code class="filename">/etc/cockpit/machines.d/*.json</code>, or below <code class="code">$XDG_CONFIG_DIRS</code>
+    if set (see <a class="ulink" href="./cockpit.conf.5.html" target="_top">cockpit.conf</a>). Settings in
     lexicographically later files amend or override settings in earlier ones.
     Cockpit itself writes into <code class="filename">99-webui.json</code>; packages or
     admins who want to pre-configure machines should ship files like
