@@ -121,10 +121,10 @@ obtained by talking to Allison.
 
 For describing tests which we want to run we use __contexts__. A context has the form:
 
-    os_image[/scenario][@bots#bots_pr][@owner/project/ref]
+    image[/scenario][@bots#bots_pr][@owner/project/ref]
 
 where items have the following meaning:
-- os_image: Name of the image on which tests should run (e.g. 'fedora-testing').
+- image: Name of the image on which tests should run (e.g. 'fedora-testing').
 - scenario: Name of a specific test. This is specific for each separate project and
   is passed verbatim to 'test/run' in `$TEST_SCENARIO`.
 - bots_pr: Number of pull request that exists in bots repository. When specified,
