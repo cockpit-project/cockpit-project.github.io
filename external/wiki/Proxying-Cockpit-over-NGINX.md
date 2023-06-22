@@ -9,7 +9,7 @@ Cockpit uses web sockets to deliver active content back and forth between the cl
 
 For the purposes of this example we will assume:
 * Cockpit is listening on port 9090
-* Nginx is listening on on port 80 (http) and port 443 (https)
+* Nginx is listening on port 80 (http) and port 443 (https)
 * You have a subdomain of cockpit.domain.tld pointed to your nginx instance
 * You can access your nginx instance by connecting to http://cockpit.domain.tld, even if you just get the default page
 
