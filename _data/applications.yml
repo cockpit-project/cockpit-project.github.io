@@ -206,3 +206,14 @@ sensors:
   license: LGPL 2.1
   description: |
     List all available sensors on the machine provided by `lm-sensors`.
+    
+sensors:
+  title: Tailscale
+  package: cockpit-tailscale
+  official: false
+  prerelease: true
+  source: https://github.com/spotsnel/cockpit-tailscale
+  issues: https://github.com/spotsnel/cockpit-tailscale/issues
+  license: LGPL 2.1
+  description: |
+    Cockpit application to manage Tailscale.
