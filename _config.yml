@@ -79,6 +79,7 @@ include:
   - _stylesheets
   - _javascript
   - assets/site.js
+  - .well-known
 
 sass:
   sass_dir: assets/
