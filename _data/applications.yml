@@ -207,7 +207,7 @@ sensors:
   description: |
     List all available sensors on the machine provided by `lm-sensors`.
     
-sensors:
+tailscale:
   title: Tailscale
   package: cockpit-tailscale
   official: false
@@ -217,3 +217,25 @@ sensors:
   license: LGPL 2.1
   description: |
     Cockpit application to manage Tailscale.
+
+headscale:
+  title: Headscale
+  package: cockpit-headscale
+  official: false
+  prerelease: true
+  source: https://github.com/spotsnel/cockpit-headscale
+  issues: https://github.com/spotsnel/cockpit-headscale/issues
+  license: LGPL 2.1
+  description: |
+    Cockpit application to manage Headscale coordination server.
+
+cloudflared:
+  title: Cloudflare tunnels
+  package: cockpit-cloudflared
+  official: false
+  prerelease: true
+  source: https://github.com/spotsnel/cockpit-cloudflared
+  issues: https://github.com/spotsnel/cockpit-cloudflared/issues
+  license: LGPL 2.1
+  description: |
+    Cockpit application to show Cloudflare tunnel state.
