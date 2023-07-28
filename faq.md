@@ -58,6 +58,7 @@ Read one of the following documents:
 
 - [Proxying Cockpit over NGINX](external/wiki/Proxying-Cockpit-over-NGINX.html)
 - [Proxying Cockpit over Apache with LetsEncrypt](external/wiki/Proxying-Cockpit-over-Apache-with-LetsEncrypt.html)
+- [Proxying Cockpit with Pomerium](https://www.pomerium.com/docs/guides/cockpit)
 
 ## Development
 
