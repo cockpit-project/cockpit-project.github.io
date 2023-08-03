@@ -27,7 +27,7 @@ While this documentation is for an older version of Cockpit, most is still curre
 - [Managing services in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/032603a4-660f-4c0b-97ba-20d32479998e)
 
 ### SUSE ALP documentation
-- [Administering SUSE ALP Micro using Cockpit](https://documentation.suse.com/alp/micro/html/cockpit-alp-micro/index.html)
+- [Administering SUSE ALP Dolomite using Cockpit](https://documentation.suse.com/alp/dolomite/html/cockpit-alp-dolomite/index.html)
 
 ## Cockpit Guide
 
