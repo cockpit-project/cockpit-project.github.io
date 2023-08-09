@@ -178,19 +178,29 @@ def build_frontmatter
   }.to_yaml.gsub(/^:/, '')
 end
 
-# Download the image from GitHub and save locally
-def download_image(url, basename)
-  extension = url.split('.').last
-  filename = "#{basename}.#{extension}"
+# Download the image from a GitHub and save locally
+def download_image(url, basename, limit = 3)
+  raise ArgumentError, 'too many HTTP redirects' if limit == 0
 
-  # Download and save file
-  image = Net::HTTP.get(URI(url))
-  File.write("images/#{filename}", image)
+  uri = URI(url)
+  response = Net::HTTP.get_response(uri)
 
-  @files_images.push("images/#{filename}")
+  case response
+  when Net::HTTPRedirection
+    new_url = response['location']
+    download_image(new_url, basename, limit - 1)
+  when Net::HTTPSuccess
+    extension = File.extname(uri.path)
+    local_file = "#{basename}#{extension}"
+    File.write("images/#{local_file}", response.body)
+    @files_images << "images/#{local_file}"
+  
+    # Return the local file on success
+    local_file
+  end
 
-  # Return filename (with extension)
-  filename
+rescue StandardError => e
+  warn "Error downloading the image: #{e.message}"
 end
 
 def process_images(notes)
