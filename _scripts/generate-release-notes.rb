@@ -180,11 +180,21 @@ end
 
 # Download the image from GitHub and save locally
 def download_image(url, basename)
+  # Download and save file, some Github urls such as
+  # https://github.com/org/proj/assets/UUID require a
+  # redirect to be resolved to an valid AWS image url
+  res = Net::HTTP.get_response(URI(url))
+  case res
+  when Net::HTTPSuccess
+    image = Net::HTTP.get(URI(url))
+  when Net::HTTPRedirection
+    location = res['Location']
+    url = location
+    image = Net::HTTP.get(URI(location))
+  end
+
   extension = url.split('.').last
   filename = "#{basename}.#{extension}"
-
-  # Download and save file
-  image = Net::HTTP.get(URI(url))
   File.write("images/#{filename}", image)
 
   @files_images.push("images/#{filename}")
