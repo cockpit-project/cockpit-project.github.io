@@ -124,7 +124,7 @@ For describing tests which we want to run we use __contexts__. A context has the
     image[/scenario][@bots#bots_pr][@owner/project/ref]
 
 where items have the following meaning:
-- image: Name of the image on which tests should run (e.g. 'fedora-testing').
+- image: Name of the image on which tests should run (e.g. 'fedora-coreos').
 - scenario: Name of a specific test. This is specific for each separate project and
   is passed verbatim to 'test/run' in `$TEST_SCENARIO`.
 - bots_pr: Number of pull request that exists in bots repository. When specified,
@@ -134,28 +134,28 @@ where items have the following meaning:
 - ref: Reference in the project (usually branch) (e.g. 'rhel-8.2'). Default is
   the project's primary branch.
 
-For example, context for scenario 'firefox' on 'fedora-testing' is:
+For example, context for scenario 'firefox' on 'fedora-coreos' is:
 
-    fedora-testing/firefox
+    fedora-coreos/firefox
 
 If we want to trigger it on 'cockpit-project/cockpit':
 
-    fedora-testing/firefox@cockpit-project/cockpit
+    fedora-coreos/firefox@cockpit-project/cockpit
 
 If we want to also not run it on the primary branch, but on 'rhel-8-0' branch:
 
-    fedora-testing/firefox@cockpit-project/cockpit/rhel-8-0
+    fedora-coreos/firefox@cockpit-project/cockpit/rhel-8-0
 
-If we want to run tests on 'fedora-testing' but with bots from pull request '169':
+If we want to run tests on 'fedora-coreos' but with bots from pull request '169':
 
-    fedora-testing@bots#169
+    fedora-coreos@bots#169
 
 ### Retrying a failed test
 
-If you want to run the "fedora-testing" testsuite again for pull
+If you want to run the "fedora-coreos" testsuite again for pull
 request #1234 of cockpit-project/cockpit, run tests-trigger like so:
 
-    ./tests-trigger --repo cockpit-project/cockpit 1234 fedora-testing
+    ./tests-trigger --repo cockpit-project/cockpit 1234 fedora-coreos
 
 You can also invoke bots/tests/trigger from any project checkout, in which case
 you don't need the explicit `--repo` -- it will default to the GitHub origin of
@@ -186,21 +186,21 @@ tests-trigger reads the repo. This has to be set per cockpit project.
 Test images are refreshed automatically once per week, and even if the
 last refresh has failed, the machines wait one week before trying again.
 
-If you want the machines to refresh the fedora-testing image immediately,
+If you want the machines to refresh the fedora-coreos image immediately,
 run image-trigger like so:
 
-    ./image-trigger fedora-testing
+    ./image-trigger fedora-coreos
 
 ### Creating new images for a pull request
 
 If as part of some new feature you need to change the content of some
 or all images, you can ask the machines to create those images.
 
-If you want to have a new fedora-testing image for pull request #1234, add
+If you want to have a new fedora-coreos image for pull request #1234, add
 a bullet point to that pull request's description like so, and add the
 "bot" label to the pull request.
 
-    * [ ] image-refresh fedora-testing
+    * [ ] image-refresh fedora-coreos
 
 The machines will post comments to the pull request about their
 progress and at the end there will be links to commits with the new
@@ -214,21 +214,6 @@ used as default OS for test VMs.
 
 1. If this is a new image, add `_manual` test contexts for the new image to `lib/testmap.py`, and land that into `main`.
 2. Create a PR that updates `TEST_OS_DEFAULT` in `lib/constants.py`, and trigger all tests for that image there.
-
-#### Fedora testing image
-
-The `fedora-testing` image is a Fedora image with updates-testing enabled,
-the version of the image is determined by what the
-`fedora-testing.bootstrap` symlink points too.
-
-To update the Fedora version used:
-
-1. Update the `fedora-testing.bootstrap` symlink to the latest Fedora
-   release.
-2. Update the naughty symlink `naughty/fedora-testing` to the latest
-   Fedora release.
-3. Create a new PR and refresh the image.
-
 
 #### Fedora CoreOS
 
