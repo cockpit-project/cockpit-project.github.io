@@ -90,13 +90,16 @@ adjust+:
   enabled: false
 ```
 
-Finally, plug it all together: Tell `packit.yaml` to run the "revdeps" context test plan on current Fedora against your "builds from main" COPR, by specifying [tf_extra_params](https://packit.dev/docs/configuration/upstream/tests#optional-parameters). You can of course choose more/different `target`s, as long as your COPR has matching builds for them. Also give it a meaningful `identifier`, so that you can tell the statuses apart:
+Finally, plug it all together: Tell `packit.yaml` to run the "revdeps" context test plan on current Fedora against your "builds from main" COPR, by specifying [tf_extra_params](https://packit.dev/docs/configuration/upstream/tests#optional-parameters). You can of course choose more/different `target`s, as long as your COPR has matching builds for them. Also give it a meaningful `identifier`, so that you can tell the statuses apart. Also enable [automatic failure notifications](https://packit.dev/docs/configuration/#notifications) to ping some people from your team when the tests fail, so that you can work with the PR author to resolve the regression:
 
 ```yaml
   # On current Fedora, run reverse dependency tests against https://copr.fedorainfracloud.org/coprs/g/cockpit/main-builds/
   - job: tests
     identifier: revdeps
     trigger: pull_request
+    notifications:
+      failure_comment:
+        message: "revdeps tests failed for commit {commit_sha}. @userone, @otheruser, please check"
     targets:
       - fedora-latest-stable
     tf_extra_params:
@@ -126,6 +129,15 @@ Many thanks to [Karel Srot](https://github.com/kkaarreell) who knows a lot about
 † This is due to the way tmt tests are defined: Their entry point is not in the srpm, but in their dist-git repository, but there is no efficient and robust way to get the dist-git commit that matches the package version that is currently visible to `dnf install`. Of course there can be heuristics like iterating over the commits until you find the right one; but (1) this is ugly, and (2) more importantly, this is first and foremost a political decision, and there currently does not seem to be much desire to actually do this in Fedora and CentOS stream.
 
 ‡ Our known issues auto-close once they get fixed, so all open ones are guarenteed to still happen in recent operating systems.
+
+## Current users
+ - [podman](https://github.com/containers/podman/blob/main/.packit.yaml) PRs run [cockpit-podman](https://github.com/cockpit-project/cockpit-podman/)'s tests; and already [found a regression](https://github.com/containers/podman/pull/19888#issuecomment-1711548343) which was corrected immediately without landing on main or in a release.
+ - [udisks](https://github.com/storaged-project/udisks/blob/master/.packit.yaml) PRs run [cockpit](https://github.com/cockpit-project/cockpit)'s storage tests.
+
+## Revisions
+
+ - 2023-08-01: Original post
+ - 2023-09-20: Add failure notifications and current users
 
 *[PR]: Pull request
 *[PRs]: Pull requests
