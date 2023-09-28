@@ -90,6 +90,10 @@ When generating a new personal access token, the scopes should contain
 `repo:status` and `read:org`. Note in particular, that `repo` and
 `public_repo` scopes each grant full push access, and should not be used.
 
+You need at least "Write" access to the project for triggering statuses, either
+individually per repo (e.g. [cockpit](https://github.com/cockpit-project/cockpit/settings/access)
+or for [all cockpit-project repos](https://github.com/orgs/cockpit-project/teams/committers).
+
 If you'd like to download Red Hat-only internal images from S3, you'll
 need to create a key file in `~/.config/cockpit-dev/s3-keys/[domain]`.
 The `[domain]` can be any non-toplevel domain which contains the S3 URL

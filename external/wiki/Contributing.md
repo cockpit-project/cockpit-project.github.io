@@ -14,7 +14,8 @@ https://cockpit-project.org/running.html
  * Keep in mind the [project ideals]({{ site.baseurl }}/ideals.html)
  * If you are looking for someplace to start developing, issues are marked [with a good-first-issue label](https://github.com/cockpit-project/cockpit/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) when they are a good introduction to Cockpit and of limited scope.
  * [Documentation]({{ site.baseurl }}/guide/latest/) (be aware: possible version differences)
- * [Set up integration tests](https://github.com/cockpit-project/cockpit/blob/master/test/README.md). Automated tests are an important part of Cockpit and every new feature should be accompanied by its tests. 
+ * [Set up integration tests](https://github.com/cockpit-project/cockpit/blob/master/test/README.md). Automated tests are an important part of Cockpit and every new feature should be accompanied by its tests.
+ * Join the project's [GitHub Discussions page](https://github.com/cockpit-project/cockpit/discussions) to connect with the community, ask questions, and participate in discussions about the project's development and features.
 
 ### Issue tracker
 
