@@ -1,5 +1,5 @@
 ---
-title: The Ideals of Cockpit
+title: Cockpit's Ideals
 ---
 
 [Cockpit]({{ site.baseurl }}/) is an interactive server admin interface. For those helping contribute to Cockpit, these ideals help us remember what we’re trying to accomplish. For others, this page should answer the question: “Why Cockpit?”
