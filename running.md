@@ -231,7 +231,7 @@ When updating Cockpit-related packages and any dependencies, make sure to use `-
 {:.note}
 These commands require a POSIX compatible shell like `bash`. For other shells like `fish`, temporarily run `bash -i`.
 
-Cockpit is available in Ubuntu 17.04 and later, and available [as an official backport](https://help.ubuntu.com/community/UbuntuBackports) for 16.04 LTS and later.
+Cockpit is available in Ubuntu, with [updated versions in official backports for LTS releases](https://help.ubuntu.com/community/UbuntuBackports).
 
 We recommend installing or updating the latest version from backports. This repository is enabled by default, but if you customized apt sources you might need to [enable them manually](https://help.ubuntu.com/community/UbuntuBackports#Enabling_Backports).
 
