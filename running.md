@@ -240,11 +240,6 @@ We recommend installing or updating the latest version from backports. This repo
 sudo apt install -t ${VERSION_CODENAME}-backports cockpit
 ```
 
-On Linux Mint, use `UBUNTU_CODENAME` instead of `VERSION_CODENAME` like so:
-```
-sudo apt install -t ${UBUNTU_CODENAME}-backports cockpit
-```
-
 {:.note}
 When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` as above, so backports are included.
 
