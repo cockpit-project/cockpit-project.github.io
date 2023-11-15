@@ -376,5 +376,6 @@ begin
   puts "Generated release notes for Cockpit #{@cockpit_version}: _posts/#{markdown_filename}"
   puts "Downloaded images: #{@files_images.join(' ')}"
 rescue StandardError => e
+  puts e.backtrace
   puts "Error (#{e})"
 end
