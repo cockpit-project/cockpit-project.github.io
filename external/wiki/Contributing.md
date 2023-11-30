@@ -7,7 +7,7 @@ source: https://github.com/cockpit-project/cockpit/wiki/Contributing
 
 Since you're considering contributing, you are likely already using Cockpit. If not, first install Cockpit on your local machine as described in:
 
-https://cockpit-project.org/running.html
+[https://cockpit-project.org/running.html]({{ site.baseurl }}/running.html)
 
 ### Getting Started
  * Check out the [git repo](https://github.com/cockpit-project/cockpit), learn how to build it and run it. Change a string in the code somewhere and make sure you can see the change in the browser. See [HACKING.md]({{ site.baseurl }}/external/source/HACKING.html) for details.
