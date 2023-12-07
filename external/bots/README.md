@@ -20,7 +20,6 @@ and other scripts that work with test machine images. Available images include:
  - `fedora-*`, `rhel-*`, `debian-*`, etc: Various operating systems for testing Cockpit related projects
  - `services`: Auxiliary network services for tests which are independent from
    the OS where Cockpit runs: FreeIPA, Samba AD, candlepin, Grafana
- - `openshift`: An Openshift Origin server
 
 These well known image names are expected to contain no `.`
 characters and have no file name extension.
