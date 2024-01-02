@@ -1,0 +1,25 @@
+table {
+  border: unset;
+
+  th, td {
+    border: unset;
+  }
+}
+
+table[class] {
+  border-collapse: unset;
+  margin: unset;
+  padding: unset;
+  text-align: unset;
+
+  tr {
+    &:nth-child(2n) {
+      background: unset;
+    }
+  }
+
+  th, td {
+    background: unset;
+    color: unset;
+  }
+}

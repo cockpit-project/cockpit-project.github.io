@@ -35,7 +35,7 @@ $content-width:    60em;
 
 // Comment out or remove the follow if you don't use the feature
 ////////////////////////////////////////////////////////////////////////
-@import "lib/nav";          // Navbar (see opts in lib/navbar.sass)
+@import "lib/nav";          // Navbar (see opts in lib/navbar.scss)
 @import "lib/search";       // Styles for the search page
 @import "lib/blog";         // Default blog style
 @import "lib/pagination";   // Blog pagination

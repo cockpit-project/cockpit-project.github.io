@@ -1,0 +1,76 @@
+/* Quicklinks */
+
+.quicklinks {
+  margin: 4em 0 2em;
+  padding: 0 0 2em;
+  overflow: hidden;
+
+  ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    //@extend .grid
+    -moz-columns: 25ex;
+    -webkit-columns: 25ex;
+    columns: 25ex;
+    -moz-column-gap: 2ex;
+    -webkit-column-gap: 2ex;
+    column-gap: 2ex;
+  }
+
+  li {
+    overflow: hidden;
+
+    //@extend .col
+    //flex: 0 0 20ex
+ 
+  }
+
+  a {
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.5ex 0;
+  }
+
+  br {
+    display: none;
+  }
+
+  p {
+    display: inline;
+    margin: 0;
+  }
+}
+
+.top a, a.top {
+  clear: both;
+  display: block;
+  padding: 2em 1em 2em 0;
+  font-size: 86%;
+}
+
+.top a {
+  padding-top: 1em;
+
+  &:before {
+    content: "▴";
+    padding-right: 0.5ex;
+    text-decoration: none !important;
+  }
+}
+
+a.top:before {
+  content: "▴";
+  padding-right: 0.5ex;
+  text-decoration: none !important;
+}
+
+.quicklinks {
+  li {
+    min-width: 50%;
+  }
+}
