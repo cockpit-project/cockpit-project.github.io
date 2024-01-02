@@ -9,7 +9,7 @@
     grid-template: "title tag" "description description" "meta meta";
     grid-template-columns: auto 1fr;
 
-    @media (min-width: #{$on-laptop}) {
+    @media (min-width: $on-laptop) {
       grid-template: "title description tag" "title meta .";
       grid-template-columns: 25% 1fr auto;
     }

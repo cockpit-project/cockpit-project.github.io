@@ -96,10 +96,9 @@ html.cockpit-guide {
 
     th {
       text-align: center !important;
-      font-family: $headline-font;
+      font-family: var(--font-headline);
       font-size: 1.75rem !important;
 
-      //text-shadow: 1px 1px 2px rgba(black, 0.5)
       display: none;
 
       > p {
@@ -117,24 +116,24 @@ html.cockpit-guide {
 
       &:before,
       &:after {
-        font-family: $base-font-family;
-        font-size: $base-font-size;
-        line-height: $base-line-height;
+        font-family: var(--font-base-family);
+        font-size: var(--font-base-size);
+        line-height: var(--base-line-height);
         vertical-align: middle;
         margin: 0.5em;
         text-decoration: underline;
       }
 
       &:after {
-        color: $link-color !important;
+        color: var(--color-link) !important;
       }
 
       &:visited:after {
-        color: $link-color-visited !important;
+        color: var(--color-link-visited) !important;
       }
 
       &:hover:after {
-        color: $link-color-hover !important;
+        color: var(--color-link-hover) !important;
       }
 
       img {
@@ -175,7 +174,7 @@ html.cockpit-guide {
 
     p:first-child > b {
       display: block;
-      font-family: $headline-font;
+      font-family: var(--font-headline);
       font-size: 1.72rem;
       font-weight: normal;
       padding: 1rem 0;
@@ -244,7 +243,7 @@ html.cockpit-guide {
 
   .refnamediv > table td {
     padding: 0 !important;
-    color: $text-color;
+    color: var(--color-text);
   }
 
   hr {

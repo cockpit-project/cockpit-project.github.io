@@ -1,7 +1,7 @@
 .pagination {
-  $brand-color: #999 !default;
-  $background-color: #fff !default;
-  $border-radius: 0 !default;
+  --color-brand: #999;
+  --color-background: #fff;
+  --border-radius: 0;
 
   margin: 0;
   padding: 0;
@@ -19,13 +19,13 @@
 
     &:first-child {
       a, span {
-        border-radius: $border-radius 0 0 $border-radius;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
       }
     }
 
     &:last-child {
       a, span {
-        border-radius: 0 $border-radius $border-radius 0;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
       }
     }
   }
@@ -38,8 +38,8 @@
   }
 
   span {
-    background: $brand-color;
-    border-color: $brand-color;
-    color: $background-color;
+    background: var(--color-brand);
+    border-color: var(--color-brand);
+    color: var(--color-background);
   }
 }

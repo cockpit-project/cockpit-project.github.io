@@ -1,6 +1,8 @@
-$author-card-color: inherit !default;
-$author-card-padding: 0 !default;
-$author-card-margin: 2em 0 !default;
+:root {
+  --color-author-card: inherit;
+  --author-card-padding: 0;
+  --author-card-margin: 2em 0;
+}
 
 body.archive {
   &.category-blog,
@@ -70,14 +72,13 @@ article.post {
 
   &:first-child {
     //margin-top: -2em
- 
   }
 
   /* Style-up blog post YouTube videos & Slideshare decks (center & frame) */
   iframe {
     &[src*=youtube],
     &[src*=slideshare] {
-      border: 1px solid #333;
+      border: 1px solid var(--color-text);
       border-radius: 5px;
       overflow: hidden;
       display: block;
@@ -135,9 +136,9 @@ article.post {
 }
 
 .author-card {
-  background: $author-card-color;
-  padding: $author-card-padding;
-  margin: $author-card-margin;
+  background: var(--color-author-card);
+  padding: var(--author-card-padding);
+  margin: var(--author-card-margin);
 }
 
 .author-photo {

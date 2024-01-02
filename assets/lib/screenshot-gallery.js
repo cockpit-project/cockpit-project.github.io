@@ -3,7 +3,7 @@ $(function(){
 
   // Prevent scrolling the page (used with CSS noScroll class)
   function lockScrolling(bool) {
-    $('html').toggleClass('noScroll', bool);
+    $('html').toggleClass('no-scroll', bool);
   }
 
   // Generate the HTML for the zoomed in preview

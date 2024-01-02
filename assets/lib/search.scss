@@ -30,7 +30,7 @@
   .spinner {
     font-size: 6em;
     margin: 1em auto;
-    color: rgba(black, 0.25);
+    color: rgba(var(--color-text), 0.25);
   }
 
   .articles {
