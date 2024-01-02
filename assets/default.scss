@@ -7,25 +7,28 @@
 // and before your own custom CSS, so you can easily override
 // (if you really need to).
 
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, Liberation Sans, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
+// Variables for SASS
 $spacing-unit:     1rem;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+:root {
+    // CSS variables
+    --font-base-family: Helvetica Neue, Helvetica, Arial, Liberation Sans, sans-serif;
+    --font-base-size:   16px;
+    --font-base-weight: 400;
+    --font-small-size:  var(--font-base-size) * 0.875;
+    --base-line-height: 1.5;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+    --color-text:       #333;
+    --color-background: #fdfdfd;
+    --color-brand:      #2a7ae2;
 
-// Width of the content area
-$content-width:    60em;
+    --color-grey:       #828282;
+    --color-grey-light: color-mix(in lch, var(--color-grey) var(--color-background), 40%);
+    --color-grey-dark: color-mix(in lch, var(--color-grey) var(--color-text), 25%);
+
+    // Width of the content area
+    --content-width:    60em;
+}
 
 // Import partials from the `minima` theme.
 @import "minima";
@@ -47,7 +50,7 @@ $content-width:    60em;
 // Use media queries like this:
 // @include media-query($on-palm) {
 //     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
+//         padding-right: calc(var(--spacing-unit) / 2);
+//         padding-left: calc(var(--spacing-unit) / 2);
 //     }
 // }

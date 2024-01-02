@@ -62,7 +62,7 @@ html.front-page {
   .intro {
     --remainder: calc((100vw - 65rem) / 2);
     --offset: 1rem;
-    font-family: $headline-font;
+    font-family: var(--font-headline);
     line-height: 1.4;
     color: #eeeeec;
     display: grid;
@@ -153,8 +153,8 @@ html.front-page {
 
       &:hover {
         text-decoration: none;
-        background: white;
-        color: #333;
+        background: var(--color-background);
+        color: var(--color-text);
       }
     }
 
@@ -231,10 +231,6 @@ html.front-page {
   }
 
   .badge {
-    // Mix PF gold-50 and gold-100
-    $badge-color: mix(#fdf7e7, #f9e0a2, 50);
-    $badge-color-hover: mix(#fdf7e7, #f9e0a2, 25);
-
     grid-area: badge;
     text-align: right;
     position: relative;
@@ -265,12 +261,13 @@ html.front-page {
       --offset1: var(--offset);
       --offset2: var(--offset);
       transition: background 500ms, clip-path 500ms;
-      background: $badge-color;
+      // Badge color is defined with the other colors in site.scss
+      background: var(--color-badge);
       display: block;
       padding: 1.5rem 0 1.25rem;
       padding: calc((var(--offset) + 0.5vw) * 1.125) 1rem calc((var(--offset) + 0.25vw) * 1);
       text-decoration: none !important;
-      color: #333 !important;
+      color: var(--color-text);
       clip-path: polygon(0 calc(100% - var(--offset1)), 0 calc(100% - var(--offset2)), 100% 100%, 100% 0);
       display: grid;
       grid-template-columns: 1fr auto var(--remainder);
@@ -288,7 +285,7 @@ html.front-page {
       }
 
       &:hover {
-        background: $badge-color-hover;
+        background: var(--color-badge-hover);
 
         > span {
           opacity: 1;
@@ -342,7 +339,7 @@ html.front-page {
   margin: 4rem 0 2rem;
   clip-path: polygon(0 32px, 0 calc(100% - 32px), 100% 100%, 100% 0);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, calc(#{$content-width} / 3)));
+  grid-template-columns: repeat(auto-fit, minmax(auto, calc(var(--content-width) / 3)));
   justify-content: center;
   align-items: center;
 

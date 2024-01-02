@@ -1,62 +1,64 @@
-//// Defaults
-
-// Padding defaults
-$nav-padding: 0.75ex !default;
-$nav-padding-ratio: 2.5 !default;
-$nav-padding-y: $nav-padding !default;
-$nav-padding-x: $nav-padding-y * $nav-padding-ratio !default;
-
-// Color defaults
-$nav-color: transparent !default;
-$nav-text-color: $text-color !default;
-$nav-menu-color: $grey-color-light !default;
-$nav-menu-top-color: $nav-menu-color !default;
-$nav-menu-top-text-color: $nav-text-color !default;
-$nav-highlight-color: $brand-color !default;
-$nav-highlight-text-color: #fff !default;
-$nav-active: transparent !default;
-
-// Icons
-$nav-icon-opacity: 0.5 !default;
-$nav-icon-menu: "≡" !default;
-$nav-icon-right: "⯈" !default;
-$nav-icon-down: "▾" !default;
-
-// Styling defaults (shadow and rounded radius)
-$nav-menu-shadow: 2px 2px 2px rgba(black, 0.125) !default;
-$nav-menu-radius: 3px !default;
-
-// Animation timing defaults
-$nav-animation: 150ms !default;
-$nav-menu-animation: $nav-animation * 2 !default;
-$nav-mobile-menu-animation: all 300ms ease-in-out;
-
-// These should be set in theme.scss/theme.scss or minima already...
-// but just in case, we're defining fallbacks here
-$on-palm: 600px !default;
-$on-laptop: 800px !default;
-
-// Responsive breakpoint
-$nav-min-width: $on-laptop !default;
-
-// Mobile menu colors
-$nav-mobile-text: white !default;
-$nav-mobile-text-shadow: 1px 1px 0 darken($brand-color, 30%) !default;
-$nav-mobile-menu: darken($brand-color, 20%) !default;
-$nav-mobile-menu-highlight: mix($nav-mobile-menu, $nav-mobile-text, 80%) !default;
-$nav-mobile-button-size: 32px !default;
-$nav-mobile-font-size: 16px !default;
-$nav-mobile-item-height: 48px !default;
-$nav-mobile-item-padding: 0 16px !default;
-$nav-mobile-menu-padding: 8px 0 !default;
-$nav-mobile-menu-min-width: 56px * 3 !default;
-
 // Select the mobile menu style
 // styles include: sidebar, menu, none
-$nav-mobile-style: menu !default;
+$nav-mobile-style: menu;
 
-// Native iOS or Android fonts when installed, else use website fonts
-$nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-family !default;
+// Responsive breakpoint
+$nav-min-width: $on-laptop;
+
+:root {
+  //// Defaults
+
+  // Padding defaults
+  --nav-padding: .75ex;
+  --nav-padding-ratio: 2.5;
+  --nav-padding-y: var(--nav-padding);
+  --nav-padding-x: calc(var(--nav-padding-y) * var(--nav-padding-ratio));
+
+  // Color defaults
+  --color-nav: transparent;
+  --color-nav-text: var(--color-text);
+  --color-nav-menu: var(--color-grey-light);
+  --color-nav-menu-top: var(--color-nav-menu);
+  --color-nav-menu-top-text: var(--color-nav-text);
+  --color-nav-highlight: var(--color-brand);
+  --color-nav-highlight-text: #fff;
+  --nav-active: transparent;
+
+  // Icons
+  --nav-icon-opacity: 0.5;
+  --nav-icon-menu: "≡";
+  --nav-icon-right: "⯈";
+  --nav-icon-down: "▾";
+
+  // Styling defaults (shadow and rounded radius)
+  --nav-menu-shadow: 2px 2px 2px rgba(var(--color-text), 0.125);
+  --nav-menu-radius: 3px;
+
+  // Animation timing defaults
+  --nav-animation: 150ms;
+  --nav-menu-animation: var(--nav-animation) * 2;
+  --nav-mobile-menu-animation: all 300ms ease-in-out;
+
+  // These should be set in theme.scss/theme.scss or minima already...
+  // but just in case, we're defining fallbacks here
+  --on-palm: 600px;
+  --on-laptop: 800px;
+
+  // Mobile menu colors
+  --nav-mobile-text: white;
+  --nav-mobile-text-shadow: 1px 1px 0 darken(var(--color-brand, ) 30%);
+  --nav-mobile-menu: darken(var(--color-brand, ) 20%);
+  --nav-mobile-menu-highlight: mix(var(--nav-mobile-menu, ) var(--nav-mobile-text, ) 80%);
+  --nav-mobile-button-size: 32px;
+  --nav-mobile-font-size: 16px;
+  --nav-mobile-item-height: 48px;
+  --nav-mobile-item-padding: 0 16px;
+  --nav-mobile-menu-padding: 8px 0;
+  --nav-mobile-menu-min-width: 56px * 3;
+
+  // Native iOS or Android fonts when installed, else use website fonts
+  --nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", var(--font-base-family);
+}
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -73,7 +75,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
   display: none;
 }
 
-@media screen and (min-width: $nav-min-width + 1) {
+@media screen and (min-width: #{$nav-min-width + 1}) {
   nav.menu, %nav-menu {
     position: relative;
     z-index: 100;
@@ -90,22 +92,22 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 
     // Remove list styles
     ul, li {
-      transition: all $nav-animation;
+      transition: all var(--nav-animation);
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
     a, .not-a-link {
-      transition: all $nav-menu-animation;
+      transition: all var(--nav-menu-animation);
       display: block;
-      color: $nav-text-color !important;
-      padding: $nav-padding-y $nav-padding-x;
+      color: var(--color-nav-text) !important;
+      padding: var(--nav-padding-y) var(--nav-padding-x);
       text-decoration: none !important;
     }
 
     ul {
-      background: $nav-color;
+      background: var(--color-nav);
 
       ul {
         position: absolute;
@@ -113,19 +115,19 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         top: 100%;
         visibility: hidden;
         opacity: 0;
-        box-shadow: $nav-menu-shadow;
+        box-shadow: var(--nav-menu-shadow);
 
         li {
           &:last-child {
-            border-radius: 0 0 $nav-menu-radius $nav-menu-radius;
+            border-radius: 0 0 var(--nav-menu-radius) var(--nav-menu-radius);
           }
 
           &.nav-group:hover {
-            border-radius: 0 0 0 $nav-menu-radius;
+            border-radius: 0 0 0 var(--nav-menu-radius);
           }
 
           ul li:first-child {
-            border-radius: 0 $nav-menu-radius 0 0;
+            border-radius: 0 var(--nav-menu-radius) 0 0;
           }
         }
 
@@ -150,10 +152,10 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       }
 
       &:hover {
-        background: $nav-menu-color;
+        background: var(--color-nav-menu);
 
         li {
-          background: $nav-menu-color;
+          background: var(--color-nav-menu);
         }
 
         > ul {
@@ -166,13 +168,13 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
           transform: scale(1);
 
           a, .not-a-link {
-            margin: 0 #{$nav-padding-x * -1};
-            padding: $nav-padding-y #{$nav-padding-x * 2};
+            margin: 0 calc(var(--nav-padding-x) * -1);
+            padding: var(--nav-padding-y) calc(var(--nav-padding-x) * 2);
           }
 
           li:last-child a, .not-a-link {
-            margin-bottom: #{$nav-padding-y * -4};
-            padding-bottom: #{$nav-padding-y * 5};
+            margin-bottom: calc(var(--nav-padding-y) * -4);
+            padding-bottom: calc(var(--nav-padding-y) * 5);
           }
         }
       }
@@ -184,10 +186,10 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 
         &:hover,
         li:hover {
-          background: $nav-highlight-color;
+          background: var(--color-nav-highlight);
 
           > a {
-            color: $nav-highlight-text-color !important;
+            color: var(--color-nav-highlight-text) !important;
           }
         }
       }
@@ -195,22 +197,22 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 
     > ul > li {
       &:hover {
-        background: $nav-menu-top-color;
+        background: var(--color-nav-menu-top);
 
         > a {
-          color: $nav-menu-top-text-color !important;
+          color: var(--color-nav-menu-top-text) !important;
         }
       }
 
       &.active {
-        background: $nav-active;
+        background: var(--nav-active);
       }
 
       &.nav-group > {
         a, .not-a-link {
           &::after {
-            opacity: $nav-icon-opacity;
-            content: $nav-icon-down;
+            opacity: var(--nav-icon-opacity);
+            content: var(--nav-icon-down);
             margin-left: 1ex;
           }
         }
@@ -226,8 +228,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         }
 
         &::before {
-          opacity: $nav-icon-opacity;
-          content: $nav-icon-right;
+          opacity: var(--nav-icon-opacity);
+          content: var(--nav-icon-right);
           float: right;
         }
       }
@@ -238,8 +240,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 @media screen and (max-width: $nav-min-width) {
   %sidebar {
     nav {
-      font-family: $nav-mobile-font-family;
-      font-size: $nav-mobile-font-size;
+      font-family: var(--nav-mobile-font-family);
+      font-size: var(--nav-mobile-font-size);
       z-index: 1000;
       cursor: default;
 
@@ -250,23 +252,23 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       }
 
       li.active {
-        background-color: $nav-mobile-menu-highlight;
+        background-color: var(--nav-mobile-menu-highlight);
       }
 
       > .nav-menu {
-        transition: $nav-mobile-menu-animation;
+        transition: var(--nav-mobile-menu-animation);
         visibility: hidden;
         position: fixed;
         top: 0;
         left: -100%;
         overflow: auto;
         height: 100vh;
-        background-color: $nav-mobile-menu;
+        background-color: var(--nav-mobile-menu);
         z-index: 2;
-        box-shadow: 0 0 6px rgba(black, 0.25);
+        box-shadow: 0 0 6px rgba(var(--color-text), 0.25);
         min-width: 25vw;
         max-width: 75vw;
-        padding: $nav-mobile-button-size 0 0 1ex;
+        padding: var(--nav-mobile-button-size) 0 0 1ex;
 
         > li {
           margin-top: 2ex;
@@ -279,8 +281,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         a, .not-a-link {
           display: block;
           padding: 0 1ex;
-          color: $nav-mobile-text !important;
-          text-shadow: $nav-mobile-text-shadow;
+          color: var(--nav-mobile-text) !important;
+          text-shadow: var(--nav-mobile-text-shadow);
         }
 
         .not-a-link {
@@ -291,27 +293,27 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       > .nav-screen {
         @include no-select;
 
-        transition: $nav-mobile-menu-animation;
+        transition: var(--nav-mobile-menu-animation);
         opacity: 0;
       }
 
       .nav-toggle:before {
-        transition: $nav-mobile-menu-animation;
+        transition: var(--nav-mobile-menu-animation);
         display: block;
-        width: $nav-mobile-button-size;
-        height: $nav-mobile-button-size;
+        width: var(--nav-mobile-button-size);
+        height: var(--nav-mobile-button-size);
         cursor: pointer;
-        content: $nav-icon-menu;
-        font-size: $nav-mobile-button-size;
-        color: $nav-text-color;
-        background: $nav-menu-color;
+        content: var(--nav-icon-menu);
+        font-size: var(--nav-mobile-button-size);
+        color: var(--color-nav-text);
+        background: var(--color-nav-menu);
         z-index: 3;
         position: fixed;
         top: 0;
         left: 0;
         padding: 0.5ex;
-        line-height: $nav-mobile-button-size;
-        border-radius: $nav-menu-radius;
+        line-height: var(--nav-mobile-button-size);
+        border-radius: var(--nav-menu-radius);
       }
     }
 
@@ -329,7 +331,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         right: 0;
         bottom: 0;
         z-index: 1;
-        background: black;
+        background: var(--color-text);
         opacity: 0.5;
       }
 
@@ -339,7 +341,7 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
     }
 
     .hgroup {
-      padding-left: calc(#{$nav-mobile-button-size} + 1.5ex);
+      padding-left: calc(calc(var(--nav-mobile-button-size)) + 1.5ex);
     }
   }
 
@@ -351,8 +353,8 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
     }
 
     nav {
-      font-family: $nav-mobile-font-family;
-      font-size: $nav-mobile-font-size;
+      font-family: var(--nav-mobile-font-family);
+      font-size: var(--nav-mobile-font-size);
       z-index: 1000;
       cursor: default;
       position: relative;
@@ -373,12 +375,12 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
         top: 0;
         right: 0;
         overflow: auto;
-        background-color: $nav-mobile-menu;
+        background-color: var(--nav-mobile-menu);
         z-index: 2;
-        box-shadow: 0 0 6px rgba(black, 0.25);
+        box-shadow: 0 0 6px rgba(var(--color-text), 0.25);
         max-height: 75vh;
-        padding: $nav-mobile-menu-padding;
-        min-width: $nav-mobile-menu-min-width;
+        padding: var(--nav-mobile-menu-padding);
+        min-width: var(--nav-mobile-menu-min-width);
 
         ul {
           padding: 0 2ex 0 2ex;
@@ -386,15 +388,15 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
 
         a, .not-a-link {
           display: block;
-          line-height: $nav-mobile-item-height;
-          padding: $nav-mobile-item-padding;
-          color: $nav-mobile-text !important;
-          text-shadow: $nav-mobile-text-shadow;
+          line-height: var(--nav-mobile-item-height);
+          padding: var(--nav-mobile-item-padding);
+          color: var(--nav-mobile-text) !important;
+          text-shadow: var(--nav-mobile-text-shadow);
           text-decoration: none !important;
         }
 
         a:hover {
-          background-color: rgba($nav-mobile-menu-highlight, 0.5);
+          background-color: rgba(var(--nav-mobile-menu-highlight,) 0.5);
         }
 
         .not-a-link {
@@ -403,22 +405,22 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
       }
 
       li.active {
-        background-color: $nav-mobile-menu-highlight;
+        background-color: var(--nav-mobile-menu-highlight);
       }
 
       .nav-toggle:before {
-        transition: $nav-mobile-menu-animation;
+        transition: var(--nav-mobile-menu-animation);
         display: inline-block;
-        width: $nav-mobile-button-size;
-        height: $nav-mobile-button-size;
+        width: var(--nav-mobile-button-size);
+        height: var(--nav-mobile-button-size);
         cursor: pointer;
-        content: $nav-icon-menu;
-        font-size: $nav-mobile-button-size;
-        color: $nav-text-color;
+        content: var(--nav-icon-menu);
+        font-size: var(--nav-mobile-button-size);
+        color: var(--color-nav-text);
         z-index: 3;
         padding: 0.5ex;
-        line-height: $nav-mobile-button-size;
-        border-radius: $nav-menu-radius;
+        line-height: var(--nav-mobile-button-size);
+        border-radius: var(--nav-menu-radius);
       }
     }
 
@@ -462,5 +464,3 @@ $nav-mobile-font-family: -apple-system-font, "Roboto", "Droid Sans", $base-font-
     @extend %nav-menu;
   }
 }
-
-@media screen and (max-width: $nav-min-width) {}
