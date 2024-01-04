@@ -1,23 +1,68 @@
 .search-page {
+  --pf-v5-global--Color--100: red;
+
+  .search-icon path {
+    fill: green;
+  }
+
   .search-form {
     margin-bottom: 1rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
   }
 
   .search-input,
   .search-button {
     line-height: 2rem;
+    color: var(--color-text);
+    font: inherit;
   }
 
   .search-input {
-    padding-left: 1ex !important;
+    border-radius: 6px;
+    border: 1px solid var(--color-grey-dark);
+    background: var(--color-background);
+    position: relative;
+    flex: auto;
+    padding-inline-start: 1.5ex;
+
+    // Make room for the icon
+    @supports (mask: url()) {
+      padding-inline-start: 4.5ex;
+    }
+  }
+
+  .search-input-wrapper {
+    flex: auto;
+    display: flex;
+    position: relative;
+
+    @supports (mask: url()) {
+      &::after {
+        position: absolute;
+        inset: 10px;
+        content: '';
+        background: color-mix(in srgb, var(--color-text) 75%, var(--color-background));
+        mask: url("../images/site/search.svg#search-icon") 0 100% no-repeat;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .search-button {
+    padding: .75ex 2ex;
+    background: var(--color-grey-light);
+    border: 1px solid var(--color-grey-dark);
+    border-radius: 400px;
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-grey-light) 80%, white);
+    }
   }
 
   .similar {
     padding: 1ex 0 2ex;
-    color: #767676;
+    color: var(--color-grey-dark);
   }
 
   .progress-container {
@@ -30,7 +75,7 @@
   .spinner {
     font-size: 6em;
     margin: 1em auto;
-    color: rgba(var(--color-text), 0.25);
+    color: var(--color-grey);
   }
 
   .articles {

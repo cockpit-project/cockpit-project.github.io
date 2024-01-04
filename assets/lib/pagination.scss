@@ -1,8 +1,4 @@
 .pagination {
-  --color-brand: #999;
-  --color-background: #fff;
-  --border-radius: 0;
-
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -38,8 +34,9 @@
   }
 
   span {
-    background: var(--color-brand);
-    border-color: var(--color-brand);
-    color: var(--color-background);
+    background: color-mix(in srgb, var(--color-badge) 40%, var(--color-background));
+    border-color: var(--color-badge-base);
+    color: color-mix(in srgb, var(--color-badge-base) 40%, var(--color-text));
+    border-radius: 6px;
   }
 }

@@ -12,7 +12,7 @@ html.front-page {
     margin-bottom: 0;
 
     a {
-      color: #fff;
+      color: white;
     }
   }
 
@@ -34,7 +34,7 @@ html.front-page {
   }
 
   .frontpage-background {
-    background: var(--masthead-background) url(../images/site/clouds-bw.webp);
+    background: var(--color-masthead-background) url(../images/site/clouds-bw.webp);
     background-blend-mode: screen;
     background-size: cover;
     background-repeat: no-repeat;
@@ -42,8 +42,7 @@ html.front-page {
     backdrop-filter: blur(3px);
 
     > header.masthead {
-      background: none;
-      background: linear-gradient(to bottom, hsla(var(--color-blue), 38%, 100%) 1rem, hsla(var(--color-blue), 40%, 0%));
+      background: var(--gradient-masthead-shine);
     }
   }
 
@@ -90,9 +89,6 @@ html.front-page {
     .side-left {
       padding: 3rem 1rem 1rem;
       text-align: center;
-
-      //p
-      // max-width: 60ex
 
       @media screen and (min-width: $content-width) {
         padding: 1rem;
@@ -254,7 +250,7 @@ html.front-page {
     &-version {
       font-size: 1.4rem;
       font-weight: bold;
-      color: var(--masthead-background);
+      color: var(--color-link);
     }
 
     a {
@@ -334,7 +330,7 @@ html.front-page {
 }
 
 .footerlinks {
-  background: #eeeeec;
+  background: var(--color-grey-light);
   padding: 2rem 0;
   margin: 4rem 0 2rem;
   clip-path: polygon(0 32px, 0 calc(100% - 32px), 100% 100%, 100% 0);
@@ -362,13 +358,7 @@ html.front-page {
     }
   }
 
-  a {
-    color: #093d69;
-
-    &:hover {
-      background: white;
-    }
-  }
+  @extend %link;
 }
 
 .screenshots {
@@ -414,7 +404,7 @@ html.front-page {
       cursor: pointer;
 
       > img {
-        outline: 2px solid hsl(var(--color-blue), 40%);
+        outline: 2px solid hsl(var(--color-link-base), 40%);
         transform: scale(125%);
         transition-duration: 200ms;
         box-shadow: 0 0.125rem 1rem hsla(0, 0, 0%, 50%);

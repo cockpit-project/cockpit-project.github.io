@@ -15,7 +15,7 @@
     }
 
     &:not(:first-child) {
-      border-top: 1px dotted #888;
+      border-top: 1px dotted var(--color-grey-dark);
     }
 
     &-title {
@@ -38,9 +38,9 @@
       --hue: 150;
       --saturation: 0%;
       --color: var(--hue), var(--saturation);
-      border: 1px solid hsl(var(--color), 70%);
-      background: hsl(var(--color), 95%);
-      color: hsl(var(--color), 25%);
+      border: 1px solid color-mix(in srgb, hsl(var(--color), 40%) 80%, var(--color-background));
+      background: color-mix(in srgb, hsl(var(--color), 40%) 10%, var(--color-background));
+      color: color-mix(in srgb, hsl(var(--color), 30%) 40%, var(--color-text));
       padding: 0.125em 0.5em;
       border-radius: 3em;
       font-size: 0.9rem;

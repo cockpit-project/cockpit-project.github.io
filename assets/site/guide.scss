@@ -38,6 +38,11 @@ html.cockpit-guide {
       font-size: inherit;
       line-height: inherit;
     }
+
+    .programlisting {
+      @extend .highlighter-rouge;
+      @extend pre;
+    }
   }
 
   /* Evil hack to deconstruct tables
@@ -107,6 +112,8 @@ html.cockpit-guide {
       }
     }
 
+    @extend %link;
+  
     a {
       align-items: center;
       height: 100%;
@@ -121,24 +128,15 @@ html.cockpit-guide {
         line-height: var(--base-line-height);
         vertical-align: middle;
         margin: 0.5em;
-        text-decoration: underline;
-      }
-
-      &:after {
-        color: var(--color-link) !important;
-      }
-
-      &:visited:after {
-        color: var(--color-link-visited) !important;
-      }
-
-      &:hover:after {
-        color: var(--color-link-hover) !important;
       }
 
       img {
         opacity: 0.6;
         min-width: 24px;
+
+        @media (prefers-color-scheme: dark) {
+          filter: invert(1);
+        }
       }
 
       &:hover img {
@@ -184,10 +182,6 @@ html.cockpit-guide {
   dl.toc {
     dd, dt {
       padding-left: 3ex;
-    }
-
-    .refpurpose {
-      color: #767676;
     }
 
     > dd > dl {
@@ -241,6 +235,12 @@ html.cockpit-guide {
     }
   }
 
+  .refentry {
+    table {
+      color: var(--color-text);
+    }
+  }
+
   .refnamediv > table td {
     padding: 0 !important;
     color: var(--color-text);
@@ -264,6 +264,10 @@ html.cockpit-guide {
     top: -3rem;
   }
 
+  [role=main] {
+    @extend %link;
+  }
+
   @media screen and (max-width: $on-laptop) {
     table.navigation {
       th {
@@ -280,8 +284,9 @@ html.cockpit-guide {
 
 /* Adapt warnings to Cockpit's PF4 inspired style */
 div.warning {
-  margin: 0 !important;
-  padding: var(--alert-padding);
+  margin-inline: 0 !important;
+  @extend %alert;
+  @extend .warning;
 
   > .title,
   > h3,
@@ -289,9 +294,9 @@ div.warning {
     padding: 0;
     margin: 0;
     font-size: inherit;
-  }
 
-  + p {
-    margin-top: 1rem;
+    + p:not(:first-of-type) {
+      margin-block-start: 1rem;
+    }
   }
 }

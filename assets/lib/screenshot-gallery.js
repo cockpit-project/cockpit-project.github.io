@@ -1,7 +1,7 @@
 $(function(){
   var $next, $prev, touchX, touchY;
 
-  // Prevent scrolling the page (used with CSS noScroll class)
+  // Prevent scrolling the page (used with CSS no-scroll class)
   function lockScrolling(bool) {
     $('html').toggleClass('no-scroll', bool);
   }
