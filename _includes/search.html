@@ -8,7 +8,9 @@
 
   <!-- Search form -->
   <form class="search-form" id="search-form" action="https://duckduckgo.com/" role="search">
-    <input autocomplete="off" id="search-input" name="q" class="search-input" aria-labelledby="searchFormButton">
+    <div class="search-input-wrapper">
+      <input autocomplete="off" id="search-input" name="q" class="search-input" aria-labelledby="searchFormButton">
+    </div>
     <input type="hidden" name="sites" value="cockpit-project.org">
     <button class="search-button" id="searchFormButton">Search</button>
   </form>

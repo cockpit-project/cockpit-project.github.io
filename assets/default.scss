@@ -23,8 +23,8 @@ $spacing-unit:     1rem;
     --color-brand:      #2a7ae2;
 
     --color-grey:       #828282;
-    --color-grey-light: color-mix(in lch, var(--color-grey) var(--color-background), 40%);
-    --color-grey-dark: color-mix(in lch, var(--color-grey) var(--color-text), 25%);
+    --color-grey-light: color-mix(in lch, var(--color-grey), var(--color-background), 40%);
+    --color-grey-dark: color-mix(in lch, var(--color-grey), var(--color-text), 25%);
 
     // Width of the content area
     --content-width:    60em;
