@@ -81,7 +81,7 @@ $ ->
         scoreB = pages[b].score = (titleB * 3 + summB + dateScoreB) / 5 / 0.71
 
         # Sort based on score
-        return scoreA < scoreB
+        return scoreB - scoreA
 
       for match in matches
         page = pages[match]
