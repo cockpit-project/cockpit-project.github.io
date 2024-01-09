@@ -23,6 +23,11 @@
   tested: true
   included: true
 
+- archlinux:
+  name: Arch Linux
+  tested: true
+  included: true
+
 - ubuntu:
   name: Ubuntu
   tested: true
@@ -30,10 +35,6 @@
 
 - clearlinux:
   name: Clear Linux
-  included: true
-
-- archlinux:
-  name: Arch Linux
   included: true
 
 - tumbleweed:
