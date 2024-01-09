@@ -13,13 +13,13 @@
     <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
 
     <meta name="description" content="{{ site.description }}">
-    <!--<meta name="author" content="">-->
-    <meta property="og:title" content="{{ site.name }}">
-    <meta property="og:site_name" content="{{ site.name }}">
-    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ page.title | strip_html }}">
+    <meta property="og:description" content="{{ page.summary | strip_html }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="FIXME">
-    <meta property="og:image" content="FIXME">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="author" content="{{ site.data.authors[page.author].name }}">
+    <meta property="og:image" content="{{ site.baseurl }}/images/site/opengraph.png">
     {% if site.color %}<meta name="theme-color" content="{{ site.color }}">{% endif %}
 
     <!-- Favicon -->
