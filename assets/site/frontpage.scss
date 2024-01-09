@@ -9,7 +9,7 @@ html.front-page {
   }
 
   .masthead {
-    margin-bottom: 0;
+    margin-block-end: 0;
 
     a {
       color: white;
@@ -17,7 +17,7 @@ html.front-page {
   }
 
   .page-content {
-    padding-top: 4rem;
+    padding-block-start: 4rem;
 
     > .wrapper {
       display: grid;
@@ -77,10 +77,10 @@ html.front-page {
       background-size: auto var(--planes-height);
       grid-row: 1 / -1;
       grid-column: 1 / -2;
-      margin-right: 1rem;
+      margin-inline-end: 1rem;
 
       @media screen and (min-width: $content-width) {
-        margin-right: 0;
+        margin-inline-end: 0;
       }
     }
 
@@ -101,7 +101,7 @@ html.front-page {
 
     .intro-image {
       position: relative;
-      margin-top: 2rem;
+      margin-block-start: 2rem;
 
       .screenshot {
         margin: 0.5rem 0 0;
@@ -171,7 +171,7 @@ html.front-page {
       font-size: 2rem;
 
       &:not(:first-child) {
-        padding-top: 2rem;
+        padding-block-start: 2rem;
       }
     }
 
@@ -179,7 +179,7 @@ html.front-page {
       font-size: 1.5rem;
 
       &:not(:first-child) {
-        padding-top: 1.5rem;
+        padding-block-start: 1.5rem;
       }
     }
 
@@ -188,7 +188,7 @@ html.front-page {
         font-size: 2.953125rem;
 
         &:not(:first-child) {
-          padding-top: 2.5rem;
+          padding-block-start: 2.5rem;
         }
       }
 
@@ -196,7 +196,7 @@ html.front-page {
         font-size: 1.828125rem;
 
         &:not(:first-child) {
-          padding-top: 2rem;
+          padding-block-start: 2rem;
         }
       }
     }
@@ -223,14 +223,14 @@ html.front-page {
   }
 
   footer.footer-cockpit {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .badge {
     grid-area: badge;
     text-align: right;
     position: relative;
-    top: var(--offset);
+    inset-block-start: var(--offset);
 
     &-new,
     &-version,
@@ -354,7 +354,7 @@ html.front-page {
 
   dd {
     a {
-      padding-left: 30px;
+      padding-inline-start: 30px;
     }
   }
 

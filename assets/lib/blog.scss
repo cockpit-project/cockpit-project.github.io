@@ -12,7 +12,7 @@ body.archive {
     }
 
     #content {
-      padding-top: 2em;
+      padding-block-start: 2em;
     }
 
     .entry-title {
@@ -31,16 +31,14 @@ body.archive {
 
 .commentlist {
   .avatar {
-    left: -98px;
-    right: auto;
-    top: 0;
+    inset: 0 auto auto -98px;
   }
 
   > li.comment {
-    margin-left: 98px;
+    margin-inline-start: 98px;
 
     .comment-meta, .comment-content {
-      margin-right: auto;
+      margin-inline-end: auto;
     }
   }
 }
@@ -63,15 +61,9 @@ article.post {
   overflow: hidden;
 
   h2:first-child {
-    //padding-top: 2em
-
     a {
       display: block;
     }
-  }
-
-  &:first-child {
-    //margin-top: -2em
   }
 
   /* Style-up blog post YouTube videos & Slideshare decks (center & frame) */
@@ -94,7 +86,7 @@ article.post {
   }
 
   + article.post {
-    margin-top: 3em;
+    margin-block-start: 3em;
   }
 }
 
@@ -121,7 +113,7 @@ article.post {
       padding: 0;
 
       + li {
-        margin-left: -1ex;
+        margin-inline-start: -1ex;
 
         &:before {
           content: ", ";
@@ -142,7 +134,6 @@ article.post {
 }
 
 .author-photo {
-  //@extend .col-md-2
   vertical-align: middle;
   text-align: right;
 
@@ -153,11 +144,6 @@ article.post {
 
 .author-blurb {
   overflow: hidden;
-
-  .with-photo {
-    //@extend .col-md-10
- 
-  }
 
   .follow-on,
   .more-link {
@@ -196,8 +182,6 @@ article.post {
   }
 
   table:not([class]) {
-    //@extend .table
-    //@extend .table-striped
     margin: 2em 0;
   }
 }
@@ -220,7 +204,7 @@ article.post {
 }
 
 .tag-cloud + .tag-list {
-  margin-top: 4em;
+  margin-block-start: 4em;
 }
 
 .tag-list {
@@ -242,7 +226,7 @@ article.post {
 
     font-size: inherit;
     min-width: 12ex;
-    padding-right: 1ex;
+    padding-inline-end: 1ex;
     text-align: right;
   }
 
@@ -272,7 +256,7 @@ article.post {
 
     a {
       font-size: 130%;
-      padding-top: 1.5em;
+      padding-block-start: 1.5em;
       display: block;
     }
   }

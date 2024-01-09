@@ -148,7 +148,7 @@ body {
 }
 
 :where(h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre) {
-  margin-bottom: .5em;
+  margin-block-end: .5em;
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
@@ -225,11 +225,10 @@ h6 {
 }
 
 .page-content {
-  padding-top: 4rem;
+  padding-block-start: 4rem;
 
   > .wrapper {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-inline: 1.5rem;
   }
 
   dl {
@@ -237,10 +236,10 @@ h6 {
 
     dt {
       font-weight: bold;
-      margin-top: 2em;
+      margin-block-start: 2em;
 
       &:first-child {
-        margin-top: 1em;
+        margin-block-start: 1em;
       }
     }
 
@@ -251,7 +250,7 @@ h6 {
 
   ul,
   ol {
-    margin-left: 1.5rem;
+    margin-inline-start: 1.5rem;
   }
 }
 
@@ -366,7 +365,7 @@ header.masthead {
     flex-direction: column;
 
     .logo {
-      margin-bottom: 1rem;
+      margin-block-end: 1rem;
     }
 
     .hgroup,
@@ -398,12 +397,12 @@ pre {
 html.running-cockpit {
   .os-instructions {
     display: none;
-    margin-top: 10px;
+    margin-block-start: 10px;
   }
 
   .support-table {
     border-collapse: collapse;
-    margin-top: -1rem;
+    margin-block-start: -1rem;
     max-width: 100%;
     overflow: hidden;
 
@@ -490,7 +489,7 @@ html.running-cockpit {
   }
 
   h4 {
-    margin-top: 3em;
+    margin-block-start: 3em;
     font-size: 22px;
   }
 
@@ -507,12 +506,12 @@ html.running-cockpit {
         margin: 0 0 1rem;
 
         + p {
-          margin-top: 1rem;
+          margin-block-start: 1rem;
         }
       }
 
       &:not(:first-child) {
-        margin-top: 2rem;
+        margin-block-start: 2rem;
       }
     }
   }
@@ -524,7 +523,7 @@ html.running-cockpit {
   }
 
   li + li {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
   }
 
   img {
@@ -538,7 +537,7 @@ html.running-cockpit {
 
     + img {
       @media (min-width: $on-laptop) {
-        margin-left: 1rem;
+        margin-inline-start: 1rem;
       }
     }
   }
@@ -569,10 +568,7 @@ img.screenshot,
 
 .image-container {
   position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -583,10 +579,7 @@ img.screenshot,
     display: block;
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(#000, .7);
     animation: 200ms fadeIn;
     z-index: -1;
@@ -629,8 +622,7 @@ img.screenshot,
 
   a {
     position: absolute;
-    top: 5vw;
-    bottom: 5vw;
+    inset-block: 5vw;
     width: 10vw;
     width: max(20vw, 5rem);
     opacity: .5;
@@ -652,18 +644,18 @@ img.screenshot,
     }
 
     &.screenshot-prev {
-      left: 0;
+      inset-inline-start: 0;
 
       > img {
-        margin-left: 2rem;
+        margin-inline-start: 2rem;
       }
     }
 
     &.screenshot-next {
-      right: 0;
+      inset-inline-end: 0;
 
       > img {
-        margin-right: 2rem;
+        margin-inline-end: 2rem;
       }
     }
   }
@@ -757,14 +749,14 @@ footer.footer-cockpit {
   .browser-name {
     // Adjust for the difference between the icon height and the text height
     // (We align to the top instead of to the center in the cases where text wraps)
-    padding-top: .125rem;
+    padding-block-start: .125rem;
   }
 
   .browser-firefox > img {
     position: relative;
 
     // Firefox's tail is slightly taller
-    top: -1px;
+    inset-block-start: -1px;
   }
 
   .note-safari {
@@ -814,8 +806,8 @@ article {
 }
 
 .post-content :is(h2, h3, h4, h5, h6) {
-  margin-top: 2em;
-  margin-bottom: .5em;
+  margin-block-start: 2em;
+  margin-block-end: .5em;
 }
 
 .post-link {
@@ -824,8 +816,8 @@ article {
 
 .search-page .articles {
   article.post {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 
     h2 {
       margin: 0 0 .5rem;
@@ -926,7 +918,7 @@ code {
       content: '';
       height: var(--icon-height);
       width: var(--icon-width);
-      margin-top: var(--icon-offset);
+      margin-block-start: var(--icon-offset);
       mask-size: cover;
       mask-image: var(--icon);
       position: absolute;
@@ -982,11 +974,11 @@ code {
   }
 
   > li > ul {
-    margin-top: .5rem;
-    margin-bottom: 1rem;
+    margin-block-start: .5rem;
+    margin-block-end: 1rem;
   }
 
   > li > ul > li {
-    margin-bottom: .25rem;
+    margin-block-end: .25rem;
   }
 }

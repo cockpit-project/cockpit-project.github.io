@@ -54,18 +54,18 @@
 }
 
 .top a {
-  padding-top: 1em;
+  padding-block-start: 1em;
 
   &:before {
     content: "▴";
-    padding-right: 0.5ex;
+    padding-inline-end: 0.5ex;
     text-decoration: none !important;
   }
 }
 
 a.top:before {
   content: "▴";
-  padding-right: 0.5ex;
+  padding-inline-end: 0.5ex;
   text-decoration: none !important;
 }
 
