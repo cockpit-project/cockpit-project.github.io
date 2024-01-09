@@ -29,7 +29,7 @@
       grid-area: description;
 
       p:last-child {
-        margin-bottom: 0;
+        margin-block-end: 0;
       }
     }
 
@@ -68,7 +68,7 @@
       }
 
       dt:not(:first-child) {
-        margin-top: 1em;
+        margin-block-start: 1em;
       }
     }
   }

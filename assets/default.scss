@@ -50,7 +50,6 @@ $spacing-unit:     1rem;
 // Use media queries like this:
 // @include media-query($on-palm) {
 //     .wrapper {
-//         padding-right: calc(var(--spacing-unit) / 2);
-//         padding-left: calc(var(--spacing-unit) / 2);
+//         padding-inline: calc(var(--spacing-unit) / 2);
 //     }
 // }

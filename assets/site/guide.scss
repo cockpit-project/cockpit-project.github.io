@@ -5,8 +5,8 @@
 
 html.cockpit-guide {
   body {
-    /* Guide CSS has padding-top set as important; let's override to fix Chrome */
-    padding-top: 0 !important;
+    /* Guide CSS has padding-block-start set as important; let's override to fix Chrome */
+    padding-block-start: 0 !important;
     position: relative;
 
     // Override the font for guides
@@ -63,22 +63,22 @@ html.cockpit-guide {
 
         .term {
           display: block;
-          margin-bottom: 0.5rem;
+          margin-block-end: 0.5rem;
         }
 
         &:not(:last-child) {
-          margin-bottom: 3rem;
+          margin-block-end: 3rem;
         }
 
         p:last-child {
-          margin-bottom: 0 !important;
+          margin-block-end: 0 !important;
         }
       }
     }
   }
 
   header.masthead {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   table.navigation {
@@ -181,11 +181,11 @@ html.cockpit-guide {
 
   dl.toc {
     dd, dt {
-      padding-left: 3ex;
+      padding-inline-start: 3ex;
     }
 
     > dd > dl {
-      margin-bottom: 3ex;
+      margin-block-end: 3ex;
 
       dl {
         margin: 1ex 0 2ex;
@@ -215,9 +215,9 @@ html.cockpit-guide {
   .refnamediv h2,
   [role=main] > .titlepage:first-child .title {
     font-size: 2.75rem;
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
     line-height: 1.2;
-    padding-top: 0;
+    padding-block-start: 0;
   }
 
   [role=main],
@@ -226,8 +226,7 @@ html.cockpit-guide {
   div.refentry {
     padding: 4rem 2rem 0;
     max-width: calc(65rem - 4rem);
-    margin-right: auto;
-    margin-left: auto;
+    margin-inline: auto;
     flex: auto;
 
     @media screen and (max-width: $on-laptop) {
@@ -261,7 +260,7 @@ html.cockpit-guide {
 
   a[name] {
     position: relative;
-    top: -3rem;
+    inset-block-start: -3rem;
   }
 
   [role=main] {

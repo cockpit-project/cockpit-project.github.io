@@ -111,8 +111,8 @@ $nav-min-width: $on-laptop;
 
       ul {
         position: absolute;
-        left: 0;
-        top: 100%;
+        inset-inline-start: 0;
+        inset-block-start: 100%;
         visibility: hidden;
         opacity: 0;
         box-shadow: var(--nav-menu-shadow);
@@ -132,8 +132,8 @@ $nav-min-width: $on-laptop;
         }
 
         ul {
-          left: 100%;
-          top: 0;
+          inset-inline-start: 100%;
+          inset-block-start: 0;
         }
       }
     }
@@ -173,7 +173,7 @@ $nav-min-width: $on-laptop;
           }
 
           li:last-child a, .not-a-link {
-            margin-bottom: calc(var(--nav-padding-y) * -4);
+            margin-block-end: calc(var(--nav-padding-y) * -4);
             padding-bottom: calc(var(--nav-padding-y) * 5);
           }
         }
@@ -213,7 +213,7 @@ $nav-min-width: $on-laptop;
           &::after {
             opacity: var(--nav-icon-opacity);
             content: var(--nav-icon-down);
-            margin-left: 1ex;
+            margin-inline-start: 1ex;
           }
         }
       }
@@ -259,8 +259,8 @@ $nav-min-width: $on-laptop;
         transition: var(--nav-mobile-menu-animation);
         visibility: hidden;
         position: fixed;
-        top: 0;
-        left: -100%;
+        inset-block-start: 0;
+        inset-inline-start: -100%;
         overflow: auto;
         height: 100vh;
         background-color: var(--nav-mobile-menu);
@@ -271,7 +271,7 @@ $nav-min-width: $on-laptop;
         padding: var(--nav-mobile-button-size) 0 0 1ex;
 
         > li {
-          margin-top: 2ex;
+          margin-block-start: 2ex;
         }
 
         ul {
@@ -309,8 +309,8 @@ $nav-min-width: $on-laptop;
         background: var(--color-nav-menu);
         z-index: 3;
         position: fixed;
-        top: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
         padding: 0.5ex;
         line-height: var(--nav-mobile-button-size);
         border-radius: var(--nav-menu-radius);
@@ -320,16 +320,13 @@ $nav-min-width: $on-laptop;
     .nav-check:checked + nav > {
       .nav-menu {
         visibility: visible;
-        left: 0;
+        inset-inline-start: 0;
         display: block;
       }
 
       .nav-screen {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: 1;
         background: var(--color-text);
         opacity: 0.5;
@@ -341,7 +338,7 @@ $nav-min-width: $on-laptop;
     }
 
     .hgroup {
-      padding-left: calc(calc(var(--nav-mobile-button-size)) + 1.5ex);
+      padding-inline-start: calc(calc(var(--nav-mobile-button-size)) + 1.5ex);
     }
   }
 
@@ -372,8 +369,8 @@ $nav-min-width: $on-laptop;
         transform: scale(0);
         transform-origin: calc(100% - 2.5ex) 2.5ex;
         position: absolute;
-        top: 0;
-        right: 0;
+        inset-block-start: 0;
+        inset-inline-end: 0;
         overflow: auto;
         background-color: var(--nav-mobile-menu);
         z-index: 2;
@@ -436,10 +433,7 @@ $nav-min-width: $on-laptop;
         @include no-select;
 
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         z-index: 1;
       }
 

@@ -6,7 +6,7 @@
   }
 
   .search-form {
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
     display: flex;
     gap: 0.5rem;
   }
@@ -67,8 +67,7 @@
 
   .progress-container {
     position: absolute;
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     text-align: center;
   }
 
