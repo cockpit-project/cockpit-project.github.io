@@ -22,9 +22,9 @@ The documentation for Red Hat Enterprise Linux 9 is the most up-to-date.
 
 While this documentation is for an older version of Cockpit, most is still current enough and there may be more detailed information:
 
-- [Getting started using the RHEL web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/8c44950e-29f0-4150-89a5-036f57bf775e)
-- [Managing user accounts in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/715670f6-0eb9-4175-a36f-445acd1b1b25)
-- [Managing services in the web console](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/032603a4-660f-4c0b-97ba-20d32479998e)
+- [Getting started using the RHEL web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/getting-started-with-the-rhel-8-web-console_system-management-using-the-rhel-8-web-console)
+- [Managing user accounts in the web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/managing-user-accounts-in-the-web-console_system-management-using-the-rhel-8-web-console)
+- [Managing systems using the RHEL 8 web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/)
 
 ### SUSE ALP documentation
 - [Administering SUSE ALP Dolomite using Cockpit](https://documentation.suse.com/alp/dolomite/html/cockpit-alp-dolomite/index.html)
