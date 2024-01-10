@@ -9,6 +9,7 @@
     margin-block-end: 1rem;
     display: flex;
     gap: 0.5rem;
+    flex-flow: row wrap;
   }
 
   .search-input,
@@ -16,6 +17,7 @@
     line-height: 2rem;
     color: var(--color-text);
     font: inherit;
+    padding: .75ex 2ex;
   }
 
   .search-input {
@@ -50,7 +52,6 @@
   }
 
   .search-button {
-    padding: .75ex 2ex;
     background: var(--color-grey-light);
     border: 1px solid var(--color-grey-dark);
     border-radius: 400px;
