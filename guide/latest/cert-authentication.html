@@ -163,20 +163,6 @@ cp /etc/ipa/ca.crt /etc/sssd/pki/sssd_auth_ca_db.pem
 [WebService]
 ClientCertAuthentication = yes
 </pre>
-<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Warning</h3>
-<p>Any client can generate certificates with arbitrary information, thus
-      the client certificates must be checked for validity. Cockpit currently
-      accepts any client certificate and relies on sssd to verify their validity.</p>
-<p>Check if your <span class="command"><strong>sssd</strong></span> version is at least 2.6.1, as earlier
-      versions did not validate the user certificate against the configured CA with
-      Cockpit logins. With earlier versions, this is secure only when the
-      entire certificate gets matched, i.e. when importing the complete
-      certificates into Identity Management as shown above. Also, certificate
-      revocations are <span class="emphasis"><em>not checked with earlier sssd versions</em></span>.</p>
-<p><span class="emphasis"><em>Do not use this with local sssd <code class="code">certmap</code> rules</em></span>
-      which only match on Subject/Issuer properties, if you run sssd earlier than 2.6.1!</p>
-</div>
 <p>When enabling this mode,
     <a class="ulink" href="https://github.com/cockpit-project/cockpit/blob/main/doc/authentication.md" target="_top">
     other authentication types</a> commonly get disabled, so that <span class="emphasis"><em>only</em></span>
