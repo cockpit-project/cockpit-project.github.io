@@ -147,6 +147,10 @@ body {
   display: none;
 }
 
+[id] {
+	scroll-margin-block-start: var(--scroll-margin, 2rem);
+}
+
 :where(h1, h2, h3, h4, h5, h6, blockquote, dl, ol, ul, figure, p, pre) {
   margin-block-end: .5em;
 }
