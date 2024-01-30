@@ -136,7 +136,13 @@ Create a placeholder file and network interface.
     nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1
     ```
 
-3. Reboot
+3. Skip this step unless you have a Raspberry Pi; install extra Linux kernel modules for networking:
+
+    ```
+    sudo apt install linux-modules-extra-raspi
+    ```
+
+4. Reboot
 
 ##### Explanation
 {:.no_toc}
