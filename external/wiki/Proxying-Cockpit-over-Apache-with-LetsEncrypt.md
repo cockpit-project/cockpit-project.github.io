@@ -83,21 +83,17 @@ Change this file so it looks like the following.
   SSLCertificateFile /etc/letsencrypt/live/cockpit.your-domain.com/fullchain.pem
   SSLCertificateKeyFile /etc/letsencrypt/live/cockpit.your-domain.com/privkey.pem
   Include /etc/letsencrypt/options-ssl-apache.conf
-
   ProxyPreserveHost On
   ProxyRequests Off
-
   # allow for upgrading to websockets
   RewriteEngine On
   RewriteCond %{HTTP:Upgrade} =websocket [NC]
   RewriteRule /(.*)           ws://127.0.0.1:9090/$1 [P,L]
   RewriteCond %{HTTP:Upgrade} !=websocket [NC]
   RewriteRule /(.*)           http://127.0.0.1:9090/$1 [P,L]
-
   # Proxy to your local cockpit instance
   ProxyPass / http://127.0.0.1:9090/
   ProxyPassReverse / http://127.0.0.1:9090/
-
 </VirtualHost>
 </IfModule>
 ```
