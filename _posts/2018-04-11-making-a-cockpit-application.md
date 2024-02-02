@@ -28,7 +28,7 @@ page.
 For a Cockpit component, the AppStream data looks like this:
 ```xml
 <component type="addon">
-  <id>org.cockpit-project.demo-app</id>
+  <id>org.cockpit_project.demo-app</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Demo Application</name>
   <summary>
@@ -37,13 +37,13 @@ For a Cockpit component, the AppStream data looks like this:
   <description>
     <p>This is a demo application</p>
   </description>
-  <extends>cockpit.desktop</extends>
+  <extends>org.cockpit_project.cockpit</extends>
   <launchable type="cockpit-manifest">demo-app</launchable>
 </component>
 ```
 
 This would be placed at
-`/usr/share/metainfo/org.cockpit-project.demo-app.metainfo.xml` in
+`/usr/share/metainfo/org.cockpit_project.demo-app.metainfo.xml` in
 your package.
 
 The important bit is the `launchable` element with type
@@ -53,7 +53,7 @@ package](https://cockpit-project.org/guide/latest/packages.html) for
 your page.
 
 Use the component type `addon` and add an `extends` element for
-`cockpit.desktop`.
+`org.cockpit_project.cockpit`.
 
 You should of course come up with your own value for the `id` element,
 in the usual reverse-DNS style, and adjust the filename accordingly.
