@@ -97,7 +97,6 @@ Change this file so it looks like the following.
   # Proxy to your local cockpit instance
   ProxyPass / http://127.0.0.1:9090/
   ProxyPassReverse / http://127.0.0.1:9090/
-
 </VirtualHost>
 </IfModule>
 ```
