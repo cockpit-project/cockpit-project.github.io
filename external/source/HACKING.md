@@ -97,9 +97,6 @@ pkg/lib/), you can also build all pages:
 
     ./build.js -w
 
-Note that this enables eslint and stylelint by default -- if you want to
-disable them, run it with `-e`/`--no-eslint` and/or `-s`/`--no-stylelint`.
-
 Reload cockpit in your browser after page is built. Press `Ctrl`-`C` to
 stop watch mode once you are done with changing the code.
 
@@ -235,7 +232,7 @@ The tests require at least `pytest` 7.0.0 or higher to run.
 Cockpit uses [ESLint](https://eslint.org/) to automatically check JavaScript
 code style in `.js` and `.jsx` files.
 
-The linter is executed on every build.
+The linter is executed as part of `test/static-code`.
 
 For developer convenience, the ESLint can be started explicitly by:
 
@@ -257,11 +254,14 @@ unused identifiers, and other JavaScript-related issues.
 Cockpit uses [Stylelint](https://stylelint.io/) to automatically check CSS code
 style in `.css` and `.scss` files.
 
-The linter is executed on every build.
+The linter is executed as part of `test/static-code`.
 
 For developer convenience, the Stylelint can be started explicitly by:
 
     npm run stylelint
+
+But note that this only covers files in `pkg/`. `test/static-code` covers
+*all* (S)CSS files tracked in git.
 
 Some rule violations can be automatically fixed by running:
 
@@ -378,13 +378,17 @@ A local cache is maintained in `~/.cache/cockpit-dev`.
 Make a pull request on github.com with your change. All changes get reviewed,
 tested, and iterated on before getting into Cockpit. The general workflow is
 described in the [wiki](https://github.com/cockpit-project/cockpit/wiki/Workflow).
-Don't feel bad if there's multiple steps back and forth asking for changes or
-tweaks before your change gets in.
 
 You need to be familiar with git to contribute a change. Do your changes
 on a branch. Your change should be one or more git commits that each contain one
 single logical simple reviewable change, without modifications that are
 unrelated to the commit message.
+
+Don't feel bad if there's multiple steps back and forth asking for changes or
+tweaks before your change gets in. If you fix your commits after getting a
+review, just force-push to your branch -- this will update the pull request
+automatically. Do *not* close it and open a new one; that would destroy the
+conversation and reviews.
 
 Cockpit is a designed project. Anything that the user will see should have
 design done first. This is done on the wiki and mailing list.

@@ -30,8 +30,6 @@ These are the rules we try to follow when working on Cockpit.
 
   Having visuals communicates changes, helps with design reviews, and provides a way to highlight features in the release notes on Cockpit-project.org.
 
-  Pull requests lacking screenshots or videos may be tagged with `needs-screenshot` and/or `needs-video` labels. Depending on the pull request, a lack of a screenshot and/or video may block design reviews or merging.
-
   When a pull request changes, it's a good idea to include a new screenshot or video to reflect the current state.
 
 ## Git-related / Merging Conventions
@@ -42,11 +40,9 @@ These are the rules we try to follow when working on Cockpit.
 
   Thus, we normally use "Rebase and Merge" when merging pull requests.
 
-* Each commit on main should have been reviewed.  (Almost each.)
+* Each commit on main must be reviewed.
 
-  The commits made during a release to bump the version number etc don't need to be formally reviewed.
-
-  We trust that all information about the review process will be available from GitHub, thus we don't add Reviewed-By lines or similar markers to the commit messages anymore. We also trust that GitHub can find the pull request for a given SHA1 by itself. (Thus, we no longer add the "Closes: #NNN" lines to commit messages.)
+  We trust that all information about the review process will be available from GitHub, thus we don't add Reviewed-By lines or similar markers to the commit messages. We also trust that GitHub can find the pull request for a given SHA1 by itself.
 
 * The subject of a commit should start with a short `<topic>: ` prefix.
 
@@ -64,7 +60,7 @@ These are the rules we try to follow when working on Cockpit.
 
   Instead, each developer (including the core developers) should make his/her own clone and submit pull requests from there.  This makes it slightly harder to take over a pull request from another developer, but it can be done.
 
-* A pull request with a `WIP` prefix in the name is not yet ready for serious review.
+* A pull request in "Draft" state is not yet ready for serious review.
 
   You can make those pull requests to more visibly share some of your work with the rest of the team.
 
@@ -82,19 +78,7 @@ These are the rules we try to follow when working on Cockpit.
 
 ## Merge Workflow
 
-We usually merge requests from the GitHub Web UI with the "Rebase and Merge" button, but sometimes you might need to do it manually.  **Don't follow the instructions for manual merging given by GitHub.**  They are for the regular merge, and will produce a merge commit.
-
-This is Git, so there are many ways to arrive at the wanted result, and all are equally obscure.  Use whatever method is most familiar to you.  Here is one way:
-
-```
-$ git fetch origin main
-$ git fetch origin pull/<PR-ID>/head
-$ git rebase -i origin/main FETCH_HEAD
-$ git log
-## Check if everything looks good
-$ git push origin HEAD:main
-$ git checkout main
-```
+We merge requests from the GitHub Web UI with the "Rebase and Merge" button.
 
 ## Screenshot
 
