@@ -49,9 +49,9 @@ For running and debugging the images:
 ## Image location
 
 Downloaded images are stored into ~/.cache/cockpit-images/ by default. If you
-want to change that, you can set the `cockpit.bots.images-data-dir` variable
-with `git config` to a directory where to store the pristine virtual machine
-images.  For example:
+want to change that, you can set `$COCKPIT_IMAGES_DATA_DIR` or the
+`cockpit.bots.images-data-dir` variable with `git config` to a directory where
+to store the pristine virtual machine images.  For example:
 
     git config cockpit.bots.images-data-dir /srv/cockpit/images
 
