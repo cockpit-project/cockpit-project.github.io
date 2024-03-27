@@ -176,6 +176,15 @@ navigator:
   prerelease: false
   description: |
     A Featureful File Browser for Cockpit.
+
+identities:
+   title: Cockpit Identities
+   source: https://github.com/45drives/cockpit-identities
+   issues: https://github.com/45Drives/cockpit-identities/issues
+   official: false
+   prerelease: false
+   description: |
+     A Cockpit plugin to easily manage users and groups along with associated items.
  
 benchmark:
   title: Benchmark
