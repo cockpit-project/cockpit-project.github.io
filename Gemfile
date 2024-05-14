@@ -22,3 +22,6 @@ gem "webrick"
 
 # Squelch Jekyll run's faraday message by installing the gem it recommends
 gem "faraday-retry"
+
+# CSV is no longer part of Ruby; it needs to explicitly be included
+gem "csv"
