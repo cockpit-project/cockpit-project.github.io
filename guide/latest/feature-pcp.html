@@ -48,7 +48,7 @@ $ <span class="command"><strong>pmstat</strong></span>
 </pre>
 <p>These metrics can also be exposed to other machines on a TCP port with
   <a class="ulink" href="https://linux.die.net/man/1/pmproxy" target="_top">pmproxy</a>
-  and <a class="ulink" href="https://redis.io/" target="_top">Redis</a>:</p>
+  and <a class="ulink" href="https://redis.io/" target="_top">Redis</a> or <a class="ulink" href="https://valkey.io/" target="_top">Valkey</a>:</p>
 <pre class="programlisting">
 systemctl enable --now redis pmproxy
 # if you use firewalld, open port 44322:

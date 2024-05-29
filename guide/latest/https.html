@@ -37,8 +37,8 @@ layout: guide
       default 9090. If an HTTP connection is made, Cockpit will redirect that
       connection to HTTPS. There are some exceptions:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem"><p>If an HTTP connection comes from <code class="code">127.0.0.0/8</code>, then
-        Cockpit will allow communication without redirecting to HTTPS.</p></li>
+<li class="listitem"><p>If an HTTP connection comes from <code class="code">localhost</code> (<code class="code">127.0.0.1</code> or
+        <code class="code">::1</code>, then Cockpit will allow communication without redirecting to HTTPS.</p></li>
 <li class="listitem"><p>Certain URLs, like <code class="code">/ping</code> are not required to use
         HTTPS.</p></li>
 </ul></div>
@@ -81,7 +81,7 @@ getcert request -f /etc/cockpit/ws-certs.d/50-certmonger.cert \
                 -k /etc/cockpit/ws-certs.d/50-certmonger.key \
                 -D myhostname.example.com \
                 [--ca=...]</pre>
-<p>This will not work on Red Hat Enterprise Linux/CentOS 8 by default. Adjust the SELinux type of the certificate directory to <code class="code">cert_t</code> to allow certmonger to write its certificates there:</p>
+<p>This will not work on Red Hat Enterprise Linux 8 by default. Adjust the SELinux type of the certificate directory to <code class="code">cert_t</code> to allow certmonger to write its certificates there:</p>
 <pre class="programlisting">
 semanage fcontext -a -t cert_t '/etc/cockpit/ws-certs\.d(/.*)?'
 restorecon -v /etc/cockpit/ws-certs.d</pre>
