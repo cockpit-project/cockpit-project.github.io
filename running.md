@@ -247,7 +247,7 @@ When updating Cockpit-related packages and any dependencies, make sure to use `-
 ### Arch Linux
 {:#archlinux}
 
-[Cockpit](https://www.archlinux.org/packages/community/x86_64/cockpit/) is available in [Arch Linux](https://www.archlinux.org/packages/):
+[Cockpit](https://archlinux.org/packages/extra/x86_64/cockpit/) is available in [Arch Linux](https://www.archlinux.org/packages/):
 ```
 sudo pacman -S cockpit
 sudo systemctl enable --now cockpit.socket
