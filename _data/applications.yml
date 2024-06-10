@@ -110,7 +110,8 @@ sosreport:
 files:
   title: Cockpit Files
   package: cockpit-files
-  source: cockpit
+  source: https://github.com/cockpit-project/cockpit-files
+  issues: https://github.com/cockpit-project/cockpit-files/issues
   official: true
   description: |
     A featureful file browser for Cockpit.
