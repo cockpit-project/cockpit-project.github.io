@@ -107,6 +107,14 @@ sosreport:
   description: |
     Collect system configuration and diagnostic information from systems, to help with diagnosing problems.
 
+files:
+  title: Cockpit Files
+  package: cockpit-files
+  source: cockpit
+  official: true
+  description: |
+    A featureful file browser for Cockpit.
+
 389-ds:
   title: 389 Directory Server
   package: cockpit-389-ds

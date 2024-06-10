@@ -15,6 +15,7 @@
   cockpit-machines
   cockpit-podman
   cockpit-ostree
+  cockpit-files
 ]
 
 # Common terms and definitions
