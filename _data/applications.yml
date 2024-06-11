@@ -120,7 +120,7 @@ files:
   title: 389 Directory Server
   package: cockpit-389-ds
   homepage: https://directory.fedoraproject.org/docs/389ds/download.html
-  source: 
+  source:
   description: |
     A web-based interface to the enterprise-class Open Source LDAP server for Linux.
 
@@ -136,7 +136,7 @@ subscriptions:
   title: Subscription Manager
   package: subscription-manager-cockpit
   source: https://github.com/candlepin/subscription-manager-cockpit
-  issues: 
+  issues:
   description: |
     Manage subscriptions to Red Hat Enterprise Linux from your web browser.
 
@@ -185,7 +185,7 @@ navigator:
   prerelease: false
   description: |
     A Featureful File Browser for Cockpit.
- 
+
 benchmark:
   title: Benchmark
   source: https://github.com/45Drives/cockpit-benchmark
@@ -205,7 +205,7 @@ tukit:
   description: |
     Upgrade systems based on transactional-update from OpenSUSE with tukit in
     your browser.
-    
+
 sensors:
   title: Sensors
   package: cockpit-sensors
@@ -215,7 +215,7 @@ sensors:
   license: LGPL 2.1
   description: |
     List all available sensors on the machine provided by `lm-sensors`.
-    
+
 tailscale:
   title: Tailscale
   package: cockpit-tailscale
