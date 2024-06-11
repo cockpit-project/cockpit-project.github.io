@@ -570,6 +570,11 @@ img.screenshot,
   background: hsl(90, 0%, 80%);
 }
 
+.screenshot.left img {
+  display: inline;
+  text-align: left;
+}
+
 .image-container {
   position: fixed;
   inset: 0;
