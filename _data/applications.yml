@@ -89,16 +89,6 @@ composer:
   description: |
      Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
 
-certificates:
-  title: Certificate Management
-  package: cockpit-certificates
-  source: https://github.com/cockpit-project/cockpit-certificates
-  issues: https://github.com/cockpit-project/cockpit-certificates/issues
-  official: true
-  prerelease: true
-  description: |
-    Certificate management app for Cockpit.
-
 sosreport:
   title: Diagnostic Reports
   package: cockpit-sosreport
