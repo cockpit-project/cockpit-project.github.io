@@ -33,6 +33,7 @@
   "EC2": 'Amazon Elastic Compute Cloud',
   "FIPS": 'Federal Information Processing Standard',
   "FMF": 'Flexible Metadata Format',
+  "GSoC": 'Google Summer of Code',
   "HTTP": 'Hypertext Transport Protocol',
   "IPA": 'identity management system ("Identity, Policy, Audit")',
   "LAN": 'Local Area Network',

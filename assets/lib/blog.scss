@@ -153,7 +153,7 @@ article.post {
 
 .post-content {
   p {
-    > img:first-child,
+    > :where(img:first-child),
     > a[href*=flickr] img {
       max-width: calc(100% - 2px);
       height: auto;
@@ -164,8 +164,8 @@ article.post {
   }
 
   > p:first-child {
-    > a > img:first-child,
-    > img:first-child {
+    > a > :where(img:first-child),
+    > :where(img:first-child) {
       float: left;
       margin: 0 3ex 1ex 0;
       max-width: 33%;
