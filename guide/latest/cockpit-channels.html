@@ -302,51 +302,6 @@ data = cockpit.base64_decode(string, [constructor])
       <code class="code">String</code> for the decoded data, then you must guarantee that the data
       does not contain bytes that would be invalid for a string.</p>
 </div>
-<div class="refsection">
-<a name="cockpit-utf8-encoder"></a><h2>cockpit.utf8_encoder()</h2>
-<pre class="programlisting">
-encoder = cockpit.utf8_encoder([constructor])
-</pre>
-<p>Create an encoder for encoding a string into a UTF8 sequence of bytes.</p>
-<p>You can pass <code class="code">Uint8Array</code>, <code class="code">Array</code> or <code class="code">String</code>
-      as an alternate <code class="code">constructor</code> if you want the decoded data in an
-      alternate form. The default is to return an <code class="code">Array</code>.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-utf8-encoder-encode"></a><h2>encoder.encode()</h2>
-<pre class="programlisting">
-data = encoder.encode(string)
-</pre>
-<p>Encode a <code class="code">string</code> into a UTF8 sequence of bytes.</p>
-<p>The resulting <code class="code">data</code> is an array of bytes, but it's type may be
-      modified by passing an alternate <code class="code">constructor</code> to
-      <a class="link" href="cockpit-channels.html#cockpit-utf8-encoder" title="cockpit.utf8_encoder()">cockpit.utf8_encoder()</a>.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-utf8-decoder"></a><h2>cockpit.utf8_decoder()</h2>
-<pre class="programlisting">
-decoder = cockpit.utf8_decoder([fatal])
-</pre>
-<p>Creates a decoder to decode a UTF8 sequence of bytes data into a string.</p>
-<p>If the <code class="code">fatal</code> is set to <code class="code">true</code> then the <code class="code">decoder</code>
-      will throw an exception when it encounters invalid UTF8 data. By default invalid data
-      will be substituted with special UTF8 characters.</p>
-</div>
-<div class="refsection">
-<a name="cockpit-utf8-decoder-decode"></a><h2>decoder.decode()</h2>
-<pre class="programlisting">
-string = decoder.decode(data, [options])
-</pre>
-<p>Decode an array of UTF8 bytes into a <code class="code">string</code>. The <code class="code">data</code>
-      argument may be an <code class="code">Array</code>, a <code class="code">Uint8Array</code> or a string containing
-      binary data.</p>
-<p>If <code class="code">options</code> is passed it should be a plain javascript object. If
-      <code class="code">options</code> has a <code class="code">stream</code> property equal to <code class="code">true</code>,
-      then multiple invocations of this function can be made with parts of the UTF8 sequence
-      of bytes. Any trailing bytes that don't yet build a complete unicode character, will be
-      cached until the next invocation. To drain the last data, call this function without
-      the <code class="code">stream</code> property set.</p>
-</div>
 </div>
 <div class="footer"><hr></div>
 </body>
