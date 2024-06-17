@@ -13,6 +13,7 @@ wiki_pages = %w[
   Workflow
   Proxying-Cockpit-over-NGINX
   Proxying-Cockpit-over-Apache-with-LetsEncrypt
+  Demos-and-Talks
 ]
 
 # Pages to fetch from the Cockpit git repo
