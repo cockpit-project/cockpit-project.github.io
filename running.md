@@ -267,10 +267,10 @@ sudo systemctl enable --now cockpit.socket
 ```
 
 
-### openSUSE Tumbleweed
+### openSUSE Tumbleweed and Leap 
 {:#tumbleweed}
 
-[Cockpit](https://software.opensuse.org/package/cockpit) is available in [openSUSE Tumbleweed](https://software.opensuse.org/distributions/tumbleweed):
+[Cockpit](https://software.opensuse.org/package/cockpit) is available in both [openSUSE Tumbleweed](https://get.opensuse.org/tumbleweed) and [openSUSE Leap](https://get.opensuse.org/leap) starting by 15.6:
 
 
 1. Install cockpit:
@@ -286,6 +286,9 @@ sudo systemctl enable --now cockpit.socket
 # firewall-cmd --permanent --zone=public --add-service=cockpit
 # firewall-cmd --reload
 ```
+4. Optionally allow root access (disabled by default)
+```
+# sudo $EDITOR_OF_CHOICE /etc/cockpit/disallowed-users
 
 ### SUSE Linux Enterprise Micro
 {:#slemicro}
