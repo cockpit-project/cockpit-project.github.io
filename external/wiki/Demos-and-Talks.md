@@ -5,6 +5,7 @@ source: https://github.com/cockpit-project/cockpit/wiki/Demos-and-Talks
 
 ### 2024
  * [Upstream cross-project testing: Never break your API consumers](https://pretalx.com/devconf-cz-2024/talk/KDZZES/) (Martin Pitt), devconf.cz; [video](https://www.youtube.com/live/ipb-_rgFNa4?si=7qSWYaE3CETZMtaW&t=14200), [slides and notes](https://github.com/cockpit-project/presentations/tree/main/2024-upstream-cross-project-testing)
+ * [How we integrated Btrfs in Cockpit](https://pretalx.com/devconf-cz-2024/talk/JEPNDF/) (Jelle van der Waa), devconf.cz; [video](https://youtu.be/ipb-_rgFNa4?t=4594), [slides](https://pretalx.com/media/devconf-cz-2024/submissions/JEPNDF/resources/Cockpit_Btrfs_vS8beTQ.pdf)
 
 ### 2023
  * [Monty Python's Flying Cockpit](https://devconfcz2023.sched.com/event/3e54fcb5b2f905fedc4810af54ce29c8) (Allison Karlitskaya and Martin Pitt), devconf.cz; [video](https://www.youtube.com/watch?v=ZAVUG6E0Xd4), [slides and notes](https://github.com/cockpit-project/presentations/tree/main/2023-devconf-beipack-pybridge)
