@@ -109,8 +109,9 @@ Make sure you changed `/etc/cockpit/cockpit.conf` to include the following:
 
 ```ini
 [WebService]
-Origins = https://cockpit.your-domain.com http://127.0.0.1:9090
+Origins = https://cockpit.your-domain.com wss://127.0.0.1:9090
 ProtocolHeader = X-Forwarded-Proto
+ForwardedForHeader = X-Forwarded-For
 AllowUnencrypted = true
 ```
 
