@@ -32,8 +32,8 @@ For managing these images:
 
  - `image-download`: Download selected or all test images
  - `image-create`: Create test machine images from scratch (usually through
-   virt-install or downloading a cloud image), with common build and test
-   dependencies for Cockpit projects preinstalled
+   downloading a cloud image), with common build and test dependencies for
+   Cockpit projects preinstalled
  - `image-upload`: Upload a locally built test image to the official image servers
 
 For running and debugging the images:
