@@ -26,6 +26,7 @@ layout: guide
 <a name="authentication"></a>Cockpit Authentication</h2></div></div></div>
 <div class="toc"><dl class="toc">
 <dt><span class="section"><a href="authentication.html#initial-auth">Directly logging into the primary server</a></span></dt>
+<dt><span class="section"><a href="authentication.html#direct-secondary-auth">Directly logging into a secondary server without a primary session</a></span></dt>
 <dt><span class="section"><a href="authentication.html#secondary-auth">Logging into a secondary server from the primary session</a></span></dt>
 <dd><dl>
 <dt><span class="section"><a href="authentication.html#password">Password</a></span></dt>
@@ -33,7 +34,6 @@ layout: guide
 <dt><span class="section"><a href="authentication.html#public-key">Public key</a></span></dt>
 <dt><span class="section"><a href="authentication.html#host-keys">SSH host keys</a></span></dt>
 </dl></dd>
-<dt><span class="section"><a href="authentication.html#direct-secondary-auth">Directly logging into a secondary server without a primary session</a></span></dt>
 </dl></div>
 <p>While cockpit allows you to monitor and administer several servers at the
       same time, there is always a primary server your browser connects to
@@ -85,9 +85,29 @@ layout: guide
 </div>
 <div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="direct-secondary-auth"></a>Directly logging into a secondary server without a primary session</h2></div></div></div>
+<p>It is also possible to log into a secondary server without
+    opening a session on the primary server. This is useful if you
+    are not actually interested in the primary server and would only
+    use it because you do not have direct network access to the
+    secondary server.</p>
+<p>In this case, <code class="filename">cockpit-ws</code> still runs on
+    the primary server, but the credentials from the login screen are
+    directly used with SSH to log into the secondary server given in
+    the "Connect To" field of the login screen.</p>
+<p>Thus, the PAM configuration and accounts on the primary
+    server don't matter at all. Often, the only purpose of the primary
+    server is to sit on the boundary of your network and forward
+    connections to internal machines.</p>
+<p>In this case, the login page will prompt you to verify
+    unknown SSH keys. Accepted keys will be remembered in the local
+    storage of your browser.</p>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="secondary-auth"></a>Logging into a secondary server from the primary session</h2></div></div></div>
-<p>Once you have a session on the primary server you will be
-    able to connect to additional servers by using the host switching
+<p>Once you have a session on the primary server, it is possible
+    connect to additional servers by using the host switching
     UI of the Cockpit Shell. This is useful if you have direct network
     access to the primary server, but not to the secondary server.</p>
 <p>On the command line, you would log into the primary server
@@ -95,8 +115,20 @@ layout: guide
     the same, and uses SSH to log into the secondary server. Instead
     of running a interactive shell there, however, it starts a
     <code class="filename">cockpit-bridge</code> process.</p>
-<p>Thus, these servers will need to be running an SSH server on
-    port 22 and be configured to support one of the following
+<p><span class="emphasis"><em>Warning:</em></span> Unlike with SSH on the command line
+    though, this will also load and use the Cockpit pages (i.e. JavaScript)
+    from the remote machine, which means that the remote machine can execute
+    arbitrary code on your primary and all other connected secondary machines.
+    Hence, only connect to <span class="emphasis"><em>machines which you trust</em></span>.</p>
+<p>Due to this security risk, this host switcher functionality
+    is disabled by default, except on long-term stable Linux
+    distributions (Red Hat Enterprise Linux 9, Debian 12, and Ubuntu
+    22.04/24.04 LTS). If you are comfortable with the security
+    implications, you can enable it manually with the
+    <code class="code">AllowMultiHost</code> option in
+    <code class="filename">cockpit.conf</code>.</p>
+<p>These servers will need to be running an SSH server
+    and be configured to support one of the following
     authentication methods.</p>
 <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -135,26 +167,6 @@ layout: guide
       keys, and will write accepted host keys into
       <code class="filename">~/.ssh/known_hosts</code>.</p>
 </div>
-</div>
-<div class="section">
-<div class="titlepage"><div><div><h2 class="title" style="clear: both">
-<a name="direct-secondary-auth"></a>Directly logging into a secondary server without a primary session</h2></div></div></div>
-<p>It is also possible to log into a secondary server without
-    opening a session on the primary server. This is useful if you
-    are not actually interested in the primary server and would only
-    use it because you do not have direct network access to the
-    secondary server.</p>
-<p>In this case, <code class="filename">cockpit-ws</code> still runs on
-    the primary server, but the credentials from the login screen are
-    directly used with SSH to log into the secondary server given in
-    the "Connect To" field of the login screen.</p>
-<p>Thus, the PAM configuration and accounts on the primary
-    server don't matter at all. Often, the only purpose of the primary
-    server is to sit on the boundary of your network and forward
-    connections to internal machines.</p>
-<p>In this case, the login page will prompt you to verify
-    unknown SSH keys. Accepted keys will be remembered in the local
-    storage of your browser.</p>
 </div>
 </div>
 <div class="footer"><hr></div>
