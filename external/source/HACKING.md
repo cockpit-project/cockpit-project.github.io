@@ -152,10 +152,26 @@ which will output a URL to connect to with a browser, such as
 <http://localhost:8765/qunit/base1/test-dbus.html>. Adjust the path for different
 tests and inspect the results there.
 
-You can also run individual tests by specifying the `TESTS` environment
-variable:
+QUnit tests are run as part of a pytest test called `test_browser`.  You can
+run individual tests via `pytest -k`, like so:
 
-    make check TESTS=qunit/base1/test-chan.html
+    pytest -k test-fsinfo.html
+
+You can see JavaScript code coverage information for QUnit tests.  For a
+summary table:
+
+    pytest -k test_browser --js-cov
+
+And for detailed output on uncovered sections in a specific file, something
+like:
+
+    pytest -k test-fsinfo.html --js-cov-files='*/fsinfo.ts'
+
+Coverage information is gathered into the pytest tmpdir, regardless of which
+coverage-related commandline flags are given, so it's also possible to drill
+down after the fact — without re-running tests — using something like:
+
+    test/common/js_coverage.py -m '*/fsinfo.ts' /tmp/pytest-of-*/pytest-current/js-coverage/*
 
 There are also static code and syntax checks which you should run often:
 
