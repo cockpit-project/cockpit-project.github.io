@@ -26,8 +26,8 @@ While this documentation is for an older version of Cockpit, most is still curre
 - [Managing user accounts in the web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/managing-user-accounts-in-the-web-console_system-management-using-the-rhel-8-web-console)
 - [Managing systems using the RHEL 8 web console](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_systems_using_the_rhel_8_web_console/)
 
-### SUSE ALP documentation
-- [Administering SUSE ALP Dolomite using Cockpit](https://documentation.suse.com/alp/dolomite/html/cockpit-alp-dolomite/index.html)
+### SUSE Linux Enterprise Micro documentation
+- [Administering SUSE Linux Enterprise Micro using Cockpit](https://documentation.suse.com/cockpit)
 
 ## Cockpit Guide
 
