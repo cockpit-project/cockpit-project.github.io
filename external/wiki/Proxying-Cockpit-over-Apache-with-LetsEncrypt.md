@@ -101,6 +101,26 @@ Change this file so it looks like the following.
 </IfModule>
 ```
 
+With Apache 2.4.47 or later, this could also be written as:
+
+```apacheconf
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+  ServerName cockpit.your-domain.com
+  SSLCertificateFile /etc/letsencrypt/live/cockpit.your-domain.com/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/cockpit.your-domain.com/privkey.pem
+  Include /etc/letsencrypt/options-ssl-apache.conf
+
+  ProxyPreserveHost On
+  ProxyRequests Off
+
+  # Proxy to your local cockpit instance
+  ProxyPass / http://127.0.0.1:9090/ upgrade=websocket
+  ProxyPassReverse / http://127.0.0.1:9090/
+</VirtualHost>
+</IfModule>
+```
+
 Save and close the file. Then restart Apache web server.
 
 `sudo systemctl restart apache2`
