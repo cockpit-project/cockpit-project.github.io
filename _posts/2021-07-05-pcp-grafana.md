@@ -53,14 +53,14 @@ Setting up the machines for sending metrics to Grafana involves a couple of step
 
  * Install PCP and enable `pmlogger.service` to start data collection. This already happened with the "Install cockpit-pcp" button above.
  * Enable `pmproxy.service`, the PCP component which exposes a read-only metrics query API to the network.
- * pmproxy needs the [Redis database](https://redis.io/), so the `redis` package needs to be installed, and the service configured to start with `pmproxy.service`.
+ * pmproxy needs the [Valkey](https://valkey.io/) or [Redis](https://redis.io/) database, so the `valkey` or `redis` package needs to be installed, and the service configured to start with `pmproxy.service`.
  * pmproxy opens a network port (44322 by default), which needs to be opened in the firewall for the zone that contains the Grafana machine.
 
 The "Metrics settings" button at the top of the page opens a dialog where you can enable "Export to network":
 
 ![Metrics settings with enabled pmproxy](/images/metrics-settings-2.png)
 
-This will let you confirm any extra packages that need to be installed (such as redis), and configure pmproxy. After that, you may get an alert for opening the corresponding firewall service (if it is not yet open in any zone):
+This will let you confirm any extra packages that need to be installed (such as valkey), and configure pmproxy. After that, you may get an alert for opening the corresponding firewall service (if it is not yet open in any zone):
 
 ![pmproxy firewall alert](/images/metrics-fw-sel.png)
 
