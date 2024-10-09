@@ -98,7 +98,8 @@ ForwardedForHeader = X-Forwarded-For
             on the login screen is visible and allows logging into another server. When set to
             <code class="literal">false</code>, direct remote logins are disallowed. If this option is not specified
             then it will be automatically detected based on whether the
-            <span class="command"><strong>cockpit-ssh</strong></span> process is available or not.</p>
+            <span class="command"><strong>cockpit-bridge</strong></span> package is installed and the <span class="command"><strong>ssh</strong></span>
+            program is available.</p>
 <p>If cockpit-ws is exposed to the public internet, and also has access to a private
             internal network, it is recommended to explicitly set <code class="literal">LoginTo=false</code>. This prevents
             unauthenticated remote attackers from scanning the internal network for existing machines
