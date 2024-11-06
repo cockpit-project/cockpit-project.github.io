@@ -88,18 +88,34 @@ promise.then(user =&gt; { ... });
 <div class="refsection">
 <a name="cockpit-permission"></a><h2>Permission lookup</h2>
 <p>Cockpit provides a mechanism for checking if the current user satisfies a
-      given criteria. Currently capable of checking for root users, and group
-      membership. This is meant for updating UI elements based on what actions the
+      given criteria. This is meant for updating UI elements based on what actions the
       user can perform. It is <span class="emphasis"><em>not an access control mechanism</em></span>.</p>
 <div class="refsection">
 <a name="cockpit-permission-constructor"></a><h3>cockpit.permission()</h3>
 <pre class="programlisting">
 permission = cockpit.permission([options])
 </pre>
-<p>Create a new permission object to check if the current user has permission.
-        The "root" user is always given permission. The <code class="code">options</code> argument
-        can contain a <code class="code">"group"</code> field, and members of that group are also
-        given permission.</p>
+<p>Create a new permission object to check if the current user has a particular
+      permission specified by <code class="code">options</code>:</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">admin: true</code></span></p></td>
+<td><p>True if the session has superuser privileges, i.e. can run channels as root
+            with <code class="code">{ superuser: "require" }</code>.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">group:</code> <span class="emphasis"><em>name</em></span></span></p></td>
+<td><p>True if the currently logged user is a member of group <span class="emphasis"><em>name</em></span>.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The permission result is always true for the "root" user. When <code class="code">options</code> is not given,
+      check if the current user is root.</p>
 </div>
 <div class="refsection">
 <a name="cockpit-permission-allowed"></a><h3>permission.allowed</h3>
