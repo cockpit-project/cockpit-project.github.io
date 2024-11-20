@@ -1,0 +1,75 @@
+---
+layout: guide
+---
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Managing multiple hosts at the same time</title>
+<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<link rel="home" href="index.html" title="Cockpit Guide">
+<link rel="up" href="guide.html" title="Part I. Deployment Guide">
+<link rel="prev" href="startup.html" title="Start up">
+<link rel="next" href="authentication.html" title="Cockpit Authentication">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
+<td><a accesskey="p" href="startup.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="guide.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Cockpit Guide</th>
+<td><a accesskey="n" href="authentication.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="multi-host"></a>
+    Managing multiple hosts at the same time
+  </h2></div></div></div>
+<p>
+    Cockpit allows you to access multiple hosts in a single session,
+    by establishing SSH connections to other hosts. This is quite
+    similar to logging into these other hosts using the
+    <span class="command"><strong>ssh</strong></span> command on the command line, with one very
+    important difference:
+  </p>
+<p>
+    Code from the local host and all the remote hosts run at the same
+    time, in the same browser context.  They are not isolated from
+    each other in the browser. All code effectively has the same
+    privileges as the primary session on the local host.
+  </p>
+<p>
+    Thus, <span class="emphasis"><em>you should only only connect to remote hosts that
+    you trust</em></span>. You must be sure that none of the hosts that
+    you connect to will cause Cockpit to load malicious JavaScript
+    code into your browser.
+  </p>
+<p>
+    Therefore, Cockpit will warn you before connecting to more than
+    one host. It is also possible to disable multiple hosts entirely,
+    and some operating systems do this already by default.
+  </p>
+<p>
+    You can prevent loading of JavaScript, HTML, etc from more than
+    one host by adding this to <code class="filename">cockpit.conf</code>:
+  </p>
+<pre class="programlisting">
+    [WebService]
+    AllowMultiHost=false
+  </pre>
+<p>
+    When you allow multiple hosts in a single Cockpit session by
+    setting <code class="code">AllowMultiHost</code> to true, then the user will be
+    warned once per session, before connecting to the second host.  If
+    that is still too much, you can switch the warning off completely
+    by adding the following to <code class="filename">cockpit.conf</code>:
+  </p>
+<pre class="programlisting">
+    [Session]
+    WarnBeforeConnecting=false
+  </pre>
+</div>
+<div class="footer"><hr></div>
+</body>
+</html>
