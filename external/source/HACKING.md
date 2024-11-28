@@ -122,7 +122,7 @@ remove the symlink with the following command and log back into Cockpit:
 
     rm ~/.local/share/cockpit
 
-## Working on the non-web parts of Cockpit
+## Building and unit tests
 
 Cockpit uses autotools, so there are familiar `./configure` script and
 Makefile targets.
@@ -299,10 +299,39 @@ During fast iterative development, you can also choose to not run stylelint, by
 running `./build.js` with the `-s`/`--no-stylelint` option. This speeds up the
 build and avoids build failures due to ill-formatted CSS or other issues.
 
+## Working on your local machine: systemd-sysext
+
+If you want to safely test your local changes directly on it, Cockpit supports
+installation as a [systemd-sysext](https://www.freedesktop.org/software/systemd/man/latest/systemd-sysext.html).
+This covers all parts of Cockpit (ws, tls, session, bridge, login page, systemd
+units, PAM configuration, and the session pages) except for the SELinux policy.
+It gets installed into `/run/extensions/`, so nothing ever hits the disk and
+this also works on read-only installations (CoreOS, OSTree, bootc).
+
+Just run:
+
+    tools/make-sysext
+
+This runs `./autogen.sh` if necessary, and then just re-`make`s your tree,
+re-installs it into `/run/extensions`, and reloads the sysext in systemd.
+Afterwards you can connect to http://localhost:9090 as usual.
+
+To remove this, reboot or run
+
+    tools/make-sysext stop
+
+**Attention**: This is not currently compatible with SELinux in enforcing mode.
+If you have that, you need to disable it:
+
+    sudo setenforce 0
+
 ## Working on your local machine: Web server
 
-To test changes to the login page or any other resources, you can bind-mount the
-build tree's `dist/static/` directory over the system one:
+If the above systemd-sysext approach does not work for you, you can also test
+changes with some bind mounts.
+
+To test changes to the login page, you can bind-mount the build tree's
+`dist/static/` directory over the system one:
 
     sudo mount -o bind dist/static/ /usr/share/cockpit/static/
 
