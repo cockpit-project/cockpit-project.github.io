@@ -128,6 +128,13 @@ $ cockpit-bridge --packages
           <code class="code">name</code> a package is chosen based on its priority.</p></td>
 </tr>
 <tr>
+<td><p><span class="term">conditions</span></p></td>
+<td><p>An optional list of <code class="code">{"predicate": "value"}</code> objects. Cockpit will only
+          consider the package if <span class="emphasis"><em>all</em></span> conditions are met. Currently supported predicates
+          are <code class="code">path-exists</code> and <code class="code">path-not-exists</code>. Unknown predicates are ignored.
+          This is preferable to using <code class="code">priority</code>, but only available since Cockpit FIXME-RELEASE.</p></td>
+</tr>
+<tr>
 <td><p><span class="term">requires</span></p></td>
 <td><p>An optional JSON object that contains a <code class="code">"cockpit"</code>
           string version number. The package will only be usable if the Cockpit bridge
@@ -279,6 +286,25 @@ $ cockpit-bridge --packages
   "require": {
       "cockpit": "120"
   },
+  "tools": {
+     "mytool": {
+        "label": "My Tool",
+        "path": "tool.html"
+     }
+  }
+}
+</pre>
+<pre class="programlisting">
+{
+  "version": 0,
+  "require": {
+    "cockpit": "120"
+  },
+  "conditions": [
+    {"path-exists": "/usr/bin/mytool"},
+    {"path-exists": "/etc/mytool.conf"},
+    {"path-not-exist": "/etc/incompatible-tool"}
+  ],
   "tools": {
      "mytool": {
         "label": "My Tool",
