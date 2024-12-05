@@ -210,6 +210,39 @@ progress and at the end there will be links to commits with the new
 images.  You can then include these commits into the pull request in
 any way you like.
 
+### Creating a new image
+
+Creating a new image from scratch requires some
+[images/scripts/](./images/scripts) files. For a new image called `tux` we need:
+
+- `tux.bootstrap`: Download or create an initial qcow2 image which boots and has SSH
+  acccess. If available, this should be the latest available cloud image,
+  but it may also invoke some other VM build tool or build service.
+  This script runs in the [cockpit/tasks](https://github.com/cockpit-project/cockpituous/tree/main/tasks/container)
+  container, and thus can only use the tools installed there. If necessary, add
+  them first.
+- `tux.setup`: The setup script runs inside the downloaded test image,
+  install all required build and test dependencies, and sets up an `admin`
+  user.
+
+For a new image it is recommended to follow the existing setup/bootstrap scripts,
+for example the `fedora` one.
+
+Run `./image-create -v tux` to build the image. If that succeeds, a new image
+is saved in `images` as `images/tux` (a symlink to the real qcow2 file).
+Test-boot it with `./vm-run tux`, and ensure you can:
+
+ - Log in with SSH as the `admin` and `root` user with our usual test SSH key
+ - Become root with `sudo` as admin works (password "foobar")
+
+To add that image to our CI, create a PR and follow the "Creating new
+images for a pull request" section. External contributors will need to ask a
+Cockpit team member to create a copy of the PR and follow this workflow.
+
+For the initial PR it is recommended to add the new image to the `_manual`
+testmap of `starter-kit` or other project to prove that the created image is
+functional.
+
 ### Updating CI to a new Fedora release
 
 `TEST_OS_DEFAULT` is usually set to the latest (stable) Fedora released,
