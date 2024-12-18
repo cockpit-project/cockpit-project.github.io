@@ -53,7 +53,7 @@ layout: guide
       in <code class="filename">/etc/polkit-1/rules.d</code>.</p>
 <p>Polkit rules files are
       <a class="ulink" href="https://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html" target="_top">javascript with specific methods and objects</a>. For example, placing the following polkit rule to
-      <code class="filename">/etc/polkit-1.rules.d/10-operators.rule</code> allows all users in the
+      <code class="filename">/etc/polkit-1/rules.d/10-operators.rule</code> allows all users in the
       <code class="code">operators</code> group to start, stop, restart and otherwise manage systemd services:</p>
 <pre class="programlisting">
 polkit.addRule(function(action, subject) {

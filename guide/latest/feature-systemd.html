@@ -118,7 +118,7 @@ $ <span class="command"><strong>systemctl status cockpit</strong></span>
 </tbody>
 </table></div>
 <p>For example, placing the following polkit rule to
-    <code class="filename">/etc/polkit-1.rules.d/10-http.rule</code> allows all users in the
+    <code class="filename">/etc/polkit-1/rules.d/10-http.rule</code> allows all users in the
     <code class="code">operators</code> group start, stop, and restart the Apache HTTP service:</p>
 <pre class="programlisting">
 polkit.addRule(function(action, subject) {
