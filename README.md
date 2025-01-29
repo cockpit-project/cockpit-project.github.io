@@ -44,7 +44,6 @@ _Note: For windows you might need to redirect the ports because the browser in w
       sudo iptables -t nat -A PREROUTING -p tcp --dport 35729 -j DNAT --to-destination 127.0.0.1:35729
   ```
 
-
 #### Updating when Gemfile / Gemfile.lock changes
 
 1. `_scripts/container-update-gems`
