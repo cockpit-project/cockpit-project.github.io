@@ -17,6 +17,12 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 1. Create the container and install the dependencies with:
    `_scripts/container-create`
 
+#### Instructions for Windows
+
+0. Install [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (By default Linux Distribution will Ubuntu)
+1. Clone the repository to your linux filesystem `/home/<username>`.
+2. Install Podman: `sudo apt install -y podman`
+
 #### Running the Jekyll server locally
 
 Run the website locally using Jekyll with:
@@ -32,6 +38,12 @@ The most useful arguments are:
 So, for instant rendering of local changes, you'd run:
 
 - `_scripts/container-jekyll -Il`
+
+Note: For windows you might need to redirect the ports as the browser in windows is not able to access the IP address from outside the container.
+  ```sudo iptables -t nat -A PREROUTING -p tcp --dport 4000 -j DNAT --to-destination 127.0.0.1:4000
+      sudo iptables -t nat -A PREROUTING -p tcp --dport 35729 -j DNAT --to-destination 127.0.0.1:35729
+  ```
+
 
 #### Updating when Gemfile / Gemfile.lock changes
 
