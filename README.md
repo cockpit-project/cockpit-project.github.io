@@ -19,7 +19,7 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 
 #### Instructions for Windows
 
-0. Install [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (By default Linux Distribution will Ubuntu)
+0. Install [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (Default Linux Distribution is Ubuntu)
 1. Clone the repository to your linux filesystem `/home/<username>`.
 2. Install Podman: `sudo apt install -y podman`
 
