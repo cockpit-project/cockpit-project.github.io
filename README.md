@@ -39,10 +39,12 @@ So, for instant rendering of local changes, you'd run:
 
 - `_scripts/container-jekyll -Il`
 
-_Note: For windows you might need to redirect the ports because the browser in windows is not able to access the IP address from outside the container.
-  ```sudo iptables -t nat -A PREROUTING -p tcp --dport 4000 -j DNAT --to-destination 127.0.0.1:4000
-      sudo iptables -t nat -A PREROUTING -p tcp --dport 35729 -j DNAT --to-destination 127.0.0.1:35729
-  ```
+_Note: For Windows, you might need to redirect the ports because the browser in Windows is not able to access the IP address from outside the container._
+
+```
+sudo iptables -t nat -A PREROUTING -p tcp --dport 4000 -j DNAT --to-destination 127.0.0.1:4000
+sudo iptables -t nat -A PREROUTING -p tcp --dport 35729 -j DNAT --to-destination 127.0.0.1:35729
+```
 
 #### Updating when Gemfile / Gemfile.lock changes
 
