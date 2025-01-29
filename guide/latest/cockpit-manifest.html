@@ -32,11 +32,12 @@ layout: guide
 </tr></table></div>
 <div class="refsection">
 <a name="cockpit-manifest-loading"></a><h2>Loading Manifests</h2>
-<p>You can load manifest info by loading the <code class="code">./manifest.json</code> file in
-      your package. In addition there is a shortcut, by loading the <code class="code">../manifests.json</code>
-      you can load all the manifests at once.</p>
-<p>Lastly load the <code class="code">../manifests.js</code> file to register the manifests at
-      the <code class="code">cockpit.manifests</code> global variable.</p>
+<p>For a convenient access to all page manifests, include
+      <code class="code">&lt;script src="../manifests.js"&gt;&lt;/script&gt;</code> into your page to register
+      the manifests at the <code class="code">cockpit.manifests</code> global variable.</p>
+<p>You can also load <code class="code">../manifests.json</code> directly in your page, with
+      <a class="ulink" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch" target="_top"><code class="code">fetch()</code></a>.
+      </p>
 </div>
 </div>
 <div class="footer"><hr></div>
