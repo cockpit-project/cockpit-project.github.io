@@ -1,3 +1,14 @@
 #!/bin/bash -e
 
-"$(dirname "$0")"/container-run bundle exec jekyll server -H 0.0.0.0 "$*"
+# We need to set host to 0.0.0.0 so anyone can connect, including other
+# devices (like phones) and VMs... and also Windows connecting to WSL2
+
+# Livereload is a port >5000 by default, which causes problems when
+# running on WSL2 in Windows, so let's set the port for everyone.
+
+# All other flags passed to the script will be sent to `jekyll server`,
+# including `--help`, which lists the available flags
+
+"$(dirname "$0")"/container-run bundle exec jekyll server \
+  --host 0.0.0.0 --livereload-port 4001 \
+  "$*"
