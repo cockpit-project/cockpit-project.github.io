@@ -17,6 +17,12 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 1. Create the container and install the dependencies with:
    `_scripts/container-create`
 
+#### Instructions for Windows
+
+0. Install [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (Default Linux Distribution is Ubuntu)
+1. Clone the repository to your linux filesystem `/home/<username>`.
+2. Install Podman: `sudo apt install -y podman`
+
 #### Running the Jekyll server locally
 
 Run the website locally using Jekyll with:
