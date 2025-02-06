@@ -17,11 +17,14 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 1. Create the container and install the dependencies with:
    `_scripts/container-create`
 
-#### Instructions for Windows
+#### Additional first-steps for Windows
 
-0. Install [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (Default Linux Distribution is Ubuntu)
-1. Clone the repository to your linux filesystem `/home/<username>`.
+Building the Cockpit website is possible on Windows too, thanks to "Windows Subsystem for Linux" — although it requires a little bit of extra setup before using the standard Linux instructions:
+
+0. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install): `wsl --install` (Ubuntu is the default distribution in WSL2)
+1. Clone the repository to your Linux filesystem `/home/<username>`
 2. Install Podman: `sudo apt install -y podman`
+3. You can now follow the instructions for Linux, inside your WSL2 Linux environment
 
 #### Running the Jekyll server locally
 
