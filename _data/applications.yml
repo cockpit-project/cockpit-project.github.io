@@ -140,13 +140,6 @@ subscriptions:
 #   description: |
 #     Leapp is an OS and application modernization framework. It is used to upgrade Red Hat Enterprise Linux. (For example: Upgrading RHEL 7 to 8.)
 
-ovirt-dashboard:
-  title: oVirt Dashboard
-  package: cockpit-ovirt-dashboard
-  source: https://github.com/oVirt/cockpit-ovirt
-  issues: https://bugzilla.redhat.com/buglist.cgi?product=cockpit-ovirt&resolution=---
-  description: |
-    oVirt manages Virtual Machines (VMs) in a datacenter/cluster. Scales easily from tens to tens of thousands VMs running on multiple KVM hypervisor hosts.
 
 zfs:
   title: ZFS Manager
