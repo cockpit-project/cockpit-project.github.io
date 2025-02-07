@@ -13,7 +13,6 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 #### Setting up the container for the first time
 
 0. Install Podman (if you haven't already; it's preinstalled with Silverblue and available elsewhere). Depending on your distribution, use `sudo dnf install podman` or `sudo apt install podman`
-   `sudo dnf install podman`
 1. Create the container and install the dependencies with:
    `_scripts/container-create`
 
