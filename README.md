@@ -12,10 +12,17 @@ For more details on Springboard, see [jekyll-springboard](https://github.com/gar
 
 #### Setting up the container for the first time
 
-0. Install Podman (if you haven't already; it's preinstalled with Silverblue and available elsewhere):
-   `sudo dnf install podman`
+0. Install Podman (if you haven't already; it's preinstalled with Silverblue and available elsewhere). Depending on your distribution, use `sudo dnf install podman` or `sudo apt install podman`
 1. Create the container and install the dependencies with:
    `_scripts/container-create`
+
+#### Initial setup on Windows
+
+Running the container is possible on Windows by running a podman container in [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install):
+
+0. Install some Linux distribution (Ubuntu is the default): `wsl --install`
+1. Clone the repository to your Linux filesystem `/home/<username>`
+2. You can now follow the instructions for Linux, inside your WSL2 Linux environment
 
 #### Running the Jekyll server locally
 
