@@ -88,8 +88,8 @@ VERSIONS ARE available now:
 
 @footer_dynamic = "
 * [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
+* [NAME Fedora 42](https://bodhi.fedoraproject.org/updates/?releases=F42&packages=REPO)
 * [NAME Fedora 41](https://bodhi.fedoraproject.org/updates/?releases=F41&packages=REPO)
-* [NAME Fedora 40](https://bodhi.fedoraproject.org/updates/?releases=F40&packages=REPO)
 "
 
 ### Code below ###
