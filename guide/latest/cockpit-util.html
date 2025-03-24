@@ -93,14 +93,31 @@ string = cockpit.format_bits_per_sec(number, [options])
       <code class="code">options</code>.</p>
 </div>
 <div class="refsection">
+<a name="cockpit-init"></a><h2>cockpit.init()</h2>
+<pre class="programlisting">
+await cockpit.init();
+
+cockpit.init().then(() =&gt; { ... });
+</pre>
+<p>Requests initialization of the Cockpit client library.  This will ensure that the transport is
+      connected and we are ready to create channels.  It also populates the <code class="code">cockpit.info</code>
+      field.</p>
+<p>This function returns a promise.  Initialization isn't complete until the promise has resolved.  You
+    can either <code class="code">await</code> it or call <code class="code">.then()</code> on it.</p>
+</div>
+<div class="refsection">
 <a name="cockpit-info"></a><h2>cockpit.info</h2>
 <pre class="programlisting">
-cockpit.info["version"]
-cockpit.info["build"]
+cockpit.info.channels[payload]
+
+cockpit.info.os_release[field]
+
+cockpit.info.user
+
+cockpit.info.ws.version
 </pre>
-<p>This object contains information about cockpit itself. Note that when cockpit is
-      running on multiple servers, this only reflects the server that was connected to.
-      The following fields are defined:</p>
+<p>This object contains information about Cockpit itself.  It is only available after cockpit.init() has
+      been called and awaited.</p>
 <div class="variablelist"><table border="0" class="variablelist">
 <colgroup>
 <col align="left" valign="top">
@@ -108,13 +125,81 @@ cockpit.info["build"]
 </colgroup>
 <tbody>
 <tr>
-<td><p><span class="term"><code class="code">"build"</code></span></p></td>
-<td><p>A string containing build details.</p></td>
+<td><p><span class="term"><code class="code">channels</code></span></p></td>
+<td><p>This is a mapping of channel payload types (keys, strings) supported by the bridge to
+          capabilities advertised by those channels (values, lists of strings). Channels are listed even if they
+          don't advertise any capabilities, making this useful as a way to determine which channel types are
+          supported by the bridge.</p></td>
 </tr>
 <tr>
-<td><p><span class="term"><code class="code">"version"</code></span></p></td>
-<td><p>A string containing the cockpit version number. It is almost always
-          incorrect to use this to make a decision in code.</p></td>
+<td><p><span class="term"><code class="code">os_release</code></span></p></td>
+<td><p>This is the data from the <code class="filename">/etc/os-release</code> or
+          <code class="filename">/usr/lib/os-release</code> on the system that the bridge is running on.  It is a mapping
+          from the key names to their values.  See the <a class="ulink" href="https://www.freedesktop.org/software/systemd/man/latest/os-release.html" target="_top">os-release
+          Specification</a> for information about the available keys.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">user</code></span></p></td>
+<td>
+<p>Contains information about the user we're logged in as.</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">uid</code></span></p></td>
+<td><p>This is unix user id as an integer.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">gid</code></span></p></td>
+<td><p>This is unix user group id as an integer.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">name</code></span></p></td>
+<td><p>This is the unix user name like <code class="code">"root"</code>.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">fullname</code></span></p></td>
+<td><p>This is a readable name for the user, from the GECOS field.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">group</code></span></p></td>
+<td><p>This is the primary group name of the user.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">groups</code></span></p></td>
+<td><p>This is an array of group names to which the user belongs.  The first item in this
+                list is the primary group.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">home</code></span></p></td>
+<td><p>This is user's home directory.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">shell</code></span></p></td>
+<td><p>This is unix user shell.</p></td>
+</tr>
+</tbody>
+</table></div>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">ws</code></span></p></td>
+<td>
+<p>Contains information about the webserver Cockpit is being served with.</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><code class="code">version</code></span></p></td>
+<td><p>The version of the webserver.</p></td>
+</tr></tbody>
+</table></div>
+</td>
 </tr>
 </tbody>
 </table></div>
