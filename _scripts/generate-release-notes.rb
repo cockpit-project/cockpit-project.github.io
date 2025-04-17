@@ -88,8 +88,6 @@ VERSIONS ARE available now:
 
 @footer_dynamic = "
 * [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
-* [NAME Fedora 42](https://bodhi.fedoraproject.org/updates/?releases=F42&packages=REPO)
-* [NAME Fedora 41](https://bodhi.fedoraproject.org/updates/?releases=F41&packages=REPO)
 "
 
 ### Code below ###
@@ -196,7 +194,7 @@ def download_image(url, basename, limit = 3)
     local_file = "#{basename}#{extension}"
     File.write("images/#{local_file}", response.body)
     @files_images << "images/#{local_file}"
-  
+
     # Return the local file on success
     local_file
   end
