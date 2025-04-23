@@ -56,10 +56,10 @@ layout: guide
 <td>
 <p>By default cockpit will not accept crossdomain websocket connections. Use this
             setting to allow access from alternate domains. Origins should include scheme, host
-            and port, if necessary.</p>
+            and port, if necessary. Wildcards and glob expressions are permitted.</p>
 <div class="informalexample"><pre class="programlisting">
 [WebService]
-Origins = https://somedomain1.com https://somedomain2.com:9090
+Origins = https://somedomain1.com https://somedomain2.com:9090 https://*.somedomain3.com
 </pre></div>
 </td>
 </tr>

@@ -84,6 +84,15 @@ promise.then(user =&gt; { ... });
 </tbody>
 </table></div>
 <p>Returns a promise that completes once the user information is available.</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p>
+	<code class="code">cockpit.user()</code> is soft-deprecated since Cockpit 336, if
+	your page does not need to maintain compatibility with older Cockpit
+	versions you can use<a class="link" href="cockpit-util.html#cockpit-info" title="cockpit.info">cockpit.info</a> to
+	obtain the user information.
+      </p>
+</div>
 </div>
 <div class="refsection">
 <a name="cockpit-permission"></a><h2>Permission lookup</h2>
