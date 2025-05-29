@@ -9,16 +9,18 @@ class: front-page
 {% capture screenshots %}
 login-opt.webp: Cockpit's log in prompt (on Fedora 34)
 debian-in-windows-edge.webp: Cockpit works where you are (Pictured: Connecting to Debian server from Microsoft Edge on Windows 10)
-journal.webp: View, filter, and search system logs
+journal-new.png: View, filter, and search system logs
 accounts.webp: Edit accounts
 firewall-rhel.webp: Edit the firewall with ease (Pictured: Cockpit Web Console on Red Hat Enterprise Linux, connected from Fedora 34 Workstation)
-network-overview.webp: Manage your network
-overview-f33.webp: Have a high-level overview of a server
-software-updates-cve-auto.webp: Examine and apply software updates (with changelogs and links to CVEs)
+network-overview-new.png: Manage your network
+overview-page-new.png: Have a high-level overview of a server
+software-updates-cve-auto-new.png: Examine and apply software updates (with changelogs and links to CVEs)
 storage-overview.webp: Look at and manage your storage
-system-services-ssh.webp: See system services
-system-service-details.webp: Manage an individual system service
+system-services-ssh-new-dark-mode.png: See system services
+system-service-details-dark-mode-new.png: Manage an individual system service
 vm-create.webp: Create and manage virtual machines
+file-browser-dark-mode-new.png: Manage your files and folders
+podman-containers-dark-mode-new.png: Download, use, and manage containers in your browser
 {% endcapture %}
 {% assign screenshots = screenshots | split: newline %}
 
