@@ -58,7 +58,7 @@ defaults:
       layout: "page"
   -
     scope:
-      type: posts
+      path: _posts
     values:
       layout: "post"
 
@@ -83,16 +83,28 @@ include:
 
 sass:
   sass_dir: assets/
-  style: :compressed
+  style: compressed
 
 # Let the following Jekyll plugins work in safemode
 # (mimicking GitHub's config)
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sass-converter
+  - jemoji
+  - jekyll-mentions
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-coffeescript
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
 whitelist:
   - jekyll-redirect-from
   - jekyll-sass-converter
   - jemoji
   - jekyll-mentions
-  - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-gist
