@@ -196,7 +196,8 @@ Contributing
 {% capture badge %}
 {% assign release = site.posts | where: "category", "release" | first %}
 {% assign version = release.title | split: "and" | first | split: " " | last %}
-<a href="{{ site.baseurl }}{{ release.url }}" title="{{ release.summary }}">
+{% assign summary = release.summary | replace: '"', "'" %}
+<a href="{{ site.baseurl }}{{ release.url }}" title="{{ summary }}">
   <span class="badge-new">
     Released
     <span class="badge-date">{{ release.date | date: "%-d %b %Y" }}</span>:
