@@ -274,3 +274,12 @@ backblaze-b2:
   issues: https://github.com/rabol/backblaze-b2/issues
   description: |
     A lightweight interface for simple back up to Backblaze B2.
+
+ros2-diagnostics:
+  title: ROS 2 Diagnostics
+  package: cockpit-ros2-diagnostics
+  source: https://github.com/clearpathrobotics/cockpit-ros2-diagnostics
+  issues: https://github.com/clearpathrobotics/cockpit-ros2-diagnostics/issues
+  license: LGPL 2.1
+  description: |
+    Cockpit application to view ROS 2 diagnostics.
