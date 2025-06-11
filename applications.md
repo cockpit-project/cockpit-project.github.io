@@ -15,20 +15,13 @@ Often, these applications are available to install with a click of a button on t
 Help us [expand this list](https://github.com/cockpit-project/cockpit-project.github.io/edit/main/_data/applications.yml)! Also consider [developing]({{ site.baseurl }}/external/wiki/Contributing.html) [your own application with the Starter Kit]({{ site.baseurl }}/blog/cockpit-starter-kit.html).
 
 {% assign apps = site.data.applications %}
-{% assign grouped = apps | group_by_exp: 'item', 'item[1].maintainer' %}
 
-### Official Cockpit-developed applications
-{% assign official = grouped[1].items %}
-{% include apps.html apps=official %}
-
-### Red Hat developed applications
-{% assign unofficial = grouped[2].items %}
-{% include apps.html apps=unofficial %}
-
-### SUSE developed applications
-{% assign suse_apps = grouped[3].items %}
-{% include apps.html apps=suse_apps %}
+{% for maintainer in site.data.maintainers %}
+### {{ maintainer[1].title }} developed applications
+{% assign maintainer_apps = apps | where: 'maintainer', maintainer[0] %}
+{% include apps.html apps=maintainer_apps %}
+{% endfor %}
 
 ### Third party
-{% assign thirdparty = grouped[0].items %}
+{% assign thirdparty = apps | where_exp: 'item', 'item.maintainer == nil' %}
 {% include apps.html apps=thirdparty %}
