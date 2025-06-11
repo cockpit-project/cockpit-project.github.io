@@ -1,6 +1,7 @@
 # Entries on the page show up in the order listed here, but with
 # official: true (official) first
 # official: nil (unofficial; non-team RH developed) second (this is omission of `official`),
+# official: false && maintainer: suse (unofficial; developed and maintained by suse)
 # official: false (third party) last
 
 # The Cockpit group is special, it inherits source, issues, license for the `source: cockpit` entries
@@ -87,7 +88,7 @@ composer:
   source: https://github.com/osbuild/cockpit-composer/
   issues: https://github.com/osbuild/cockpit-composer/issues
   description: |
-     Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
+    Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
 
 sosreport:
   title: Diagnostic Reports
@@ -140,7 +141,6 @@ subscriptions:
 #   description: |
 #     Leapp is an OS and application modernization framework. It is used to upgrade Red Hat Enterprise Linux. (For example: Upgrading RHEL 7 to 8.)
 
-
 zfs:
   title: ZFS Manager
   package: cockpit-zfs
@@ -182,6 +182,7 @@ tukit:
   title: Software Updates (transactional-update from OpenSUSE with tukit)
   package: cockpit-tukit
   official: false
+  maintainer: suse
   source: https://github.com/openSUSE/cockpit-tukit
   issues: https://github.com/openSUSE/cockpit-tukit/issues
   license: LGPL 2.1
@@ -231,3 +232,36 @@ cloudflared:
   license: LGPL 2.1
   description: |
     Cockpit application to show Cloudflare tunnel state.
+
+repos:
+  title: Manage Repostitories
+  package: cockpit-repos
+  official: false
+  maintainer: suse
+  source: https://github.com/openSUSE/cockpit-repos
+  issues: https://github.com/openSUSE/cockpit-repos/issues
+  license: LGPL 2.1
+  description: |
+    Manage package manager repositories on SUSE/openSUSE systems
+
+subscriptions-suse:
+  title: Subscription Manager
+  package: cockpit-subscriptions
+  official: false
+  maintainer: suse
+  source: https://github.com/openSUSE/cockpit-subscriptions
+  issues: https://github.com/openSUSE/cockpit-subscriptions/issues
+  license: LGPL 2.1
+  description: |
+    Manage your SUSE Linux Enterprise subscriptions from the browser
+
+packages:
+  title: Packages
+  package: cockpit-packages
+  official: false
+  maintainer: suse
+  source: https://github.com/openSUSE/cockpit-packages
+  issues: https://github.com/openSUSE/cockpit-packages/issues
+  license: LGPL 2.1
+  description: |
+    Install/Uninstall packages from your browser.

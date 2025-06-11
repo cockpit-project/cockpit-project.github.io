@@ -25,6 +25,10 @@ Help us [expand this list](https://github.com/cockpit-project/cockpit-project.gi
 {% assign unofficial = grouped[0].items %}
 {% include apps.html apps=unofficial %}
 
+### SUSE developed applications
+{% assign suse_apps = grouped[2].items | where_exp: 'item', 'item[1].maintainer == "suse"' %}
+{% include apps.html apps=suse_apps %}
+
 ### Third party
-{% assign thirdparty = grouped[2].items %}
+{% assign thirdparty = grouped[2].items | where_exp: 'item', 'item[1].maintainer == nil' %}
 {% include apps.html apps=thirdparty %}
