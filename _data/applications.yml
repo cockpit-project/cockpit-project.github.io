@@ -1,8 +1,8 @@
 # Entries on the page show up in the order listed here, but with
-# official: true (official) first
-# official: nil (unofficial; non-team RH developed) second (this is omission of `official`),
-# official: false && maintainer: suse (unofficial; developed and maintained by suse)
-# official: false (third party) last
+# maintainer: cockpit (official) first
+# maintainer: redhat  (unofficial; non-team RH developed) second (this is omission of `official`),
+# maintainer: suse (unofficial; developed and maintained by suse)
+# maintainer: nil (third party) last
 
 # The Cockpit group is special, it inherits source, issues, license for the `source: cockpit` entries
 cockpit:
@@ -16,7 +16,7 @@ storaged:
   title: Storage
   package: cockpit-storaged
   source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     Manage your system's storage. Supports local partitions, encryption, NFS, RAID, iSCSI, and more.
 
@@ -24,22 +24,21 @@ networkmanager:
   title: Network
   package: cockpit-networkmanager
   source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     Manage your network interfaces and edit your firewall with ease.
 
 packagekit:
   title: Software Updates (PackageKit)
   package: cockpit-packagekit
-  source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     See and apply updates to your system. Supports RPM and DEB based systems through PackageKit.
 
 ostree:
   title: Software Updates (OSTree)
   package: cockpit-ostree
-  official: true
+  maintainer: cockpit
   source: https://github.com/cockpit-project/cockpit-ostree
   issues: https://github.com/cockpit-project/cockpit-ostree/issues
   license: LGPL 2.1
@@ -52,7 +51,7 @@ machines:
   source: https://github.com/cockpit-project/cockpit-machines
   issues: https://github.com/cockpit-project/cockpit-machines/issues
   license: LGPL 2.1
-  official: true
+  maintainer: cockpit
   description: |
     Create, run, and manage virtual machines in your browser.
 
@@ -62,7 +61,7 @@ podman:
   source: https://github.com/cockpit-project/cockpit-podman
   issues: https://github.com/cockpit-project/cockpit-podman/issues
   license: LGPL 2.1
-  official: true
+  maintainer: cockpit
   description: |
     Download, use, and manage containers in your browser. (Podman replaces Docker.)
 
@@ -70,7 +69,7 @@ selinux:
   title: SELinux
   package: cockpit-selinux
   source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     View and manage SELinux exceptions. Instantly apply overrides and export your rules to apply to other systems.
 
@@ -78,7 +77,7 @@ kdump:
   title: Kernel Dump
   package: cockpit-kdump
   source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     Debugging the Linux kernel? This `kdump` add-on helps with catching stack traces.
 
@@ -87,6 +86,7 @@ composer:
   package: cockpit-composer
   source: https://github.com/osbuild/cockpit-composer/
   issues: https://github.com/osbuild/cockpit-composer/issues
+  maintainer: redhat
   description: |
     Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
 
@@ -94,7 +94,7 @@ sosreport:
   title: Diagnostic Reports
   package: cockpit-sosreport
   source: cockpit
-  official: true
+  maintainer: cockpit
   description: |
     Collect system configuration and diagnostic information from systems, to help with diagnosing problems.
 
@@ -103,7 +103,7 @@ files:
   package: cockpit-files
   source: https://github.com/cockpit-project/cockpit-files
   issues: https://github.com/cockpit-project/cockpit-files/issues
-  official: true
+  maintainer: cockpit
   description: |
     A featureful file browser for Cockpit.
 
@@ -112,6 +112,7 @@ files:
   package: cockpit-389-ds
   homepage: https://directory.fedoraproject.org/docs/389ds/download.html
   source:
+  maintainer: redhat
   description: |
     A web-based interface to the enterprise-class Open Source LDAP server for Linux.
 
@@ -120,6 +121,7 @@ session-recording:
   package: cockpit-session-recording
   source: https://github.com/Scribery/cockpit-session-recording
   issues: https://github.com/Scribery/cockpit-session-recording/issues
+  maintainer: redhat
   description: |
     Session recording configuration and playback for Cockpit, based on [Scribery](https://scribery.github.io/), to record a user's actions for watching later.
 
@@ -128,6 +130,7 @@ subscriptions:
   package: subscription-manager-cockpit
   source: https://github.com/candlepin/subscription-manager-cockpit
   issues:
+  maintainer: redhat
   description: |
     Manage subscriptions to Red Hat Enterprise Linux from your web browser.
 
@@ -146,7 +149,6 @@ zfs:
   package: cockpit-zfs
   source: https://github.com/45Drives/cockpit-zfs-manager
   issues: https://github.com/45Drives/cockpit-zfs-manager/issues
-  official: false
   prerelease: false
   description: |
     An interactive ZFS on Linux admin package for Cockpit.
@@ -155,7 +157,6 @@ file-sharing:
   title: File Sharing
   source: https://github.com/45Drives/cockpit-file-sharing
   issues: https://github.com/45Drives/cockpit-file-sharing/issues
-  official: false
   prerelease: false
   description: |
     A Cockpit plugin to easily manage Samba and NFS file sharing.
@@ -164,7 +165,6 @@ navigator:
   title: Navigator
   source: https://github.com/45Drives/cockpit-navigator
   issues: https://github.com/45Drives/cockpit-navigator/issues
-  official: false
   prerelease: false
   description: |
     A Featureful File Browser for Cockpit.
@@ -173,7 +173,6 @@ benchmark:
   title: Benchmark
   source: https://github.com/45Drives/cockpit-benchmark
   issues: https://github.com/45Drives/cockpit-benchmark/issues
-  official: false
   prerelease: false
   description: |
     A Storage Benchmark Utility for Cockpit.
@@ -181,7 +180,6 @@ benchmark:
 tukit:
   title: Software Updates (transactional-update from OpenSUSE with tukit)
   package: cockpit-tukit
-  official: false
   maintainer: suse
   source: https://github.com/openSUSE/cockpit-tukit
   issues: https://github.com/openSUSE/cockpit-tukit/issues
@@ -193,7 +191,6 @@ tukit:
 sensors:
   title: Sensors
   package: cockpit-sensors
-  official: false
   source: https://github.com/ocristopfer/cockpit-sensors
   issues: https://github.com/ocristopfer/cockpit-sensors/issues
   license: LGPL 2.1
@@ -203,7 +200,6 @@ sensors:
 tailscale:
   title: Tailscale
   package: cockpit-tailscale
-  official: false
   prerelease: true
   source: https://github.com/spotsnel/cockpit-tailscale
   issues: https://github.com/spotsnel/cockpit-tailscale/issues
@@ -214,7 +210,6 @@ tailscale:
 headscale:
   title: Headscale
   package: cockpit-headscale
-  official: false
   prerelease: true
   source: https://github.com/spotsnel/cockpit-headscale
   issues: https://github.com/spotsnel/cockpit-headscale/issues
@@ -225,7 +220,6 @@ headscale:
 cloudflared:
   title: Cloudflare tunnels
   package: cockpit-cloudflared
-  official: false
   prerelease: true
   source: https://github.com/spotsnel/cockpit-cloudflared
   issues: https://github.com/spotsnel/cockpit-cloudflared/issues
@@ -236,7 +230,6 @@ cloudflared:
 repos:
   title: Manage Repostitories
   package: cockpit-repos
-  official: false
   maintainer: suse
   source: https://github.com/openSUSE/cockpit-repos
   issues: https://github.com/openSUSE/cockpit-repos/issues
@@ -247,7 +240,6 @@ repos:
 subscriptions-suse:
   title: Subscription Manager
   package: cockpit-subscriptions
-  official: false
   maintainer: suse
   source: https://github.com/openSUSE/cockpit-subscriptions
   issues: https://github.com/openSUSE/cockpit-subscriptions/issues
@@ -258,7 +250,6 @@ subscriptions-suse:
 packages:
   title: Packages
   package: cockpit-packages
-  official: false
   maintainer: suse
   source: https://github.com/openSUSE/cockpit-packages
   issues: https://github.com/openSUSE/cockpit-packages/issues
