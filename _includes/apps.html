@@ -4,9 +4,8 @@
 {% assign https = '>https://' %}
 {% assign gt = '>' %}
 
-{% for app_data in include.apps %}
-  {% assign slug = app_data | first %}
-  {% assign app = app_data | last %}
+{% for app in include.apps %}
+  {% assign slug = app.package %}
 
   {% comment %} Title is mandatory for output {% endcomment %}
   {% unless app.title %}{% continue %}{% endunless %}
@@ -14,23 +13,23 @@
   {% if app.source == 'cockpit'
     %}{% comment %}
     Graft in Cockpit's defaults
-    {% endcomment %}{% 
+    {% endcomment %}{%
     assign app_source = default.source
-    %}{% 
+    %}{%
     assign app_issues = default.issues
-    %}{% 
+    %}{%
     assign app_license = default.license
   %}{% else %}{%
     assign app_source = app.source
-    %}{% 
+    %}{%
     assign app_issues = app.issues
-    %}{% 
+    %}{%
     assign app_license = app.license
   %}{% endif %}
 
 {% assign link_url = app.homepage | default: app_source %}
 
-<article id="slug" class="app">
+<article id="{{slug}}" class="app">
   <h4 class="app-title">{{ app.title }}</h4>
 
   <header class="app-tags">

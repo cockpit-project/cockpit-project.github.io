@@ -1,0 +1,14 @@
+# Entries on the page show up in the order listed here
+# - cockpit (official) first
+# - redhat  (unofficial; non-team RH developed) second
+# - suse (unofficial; developed and maintained by suse)
+# - nil/not set (third party) last
+
+cockpit:
+  title: Cockpit
+
+redhat:
+  title: Red Hat
+
+suse:
+  title: SUSE

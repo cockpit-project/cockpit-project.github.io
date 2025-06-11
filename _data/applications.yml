@@ -1,8 +1,9 @@
-# Entries on the page show up in the order listed here, but with
-# maintainer: cockpit (official) first
-# maintainer: redhat  (unofficial; non-team RH developed) second
-# maintainer: suse (unofficial; developed and maintained by suse)
-# maintainer: nil (third party) last
+# Entries here are displayed under their respective maintainer field.
+# If let unset it will be seen as third-party.
+# Available options are seen in maintainers.yml and for example be
+# - cockpit
+# - redhat
+# - suse
 
 # The Cockpit group is special, it inherits source, issues, license for the `source: cockpit` entries
 cockpit:
