@@ -1,6 +1,6 @@
 # Entries on the page show up in the order listed here, but with
 # maintainer: cockpit (official) first
-# maintainer: redhat  (unofficial; non-team RH developed) second (this is omission of `official`),
+# maintainer: redhat  (unofficial; non-team RH developed) second
 # maintainer: suse (unofficial; developed and maintained by suse)
 # maintainer: nil (third party) last
 
@@ -31,6 +31,7 @@ networkmanager:
 packagekit:
   title: Software Updates (PackageKit)
   package: cockpit-packagekit
+  source: cockpit
   maintainer: cockpit
   description: |
     See and apply updates to your system. Supports RPM and DEB based systems through PackageKit.
@@ -228,7 +229,7 @@ cloudflared:
     Cockpit application to show Cloudflare tunnel state.
 
 repos:
-  title: Manage Repostitories
+  title: Manage Repositories
   package: cockpit-repos
   maintainer: suse
   source: https://github.com/openSUSE/cockpit-repos
