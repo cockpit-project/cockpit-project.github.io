@@ -35,6 +35,7 @@ html.cockpit-guide {
     div.part,
     div.variablelist table,
     pre.programlisting {
+      color: inherit;
       font-size: inherit;
       line-height: inherit;
     }
@@ -113,7 +114,7 @@ html.cockpit-guide {
     }
 
     @extend %link;
-  
+
     a {
       align-items: center;
       height: 100%;
