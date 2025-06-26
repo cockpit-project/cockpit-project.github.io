@@ -3,6 +3,9 @@ title: Demos and Talks
 source: https://github.com/cockpit-project/cockpit/wiki/Demos-and-Talks
 ---
 
+### 2025
+ * [Browser automation/testing with BiDi and minimal dependencies](https://pretalx.devconf.info/devconf-cz-2025/talk/B98ZPE/) (Martin Pitt), devconf.cz; [intro and demo code](https://github.com/martinpitt/bidi-test/), [video](https://www.youtube.com/watch?v=YUfqPE6Uh5c&t=7449s)
+
 ### 2024
  * [Upstream cross-project testing: Never break your API consumers](https://pretalx.com/devconf-cz-2024/talk/KDZZES/) (Martin Pitt), devconf.cz; [video](https://www.youtube.com/watch?v=LyXOdDV98LM), [slides and notes](https://github.com/cockpit-project/presentations/tree/main/2024-upstream-cross-project-testing)
  * [How we integrated Btrfs in Cockpit](https://pretalx.com/devconf-cz-2024/talk/JEPNDF/) (Jelle van der Waa), devconf.cz; [video](https://youtu.be/ipb-_rgFNa4?t=4594), [slides](https://pretalx.com/media/devconf-cz-2024/submissions/JEPNDF/resources/Cockpit_Btrfs_vS8beTQ.pdf)
