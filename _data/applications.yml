@@ -258,3 +258,11 @@ packages:
   license: LGPL 2.1
   description: |
     Install/Uninstall packages from your browser.
+
+dockermanager:
+  title: Docker Manager
+  prerelease: true
+  source: https://github.com/chrisjbawden/cockpit-dockermanager
+  issues: https://github.com/chrisjbawden/cockpit-dockermanager/issues
+  description: |
+    A lightweight interface for simple management of docker containers.
