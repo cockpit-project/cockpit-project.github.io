@@ -265,4 +265,4 @@ dockermanager:
   source: https://github.com/chrisjbawden/cockpit-dockermanager
   issues: https://github.com/chrisjbawden/cockpit-dockermanager/issues
   description: |
-    A lite-weight interface for simple management controls of docker containers.
+    A lightweight interface for simple management of docker containers.
