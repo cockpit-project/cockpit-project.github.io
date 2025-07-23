@@ -266,3 +266,11 @@ dockermanager:
   issues: https://github.com/chrisjbawden/cockpit-dockermanager/issues
   description: |
     A lightweight interface for simple management of docker containers.
+
+backblaze-b2:
+  title: Backblaze B2 backup
+  prerelease: false
+  source: https://github.com/rabol/backblaze-b2
+  issues: https://github.com/rabol/backblaze-b2/issues
+  description: |
+    A lightweight interface for simple back up to Backblaze B2.
