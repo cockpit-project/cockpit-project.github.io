@@ -8,7 +8,7 @@ The Cockpit Project website is a static site that does not track, collect, store
 
 There are some third party places where the Cockpit Project stores data:
 
-- [GitHub Pages](https://help.github.com/articles/what-is-github-pages/) is the website host. Please [refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
+- [GitHub Pages](https://help.github.com/articles/what-is-github-pages/) is the website host. Please [refer to GitHub's privacy practices document for details](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 - [YouTube](https://youtube.com/) videos are embedded in some pages on the website. YouTube embeds are rewritten as to not use cookies. [Refer to YouTube's privacy policy for details](https://support.google.com/youtube/answer/7671399?hl=en).
 - The Cockpit Project has [a mailing list for development](https://lists.fedorahosted.org/archives/list/cockpit-devel@lists.fedorahosted.org/), and a [Matrix channel](https://matrix.to/#/#cockpit:fedoraproject.org) hosted by [the Fedora Project](https://fedoraproject.org/). [Refer to Fedora's privacy policy for more details](https://fedoraproject.org/wiki/Legal:PrivacyPolicy).
 - The Cockpit software is stored in git, on [GitHub](https://github.com/). The git software does collect names and email addresses in repositories. GitHub has account information. [Refer to GitHub's privacy practices document for details](https://help.github.com/articles/global-privacy-practices/).
