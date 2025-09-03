@@ -1,0 +1,69 @@
+name: Verify links
+
+on:
+  push:
+    branches:
+      - main
+      - workflow/verify-links # TODO REMOVE
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "08 08 * * 1"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # required for peter-evans/create-issue-from-file
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          # Exclude all private and local addresses in the check
+          # Also exclude domains that actively block GitHub to send requests
+          # Any Cockpit URLs it finds that have variables will be ignored too
+          args: |
+            --max-concurrency 1
+            --retry-wait-time 60
+            --base .
+            --skip-missing
+            --exclude-all-private
+            --exclude '^https://linux.die.net'
+            --exclude 'file:///'
+            --exclude 'domain.tld'
+            --exclude '^.*\{\{'
+            --exclude 'https://bodhi.fedoraproject.org/updates/cockpit-*'
+            --cache
+            --cache-exclude-status 400..=599
+            --max-cache-age 1d
+            -v
+            .
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find the last open report issue
+        if: steps.lychee.outputs.exit_code != 0
+        id: last-issue
+        uses: micalevisk/last-issue-action@v2
+        with:
+          state: open
+          labels: link-checker
+
+      - name: Update or create issue report
+        if: steps.lychee.outputs.exit_code != 0 && steps.last-issue.outputs.has-found == 'true'
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          issue-number: ${{ steps.last-issue.outputs.issue-number }}
+          labels: link-checker
