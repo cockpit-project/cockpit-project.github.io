@@ -129,10 +129,15 @@ $ cockpit-bridge --packages
 </tr>
 <tr>
 <td><p><span class="term">conditions</span></p></td>
-<td><p>An optional list of <code class="code">{"predicate": "value"}</code> objects. Cockpit will only
-          consider the package if <span class="emphasis"><em>all</em></span> conditions are met. Currently supported predicates
-          are <code class="code">path-exists</code> and <code class="code">path-not-exists</code>. Unknown predicates are ignored.
-          This is preferable to using <code class="code">priority</code>, but only available since Cockpit 286.</p></td>
+<td>
+<p>An optional list of <code class="code">{"predicate": "value"}</code> objects. Cockpit will only
+          consider the package if <span class="emphasis"><em>all</em></span> conditions are met. This is preferable to using
+          <code class="code">priority</code>.</p>
+<p>Currently supported predicates are <code class="code">path-exists</code> and <code class="code">path-not-exists</code>
+          (since Cockpit 286), and <code class="code">any</code> (since Cockpit 348). <code class="code">any</code> accepts a list of
+          conditions and evaluates to true if <span class="emphasis"><em>at least one</em></span> of the nested conditions is
+          met. Unknown predicates are ignored.</p>
+</td>
 </tr>
 <tr>
 <td><p><span class="term">requires</span></p></td>
@@ -312,6 +317,16 @@ $ cockpit-bridge --packages
      }
   }
 }
+</pre>
+<p>The following example shows how to use disjunctive conditions with <code class="code">any</code>
+      to specify alternative requirements (available since Cockpit 348). This package will be available if either
+      <code class="filename">/usr/bin/alt1</code> or <code class="filename">/usr/bin/alt2</code> exists. In any case,
+      <code class="filename">/etc/incompatible-tool</code> must not exist.</p>
+<pre class="programlisting">
+  "conditions": [
+    {"any": [{"path-exists": "/usr/bin/alt1"}, {"path-exists": "/usr/bin/alt2"}]},
+    {"path-not-exists": "/etc/incompatible-tool"}
+  ]
 </pre>
 </div>
 <div class="section">
