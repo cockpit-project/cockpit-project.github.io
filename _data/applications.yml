@@ -283,3 +283,11 @@ ros2-diagnostics:
   license: LGPL 2.1
   description: |
     Cockpit application to view ROS 2 diagnostics.
+
+port-forward:
+  title: Port Forward Manager
+  source: https://github.com/kuznetz/cockpit-port-forward
+  issues: https://github.com/kuznetz/cockpit-port-forward/issues
+  license: MIT
+  description: |
+    A interface to managing firewalld port forwarding rules and masquerading
