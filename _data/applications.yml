@@ -311,11 +311,19 @@ package-manager:
   description: |
     DEB (APT) / RPM browsing and installation tool using PackageKit.
 
+port-forward:
+  title: Port Forward Manager
+  source: https://github.com/kuznetz/cockpit-port-forward
+  issues: https://github.com/kuznetz/cockpit-port-forward/issues
+  license: MIT
+  description: |
+    Manage firewalld port forwarding rules and masquerading.
+
 sudo-manager:
   title: Sudo Manager
   source: https://github.com/josephoaks/Cockpit-SUDO-Manager
   issues: https://github.com/josephoaks/Cockpit-SUDO-Manager/issues
   license: Apache-2.0
   description: |
-    A Cockpit plugin for managing sudo policy on Linux systems in a 
+    A Cockpit plugin for managing sudo policy on Linux systems in a
     structured, auditable, and policy-driven way. Developed for SUSE Linux.
