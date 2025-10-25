@@ -211,16 +211,16 @@ These commands require a POSIX compatible shell like `bash`. For other shells li
 
 Cockpit is available in Debian since version 10 (Buster).
 
-1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org) (as root):
+1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org):
    ```
    . /etc/os-release
    echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" > \
-       /etc/apt/sources.list.d/backports.list
-   apt update
+       sudo tee /etc/apt/sources.list.d/backports.list
+   sudo apt update
    ```
 2. Install or update the package:
 ```
-apt install -t ${VERSION_CODENAME}-backports cockpit
+sudo apt install -t ${VERSION_CODENAME}-backports cockpit
 ```
 
 {:.note}
