@@ -298,7 +298,7 @@ Cockpit is included in SUSE Linux Enterprise (SLE) Micro 5.x.
 
 1. Install cockpit (already present in the pre-built images):
 ```
-transactional-update pkg install -t pattern microos-cockpit
+transactional-update pkg install -t pattern microos_cockpit
 ```
 2. Enable the socket:
 ```
