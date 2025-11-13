@@ -283,3 +283,11 @@ ros2-diagnostics:
   license: LGPL 2.1
   description: |
     Cockpit application to view ROS 2 diagnostics.
+
+package-manager:
+  title: Package Manager
+  source: https://github.com/hatlabs/cockpit-package-manager
+  issues: https://github.com/hatlabs/cockpit-package-manager/issues
+  license: LGPL 2.1
+  description: |
+    DEB (APT) / RPM browsing and installation tool using PackageKit.
