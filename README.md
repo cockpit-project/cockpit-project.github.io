@@ -216,6 +216,19 @@ All blog posts belong in the `_posts` directory and must be formatted with the y
 
 In addition, every blog post needs to have Frontmatter including the fields `title` and `date` (which should be the same as the filename's date) and should also include `author` to give the person credit (as well as to show up under the author on the authors page). In addition, a blog post may have `tags` and a `category`, but they're not necessary (only suggested).
 
+To make this process easier we have `_scripts/generate-release-notes` which will take release notes from all our Cockpit repos and generate a blog post for you.
+
+```bash
+_scripts/generate-release-notes --user YourAuthorName
+```
+
+For all arguments check `--help` section
+
+```bash
+_scripts/generate-release-notes --help
+```
+
+
 #### Blog Authors
 
 While not necessary, it is suggested to use nicknames for authors in the Frontmatter of blog posts.
