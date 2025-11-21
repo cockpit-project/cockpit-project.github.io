@@ -8,18 +8,19 @@ from a list of GitHub repositories.
 import argparse
 import contextlib
 import datetime
+import json
+import os
 import re
 import sys
-from pathlib import Path
-from typing import Any
-import yaml
-import os
-import json
 import urllib
 import urllib.error
-from urllib.request import Request, urlopen
-from urllib.parse import urlparse
 from html.parser import HTMLParser
+from pathlib import Path
+from typing import Any
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
+
+import yaml
 
 # GitHub repos to consider
 REPOS = [
@@ -114,7 +115,9 @@ files_images: list[str] = []
 
 
 class NoteImageParser(HTMLParser):
-    images: list[tuple[str, tuple[int, int]]] = []
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.images: list[tuple[str, tuple[int, int]]] = []
 
     def handle_starttag(self, tag, attrs):
         if tag != "img":
@@ -167,14 +170,10 @@ def get_json(url: str) -> Any:
         if token is not None:
             headers["Authorization"] = f"token {token.strip()}"
 
-    try:
-        # Specify agent as some websites otherwise block requests
-        req = Request(url=url, headers=headers)
-        resp = urlopen(req)
-        return json.loads(resp.read())
-    except urllib.error.URLError as e:
-        print(f"Could not fetch data from the GitHub API ({e})")
-        return None
+    # Specify agent as some websites otherwise block requests
+    req = Request(url=url, headers=headers)
+    resp = urlopen(req)
+    return json.loads(resp.read())
 
 
 def drop_prefix(repo: str) -> str:
@@ -197,35 +196,31 @@ def build_frontmatter(user: str) -> str:
 
 def download_image(url: str, basename: str) -> str | None:
     """Download an image from GitHub and save it locally."""
-    try:
+    req = Request(url=url, headers={"User-Agent": USER_AGENT})
+    resp = urlopen(req)
+
+    # Allow one re-direct
+    if resp.geturl() != url:
         req = Request(url=url, headers={"User-Agent": USER_AGENT})
         resp = urlopen(req)
 
-        # Allow one re-direct
-        if resp.geturl() != url:
-            req = Request(url=url, headers={"User-Agent": USER_AGENT})
-            resp = urlopen(req)
+    parts = urlparse(resp.geturl())
+    extension = Path(parts.path).suffix
+    local_file = f"{basename}{extension}"
+    image_path = Path("images") / local_file
 
-        parts = urlparse(resp.geturl())
-        extension = Path(parts.path).suffix
-        local_file = f"{basename}{extension}"
-        image_path = Path("images") / local_file
+    with open(image_path, "wb") as f:
+        f.write(resp.read())
 
-        with open(image_path, "wb") as f:
-            f.write(resp.read())
-
-        files_images.append(str(image_path))
-        return local_file
-    except urllib.error.URLError as e:
-        print(f"Warning: Error downloading the image {url}: {e}", file=sys.stderr)
-        return None
+    files_images.append(str(image_path))
+    return local_file
 
 
 def process_images(notes: str) -> str:
     title = notes.split("\n", 1)[0]
     base_slug = re.sub(r"--+", "-", slugify(title))
     base_slug = re.sub(r"^-", "", base_slug)
-    basename = f"{base_slug.replace('-', f'-{cockpit_version}-', 1)}"
+    basename = f"{cockpit_version}-{base_slug}"
 
     parser = NoteImageParser()
     parser.feed(notes)
@@ -234,7 +229,7 @@ def process_images(notes: str) -> str:
         if index > 1:
             basename += f"-{index}"
 
-        alt = f"screenshot of {title.split(':', 1)[-1].strip().lower()}"
+        alt = f"screenshot of {title.split('##', 1)[-1].split(':', 1)[-1].strip().lower()}"
         filename = download_image(url, basename)
 
         if filename:
@@ -414,7 +409,11 @@ def construct_all_the_notes(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate Cockpit release notes.")
+    parser = argparse.ArgumentParser(description="" \
+    "Generate Cockpit release notes from Cockpit repositories that include" \
+    "the label `release-note`. It takes the last ## header in the PR body and"
+    "formats it to function within a Jekyll blog post."
+    )
     parser.add_argument(
         "-p",
         "--preview",
@@ -422,10 +421,10 @@ def main():
         help="Preview release notes with open PRs and more info",
     )
     parser.add_argument(
-        "-r",
-        "--released",
+        "-i",
+        "--increment",
         action="store_true",
-        help="Cockpit has been released (do not increment version)",
+        help="Increment Cockpit version",
     )
     # TODO: validate author
     parser.add_argument(
@@ -443,10 +442,10 @@ def main():
     args = parser.parse_args()
     user = args.user
 
-    increment = 0 if args.released else 1
+    increment = 1 if args.increment else 0
     final_notes = construct_all_the_notes(user, args.preview, increment, args.verbose)
     output_filename = Path("_posts") / markdown_filename()
-    with open(output_filename, "w") as f:
+    with open(output_filename, "w", encoding="utf-8") as f:
         f.write(final_notes)
 
     print(f"Generated release notes for Cockpit {cockpit_version}: {output_filename}")
