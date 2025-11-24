@@ -1,0 +1,457 @@
+#!/usr/bin/python3
+
+"""
+Generates release notes by fetching pull requests with a 'release-note' label
+from a list of GitHub repositories.
+"""
+
+import argparse
+import contextlib
+import datetime
+import json
+import os
+import re
+import sys
+import urllib
+import urllib.error
+from html.parser import HTMLParser
+from pathlib import Path
+from typing import Any
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
+
+import yaml
+
+# GitHub repos to consider
+REPOS = [
+    "cockpit",
+    "cockpit-machines",
+    "cockpit-podman",
+    "cockpit-ostree",
+    "cockpit-files",
+]
+
+# Common terms and definitions
+TERMS = {
+    "API": "Application Programming Interface",
+    "ARIA": "Accessible Rich Internet Applications",
+    "AWS": "Amazon Web Services",
+    "CDN": "Content Delivery Network",
+    "CI": "continuous integration (testing)",
+    "Copr": "A build service for unofficial / semi-official Fedora community "
+    'projects. It\'s a portmanteau, short for "Community Projects". '
+    'Pronounced like the metal "copper".',
+    "CPU": 'Central Processing Unit, the "brain" of a computer',
+    "DIMM": "Dual Inline Memory Module",
+    "EC2": "Amazon Elastic Compute Cloud",
+    "FIPS": "Federal Information Processing Standard",
+    "FMF": "Flexible Metadata Format",
+    "GSoC": "Google Summer of Code",
+    "HTTP": "Hypertext Transport Protocol",
+    "IPA": 'identity management system ("Identity, Policy, Audit")',
+    "LAN": "Local Area Network",
+    "LVM": "Logical Volume Manager",
+    "motd": "message of the day",
+    "NBDE": "network-bound disk encryption",
+    "NFS": "Network File System",
+    "NIC": "Network Interface Card",
+    "NMI": "Non-Maskable Interrupt",
+    "NPM": "Node Package Manager",
+    "OS": "Operating System",
+    "PCP": "Performance Co-Pilot",
+    "RAID": "Redundant Array of Inexpensive Disks",
+    "RAM": "Random Access Memory",
+    "repo": "repository",
+    "RHEL": "Red Hat Enterprise Linux",
+    "SATA": 'Serial "Advanced Technology" Attachment, a bus interface to attach storage devices to a computer',
+    "SCSI": "Small Computer System Interface, commands and protocols for communication with (mainly storage) devices",
+    "SELinux": "Security-Enhanced Linux, policies for enforcing access controls in Linux",
+    "single pane of glass": 'console that provides high-level management of multiple machines, also known as a "single-pane view"',
+    "SRPM": "source RPM",
+    "SSH": "Secure Shell, a common protocol to securely connect to a remote computer",
+    "STI": "Fedora's Standard Test Interface",
+    "TLS": "Transport Layer Security",
+    "tmt": "test management tool",
+    "USB": "Universal Serial Bus, a protocol for hot-pluggable (and usually external) devices",
+    "VDO": "Virtual Data Optimizer",
+    "Virtio": "Virtual Input/Output, a standard for network and disk drivers where the guest cooperates with the host for performant virtualization",
+    "VM": "Virtual Machine",
+    "VMs": "Virtual Machines",
+}
+
+USER_AGENT = (
+    "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0"
+)
+
+HEADER = """
+Cockpit is the [modern Linux admin interface](https://cockpit-project.org/).
+We release regularly.
+
+Here are the release notes from VERSIONS:
+"""
+
+FOOTER = """
+## Try it out
+
+VERSIONS ARE available now:
+
+* [For your Linux system](https://cockpit-project.org/running.html)
+* [Cockpit Client](https://flathub.org/apps/details/org.cockpit_project.CockpitClient)
+"""
+
+# TODO: fetch from https://bodhi.fedoraproject.org/releases?state=current
+# TODO: fetch from https://bodhi.fedoraproject.org/updates/?packages=${pkgname}
+FOOTER_DYNAMIC = """
+* [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
+* [NAME Fedora 43](https://bodhi.fedoraproject.org/updates/?releases=F43&packages=REPO)
+* [NAME Fedora 42](https://bodhi.fedoraproject.org/updates/?releases=F42&packages=REPO)
+"""
+
+cockpit_version: int | None = None
+releases: list[str] = []
+footer_locations: list[str] = []
+tags: list[str] = []
+files_images: list[str] = []
+
+
+class NoteImageParser(HTMLParser):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.images: list[tuple[str, tuple[int, int]]] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "img":
+            return
+
+        for attr, val in attrs:
+            if attr == "src" and val is not None:
+                self.images.append((val, self.getpos()))
+
+
+def xdg_home(
+    subdir: str, envvar: str, *components: str, override: str | None = None
+) -> str:
+    path = override and os.getenv(override)
+
+    if not path:
+        directory = os.getenv(envvar)
+        if not directory:
+            directory = os.path.join(os.path.expanduser("~"), subdir)
+        path = os.path.join(directory, *components)
+
+    return path
+
+
+def xdg_config_home(*components: str, envvar: str | None = None) -> str:
+    return xdg_home(".config", "XDG_CONFIG_HOME", *components, override=envvar)
+
+
+def slugify(title: str) -> str:
+    return re.sub(r"[^0-9a-z]", "-", title.lower())
+
+
+def markdown_filename() -> str:
+    date_str = datetime.datetime.now().strftime("%Y-%m-%d")
+    return f"{date_str}-cockpit-{cockpit_version}.md"
+
+
+def oxfordize(parts: list[str]) -> str:
+    if len(parts) <= 1:
+        return "".join(parts)
+    if len(parts) == 2:
+        return " and ".join(parts)
+    return f"{', '.join(parts[:-1])}, and {parts[-1]}"
+
+
+def get_json(url: str) -> Any:
+    headers = {"user-Agent": USER_AGENT}
+    with contextlib.suppress(FileNotFoundError):
+        token = Path(xdg_config_home("cockpit-dev/github-token")).read_text()
+        if token is not None:
+            headers["Authorization"] = f"token {token.strip()}"
+
+    # Specify agent as some websites otherwise block requests
+    req = Request(url=url, headers=headers)
+    resp = urlopen(req)
+    return json.loads(resp.read())
+
+
+def drop_prefix(repo: str) -> str:
+    return repo.split("-", 1)[1].capitalize() if "-" in repo else ""
+
+
+def build_frontmatter(user: str) -> str:
+    cockpit_title = f"Cockpit {cockpit_version}"
+    frontmatter_dict = {
+        "title": cockpit_title,
+        "author": user,
+        "date": datetime.datetime.now().strftime("%Y-%m-%d"),
+        "tags": ", ".join(tags),
+        "slug": slugify(cockpit_title),
+        "category": "release",
+        "summary": "",
+    }
+    return yaml.dump(frontmatter_dict, sort_keys=False)
+
+
+def download_image(url: str, basename: str) -> str | None:
+    """Download an image from GitHub and save it locally."""
+    req = Request(url=url, headers={"User-Agent": USER_AGENT})
+    resp = urlopen(req)
+
+    # Allow one re-direct
+    if resp.geturl() != url:
+        req = Request(url=url, headers={"User-Agent": USER_AGENT})
+        resp = urlopen(req)
+
+    parts = urlparse(resp.geturl())
+    extension = Path(parts.path).suffix
+    local_file = f"{basename}{extension}"
+    image_path = Path("images") / local_file
+
+    with open(image_path, "wb") as f:
+        f.write(resp.read())
+
+    files_images.append(str(image_path))
+    return local_file
+
+
+def process_images(notes: str) -> str:
+    title = notes.split("\n", 1)[0]
+    base_slug = re.sub(r"--+", "-", slugify(title))
+    base_slug = re.sub(r"^-", "", base_slug)
+    basename = f"{cockpit_version}-{base_slug}"
+
+    parser = NoteImageParser()
+    parser.feed(notes)
+
+    for index, (url, (lineno, _offset)) in enumerate(parser.images):
+        if index > 1:
+            basename += f"-{index}"
+
+        alt = f"screenshot of {title.split('##', 1)[-1].split(':', 1)[-1].strip().lower()}"
+        filename = download_image(url, basename)
+
+        if filename:
+            split_notes = notes.split("\n")
+            split_notes[lineno - 1] = f"![{alt}]({{ site.baseurl }}/images/{filename})"
+            notes = "\n".join(split_notes)
+
+    return notes
+
+
+def format_issue(issue: dict[str, Any], repo: str, preview: bool, debug: bool) -> str:
+    splitter = re.compile(r"^[# ]*release note.*", re.IGNORECASE | re.MULTILINE)
+    underlines = re.compile(r"^[=\-#]+$")
+    heading_prefix = f"{drop_prefix(repo)}: " if "-" in repo else ""
+
+    issue_body = (issue.get("body") or "").replace("\r\n", "\n").strip()
+
+    # Attempt to split release notes from the body
+    parts = splitter.split(issue_body, 1)
+    release_note = parts[-1].strip()
+
+    # If no splitter was found, try to extract content after the first heading
+    if len(parts) == 1:
+        heading_parts = re.split(r"^#", issue_body, maxsplit=1, flags=re.MULTILINE)
+        if len(heading_parts) > 1:
+            release_note = f"##{heading_parts[1]}"
+        else:  # No heading found, use the whole body
+            release_note = issue_body
+
+    # Remove extraneous underline characters, like ==== ---- ####
+    lines = release_note.split("\n")
+    if lines and underlines.match(lines[0]):
+        release_note = "\n".join(lines[1:]).strip()
+        lines = release_note.split("\n")
+
+    # Handle underline-style headings and convert them to ATX-style
+    if len(lines) > 1 and underlines.match(lines[1]):
+        release_note = f"## {lines[0]}\n" + "\n".join(lines[2:])
+
+    # Prepend an issue title if no heading was found
+    issue_title = ""
+    if not release_note.strip().startswith("#"):
+        issue_title = f"## {heading_prefix}{issue['title']}\n\n"
+
+    if debug:
+        print(yaml.dump(issue))
+
+    state_info = ""
+    if preview:
+        state = issue["state"]
+        url = issue["html_url"]
+        if state == "open":
+            alert, included, merged = "warn", "(will not be included) ", "OPEN"
+        else:
+            alert, included, merged = "note", "", "merged"
+        state_info = f"State: **{merged}** {included}@ <{url}>\n{{:.{alert}}}\n\n"
+
+    # Assemble the note, normalize headings to H2, and inject state info
+    full_note = f"{issue_title}{release_note.strip()}"
+    full_note = re.sub(r"^#+", "##", full_note, count=1, flags=re.MULTILINE)
+    full_note = re.sub(r"\n\n", f"\n\n{state_info}", full_note, count=1)
+    if not state_info and full_note.endswith(
+        "\n\n"
+    ):  # If no state info, ensure no double newline
+        full_note = full_note.rstrip() + f"\n\n{state_info}"
+
+    return process_images(full_note)
+
+
+def find_terms(doc: list[str]) -> list[str]:
+    full_text = "".join(doc)
+    found_terms = []
+    for term, definition in TERMS.items():
+        if re.search(r"\b" + re.escape(term) + r"\b", full_text):
+            clean_def = " ".join(definition.replace("\n", " ").split())
+            found_terms.append(f"*[{term}]: {clean_def}")
+    return sorted(found_terms)
+
+
+def repo_human(repo: str) -> str:
+    return repo.capitalize() if "-" not in repo else repo
+
+
+def headfoot(template: str) -> str:
+    return template.replace("VERSIONS", oxfordize(releases)).replace(
+        "ARE", "are" if len(releases) != 1 else "is"
+    )
+
+
+def build_footer_locations(repo: str, version: int) -> str:
+    return (
+        FOOTER_DYNAMIC.replace("NAME", repo_human(repo))
+        .replace("VERSIONS", str(version))
+        .replace("REPO", repo)
+        .strip()
+    )
+
+
+def process_meta(repo: str, versions: list[int], increment: int):
+    if not versions:
+        print(f"Warning: No versions found for repo {repo}", file=sys.stderr)
+        return
+
+    latest_version = versions[-1] + increment
+    releases.append(f"{repo_human(repo)} {latest_version}")
+    footer_locations.append(build_footer_locations(repo, latest_version))
+    tags.append(repo.replace("cockpit-", ""))
+
+
+def process_repos(preview: bool, increment: int, debug: bool) -> list[str]:
+    base_url = "https://api.github.com/search/issues?q=is:pr+repo:cockpit-project/{repo}+label:release-note"
+    tags_template = "https://api.github.com/repos/cockpit-project/{repo}/tags"
+    all_notes = []
+
+    for repo in REPOS:
+        # Get tags to determine the latest version
+        tags_url = tags_template.format(repo=repo)
+        tags_data = get_json(tags_url)
+
+        if tags_data is None:
+            continue
+
+        versions = sorted(
+            [int(tag["name"]) for tag in tags_data if tag["name"].isdigit()]
+        )
+
+        # Set the main cockpit_version from the first repo ('cockpit')
+        global cockpit_version
+        if cockpit_version is None and versions:
+            cockpit_version = versions[-1] + increment
+
+        # Get pull requests with release notes
+        if not preview:
+            base_url += "+is%3Aclosed"
+        pr_url = base_url.format("", repo=repo)
+        pr_data = get_json(pr_url)
+        if pr_data is None or not pr_data.get("items"):
+            continue
+
+        notes = [
+            format_issue(issue, repo, preview, debug) for issue in pr_data["items"]
+        ]
+
+        if notes:
+            process_meta(repo, versions, increment)
+            all_notes.extend(notes)
+
+    return all_notes
+
+
+def construct_all_the_notes(
+    user: str, preview: bool, increment: int, debug: bool
+) -> str:
+    release_notes = process_repos(preview, increment, debug)
+    frontmatter = build_frontmatter(user)
+
+    sections = [
+        "---",
+        "\n",
+        frontmatter,
+        "---",
+        "\n",
+        headfoot(HEADER),
+        "\n\n",
+        "\n\n".join(release_notes),
+        "\n\n",
+        headfoot(FOOTER),
+        "\n",
+        "\n".join(footer_locations),
+        "\n\n",
+        "\n".join(find_terms(release_notes)),
+    ]
+
+    # Clean up excessive newlines
+    full_text = "".join(sections)
+    return re.sub(r"\n{4,}", "\n\n\n", full_text)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="" \
+    "Generate Cockpit release notes from Cockpit repositories that include" \
+    "the label `release-note`. It takes the last ## header in the PR body and"
+    "formats it to function within a Jekyll blog post."
+    )
+    parser.add_argument(
+        "-p",
+        "--preview",
+        action="store_true",
+        help="Preview release notes with open PRs and more info",
+    )
+    parser.add_argument(
+        "-i",
+        "--increment",
+        action="store_true",
+        help="Increment Cockpit version",
+    )
+    # TODO: validate author
+    parser.add_argument(
+        "-u",
+        "--user",
+        help="Author of the blog post (see data/_authors.yml)",
+        required=True,
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Show additional information on the command line",
+    )
+    args = parser.parse_args()
+    user = args.user
+
+    increment = 1 if args.increment else 0
+    final_notes = construct_all_the_notes(user, args.preview, increment, args.verbose)
+    output_filename = Path("_posts") / markdown_filename()
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(final_notes)
+
+    print(f"Generated release notes for Cockpit {cockpit_version}: {output_filename}")
+    if files_images:
+        print(f"Downloaded images: {' '.join(files_images)}")
+
+
+if __name__ == "__main__":
+    main()
