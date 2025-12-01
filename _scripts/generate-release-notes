@@ -12,8 +12,6 @@ import json
 import os
 import re
 import sys
-import urllib
-import urllib.error
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
@@ -421,10 +419,10 @@ def main():
         help="Preview release notes with open PRs and more info",
     )
     parser.add_argument(
-        "-i",
-        "--increment",
+        "-r",
+        "--released",
         action="store_true",
-        help="Increment Cockpit version",
+        help="Cockpit has been released (do not increment version)",
     )
     # TODO: validate author
     parser.add_argument(
@@ -442,7 +440,7 @@ def main():
     args = parser.parse_args()
     user = args.user
 
-    increment = 1 if args.increment else 0
+    increment = 0 if args.released else 1
     final_notes = construct_all_the_notes(user, args.preview, increment, args.verbose)
     output_filename = Path("_posts") / markdown_filename()
     with open(output_filename, "w", encoding="utf-8") as f:
