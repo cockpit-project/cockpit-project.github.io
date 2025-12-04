@@ -291,3 +291,12 @@ package-manager:
   license: LGPL 2.1
   description: |
     DEB (APT) / RPM browsing and installation tool using PackageKit.
+
+security-dashboard:
+  title: Security Dashboard
+  package: cockpit-security-dashboard
+  source: https://github.com/XintiWu/cockpit-SecurityGuard
+  issues: https://github.com/XintiWu/cockpit-SecurityGuard/issues
+  license: LGPL 2.1
+  description: |
+    SSH and sudo event monitoring with real-time threat analysis. Features include hourly trend charts, GeoIP lookup, brute-force detection, manual and automatic IP blocking with configurable thresholds.
