@@ -214,7 +214,7 @@ Cockpit is available in Debian since version 10 (Buster).
 1. To get the latest version, we recommend to enable the [backports repository](https://backports.debian.org):
    ```
    . /etc/os-release
-   echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" > \
+   echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" | \
        sudo tee /etc/apt/sources.list.d/backports.list
    sudo apt update
    ```
