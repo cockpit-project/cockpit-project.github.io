@@ -136,6 +136,14 @@ subscriptions:
   description: |
     Manage subscriptions to Red Hat Enterprise Linux from your web browser.
 
+ha-cluster:
+  title: High Availability Cluster Management
+  package: cockpit-ha-cluster
+  source: https://github.com/ClusterLabs/pcs-web-ui
+  maintainer: redhat
+  description: |
+    Cockpit application for managing Pacemaker based clusters with [PCS](https://github.com/ClusterLabs/pcs).
+
 # leapp:
 #   package: cockpit-leap
 #   title: Leapp
