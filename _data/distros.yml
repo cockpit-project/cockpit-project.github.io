@@ -33,10 +33,6 @@
   tested: true
   included: true
 
-- clearlinux:
-  name: Clear Linux
-  included: true
-
 - tumbleweed:
   name: openSUSE Tumbleweed
   included: true

@@ -256,17 +256,6 @@ sudo systemctl enable --now cockpit.socket
 If the first command fails with "database file for ... does not exist", refresh/update your system with `sudo pacman -Syu` first.
 
 
-### Clear Linux
-{:#clearlinux}
-
-Cockpit is in [Clear Linux](https://clearlinux.org/) OS and can be installed using `swupd`:
-
-```
-sudo swupd bundle-add sysadmin-remote
-sudo systemctl enable --now cockpit.socket
-```
-
-
 ### openSUSE Tumbleweed and Leap
 {:#tumbleweed}
 
