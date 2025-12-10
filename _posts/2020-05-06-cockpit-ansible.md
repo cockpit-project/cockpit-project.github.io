@@ -19,7 +19,7 @@ In this example, we will adjust the [SELinux policy](https://www.redhat.com/en/t
 
 To see SELinux debugging, fixing, and deploying in action, watch this short three-and-a-half minute demo covering the whole workflow. Follow along with steps from "_there's a problem I need to debug_" to "_I'll figure out a solution with Cockpit_" and finally to "_I'll apply this tested solution to my entire fleet of computers_".
 
-<iframe width="960" height="720" src="//youtube.com/embed/ChXoNofPIjw?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="960" height="720" src="https://youtube.com/embed/ChXoNofPIjw?rel=0" frameborder="0" allowfullscreen></iframe>
 
 While this approach works for SELinux, not every part of Cockpit can be used in a similar manner. First and foremost, Cockpit always shows the server's current *state*, not its configuration. At a glance, the difference between static configuration, dynamic state (like the IP address of a DHCP network card), or even hardware properties (like the number, capacity, and serials of hard disks) are not necessarily obvious.
 
