@@ -1,0 +1,26 @@
+# Don't exceed max_concurrency = 1 until this is implemented
+# https://github.com/lycheeverse/lychee/issues/989
+max_concurrency = 1
+retry_wait_time = 60
+skip_missing = true
+exclude_all_private = true
+exclude = [
+  # '^https://linux.die.net',
+  # We have this as an example
+  "domain.tld",
+  # 'https://bodhi.fedoraproject.org/updates/cockpit-*',
+  # Not local but used with podman etc.
+  "0.0.0.0",
+  # Need to be authenticated with GitHub edits and fails with 404 instead of 403
+  '^https:\/\/github.com\/cockpit-project\/cockpit\/wiki\/.*\/_edit',
+  # If we are checking files this will fail as it would match stuff like:
+  # `file:///blog/authors#name`
+  'file:///.*#.*'
+]
+cache = true
+cache_exclude_status = "400..=599"
+max_cache_age = "1d"
+
+exclude_link_local = true
+exclude_loopback = true
+verbose = "debug"
