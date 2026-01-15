@@ -267,6 +267,17 @@ packages:
   description: |
     Install/Uninstall packages from your browser.
 
+bootloader:
+  title: Bootloader
+  prerelease: true
+  package: cockpit-bootloader
+  maintainer: suse
+  source: https://github.com/openSUSE/cockpit-bootloader
+  issues: https://github.com/openSUSE/cockpit-bootloader/issues
+  license: LGPL 2.1
+  description: |
+    Manage bootloader configurations from your browser.
+
 dockermanager:
   title: Docker Manager
   prerelease: true
