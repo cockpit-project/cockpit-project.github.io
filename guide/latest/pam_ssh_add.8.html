@@ -8,8 +8,7 @@ layout: guide
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<meta name="author" content="cockpit.js: Errors">
-<title>cockpit.js: Errors</title>
+<title>pam_ssh_add(8)</title>
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
@@ -439,98 +438,91 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>cockpit.js: Errors</h1>
-<div class="details">
-<span id="author" class="author">cockpit.js: Errors</span><br>
-</div>
+<h1>pam_ssh_add(8)</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#cockpit-problems">Problem Codes</a></li>
-<li><a href="#cockpit-messages">cockpit.message()</a></li>
+<li><a href="#_name">Name</a></li>
+<li><a href="#_description">Description</a></li>
+<li><a href="#_options">Options</a></li>
+<li><a href="#_examples">Examples</a></li>
+<li><a href="#_bugs">Bugs</a></li>
+<li><a href="#_author">Author</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_name">Name</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Problem codes and messages</p>
+<p>pam_ssh_add - PAM module to auto load ssh keys into an agent</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cockpit-problems">Problem Codes</h2>
+<h2 id="_description">Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cockpit represents problems with standardized problem string codes.</p>
+<p><strong>pam_ssh_add</strong> provides authentication and session modules that allow users
+to start their session with a running ssh-agent with as many ssh keys
+loaded as possible.</p>
 </div>
+<div class="paragraph">
+<p>If used, the authentication module simply stores the authentication
+token for later use by the session module. Because this module performs
+no actual authentication it returns PAM_CRED_INSUFFICIENT on success and
+should always be accompanied by an actual authentication module in your
+pam configuration.</p>
+</div>
+<div class="paragraph">
+<p>By default the session module will start a new ssh-agent and run
+ssh-add, loading any keys that exist in the default path for the newly
+logged in user. If any keys prompt for a password, and a authentication
+token was successfully stored, that token will be provided as the
+password.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><code>"access-denied"</code></dt>
+<dt class="hdlist1"><strong>debug</strong></dt>
 <dd>
-<p>The user is not permitted to perform the action in question.</p>
-</dd>
-<dt class="hdlist1"><code>"authentication-failed"</code></dt>
-<dd>
-<p>User authentication failed.</p>
-</dd>
-<dt class="hdlist1"><code>"internal-error"</code></dt>
-<dd>
-<p>An unexpected internal error without further info. This should not
-happen during the normal course of operations.</p>
-</dd>
-<dt class="hdlist1"><code>"no-cockpit"</code></dt>
-<dd>
-<p>The system does not have a compatible version of Cockpit installed or
-installed properly.</p>
-</dd>
-<dt class="hdlist1"><code>"no-session"</code></dt>
-<dd>
-<p>Cockpit is not logged in.</p>
-</dd>
-<dt class="hdlist1"><code>"not-found"</code></dt>
-<dd>
-<p>Something specifically requested was not found, such as a file,
-executable etc.</p>
-</dd>
-<dt class="hdlist1"><code>"terminated"</code></dt>
-<dd>
-<p>Something was terminated forcibly, such as a connection, process
-session, etc.</p>
-</dd>
-<dt class="hdlist1"><code>"timeout"</code></dt>
-<dd>
-<p>Something timed out.</p>
-</dd>
-<dt class="hdlist1"><code>"unknown-hostkey"</code></dt>
-<dd>
-<p>The remote host had an unexpected or unknown key.</p>
-</dd>
-<dt class="hdlist1"><code>"no-forwarding"</code></dt>
-<dd>
-<p>Could not forward authentication credentials to the remote host.</p>
+<p>This option will turn on debug logging to syslog.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="cockpit-messages">cockpit.message()</h2>
+<h2 id="_examples">Examples</h2>
 <div class="sectionbody">
 <div class="literalblock">
 <div class="content">
-<pre>message = cockpit.message(problem)
-message = cockpit.message(exception)</pre>
+<pre>        auth     required  pam_unix.so
+        auth     optional  pam_ssh_add.so
+        session  optional  pam_ssh_add.so</pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">Bugs</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Return a message for the <code>exception</code> or <code>problem</code> code passed as an
-argument. If the argument is an object with a <code>"message"</code> property, as
-is the case with most exceptions, that will be returned directly. If the
-argument is an object with a <code>"problem"</code> property, then it will be
-used as the problem code. An appropriate message will be returned for
-problem codes.</p>
+<p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">Author</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit has been written by many
+<a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
 </div>
