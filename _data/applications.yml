@@ -45,7 +45,7 @@ ostree:
   issues: https://github.com/cockpit-project/cockpit-ostree/issues
   license: LGPL 2.1
   description: |
-    Upgrade OSTree-based systems in your browser.
+    Upgrade OSTree-based systems.
 
 machines:
   title: Virtual Machines
@@ -55,7 +55,7 @@ machines:
   license: LGPL 2.1
   maintainer: cockpit
   description: |
-    Create, run, and manage virtual machines in your browser.
+    Create, run, and manage virtual machines.
 
 podman:
   title: Podman Containers
@@ -65,7 +65,7 @@ podman:
   license: LGPL 2.1
   maintainer: cockpit
   description: |
-    Download, use, and manage containers in your browser. (Podman replaces Docker.)
+    Download, use, and manage containers. (Podman replaces Docker.)
 
 selinux:
   title: SELinux
@@ -107,7 +107,7 @@ files:
   issues: https://github.com/cockpit-project/cockpit-files/issues
   maintainer: cockpit
   description: |
-    A featureful file browser for Cockpit.
+    A featureful file browser.
 
 389-ds:
   title: 389 Directory Server
@@ -125,7 +125,7 @@ session-recording:
   issues: https://github.com/Scribery/cockpit-session-recording/issues
   maintainer: redhat
   description: |
-    Session recording configuration and playback for Cockpit, based on [Scribery](https://scribery.github.io/), to record a user's actions for watching later.
+    Session recording configuration and playback based on [Scribery](https://scribery.github.io/), to record a user's actions for watching later.
 
 subscriptions:
   title: Subscription Manager
@@ -134,7 +134,7 @@ subscriptions:
   issues:
   maintainer: redhat
   description: |
-    Manage subscriptions to Red Hat Enterprise Linux from your web browser.
+    Manage subscriptions to Red Hat Enterprise Linux.
 
 ha-cluster:
   title: High Availability Cluster Management
@@ -142,7 +142,7 @@ ha-cluster:
   source: https://github.com/ClusterLabs/pcs-web-ui
   maintainer: redhat
   description: |
-    Cockpit application for managing Pacemaker based clusters with [PCS](https://github.com/ClusterLabs/pcs).
+    Manage Pacemaker based clusters with [PCS](https://github.com/ClusterLabs/pcs).
 
 # leapp:
 #   package: cockpit-leap
@@ -161,7 +161,7 @@ zfs:
   issues: https://github.com/45Drives/cockpit-zfs-manager/issues
   prerelease: false
   description: |
-    An interactive ZFS on Linux admin package for Cockpit.
+    Interactive ZFS on Linux administration.
 
 file-sharing:
   title: File Sharing
@@ -169,7 +169,7 @@ file-sharing:
   issues: https://github.com/45Drives/cockpit-file-sharing/issues
   prerelease: false
   description: |
-    A Cockpit plugin to easily manage Samba and NFS file sharing.
+    Easily manage Samba and NFS file sharing.
 
 navigator:
   title: Navigator
@@ -177,7 +177,7 @@ navigator:
   issues: https://github.com/45Drives/cockpit-navigator/issues
   prerelease: false
   description: |
-    A Featureful File Browser for Cockpit.
+    A featureful file browser.
 
 benchmark:
   title: Benchmark
@@ -185,7 +185,7 @@ benchmark:
   issues: https://github.com/45Drives/cockpit-benchmark/issues
   prerelease: false
   description: |
-    A Storage Benchmark Utility for Cockpit.
+    A storage benchmark utility.
 
 tukit:
   title: Software Updates (transactional-update from OpenSUSE with tukit)
@@ -195,8 +195,7 @@ tukit:
   issues: https://github.com/openSUSE/cockpit-tukit/issues
   license: LGPL 2.1
   description: |
-    Upgrade systems based on transactional-update from OpenSUSE with tukit in
-    your browser.
+    Upgrade systems based on transactional-update from OpenSUSE with tukit.
 
 sensors:
   title: Sensors
@@ -215,7 +214,7 @@ tailscale:
   issues: https://github.com/spotsnel/cockpit-tailscale/issues
   license: LGPL 2.1
   description: |
-    Cockpit application to manage Tailscale.
+    Manage Tailscale.
 
 headscale:
   title: Headscale
@@ -225,7 +224,7 @@ headscale:
   issues: https://github.com/spotsnel/cockpit-headscale/issues
   license: LGPL 2.1
   description: |
-    Cockpit application to manage Headscale coordination server.
+    Manage Headscale coordination server.
 
 cloudflared:
   title: Cloudflare tunnels
@@ -235,7 +234,7 @@ cloudflared:
   issues: https://github.com/spotsnel/cockpit-cloudflared/issues
   license: LGPL 2.1
   description: |
-    Cockpit application to show Cloudflare tunnel state.
+    Show Cloudflare tunnel state.
 
 repos:
   title: Manage Repositories
@@ -255,7 +254,7 @@ subscriptions-suse:
   issues: https://github.com/openSUSE/cockpit-subscriptions/issues
   license: LGPL 2.1
   description: |
-    Manage your SUSE Linux Enterprise subscriptions from the browser
+    Manage your SUSE Linux Enterprise subscriptions.
 
 packages:
   title: Packages
@@ -265,7 +264,7 @@ packages:
   issues: https://github.com/openSUSE/cockpit-packages/issues
   license: LGPL 2.1
   description: |
-    Install/Uninstall packages from your browser.
+    Install/Uninstall packages.
 
 bootloader:
   title: Bootloader
@@ -276,7 +275,7 @@ bootloader:
   issues: https://github.com/openSUSE/cockpit-bootloader/issues
   license: LGPL 2.1
   description: |
-    Manage bootloader configurations from your browser.
+    Manage bootloader configurations.
 
 dockermanager:
   title: Docker Manager
@@ -301,7 +300,7 @@ ros2-diagnostics:
   issues: https://github.com/clearpathrobotics/cockpit-ros2-diagnostics/issues
   license: LGPL 2.1
   description: |
-    Cockpit application to view ROS 2 diagnostics.
+    View ROS 2 diagnostics.
 
 package-manager:
   title: Package Manager
@@ -325,5 +324,5 @@ sudo-manager:
   issues: https://github.com/josephoaks/Cockpit-SUDO-Manager/issues
   license: Apache-2.0
   description: |
-    A Cockpit plugin for managing sudo policy on Linux systems in a
-    structured, auditable, and policy-driven way. Developed for SUSE Linux.
+    Manage sudo policy on Linux systems in a structured, auditable, and
+    policy-driven way. Developed for SUSE Linux.
