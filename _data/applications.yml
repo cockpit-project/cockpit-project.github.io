@@ -83,14 +83,14 @@ kdump:
   description: |
     Debugging the Linux kernel? This `kdump` add-on helps with catching stack traces.
 
-composer:
-  title: Cockpit Composer
-  package: cockpit-composer
-  source: https://github.com/osbuild/cockpit-composer/
-  issues: https://github.com/osbuild/cockpit-composer/issues
+image-builder:
+  title: Cockpit Image Builder
+  package: cockpit-image-builder
+  source: https://github.com/osbuild/image-builder-frontend
+  issues: https://github.com/osbuild/image-builder-frontend/issues
   maintainer: redhat
   description: |
-    Composer is an interface for OSBuild that generates custom images suitable for deploying systems or uploading to the cloud. Images built with Composer are for RPM-based distributions such as Fedora, Red Hat Enterprise Linux, and CentOS.
+    On-premise frontend for image building. It allows users to create, manage, and compose custom operating system images, with images stored locally.
 
 sosreport:
   title: Diagnostic Reports
