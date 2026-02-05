@@ -30,9 +30,11 @@ Cockpit encompasses different languages and is developed by multiple developers.
 
 Here is a detailed description of the [commit workflow](Workflow) (including [review criteria](/external/wiki/Workflow#review-criteria)) and as an example, [how @mvollmer merges pull requests](https://github.com/cockpit-project/cockpit/wiki/How-@mvollmer-merges-pull-requests).
 
-### Contact us!
+### Contact the developers
 
-You can contact us on [Matrix or the mailing list](https://github.com/cockpit-project/cockpit/wiki/About) or by discussing issues in their respective GitHub thread. If an issue has a developer assigned, you may wish to check with that developer to see if they are already working on the issue.
+ * Chat with us on Matrix in [#cockpit:fedoraproject.org](https://matrix.to/#/#cockpit:fedoraproject.org)
+ * Join the [cockpit-devel mailing list](https://lists.fedorahosted.org/mailman/listinfo/cockpit-devel)
+ * Join a [GitHub discussion](https://github.com/cockpit-project/cockpit/discussions) or create a new one.
 
 ### User interface & design
 Cockpit's user interface is based on [PatternFly](https://patternfly.org/). Please be aware of this, especially of the design patterns (listed on the design tab of each component) when proposing changes to the user interface. Be sure to also read the general guidelines on the PatternFly website as well.
