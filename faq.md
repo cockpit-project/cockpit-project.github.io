@@ -97,23 +97,6 @@ Newer updates of Safari no longer have this issue, but some older [devices may n
 
 ### Software update
 
-#### Error message about "OSTree"
-
-You're seeing "OSTree is not available on this system" or "Unable to communicate with OSTree" instead of a software update page.
-
-In all likelihood, this means you have `cockpit-ostree` installed on a system that does not use `rpm-ostree` to manage its packages. You should be using Cockpit's PackageKit-based software updater in `cockpit-packagekit`, not `cockpit-ostree`.
-
-##### Solution
-{:.no_toc}
-
-Remove the ostree package:
-
-```
-dnf remove cockpit-ostree
-```
-
-`cockpit-ostree` is only intended for use on distributions that use `rpm-ostree`, such as Fedora Silverblue, Fedora Kinoite, Fedora IoT, Fedora CoreOS, and a small subset of Red Hat Enterprise Linux that uses `rpm-ostree`.
-
 #### Error message about being offline
 
 The software update page shows "packagekit cannot refresh cache whilst offline" on a Debian or Ubuntu system.
