@@ -123,11 +123,10 @@ The software update page shows "packagekit cannot refresh cache whilst offline" 
 
 Create a placeholder file and network interface.
 
-1. Create `/etc/NetworkManager/conf.d/10-globally-managed-devices.conf` with the contents:
+1. Create an empty file on `/etc/NetworkManager/conf.d/10-globally-managed-devices.conf`:
 
     ```ini
-    [keyfile]
-    unmanaged-devices=none
+    sudo touch /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
     ```
 
 2. If you run on Ubuntu with arm64 (e.g.: on a Raspberry Pi), install extra Linux kernel modules for networking:
@@ -142,7 +141,11 @@ Create a placeholder file and network interface.
     nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1
     ```
 
-4. Reboot
+4. Restart NetworkManager:
+
+    ```
+    sudo systemctl restart NetworkManager
+    ```
 
 ##### Explanation
 {:.no_toc}
