@@ -139,7 +139,7 @@ Create a placeholder file and network interface.
 3. Set up a "dummy" network interface:
 
     ```
-    nmcli con add type dummy con-name fake ifname fake0 ip4 1.2.3.4/24 gw4 1.2.3.1
+    nmcli con add type dummy con-name fake ifname fake0 ip4 192.0.2.2/24 gw4 192.0.2.1
     ```
 
 4. Reboot
