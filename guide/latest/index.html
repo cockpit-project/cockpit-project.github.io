@@ -1,6 +1,3 @@
----
-layout: guide
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -592,7 +589,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="guide">Deployment Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Documentation for Cockpit 355.</p>
+<p>Documentation for Cockpit 356.</p>
 </div>
 <div class="paragraph">
 <p>Latest version <a href="https://cockpit-project.org/guide/latest">available here</a>.</p>
@@ -685,7 +682,8 @@ To change the port change the systemd <strong>cockpit.socket</strong> file.</p>
 <p>By default cockpit will not accept crossdomain websocket connections.
 Use this setting to allow access from alternate domains. Origins
 should include scheme, host and port, if necessary. Wildcards and glob
-expressions are permitted.
+expressions are permitted. IPv6 addresses must have their brackets escaped
+with backslashes (e.g. <code>\[::1\]</code>) as they are matched using <code>fnmatch()</code>.
 <br></p>
 </dd>
 </dl>
@@ -693,7 +691,7 @@ expressions are permitted.
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-ini" data-lang="ini">[WebService]
-Origins = https://somedomain1.com https://somedomain2.com:9090 https://*.somedomain3.com</code></pre>
+Origins = https://somedomain1.com https://somedomain2.com:9090 https://*.somedomain3.com https://\[::1\]:9090</code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -7883,7 +7881,7 @@ logged in user.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-01-28 11:12:25 UTC
+Last updated 2026-02-11 11:13:04 UTC
 </div>
 </div>
 </body>
