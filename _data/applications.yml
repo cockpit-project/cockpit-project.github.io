@@ -130,8 +130,8 @@ session-recording:
 subscriptions:
   title: Subscription Manager
   package: subscription-manager-cockpit
-  source: https://github.com/candlepin/subscription-manager-cockpit
-  issues:
+  source: https://github.com/cockpit-project/subscription-manager-cockpit
+  issues: https://github.com/cockpit-project/subscription-manager-cockpit/issues
   maintainer: redhat
   description: |
     Manage subscriptions to Red Hat Enterprise Linux.
