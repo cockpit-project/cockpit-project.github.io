@@ -232,7 +232,7 @@ def process_images(notes: str) -> str:
 
         if filename:
             split_notes = notes.split("\n")
-            split_notes[lineno - 1] = f"![{alt}]({{ site.baseurl }}/images/{filename})"
+            split_notes[lineno - 1] = f"![{alt}]({{{{ site.baseurl }}}}/images/{filename})"
             notes = "\n".join(split_notes)
 
     return notes
