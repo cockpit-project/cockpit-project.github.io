@@ -93,7 +93,7 @@ In the event that the Cockpit Project ever decides to expand its intended site a
 
 ### About Links to Other Sites
 
-This site contains links to other sites. the Cockpit Project does not control the information collection of sites that can be reached through links from [cockpit-project.org](/). If you have questions about the data collection procedures of linked sites, please contact these sites directly.
+This site contains links to other sites. The Cockpit Project does not control the information collection of sites that can be reached through links from [cockpit-project.org](/). If you have questions about the data collection procedures of linked sites, please contact these sites directly.
 
 ### Your Rights and Choices in the EEA
 
