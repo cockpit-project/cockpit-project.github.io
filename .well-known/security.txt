@@ -1,0 +1,3 @@
+Contact: https://access.redhat.com/security/team/contact/
+Expires: 2026-05-23T23:00:00.000Z
+# See also more specific information in each Git repo, e.g.: https://github.com/cockpit-project/cockpit/blob/main/SECURITY.md
