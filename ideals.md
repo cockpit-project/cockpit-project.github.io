@@ -60,4 +60,4 @@ In addition, the design of new features and changes in existing features are tes
 
 Cockpit can connect to other instances of itself. These might be much older, because we support many operating systems with different release cadences. To achieve that, Cockpit's Javascript API may not change in an incompatible way. External Cockpit components that use this API should continue to function despite newer versions of Cockpit being released.
 
-There is no forseen major incompatible version change for this Javascript API in Cockpit's future.
+There is no foreseen major incompatible version change for this Javascript API in Cockpit's future.
