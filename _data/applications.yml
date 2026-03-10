@@ -157,8 +157,8 @@ ha-cluster:
 zfs:
   title: ZFS Manager
   package: cockpit-zfs
-  source: https://github.com/45Drives/cockpit-zfs-manager
-  issues: https://github.com/45Drives/cockpit-zfs-manager/issues
+  source: https://github.com/45Drives/cockpit-zfs
+  issues: https://github.com/45Drives/cockpit-zfs/issues
   prerelease: false
   description: |
     Interactive ZFS on Linux administration.
