@@ -326,3 +326,12 @@ sudo-manager:
   description: |
     Manage sudo policy on Linux systems in a structured, auditable, and
     policy-driven way. Developed for SUSE Linux.
+
+pacman:
+  title: Pacman Package Manager
+  package: cockpit-pacman
+  source: https://github.com/pfeifferj/cockpit-pacman
+  issues: https://github.com/pfeifferj/cockpit-pacman/issues
+  license: GPL-3.0
+  description: |
+    Arch Linux package management using direct alpm.rs integration.
