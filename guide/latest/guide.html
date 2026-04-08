@@ -588,7 +588,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Documentation for Cockpit 359.</p>
+<p>Documentation for Cockpit 360.</p>
 </div>
 <div class="paragraph">
 <p>Latest version <a href="https://cockpit-project.org/guide/latest">available here</a>.</p>
@@ -810,6 +810,12 @@ card authentication</a> section in the Cockpit guide for details.</p>
 <dd>
 <p>The relative URL to top level component to display in Cockpit once
 logged in. Defaults to <code>/shell/index.html</code></p>
+</dd>
+<dt class="hdlist1"><strong>CustomLoginPage</strong></dt>
+<dd>
+<p>Load the login page from an alternative directory. The directory must
+contain a <code>login.html</code> and optionally a <code>po.js</code> file for translations.
+When not set, the hardcoded <code>$prefix/share/cockpit/static</code> directory is used.</p>
 </dd>
 </dl>
 </div>
@@ -2622,7 +2628,7 @@ you could add a rule like this:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-03-26 14:49:49 UTC
+Last updated 2026-04-08 14:06:48 UTC
 </div>
 </div>
 </body>
