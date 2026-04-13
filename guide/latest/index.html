@@ -589,7 +589,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="guide">Deployment Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Documentation for Cockpit 360.</p>
+<p>Documentation for Cockpit 356.1.</p>
 </div>
 <div class="paragraph">
 <p>Latest version <a href="https://cockpit-project.org/guide/latest">available here</a>.</p>
@@ -808,12 +808,6 @@ card authentication</a> section in the Cockpit guide for details.</p>
 <dd>
 <p>The relative URL to top level component to display in Cockpit once
 logged in. Defaults to <code>/shell/index.html</code></p>
-</dd>
-<dt class="hdlist1"><strong>CustomLoginPage</strong></dt>
-<dd>
-<p>Load the login page from an alternative directory. The directory must
-contain a <code>login.html</code> and optionally a <code>po.js</code> file for translations.
-When not set, the hardcoded <code>$prefix/share/cockpit/static</code> directory is used.</p>
 </dd>
 </dl>
 </div>
@@ -1841,7 +1835,7 @@ suppress undesired browser GSSAPI authentication dialogs.</p>
 </div>
 <div class="paragraph">
 <p>The web server can also be run from the
-<a href="https://quay.io/cockpit/ws">cockpit/ws</a> container. If you are
+<a href="https://hub.docker.com/r/cockpit/ws/">cockpit/ws</a> container. If you are
 running cockpit on a container host operating system like
 <a href="https://getfedora.org/coreos/">Fedora CoreOS</a> this will be the only
 supported mode. In this setup, cockpit establishes an SSH connection
@@ -3034,7 +3028,7 @@ that changes from the web interface override the pre-configured files.</p>
 <p>Each JSON file contains an object that maps machine IDs to objects that
 define the properties of that machine. The ID can be a human readable
 name or an IP address or any other unique value, and is shown in the web
-interface until connecting to it the first time, at which point the web
+interface until conneting to it the first time, at which point the web
 interface will show the machine&#8217;s host name.</p>
 </div>
 <div class="paragraph">
@@ -7887,7 +7881,7 @@ logged in user.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-04-08 14:06:48 UTC
+Last updated 2026-04-13 15:17:23 UTC
 </div>
 </div>
 </body>
