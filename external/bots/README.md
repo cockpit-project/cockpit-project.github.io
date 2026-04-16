@@ -261,6 +261,12 @@ control, when this occurs:
 2. Update `OSTREE_BUILD_IMAGE` to point to the Fedora release CoreOS
    uses.
 
+#### Debian Testing
+
+Sometimes packages are dropped out of the Debian testing repositories, when
+this happens apply a temporary hack to fetch the package from `unstable` using
+this 954f12fae1d2854e14c543e333338482a012c50d as example.
+
 ####  Pixel tests
 
 The pixel tests used in Cockpit projects use `test/reference-image` to
