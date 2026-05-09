@@ -335,3 +335,16 @@ pacman:
   license: GPL-3.0
   description: |
     Arch Linux package management using direct alpm.rs integration.
+
+download-superstation:
+  title: Download Superstation
+  package: cockpit-download-superstation
+  source: https://github.com/dl-romero/cockpit-download-superstation
+  issues: https://github.com/dl-romero/cockpit-download-superstation/issues
+  license: MIT
+  prerelease: false
+  description: |
+    Torrent management backed by libtorrent. Add torrents via .torrent file or
+    magnet link, set per-torrent and per-file download priorities, and monitor
+    speeds, peers, and trackers in real time. Includes one-click Start/Stop for
+    the Download Superstation systemd service.
