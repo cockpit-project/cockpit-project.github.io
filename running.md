@@ -243,6 +243,15 @@ sudo apt install -t ${VERSION_CODENAME}-backports cockpit
 {:.note}
 When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` as above, so backports are included.
 
+### Linux Mint
+
+```
+. /etc/os-release
+sudo apt install -t ${UBUNTU_CODENAME}-backports cockpit
+```
+
+{:.note}
+When updating Cockpit-related packages and any dependencies, make sure to use `-t ...-backports` as above, so backports are included.
 
 ### Arch Linux
 {:#archlinux}
