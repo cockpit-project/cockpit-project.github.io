@@ -348,3 +348,14 @@ download-superstation:
     magnet link, set per-torrent and per-file download priorities, and monitor
     speeds, peers, and trackers in real time. Includes one-click Start/Stop for
     the Download Superstation systemd service.
+
+nspawn:
+  title: Systemd-nspawn Containers
+  package: cockpit-nspawn
+  source: https://github.com/realmcuser/cockpit-nspawn
+  issues: https://github.com/realmcuser/cockpit-nspawn/issues
+  license: LGPL 2.1
+  description: |
+    Manage systemd-nspawn containers. Create, start, stop, and back up
+    lightweight system containers with full systemd support — directly
+    from Cockpit. No Docker required.
