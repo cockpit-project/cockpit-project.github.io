@@ -359,3 +359,14 @@ nspawn:
     Manage systemd-nspawn containers. Create, start, stop, and back up
     lightweight system containers with full systemd support — directly
     from Cockpit. No Docker required.
+
+docker-compose:
+  title: Docker Compose
+  package: cockpit-compose
+  prerelease: true
+  source: https://github.com/RXTX4816/cockpit-compose
+  issues: https://github.com/RXTX4816/cockpit-compose/issues
+  license: MIT
+  description: |
+    Dashboard to manage Docker Compose stacks with live status view.
+    See logs, edit and restore Compose yaml files and more to come.
