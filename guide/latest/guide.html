@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<title>Manual pages</title>
+<title>Deployment Guide</title>
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Uncomment the following line when using as a custom stylesheet */
@@ -433,14 +433,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body id="cockpit-manual" class="article toc2 toc-left">
+<body id="guide" class="article toc2 toc-left">
 <div id="header">
-<h1>Manual pages</h1>
+<h1>Deployment Guide</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_cockpit1">cockpit(1)</a>
+<li><a href="#cockpit-manual">Manual pages</a>
 <ul class="sectlevel2">
+<li><a href="#_cockpit1">cockpit(1)</a>
+<ul class="sectlevel3">
 <li><a href="#_name">Name</a></li>
 <li><a href="#_description">Description</a></li>
 <li><a href="#_components">Components</a></li>
@@ -450,7 +452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_cockpit_conf5">cockpit.conf(5)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_2">Name</a></li>
 <li><a href="#_description_2">Description</a></li>
 <li><a href="#_webservice">WebService</a></li>
@@ -463,7 +465,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_cockpit_ws8">cockpit-ws(8)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_3">Name</a></li>
 <li><a href="#_synopsis">Synopsis</a></li>
 <li><a href="#_description_3">Description</a></li>
@@ -477,7 +479,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_cockpit_tls8">cockpit-tls(8)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_4">Name</a></li>
 <li><a href="#_synopsis_2">Synopsis</a></li>
 <li><a href="#_description_4">Description</a></li>
@@ -490,7 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_cockpit_desktop1">cockpit-desktop(1)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_5">Name</a></li>
 <li><a href="#_synopsis_3">Synopsis</a></li>
 <li><a href="#_description_5">Description</a></li>
@@ -501,7 +503,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_cockpit_bridge1">cockpit-bridge(1)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_6">Name</a></li>
 <li><a href="#_synopsis_4">Synopsis</a></li>
 <li><a href="#_description_6">Description</a></li>
@@ -512,7 +514,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_pam_ssh_add8">pam_ssh_add(8)</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_name_7">Name</a></li>
 <li><a href="#_description_7">Description</a></li>
 <li><a href="#_options_4">Options</a></li>
@@ -522,20 +524,90 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 </ul>
+</li>
+<li><a href="#https">SSL/TLS Usage</a>
+<ul class="sectlevel2">
+<li><a href="#https-required">HTTPS Requirement</a></li>
+<li><a href="#https-certificates">Certificates</a></li>
+</ul>
+</li>
+<li><a href="#listen">TCP Port and Address</a>
+<ul class="sectlevel2">
+<li><a href="#listen-systemd">Cockpit systemd Socket</a></li>
+<li><a href="#listen-selinux">SELinux Port</a></li>
+<li><a href="#listen-firewalld">Firewalld Port</a></li>
+</ul>
+</li>
+<li><a href="#startup">Start up</a>
+<ul class="sectlevel2">
+<li><a href="#startup-shutdown">Process exit</a></li>
+<li><a href="#startup-boot">Boot start up</a></li>
+</ul>
+</li>
+<li><a href="#multi-host">Managing multiple hosts at the same time</a></li>
+<li><a href="#authentication">Cockpit Authentication</a>
+<ul class="sectlevel2">
+<li><a href="#initial-auth">Directly logging into the primary server</a></li>
+<li><a href="#direct-secondary-auth">Directly logging into a secondary server without a primary session</a></li>
+<li><a href="#secondary-auth">Logging into a secondary server from the primary session</a>
+<ul class="sectlevel3">
+<li><a href="#_password">Password</a></li>
+<li><a href="#_kerberos">Kerberos</a></li>
+<li><a href="#_public_key">Public key</a></li>
+<li><a href="#host-keys">SSH host keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sso">Single Sign On</a>
+<ul class="sectlevel2">
+<li><a href="#sso-server">Server Requirements</a></li>
+<li><a href="#sso-client">Client Requirements</a></li>
+</ul>
+</li>
+<li><a href="#cert-authentication">Certificate/smart card authentication</a>
+<ul class="sectlevel2">
+<li><a href="#certauth-server-cert-generation">User certificate generation</a></li>
+<li><a href="#certauth-server-ipa">Certificate mapping with FreeIPA</a></li>
+<li><a href="#certauth-server-ms-ad">Certificate mapping with Microsoft Active Directory</a></li>
+<li><a href="#certauth-server-samba-ad">Certificate mapping with Samba Active Directory</a></li>
+<li><a href="#certauth-server-cockpitconf">Cockpit web server configuration</a></li>
+<li><a href="#certauth-server-resourcelimits">Cockpit web server resource limits</a></li>
+<li><a href="#certauth-forwarding">Authentication to other services like sudo and ssh</a></li>
+</ul>
+</li>
+<li><a href="#privileges">Privileges and Permissions</a>
+<ul class="sectlevel2">
+<li><a href="#privileges-polkit">Customizing Polkit Privileges</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Documentation for Cockpit 356.2.</p>
+</div>
+<div class="paragraph">
+<p>Latest version <a href="https://cockpit-project.org/guide/latest">available here</a>.</p>
+</div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_cockpit1">cockpit(1)</h2>
+<h2 id="cockpit-manual">Manual pages</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_name">Name</h3>
+<h3 id="_cockpit1">cockpit(1)</h3>
+<div class="sect3">
+<h4 id="_name">Name</h4>
 <div class="paragraph">
 <p>cockpit - Cockpit</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description">Description</h3>
+<div class="sect3">
+<h4 id="_description">Description</h4>
 <div class="paragraph">
 <p>Cockpit is a web accessible interactive admin interface for Linux
 machines. Cockpit can usually be accessed on port <code>9090</code> of the
@@ -543,8 +615,8 @@ machine it&#8217;s installed on. Cockpit starts on demand. Use your system
 credentials to log in.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_components">Components</h3>
+<div class="sect3">
+<h4 id="_components">Components</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-ws</strong> web service listens on port <code>9090</code> and is started
 on demand by <strong>systemd</strong>. The Cockpit web service authenticates the
@@ -557,38 +629,36 @@ to the system APIs. It does this over its standard in and standard out.
 The bridge is started like a shell once per Linux user session.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author">Author</h3>
+<div class="sect3">
+<h4 id="_author">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also">See also</h3>
+<div class="sect3">
+<h4 id="_see_also">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-tls(8)</strong> , <strong>cockpit.bridge(1)</strong> , <strong>systemd(1)</strong>, <strong><a href="https://cockpit-project.org/guide/latest">Cockpit guide</a></strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cockpit_conf5">cockpit.conf(5)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_2">Name</h3>
+<h3 id="_cockpit_conf5">cockpit.conf(5)</h3>
+<div class="sect3">
+<h4 id="_name_2">Name</h4>
 <div class="paragraph">
 <p>cockpit.conf - Cockpit configuration file</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_2">Description</h3>
+<div class="sect3">
+<h4 id="_description_2">Description</h4>
 <div class="paragraph">
 <p>Cockpit can be configured via /etc/cockpit/cockpit.conf. If
 <strong>$XDG_CONFIG_DIRS</strong> is set, then the first path containing a
@@ -605,8 +675,8 @@ topical groups. See the examples below for details.</p>
 To change the port change the systemd <strong>cockpit.socket</strong> file.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_webservice">WebService</h3>
+<div class="sect3">
+<h4 id="_webservice">WebService</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Origins</strong></dt>
@@ -744,8 +814,8 @@ logged in. Defaults to <code>/shell/index.html</code></p>
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_log">Log</h3>
+<div class="sect3">
+<h4 id="_log">Log</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Fatal</strong></dt>
@@ -757,8 +827,8 @@ multiple values with spaces. Relevant values are: <strong>criticals</strong> and
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_oauth">OAuth</h3>
+<div class="sect3">
+<h4 id="_oauth">OAuth</h4>
 <div class="paragraph">
 <p>Cockpit can be configured to support the
 <a href="https://tools.ietf.org/html/rfc6749#section-4.2">implicit grant</a> OAuth
@@ -793,8 +863,8 @@ the access token. When not provided it will default to
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_session">Session</h3>
+<div class="sect3">
+<h4 id="_session">Session</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Banner</strong></dt>
@@ -842,45 +912,43 @@ WarnBeforeConnecting=false</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_2">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_2">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_2">Author</h3>
+<div class="sect3">
+<h4 id="_author_2">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also_2">See also</h3>
+<div class="sect3">
+<h4 id="_see_also_2">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws(8)</strong>, <strong>cockpit-tls(8)</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cockpit_ws8">cockpit-ws(8)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_3">Name</h3>
+<h3 id="_cockpit_ws8">cockpit-ws(8)</h3>
+<div class="sect3">
+<h4 id="_name_3">Name</h4>
 <div class="paragraph">
 <p>cockpit-ws - Cockpit web service</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_synopsis">Synopsis</h3>
+<div class="sect3">
+<h4 id="_synopsis">Synopsis</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws</strong> [<strong>--help</strong>] [<strong>--port</strong> <em>PORT</em>] [<strong>--address</strong> <em>ADDRESS</em>] [<strong>--no-tls</strong>]
 			 [<strong>--for-tls-proxy</strong>] [<strong>--local-ssh</strong>] [<strong>--local-session</strong> <em>BRIDGE</em>]</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_3">Description</h3>
+<div class="sect3">
+<h4 id="_description_3">Description</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-ws</strong> program is the web service component used for
 communication between the browser application and various configuration
@@ -892,8 +960,8 @@ automatically started by <strong>systemd(1)</strong> on bootup, through
 <strong>cockpit-tls(8)</strong>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_transport_security">Transport security</h3>
+<div class="sect3">
+<h4 id="_transport_security">Transport security</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws</strong> is normally run behind the <strong>cockpit-tls</strong> TLS
 terminating proxy, and only deals with unencrypted HTTP by itself. But
@@ -902,15 +970,15 @@ when being run directly. For details how to configure certificates,
 please refer to the <strong>cockpit-tls(8)</strong> documentation.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_timeout">Timeout</h3>
+<div class="sect3">
+<h4 id="_timeout">Timeout</h4>
 <div class="paragraph">
 <p>When started via <strong>systemd(1)</strong> then <strong>cockpit-ws</strong> will exit after 90
 seconds if nobody logs in, or after the last user is disconnected.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_options">Options</h3>
+<div class="sect3">
+<h4 id="_options">Options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>--help</strong></dt>
@@ -984,8 +1052,8 @@ can access the session!</p>
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_environment">Environment</h3>
+<div class="sect3">
+<h4 id="_environment">Environment</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-ws</strong> process will use the <strong>XDG_CONFIG_DIRS</strong> environment
 variable from the
@@ -999,44 +1067,42 @@ basedir spec</a> can be used to override the location to serve static files
 from. These are the files that are served to a non-logged in user.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_3">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_3">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_3">Author</h3>
+<div class="sect3">
+<h4 id="_author_3">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also_3">See also</h3>
+<div class="sect3">
+<h4 id="_see_also_3">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-tls(8)</strong> , <strong>cockpit.conf(5)</strong> , <strong>systemd(1)</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cockpit_tls8">cockpit-tls(8)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_4">Name</h3>
+<h3 id="_cockpit_tls8">cockpit-tls(8)</h3>
+<div class="sect3">
+<h4 id="_name_4">Name</h4>
 <div class="paragraph">
 <p>cockpit-tls - TLS proxy for Cockpit web service</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_synopsis_2">Synopsis</h3>
+<div class="sect3">
+<h4 id="_synopsis_2">Synopsis</h4>
 <div class="paragraph">
 <p><strong>cockpit-tls</strong> [<strong>--help</strong>] [<strong>--port</strong> <em>PORT</em>] [<strong>--no-tls</strong>] [<strong>--idle-timeout</strong> <em>SECONDS</em>]</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_4">Description</h3>
+<div class="sect3">
+<h4 id="_description_4">Description</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-tls</strong> program is a TLS terminating HTTP proxy for
 <strong>cockpit-ws(8)</strong>. It manages a set of isolated cockpit-ws instances,
@@ -1050,8 +1116,8 @@ exploits.</p>
 automatically started by <strong>systemd(1)</strong> via socket activation.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_transport_security_2">Transport security</h3>
+<div class="sect3">
+<h4 id="_transport_security_2">Transport security</h4>
 <div class="paragraph">
 <p>To specify the TLS certificate the web service should use, simply drop a
 file with the extension <strong>.cert</strong> in the <strong>/etc/cockpit/ws-certs.d</strong>
@@ -1106,8 +1172,8 @@ getcert request -f ${CERT_FILE} -k ${KEY_FILE} -D $(hostname --fqdn)</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_options_2">Options</h3>
+<div class="sect3">
+<h4 id="_options_2">Options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>--help</strong></dt>
@@ -1138,8 +1204,8 @@ is 90.</p>
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_environment_2">Environment</h3>
+<div class="sect3">
+<h4 id="_environment_2">Environment</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-tls</strong> program expects the <strong>RUNTIME_DIRECTORY</strong>
 environment variable to be set to an empty directory (preferably in
@@ -1157,44 +1223,42 @@ basedir spec</a> to find its certificates and the <strong>cockpit.conf(5)</stron
 configuration file.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_4">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_4">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_4">Author</h3>
+<div class="sect3">
+<h4 id="_author_4">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also_4">See also</h3>
+<div class="sect3">
+<h4 id="_see_also_4">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws(8)</strong> , <strong>cockpit.conf(5)</strong> , <strong>systemd(1)</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cockpit_desktop1">cockpit-desktop(1)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_5">Name</h3>
+<h3 id="_cockpit_desktop1">cockpit-desktop(1)</h3>
+<div class="sect3">
+<h4 id="_name_5">Name</h4>
 <div class="paragraph">
 <p>cockpit-desktop - Cockpit Desktop integration</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_synopsis_3">Synopsis</h3>
+<div class="sect3">
+<h4 id="_synopsis_3">Synopsis</h4>
 <div class="paragraph">
 <p><strong>cockpit-desktop</strong> <em>URLPATH</em> [<em>SSH_HOST</em>]</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_5">Description</h3>
+<div class="sect3">
+<h4 id="_description_5">Description</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-desktop</strong> program provides secure access to Cockpit pages
 in an already running desktop session. It starts a web server
@@ -1223,8 +1287,8 @@ browser will show that remote host. Note that this is more of an
 experimental/demo feature.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_environment_3">Environment</h3>
+<div class="sect3">
+<h4 id="_environment_3">Environment</h4>
 <div class="paragraph">
 <p>The <strong>BROWSER</strong> environment variable specifies the browser command (and
 possibly options) that will be used to open the requested Cockpit page.
@@ -1233,44 +1297,42 @@ WebKit browser, and failing that, will attempt to detect some reasonable
 alternatives.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_5">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_5">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_5">Author</h3>
+<div class="sect3">
+<h4 id="_author_5">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also_5">See also</h3>
+<div class="sect3">
+<h4 id="_see_also_5">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws(8)</strong>, <strong>cockpit-bridge(1)</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cockpit_bridge1">cockpit-bridge(1)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_6">Name</h3>
+<h3 id="_cockpit_bridge1">cockpit-bridge(1)</h3>
+<div class="sect3">
+<h4 id="_name_6">Name</h4>
 <div class="paragraph">
 <p>cockpit-bridge - Cockpit Host Bridge</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_synopsis_4">Synopsis</h3>
+<div class="sect3">
+<h4 id="_synopsis_4">Synopsis</h4>
 <div class="paragraph">
 <p><strong>cockpit-bridge</strong> [<strong>--help</strong>] [<strong>--packages</strong>]</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_6">Description</h3>
+<div class="sect3">
+<h4 id="_description_6">Description</h4>
 <div class="paragraph">
 <p>The <strong>cockpit-bridge</strong> program is used by Cockpit to relay messages and
 commands from the Web front end to the server. Among other things it
@@ -1283,8 +1345,8 @@ However there are some diagnostics available when running from the
 command line.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_options_3">Options</h3>
+<div class="sect3">
+<h4 id="_options_3">Options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>--help</strong></dt>
@@ -1309,38 +1371,36 @@ packages available to the user running this command.</p>
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_6">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_6">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_6">Author</h3>
+<div class="sect3">
+<h4 id="_author_6">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_see_also_6">See also</h3>
+<div class="sect3">
+<h4 id="_see_also_6">See also</h4>
 <div class="paragraph">
 <p><strong>cockpit-ws(8)</strong></p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_pam_ssh_add8">pam_ssh_add(8)</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_name_7">Name</h3>
+<h3 id="_pam_ssh_add8">pam_ssh_add(8)</h3>
+<div class="sect3">
+<h4 id="_name_7">Name</h4>
 <div class="paragraph">
 <p>pam_ssh_add - PAM module to auto load ssh keys into an agent</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_description_7">Description</h3>
+<div class="sect3">
+<h4 id="_description_7">Description</h4>
 <div class="paragraph">
 <p><strong>pam_ssh_add</strong> provides authentication and session modules that allow users
 to start their session with a running ssh-agent with as many ssh keys
@@ -1361,8 +1421,8 @@ token was successfully stored, that token will be provided as the
 password.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_options_4">Options</h3>
+<div class="sect3">
+<h4 id="_options_4">Options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>debug</strong></dt>
@@ -1372,8 +1432,8 @@ password.</p>
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_examples">Examples</h3>
+<div class="sect3">
+<h4 id="_examples">Examples</h4>
 <div class="literalblock">
 <div class="content">
 <pre>        auth     required  pam_unix.so
@@ -1382,17 +1442,1179 @@ password.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_bugs_7">Bugs</h3>
+<div class="sect3">
+<h4 id="_bugs_7">Bugs</h4>
 <div class="paragraph">
 <p>Please send bug reports to either the distribution bug tracker or the <a href="https://github.com/cockpit-project/cockpit/issues/new">upstream bug tracker</a>.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_author_7">Author</h3>
+<div class="sect3">
+<h4 id="_author_7">Author</h4>
 <div class="paragraph">
 <p>Cockpit has been written by many
 <a href="https://github.com/cockpit-project/cockpit">contributors</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="https">SSL/TLS Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit usually requires that web browsers communicate with it using
+HTTPS, for security reasons.</p>
+</div>
+<div class="sect2">
+<h3 id="https-required">HTTPS Requirement</h3>
+<div class="paragraph">
+<p>Cockpit listens for both HTTP and HTTPS connections on the same port, by
+default 9090. If an HTTP connection is made, Cockpit will redirect that
+connection to HTTPS. There are some exceptions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If an HTTP connection comes from <code>localhost</code> (<code>127.0.0.1</code> or
+<code>::1</code>, then Cockpit will allow communication without redirecting to
+HTTPS.</p>
+</li>
+<li>
+<p>Certain URLs, like <code>/ping</code> are not required to use HTTPS.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This behavior can be overridden by setting the <code>AllowUnencrypted</code>
+option in <code>cockpit.conf</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="https-certificates">Certificates</h3>
+<div class="paragraph">
+<p>Cockpit will load a certificate from the <code>/etc/cockpit/ws-certs.d</code>,
+directory, or below <code>$XDG_CONFIG_DIRS</code> if set (see
+<a href="./cockpit.conf.5.html">cockpit.conf</a>). It will use the last file
+with a <code>.cert</code> or <code>.crt</code> extension in alphabetical order. The file
+should contain one or more OpenSSL style <code>BEGIN CERTIFICATE</code> blocks
+for the server certificate and the intermediate certificate authorities.</p>
+</div>
+<div class="paragraph">
+<p>The private key must be contained in a separate file with the same name
+as the certificate, but with a <code>.key</code> suffix instead. The key must not
+be encrypted.</p>
+</div>
+<div class="paragraph">
+<p>If no certificate is found, a self-signed certificate is created and
+stored in the <code>0-self-signed.cert</code> file. On some platforms, Cockpit
+will also generate a ca.crt in that directory, which may be safely
+imported into client browsers.</p>
+</div>
+<div class="paragraph">
+<p>Cockpit will read the files as root, so they can have tight permissions.</p>
+</div>
+<div class="paragraph">
+<p>To check which certificate <code>cockpit-ws</code> will use run the following
+command.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo /usr/libexec/cockpit-certificate-ensure --check</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, on Debian-based systems:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo /usr/lib/cockpit/cockpit-certificate-ensure --check</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If using <code>certmonger</code> to manage certificates, following command can be
+used to automatically prepare a certificate/key file pair:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>getcert request -f /etc/cockpit/ws-certs.d/50-certmonger.cert \
+                -k /etc/cockpit/ws-certs.d/50-certmonger.key \
+                -D myhostname.example.com \
+                [--ca=...]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will not work on Red Hat Enterprise Linux 8 by default. Adjust the
+SELinux type of the certificate directory to <code>cert_t</code> to allow
+certmonger to write its certificates there:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>semanage fcontext -a -t cert_t '/etc/cockpit/ws-certs\.d(/.*)?'
+restorecon -v /etc/cockpit/ws-certs.d</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="listen">TCP Port and Address</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit&#8217;s <code>cockpit-ws</code> component is configured by default to accept
+connections on port <code>9090</code>. This is the port that is documented for a
+"Web-based System Manager" to listen on. It is also relatively
+memorable.</p>
+</div>
+<div class="paragraph">
+<p>However there are many reasons you may wish to change the default port.
+For example other software may use port <code>9090</code> or you may wish to
+setup Cockpit to listen on <code>443</code> instead. It is also possible to have
+Cockpit only listen on one specific IP address.</p>
+</div>
+<div class="paragraph">
+<p>Note that it is only required to have Cockpit listening on a TCP port on
+the server that you access with your web browser. If you add multiple
+servers with host switcher, Cockpit will connect to those servers via
+<code>ssh</code>.</p>
+</div>
+<div class="paragraph">
+<p>The systems that Cockpit runs on are typically locked down with
+firewalls, SELinux, so changing the default port is not as easy as
+editing a configuration file.</p>
+</div>
+<div class="sect2">
+<h3 id="listen-systemd">Cockpit systemd Socket</h3>
+<div class="paragraph">
+<p>On servers with
+<a href="https://www.freedesktop.org/wiki/Software/systemd/"><code>systemd</code></a> Cockpit
+starts on demand via socket activation. To change its port and/or
+address you should place the following content in the
+<code>/etc/systemd/system/cockpit.socket.d/listen.conf</code> file. Create the
+file and directories in that path which not already exist. The
+<code>ListenStream</code> option specifies the desired address and TCP port.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[Socket]
+ListenStream=
+ListenStream=443</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[Socket]
+ListenStream=
+ListenStream=7777
+ListenStream=192.168.1.1:443
+FreeBind=yes</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The first line with an empty value is intentional. <code>systemd</code>
+allows multiple <code>Listen</code> directives to be declared in a single socket
+unit; an empty value in a drop-in file resets the list and thus disables
+the default port 9090 from the original unit.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>FreeBind</code> option is highly recommended when defining specific IP
+addresses. See the
+<a href="https://www.freedesktop.org/software/systemd/man/systemd.socket.html"><code>systemd.socket</code>
+manpage</a> for details.</p>
+</div>
+<div class="paragraph">
+<p>In order for the changes to take effect, run the following commands:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo systemctl daemon-reload
+$ sudo systemctl restart cockpit.socket</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listen-selinux">SELinux Port</h3>
+<div class="paragraph">
+<p>If <a href="https://selinuxproject.org/page/Main_Page">SELinux</a> is protecting your
+server, then you will need to tell it to allow Cockpit to listen on the
+new port. Run the following command to do so. The last argument
+specifies the desired TCP port.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo semanage port -a -t websm_port_t -p tcp 9999</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the port is already defined by some other part of the SELinux policy,
+then you will need to use the <code>-m</code> argument to modify the definition.
+That&#8217;s the case with the <code>443</code> SSL port, which is typically defined as
+an <code>http_port_t</code> port.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo semanage port -m -t websm_port_t -p tcp 443</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The changes should take effect immediately.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listen-firewalld">Firewalld Port</h3>
+<div class="paragraph">
+<p>If <a href="https://fedoraproject.org/wiki/FirewallD">Firewalld</a> is configured as
+your firewall, then you will need to tell it to allow Cockpit to receive
+connections on the new port. Run the following commands to do so. The
+last options specify the desired TCP port.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo firewall-cmd [--zone=ZONE] --add-port=443/tcp
+$ sudo firewall-cmd --permanent [--zone=ZONE] --add-port=443/tcp</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="startup">Start up</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit&#8217;s <code>cockpit-ws</code> component is what the browser connects to and
+it typically starts on demand via
+<a href="https://www.freedesktop.org/wiki/Software/systemd/"><code>systemd</code></a> socket
+activation.</p>
+</div>
+<div class="paragraph">
+<p>The actual <code>cockpit.service</code> and <code>cockpit-ws</code> process will start on
+demand when a browser accesses the <code>cockpit.socket</code>,
+<a href="#listen">usually on port 9090</a>. Once a user logs in then a
+<code>cockpit-bridge</code> process will be started in a Linux user login
+session.</p>
+</div>
+<div class="paragraph">
+<p>Only systems that you connect to with your browser need to have the
+<code>cockpit.socket</code> enabled. For systems that you add through host
+switcher the bridge is started via SSH on demand.</p>
+</div>
+<div class="sect2">
+<h3 id="startup-shutdown">Process exit</h3>
+<div class="paragraph">
+<p>The <code>cockpit-bridge</code> process will exit when the user logs out. In
+addition, after 10 minutes of inactivity, the <code>cockpit-ws</code> process
+will exit on its own. The browser will automatically disconnect if it
+fails to hear from the <code>cockpit-ws</code> process for 30 seconds.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="startup-boot">Boot start up</h3>
+<div class="paragraph">
+<p>To make Cockpit available by default after system boot the
+<code>cockpit.socket</code> needs to be enabled:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo systemctl enable cockpit.socket</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you wish to not have Cockpit available by default via a browser, then
+the <code>cockpit.socket</code> should be disabled:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo systemctl disable cockpit.socket</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="multi-host">Managing multiple hosts at the same time</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This feature is deprecated as of Cockpit 322.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cockpit allows you to access multiple hosts in a single session, by
+establishing SSH connections to other hosts. This is quite similar to
+logging into these other hosts using the <code>ssh</code> command on the command
+line, with one very important difference:</p>
+</div>
+<div class="paragraph">
+<p>Code from the local host and all the remote hosts run at the same time,
+in the same browser context. They are not isolated from each other in
+the browser. All code effectively has the same privileges as the primary
+session on the local host.</p>
+</div>
+<div class="paragraph">
+<p>Thus, <em>you should only only connect to remote hosts that you trust</em>. You
+must be sure that none of the hosts that you connect to will cause
+Cockpit to load malicious JavaScript code into your browser.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, Cockpit will warn you before connecting to more than one
+host. It is also possible to disable multiple hosts entirely, and some
+operating systems do this already by default.</p>
+</div>
+<div class="paragraph">
+<p>You can prevent loading of JavaScript, HTML, etc from more than one host
+by adding this to <code>cockpit.conf</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    [WebService]
+    AllowMultiHost=false</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you allow multiple hosts in a single Cockpit session by setting
+<code>AllowMultiHost</code> to true, then the user will be warned once per
+session, before connecting to the second host. If that is still too
+much, you can switch the warning off completely by adding the following
+to <code>cockpit.conf</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>    [Session]
+    WarnBeforeConnecting=false</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="authentication">Cockpit Authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While cockpit allows you to monitor and administer several servers at
+the same time, there is always a primary server your browser connects to
+that runs the Cockpit web service (cockpit-ws) through which connections
+to additional servers are established. See
+<a href="https://raw.githubusercontent.com/cockpit-project/cockpit/main/doc/cockpit-transport.png">this
+diagram</a> for how it works.</p>
+</div>
+<div class="paragraph">
+<p>Normally, a session is established on the primary server, and you use
+the Shell UI of that session to connect to secondary servers.</p>
+</div>
+<div class="paragraph">
+<p>However, it is also possible to instruct the <code>cockpit-ws</code> process on
+the primary server to directly connect to a secondary server, without
+opening a session on the primary server at all. This is done on the main
+login page of Cockpit, by filling out the "Connect to" field.</p>
+</div>
+<div class="sect2">
+<h3 id="initial-auth">Directly logging into the primary server</h3>
+<div class="paragraph">
+<p>The most common way to use Cockpit is to just log directly into the
+server that you want to access. This can be done if you have direct
+network access to port 9090 on that server.</p>
+</div>
+<div class="paragraph">
+<p>By default the cockpit web service is installed on the base system and
+<a href="#listen">socket activated by systemd</a>. In this setup access is
+controlled by a cockpit specific pam stack, generally located at
+<code>/etc/pam.d/cockpit</code>. By default this is configured to allow you to
+login with the username and password of any local account on the system.
+You can also setup a <a href="#sso">Kerberos based SSO solution</a> or
+<a href="#cert-authentication">certificate/smart card authentication</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also
+<a href="https://github.com/cockpit-project/cockpit/blob/main/doc/authentication.md#actions">disable
+authentication schemes</a> to enforce authentication policies, or to
+suppress undesired browser GSSAPI authentication dialogs.</p>
+</div>
+<div class="paragraph">
+<p>The web server can also be run from the
+<a href="https://hub.docker.com/r/cockpit/ws/">cockpit/ws</a> container. If you are
+running cockpit on a container host operating system like
+<a href="https://getfedora.org/coreos/">Fedora CoreOS</a> this will be the only
+supported mode. In this setup, cockpit establishes an SSH connection
+from the container to the underlying host, meaning that it is up to your
+SSH server to grant access. To login with a local account, <code>sshd</code> will
+need to be configured to allow password based authentication.
+Alternatively you can setup a <a href="#sso">Kerberos based SSO solution</a>.</p>
+</div>
+<div class="paragraph">
+<p>Like <code>sshd</code>, cockpit can be configured to limit the number of
+concurrent login attempts allowed. This is done by adding a
+<code>MaxStartups</code> option to the <code>WebService</code> section of your
+<code>cockpit.conf</code>. Additional connections will be dropped until
+authentication succeeds or the connections are closed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="direct-secondary-auth">Directly logging into a secondary server without a primary session</h3>
+<div class="paragraph">
+<p>It is also possible to log into a secondary server without opening a
+session on the primary server. This is useful if you are not actually
+interested in the primary server and would only use it because you do
+not have direct network access to the secondary server.</p>
+</div>
+<div class="paragraph">
+<p>In this case, <code>cockpit-ws</code> still runs on the primary server, but the
+credentials from the login screen are directly used with SSH to log into
+the secondary server given in the "Connect To" field of the login
+screen.</p>
+</div>
+<div class="paragraph">
+<p>Thus, the PAM configuration and accounts on the primary server don&#8217;t
+matter at all. Often, the only purpose of the primary server is to sit
+on the boundary of your network and forward connections to internal
+machines.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the login page will prompt you to verify unknown SSH keys.
+Accepted keys will be remembered in the local storage of your browser.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="secondary-auth">Logging into a secondary server from the primary session</h3>
+<div class="paragraph">
+<p>Once you have a session on the primary server, it is possible connect to
+additional servers by using the host switching UI of the Cockpit Shell.
+This is useful if you have direct network access to the primary server,
+but not to the secondary server.</p>
+</div>
+<div class="paragraph">
+<p>On the command line, you would log into the primary server and then use
+SSH to log into the secondary one. Cockpit does just the same, and uses
+SSH to log into the secondary server. Instead of running a interactive
+shell there, however, it starts a <code>cockpit-bridge</code> process.</p>
+</div>
+<div class="paragraph">
+<p><em>Warning:</em> Unlike with SSH on the command line though, this will also
+load and use the Cockpit pages (i.e. JavaScript) from the remote
+machine, which means that the remote machine can execute arbitrary code
+on your primary and all other connected secondary machines. Hence, only
+connect to <em>machines which you trust</em>.</p>
+</div>
+<div class="paragraph">
+<p>Due to this security risk, this host switcher functionality is disabled
+by default, except on long-term stable Linux distributions (Red Hat
+Enterprise Linux 9, Debian 12, and Ubuntu 22.04/24.04 LTS). If you are
+comfortable with the security implications, you can enable it manually
+with the <code>AllowMultiHost</code> option in <code>cockpit.conf</code>.</p>
+</div>
+<div class="paragraph">
+<p>These servers will need to be running an SSH server and be configured to
+support one of the following authentication methods.</p>
+</div>
+<div class="sect3">
+<h4 id="_password">Password</h4>
+<div class="paragraph">
+<p>The target server will need to have password based authentication
+enabled in <code>sshd</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kerberos">Kerberos</h4>
+<div class="paragraph">
+<p>The target server will need to be a member of the same domain as the
+primary server and your domain must be whitelisted in your browser. See
+the <a href="#sso">SSO documentation</a> for how to set this up.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_public_key">Public key</h4>
+<div class="paragraph">
+<p>When you successfully log into the primary server, a <code>ssh-agent</code> is
+started and keys are loaded into it by running <code>ssh-add</code> without any
+arguments. Any passphrase prompt is answered with the password used to
+log into the primary server.</p>
+</div>
+<div class="paragraph">
+<p>Cockpit provides a user interface for loading other keys into the agent
+that could not be automatically loaded.</p>
+</div>
+<div class="paragraph">
+<p>The target server will need to have public key authentication enabled in
+<code>sshd</code>, and the public key you wish to use must be present in
+<code>~/.ssh/authorized_keys</code>. Cockpit has a user interface for creating
+SSH keys and for authorizing them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="host-keys">SSH host keys</h4>
+<div class="paragraph">
+<p>Cockpit will prompt the user to verify unknown SSH host keys, and will
+write accepted host keys into <code>~/.ssh/known_hosts</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sso">Single Sign On</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit can use Kerberos for Single Sign On authentication, where users
+are automatically authenticated if they have a valid Kerberos ticket.</p>
+</div>
+<div class="sect2">
+<h3 id="sso-server">Server Requirements</h3>
+<div class="paragraph">
+<p>To authenticate users, the server that Cockpit is running on must be
+joined to a domain. This can usually be accomplished using the
+<a href="https://freedesktop.org/software/realmd/docs/realm.html"><code>realm join example.com</code></a>
+command.</p>
+</div>
+<div class="paragraph">
+<p>The domain must be resolvable by DNS. For instance, the SRV records of
+the kerberos server should be resolvable:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ host -t SRV  _kerberos._udp.example.com
+_kerberos._udp.example.com has SRV record 0 100 88 dc.example.com</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The server running Cockpit should have a fully qualified name that ends
+with the domain name.</p>
+</div>
+<div class="paragraph">
+<p>There must be a valid Kerberos host key for the server in the
+<code>/etc/krb5.keytab</code> file. Alternatively, if you would like to use a
+different keytab, you can do so by placing it in
+<code>/etc/cockpit/krb5.keytab</code>, or below <code>$XDG_CONFIG_DIRS</code> if set (see
+<a href="./cockpit.conf.5.html">cockpit.conf</a>). It may be necessary to create
+a kerberos service principal and update the keytab if it is not present.
+Depending on your domain type different service names are required:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Active Directory</dt>
+<dd>
+<p><code>HOST/server.example.com@EXAMPLE.COM</code></p>
+</dd>
+<dt class="hdlist1">IPA and MIT</dt>
+<dd>
+<p><code>HTTP/server.example.com@EXAMPLE.COM</code></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>When joining an IPA domain with Cockpit and the <code>ipa</code> command line
+tool is available, both the service principal name and a
+<code>/etc/cockpit/krb5.keytab</code> get created automatically, so that Kerberos
+based single sign on into Cockpit works out of the box. If you want/need
+to do this by hand or in a script, first create or modify the <code>HTTP/</code>
+service principal:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo ipa service-add --ok-as-delegate=true --ok-to-auth-as-delegate=true \
+    HTTP/server.example.com@EXAMPLE.COM
+# or, if it already exists, just enable delegation:
+$ sudo ipa service-mod --ok-as-delegate=true --ok-to-auth-as-delegate=true \
+    HTTP/server.example.com@EXAMPLE.COM</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then generate a key for that principal:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo ipa-getkeytab -p HTTP/server.example.com@EXAMPLE.COM -k /etc/cockpit/krb5.keytab</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following command can be used to list the
+<code>/etc/cockpit/krb5.keytab</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo klist -k /etc/cockpit/krb5.keytab</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lastly accounts from the domain must be resolvable to unix accounts on
+the server running Cockpit. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ getent passwd user@example.com
+user@example.com:*:381001109:381000513:User Name:/home/user:/bin/sh</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you wish to delegate your kerberos credentials to Cockpit, and allow
+Cockpit to then connect to other machines using those credentials, you
+should enable delegation for the hosts running Cockpit, and in some
+cases the <code>HTTP</code> service as well. When joining an IPA domain, this is
+enabled by default.</p>
+</div>
+<div class="paragraph">
+<p>Domain admins (usually the <code>admins@example.com</code> group) should normally
+also be able to administer any joined machine. Enable sudo access for
+that group with the following command on the IPA server, for version
+4.7.1 and later:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ipa-advise enable-admins-sudo | sh -ex</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On earlier FreeIPA versions, run these commands instead, as a domain
+admin on any joined machine:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ipa sudorule-add --hostcat=all --cmdcat=all All
+ipa sudorule-add-user --groups=admins All</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that this does not change security properties; domain admins can
+give this privilege to themselves, so it is safe to enable by default.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sso-client">Client Requirements</h3>
+<div class="paragraph">
+<p>The client side, where your web browser is running, should have a valid
+kerberos ticket in the current user session. A command like this will
+get one:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kinit user@EXAMPLE.COM
+Password for user@EXAMPLE.COM:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition your browser must be usually be configured to allow kerberos
+authentication for the domain.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Mozilla Firefox</dt>
+<dd>
+<p>Go to <code>about:config</code> and set the
+<code>network.negotiate-auth.trusted-uris</code> setting to your domain name
+preceded by a dot, ie: <code>.example.com</code></p>
+</dd>
+<dt class="hdlist1">Google Chrome</dt>
+<dd>
+<p>On Linux: create the file
+<code>/etc/opt/chrome/policies/managed/example-com.json</code> with the
+contents:</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "AuthServerWhitelist": "*example.com"
+}</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>and restart the browser. On other platforms, exit your browser
+completely, and start it with a command line like this:
+<code>google-chrome --auth-server-whitelist=*example.com</code></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Use a fully qualified server name (with the domain name at the end) to
+access Cockpit in your web browser.</p>
+</div>
+<div class="paragraph">
+<p>If you wish to connect from one server to another in Cockpit using
+kerberos SSO, then you have to explicitly enable all sorts of things.
+For starters, make sure that delegated credentials are allowed by your
+domain (see above). Next when requesting your kerberos ticket make sure
+that forwardable tickets are requested:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kinit -f user@EXAMPLE.COM
+Password for user@EXAMPLE.COM:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure that the forwardable flag <code>F</code> is present in your ticket:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ klist -f
+Ticket cache: KEYRING:persistent:1000:1000
+Default principal: user@EXAMPLE.COM
+
+Valid starting       Expires              Service principal
+18.03.2017 05:39:23  19.03.2017 05:39:20  krbtgt/EXAMPLE.COM@EXAMPLE.COM
+    Flags: FIA</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Lastly configure your browser to allow delegated, forwardable kerberos
+credentials to be sent to Cockpit:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Mozilla Firefox</dt>
+<dd>
+<p>Go to <code>about:config</code> and set the
+<code>network.negotiate-auth.delegation-uris</code> setting to your domain name
+preceded by a dot, ie: <code>.example.com</code></p>
+</dd>
+<dt class="hdlist1">Google Chrome</dt>
+<dd>
+<p>On Linux: create the file
+<code>/etc/opt/chrome/policies/managed/example-com.json</code> with the
+contents:</p>
+</dd>
+<dt class="hdlist1"></dt>
+</dl>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "AuthServerWhitelist": "*example.com",
+  "AuthNegotiateDelegateWhitelist": "*example.com"
+}</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"></dt>
+<dd>
+<p>and restart the browser. On other platforms, exit your browser
+completely, and start it with a command line like this:
+<code>google-chrome --auth-server-whitelist=*example.com --auth-negotiate-delegate-whitelist=*example.com</code></p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cert-authentication">Certificate/smart card authentication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cockpit can use TLS client certificates for authenticating users.
+Commonly these are provided by a smart card, but it&#8217;s equally possible
+to import certificates directly into the web browser.</p>
+</div>
+<div class="paragraph">
+<p>This requires the host to be in an Identity Management domain like
+<a href="https://www.freeipa.org">FreeIPA</a> or
+<a href="https://en.wikipedia.org/wiki/Active_Directory">Active Directory</a>, which
+can associate certificates to users.</p>
+</div>
+<div class="paragraph">
+<p>To authenticate users from a Identity Management domain, the server that
+Cockpit is running on must be joined to that domain. See the
+<a href="#sso-server">SSO server requirements</a> for details.</p>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-cert-generation">User certificate generation</h3>
+<div class="paragraph">
+<p>Generating the certificates for users is usually done with a certificate
+management system like <a href="https://pagure.io/certmonger">certmonger</a> or
+<a href="https://www.freeipa.org/page/PKI">FreeIPA</a>, which are not documented
+here. This command generates a simple key and certificate request for
+the "alice" user:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>openssl req -new -newkey rsa:2048 -days 365 \
+    -keyout alice.key -out alice.csr -subj "/CN=alice"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now get this certificate request signed by the Certificate Authority of
+your Identity Management domain, to get a PEM certificate. Browsers and
+smart cart utilities accept PKCS#12 format for importing/transfer, so
+convert the certificate/key pair; it will ask for and protect it with a
+transfer password:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>openssl pkcs12 -export -in alice.pem -inkey alice.key -out alice.p12</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to clean up the key file when you do not need it any more:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>shred -u alice.key</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now import <code>alice.p12</code> directly into your browser, with giving
+the transfer password set above. Or
+<a href="https://linux.die.net/man/1/pkcs15-init">put the certificate onto a smart
+card</a>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pkcs15-init --store-private-key alice.p12 --format pkcs12 --auth-id 01</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-ipa">Certificate mapping with FreeIPA</h3>
+<div class="paragraph">
+<p>The recommended method to sign a user certificate request and associate
+it to a user is <code>ipa cert-request</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ipa cert-request alice.csr --principal=alice --certificate-out=alice.pem</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, if you are using a different CA, you can use
+<code>ipa user-add-cert</code> to associate the signed certificate to the user.
+This expects PEM format, but without the <code>-----BEGIN</code>/<code>-----END</code>
+markers:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ipa user-add-cert alice --certificate="$(grep -v ^---- alice.pem)"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the
+<a href="https://www.freeipa.org/page/V4/User_Certificates#Feature_Management">FreeIPA
+User Certificates documentation</a> for details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-ms-ad">Certificate mapping with Microsoft Active Directory</h3>
+<div class="paragraph">
+<p>The domain user certificates get imported into the
+<code>userCertificate;binary</code> LDAP attribute. The following commands
+convert the PEM certificate into binary DER form, create an
+<a href="https://ldap.com/ldif-the-ldap-data-interchange-format/">LDIF</a> file and
+apply it to the LDAP server running on the domain controller
+"dc.example.com":</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>openssl x509 -outform der -in alice.pem -out alice.der
+
+cat &lt;&lt;EOF &gt; alice.ldif
+version: 1
+dn: cn=alice,ou=users,ou=YOUR_NETBIOS_NAME,dc=example,dc=com
+changetype: modify
+add: userCertificate;binary
+userCertificate;binary:&lt; file://$(pwd)/alice.der
+EOF
+
+ldapmodify -H ldap://dc.example.com -f alice.ldif</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-samba-ad">Certificate mapping with Samba Active Directory</h3>
+<div class="paragraph">
+<p>At least some versions of <a href="https://www.samba.org/">Samba</a> do not support
+the <code>userCertificate;binary</code> LDAP attribute, so the import has to
+happen in base64 PEM form into the textual <code>userCertificate</code> attribute
+instead. Also, Samba uses a slightly different user hierarchy:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cat &lt;&lt;EOF &gt; alice.ldif
+version: 1
+dn: cn=alice,cn=users,dc=example,dc=com
+changetype: modify
+add: userCertificate
+userCertificate: $(grep -v ^---- alice.pem | tr -d '\n')
+EOF
+
+ldapmodify -H ldap://dc.example.com  -f alice.ldif</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As <code>userCertificate</code> is a text instead of binary field, you need to
+set up a
+<a href="https://www.mankier.com/5/sssd.conf#Certificate_Mapping_Section">certificate
+mapping rule</a> in <code>sssd.conf(5)</code> in a <code>[certmap/domain/rulename]</code>
+section, for example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[certmap/example.com/adcerts]
+# we match full certificates, so it is not important to check anything here
+matchrule = &lt;KU&gt;digitalSignature
+maprule = LDAP:(userCertificate={cert!base64})</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-cockpitconf">Cockpit web server configuration</h3>
+<div class="paragraph">
+<p>Set the trusted Certificate Authority of your user certificates in
+<code>sssd</code>, either by copying the CA PEM file to
+<code>/etc/sssd/pki/sssd_auth_ca_db.pem</code> or setting the
+<a href="https://www.mankier.com/5/sssd.conf#Services_Sections-PAM_configuration_options"><code>pam_cert_db_path</code></a>
+configuration option to the path of the CA. If you use FreeIPA and its
+CA:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>cp /etc/ipa/ca.crt /etc/sssd/pki/sssd_auth_ca_db.pem</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Certificate authentication needs to be enabled in
+<a href="./cockpit.conf.5.html">cockpit.conf</a> explicitly:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[WebService]
+ClientCertAuthentication = yes</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When enabling this mode,
+<a href="https://github.com/cockpit-project/cockpit/blob/main/doc/authentication.md">other
+authentication types</a> commonly get disabled, so that <em>only</em> client
+certificate authentication will be accepted. By default, after a failed
+certificate authentication attempt, Cockpit&#8217;s normal login page will
+appear and permit other login types such as <code>basic</code> (passwords) or
+<code>negotiate</code> (Kerberos). For example, password authentication gets
+disabled with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[basic]
+action = none</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-server-resourcelimits">Cockpit web server resource limits</h3>
+<div class="paragraph">
+<p>When using certificate authentication, all requests with a particular
+certificate will be handled by a separate and isolated instance of the
+<a href="./cockpit-ws.8.html">cockpit-ws</a> web server. This protects against
+possible vulnerabilities in the web server and prevents an attacker from
+impersonating another user. However, this introduces a potential Denial
+of Service: Some remote attacker could create a large number of
+certificates and send a large number of http requests to Cockpit with
+these.</p>
+</div>
+<div class="paragraph">
+<p>To mitigate that, all <code>cockpit-ws</code> instances run in a
+<code>system-cockpithttps.slice</code>
+<a href="https://www.freedesktop.org/software/systemd/man/systemd.slice.html">systemd
+slice unit</a> which
+<a href="https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html">limits
+the collective resources</a> of these web server instances: by default,
+this slice sets a limit of 200 threads (roughly 100 instances of
+<code>cockpit-ws</code>&#8201;&#8212;&#8201;in other words, a maximum of 100 parallel user
+sessions with different certificates) and a 75% (soft)/90% (hard) memory
+limit.</p>
+</div>
+<div class="paragraph">
+<p>You are welcome to adjust these limits to your need through a
+<a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.html">drop-in</a>.
+For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># systemctl edit system-cockpithttps.slice
+
+[Slice]
+# change existing value
+TasksMax=100
+# add new restriction
+CPUQuota=30%</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="certauth-forwarding">Authentication to other services like sudo and ssh</h3>
+<div class="paragraph">
+<p>Once you logged into Cockpit with a certificate, you likely need to
+switch to administrative mode (root privileges through sudo), or connect
+to remote machines through SSH. If your user account has a password,
+that can be used for authenticating to sudo or ssh as usual.</p>
+</div>
+<div class="paragraph">
+<p><em>Supported with FreeIPA only:</em> As an alternative to password
+authentication, you can also declare the initial Cockpit certificate
+authentication as trusted for authenticating to SSH, sudo, or other
+services. For that purpose, Cockpit automatically creates an
+<a href="https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-sfu/bde93b0e-f3c9-4ddf-9f44-e1453be7af5a">S4U2Proxy
+Kerberos ticket</a> in the user session:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ klist
+Ticket cache: FILE:/run/user/1894000001/cockpit-session-3692.ccache
+Default principal: user@EXAMPLE.COM
+
+Valid starting     Expires            Service principal
+07/30/21 09:19:06  07/31/21 09:19:06  HTTP/myhost.example.com@EXAMPLE.COM
+07/30/21 09:19:06  07/31/21 09:19:06  krbtgt/EXAMPLE.COM@EXAMPLE.COM
+    for client HTTP/myhost.example.com@EXAMPLE.COM</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can set up
+<a href="https://www.freeipa.org/page/V4/Service_Constraint_Delegation">constrained
+delegation rules</a> to enumerate which hosts (including its own) that
+ticket is trusted to access. For example, if the cockpit session runs on
+host <code>myhost.example.com</code> and should be trusted to access its own host
+(through sudo) and another host <code>remote.example.com</code> (through ssh),
+create a delegation like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># a list of target machines which can be accessed by a particular rule
+ipa servicedelegationtarget-add cockpit-target
+ipa servicedelegationtarget-add-member cockpit-target \
+  --principals=host/myhost.example.com@EXAMPLE.COM \
+  --principals=host/remote.example.com@EXAMPLE.COM
+
+# allow cockpit sessions (HTTP/ principal) to access that host list
+ipa servicedelegationrule-add cockpit-delegation
+ipa servicedelegationrule-add-member cockpit-delegation \
+  --principals=HTTP/myhost.example.com@EXAMPLE.COM
+ipa servicedelegationrule-add-target cockpit-delegation \
+  --servicedelegationtargets=cockpit-target</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, you need to enable GSS (Kerberos) authentication in the
+corresponding services.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For SSH, enable <code>GSSAPIAuthentication yes</code> in
+<a href="https://linux.die.net/man/5/sshd_config">/etc/ssh/sshd_config</a>.</p>
+</li>
+<li>
+<p>For sudo, enable <code>pam_sss_gss</code> as described in the
+<a href="https://www.mankier.com/8/pam_sss_gss">manpage</a>: In
+<code>/etc/sssd/sssd.conf</code>: Add an entry for your domain:</p>
+<div class="literalblock">
+<div class="content">
+<pre>[domain/example.com]
+pam_gssapi_services = sudo, sudo-i</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>/etc/pam.d/sudo</code>, enable the module in the first line:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>auth sufficient pam_sss_gss.so</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>Caveat:</em> The delegated S4U ticket is not yet forwarded to remote SSH
+hosts when connecting to them from Cockpit, so authenticating to sudo on
+the remote host with that ticket does not work. This will be provided in
+a future version.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="privileges">Privileges and Permissions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a user is logged into Cockpit, they are logged into a normal
+session that has exactly the same privileges as if they logged in via
+SSH or on the console.</p>
+</div>
+<div class="paragraph">
+<p>However, Cockpit will usually try to escalate the privileges of the user
+using <a href="https://www.freedesktop.org/wiki/Software/polkit/">Policy Kit</a> or
+<a href="https://www.sudo.ws/">sudo</a>. If the user is able to escalate privileges
+from the command line by typing in their password again (or without
+typing in any password), then Cockpit will be able to escalate the
+privileges of the session to "root" immediately upon login.</p>
+</div>
+<div class="paragraph">
+<p>The user can change the privileges of a session from within that
+session, via the "Administrative access" indicator in the top bar. From
+that indicator, the user can drop "root" privileges and regain them. On
+the next login, Cockpit will give the session the same privileges.</p>
+</div>
+<div class="paragraph">
+<p>Usually a user needs to be in the <code>wheel</code> Unix user group for the user
+to be able to escalate privileges in this way. However both Policy Kit
+and sudo may be configured to use other criteria.</p>
+</div>
+<div class="sect2">
+<h3 id="privileges-polkit">Customizing Polkit Privileges</h3>
+<div class="paragraph">
+<p>Services like
+<a href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a> and
+<a href="https://wiki.gnome.org/Projects/NetworkManager">NetworkManager</a> use
+<a href="https://www.freedesktop.org/wiki/Software/polkit/">Polkit</a> to validate
+and escalate privileges. It is possible to customize these rules with
+files in <code>/etc/polkit-1/rules.d</code>.</p>
+</div>
+<div class="paragraph">
+<p>Polkit rules files are
+<a href="https://www.freedesktop.org/software/polkit/docs/latest/polkit.8.html">javascript
+with specific methods and objects</a>. For example, placing the following
+polkit rule to <code>/etc/polkit-1/rules.d/10-operators.rule</code> allows all
+users in the <code>operators</code> group to start, stop, restart and otherwise
+manage systemd services:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.systemd1.manage-units") {
+        if (subject.isInGroup("operators")) {
+            return polkit.Result.YES;
+        }
+    }
+});</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to allow a certain group to perform any administrative action
+you could add a rule like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>polkit.addAdminRule(function(action, subject) {
+    return ["unix-group:operators"];
+});</pre>
+</div>
 </div>
 </div>
 </div>
