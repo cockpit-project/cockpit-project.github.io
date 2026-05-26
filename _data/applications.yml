@@ -348,3 +348,14 @@ download-superstation:
     magnet link, set per-torrent and per-file download priorities, and monitor
     speeds, peers, and trackers in real time. Includes one-click Start/Stop for
     the Download Superstation systemd service.
+
+docker-compose:
+  title: Docker Compose
+  package: cockpit-compose
+  prerelease: true
+  source: https://github.com/RXTX4816/cockpit-compose
+  issues: https://github.com/RXTX4816/cockpit-compose/issues
+  license: MIT
+  description: |
+    Dashboard to manage Docker Compose stacks with live status view.
+    See logs, edit and restore Compose yaml files and more to come.
