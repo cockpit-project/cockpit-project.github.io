@@ -199,11 +199,10 @@ run image-trigger like so:
 If as part of some new feature you need to change the content of some
 or all images, you can ask the machines to create those images.
 
-If you want to have a new fedora-coreos image for pull request #1234, add
-a bullet point to that pull request's description like so, and add the
-"bot" label to the pull request.
+If you want to have a new fedora-coreos image for pull request #1234,
+post a comment on the pull request like so:
 
-    * [ ] image-refresh fedora-coreos
+    /image-refresh fedora-coreos
 
 The machines will post comments to the pull request about their
 progress and at the end there will be links to commits with the new
