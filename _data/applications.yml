@@ -370,3 +370,15 @@ docker-compose:
   description: |
     Dashboard to manage Docker Compose stacks with live status view.
     See logs, edit and restore Compose yaml files and more to come.
+
+scap:
+  title: SCAP Compliance
+  package: cockpit-scap
+  source: https://github.com/pbuchan-rh/cockpit-scap
+  issues: https://github.com/pbuchan-rh/cockpit-scap/issues
+  license: LGPL 2.1
+  description: |
+    OpenSCAP compliance scanning, profile tailoring, and selective remediation
+    for RHEL 10 and CentOS Stream 10. Scan hosts and container images against
+    SCAP Security Guide profiles, tailor rules to your environment, and download
+    or apply remediation scripts — directly from the Cockpit browser console.
