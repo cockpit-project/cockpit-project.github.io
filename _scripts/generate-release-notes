@@ -101,8 +101,8 @@ VERSIONS ARE available now:
 # TODO: fetch from https://bodhi.fedoraproject.org/updates/?packages=${pkgname}
 FOOTER_DYNAMIC = """
 * [NAME Source Tarball](https://github.com/cockpit-project/REPO/releases/tag/VERSIONS)
+* [NAME Fedora 44](https://bodhi.fedoraproject.org/updates/?releases=F44&packages=REPO)
 * [NAME Fedora 43](https://bodhi.fedoraproject.org/updates/?releases=F43&packages=REPO)
-* [NAME Fedora 42](https://bodhi.fedoraproject.org/updates/?releases=F42&packages=REPO)
 """
 
 cockpit_version: int | None = None
