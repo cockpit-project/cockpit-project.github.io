@@ -94,31 +94,14 @@ individually per repo (e.g. [cockpit](https://github.com/cockpit-project/cockpit
 or for [all cockpit-project repos](https://github.com/orgs/cockpit-project/teams/committers).
 
 If you'd like to download Red Hat-only internal images from S3, you'll
-need to create a key file in `~/.config/cockpit-dev/s3-keys/[domain]`.
-The `[domain]` can be any non-toplevel domain which contains the S3 URL
-in question.  The contents of this file should be a single line
-containing the "access key" and the "secret key" separated by
-whitespace.
-
-For the currently configured mirrors this means that you'd likely have the
-following file:
-
-- `~/.config/cockpit-dev/s3-keys/linodeobjects.com`
-
-For more control, you could also use the following:
-
-- `~/.config/cockpit-dev/s3-keys/cockpit-images.eu-central-1.linodeobjects.com`
-- `~/.config/cockpit-dev/s3-keys/eu-central-1.linodeobjects.com`
-- either of the above, with `us-east` instead of `eu-central`
-
-each file would be a single line which looks like
-
-```
-EEVIDIDFSOQ0ABJ2LGTT    009rKOypIoqO44Q3VQGRyYPfugi84zANHF0pOW9f
-```
-
-The "access key" and "secret key" is unique per-developer and can be
-obtained by talking to Allison.
+need to be in the `it-cloud-aws-727920394381-cockpit-ci-images-download` group
+in Rover (under your Red Hat internal SSO account).  Please contact Allison
+(`lis@`) or Jelle (`jvanderw@`) about being added to the group.  If you're in
+this group and logged in to Kerberos (via `kinit` or GNOME Online Accounts) you
+should be able to download RHEL images.  As an alternative you can run the
+`./saml-login` script to perform a web-based SSO authentication which will
+cache a credential good for the next 12 hours.  If anything isn't working,
+please reach out.
 
 ### Test contexts
 
