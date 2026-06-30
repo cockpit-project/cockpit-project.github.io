@@ -25,7 +25,7 @@ Origins = https://cockpit.domain.tld wss://cockpit.domain.tld
 ProtocolHeader = X-Forwarded-Proto
 ```
 
-These changes will let Cockpit know that connections will come through for https (secure http) and wss (secure websockets) on the subdomain cockpit.domain.tld, and that it should look for the `X-Forwarded-Proto` header to determine if the connection is secure or not. This is important as Cockpit will [redirect any non-local connection from http to https automatically]({{ site.baseurl }}/guide/149/https.html) and sees cockpit.domain.tld is non-local.
+These changes will let Cockpit know that connections will come through for https (secure http) and wss (secure websockets) on the subdomain cockpit.domain.tld, and that it should look for the `X-Forwarded-Proto` header to determine if the connection is secure or not, this is important as Cockpit will [redirect any non-local connection from http to https automatically]({{ site.baseurl }}/guide/149/https.html) and sees cockpit.domain.tld is non-local.
 
 Once these changes are made you will need to restart cockpit.
 
@@ -72,7 +72,7 @@ It is recommended you generate a valid, signed certificate for your server, you 
 
 Alternatively if you don't require a valid certificate you can [generate your own certificate](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs#generating-ssl-certificates). This approach is only recommended for testing as you will get browser security warnings notifying you the connection is not secure.
 
-If all else fails you can use cockpit's self signed certificates which are stored in `/etc/cockpit/ws-certs.d/`. To do this you will need to split the `0-self-signed.cert` into two files, one containing the key and one containing the certificate.
+If all else fails you can use cockpits self signed certificates which are stored in `/etc/cockpit/ws-certs.d/`. To do this you will need to split the `0-self-signed.cert` into two files, one containing the key and one containing the certificate.
 
 ### 502 Bad Gateway & SELinux 
 If SELinux is enabled, change boolean setting (solves 502 gateway error):
@@ -90,7 +90,7 @@ You may want to serve cockpit from a subdirectory rather than a subdomain.
 
 For this example we will assume:
 * Cockpit is listening on port 9090
-* Nginx is listening on port 80 (http) and port 443 (https)
+* Nginx is listening on on port 80 (http) and port 443 (https)
 * You have a domain of domain.tld pointed to your nginx instance
 * You can access your nginx instance by connecting to http://domain.tld, even if you just get the default page
 * You want to access Cockpit via http://domain.tld/secret/
@@ -126,7 +126,7 @@ If you're not running nginx locally alongside Cockpit you will need to adjust th
 
 For this example we will assume:
 * Cockpit is listening on port 9090 on system 192.168.10.15
-* Nginx is listening on port 80 (http) and port 443 (https) on system 192.168.10.29
+* Nginx is listening on on port 80 (http) and port 443 (https) on system 192.168.10.29
 * You have a domain of domain.tld pointed to your nginx instance
 * You can access your nginx instance by connecting to http://domain.tld, even if you just get the default page
 
