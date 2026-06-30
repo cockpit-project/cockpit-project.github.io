@@ -17,7 +17,7 @@ For this tutorial you'll need at least Cockpit 0.58. There was one last tweak th
 
 Here we'll make a package called *docker-info* which shows info about the docker daemon. We use the `/info` [docker API](https://docs.docker.com/reference/api/docker_remote_api_v1.18/#display-system-wide-information) to retrieve that info.
 
-I've prepared the [docker-info package here](https://cockpit-project.org/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and installs it as a Cockpit package:
+I've prepared the [docker-info package here](https://cockpit-project.org/files/docker-info.tgz). It's just two files. To download them and extract to your current directory, and install it as a Cockpit package:
 
 ```text
 $ wget https://cockpit-project.org/files/docker-info.tgz -O - | tar -xzf -
@@ -45,7 +45,7 @@ After a moment, you should see numbers pop up with some stats about the docker d
 $ sudo docker run -ti fedora /bin/bash
 ```
 
-You should see the numbers update as the container is pulled and started. When you type ```exit``` in the container, you should see the numbers update again. How is this happening? Lets take a look at the `docker-info` HTML:
+You should see the numbers update as the container is pulled and started. When you type ```exit``` in the container, you should see the numbers update again. How is this happening? Let's take a look at the `docker-info` HTML:
 
 ```html
 <head>
@@ -111,9 +111,9 @@ First we include `jquery.js` and `cockpit.js`. `cockpit.js` defines the basic AP
 <script src="../base1/cockpit.js"></script>
 ```
 
-We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The HTML is pretty basic, defining a little list where the info shown.
+We also include the cockpit.css file to make sure the look of our tool matches that of Cockpit. The HTML is pretty basic, defining a little list where the info is shown.
 
-In the javascript code, first we setup an HTTP client to access docker. Docker listens for HTTP requests on a Unix socket called `/var/run/docker.sock`. In addition the permissions on that socket often require escalated privileges to access, so we tell Cockpit to try to gain `superuser` privileges for this task, but continue anyway if it cannot:
+In the javascript code, first we set up an HTTP client to access docker. Docker listens for HTTP requests on a Unix socket called `/var/run/docker.sock`. In addition the permissions on that socket often require escalated privileges to access, so we tell Cockpit to try to gain `superuser` privileges for this task, but continue anyway if it cannot:
 
 ```javascript
 var docker = cockpit.http("/var/run/docker.sock", { superuser: "try" });
@@ -121,7 +121,7 @@ var docker = cockpit.http("/var/run/docker.sock", { superuser: "try" });
 
 First we define how to retrieve info from Docker. We use the REST `/info` API to do this.
 
-```javascipt
+```javascript
 function retrieve_info() {
     var info = docker.get("/info");
     info.done(process_info);
@@ -157,7 +157,7 @@ Because we want to react to changes in Docker state, we also start a long reques
 var events = docker.get("/events");
 ```
 
-The `.get("/events")` call returns a jQuery Promise. When a line of event data arrives, the `.stream()` callback in invoked, and we use it to trigger a reload of the Docker info.
+The `.get("/events")` call returns a jQuery Promise. When a line of event data arrives, the `.stream()` callback is invoked, and we use it to trigger a reload of the Docker info.
 
 ```javascript
 events.stream(got_event);
