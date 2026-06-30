@@ -1,0 +1,52 @@
+name: pages-build-deployment
+on:
+  push:
+    branches: ["main"]
+  # TODO: Make better when we have added this to the verify-links workflow
+  # https://lychee.cli.rs/github_action_recipes/pull-requests/
+  pull_request:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    name: Build Jekyll page
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+      - name: Upload Jekyll site for lychee URL checker
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: ./_site
+          if-no-files-found: error
+          retention-days: 7
+      - name: Upload artifact for GitHub pages
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        uses: actions/upload-pages-artifact@v4
+  deploy:
+    name: Deploy to GitHub pages
+    if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+  verify_links:
+    name: Verify website links still work
+    needs: build
+    uses: ./.github/workflows/verify-links.yml
+    permissions:
+      issues: write # required for peter-evans/create-issue-from-file
+    with:
+      create_issue: ${{ github.event_name != 'pull_request' }}
