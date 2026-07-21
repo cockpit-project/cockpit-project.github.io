@@ -327,6 +327,14 @@ sudo-manager:
     Manage sudo policy on Linux systems in a structured, auditable, and
     policy-driven way. Developed for SUSE Linux.
 
+dns-bind:
+  title: DNS Bind
+  source: https://github.com/josephoaks/Cockpit-DNS_Bind
+  issues: https://github.com/josephoaks/Cockpit-DNS_Bind/issues
+  license: Apache-2.0
+  description: |
+    A modern web-based management interface for BIND DNS servers
+    
 pacman:
   title: Pacman Package Manager
   package: cockpit-pacman
