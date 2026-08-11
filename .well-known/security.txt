@@ -1,0 +1,44 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+# Report any suspected security vulnerability in Red Hat software to Red Hat Product Security at:
+Contact: https://access.redhat.com/security/team/contact/
+Contact: mailto:secalert@redhat.com
+# Report an issue in any Red Hat branded website or online service to Red Hat Information Security
+# by following the instructions at:
+# https://www.redhat.com/en/trust/RFC-2350
+
+Preferred-Languages: en
+
+# Red Hat Product Security OpenPGP key fingerprint:
+# 77E7 9ABE 9367 3533 ED09 EBE2 DCE3 8235 97F5 EAC4
+Encryption: https://security.access.redhat.com/data/97f5eac4.txt
+
+# Vulnerability acknowledgments for Red Hat online services:
+Acknowledgments: https://access.redhat.com/articles/66234
+# Vulnerability acknowledgments for Red Hat products are listed on individual CVE pages at:
+# https://access.redhat.com/security/security-updates/#/cve
+
+CSAF: https://security.access.redhat.com/data/csaf/v2/provider-metadata.json
+
+# https://www.cve.org/PartnerInformation/ListofPartners/partner/redhat
+CNA: mailto:secalert@redhat.com
+CNA: mailto:RootCNA-Coordination@redhat.com
+
+Expires: 2027-07-29T00:00:00.000Z
+-----BEGIN PGP SIGNATURE-----
+
+iQIcBAEBCAAGBQJqacI7AAoJENzjgjWX9erESdEP/isrzTPxsIVSMi2ScRP8bb3S
+LJ5mlSXUgXCUBVHig9ahnsGWaEzMjXcLEFuROw1BaLVNEqzAphAZf44/OENNtfIZ
+6r12jfeMsiWdb70f6FrrCNWOd0+Ca/D4iSc9AiF+aUEqGuEQw+RwuLSPFhDbomnF
+TyJqxXuNmbXNJ/zYBaIru5u7+/dcnhZo2wby8sjIL6nfZ5iBZuhNOKdoU9HyKKXe
+KWP/mKY2A6kEwrn0kPgn+dS1VTeaVK30BELXakE5tc3+FX6bqI/1colEYM1GLsOW
+X0ePA/5mbSICwgukEpqWRkJ7R8VklMVLHR9aN4dkZwAgH4moQsBONhByas3TlxhJ
+nvdijLRL+QoYtRNE7gptJrAtsZ8vuNgViBzcHEPZgrsU543q6y+UeVsqzwTbjOT8
+Bku8BRphz6vjiiMbfRfhf43+SvDpDai4+AoHbauegf/d9Vkl1UUXym7xDCH6EWUi
+QZI/2yPUrSddYt3JaXehZC9pfZx0pD88a5HcYHmVH4EwOtEaCgqtr1EvoGHd+lH6
++DskMs0dA1ueRjCfx2X+r8gJ57tsHsgAtavS8WTewiQ5FyJhtSfuVy6+O+gF4DPI
+i+RfoCJyUlu53OZ/GGTK//mr3VbDGtih6goPFDgWdT2O1mWKQFrhzI3e/uNV/Pv/
+G5Al1V1E4n4BJOnpYxrB
+=N85n
+-----END PGP SIGNATURE-----
