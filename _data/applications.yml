@@ -216,6 +216,16 @@ tailscale:
   description: |
     Manage Tailscale.
 
+tailscaled:
+  title: Tailscaled
+  package: cockpit-tailscaled
+  prerelease: true
+  source: https://github.com/cockpit-project/cockpit
+  issues: https://github.com/cockpit-project/cockpit/issues
+  license: LGPL 2.1
+  description: |
+    Manage Tailscale connections and the tailscale client in the server.
+
 headscale:
   title: Headscale
   package: cockpit-headscale
