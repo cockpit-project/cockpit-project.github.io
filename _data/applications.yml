@@ -219,12 +219,14 @@ tailscale:
 tailscaled:
   title: Tailscaled
   package: cockpit-tailscaled
-  prerelease: true
-  source: https://github.com/cockpit-project/cockpit
-  issues: https://github.com/cockpit-project/cockpit/issues
-  license: LGPL 2.1
+  prerelease: false
+  source: https://github.com/Nicolazroyale/cockpit-tailscaled
+  issues: https://github.com/Nicolazroyale/cockpit-tailscaled/issues
+  license: LGPL-2.1-or-later
   description: |
-    Manage Tailscale connections and the tailscale client in the server.
+    Manage Tailscale connections and configure the Tailscale client
+    (SSH, DNS, subnet routes, exit nodes, hostname, automatic updates)
+    with a searchable peers overview.
 
 headscale:
   title: Headscale
