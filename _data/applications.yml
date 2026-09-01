@@ -446,3 +446,14 @@ manifest:
     daemon. Pure HTML/CSS/JS with no build step and no server daemon of its
     own, with "Open folder" deep-links into Explorer and Cockpit's built-in
     Files.
+
+microshift:
+  title: cockpit-microshift
+  source: https://github.com/lucamaf/cockpit-microshift-plugin
+  issues: https://github.com/lucamaf/cockpit-microshift-plugin/issues
+  license: Apache-2.0
+  description: |
+    A Cockpit plugin for managing a local MicroShift instance: 
+    service status/restart, apiserver + node health, pod listing, 
+    a generic browser for the core resource kinds, and a log tail — 
+    all via cockpit.spawn(), no separate backend daemon.
