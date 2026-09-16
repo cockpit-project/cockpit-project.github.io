@@ -47,19 +47,19 @@ We agree to restrict the following behaviors in our community. Instances, threat
 
 Tensions can occur between community members even when they are trying their best to collaborate. Not every conflict represents a code of conduct violation, and this Code of Conduct reinforces encouraged behaviors and norms that can help avoid conflicts and minimize harm.
 
-When an incident does occur, it is important to report it promptly. To report a possible violation, **reported by contacting one or more team members, including:**
+When an incident does occur, it is important to report it promptly. To report a possible violation, **reported by contacting one or more team members,
 {%
   include email.html
-    name="Freya"
+    name="Freya Gustavsson"
     username="freya"
     domain="venefilyn.se"
     after=", and "
   %}{%
   include email.html
-    name="Martin"
-    username="martin"
-    domain="piware.de"
-    after="."
+    name="Aleksandra Fedorova"
+    username="afedorova"
+    domain="redhat.com"
+    after=".**"
   %}{%
   include email.html
     script=true
