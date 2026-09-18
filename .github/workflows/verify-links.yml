@@ -1,0 +1,80 @@
+name: Verify links
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #     - workflow/verify-links # TODO Remove before merging PR
+  repository_dispatch:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      create_issue:
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    - cron: "08 08 * * 1"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  link_checker:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # required for peter-evans/create-issue-from-file
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: "build"
+          path: "prod"
+
+      - name: Checkout lychee toml file
+        uses: actions/checkout@v5
+        with:
+          path: repo
+          sparse-checkout: '.lychee.toml'
+          sparse-checkout-cone-mode: false
+
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          args: |
+            --root-dir "${{github.workspace}}/prod"
+            --config "${{github.workspace}}/repo/.lychee.toml"
+            .
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find the last open report issue
+        if: |
+          steps.lychee.outputs.exit_code != 0
+            && inputs.create_issue
+        id: last-issue
+        uses: micalevisk/last-issue-action@v2
+        with:
+          state: open
+          labels: link-checker
+
+      - name: Update or create issue report
+        if: |
+          steps.lychee.outputs.exit_code != 0
+            && steps.last-issue.outputs.has-found == 'false'
+            && inputs.create_issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links detected in docs 🔗
+          content-filepath: ./lychee/out.md
+          issue-number: ${{ steps.last-issue.outputs.issue-number }}
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: link-checker
