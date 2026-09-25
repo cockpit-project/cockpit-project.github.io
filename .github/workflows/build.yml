@@ -1,0 +1,70 @@
+name: Build Cockpit site
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  REPO_OWNER: "${{ github.repository_owner }}"
+  REPO_NAME: "${{ github.event.repository.name }}"
+  PR_NUMBER: "${{ github.event.pull_request.number }}"
+  PAGES_REPO_NWO: "${{ github.repository_owner }}/${{ github.event.repository.name }}"
+  PREVIEW_DIR: "preview-pr"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+
+      - name: Get repo name
+        id: clean-repo-name
+        run: |
+          echo "repo_name=${REPO_NAME//./-}" >> $GITHUB_OUTPUT
+
+      - name: Get base URL
+        id: url
+        run: |
+          if [[ ${{ env.REPO_OWNER }} == "cockpit-project" ]]
+          then
+            echo "domain_name=''" >> $GITHUB_OUTPUT
+          else
+            echo "domain_name=${{ env.REPO_NAME }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build with Jekyll
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          JEKYLL_ENV: production
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.url.outputs.domain_name }}"
+
+      - name: Build PR Preview with Jekyll
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          JEKYLL_ENV: production
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.url.outputs.domain_name }}/${{ env.PREVIEW_DIR }}/${{ env.PR_NUMBER }}"
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-dist
+          path: _site/
