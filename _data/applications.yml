@@ -410,8 +410,15 @@ explorer:
   license: Apache-2.0
   description: |
     A file manager for the Cockpit console: multi-tab and two-pane browsing,
-    search, previews, a Monaco/Quill editor, integrated terminals with tmux,
-    and GitHub integration via the `gh` CLI.
+    search, a paging preview viewer (text, images, PDF, rendered HTML, and
+    video transcoded on the host when the browser can't decode it), a
+    Monaco/Quill editor, integrated terminals with tmux, and GitHub
+    integration via the `gh` CLI. Also runs the Claude Code and Codex CLIs in
+    AI tabs with a live git diff and repo tree, adds an `scc`-powered code
+    census with PDF/JSON reports, custom shell actions, and system tools:
+    an fstab mounts editor, a GRUB editor, Users & sudo management, and a
+    Plugin Manager that installs and updates all six plugins. Pure
+    HTML/CSS/JS with no build step and no server daemon.
 
 iftv:
   title: InFlight TV
@@ -421,8 +428,12 @@ iftv:
   description: |
     An IPTV client for the Cockpit console: Live TV, movies, series, an EPG
     guide grid, and multi-account tabs from Xtream Codes or M3U sources,
-    remuxed/transcoded on the host with `ffmpeg` and streamed as HLS.
-    
+    remuxed/transcoded on the host with `ffmpeg` (GPU NVENC first, then CPU
+    x264) and streamed as HLS. Includes a minimizable player, audio and
+    subtitle track selection, a personal library (favorites, custom lists,
+    watch-later, continue watching, history), a size-capped segment cache
+    with a persistent poster/logo cache, and encrypted backup export/import.
+
 ctop:
   title: Cockpit Top
   source: https://github.com/ismetozalp/ctop
@@ -430,10 +441,13 @@ ctop:
   license: Apache-2.0
   description: |
     A btop-style system monitor for the Cockpit console: per-core CPU with
-    braille graphs, memory/disk/network meters, GPU and hwmon sensors, live
-    podman/docker container stats, and a sortable process table with
-    kill/signal, tree view, and deep-links into Cockpit. Plain ES modules and
-    `<canvas>`, no framework and no runtime dependencies.
+    braille graphs, memory/disk/network meters, GPU and hwmon sensors with
+    fan RPM, live podman/docker container stats, and a sortable process table
+    with kill/signal, renice, tree view, and deep-links into Cockpit services,
+    logs, and Cockpit Files or Explorer. Loads any installed btop `.theme`
+    file, offers threshold alerts with browser notifications, optional
+    back-in-time CPU history from PCP, and one-click self-update. Plain ES
+    modules and `<canvas>`, no framework and no runtime dependencies.
 
 manifest:
   title: Manifest
@@ -443,9 +457,12 @@ manifest:
   description: |
     A download manager for the Cockpit console: torrents, magnets, and
     HTTP/FTP/Metalink files driven by a turnkey-provisioned, per-user `aria2c`
-    daemon. Pure HTML/CSS/JS with no build step and no server daemon of its
-    own, with "Open folder" deep-links into Explorer and Cockpit's built-in
-    Files.
+    daemon. Quick Add and Paste-to-Queue, bulk row actions, per-file torrent
+    selection, a docked detail panel with Files/Peers/Trackers tabs,
+    live-applied settings plus an advanced editor for every aria2 option,
+    13 themes, and in-UI self-update. Pure HTML/CSS/JS with no build step and
+    no server daemon of its own, with "Open folder" deep-links into Explorer
+    and Cockpit's built-in Files.
 
 microshift:
   title: cockpit-microshift
