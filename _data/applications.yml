@@ -474,3 +474,31 @@ microshift:
     service status/restart, apiserver + node health, pod listing, 
     a generic browser for the core resource kinds, and a log tail — 
     all via cockpit.spawn(), no separate backend daemon.
+
+pilot:
+  title: Pilot
+  source: https://github.com/ismetozalp/pilot
+  issues: https://github.com/ismetozalp/pilot/issues
+  license: Apache-2.0
+  description: |
+    Installs and manages a self-hosted RustDesk remote-desktop server from the
+    Cockpit console: the `hbbs`/`hbbr` pair plus the `rustdesk-api` control
+    plane. A provisioning wizard shows the exact plan, then runs it with a
+    live transcript on this machine or a remote host over SSH, with optional
+    TLS via Caddy (own domain, sslip.io, or DuckDNS). Day-2 management covers
+    devices, address books, users and groups, audit logs, service status and
+    restarts, key rotation, and updates from GitHub releases.
+
+hangar:
+  title: Hangar
+  source: https://github.com/ismetozalp/hangar
+  issues: https://github.com/ismetozalp/hangar/issues
+  license: Apache-2.0
+  description: |
+    Backups for the Cockpit console: scheduled, deduplicated, encrypted
+    `restic` backups run from systemd timers, with automatic retention
+    thinning and a Logbook that FUSE-mounts any snapshot for point-in-time
+    browsing and restore. Destinations include local disk, USB, SFTP, a REST
+    server, S3, Backblaze B2, Azure, Google Cloud Storage, and any `rclone`
+    remote. Builds a bootable ReaR rescue image for bare-metal recovery, and
+    can boot it in a throwaway libvirt VM to verify the restore completes.
