@@ -502,3 +502,13 @@ hangar:
     server, S3, Backblaze B2, Azure, Google Cloud Storage, and any `rclone`
     remote. Builds a bootable ReaR rescue image for bare-metal recovery, and
     can boot it in a throwaway libvirt VM to verify the restore completes.
+
+cockpit-samba-ad-dc:
+  title: Cockpit Samba AD DC
+  source: https://github.com/XHiddenProjects/cockpit-samba-ad-dc
+  issues: https://github.com/XHiddenProjects/cockpit-samba-ad-dc/issues
+  license: MIT
+  description: |
+    Manages all of Samba's Active Directory and Group policies (GPO) all in 1
+    including Domain management, Forest, FSMO, Sites, DNS, Users/Groups, Computers, ACLs, File Shares,
+    and samba configuration management
