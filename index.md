@@ -139,7 +139,7 @@ All code changes have tests which must pass before merging, to ensure stability.
 
 ### Free & free
 
-Cockpit is free to use and [available under the GNU LGPL](https://github.com/cockpit-project/cockpit/blob/master/COPYING).
+Cockpit is free to use and [available under the GNU LGPL](https://github.com/cockpit-project/cockpit/blob/main/LICENSES/LGPL-2.1.txt).
 
 ### Cockpit works (nearly) everywhere
 
