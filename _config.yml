@@ -74,6 +74,7 @@ exclude:
   - README.md
   - bin
   - LICENSE
+  - vendor/bundle
 
 include:
   - _stylesheets

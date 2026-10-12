@@ -1,0 +1,21 @@
+name: Surge PR Preview - Teardown Stage
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  pull-requests: write # Needed to comment on PRs
+
+jobs:
+  deploy: # Must match the job ID from the deploy workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Teardown preview site
+        uses: afc163/surge-preview@v1
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          failOnError: true
+          teardown: true
+          build: echo "Cleaning up preview" 

@@ -1,0 +1,42 @@
+name: Surge PR Preview - Build Stage
+
+on:
+  pull_request:
+
+env:
+  REPO_OWNER: "${{ github.repository_owner }}"
+  REPO_NAME: "${{ github.event.repository.name }}"
+  PR_NUMBER: "${{ github.event.pull_request.number }}"
+  PAGES_REPO_NWO: "${{ github.repository_owner }}/${{ github.event.repository.name }}"
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+
+      - name: Get repo name
+        id: clean-repo-name
+        run: |
+          echo "repo_name=${REPO_NAME//./-}" >> $GITHUB_OUTPUT
+
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "https://${{ env.REPO_OWNER}}-${{ steps.clean-repo-name.outputs.repo_name }}-deploy-pr-${{ env.PR_NUMBER }}.surge.sh"
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: pr-build-dist
+          path: _site/
