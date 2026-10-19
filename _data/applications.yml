@@ -502,3 +502,18 @@ hangar:
     server, S3, Backblaze B2, Azure, Google Cloud Storage, and any `rclone`
     remote. Builds a bootable ReaR rescue image for bare-metal recovery, and
     can boot it in a throwaway libvirt VM to verify the restore completes.
+
+image-update-monitor:
+  title: Image Update Monitor
+  package: cockpit-image-update-monitor
+  source: https://github.com/Azentrius/cockpit-image-update-monitor
+  issues: https://github.com/Azentrius/cockpit-image-update-monitor/issues
+  license: Apache-2.0
+  description: |
+    Shows for every running Docker container the version the compose file
+    asks for, the version that actually runs and the newest one, found by
+    Diun and a version radar. Applies updates of the same tag from Cockpit
+    with a database dump first, a rollback copy of the old image and a
+    rollback at the push of a button. Another version is picked from a list,
+    with the changes to the compose file shown first. English and German.
+    Packages for Debian, Ubuntu, Fedora and RHEL from packages.azentrius.com.
