@@ -532,3 +532,19 @@ cron-jobs:
     recorded runs, Run now with live output, and conversion of a cron job to
     a systemd timer and back. English and German. Packages for Debian,
     Ubuntu, Fedora and RHEL from packages.azentrius.com.
+
+update-gaps:
+  title: Update Gaps
+  package: cockpit-update-gaps
+  source: https://github.com/Azentrius/cockpit-update-gaps
+  issues: https://github.com/Azentrius/cockpit-update-gaps/issues
+  license: Apache-2.0
+  description: |
+    Shows where a server misses updates although Software Updates lists
+    none, and why: held packages and what they miss, fixes only in Ubuntu
+    Pro, a pending restart, missing or old package lists, packages without
+    a source or left out of automatic updates, software outside the package
+    manager and the end of support. With network data set up, also open
+    security issues, fixes released upstream but not packaged yet and newer
+    versions elsewhere in Ubuntu. Read only. English and German. Packages
+    for Debian and Ubuntu from packages.azentrius.com.
