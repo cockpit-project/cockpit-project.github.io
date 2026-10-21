@@ -541,10 +541,12 @@ update-gaps:
   license: Apache-2.0
   description: |
     Shows where a server misses updates although Software Updates lists
-    none, and why: held packages and what they miss, fixes only in Ubuntu
-    Pro, a pending restart, missing or old package lists, packages without
-    a source or left out of automatic updates, software outside the package
-    manager and the end of support. With network data set up, also open
-    security issues, fixes released upstream but not packaged yet and newer
-    versions elsewhere in Ubuntu. Read only. English and German. Packages
-    for Debian and Ubuntu from packages.azentrius.com.
+    none, and why: held packages, fixes only in Ubuntu Pro, a pending
+    restart, CPU vulnerabilities the kernel reports, firmware updates from
+    fwupd, snaps that are not refreshed, missing or old package lists,
+    packages left out of automatic updates, software outside the package
+    manager and the end of support. Explains phased updates that make
+    Software Updates fail, with the commands that get around them. With
+    network data set up, also security issues Ubuntu has not fixed yet and
+    fixes released upstream. Read only. English and German. Packages for
+    Debian and Ubuntu from packages.azentrius.com.
