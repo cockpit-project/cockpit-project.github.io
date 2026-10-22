@@ -153,8 +153,8 @@ article.post {
 
 .post-content {
   p {
-    > :where(img:first-child),
-    > a[href*=flickr] img {
+    > :where(img:not(.emoji):first-child),
+    > a[href*=flickr] img:not(.emoji) {
       max-width: calc(100% - 2px);
       height: auto;
       display: block;
@@ -164,8 +164,8 @@ article.post {
   }
 
   > p:first-child {
-    > a > :where(img:first-child),
-    > :where(img:first-child) {
+    > a > :where(img:not(.emoji):first-child),
+    > :where(img:not(.emoji):first-child) {
       float: left;
       margin: 0 3ex 1ex 0;
       max-width: 33%;
