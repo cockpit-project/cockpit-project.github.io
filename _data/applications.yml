@@ -502,3 +502,51 @@ hangar:
     server, S3, Backblaze B2, Azure, Google Cloud Storage, and any `rclone`
     remote. Builds a bootable ReaR rescue image for bare-metal recovery, and
     can boot it in a throwaway libvirt VM to verify the restore completes.
+
+image-update-monitor:
+  title: Image Update Monitor
+  package: cockpit-image-update-monitor
+  source: https://github.com/Azentrius/cockpit-image-update-monitor
+  issues: https://github.com/Azentrius/cockpit-image-update-monitor/issues
+  license: Apache-2.0
+  description: |
+    Shows for every running Docker container the version the compose file
+    asks for, the version that actually runs and the newest one, found by
+    Diun and a version radar. Applies updates of the same tag from Cockpit
+    with a database dump first, a rollback copy of the old image and a
+    rollback at the push of a button. Another version is picked from a list,
+    with the changes to the compose file shown first. English and German.
+    Packages for Debian, Ubuntu, Fedora and RHEL from packages.azentrius.com.
+
+cron-jobs:
+  title: Cron Jobs
+  package: cockpit-cronjobs
+  source: https://github.com/Azentrius/cockpit-cronjobs
+  issues: https://github.com/Azentrius/cockpit-cronjobs/issues
+  license: Apache-2.0
+  description: |
+    Everything scheduled on the server in one place: the crontabs of root and
+    other users, `/etc/crontab`, `/etc/cron.d`, the periodic scripts and
+    systemd timers, with schedules in words and a timeline of the next 24
+    hours. Safe crontab edits with backups. Exit code, duration and output of
+    recorded runs, Run now with live output, and conversion of a cron job to
+    a systemd timer and back. English and German. Packages for Debian,
+    Ubuntu, Fedora and RHEL from packages.azentrius.com.
+
+update-gaps:
+  title: Update Gaps
+  package: cockpit-update-gaps
+  source: https://github.com/Azentrius/cockpit-update-gaps
+  issues: https://github.com/Azentrius/cockpit-update-gaps/issues
+  license: Apache-2.0
+  description: |
+    Shows where a server misses updates although Software Updates lists
+    none, and why: held packages, fixes only in Ubuntu Pro, a pending
+    restart, CPU vulnerabilities the kernel reports, firmware updates from
+    fwupd, snaps that are not refreshed, missing or old package lists,
+    packages left out of automatic updates, software outside the package
+    manager and the end of support. Explains phased updates that make
+    Software Updates fail, with the commands that get around them. With
+    network data set up, also security issues Ubuntu has not fixed yet and
+    fixes released upstream. Read only. English and German. Packages for
+    Debian and Ubuntu from packages.azentrius.com.
