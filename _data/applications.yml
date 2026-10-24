@@ -383,13 +383,13 @@ nspawn:
 docker-compose:
   title: Docker Compose
   package: cockpit-compose
-  prerelease: true
   source: https://github.com/RXTX4816/cockpit-compose
   issues: https://github.com/RXTX4816/cockpit-compose/issues
-  license: MIT
+  license: AGPL-3.0-only
   description: |
-    Dashboard to manage Docker Compose stacks with live status view.
-    See logs, edit and restore Compose yaml files and more to come.
+    Manage Docker and Podman Compose stacks with live status and stats. 
+    Start, stop, pull and scale stacks, read logs, open a shell, and edit, 
+    back up or restore compose files.
 
 scap:
   title: SCAP Compliance
