@@ -86,7 +86,7 @@ In order to convert content into web pages, you will need to have Ruby, Bundler,
 
 2. Configure bundler to work as a user:
    ```
-   bundle config path ~/.gem
+   bundle config set path ~/.gem
    ```
 
 3. Install gems (as user):
