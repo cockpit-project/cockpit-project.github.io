@@ -69,9 +69,6 @@ bots_pages = %w[
   'https://github.com/cockpit-project/cockpit/wiki/Workflow#review-criteria' =>
   '/external/wiki/Workflow#review-criteria',
 
-  'How-@mvollmer-merges-pull-requests' =>
-  'https://github.com/cockpit-project/cockpit/wiki/How-@mvollmer-merges-pull-requests',
-
   'Design' =>
   'https://github.com/cockpit-project/cockpit/wiki/Design'
 }
