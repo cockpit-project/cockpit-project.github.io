@@ -61,7 +61,7 @@ bots_pages = %w[
   'https://github.com/cockpit-project/cockpit/wiki/About',
 
   'http://files.cockpit-project.org/guide/latest/' =>
-  '{{ site.baseurl }}/guide/latest/',
+  'https://docs.cockpit-project.org/cockpit-guide/latest/guide/index.html',
 
   'Ideas' =>
   'https://github.com/cockpit-project/cockpit/wiki/Ideas',
@@ -70,7 +70,10 @@ bots_pages = %w[
   '/external/wiki/Workflow#review-criteria',
 
   'Design' =>
-  'https://github.com/cockpit-project/cockpit/wiki/Design'
+  'https://github.com/cockpit-project/cockpit/wiki/Design',
+
+  '{{ site.baseurl }}/guide/latest/' =>
+  'https://docs.cockpit-project.org/cockpit-guide/latest/guide/index.html',
 }
 
 ### Code below ###
