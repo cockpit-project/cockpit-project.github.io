@@ -161,25 +161,12 @@ pitstore:
   license: LGPL 2.1
   description: |
     An app dashboard and app store for the Cockpit console. Browse, search
-    and install self-hosted container apps from catalogs in CasaOS
-    AppStore format, on rootless Podman or Docker. Before installing, a
-    review shows risky options such as privileged mode or host mounts. The
+    and install self-hosted container apps from catalogs compatible with the
+    CasaOS AppStore format, on rootless Podman or Docker. Before installing,
+    a review shows risky options such as privileged mode or host mounts. The
     dashboard shows tiles with status and start/stop/restart controls, a
     system summary, and can take over existing containers. Runs no daemon of
     its own and opens no port. Signed APT repository for Debian and Ubuntu.
-
-pitexplorer:
-  title: PitExplorer
-  source: https://github.com/PeanutSkillz/pitexplorer
-  issues: https://github.com/PeanutSkillz/pitexplorer/issues
-  license: LGPL 2.1
-  description: |
-    A file browser for the Cockpit console with a sidebar of shortcuts and
-    mounted file systems, grid and list views, and upload, download, rename,
-    move and delete. Runs with the rights of the logged-in user; Cockpit's
-    administrative access is used only when you choose to retry an action
-    with it. All access goes through cockpit.js, with no daemon of its own.
-    Signed APT repository for Debian and Ubuntu.
 
 zfs:
   title: ZFS Manager
