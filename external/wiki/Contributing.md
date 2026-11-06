@@ -33,7 +33,7 @@ Here is a detailed description of the [commit workflow](Workflow) (including [re
 ### Contact the developers
 
  * Chat with us on Matrix in [#cockpit:fedoraproject.org](https://matrix.to/#/#cockpit:fedoraproject.org)
- * Join the [cockpit-devel mailing list](https://lists.fedorahosted.org/mailman/listinfo/cockpit-devel)
+ * Join the [cockpit-devel mailing list](https://lists.fedorahosted.org/admin/lists/cockpit-devel.lists.fedorahosted.org/)
  * Join a [GitHub discussion](https://github.com/cockpit-project/cockpit/discussions) or create a new one.
 
 ### User interface & design
