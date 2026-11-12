@@ -10,7 +10,7 @@ Here's a video showing what I've been working on together with some help from a 
 
 If you haven't heard about [Kubernetes](http://kubernetes.io/) ... it's a way to schedule docker containers across a cluster of machines, and take care of their networking, storage, name resolution etc. It's not completely baked, but pretty cool when it works.
 
-<iframe src="//www.youtube.com/embed/Fcfsu22RssU" html5=1 frameborder="0" height="450" width="800"></iframe>
+<iframe src="https://www.youtube.com/embed/Fcfsu22RssU" html5=1 frameborder="0" height="450" width="800"></iframe>
 
 The Cockpit dashboard you see in the video isn't done by any means ... there's a lot missing. But I'm pretty happy with what we have so far. I'm using Cockpit 0.61 in the demo. There are some nagging details to make things work, but hopefully we can solve them later. The Nulecule support isn't merged yet, [Subin has been working on it](https://github.com/cockpit-project/cockpit/pull/2332).
 
