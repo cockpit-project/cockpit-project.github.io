@@ -1,0 +1,114 @@
+name: Deploy Cockpit site
+
+on:
+  workflow_run:
+    workflows: ["Build Cockpit site"]
+    types:
+      - completed
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+permissions:
+  pull-requests: write # Needed to comment on PRs
+  contents: write # Needed for committing
+
+env:
+  REPO_OWNER: "${{ github.repository_owner }}"
+  REPO_NAME: "${{ github.event.repository.name }}"
+  PREVIEW_DIR: "preview-pr"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Download built site
+        uses: dawidd6/action-download-artifact@v21
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: build-dist  # Must match the name from build workflow
+          path: _site/
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site/ # The folder the action should deploy.
+          clean: true
+          clean-exclude: |
+            ${{ env.PREVIEW_DIR }}
+          git-config-name: "github-actions[bot]"
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+
+  deploy-pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Find associated pull request
+        id: pr
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const response = await github.rest.search.issuesAndPullRequests({
+              q: 'repo:${{ github.repository }} is:pr is:open sha:${{ github.event.workflow_run.head_sha }}',
+              per_page: 1,
+            })
+            const items = response.data.items
+            if (items.length < 1) {
+              console.error('No PRs found')
+              return
+            }
+            const pullRequestNumber = items[0].number
+            console.info("Pull request number is", pullRequestNumber)
+            return pullRequestNumber
+
+      - name: Get PR directory
+        id: pr_dir
+        run: |
+          echo "pr_dir=${{ env.PREVIEW_DIR }}/${{ steps.pr.outputs.result }}" >> $GITHUB_OUTPUT
+
+      - name: Download built site
+        uses: dawidd6/action-download-artifact@v21
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: build-dist  # Must match the name from build workflow
+          path: _site/
+
+      - name: Get domain name
+        id: domain
+        run: |
+          if [[ ${{ env.REPO_OWNER }} == "cockpit-project" ]]
+          then
+            echo "domain_name=$(cat CNAME)" >> $GITHUB_OUTPUT
+          else
+            echo "domain_name=${{ env.REPO_OWNER }}.github.io/${{ env.REPO_NAME }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site/ # The folder the action should deploy.
+          target-folder: ${{ steps.pr_dir.outputs.pr_dir }}
+          clean: true
+          git-config-name: "github-actions[bot]"
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit-message: "Deploying from PR #${{ steps.pr.outputs.result }} @ ${{ github.event.workflow_run.repository.full_name }}@${{ github.event.workflow_run.head_sha }}"
+
+      - name: Leave a comment after deployment for PRs
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+            number: ${{ steps.pr.outputs.result }}
+            header: preview-pr
+            message: |
+              Preview available at <https://${{ steps.domain.outputs.domain_name }}/${{ steps.pr_dir.outputs.pr_dir }}>

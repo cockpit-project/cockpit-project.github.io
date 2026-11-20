@@ -1,0 +1,51 @@
+name: Teardown PR preview
+
+on:
+  pull_request_target:
+    types: [closed]
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+permissions:
+  pull-requests: write # Needed to comment on PRs
+  contents: write # Needed for committing
+
+env:
+  PR_NUMBER: "${{ github.event.pull_request.number }}"
+  PREVIEW_DIR: "preview-pr"
+
+jobs:
+  pr-closed:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+
+      - name: Setup git defaults
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Remove PR folder
+        run: |
+          rm -rf ${{ env.PREVIEW_DIR }}/${{ env.PR_NUMBER }}
+
+      - name: Teardown preview site
+        run: |
+          git add .
+          git commit -m "PR: Remove preview of #${{ env.PR_NUMBER }}"
+          git push
+
+      - name: Update PR comment
+        uses: marocchino/sticky-pull-request-comment@v3
+        with:
+            header: preview-pr
+            message: |
+              Preview removed as PR is merged or closed.
