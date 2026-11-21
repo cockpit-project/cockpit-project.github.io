@@ -564,3 +564,18 @@ update-gaps:
     network data set up, also security issues Ubuntu has not fixed yet and
     fixes released upstream. Read only. English and German. Packages for
     Debian and Ubuntu from packages.azentrius.com.
+
+btrfs-manager:
+  title: Btrfs Manager
+  source: https://github.com/NGxID18/Cockpit-BtrfsManager
+  issues: https://github.com/NGxID18/Cockpit-BtrfsManager/issues
+  license: MIT
+  prerelease: false
+  description: |
+    Manage BTRFS storage pools, online Data and Metadata RAID profile
+    conversions (Single, DUP, RAID0, RAID1, RAID10), nested subvolumes,
+    Copy-on-Write toggles, pool root snapshots, and automated Snapper backup
+    schedules. Includes live scrub, balance, defragmentation, and drive health
+    diagnostics with OS root protection. Pure HTML/CSS/JS with no build step
+    or backend daemon; pre-built `.deb` and `.rpm` packages are provided via
+    GitHub Releases.
