@@ -393,7 +393,18 @@ nspawn:
     Manage systemd-nspawn containers. Create, start, stop, and back up
     lightweight system containers with full systemd support — directly
     from Cockpit. No Docker required.
-
+    
+caddy:
+  title: Caddy
+  package: cockpit-caddy
+  source: https://github.com/RXTX4816/cockpit-caddy
+  issues: https://github.com/RXTX4816/cockpit-caddy/issues
+  license: AGPL-3.0-only
+  description: |
+    Manage the Caddy web server: reverse proxies, static sites, PHP and
+    redirects with automatic HTTPS (Let's Encrypt, internal CA, DNS
+    challenge), load balancing, health checks and much more.
+    
 docker-compose:
   title: Docker Compose
   package: cockpit-compose
